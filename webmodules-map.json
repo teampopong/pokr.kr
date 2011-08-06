@@ -1,0 +1,8 @@
+{
+    "intimacy": {
+        "urls": "/intimacy/(.*)"
+    },
+    "start": {
+        "urls": ".*"
+    }
+}
