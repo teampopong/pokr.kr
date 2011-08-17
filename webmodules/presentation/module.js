@@ -1,4 +1,6 @@
+var PRESENTATION_FRAME_ID = 'webmodules-presentation-frame';
 var presentationFrame;
+
 module.display = function(url) {
     // TODO manage frames
     // TODO remove previous ones
@@ -6,7 +8,7 @@ module.display = function(url) {
         presentationFrame = WM.addHTMLElement(
                 "div", {
                     attributes: {
-                        id: "webmodules-presentation-frame"
+                        id: PRESENTATION_FRAME_ID
                     }
                 });
     }
@@ -22,9 +24,13 @@ module.display = function(url) {
             );
 };
 
-WM.addHTMLElement("style", {
-    attributes: {
-        type: "text/css",
-        src: module.base + "/style.css"
-    }
-});
+module.loadCSS = function (url) {
+	WM.addHTMLElement("link", {
+				attributes: {
+					rel: "stylesheet",
+					type: "text/css",
+					href: url
+				},
+				target: parent.document.getElementById(PRESENTATION_FRAME_ID)
+			});
+};

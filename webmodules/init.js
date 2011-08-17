@@ -11,7 +11,7 @@ function WebModules() {
         $(window).load(function() {
             var d = WM.loadModule("webmodules.urlrouter");
             d = d.pipe(function(){ return WM.loadModule("webmodules.presentation"); });
-            d = d.pipe(function(){ return WM.loadModule("webmodules.db"); });
+            d = d.pipe(function(){ return WM.loadModule("db"); });
             // TODO dependency btwn modules?
             for (var i in readyListBeforeInit)
                 d.done(readyListBeforeInit[i]);
