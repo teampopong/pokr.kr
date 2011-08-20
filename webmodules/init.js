@@ -115,18 +115,36 @@ function WebModules() {
 }
 WM = new WebModules();
 
+// load external libraries and trigger WM.init()
+(function () {
 // load jQuery first if not available
 if (window.$ && $.fn.jquery >= "1.6")
-    WM.init();
+	loadUnderscore();
 else {
     WM.addHTMLElement("script", {
         properties: {
             src: "http://code.jquery.com/jquery-latest.min.js",
-            onload: WM.init
+            onload: loadUnderscore
         },
         target: document.head
     });
 }
+
+// load Underscore.js
+function loadUnderscore() {
+	if (window._ && _.VERSION >= "1.1.7")
+		WM.init();
+	else {
+		WM.addHTMLElement("script", {
+			properties: {
+				src: "http://documentcloud.github.com/underscore/underscore-min.js",
+				onload: WM.init
+			},
+			target: document.head
+		});
+	}
+}
+})();
 
 // url router
 // TODO load the current url (from full path, and hash too?)
