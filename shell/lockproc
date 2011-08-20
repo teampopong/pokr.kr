@@ -21,6 +21,8 @@
 # Written by Jaeho Shin <netj@sparcs.org>.
 # (C) 2006-2009, Geoul Project. (http://project.sparcs.org/geoul)
 
+# TODO switch to lockfile-progs instead of procmail lockfile
+
 LockArg=$1; shift
 
 # use target if lock is a symlink

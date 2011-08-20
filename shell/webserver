@@ -17,8 +17,11 @@ while netstat -an | grep -q '[.:]'$Port' .*LISTEN'; do
     let Port++
 done
 
+cd "$POPONG_SVCROOT"
+
 # Prepare web server config
-conf="$POPONG_SVCROOT/etc/lighttpd.conf"
+mkdir -p etc
+conf="etc/lighttpd.conf"
 {
     cat <<-EOF
 	server.port                 = $Port
@@ -58,8 +61,6 @@ conf="$POPONG_SVCROOT/etc/lighttpd.conf"
 	)
 	EOF
 } >"$conf"
-
-cd "$POPONG_SVCROOT"
 
 # Prepare dirs
 mkdir -p log
