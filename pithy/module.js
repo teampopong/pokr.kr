@@ -27,79 +27,40 @@ function createMemberElements() {
 */
 
 var updateList = (function () {
-
-	// For alphabet section
-	function getAbcSection(member) {
-		var code = member.name_kr[0].charCodeAt();
-		var index = parseInt((code - 0xac00) / 21 / 28);
-		return getAbcSection.sections[index];
-	}
-	getAbcSection.sections = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ','ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
-
-	// For district section
-	function getDistrictSection(member) {
-		return member.district.split(' ')[0];
-	}
-	getDistrictSection.sections = (function () {
-				var districts = new Set();
-				for (var i in members) {
-					districts.add(getDistrictSection(members[i]));
-				}
-				return districts.toArray().sort();
-			})();
-
-	// For party section
-	function getPartySection(member) {
-		return member.party;
-	}
-	getPartySection.sections = (function () {
-				var parties = new Set();
-				for (var i in members) {
-					parties.add(getPartySection(members[i]));
-				}
-				return parties.toArray().sort();
-			})();
-
-	// For committee sectoin
-	function getCommitteeSection(member) {
-		return member.committee.split(', ');
-	}
-	getCommitteeSection.sections = (function () {
-				var committees = new Set();
-				for (var i in members) {
-					var c = getCommitteeSection(members[i]);
-					for (var j in c) {
-						committees.add(c[j]);
-					}
-				}
-				return committees.toArray().sort();
-			})();
-
-	// For age section
-	function getAgeSection(member) {
-		var cur_year = parseInt((new Date()).getFullYear());
-		var birth_year = parseInt(member.birth.substr(0, 4));
-		var age = cur_year - birth_year + 1;
-		return getAgeSection.sections[parseInt((age+9)/10)-4];
-	}
-	getAgeSection.sections = ['31-40', '41-50', '51-60', '61-70', '71-80', '81-90'];
-
 	// TOOD: fill it
 	var getSection = {
 				abc: function abc () {
+					var sections = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ',
+							'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ','ㅊ', 'ㅋ',
+							'ㅌ', 'ㅍ', 'ㅎ'];
+
+					var code = member.name_kr[0].charCodeAt();
+					var index = parseInt((code - 0xac00) / 21 / 28);
+					return sections[index];
 				}, 
 				district: function district () {
+					return member.district.split(' ')[0];
 				},
 				party: function party () {
+					return member.party;
 				},
 				committee: function committee () {
+					return member.committee.split(', ');
 				},
 				age: function age () {
+					var sections = ['31-40', '41-50', '51-60',
+							'61-70', '71-80', '81-90'];
+
+					var cur_year = parseInt((new Date()).getFullYear());
+					var birth_year = parseInt(member.birth.substr(0, 4));
+					var age = cur_year - birth_year + 1;
+					return sections[parseInt((age+9)/10)-4];
 				}
 			};
-	var viewer = viewers[section] || new Viewer(getSection[section]);
-	if (!viewers[section]) viewers[section] = viewer;
-	viewer.view();
+
+	var sections = module.sections || _.groupBy(module.members, getSection[section]);
+	if (!module.sections[section]) module.sections[section] = sections;
+	view(sections);
 
 })();
 

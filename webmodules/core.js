@@ -1,5 +1,6 @@
 WM = parent.WM;
-jQuery = parent.jQuery; $ = parent.$;
+jQuery = parent.jQuery; $ = parent.$; // jQuery
+_ = parent._; // Underscore.js
 
 function WebModule(moduleName) {
     // prototype for WebModule
@@ -45,39 +46,6 @@ String.prototype.startsWith = function (substr) {
 String.prototype.contains = function (substr) {
 	return str.indexOf(substr) != -1;
 }
-
-function Set() {
-	var keywords = [];
-
-	function isKeyword(item) {
-		for (var i in keywords)
-			if (keywords[i] === item)
-				return true;
-		return false;
-	}
-
-	this.add = function (item) {
-		if (isKeyword(item)) {
-			throw "the name {0} is not allowed".format(item);
-		}
-		this[item] = true;
-	};
-
-	this.toArray = function () {
-		var arr = [];
-		for (var item in this) {
-			if (this.hasOwnProperty(item) && !isKeyword(item)) {
-				arr.push(item);
-			}
-		}
-	};
-
-	for (var i in this) {
-		if (this.hasOwnProperty(i) && typeof i == 'function') {
-			keywords.push(i);
-		}
-	}
-};
 
 function isArray(obj) {
 	return typeof(obj) === 'object' && obj.length !== undefined;
