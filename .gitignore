@@ -1,2 +1,7 @@
 *.sw[poq]
 .DS_Store
+
+.build
+/.stage
+
+/tmp

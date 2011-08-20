@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# popong-stop -- stop our service
+# Usage: popong stop
+#
+# Author: Jaeho Shin <netj@sparcs.org>
+# Created: 2011-08-20
+set -u
+
+cd "$POPONG_SVCROOT"
+
+#TODO # stop db
+#TODO lockproc run/db.lock kill -TERM 3
+#TODO lockproc run/db.lock kill -KILL
+
+# stop webserver
+lockproc run/webserver.lock kill -TERM 3
+lockproc run/webserver.lock kill -KILL
