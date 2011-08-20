@@ -1,0 +1,242 @@
+/* modified andreas02(andreasviklund.com) layout v1.2. */
+
+body {
+	padding:0;
+	margin: 0;
+	font:76% tahoma, verdana, sans-serif;
+	background:#e0e0e0;
+	color:#303030;
+}
+
+a {
+	text-decoration:none;
+	color:#286ea0;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+#container {
+	margin: 25px 40px 15px 40px;
+	padding:5px 20px 20px 20px;
+	background:#ffffff;
+}
+
+#logo {
+	margin:15px 0 0 0;
+	padding-bottom: 20px;
+}
+
+#logo h1 {
+	font-size: 1.8em;
+	display: inline;
+	padding-right: 20px;
+}
+
+#logo h1 a {
+	color:#303030;
+}
+
+#logo h1 a:hover {
+	text-decoration:none;
+}
+
+#logo form {
+	display: inline;
+}
+
+input {
+	-moz-box-sizing: content-box;
+	-moz-padding-start: 0;
+	-moz-padding-end: 0;
+	font-family: 굴림,dotum,arial,sans-serif;
+}
+
+input#q {
+	-moz-box-sizing: content-box;
+	border: 1px solid #D9D9D9;
+	background: white;
+	border-left: 1px solid #D9D9D9;
+	color: black;
+	padding: 1px 7px;
+	height: 22px;
+}
+
+input#search {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(whiteSmoke),to(#F1F1F1));
+	background-image: -webkit-linear-gradient(top,whiteSmoke,#F1F1F1);
+	-webkit-border-radius: 2px;
+	-webkit-user-select: none;
+	background-color: whiteSmoke;
+	background-image: linear-gradient(top,whiteSmoke,#F1F1F1);
+	background-image: -o-linear-gradient(top,whiteSmoke,#F1F1F1);
+	border: 1px solid gainsboro;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+	color: #666;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: bold;
+	height: 24px;
+	margin: 0px 6px;
+	min-width: 48px;
+	text-align: center;
+}
+
+input#search:hover {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#F8F8F8),to(#F1F1F1));
+	background-image: -webkit-linear-gradient(top,#F8F8F8,#F1F1F1);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	background-color: #F8F8F8;
+	background-image: linear-gradient(top,#F8F8F8,#F1F1F1);
+	background-image: -o-linear-gradient(top,#F8F8F8,#F1F1F1);
+	border: 1px solid #C6C6C6;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	color: #333;
+}
+
+#navitabs {
+	clear:both;
+	padding-bottom:3px;
+	border-bottom:1px solid #e0e0e0;
+}
+
+.navitab {
+	cursor: pointer;
+	padding:4px 8px 4px 8px;
+	text-decoration:none;
+	letter-spacing:1px;
+	background:#e0e0e0 url(../../pithy/images/corner.gif) top right no-repeat;
+	border-left:1px solid #ffffff;
+}
+
+.navitab:hover {
+	text-decoration:none;
+	background:#d0d0d0 url(../../pithy/images/corner.gif) top right no-repeat;
+}
+
+.activenavitab {
+	color:#ffffff;
+	background:#707070 url(../../pithy/images/corner.gif) top right no-repeat;
+}
+
+.activenavitab:hover {
+	background:#a0a0a0 url(../../pithy/images/corner.gif) top right no-repeat;
+}
+
+#main {
+	font-size: 1.2em;
+	width: 100%;
+	float:left;
+	padding: 15px 15px 30px 0;
+}
+
+.section {
+}
+
+.section_name {
+	border-bottom:1px solid #d0d0d0;
+	font-weight: bold;
+}
+
+.section ul {
+	list-style: none;
+}
+
+.section ul li {
+	width: 400px;
+	height: 120px;
+	border: 1px solid #d0d0d0;
+	margin: 10px;
+	padding: 10px;
+	float: left;
+}
+
+.section td {
+	font-size: 0.9em;
+	vertical-align: top;
+	line-height: 1.5em;
+}
+
+.section td > img.photo {
+	height: 115px;
+	width: 85px;
+}
+
+.section td > span {
+	display: block;
+}
+
+.section td > span.name {
+	font-weight: bold;
+}
+
+.section td > span > span.fieldname {
+	font-weight: bold;
+	width: 6em;
+	display: inline-block;
+	border-right: 1px solid #e3e3e3;
+	padding-right: 0.5em;
+	margin-right: 0.5em;
+}
+
+.clear {
+	clear: both;
+}
+
+#footer {
+	clear:both;
+	background:#fafafa;
+	color:#808080;
+	font-size:0.9em;
+	padding:8px 0 8px 0;
+	border-top:1px solid #d0d0d0;
+	border-bottom:1px solid #d0d0d0;
+	text-align:center;
+}
+
+#footer a {
+	color:#808080;
+	font-weight: bold;
+}
+
+h1 {
+	margin:0 0 20px 0;
+	font-size:2.1em;
+	font-weight:normal;
+}
+
+h2 {
+	margin:0 0 20px 0;
+	font-size:1.6em;
+	font-weight:normal;
+}
+
+h3 {
+	margin:0 0 20px 0;
+	font-size:1.4em;
+	font-weight:normal;
+}
+
+p, pre {
+	margin:0 0 15px 0;
+	line-height:1.5em;
+	text-align:left;
+}
+
+.right {
+	text-align:right;
+}
+
+a img {
+	border:0;
+}
+
+.hide {
+	display:none;
+}
+
+.bold {
+	font-weight: bold;
+}
