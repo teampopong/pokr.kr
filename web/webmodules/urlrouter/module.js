@@ -5,7 +5,7 @@ module.routeURL = function() {
     // TODO basepath
     // var path = parent.location.pathname;
     for (var m in map) {
-        var re = new RegExp("^" + map[m].urls);
+        var re = new RegExp("^" + map[m].urls + "$");
         var args = re.exec(path);
         if (args != null) {
             args.shift();

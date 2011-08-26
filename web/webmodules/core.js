@@ -7,9 +7,9 @@ function WebModule(moduleName) {
     this.name = moduleName;
     this.base = WM.pathForModuleName(moduleName);
 
-    this.display = function(path) {
+    this.display = function(path, context) {
         // FIXME check if url is relative or not?
-        return WM.webmodules.presentation.display(module.base +"/"+ path);
+        return WM.webmodules.presentation.display(module.base +"/"+ path, context);
     };
     this.loadCSS = function(path) {
         // FIXME check if url is relative or not?
@@ -31,9 +31,11 @@ String.prototype.format = function () {
 	return formatted;
 };
 
-String.prototype.summarize = function (maxlength) {
+String.prototype.summarize = function (maxlength, suffix) {
+	suffix = suffix || '...';
+
 	if (this.length > maxlength) {
-		return this.substr(0, maxlength - 1);
+		return this.substr(0, maxlength - 1) + suffix;
 	} else {
 		return this;
 	}
@@ -50,3 +52,21 @@ String.prototype.contains = function (substr) {
 function isArray(obj) {
 	return typeof(obj) === 'object' && obj.length !== undefined;
 };
+
+function sortObject(o) {
+	var sorted = {},
+	key, a = [];
+
+	for (key in o) {
+		if (o.hasOwnProperty(key)) {
+			a.push(key);
+		}
+	}
+
+	a.sort();
+
+	for (key = 0; key < a.length; key++) {
+		sorted[a[key]] = o[a[key]];
+	}
+	return sorted;
+}

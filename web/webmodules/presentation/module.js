@@ -1,7 +1,9 @@
 var PRESENTATION_FRAME_ID = 'webmodules-presentation-frame';
 var presentationFrame;
 
-module.display = function(url) {
+var compiled_templates = {};
+
+module.display = function(url, context) {
     // TODO manage frames
     // TODO remove previous ones
     if (!presentationFrame) {
@@ -12,9 +14,31 @@ module.display = function(url) {
                     }
                 });
     }
+
+	// FIXME: should check if the file got changed.
+
+	// When the template is already compiled once
+	if (context && compiled_templates[url]) {
+		var defer = $.Deferred();
+		var template = compiled_templates[url];
+		presentationFrame.innerHTML = template(context);
+		defer.resolve();
+		return defer;
+	}
+
     return $.get(url).then(
-            function(data) {
-                presentationFrame.innerHTML = data;
+            function(html) {
+				// In case using template
+				if (context) {
+					compiled_templates[url] = template = _.template(html);
+					presentationFrame.innerHTML = template(context);
+
+				// In case wants raw html
+				} else {
+					presentationFrame.innerHTML = html;
+					// TODO: it can also be cached.
+
+				}
                 // TODO hook all links to history API
             },
             function(error) {

@@ -21,6 +21,7 @@ a:hover {
 	margin: 25px 40px 15px 40px;
 	padding:5px 20px 20px 20px;
 	background:#ffffff;
+	display: block !important;
 }
 
 #logo {
@@ -153,26 +154,28 @@ input#search:hover {
 	float: left;
 }
 
-.section td {
+.section div.col {
 	font-size: 0.9em;
 	vertical-align: top;
 	line-height: 1.5em;
+	float: left;
 }
 
-.section td > img.photo {
+.section div.col > img.photo {
 	height: 115px;
 	width: 85px;
+	margin-right: 5px;
 }
 
-.section td > span {
+.section div.col > span {
 	display: block;
 }
 
-.section td > span.name {
+.section div.col > span.name {
 	font-weight: bold;
 }
 
-.section td > span > span.fieldname {
+.section div.col > span > span.fieldname {
 	font-weight: bold;
 	width: 6em;
 	display: inline-block;
