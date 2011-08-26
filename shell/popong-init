@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# popong-init -- initialize a service root directory
+# Usage: popong init
+#
+# Author: Jaeho Shin <netj@sparcs.org>
+# Created: 2011-08-20
+set -u
+
+# prepare dirs
+mkdir -p log run etc
+
+# place a link to self
+ln -sfn "$POPONG_WWWDIR" www

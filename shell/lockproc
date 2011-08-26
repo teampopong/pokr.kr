@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+# lockproc -- process lock functions on top of lockfile
+# Usage:
+#   lockproc LOCKFILE grab PGID
+#     Grab the lock from this process group
+# 
+#   lockproc LOCKFILE release
+#     Release the lock
+# 
+#   lockproc LOCKFILE kill [-SIGNAL]
+#     Kill the owner process of this lock, with given SIGNAL or SIGTERM
+# 
+#   lockproc LOCKFILE alive
+#     Check whether the process who grabbed the lock is still alive
+# 
+#   lockproc LOCKFILE owner
+#     Show the owner process of this lock
+#
+# Created: 2009-10-07
+# 
+# Written by Jaeho Shin <netj@sparcs.org>.
+# (C) 2006-2009, Geoul Project. (http://project.sparcs.org/geoul)
+
+# TODO switch to lockfile-progs instead of procmail lockfile
+
+LockArg=$1; shift
+
+# use target if lock is a symlink
+Lock=`readlink -f "$LockArg"`
+: ${Lock:=lock}
+
+lock-is-modifiable() {
+    if [ -w "$Lock" -o -w "`dirname "$Lock"`" ]; then
+        true
+    else
+        echo "$LockArg: Permission denied" >&2
+        false
+    fi
+}
+
+lockproc() {
+    local Cmd=$1; shift || true
+    case "$Cmd" in
+        grab)
+        local pgid=${1:-`ps -o pgid= -p $$`}
+        if lock-is-modifiable; then
+            # clean dead lock
+            lockproc alive || lockproc clean
+            # use lockfile(1) included in procmail(1)
+            if lockfile -r3 "$Lock" 2>/dev/null; then
+                # record owner info
+                echo "$HOSTNAME:$pgid" >"$Lock".owner
+            else
+                false
+            fi
+        else
+            false
+        fi
+        ;;
+
+        release)
+        if lock-is-modifiable; then
+            # TODO allow releases only from the owning process group
+            lockproc clean
+        else
+            false
+        fi
+        ;;
+
+        clean)
+        rm -f "$Lock" "$Lock".*
+        ;;
+
+        owner)
+        if owner=`cat "$Lock".owner 2>/dev/null`; then
+            echo owner=$owner
+            echo host=${owner%:*}
+            echo pgrp=${owner#*:}
+        else
+            false
+        fi
+        ;;
+
+        alive)
+        if [ -e "$Lock" ]; then
+            local owner= host= pgrp=
+            eval `lockproc owner`
+            local rsh=
+            if [ -n "$host" -a "$host" != "$HOSTNAME" ]; then
+                rsh="ssh $host"
+            fi
+            $rsh ps -p $pgrp &>/dev/null
+        else
+            false
+        fi
+        ;;
+
+        kill) # kill the lock owner and clean it
+        local sig=${1:-TERM}; shift || true
+        sig=${sig#-}
+        local nrtries=${1:-1}; shift || true
+        local retries="seq $nrtries"
+        # we will send KILL until all processes disappear
+        case $sig in KILL) retries=yes ;; esac
+        local owner= host= pgrp=
+        eval `lockproc owner`
+        if [ -n "$owner" ]; then
+            if [ -n "$host" -a "$host" != "$HOSTNAME" ]; then
+                rsh="ssh $host"
+            fi
+            # send signal
+            $retries | while read; do
+                lockproc alive || break
+                $rsh kill -$sig -$pgrp
+                sleep 1
+            done
+            # clean the lock if process is gone
+            lockproc alive || lockproc clean
+        fi
+        ;;
+
+        "") usage "$0" ;;
+        *) usage "$0" "$Cmd: unknown command" ;;
+    esac
+}
+
+lockproc "$@"
