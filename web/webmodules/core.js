@@ -46,7 +46,7 @@ String.prototype.startsWith = function (substr) {
 }
 
 String.prototype.contains = function (substr) {
-	return str.indexOf(substr) != -1;
+	return this.indexOf(substr) != -1;
 }
 
 function isArray(obj) {

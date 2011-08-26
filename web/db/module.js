@@ -1,5 +1,3 @@
-module = {}
-
 module.loadJSON = function(moduleName, name, url) {
 	var defer = $.Deferred();
 

@@ -1,26 +1,75 @@
 var SUMMARIZE_LENGTH = 16;
 // FIXME: this is because PHP is not supported on the local webserver
-var GET_MEMBERS_URL = 'http://localhost/~cornchz/popong/web/pithy/get_members.php';
+var URL_GET_MEMBERS = 'http://localhost/~cornchz/popong/web/pithy/get_members.php';
 
 module.load = function (path) {
 	// detect at which tab the user is
-	path = path || 'abc';
-	var sectionTab = path.split("/")[0];
+	var splitted = path && path.split('/') || ['abc'];
+	var sectionTab = splitted[0];
+	var query = splitted[1] || '';
 
 	// load member data
-	module.loadJSON('members', 'http://localhost/~cornchz/popong/web/pithy/get_members.php').then(function () {
-		module.members = _.map(module.members, function (member) {
-			member.committee = member.committee.summarize(SUMMARIZE_LENGTH);
-			return member;
-		});
-		var context = { sections: getMembersInSections(sectionTab) };
-
-		module.display('frame.html', context).then(function () { 
-			module.loadCSS('style.css');
-			$('.navitab#{0}'.format(sectionTab)).addClass('activenavitab');
-		});
+	module.loadJSON('members', URL_GET_MEMBERS).then(function () {
+		updatePage(sectionTab, query);
 	});
 };
+
+function updatePage(sectionTab, query) {
+	// filter if a query exists
+	if (query) {
+		var members = _.select(module.members, function (member) {
+			return member.name_kr.contains(query) ||
+					member.party.contains(query) ||
+					member.district.contains(query) ||
+					member.committee.contains(query);
+		});
+	} else {
+		var members = module.members;
+	}
+
+	// summarize if a committee field is too long
+	_.each(members, function (member) {
+		member.committee = member.committee.summarize(SUMMARIZE_LENGTH);
+	});
+
+	// groups member data
+	var context = { sections: getMembersInSections(members, sectionTab) };
+
+	// display templated page
+	module.display('frame.html', context).then(function () { 
+		module.loadCSS('style.css');
+		initPage(sectionTab, query);
+	});
+}
+
+function initPage(sectionTab, query) {
+
+	function getQueryLink(query) {
+		return '#!/pithy/{0}/{1}'.format(sectionTab, query);
+	}
+
+	function updateQueryLink(query) {
+		$('#searchlink').attr('href', getQueryLink(query));
+	}
+
+	$('.navitab#{0}'.format(sectionTab)).addClass('activenavitab');
+	$('#querytext').val(query);
+	updateQueryLink(query);
+
+	$('#querytext').keyup(function (e) {
+		var query = $(this).val();
+
+		// 'enter' key
+		if (e.keyCode == 13) {
+			parent.window.location.href = getQueryLink(query);
+
+		// else
+		} else {
+			updateQueryLink(query);
+
+		}
+	});
+}
 
 var getMembersInSections = (function () {
 	var getSection = {
@@ -53,9 +102,9 @@ var getMembersInSections = (function () {
 				}
 			};
 
-	return function (sectionTab) {
+	return function (members, sectionTab) {
 		// TODO: search
-		var sections = _.groupBy(module.members, getSection[sectionTab]);
+		var sections = _.groupBy(members, getSection[sectionTab]);
 		var sections = sortObject(sections);
 		return sections;
 	};
