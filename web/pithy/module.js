@@ -2,6 +2,8 @@ var SUMMARIZE_LENGTH = 16;
 // FIXME: this is because PHP is not supported on the local webserver
 var URL_GET_MEMBERS = 'http://localhost/~cornchz/popong/web/pithy/get_members.php';
 
+var is_first = true;
+
 module.load = function (path) {
 	// detect at which tab the user is
 	var splitted = path && path.split('/') || ['abc'];
@@ -12,6 +14,19 @@ module.load = function (path) {
 	module.display('frame.html').then(function () { 
 		// load member list
 		module.loadJSON('members', URL_GET_MEMBERS, false).then(function () {
+
+			// Data processing
+			// TODO: do this not here, but on crawler
+			if (is_first) {
+				// summarize if a committee field is too long
+				_.each(module.members, function (member) {
+					member.committee_summarized = member.committee.summarize(SUMMARIZE_LENGTH);
+				});
+
+				parseCommittee();
+
+				is_first = false;
+			}
 
 			// fill the page
 			updateList(sectionTab, query);
@@ -24,23 +39,19 @@ module.load = function (path) {
 };
 
 function updateList(sectionTab, query) {
+	// 'committee' tab needs a special treatment
+	var members = sectionTab === 'committee' ? module.members_for_committee
+			: module.members;
+
 	// filter if a query exists
 	if (query) {
-		var members = _.select(module.members, function (member) {
+		var members = _.select(members, function (member) {
 			return member.name_kr.contains(query) ||
 					member.party.contains(query) ||
 					member.district.contains(query) ||
 					member.committee.contains(query);
 		});
-	} else {
-		var members = module.members;
 	}
-
-	// summarize if a committee field is too long
-	// TODO: do this just once
-	_.each(members, function (member) {
-		member.committee = member.committee.summarize(SUMMARIZE_LENGTH);
-	});
 
 	// groups member data
 	var context = { sections: getMembersInSections(members, sectionTab) };
@@ -54,6 +65,20 @@ function updateList(sectionTab, query) {
 				alert('error loading list');
 			}
 			);
+}
+
+function parseCommittee() {
+	var members = [];
+	for (var i in module.members) {
+		var member = module.members[i];
+		var committees = member.committee.split(', ');
+		for (var j in committees) {
+			var _member = _.clone(member);
+			_member._committee = committees[j];
+			members.push(_member);
+		}
+	}
+	module.members_for_committee = members;
 }
 
 function initEvents(sectionTab, query) {
@@ -103,7 +128,7 @@ var getMembersInSections = (function () {
 					return member.party;
 				},
 				committee: function committee (member) {
-					return member.committee.split(', ');
+					return member._committee;
 				},
 				age: function age (member) {
 					var sections = ['31-40', '41-50', '51-60',
