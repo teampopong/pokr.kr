@@ -8,13 +8,22 @@ module.load = function (path) {
 	var sectionTab = splitted[0];
 	var query = splitted[1] || '';
 
-	// load member data
-	module.loadJSON('members', URL_GET_MEMBERS).then(function () {
-		updatePage(sectionTab, query);
+	// load page
+	module.display('frame.html').then(function () { 
+		// load member list
+		module.loadJSON('members', URL_GET_MEMBERS, false).then(function () {
+
+			// fill the page
+			updateList(sectionTab, query);
+		});
+
+		// they're on the bottom because the above is executed asynchronously
+		module.loadCSS('style.css');
+		initEvents(sectionTab, query);
 	});
 };
 
-function updatePage(sectionTab, query) {
+function updateList(sectionTab, query) {
 	// filter if a query exists
 	if (query) {
 		var members = _.select(module.members, function (member) {
@@ -28,6 +37,7 @@ function updatePage(sectionTab, query) {
 	}
 
 	// summarize if a committee field is too long
+	// TODO: do this just once
 	_.each(members, function (member) {
 		member.committee = member.committee.summarize(SUMMARIZE_LENGTH);
 	});
@@ -35,14 +45,18 @@ function updatePage(sectionTab, query) {
 	// groups member data
 	var context = { sections: getMembersInSections(members, sectionTab) };
 
-	// display templated page
-	module.display('frame.html', context).then(function () { 
-		module.loadCSS('style.css');
-		initPage(sectionTab, query);
-	});
+	// fill list data
+	module.template('list.html').then(
+			function(template) {
+				$('#main').html(template(context));
+			},
+			function(error) {
+				alert('error loading list');
+			}
+			);
 }
 
-function initPage(sectionTab, query) {
+function initEvents(sectionTab, query) {
 
 	function getQueryLink(query) {
 		return '#!/pithy/{0}/{1}'.format(sectionTab, query);

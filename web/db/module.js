@@ -1,5 +1,13 @@
-module.loadJSON = function(moduleName, name, url) {
+module.loadJSON = function(moduleName, name, url, overwrite) {
+	overwrite = overwrite || true;
+
 	var defer = $.Deferred();
+
+	// 이미 그 데이터를 불러온 적 있는 경우
+	if (WM[moduleName] && WM[moduleName][name] && !overwrite) {
+		defer.resolve();
+		return defer;
+	}
 
 	$.getJSON(url + '?callback=?', function (data) {
 		if (WM[moduleName] == undefined) {

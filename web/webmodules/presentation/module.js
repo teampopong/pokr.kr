@@ -17,36 +17,52 @@ module.display = function(url, context) {
 
 	// FIXME: should check if the file got changed.
 
-	// When the template is already compiled once
-	if (context && compiled_templates[url]) {
-		var defer = $.Deferred();
+	if (context) {
+		return module.template(url).then(
+				function(template) {
+					presentationFrame.innerHTML = template(context);
+				},
+				function(error) {
+					// TODO nicely display error
+					alert("Error loading " + url);
+				}
+				);
+
+	} else {
+		return $.get(url).then(
+				function(html) {
+					presentationFrame.innerHTML = html;
+				},
+				function(error) {
+					// TODO nicely display error
+					alert("Error loading " + url);
+				}
+				);
+	}
+};
+
+module.template = function (url) {
+	var defer = $.Deferred();
+
+	if (compiled_templates[url]) {
 		var template = compiled_templates[url];
-		presentationFrame.innerHTML = template(context);
-		defer.resolve();
-		return defer;
+		defer.resolve(template);
+
+	} else {
+		$.get(url).then(
+				function(html) {
+					compiled_templates[url] = template = _.template(html);
+					defer.resolve(template);
+				},
+				function(error) {
+					// TODO nicely display error
+					alert("Error loading " + url);
+				}
+				);
 	}
 
-    return $.get(url).then(
-            function(html) {
-				// In case using template
-				if (context) {
-					compiled_templates[url] = template = _.template(html);
-					presentationFrame.innerHTML = template(context);
-
-				// In case wants raw html
-				} else {
-					presentationFrame.innerHTML = html;
-					// TODO: it can also be cached.
-
-				}
-                // TODO hook all links to history API
-            },
-            function(error) {
-                // TODO nicely display error
-                alert("Error loading " + url);
-            }
-            );
-};
+	return defer;
+}
 
 module.loadCSS = function (url) {
 	WM.addHTMLElement("link", {

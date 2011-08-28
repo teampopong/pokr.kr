@@ -9,9 +9,9 @@ function WebModules() {
     this.ready = function(fn) { readyListBeforeInit.push(fn) };
     this.init = function() {
         $(window).load(function() {
-            var d = WM.loadModule("webmodules.urlrouter");
+            var d = WM.loadModule("webmodules.presentation");
             d = d.pipe(function(){ return WM.loadModule("db"); });
-            d = d.pipe(function(){ return WM.loadModule("webmodules.presentation"); });
+            d = d.pipe(function(){ return WM.loadModule("webmodules.urlrouter"); });
             // TODO dependency btwn modules?
             for (var i in readyListBeforeInit)
                 d.done(readyListBeforeInit[i]);

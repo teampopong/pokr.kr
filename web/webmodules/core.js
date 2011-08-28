@@ -9,14 +9,20 @@ function WebModule(moduleName) {
 
     this.display = function(path, context) {
         // FIXME check if url is relative or not?
-        return WM.webmodules.presentation.display(module.base +"/"+ path, context);
+        return WM.webmodules.presentation.display(this.getUrl(path), context);
     };
+	this.template = function(path) {
+        return WM.webmodules.presentation.template(this.getUrl(path));
+	};
     this.loadCSS = function(path) {
         // FIXME check if url is relative or not?
-        return WM.webmodules.presentation.loadCSS(module.base +"/"+ path);
+        return WM.webmodules.presentation.loadCSS(this.getUrl(path));
     };
-	this.loadJSON = function(name, url) {
-		return WM.db.loadJSON(moduleName, name, url);
+	this.loadJSON = function(name, url, overwrite) {
+		return WM.db.loadJSON(moduleName, name, url, overwrite);
+	};
+	this.getUrl = function(path) {
+		return module.base + '/' + path;
 	};
 }
 module = new WebModule(moduleName);
