@@ -17,8 +17,76 @@ a:hover {
 	text-decoration:underline;
 }
 
+#topmenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	font-size: 1.2em;
+
+	padding-left: 40px;
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.15, rgb(35,35,35)),
+		color-stop(0.58, rgb(54,54,54))
+	);
+	background-image: -moz-linear-gradient(
+		bottom,
+		rgb(35,35,35) 15%,
+		rgb(54,54,54) 58%
+	);
+}
+
+#topmenu > div {
+	position: absolute;
+	bottom: 0;
+	margin-left: 10px;
+}
+
+#topmenu a {
+	position: relative;
+	padding: 5px;
+
+	color: #f3f3f3;
+	font-weight: bold;
+
+	border-radius: 3px;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.15, rgb(78,78,78)),
+		color-stop(0.58, rgb(64,64,64))
+	);
+	background-image: -moz-linear-gradient(
+		top,
+		rgb(78,78,78) 15%,
+		rgb(64,64,64) 58%
+	);
+}
+
+#topmenu a:hover {
+	text-decoration: none;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.15, rgb(102,102,102)),
+		color-stop(0.58, rgb(84,84,84))
+	);
+	background-image: -moz-linear-gradient(
+		top,
+		rgb(102,102,102) 15%,
+		rgb(84,84,84) 58%
+	);
+}
+
 #container {
-	margin: 25px 40px 15px 40px;
+	margin: 30px 40px 15px 40px;
 	padding:5px 20px 20px 20px;
 	background:#ffffff;
 	display: block !important;

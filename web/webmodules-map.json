@@ -1,5 +1,8 @@
 {
     "pithy": {
         "urls": "(?:|/|/pithy|/pithy/(.*)|/pithy/(.+?)/(.*))"
+    },
+    "intimacy": {
+        "urls": "/intimacy"
     }
 }
