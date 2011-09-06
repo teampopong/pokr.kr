@@ -1,5 +1,5 @@
 module.loadJSON = function(moduleName, name, url, overwrite) {
-	overwrite = overwrite || true;
+	if (overwrite === undefined) overwrite = true;
 
 	var defer = $.Deferred();
 

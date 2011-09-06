@@ -9,6 +9,7 @@ module.load = function (path) {
 	var query = splitted[1] || '';
 
 	// load page
+	// TODO: if the current page is pithy, do not load it again
 	module.display('frame.html').then(function () { 
 		// load member list
 		module.loadJSON('members', 'members.json', false).then(function () {
