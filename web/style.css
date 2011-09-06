@@ -1,0 +1,81 @@
+/* modified andreas02(andreasviklund.com) layout v1.2. */
+
+body {
+	padding:0;
+	margin: 0;
+	font:76% tahoma, verdana, sans-serif;
+	background:#e0e0e0;
+	color:#303030;
+}
+
+a {
+	text-decoration:none;
+	color:#286ea0;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+#container {
+	margin: 25px 40px 15px 40px;
+	padding:5px 20px 20px 20px;
+	background:#ffffff;
+	display: block !important;
+}
+
+#footer {
+	clear:both;
+	background:#fafafa;
+	color:#808080;
+	font-size:0.9em;
+	padding:8px 0 8px 0;
+	border-top:1px solid #d0d0d0;
+	border-bottom:1px solid #d0d0d0;
+	text-align:center;
+}
+
+#footer a {
+	color:#808080;
+	font-weight: bold;
+}
+
+h1 {
+	margin:0 0 20px 0;
+	font-size:2.1em;
+	font-weight:normal;
+}
+
+h2 {
+	margin:0 0 20px 0;
+	font-size:1.6em;
+	font-weight:normal;
+}
+
+h3 {
+	margin:0 0 20px 0;
+	font-size:1.4em;
+	font-weight:normal;
+}
+
+p, pre {
+	margin:0 0 15px 0;
+	line-height:1.5em;
+	text-align:left;
+}
+
+.right {
+	text-align:right;
+}
+
+a img {
+	border:0;
+}
+
+.hide {
+	display:none;
+}
+
+.bold {
+	font-weight: bold;
+}

@@ -18,8 +18,8 @@ function WebModule(moduleName) {
         // FIXME check if url is relative or not?
         return WM.webmodules.presentation.loadCSS(this.getUrl(path));
     };
-	this.loadJSON = function(name, url, overwrite) {
-		return WM.db.loadJSON(moduleName, name, url, overwrite);
+	this.loadJSON = function(name, path, overwrite) {
+		return WM.db.loadJSON(moduleName, name, this.getUrl(path), overwrite);
 	};
 	this.getUrl = function(path) {
 		return module.base + '/' + path;

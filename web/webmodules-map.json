@@ -1,11 +1,5 @@
 {
-    "intimacy": {
-        "urls": "/intimacy/(.*)"
-    },
     "pithy": {
-        "urls": "(?:/pithy|/pithy/(.*)|/pithy/(.+?)/(.*))"
-    },
-    "start": {
-        "urls": ".*"
+        "urls": "(?:|/|/pithy|/pithy/(.*)|/pithy/(.+?)/(.*))"
     }
 }

@@ -1,4 +1,4 @@
-var PRESENTATION_FRAME_ID = 'webmodules-presentation-frame';
+var PRESENTATION_FRAME_ID = 'frame';
 var presentationFrame;
 
 var compiled_templates = {};
@@ -7,12 +7,7 @@ module.display = function(url, context) {
     // TODO manage frames
     // TODO remove previous ones
     if (!presentationFrame) {
-        presentationFrame = WM.addHTMLElement(
-                "div", {
-                    attributes: {
-                        id: PRESENTATION_FRAME_ID
-                    }
-                });
+		presentationFrame = $('body > #container > #frame').get(0);
     }
 
 	// FIXME: should check if the file got changed.

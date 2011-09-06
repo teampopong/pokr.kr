@@ -1,6 +1,4 @@
 var SUMMARIZE_LENGTH = 16;
-// FIXME: this is because PHP is not supported on the local webserver
-var URL_GET_MEMBERS = 'http://localhost/~cornchz/popong/web/pithy/get_members.php';
 
 var is_first = true;
 
@@ -13,7 +11,7 @@ module.load = function (path) {
 	// load page
 	module.display('frame.html').then(function () { 
 		// load member list
-		module.loadJSON('members', URL_GET_MEMBERS, false).then(function () {
+		module.loadJSON('members', 'members.json', false).then(function () {
 
 			// Data processing
 			// TODO: do this not here, but on crawler

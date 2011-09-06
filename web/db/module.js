@@ -9,7 +9,7 @@ module.loadJSON = function(moduleName, name, url, overwrite) {
 		return defer;
 	}
 
-	$.getJSON(url + '?callback=?', function (data) {
+	$.getJSON(url, function (data) {
 		if (WM[moduleName] == undefined) {
 			throw "not existing module";
 		}
