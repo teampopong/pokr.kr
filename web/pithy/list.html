@@ -6,7 +6,7 @@
 		<% _.each(members, function (member) { %>
 			<li id="<%= member.name_kr %>">
 			<div class="member">
-				<div class="col"><img class="photo" src="<%= member.image %>" /></div>
+				<div class="col"><img class="photo" original="<%= member.image %>" /></div>
 				<div class="col">
 					<span class="name"><%= member.name_kr %></span>
 					<span><span class="fieldname">출생</span><span class="birth"><%= member.birth %></span></span>

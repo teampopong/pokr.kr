@@ -11,6 +11,8 @@ module.load = function (path) {
 	// load page
 	// TODO: if the current page is pithy, do not load it again
 	module.display('frame.html').then(function () { 
+		module.loadJS('jquery.lazyload.js');
+
 		// load member list
 		module.loadJSON('members', 'members.json', false).then(function () {
 
@@ -59,6 +61,7 @@ function updateList(sectionTab, query) {
 	module.template('list.html').then(
 			function(template) {
 				$('#main').html(template(context));
+				$('img').lazyload();
 			},
 			function(error) {
 				alert('error loading list');
