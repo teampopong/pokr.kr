@@ -89,25 +89,6 @@
 	clear: both;
 }
 
-#logo {
-	margin:15px 0 0 0;
-	padding-bottom: 20px;
-}
-
-#logo h1 {
-	font-size: 1.8em;
-	display: inline;
-	padding-right: 20px;
-}
-
-#logo h1 a {
-	color:#303030;
-}
-
-#logo h1 a:hover {
-	text-decoration:none;
-}
-
 #logo form {
 	display: inline;
 }

@@ -7,16 +7,18 @@ function WebModule(moduleName) {
     this.name = moduleName;
     this.base = WM.pathForModuleName(moduleName);
 
+	// FIXME check if url is relative or not?
     this.display = function(path, context) {
-        // FIXME check if url is relative or not?
         return WM.webmodules.presentation.display(this.getUrl(path), context);
     };
 	this.template = function(path) {
         return WM.webmodules.presentation.template(this.getUrl(path));
 	};
     this.loadCSS = function(path) {
-        // FIXME check if url is relative or not?
         return WM.webmodules.presentation.loadCSS(this.getUrl(path));
+    };
+    this.loadJS = function(path, onload) {
+        return WM.webmodules.presentation.loadJS(this.getUrl(path), onload);
     };
 	this.loadJSON = function(name, path, overwrite) {
 		return WM.db.loadJSON(moduleName, name, this.getUrl(path), overwrite);

@@ -69,3 +69,12 @@ module.loadCSS = function (url) {
 				target: parent.document.getElementById(PRESENTATION_FRAME_ID)
 			});
 };
+
+module.loadJS = function (url, onload) {
+	WM.addHTMLElement("script", {
+				attributes: {
+					src: url
+				},
+				target: parent.document.getElementById(PRESENTATION_FRAME_ID)
+			}).onload = onload;
+};
