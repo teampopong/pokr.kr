@@ -10,15 +10,15 @@ module.load = function (path) {
 					function (template) {
 						var context = { parties: parties };
 						$('#member-list').html(template(context));
+
+						module.loadJS('chosen.jquery.js', function () {
+							$('.chzn-select').chosen();
+						});
 					},
 					function (error) {
 						alert('error loading list');
 					}
 					);
-
-			module.loadJS('chosen.jquery.js', function () {
-				$('.chzn-select').chosen();
-			});
 		});
 
 		module.loadCSS('chosen.css');
