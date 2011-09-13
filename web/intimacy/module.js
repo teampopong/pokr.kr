@@ -11,7 +11,7 @@ module.load = function (path) {
 			module.template('list.html').then(
 					function (template) {
 						var context = { parties: parties };
-						$('#member-list').html(template(context));
+						$('#member-select').html(template(context));
 
 						module.loadJS('chosen.jquery.js', function () {
 							$('.chzn-select').chosen();
@@ -25,6 +25,7 @@ module.load = function (path) {
 		});
 
 		module.loadCSS('chosen.css');
+		module.loadCSS('style.css');
 	});
 };
 

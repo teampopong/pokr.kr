@@ -1,0 +1,44 @@
+#intimacy {
+	float: left;
+	width: 100%;
+	margin: 0 0 20px 0;
+}
+
+#container2 {
+	float: left;
+	width: 100%;
+	background: #f5f5ff;
+	overflow: hidden;
+	position: relative;
+}
+
+#container1 {
+	float: left;
+	width: 100%;
+	background: #fff;
+	position: relative;
+	left: 220px;
+}
+
+#col1 {
+	float: left;
+	width: 209px;
+	border-right: 1px solid #bbb;
+	position: relative;
+	left: -220px;
+	padding: 10px 0 10px 10px;
+}
+
+#col2 {
+	float: left;
+	position: relative;
+	left: -210px; /* 10px for margin */
+	padding: 10px 0 10px 0;
+}
+
+#member-list {
+	width: 196px;
+	height: 400px;
+	background: #fff;
+	border: 1px solid #aaa;
+}
