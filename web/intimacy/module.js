@@ -39,14 +39,22 @@ var onMemberChange = (function () {
 	}
 
 	return function () {
-		var newmembers = $(this).val();
-		// FIXME: it should work just with _.difference()
-		// however, since it doesn't, this ugly workaround is applied.
-		var diff = difference(newmembers, members);
-		members.push(diff);
+		var newmembers = $(this).val() || [];
 
-		while (members.length > MAX_NUM_CHOSEN) {
-			members.shift();
+		// insert operation
+		if (members.length < newmembers.length) {
+			// FIXME: it should work just with _.difference()
+			// however, since it doesn't, this ugly workaround is applied.
+			var diff = difference(newmembers, members);
+			members.push(diff);
+
+			while (members.length > MAX_NUM_CHOSEN) {
+				members.shift();
+			}
+
+		// delete operation
+		} else {
+			members = newmembers;
 		}
 
 		// update selectbox
