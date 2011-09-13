@@ -41,4 +41,28 @@
 	height: 400px;
 	background: #fff;
 	border: 1px solid #aaa;
+	border-right: none;
+	overflow-y: auto;
+}
+
+#member-list ul {
+	margin: 0;
+	padding: 5px;
+
+	list-style: none;
+	line-height: 1.7em;
+}
+
+#member-list li.party:first-child {
+	margin-top: 0;
+}
+
+#member-list li.party {
+	margin-top: 5px;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+#member-list li.member {
+	margin-left: 5px;
 }

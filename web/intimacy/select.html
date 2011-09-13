@@ -1,8 +1,8 @@
-<ul>
+<option value=""></option>
 <% _.each(parties, function (members, party) { %>
-	<li class="party"><%= party %></li>
+<optgroup label="<%= party %>">
 	<% _.each(members, function (member) { %>
-	<li class="member"><%= member.name_kr %></li>
+	<option><%= member.name_kr %></option>
 	<% }); %>
+</optgroup>
 <% }); %>
-</ul>

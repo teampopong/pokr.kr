@@ -14,12 +14,17 @@ module.load = function (path) {
 		var parties = _.groupBy(module.members, function (member) {
 			return member.party;
 		});
+		// TODO: 각 정당에 대해 의원을 이름순으로 정렬
 		context.parties = parties;
 
+		return module.template('select.html');
+	});
+	defer = defer.pipe(function (template) {
+		$('#member-select').html(template(context));
 		return module.template('list.html');
 	});
 	defer.then(function (template) {
-		$('#member-select').html(template(context));
+		$('#member-list').html(template(context));
 
 		module.loadJS('chosen.jquery.js', function () {
 			$('.chzn-select').chosen();
