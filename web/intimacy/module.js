@@ -1,4 +1,5 @@
 var MAX_NUM_CHOSEN = 2;
+var selected = [];
 
 module.load = function (path) {
 	var context = {};
@@ -28,50 +29,72 @@ module.load = function (path) {
 
 		module.loadJS('chosen.jquery.js', function () {
 			$('.chzn-select').chosen();
-			$('.chzn-select').change(onMemberChange);
+			$('.chzn-select').change(onSearchboxChanged);
 		});
 	}, function (error) {
 		alert(error);
 	});
 };
 
-var onMemberChange = (function () {
-	var members = [];
+var insertSelected = module.insertSelected = function (member) {
+	// TODO: check if the given member is already selected.
+	if (selected.length === MAX_NUM_CHOSEN) return;
+	selected.push(member);
 
-	function difference(seta, setb) {
-		var seta = _.map(seta, function (x) { return escape(x); });
-		var setb = _.map(setb, function (x) { return escape(x); });
-		return unescape(_.difference(seta, setb)[0]);
+	// limit the # of selected members
+	if (selected.length === MAX_NUM_CHOSEN) {
+		$('.chzn-select option')
+				.not(function (i) {
+					return selected.indexOf($(this).val()) > -1;
+				}).attr('disabled', 'disabled');
 	}
 
-	return function () {
-		var newmembers = $(this).val() || [];
+	updateSelected();
+}
 
-		// insert operation
-		if (members.length < newmembers.length) {
-			// FIXME: it should work just with _.difference()
-			// however, since it doesn't, this ugly workaround is applied.
-			var diff = difference(newmembers, members);
-			members.push(diff);
+var removeSelected = module.removeSelected = function (member) {
+	// TODO: check if the given member is not selected.
+	var idx = selected.indexOf(member);
+	if (idx === -1) return;
+	selected.splice(idx, 1);
 
-			// limit the # of selected members
-			if (members.length === MAX_NUM_CHOSEN) {
-				$('.chzn-select option')
-						.not(function (i) {
-							return members.indexOf($(this).val()) > -1;
-						}).attr('disabled', 'disabled');
-			}
+	// can select more members
+	$('.chzn-select option').attr('disabled', null);
 
-		// delete operation
-		} else {
-			members = newmembers;
+	updateSelected();
+}
 
-			// can select more members
-			$('.chzn-select option').attr('disabled', null);
-		}
+function updateSelected() {
+	$('#member-list li.member.selected').removeClass('selected');
+	for (var i in selected) {
+		var member = selected[i];
+		$('#member-list li.member#member_'+member).addClass('selected');
+	}
 
-		// update selectbox
-		$(this).val(members);
-		$('.chzn-select').trigger('liszt:updated');
-	};
-})();
+	$('.chzn-select').val(selected);
+	$('.chzn-select').trigger('liszt:updated');
+}
+
+function difference(seta, setb) {
+	// FIXME: _.difference() should work for this purpose.
+	// however, since it doesn't, this ugly workaround is applied.
+	var seta = _.map(seta, function (x) { return escape(x); });
+	var setb = _.map(setb, function (x) { return escape(x); });
+	return unescape(_.difference(seta, setb)[0]);
+}
+
+function onSearchboxChanged() {
+	var newselected = $(this).val() || [];
+
+	// insert operation
+	if (selected.length < newselected.length) {
+		var diff = difference(newselected, selected);
+		insertSelected(diff);
+
+	// delete operation
+	} else {
+		var diff = difference(selected, newselected);
+		removeSelected(diff);
+	}
+
+}

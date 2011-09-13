@@ -2,7 +2,18 @@
 <% _.each(parties, function (members, party) { %>
 	<li class="party"><%= party %></li>
 	<% _.each(members, function (member) { %>
-	<li class="member"><%= member.name_kr %></li>
+	<a href="javascript:toggleSelected(&quot;<%= member.name_kr %>&quot;);"><li id="member_<%= member.name_kr %>" class="member"><%= member.name_kr %></li></a>
 	<% }); %>
 <% }); %>
 </ul>
+
+<script type="text/javascript">
+function toggleSelected(member) {
+	var li = $('#member_'+member);
+	if (li.hasClass('selected')) {
+		WM.intimacy.removeSelected(member);
+	} else {
+		WM.intimacy.insertSelected(member);
+	}
+}
+</script>
