@@ -48,13 +48,20 @@ var onMemberChange = (function () {
 			var diff = difference(newmembers, members);
 			members.push(diff);
 
-			while (members.length > MAX_NUM_CHOSEN) {
-				members.shift();
+			// limit the # of selected members
+			if (members.length === MAX_NUM_CHOSEN) {
+				$('.chzn-select option')
+						.not(function (i) {
+							return members.indexOf($(this).val()) > -1;
+						}).attr('disabled', 'disabled');
 			}
 
 		// delete operation
 		} else {
 			members = newmembers;
+
+			// can select more members
+			$('.chzn-select option').attr('disabled', null);
 		}
 
 		// update selectbox
