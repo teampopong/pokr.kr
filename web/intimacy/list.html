@@ -1,11 +1,19 @@
+<div id="shortcuts">
+<% _.each(parties, function (members, party) { %>
+<div class="party"><a href="javascript:scrollTo(&quot;<%= party%>&quot;);"><%= party %></a></div>
+<% }); %>
+</div>
+
+<div id="member-list">
 <ul>
 <% _.each(parties, function (members, party) { %>
-	<li class="party"><%= party %></li>
+	<li id="party_<%= party %>" class="party"><%= party %></li>
 	<% _.each(members, function (member) { %>
 	<a href="javascript:toggleSelected(&quot;<%= member.name_kr %>&quot;);"><li id="member_<%= member.name_kr %>" class="member"><%= member.name_kr %></li></a>
 	<% }); %>
 <% }); %>
 </ul>
+</div>
 
 <script type="text/javascript">
 function toggleSelected(member) {
@@ -15,5 +23,13 @@ function toggleSelected(member) {
 	} else {
 		WM.intimacy.insertSelected(member);
 	}
+}
+
+function scrollTo(party) {
+	var scroll = $('#party_'+party).offset().top
+			- $('#member-list ul').offset().top;
+	$('#member-list').animate({
+			scrollTop: scroll
+			}, 300);
 }
 </script>

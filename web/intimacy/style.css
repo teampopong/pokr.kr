@@ -36,8 +36,35 @@
 	padding: 10px 0 10px 0;
 }
 
+#shortcuts {
+	width: 86px;
+	float: left;
+	margin: 0;
+	padding-top: 18px;
+}
+
+#shortcuts .party {
+	text-align: right;
+	margin: 0 0 14px 0;
+}
+
+#shortcuts .party a {
+	padding: 4px;
+
+	background: #efe;
+
+	border: 1px solid #aaa;
+	border-right: none;
+	border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+	-webkit-border-radius: 3px 0 0 3px;
+
+	color: #000;
+	text-decoration: none;
+}
+
 #member-list {
-	width: 196px;
+	width: 110px;
 	height: 400px;
 	background: #fff;
 	border: 1px solid #aaa;

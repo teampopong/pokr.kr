@@ -25,7 +25,7 @@ module.load = function (path) {
 		return module.template('list.html');
 	});
 	defer.then(function (template) {
-		$('#member-list').html(template(context));
+		$('#member-navi').html(template(context));
 
 		module.loadJS('chosen.jquery.js', function () {
 			$('.chzn-select').chosen();
