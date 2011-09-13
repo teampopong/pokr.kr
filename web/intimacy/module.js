@@ -1,31 +1,32 @@
 var MAX_NUM_CHOSEN = 2;
 
 module.load = function (path) {
-	module.display('frame.html').then(function () {
-		// FIXME: remove duplicated data loading
-		module.loadJSON('members', 'members.json', false).then(function () {
-			var parties = _.groupBy(module.members, function (member) {
-				return member.party;
-			});
+	var context = {};
 
-			module.template('list.html').then(
-					function (template) {
-						var context = { parties: parties };
-						$('#member-select').html(template(context));
-
-						module.loadJS('chosen.jquery.js', function () {
-							$('.chzn-select').chosen();
-							$('.chzn-select').change(onMemberChange);
-						});
-					},
-					function (error) {
-						alert('error loading list');
-					}
-					);
-		});
-
+	var defer = module.display('frame.html');
+	defer = defer.pipe(function () { 
 		module.loadCSS('chosen.css');
 		module.loadCSS('style.css');
+
+		return module.loadJSON('members', 'members.json', false); 
+	});
+	defer = defer.pipe(function () {
+		var parties = _.groupBy(module.members, function (member) {
+			return member.party;
+		});
+		context.parties = parties;
+
+		return module.template('list.html');
+	});
+	defer.then(function (template) {
+		$('#member-select').html(template(context));
+
+		module.loadJS('chosen.jquery.js', function () {
+			$('.chzn-select').chosen();
+			$('.chzn-select').change(onMemberChange);
+		});
+	}, function (error) {
+		alert(error);
 	});
 };
 
