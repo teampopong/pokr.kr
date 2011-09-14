@@ -51,7 +51,7 @@
 #shortcuts .party a {
 	padding: 4px;
 
-	background: #efe;
+	background: #f0fff0;
 
 	border: 1px solid #aaa;
 	border-right: none;
@@ -61,6 +61,10 @@
 
 	color: #000;
 	text-decoration: none;
+}
+
+#shortcuts .party a:hover {
+	padding-right: 8px;
 }
 
 #member-list {
