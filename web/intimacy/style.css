@@ -84,7 +84,7 @@
 	line-height: 1.7em;
 }
 
-#member-list li {
+#member-list a,li {
 	color: #000;
 }
 
