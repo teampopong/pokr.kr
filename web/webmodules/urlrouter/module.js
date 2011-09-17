@@ -1,4 +1,6 @@
 var map;
+var current_module;
+
 module.routeURL = function() {
     // handle #! hashes
     var path = parent.location.hash.replace(/^#!/, "");
@@ -10,9 +12,20 @@ module.routeURL = function() {
         if (args != null) {
             args.shift();
             WM.debug("routing '"+ path +"' to " + m);
-            return WM.loadModule(m).then(function(module){
-                module.load.apply(module, args);
-            });
+			if (WM[m] && WM[m].reload && current_module === m) {
+				current_module = m;
+
+				var module = WM[m];
+				module.reload.apply(module, args);
+
+				return $.Deferred().resolve();
+			} else {
+				current_module = m;
+
+				return WM.loadModule(m).then(function(module){
+					module.load.apply(module, args);
+				});
+			}
         }
     }
     WM.debug("no route for '"+ path +"'");
