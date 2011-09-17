@@ -9,20 +9,33 @@
 <% _.each(parties, function (members, party) { %>
 	<li id="party_<%= party %>" class="party"><%= party %></li>
 	<% _.each(members, function (member) { %>
-	<a href="javascript:toggleSelected(&quot;<%= member.name_kr %>&quot;);"><li id="member_<%= member.name_kr %>" class="member"><%= member.name_kr %></li></a>
+	<a href="javascript:onClickMember(&quot;<%= member.name_kr %>&quot;);"><li id="member_<%= member.name_kr %>" class="member"><%= member.name_kr %></li></a>
 	<% }); %>
 <% }); %>
 </ul>
 </div>
 
 <script type="text/javascript">
-function toggleSelected(member) {
-	var li = $('#member_'+member);
+function onClickMember(member_name) {
+	var selected = getSelected();
+
+	var li = $('#member_'+member_name);
 	if (li.hasClass('selected')) {
-		WM.intimacy.removeSelected(member);
+		WM.intimacy.updateSelected(_.without(selected, member_name));
 	} else {
-		WM.intimacy.insertSelected(member);
+		if (selected.length < WM.intimacy.MAX_NUM_CHOSEN) {
+			selected.push(member_name);
+			WM.intimacy.updateSelected(selected);
+		}
 	}
+}
+
+function getSelected() {
+	return _.map(
+			$('#member-list li.member.selected'),
+			function (item) {
+				return item.innerHTML;
+			});
 }
 
 function scrollTo(party) {

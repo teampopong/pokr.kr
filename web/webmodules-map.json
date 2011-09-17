@@ -3,6 +3,6 @@
         "urls": "(?:|/|/pithy|/pithy/(.*)|/pithy/(.+?)/(.*))"
     },
     "intimacy": {
-        "urls": "/intimacy"
+        "urls": "(?:/intimacy|/intimacy/(.*))"
     }
 }

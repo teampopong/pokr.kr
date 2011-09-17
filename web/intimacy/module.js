@@ -1,5 +1,5 @@
-var MAX_NUM_CHOSEN = 2;
-var selected;
+var MAX_NUM_CHOSEN = module.MAX_NUM_CHOSEN = 2;
+var selected = [];
 var template_member_info;
 
 module.load = function (path) {
@@ -37,48 +37,36 @@ module.load = function (path) {
 		module.loadJS('chosen.jquery.js', function () {
 			$('.chzn-select').chosen();
 			$('.chzn-select').change(onSearchboxChanged);
+
+			displaySelected(path);
 		});
 	}, function (error) {
 		alert(error);
 	});
 };
 
-var insertSelected = module.insertSelected = function (member_name) {
-	// TODO: check if the given member is already selected.
-	if (selected.length === MAX_NUM_CHOSEN) return;
+var displaySelected = module.reload = function (path) {
+	var newselected = path ? path.split(/-/g) : [];
 
-	selected.push(member_name);
-	var member = _.detect(module.members, function (member) {
-				return member.name_kr == member_name;
-			});
-	$('#col2').append($(template_member_info(member)));
+	// insert operation
+	if (selected.length < newselected.length) {
+		var diffset = difference(newselected, selected);
+		$.each(diffset, function (i, diff) {
+			insertSelected(diff);
+		});
 
-	// limit the # of selected members
-	if (selected.length === MAX_NUM_CHOSEN) {
-		$('.chzn-select option')
-				.not(function (i) {
-					return selected.indexOf($(this).val()) > -1;
-				}).attr('disabled', 'disabled');
+	// delete operation
+	} else {
+		var diffset = difference(selected, newselected);
+		$.each(diffset, function (i, diff) {
+			removeSelected(diff);
+		});
 	}
 
-	updateSelected();
-}
+	markSelected();
+};
 
-var removeSelected = module.removeSelected = function (member_name) {
-	// TODO: check if the given member is not selected.
-	var idx = selected.indexOf(member_name);
-	if (idx === -1) return;
-
-	selected.splice(idx, 1);
-	$('#col2 #member_info_'+member_name).remove();
-
-	// can select more members
-	$('.chzn-select option').attr('disabled', null);
-
-	updateSelected();
-}
-
-function updateSelected() {
+function markSelected() {
 	$('#member-list li.member.selected').removeClass('selected');
 	for (var i in selected) {
 		var member = selected[i];
@@ -89,26 +77,58 @@ function updateSelected() {
 	$('.chzn-select').trigger('liszt:updated');
 }
 
+function insertSelected(member_name) {
+	selected.push(member_name);
+
+	var member = getMemberData(member_name);
+	$('#col2').append($(template_member_info(member)));
+
+	if (selected.length === MAX_NUM_CHOSEN) {
+		disableChosen();
+	}
+}
+
+function getMemberData(member_name) {
+	return _.detect(module.members, function (member) {
+				return member.name_kr == member_name;
+			});
+}
+
+function removeSelected(member_name) {
+	selected = _.without(selected, member_name);
+
+	$('#col2 #member_info_'+member_name).remove();
+
+	enableChosen();
+}
+
+function enableChosen() {
+	$('.chzn-select option').attr('disabled', null);
+}
+
+function disableChosen() {
+	$('.chzn-select option')
+			.not(function (i) {
+				return _.include(selected, $(this).val());
+			}).attr('disabled', 'disabled');
+}
+
+var updateSelected = module.updateSelected = function (newselected) {
+	parent.location.hash = '#!/intimacy/'+newselected.join('-');
+};
+
 function difference(seta, setb) {
 	// FIXME: _.difference() should work for this purpose.
 	// however, since it doesn't, this ugly workaround is applied.
-	var seta = _.map(seta, function (x) { return escape(x); });
-	var setb = _.map(setb, function (x) { return escape(x); });
-	return unescape(_.difference(seta, setb)[0]);
+	var seta = _.map(seta, escape);
+	var setb = _.map(setb, escape);
+	var diffset = _.difference(seta, setb);
+	return _.map(diffset, unescape);
 }
 
 function onSearchboxChanged() {
 	var newselected = $(this).val() || [];
-
-	// insert operation
-	if (selected.length < newselected.length) {
-		var diff = difference(newselected, selected);
-		insertSelected(diff);
-
-	// delete operation
-	} else {
-		var diff = difference(selected, newselected);
-		removeSelected(diff);
+	if (newselected.length <= MAX_NUM_CHOSEN) {
+		updateSelected(newselected);
 	}
-
 }
