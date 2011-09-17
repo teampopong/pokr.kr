@@ -1,9 +1,11 @@
 var MAX_NUM_CHOSEN = 2;
 var selected = [];
+var template_member_info;
 
 module.load = function (path) {
 	var context = {};
 
+	// TODO: 각 프로세스에 주석 달기
 	var defer = module.display('frame.html');
 	defer = defer.pipe(function () { 
 		module.loadCSS('chosen.css');
@@ -22,6 +24,10 @@ module.load = function (path) {
 	});
 	defer = defer.pipe(function (template) {
 		$('#member-select').html(template(context));
+		return module.template('member_info.html');
+	});
+	defer = defer.pipe(function (template) {
+		template_member_info = template;
 		return module.template('list.html');
 	});
 	defer.then(function (template) {
@@ -36,10 +42,15 @@ module.load = function (path) {
 	});
 };
 
-var insertSelected = module.insertSelected = function (member) {
+var insertSelected = module.insertSelected = function (member_name) {
 	// TODO: check if the given member is already selected.
 	if (selected.length === MAX_NUM_CHOSEN) return;
-	selected.push(member);
+
+	selected.push(member_name);
+	var member = _.detect(module.members, function (member) {
+				return member.name_kr == member_name;
+			});
+	$('#col2').append($(template_member_info(member)));
 
 	// limit the # of selected members
 	if (selected.length === MAX_NUM_CHOSEN) {
@@ -52,11 +63,13 @@ var insertSelected = module.insertSelected = function (member) {
 	updateSelected();
 }
 
-var removeSelected = module.removeSelected = function (member) {
+var removeSelected = module.removeSelected = function (member_name) {
 	// TODO: check if the given member is not selected.
-	var idx = selected.indexOf(member);
+	var idx = selected.indexOf(member_name);
 	if (idx === -1) return;
+
 	selected.splice(idx, 1);
+	$('#col2 #member_info_'+member_name).remove();
 
 	// can select more members
 	$('.chzn-select option').attr('disabled', null);
