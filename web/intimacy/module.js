@@ -1,9 +1,10 @@
 var MAX_NUM_CHOSEN = 2;
-var selected = [];
+var selected;
 var template_member_info;
 
 module.load = function (path) {
 	var context = {};
+	selected = [];
 
 	// TODO: 각 프로세스에 주석 달기
 	var defer = module.display('frame.html');
