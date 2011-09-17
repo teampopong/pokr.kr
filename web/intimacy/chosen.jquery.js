@@ -637,6 +637,19 @@
       }
     };
     Chosen.prototype.keydown_checker = function(evt) {
+	  // FIXME: This is a hack for hangul error in chrome(or possibly IME)
+	  // If you type hangul character and type downarrow in turn,
+	  // typing downarrow fires several keydown event, some with wrong status.
+	  //
+	  // e.g. when type '조' and then downarrow
+	  // keyCode  type      val
+	  // 229      keydown   조
+	  // 229      keyup
+	  // 229      keydown
+	  // 40       keydown   조
+	  // 40       keyup     조
+	  this.results_search();
+
       var stroke, _ref;
       stroke = (_ref = evt.which) != null ? _ref : evt.keyCode;
       this.search_field_scale();
