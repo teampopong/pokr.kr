@@ -15,6 +15,9 @@ module.load = function (path) {
 		return module.loadJSON('members', 'members.json', false); 
 	});
 	defer = defer.pipe(function () {
+		module.members = _.sortBy(module.members, function (member) {
+			return member.name_kr;
+		});
 		var parties = _.groupBy(module.members, function (member) {
 			return member.party;
 		});
