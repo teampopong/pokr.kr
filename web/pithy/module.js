@@ -20,6 +20,9 @@ module.load = function (path) {
 			// TODO: do this not here, but on crawler
 			if (is_first) {
 				// summarize if a committee field is too long
+				module.members = _.sortBy(module.members, function (member) {
+					return member.name_kr;
+				});
 				_.each(module.members, function (member) {
 					member.committee_summarized = member.committee.summarize(SUMMARIZE_LENGTH);
 				});
