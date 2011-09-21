@@ -106,7 +106,6 @@
 
 .member_panel {
 	width: 320px;
-	height: 430px;
 	border: 1px solid #d0d0d0;
 	float: left;
 	line-height: 1.5em;
@@ -126,14 +125,17 @@
 	font-weight: bold;
 	width: 6em;
 	display: inline-block;
-	border-right: 1px solid #e3e3e3;
-	padding-right: 0.5em;
 	margin-right: 0.5em;
 	float: left;
 }
 
-.member_info div.committee {
+.member_info div.fieldval {
 	display: table;
+	border-left: 1px solid #e3e3e3;
+	padding-left: 0.5em;
+}
+
+.member_info div.committee,div.similars {
 }
 
 .member_info {
