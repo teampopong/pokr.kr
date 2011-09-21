@@ -24,6 +24,9 @@ module.load = function (path) {
 		// TODO: 각 정당에 대해 의원을 이름순으로 정렬
 		context.parties = parties;
 
+		return module.loadJSON('similarity', 'data/similarity_top10.json', false);
+	});
+	defer = defer.pipe(function () {
 		return module.template('select.html');
 	});
 	defer = defer.pipe(function (template) {
@@ -92,9 +95,11 @@ function insertSelected(member_name) {
 }
 
 function getMemberData(member_name) {
-	return _.detect(module.members, function (member) {
+	var member = _.detect(module.members, function (member) {
 				return member.name_kr == member_name;
 			});
+	member.similars = module.similarity[member_name];
+	return member;
 }
 
 function removeSelected(member_name) {
