@@ -2,28 +2,35 @@
 <html>
     <head>
         <title>POPONG</title>
-		<meta charset="UTF-8" />
-        <script src="jquery-1.6.2.js"></script>
-        <script src="underscore-min.js"></script>
-        <script src="webmodules/init.js"></script>
-        <link rel="webmodules-map" type="application/json" href="webmodules-map.json">
-		<link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="UTF-8" />
+
+        <!-- libraries -->
+        <script src="jslib/jquery-1.7.1.min.js"></script>
+        <script src="jslib/underscore-min.js"></script>
+
+        <!-- applications -->
+        <script data-main="main" src="jslib/require.js"></script>
+
+        <!-- styles -->
+        <link rel="stylesheet/less" type="text/css" href="style.less">
+        <script src="jslib/less.min.js"></script>
+
     </head>
     <body>
-		<div id="topmenu">
-			<div>
-			<a href="#!/pithy">pithy</a>
-			<a href="#!/intimacy">intimacy</a>
-			</div>
-		</div>
-		<div id="container">
-			<div id="header">
-			</div>
-			<div id="frame">
-			</div>
-			<div id="footer">
-				Copyright© 2011, <a href="http://popong.com">Team Popong</a>
-			</div>
-		</div>
+        <div id="topmenu">
+            <div>
+            <a href="#!/pithy">pithy</a>
+            <a href="#!/intimacy">intimacy</a>
+            </div>
+        </div>
+        <div id="container">
+            <div id="header">
+            </div>
+            <div id="frame">
+            </div>
+            <div id="footer">
+                Copyright© 2011, <a href="http://popong.com">Team Popong</a>
+            </div>
+        </div>
     </body>
 </html>
