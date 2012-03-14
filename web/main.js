@@ -1,16 +1,19 @@
 require([
-    'text!settings.json',
+    'json!settings.json',
+    'userlib/utils',
     'userlib/router',
     'userlib/menu.view'
     ], function (
         Settings,
+        Utils,
         Router,
         MenuView
     ) {
 
     window.App = {
-        Settings: JSON.parse(Settings),
+        Settings: Settings,
         Router: Router,
+        Utils: Utils,
 
         views: [],
 

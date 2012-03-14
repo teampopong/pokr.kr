@@ -22,7 +22,7 @@
 
 #col1 {
 	float: left;
-	width: 209px;
+	width: 213px;
 	border-right: 1px solid #bbb;
 	position: relative;
 	left: -220px;
@@ -36,7 +36,7 @@
 }
 
 #shortcuts {
-	width: 86px;
+	width: 100px;
 	float: left;
 	margin: 0;
 	padding-top: 18px;

@@ -3,6 +3,10 @@
         {
             "name": "home",
             "title": "Home"
+        },
+        {
+            "name": "intimacy",
+            "title": "Intimacy"
         }
     ]
 }
