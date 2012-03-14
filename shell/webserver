@@ -29,11 +29,15 @@ conf="etc/lighttpd.conf"
 	server.modules              = ( "mod_alias"
 	                              , "mod_accesslog"
 	                              , "mod_rewrite"
+	                              , "mod_expire"
 	                              )
 	
 	server.errorlog             = "$POPONG_SVCROOT/log/webserver.error.log"
 	accesslog.filename          = "$POPONG_SVCROOT/log/webserver.access.log"
 	accesslog.format            = "%h %V %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\""
+
+	expire.url					= ( "/" => "access 0 days" # no caching in debug mode
+								  )
 	
 	mimetype.assign             = (
 	  ".svg"          =>      "image/svg+xml",
