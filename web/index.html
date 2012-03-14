@@ -7,6 +7,8 @@
         <!-- libraries -->
         <script src="lib/js/jquery-1.7.1.min.js"></script>
         <script src="lib/js/underscore-min.js"></script>
+        <script src="lib/js/underscore.string.min.js"></script>
+        <script src="lib/js/backbone-min.js"></script>
 
         <!-- applications -->
         <script data-main="main" src="lib/js/require.js"></script>
@@ -27,10 +29,7 @@
         <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
         <div class="container">
-        <ul class="nav">
-            <li class="active"><a href="#!/home">Home</a></li>
-            <li><a href="#!/pithy">Pithy</a></li>
-            <li><a href="#!/intimacy">Intimacy</a></li>
+        <ul id="menu" class="nav">
         </ul>
         </div>
         </div>
@@ -38,15 +37,9 @@
         <!-- END top navbar -->
 
         <div id="content" class="container">
-            <header class="header">
-                <h1>PROJECT POPONG</h1>
-            </header>
-            <section id="introduction" class="section">
-                팀 <strong>포퐁(POPONG: Public Open POlitical engineeriNG)</strong>은 인터넷을 통한 시민들의 사회참여가 정치에 미치는 영향에 대한 학술적 연구 및 실제적 변화를 목표로 하는 재능기부 그룹입니다. 일상생활 속의 정치참여를 상상하는 직장인, 학생들의 잉여시간을 모아모아 활동합니다. ^^
-            </section>
-            <footer class="footer">
-                Copyright© 2011, <a href="http://popong.com">Team Popong</a>
-            </footer>
+			<div id="page-not-found" class="page alert alert-error">
+				<header><h1 class="red">Page Not Found</h1></header>
+			</div>
         </div>
     </body>
 </html>
