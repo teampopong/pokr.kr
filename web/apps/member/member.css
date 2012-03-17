@@ -1,0 +1,25 @@
+#member-search {
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#member-search h1 {
+	margin: 20px 0;
+}
+
+#member-search .logo {
+	width: 100px;
+	margin: 0 10px;
+	vertical-align: text-bottom;
+}
+
+#member-search input[type="text"] {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#member-result {
+	display: table;
+	margin: 0 auto;
+}

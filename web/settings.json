@@ -2,11 +2,11 @@
     "apps": [
         {
             "name": "home",
-            "title": "Home"
+            "title": "홈"
         },
         {
-            "name": "intimacy",
-            "title": "Intimacy"
+            "name": "member",
+            "title": "정치인명사전"
         }
     ]
 }
