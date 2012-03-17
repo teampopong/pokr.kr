@@ -11,13 +11,17 @@ define(function () {
                 var html = this.template(this.context);
                 this.$el.html(html);
             }
+            this.rendered = true;
             return this.$el;
         },
 
         show: function () {
-            this.render()
-                .appendTo('#content')
-                .show();
+            if (!this.rendered) {
+                this.render()
+                    .appendTo('#content');
+            }
+
+            this.$el.show();
         }
     });
 });
