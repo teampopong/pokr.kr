@@ -10,12 +10,12 @@ require([
         MenuView
     ) {
 
-    window.App = {
+    window.POPONG = {
         Settings: Settings,
         Router: Router,
         Utils: Utils,
 
-        views: [],
+        apps: [],
 
         start: function () {
             this.menuView = new MenuView(this.Settings.apps);
@@ -27,7 +27,7 @@ require([
     };
 
     $(function () {
-        App.start();
+        POPONG.start();
     });
 
 });

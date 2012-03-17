@@ -27,16 +27,16 @@ define(function () {
                 return;
             }
 
-            var appViewPath = _.string.sprintf('apps/%s/view', app);
-            require([appViewPath], function (AppView) {
+            var appPath = _.string.sprintf('apps/%s/app', app);
+            require([appPath], function (App) {
 
-                if (!App.views[app]) {
-                    App.views[app] = new AppView({
+                if (!POPONG.apps[app]) {
+                    POPONG.apps[app] = new App({
                         id: _.string.sprintf('page-%s', app)
                     });
                 }
 
-                App.views[app].show(path);
+                POPONG.apps[app].show(path);
             });
         }
     });

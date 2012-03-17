@@ -9,8 +9,8 @@ define([
     'text!./member.tmpl.html',
 
     // Data
-    'json!./data/members.json', // 나중엔 server에서 받기
-    'json!./data/similarity_top10.json',
+    'json!data/members.json', // 나중엔 server에서 받기
+    'json!data/similarity_top10.json',
 
     // MVC Components
     'userlib/base.view',
@@ -32,7 +32,7 @@ define([
 
     // TODO: namespace 충돌이 나지 않도록, css 잘 짜기
     // TODO: Bootstrap을 최대한 이용하도록 css 수정
-    App.Utils.loadCss(require.toUrl('./intimacy.css'));
+    POPONG.Utils.loadCss(require.toUrl('./intimacy.css'));
 
     (function processData() {
         // put similarity data
