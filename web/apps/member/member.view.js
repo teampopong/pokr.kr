@@ -1,23 +1,22 @@
 define([
     'text!./member.tmpl.html',
+    'text!./member.notfound.tmpl.html',
     'lib/js/bootstrap-tooltip'
     ], function (
-        memberTmpl
+        memberTmpl,
+        notFoundTmpl
     ) {
 
     return Backbone.View.extend({
 
         template: _.template(memberTmpl),
+        notFoundTemplate: _.template(notFoundTmpl),
 
         render: function () {
-            if (!this.model) {
-                this.$el.text('not found');
-                return this.$el;
-            }
-
-            var html = this.template({
-                    q: this.model.get('name'),
-                    member: this.model.toJSON()
+            var template = this.model ? this.template : this.notFoundTemplate,
+                html = template({
+                    q: this.q,
+                    member: this.model && this.model.toJSON() || null
                 });
 
             this.$el.html(html);
@@ -27,6 +26,7 @@ define([
         },
 
         search: function (name) {
+            this.q = name;
             this.model = this.collection.find(function (member) {
                     // TODO: n-gram w/ misspell tolerance
                     return member.get('name') == name;
