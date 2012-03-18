@@ -35,6 +35,11 @@
 	-webkit-border-radius: 4px;
 }
 
+#member-profile th {
+	width: 15%;
+	max-width: 80px;
+}
+
 #member-img {
 	display: block;
 	border: 1px solid #aaa;
