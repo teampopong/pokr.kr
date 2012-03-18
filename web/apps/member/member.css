@@ -22,8 +22,17 @@
 #member-result {
 	width: 80%;
 	max-width: 752px;
-	display: table;
+	display: none;
 	margin: 20px auto 0;
+}
+
+#member-view {
+	box-sizing: border-box; *behavior: url(userlib/boxsizing.htc);
+	padding: 10px;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 }
 
 #member-img {
@@ -34,6 +43,6 @@
 }
 
 #insight {
-	width: 600px;
+	width: 730px;
 	height: 400px;
 }

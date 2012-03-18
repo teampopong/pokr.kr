@@ -23,7 +23,7 @@ define([
                     q: name,
                     member: member.toJSON()
                 });
-            this.$el.html(html);
+            this.$el.html(html).show();
         }
     });
 });

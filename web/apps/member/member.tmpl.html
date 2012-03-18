@@ -1,16 +1,46 @@
+<% currentYear = (new Date()).getFullYear(); %>
 <div class="alert alert-info">
 	검색결과: <%= q %>
 </div>
-<div class="row-fluid">
-	<div class="span2">
-		<img id="member-img" src="<%= member.image ? member.image : 'images/default_profile.jpg' %>">
+<div id="member-view">
+	<div class="row-fluid">
+		<div class="span2">
+			<img id="member-img" src="<%= member.image ? member.image : 'images/default_profile.jpg' %>">
+		</div>
+		<div class="span10">
+			<h2><%= member.name %>
+				<small>
+					<% if (member.homepage) { %>
+					<a href="<%= member.homepage %>"><i class="icon-home"></i></a>
+					<% } %>
+
+					<% if (member.email) { %>
+					<a href="mailto:<%= member.email %>"><i class="icon-envelope"></i></a>
+					<% } %>
+				</small>
+			</h2>
+			<table class="table table-condensed">
+				<tbody>
+					<% if (member.birthyear) { %>
+					<tr>
+						<th>나이</th>
+						<td><%= currentYear - parseInt(member.birthyear, 10) + 1 %></td>
+					</tr>
+					<% } %>
+					<% if (member.party) { %>
+					<tr>
+						<th>소속</th>
+						<td><%= member.party %></td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="span10">
-		<strong><%= member.name %></strong>
-		<% if (member.homepage) { %><a href="<%= member.homepage %>"><i class="icon-home"></i></a><% } %>
-		<% if (member.email) { %><a href="mailto:<%= member.email %>"><i class="icon-envelope"></i></a><% } %>
-		<br>
-		<iframe id="insight" src="apps/member/google-insights.php?q=<%= q %>" frameborder="0">
+	<hr>
+	<div>
+		<h2>관심도</h2>
+		<iframe id="insight" src="apps/member/google-insights.php?q=<%= q %>&w=700" frameborder="0">
 		</iframe>
 	</div>
 </div>
