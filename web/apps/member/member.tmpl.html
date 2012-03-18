@@ -24,12 +24,12 @@
 					<% if (member.birthyear) { %>
 					<tr>
 						<th>나이</th>
-						<td><%= currentYear - parseInt(member.birthyear, 10) + 1 %></td>
+						<td><span id="member-age" data-placement="right" data-title="출생일: <%= member.birthyear+'.'+member.birthmonth+'.'+member.birthday %>"><%= currentYear - parseInt(member.birthyear, 10) + 1 %></span></td>
 					</tr>
 					<% } %>
 					<% if (member.party) { %>
 					<tr>
-						<th>소속</th>
+						<th>소속정당</th>
 						<td><%= member.party %></td>
 					</tr>
 					<% } %>
