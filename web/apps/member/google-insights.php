@@ -6,6 +6,7 @@
 body { margin: 0; }
 table tr:first-child { display: none; }
 table tr:last-child { display: none; }
+td > div { background: transparent !important; border: 0 !important; }
 </style>
 </head>
 <body>
