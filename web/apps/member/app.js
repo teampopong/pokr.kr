@@ -74,7 +74,6 @@ define([
                     name = $input.val();
 
                 that.memberView.search(name);
-                that.clearInput();
 
                 return false;
             });

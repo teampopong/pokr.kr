@@ -28,6 +28,7 @@ conf="etc/lighttpd.conf"
 	server.document-root        = "$POPONG_SVCROOT/www/"
 	server.modules              = ( "mod_alias"
 	                              , "mod_accesslog"
+	                              , "mod_fastcgi"
 	                              , "mod_rewrite"
 	                              , "mod_expire"
 	                              )
@@ -36,8 +37,13 @@ conf="etc/lighttpd.conf"
 	accesslog.filename          = "$POPONG_SVCROOT/log/webserver.access.log"
 	accesslog.format            = "%h %V %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\""
 
-	expire.url					= ( "/" => "access 0 days" # no caching in debug mode
-								  )
+	expire.url                  = ( "/" => "access 0 days" # no caching in debug mode
+	                              )
+
+	fastcgi.server              = ( ".php" => ((
+	                                    "bin-path" => "/usr/bin/php-cgi",
+	                                    "socket" => "/tmp/php.socket"
+	                              )))
 	
 	mimetype.assign             = (
 	  ".svg"          =>      "image/svg+xml",

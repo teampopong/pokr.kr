@@ -20,6 +20,20 @@
 }
 
 #member-result {
+	width: 80%;
+	max-width: 752px;
 	display: table;
+	margin: 20px auto 0;
+}
+
+#member-img {
+	display: block;
+	border: 1px solid #aaa;
+	width: 90%;
 	margin: 0 auto;
+}
+
+#insight {
+	width: 600px;
+	height: 400px;
 }
