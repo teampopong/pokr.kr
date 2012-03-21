@@ -1,3 +1,9 @@
+@media all and (max-width: 980px) {
+	#insight {
+		display: none;
+	}
+}
+
 #member-search {
 	display: table;
 	margin: 0 auto;
@@ -14,8 +20,17 @@
 	vertical-align: text-bottom;
 }
 
+#member-search h1 > span {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+}
+
 #member-search input[type="text"] {
+	box-sizing: border-box; *behavior: url(userlib/boxsizing.htc);
 	width: 100%;
+	height: auto;
 	margin-bottom: 10px;
 }
 
@@ -24,6 +39,7 @@
 	max-width: 752px;
 	display: none;
 	margin: 20px auto 0;
+	overflow-x: hidden;
 }
 
 #member-view {
@@ -38,12 +54,14 @@
 #member-profile th {
 	width: 15%;
 	max-width: 80px;
+	min-width: 60px;
 }
 
 #member-img {
 	display: block;
 	border: 1px solid #aaa;
 	width: 90%;
+	max-width: 100px;
 	margin: 0 auto;
 }
 
