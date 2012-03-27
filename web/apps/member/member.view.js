@@ -74,7 +74,8 @@ define([
                         delay = POPONG.Utils.randInt(1, 30) * 100; // 0.1 ~ 3 secs
 
                     _.delay(function () {
-                        $elem.css('visibility', 'visible').hide().fadeIn();
+                        $elem.stop(true, true)
+                            .css('visibility', 'visible').hide().fadeIn();
                     }, delay);
                 });
         },
@@ -98,12 +99,13 @@ define([
 
             if (!$elem.size()) return;
 
-            $elem.fadeOut(400, function () {
+            $elem.stop(true, true).fadeOut(400, function () {
                 $elem.attr({
                     src: newItem.image ? newItem.image : 'images/default_profile.jpg',
                     'data-title': newItem.name
                 });
-                $elem.css('visibility', 'visible').hide().fadeIn();
+                $elem.stop(true, true)
+                    .css('visibility', 'visible').hide().fadeIn();
             });
 
             if (replaceTimer) clearTimeout(replaceTimer);
