@@ -2,6 +2,10 @@ define(function () {
     var loadedCss = {};
 
     return {
+        randInt: function (min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+
         loadCss: function (url) {
             if (loadedCss[url]) return;
 

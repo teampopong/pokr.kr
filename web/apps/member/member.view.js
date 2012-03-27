@@ -57,11 +57,19 @@ define([
             var that = this;
 
             $('.collage-img', this.el)
+                .css('visibility', 'hidden')
                 .tooltip()
                 .click(function () {
                     var $this = $(this),
                         name = $this.attr('data-title');
                     that.search(name);
+                })
+                .each(function (i, elem) {
+                    var $elem = $(elem),
+                        delay = POPONG.Utils.randInt(1, 30) * 100; // 0.1 ~ 3 secs
+                    _.delay(function () {
+                        $elem.css('visibility', 'visible').hide().fadeIn();
+                    }, delay);
                 });
         },
 
