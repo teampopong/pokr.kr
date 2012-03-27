@@ -22,6 +22,10 @@ define([
         collageTemplate: _.template(collageTmpl),
         notFoundTemplate: _.template(notFoundTmpl),
 
+        clearTooltips: function () {
+            $('.tooltip').remove();
+        },
+
         render: function () {
             var template = this.model ? this.template : this.notFoundTemplate,
                 html = template({
@@ -31,6 +35,7 @@ define([
 
             this.$el.html(html);
             this.registerTooltip();
+            this.clearTooltips();
 
             return this.$el;
         },
@@ -43,6 +48,7 @@ define([
 
             this.$el.html(html);
             this.registerCollageEvent();
+            this.clearTooltips();
 
             this.$el.show();
         },
