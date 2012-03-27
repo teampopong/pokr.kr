@@ -37,7 +37,6 @@
 #member-result {
 	width: 80%;
 	max-width: 752px;
-	display: none;
 	margin: 20px auto 0;
 	overflow-x: hidden;
 }
@@ -70,3 +69,18 @@
 	height: 320px;
 	margin-top: 10px;
 }
+
+#member-collage {
+	max-width: 600px;
+	max-height: 320px;
+	overflow-y: hidden;
+	margin: 40px auto 0;
+}
+
+.collage-img {
+	float: left;
+	width: 60px;
+	height: 80px;
+	cursor: pointer;
+}
+

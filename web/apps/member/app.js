@@ -50,6 +50,7 @@ define([
             BaseView.prototype.show.apply(this, arguments);
             this.clearInput();
             this.createMemberView();
+            this.memberView.renderCollage();
         },
 
         clearInput: function () {
