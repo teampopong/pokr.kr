@@ -46,7 +46,7 @@ define([
             return this.$el;
         },
 
-        show: function () {
+        show: function (path) {
             BaseView.prototype.show.apply(this, arguments);
             this.clearInput();
             this.createMemberView();

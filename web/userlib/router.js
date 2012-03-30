@@ -18,7 +18,13 @@ define(function () {
         },
 
         defaultRoute: function (app, path) {
-            $('.page').hide();
+            // TODO: 예쁜데, 좋은 구현은 아님 -_-;
+            POPONG.filter(function (_, name) {
+                return name != app;
+            }).each(function (app) {
+                app.hide();
+            });
+
             this.options.menuView.setActive(app);
 
             // 404 not found
