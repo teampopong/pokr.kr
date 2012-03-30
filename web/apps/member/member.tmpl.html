@@ -4,18 +4,18 @@
 </div>
 <div id="member-view">
 	<div class="row-fluid">
-		<div class="span3">
+		<div class="span3 col-member-img">
 			<img id="member-img" src="<%= member.image ? member.image : 'images/default_profile.jpg' %>">
 		</div>
-		<div class="span9">
+		<div class="span9 col-member-attrs">
 			<h2><%= member.name %>
 				<small>
 					<% if (member.homepage) { %>
-					<a href="<%= member.homepage %>"><i class="icon-home"></i></a>
+					<a href="<%= member.homepage %>"><i class="icon-home icon-large"></i></a>
 					<% } %>
 
 					<% if (member.email) { %>
-					<a href="mailto:<%= member.email %>"><i class="icon-envelope"></i></a>
+					<a href="mailto:<%= member.email %>"><i class="icon-envelope icon-large"></i></a>
 					<% } %>
 				</small>
 			</h2>
