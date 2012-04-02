@@ -23,8 +23,8 @@
 				<tbody>
 					<% if (member.birthyear) { %>
 					<tr>
-						<th>나이</th>
-						<td><span id="member-age" data-placement="right" data-title="출생일: <%= member.birthyear+'.'+member.birthmonth+'.'+member.birthday %>"><%= currentYear - parseInt(member.birthyear, 10) + 1 %></span></td>
+						<th>생년월일</th>
+						<td><%= member.birthyear+'.'+member.birthmonth+'.'+member.birthday %></td>
 					</tr>
 					<% } %>
 					<% if (member.party) { %>
