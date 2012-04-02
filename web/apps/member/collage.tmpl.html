@@ -1,6 +1,4 @@
-<div id="member-collage">
-	<% _.each(items, function (item) { %>
-	<img data-placement="top" data-title="<%= item.name %>" class="collage-img" src="<%= item.image ? item.image : 'images/default_profile.jpg' %>">
-	<% }); %>
-	<div class="clear"></div>
-</div>
+<% _.each(items, function (item) { %>
+<img data-placement="top" data-title="<%= item.name %>" class="collage-img" src="<%= item.image ? item.image : 'images/default_profile.jpg' %>">
+<% }); %>
+<div class="clear"></div>
