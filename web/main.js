@@ -15,7 +15,7 @@ require([
         Router: Router,
         Utils: Utils,
 
-        apps: [],
+        apps: {},
 
         start: function () {
             this.menuView = new MenuView(this.Settings.apps);
@@ -23,6 +23,16 @@ require([
                 apps: this.Settings.apps,
                 menuView: this.menuView
             });
+        },
+
+        filter: function (filter) {
+            if (_.isUndefined(filter)) {
+                return _.values(this.apps);
+            }
+
+            return _.chain(this.apps)
+                    .filter(filter)
+                    .values();
         }
     };
 
