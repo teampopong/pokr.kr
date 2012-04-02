@@ -66,7 +66,7 @@ define([
                 .click(function () {
                     var $this = $(this),
                         name = $this.attr('data-title');
-                    that.search(name);
+                    that.query(name);
                 })
                 .each(function (i, elem) {
                     var $elem = $(elem),
@@ -77,6 +77,10 @@ define([
                             .css('visibility', 'visible').hide().fadeIn();
                     }, delay);
                 });
+        },
+
+        query: function (name) {
+            POPONG.router.navigate('!/member/' + name, { trigger: true });
         },
 
         search: function (name) {

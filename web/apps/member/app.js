@@ -47,10 +47,18 @@ define([
         },
 
         show: function (path) {
+            var name = path.substr(1); // strip '/'
+
             BaseView.prototype.show.apply(this, arguments);
-            this.clearInput();
-            this.createMemberView();
-            this.memberView.renderCollage();
+            if (typeof this.memberView == 'undefined') {
+                this.createMemberView();
+            }
+            if (name) {
+                this.memberView.search(name);
+            } else {
+                this.clearInput();
+                this.memberView.renderCollage();
+            }
         },
 
         clearInput: function () {
@@ -74,7 +82,7 @@ define([
                 var $input = $('input[name="q"]', this.el),
                     name = $input.val();
 
-                that.memberView.search(name);
+                that.memberView.query(name);
 
                 return false;
             });
