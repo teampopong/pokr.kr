@@ -22,6 +22,7 @@ define([
 
         initialize: function (options) {
             this.app = options.app;
+            this.numImgs = this.collection.length;
         },
 
         show: function () {
@@ -40,6 +41,7 @@ define([
                 });
 
             this.$el.html(html);
+            this.cacheImageElems();
             this.registerCollageEvents();
 
             if (replaceTimer) clearTimeout(replaceTimer);
@@ -48,10 +50,27 @@ define([
             return this.$el;
         },
 
+        cacheImageElems: function () {
+            this.$imgs = $('.collage-img', this.el);
+            this.cacheNumVisibleImage();
+
+            // invalidate on resize (rarely happens)
+            $(window).resize(_.bind(this.cacheNumVisibleImage, this));
+        },
+
+        cacheNumVisibleImage: function () {
+            this.numVisibleImgs = this.$imgs.filter(function () {
+                var $elem = $(this),
+                    offsetY = $elem.offset().top - $elem.parent().offset().top;
+
+                return offsetY <= $elem.parent().height()-0.1;
+            }).size();
+        },
+
         registerCollageEvents: function () {
             var that = this;
 
-            $('.collage-img', this.el)
+            this.$imgs
                 .css('visibility', 'hidden')
                 .tooltip()
                 .click(function () {
@@ -71,11 +90,9 @@ define([
         },
 
         replaceRandom: function () {
-            // FIXME: 퍼포먼스 개선의 여지 많음 -_-;
-            var oldItemIndex = POPONG.Utils.randInt(0, COLLAGE_SIZE-1),
-                $elem = $('.collage-img:eq('+oldItemIndex+')'),
-                collectionSize = this.collection.length,
-                newItemIndex = POPONG.Utils.randInt(0, collectionSize-1),
+            var oldItemIndex = POPONG.Utils.randInt(0, this.numVisibleImgs - 1),
+                $elem = this.$imgs.eq(oldItemIndex),
+                newItemIndex = POPONG.Utils.randInt(0, this.numImgs - 1),
                 newItem = this.collection.toJSON()[newItemIndex];
 
             if (!$elem.size()) return;
