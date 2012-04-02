@@ -83,8 +83,10 @@ define([
             $elem.stop(true, true).fadeOut(400, function () {
                 $elem.attr({
                     src: newItem.image ? newItem.image : 'images/default_profile.jpg',
-                    'data-title': newItem.name
+                    'data-title': newItem.name,
+                    title: newItem.name
                 });
+                $elem.data('tooltip').fixTitle();
                 $elem.stop(true, true)
                     .css('visibility', 'visible').hide().fadeIn();
             });
