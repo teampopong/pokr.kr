@@ -36,7 +36,6 @@ define([
                 });
 
             this.$el.html(html);
-            this.registerTooltip();
             this.clearTooltips();
 
             return this.$el;
@@ -110,10 +109,6 @@ define([
 
             if (replaceTimer) clearTimeout(replaceTimer);
             replaceTimer = setTimeout(_.bind(this.replaceRandom, this), REPLACE_INTERVAL);
-        },
-
-        registerTooltip: function () {
-            $('#member-age', this.el).tooltip();
         }
     });
 });
