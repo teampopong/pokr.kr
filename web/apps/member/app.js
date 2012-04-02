@@ -45,8 +45,8 @@ define([
 
         render: function () {
             BaseView.prototype.render.apply(this, arguments);
-            this.registerEvents();
-            this.registerTypeahead();
+            this.initSearchForm();
+            this.initTypeahead();
             return this.$el;
         },
 
@@ -105,7 +105,7 @@ define([
             });
         },
 
-        registerEvents: function () {
+        initSearchForm: function () {
             var that = this;
 
             $('#member-search-form', this.el).submit(function () {
@@ -118,7 +118,7 @@ define([
             });
         },
 
-        registerTypeahead: function () {
+        initTypeahead: function () {
             var names = _.map(members, function (member) { return member.name; });
 
             $('input[name="q"]', this.el).typeahead({
