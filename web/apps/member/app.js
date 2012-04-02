@@ -11,6 +11,7 @@ define([
 
     // MVC Components
     'userlib/base.view',
+    './collage.view',
     './member.view',
     './member.collection',
 
@@ -27,11 +28,14 @@ define([
 
         // MVC Components
         BaseView,
+        CollageView,
         MemberView,
         MemberCollection
     ) {
 
     POPONG.Utils.loadCss(require.toUrl('./member.css'));
+
+    var memberCollection = new MemberCollection(members);
 
     return BaseView.extend({
 
@@ -41,8 +45,8 @@ define([
 
         render: function () {
             BaseView.prototype.render.apply(this, arguments);
-            this.registerEvents();
-            this.registerTypeahead();
+            this.initSearchForm();
+            this.initTypeahead();
             return this.$el;
         },
 
@@ -50,45 +54,71 @@ define([
             var name = path.substr(1); // strip '/'
 
             BaseView.prototype.show.apply(this, arguments);
-            if (typeof this.memberView == 'undefined') {
-                this.createMemberView();
-            }
+
+            this.createMemberView();
+            this.createCollageView();
+
+            this.initInput(name);
+            $('.tooltip').remove();
+
             if (name) {
+                this.collageView.hide();
                 this.memberView.search(name);
             } else {
-                this.clearInput();
-                this.memberView.renderCollage();
+                this.memberView.hide();
+                this.collageView.show();
             }
         },
 
-        clearInput: function () {
-            $('input[name="q"]', this.el).val('');
+        hide: function () {
+            this.memberView.hide();
+            this.collageView.hide();
+
+            BaseView.prototype.hide.apply(this, arguments);
+        },
+
+        query: function (name) {
+            POPONG.router.navigate('!/member/' + name, { trigger: true });
+        },
+
+        initInput: function (name) {
+            $('input[name="q"]', this.el).val(name);
         },
 
         createMemberView: function () {
-            if (this.memberView) return;
+            if (!_.isUndefined(this.memberView)) return;
 
-            var memberCollection = new MemberCollection(members);
             this.memberView = new MemberView({
                 el: document.getElementById('member-result'),
-                collection: memberCollection
+                collection: memberCollection,
+                app: this
             });
         },
 
-        registerEvents: function () {
+        createCollageView: function () {
+            if (!_.isUndefined(this.collageView)) return;
+
+            this.collageView = new CollageView({
+                el: document.getElementById('member-collage'),
+                collection: memberCollection,
+                app: this
+            });
+        },
+
+        initSearchForm: function () {
             var that = this;
 
             $('#member-search-form', this.el).submit(function () {
                 var $input = $('input[name="q"]', this.el),
                     name = $input.val();
 
-                that.memberView.query(name);
+                that.query(name);
 
                 return false;
             });
         },
 
-        registerTypeahead: function () {
+        initTypeahead: function () {
             var names = _.map(members, function (member) { return member.name; });
 
             $('input[name="q"]', this.el).typeahead({
