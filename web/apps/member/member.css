@@ -66,6 +66,10 @@
 	margin-left: 2.127659514% !important;
 }
 
+[class^="icon-"]::before {
+	vertical-align: top;
+}
+
 a [class^="icon-"] {
 	color: #333;
 	text-decoration: none;
@@ -113,5 +117,9 @@ a [class^="icon-"]:hover {
 	#member-collage {
 		margin-top: 0px;
 		max-height: 160px;
+	}
+
+	.mobile-icon-large::before {
+		font-size: 1.3333333333333333em;
 	}
 }
