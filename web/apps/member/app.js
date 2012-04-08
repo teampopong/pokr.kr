@@ -119,14 +119,23 @@ define([
         },
 
         initTypeahead: function () {
-            var names = _.map(members, function (member) { return member.name; });
+            var names = _.map(members, function (member) { return member.name; }),
+                that = this;
 
             $('input[name="q"]', this.el).typeahead({
                 source: names,
                 matcher: function (item) {
-                    return item.indexOf(this.query) != -1;
+                    return that.nameMatcher(item, this.query);
                 }
             });
+        },
+
+        nameMatcher: function (name, query) {
+            var consonants = POPONG.Utils.getFirstConsonants(name);
+
+            // TODO: n-gram w/ misspell tolerance
+            return name.indexOf(query) === 0
+                || consonants.indexOf(query) === 0;
         }
     });
 });
