@@ -32,10 +32,12 @@ define([
         },
 
         search: function (name) {
+            var that = this;
+
             this.q = name;
             this.model = this.collection.find(function (member) {
-                    // TODO: n-gram w/ misspell tolerance
-                    return member.get('name') == name;
+                    var memberName = member.get('name');
+                    return that.app.nameMatcher(memberName, name);
                 });
             this.render().show();
         }
