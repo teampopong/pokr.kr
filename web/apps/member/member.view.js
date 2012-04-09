@@ -1,15 +1,12 @@
 define([
-    'text!./member.tmpl.html',
-    'text!./member.notfound.tmpl.html'
+    'text!./member.tmpl.html'
     ], function (
-        memberTmpl,
-        notFoundTmpl
+        memberTmpl
     ) {
 
     return Backbone.View.extend({
 
         template: _.template(memberTmpl),
-        notFoundTemplate: _.template(notFoundTmpl),
 
         initialize: function (options) {
             this.app = options.app;
@@ -20,9 +17,7 @@ define([
         },
 
         render: function () {
-            var template = this.model ? this.template : this.notFoundTemplate,
-                html = template({
-                    q: this.q,
+            var html = this.template({
                     member: this.model && this.model.toJSON() || null
                 });
 
@@ -31,14 +26,8 @@ define([
             return this.$el;
         },
 
-        search: function (name) {
-            var that = this;
-
-            this.q = name;
-            this.model = this.collection.find(function (member) {
-                    var memberName = member.get('name');
-                    return that.app.nameMatcher(memberName, name);
-                });
+        show: function (model) {
+            this.model = model;
             this.render().show();
         }
     });
