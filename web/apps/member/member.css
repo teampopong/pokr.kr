@@ -14,13 +14,6 @@
 	vertical-align: text-bottom;
 }
 
-#member-search h1 > span {
-	display:-moz-inline-stack;
-	display:inline-block;
-	zoom:1;
-	*display:inline;
-}
-
 #member-search input[type="text"] {
 	box-sizing: border-box; *behavior: url(userlib/boxsizing.htc);
 	width: 100%;
@@ -35,7 +28,7 @@
 	overflow-x: hidden;
 }
 
-#member-view {
+#search-view, #member-view {
 	box-sizing: border-box; *behavior: url(userlib/boxsizing.htc);
 	padding: 10px;
 	border: 1px solid #aaa;
@@ -79,6 +72,10 @@ a [class^="icon-"] {
 a [class^="icon-"]:hover {
 	color: #333;
 	text-decoration: none;
+}
+
+.search-list-member-img {
+	width: 50px;
 }
 
 #member-img {

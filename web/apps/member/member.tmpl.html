@@ -1,7 +1,4 @@
 <% currentYear = (new Date()).getFullYear(); %>
-<div class="alert alert-info">
-	검색결과: <%= q %>
-</div>
 <div id="member-view">
 	<div class="row-fluid">
 		<div class="span3 col-member-img">
@@ -39,7 +36,7 @@
 	</div>
 	<hr>
 	<div>
-		<iframe id="insight" src="apps/member/google-insights.php?q=<%= q %>&w=720" frameborder="0">
+		<iframe id="insight" src="apps/member/google-insights.php?q=<%= member.name %>&w=720" frameborder="0">
 		</iframe>
 	</div>
 </div>

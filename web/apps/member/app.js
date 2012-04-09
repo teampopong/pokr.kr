@@ -14,6 +14,7 @@ define([
     './collage.view',
     './member.view',
     './member.collection',
+    './search.view',
 
     // Anonymous libraries
     'lib/js/bootstrap-typeahead'
@@ -30,7 +31,8 @@ define([
         BaseView,
         CollageView,
         MemberView,
-        MemberCollection
+        MemberCollection,
+        SearchView
     ) {
 
     POPONG.Utils.loadCss(require.toUrl('./member.css'));
@@ -56,6 +58,7 @@ define([
             BaseView.prototype.show.apply(this, arguments);
 
             this.createMemberView();
+            this.createSearchView();
             this.createCollageView();
 
             this.initInput(name);
@@ -63,15 +66,15 @@ define([
 
             if (name) {
                 this.collageView.hide();
-                this.memberView.search(name);
+                this.searchView.search(name);
             } else {
-                this.memberView.hide();
+                this.searchView.hide();
                 this.collageView.show();
             }
         },
 
         hide: function () {
-            this.memberView.hide();
+            this.searchView.hide();
             this.collageView.hide();
 
             BaseView.prototype.hide.apply(this, arguments);
@@ -89,6 +92,15 @@ define([
             if (!_.isUndefined(this.memberView)) return;
 
             this.memberView = new MemberView({
+                el: document.getElementById('member-result'),
+                app: this
+            });
+        },
+
+        createSearchView: function () {
+            if (!_.isUndefined(this.searchView)) return;
+
+            this.searchView = new SearchView({
                 el: document.getElementById('member-result'),
                 collection: memberCollection,
                 app: this
