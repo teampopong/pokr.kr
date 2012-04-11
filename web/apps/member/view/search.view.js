@@ -1,6 +1,6 @@
 define([
-    'text!./search.tmpl.html',
-    'text!./member.notfound.tmpl.html'
+    'text!../template/search.tmpl.html',
+    'text!../template/member.notfound.tmpl.html'
     ], function (
         searchTmpl,
         notFoundTmpl

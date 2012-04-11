@@ -4,17 +4,17 @@ define([
     'require',
 
     // Templates
-    'text!./main.tmpl.html',
+    'text!./template/main.tmpl.html',
 
     // Data
     'json!data/member-profile.json',
 
     // MVC Components
     'userlib/base.view',
-    './collage.view',
-    './member.view',
-    './member.collection',
-    './search.view',
+    './view/collage.view',
+    './view/member.view',
+    './view/search.view',
+    './collection/member.collection',
 
     // Anonymous libraries
     'lib/js/bootstrap-typeahead'
@@ -31,8 +31,8 @@ define([
         BaseView,
         CollageView,
         MemberView,
-        MemberCollection,
-        SearchView
+        SearchView,
+        MemberCollection
     ) {
 
     POPONG.Utils.loadCss(require.toUrl('./member.css'));
