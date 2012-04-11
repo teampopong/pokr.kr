@@ -143,11 +143,14 @@ define([
         },
 
         nameMatcher: function (name, query) {
-            var consonants = POPONG.Utils.getFirstConsonants(name);
+            var chosungs = POPONG.Utils.toChosungs(name),
+                nameJamos = POPONG.Utils.toJamos(name),
+                queryJamos = POPONG.Utils.toJamos(query);
 
             // TODO: n-gram w/ misspell tolerance
             return name.indexOf(query) === 0
-                || consonants.indexOf(query) === 0;
+                || chosungs.indexOf(query) === 0
+                || nameJamos.indexOf(queryJamos) === 0;
         }
     });
 });
