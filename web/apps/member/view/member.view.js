@@ -26,8 +26,8 @@ define([
             return this.$el;
         },
 
-        show: function (model) {
-            this.model = model;
+        show: function (id) {
+            this.model = this.collection.get(id);
             this.render().show();
         }
     });

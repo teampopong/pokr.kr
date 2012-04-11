@@ -6,7 +6,7 @@
 	<% _.each(results, function (model) { 
 		var member = model.toJSON(); %>
 	<div class="inline-block text-center">
-		<a href="#!/member/<%= member.name %>">
+		<a href="#!/member/id/<%= member.id %>">
 			<img class="search-list-member-img" src="<%= member.image ? member.image : 'images/default_profile.jpg' %>"><br>
 			<strong><%= member.name %></strong>
 		</a>

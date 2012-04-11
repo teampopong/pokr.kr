@@ -75,8 +75,8 @@ define([
                 .tooltip()
                 .click(function () {
                     var $this = $(this),
-                        name = $this.attr('data-title');
-                    that.app.query(name);
+                        id = $this.attr('data-id');
+                    POPONG.router.navigate('!/member/id/' + id, { trigger: true });
                 })
                 .each(function (i, elem) {
                     var $elem = $(elem),
@@ -100,6 +100,7 @@ define([
             $elem.stop(true, true).fadeOut(400, function () {
                 $elem.attr({
                     src: newItem.image ? newItem.image : 'images/default_profile.jpg',
+                    'data-id': newItem.id,
                     'data-title': newItem.name,
                     title: newItem.name
                 });

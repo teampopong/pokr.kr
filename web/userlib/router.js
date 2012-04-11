@@ -33,7 +33,9 @@ define(function () {
                 return;
             }
 
-            var appPath = _.string.sprintf('apps/%s/app', app);
+            var appPath = _.string.sprintf('apps/%s/app', app),
+                params = path.substr(1).split('/');
+
             require([appPath], function (App) {
 
                 if (!POPONG.apps[app]) {
@@ -42,7 +44,7 @@ define(function () {
                     });
                 }
 
-                POPONG.apps[app].show(path);
+                POPONG.apps[app].show(params);
             });
         }
     });

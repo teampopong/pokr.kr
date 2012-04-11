@@ -52,25 +52,12 @@ define([
             return this.$el;
         },
 
-        show: function (path) {
-            var name = path.substr(1); // strip '/'
-
+        show: function (params) {
             BaseView.prototype.show.apply(this, arguments);
 
-            this.createMemberView();
-            this.createSearchView();
-            this.createCollageView();
-
-            this.initInput(name);
-            $('.tooltip').remove();
-
-            if (name) {
-                this.collageView.hide();
-                this.searchView.search(name);
-            } else {
-                this.searchView.hide();
-                this.collageView.show();
-            }
+            this.createViews();
+            this.clear();
+            this.route(params);
         },
 
         hide: function () {
@@ -80,12 +67,14 @@ define([
             BaseView.prototype.hide.apply(this, arguments);
         },
 
-        query: function (name) {
-            POPONG.router.navigate('!/member/' + name, { trigger: true });
-        },
-
         initInput: function (name) {
             $('input[name="q"]', this.el).val(name);
+        },
+
+        createViews: function () {
+            this.createMemberView();
+            this.createSearchView();
+            this.createCollageView();
         },
 
         createMemberView: function () {
@@ -93,6 +82,7 @@ define([
 
             this.memberView = new MemberView({
                 el: document.getElementById('member-result'),
+                collection: memberCollection,
                 app: this
             });
         },
@@ -117,6 +107,36 @@ define([
             });
         },
 
+        clear: function () {
+            this.initInput(''); // FIXME
+            $('.tooltip').remove();
+        },
+
+        route: function (params) {
+            var inst = params[0] || '';
+
+            switch (inst) {
+            case 'q':
+                var name = params[1] || '';
+
+                this.collageView.hide();
+                this.searchView.search(name);
+                break;
+
+            case 'id':
+                var id = params[1] || '';
+
+                this.collageView.hide();
+                this.memberView.show(id);
+                break;
+
+            default:
+                this.searchView.hide();
+                this.collageView.show();
+                break;
+            }
+        },
+
         initSearchForm: function () {
             var that = this;
 
@@ -124,7 +144,7 @@ define([
                 var $input = $('input[name="q"]', this.el),
                     name = $input.val();
 
-                that.query(name);
+                POPONG.router.navigate('!/member/q/' + name, { trigger: true });
 
                 return false;
             });

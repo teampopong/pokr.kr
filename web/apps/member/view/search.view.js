@@ -43,7 +43,8 @@ define([
                 });
 
             if (this.results.length === 1) {
-                this.app.memberView.show(this.results[0]);
+                var id = this.results[0].get('id');
+                this.app.memberView.show(id);
             } else {
                 this.render().show();
             }
