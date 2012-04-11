@@ -1,5 +1,5 @@
 define([
-    './member.model'
+    '../model/member.model'
     ], function (
         MemberModel
     ) {

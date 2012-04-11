@@ -1,5 +1,5 @@
 define([
-    'text!./member.tmpl.html'
+    'text!../template/member.tmpl.html'
     ], function (
         memberTmpl
     ) {

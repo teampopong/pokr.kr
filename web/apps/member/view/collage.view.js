@@ -1,5 +1,5 @@
 define([
-    'text!./collage.tmpl.html',
+    'text!../template/collage.tmpl.html',
     'lib/js/bootstrap-tooltip'
     ], function (
         collageTmpl
