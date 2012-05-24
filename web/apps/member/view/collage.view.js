@@ -23,6 +23,8 @@ define([
         initialize: function (options) {
             this.app = options.app;
             this.numImgs = this.collection.length;
+
+            this.initEvents();
         },
 
         show: function () {
@@ -30,7 +32,7 @@ define([
         },
 
         hide: function () {
-            if (replaceTimer) clearTimeout(replaceTimer);
+            this.clearTimer();
             this.$el.hide();
         },
 
@@ -43,11 +45,38 @@ define([
             this.$el.html(html);
             this.cacheImageElems();
             this.registerCollageEvents();
-
-            if (replaceTimer) clearTimeout(replaceTimer);
-            replaceTimer = setTimeout(_.bind(this.replaceRandom, this), REPLACE_INTERVAL);
+            this.resetTimer();
 
             return this.$el;
+        },
+
+        clearTimer: function () {
+            if (replaceTimer) clearTimeout(replaceTimer);
+        },
+
+        resetTimer: function () {
+            this.clearTimer();
+            replaceTimer = setTimeout(_.bind(this.replaceRandom, this), REPLACE_INTERVAL);
+        },
+
+        initEvents: function () {
+            this.initFocusEvent();
+        },
+
+        initFocusEvent: function () {
+            // TODO: 이 부분 /userlib/utils.js로 추출하기
+            var that = this;
+            if ($.browser.msie) {
+                $(document).on({
+                    'focusin.member_collage': _.bind(that.resetTimer, that),
+                    'focusout.member_collage': _.bind(that.clearTimer, that)
+                });
+            } else {
+                $(window).on({
+                    'focus.member_collage': _.bind(that.resetTimer, that),
+                    'blur.member_collage': _.bind(that.clearTimer, that)
+                });
+            }
         },
 
         cacheImageElems: function () {
@@ -109,8 +138,8 @@ define([
                     .css('visibility', 'visible').hide().fadeIn();
             });
 
-            if (replaceTimer) clearTimeout(replaceTimer);
-            replaceTimer = setTimeout(_.bind(this.replaceRandom, this), REPLACE_INTERVAL);
+            this.resetTimer();
         }
     });
+
 });
