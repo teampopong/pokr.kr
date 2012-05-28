@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from apps import polidic
+from apps import figures
 
 server = {
         'port': 50030,
@@ -19,5 +19,5 @@ db = {
         }
 
 apps = [
-        ('/polidic', polidic.polidic)
+        ('/figures', figures.app)
         ]

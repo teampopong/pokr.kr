@@ -2,9 +2,9 @@
 
 from flask import Blueprint, current_app
 
-polidic = Blueprint('polidic', __name__)
+app = Blueprint('figures', __name__)
 
-@polidic.route('/')
-def members():
+@app.route('/')
+def figures():
     # can use current_app.db, current_app.cache
     return ''
