@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, g
 import memcache
 from pymongo import Connection
 import settings
@@ -11,20 +11,31 @@ from werkzeug.exceptions import HTTPException
 ##### utils #####
 
 def create_server(name, **kwargs):
-    '''
-    Create Flask server with database and cache server connection.
-    '''
-
-    def database(host, port, database):
-        connection = Connection(host, port)
-        db = connection[database]
-        return db
+    '''Create Flask server with database and cache server connection.'''
 
     server = Flask(name, **kwargs)
-    server.db = database(**settings.db)
-    server.cache = memcache.Client(['%(host)s:%(port)d' % settings.cache])
-
     return server
+
+
+def connect_db(server, host, port, database):
+    '''Connect to MongoDB database.'''
+
+    connection = Connection(host, port)
+    db = connection[database]
+
+    @server.before_request
+    def _connect_db():
+        g.db = db
+
+
+def connect_cache(server, host, port):
+    '''Connect to Memcached cache.'''
+
+    cache = memcache.Client(['%s:%d' % (host, port)])
+
+    @server.before_request
+    def _connect_cache():
+        g.cache = cache
 
 
 def ensure_error_in_json(server):
@@ -59,10 +70,12 @@ def register_apps(server):
 def main():
     server = create_server(__name__)
 
+    connect_db(server, **settings.DB_SETTINGS)
+    connect_cache(server, **settings.CACHE_SETTINGS)
     ensure_error_in_json(server)
     register_apps(server)
 
-    server.run(**settings.server)
+    server.run(**settings.SERVER_SETTINGS)
 
 
 ##### main #####

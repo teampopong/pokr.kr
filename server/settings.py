@@ -2,20 +2,20 @@
 
 from apps import figures
 
-server = {
+SERVER_SETTINGS = {
         'port': 50030,
         'debug': True
         }
 
-cache = {
+CACHE_SETTINGS = {
         'host': '127.0.0.1',
         'port': 11211
         }
 
-db = {
+DB_SETTINGS = {
         'host': 'localhost',
         'port': 27017,
-        'database': 'popong'
+        'database': 'popongdb'
         }
 
 apps = [
