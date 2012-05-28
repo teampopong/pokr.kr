@@ -17,7 +17,7 @@ def create_server(name, **kwargs):
 
     def database(host, port, database):
         connection = Connection(host, port)
-        db = connection(database)
+        db = connection[database]
         return db
 
     server = Flask(name, **kwargs)
