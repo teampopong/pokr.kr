@@ -3,6 +3,7 @@
 from apps import figures
 
 SERVER_SETTINGS = {
+        'host': '0.0.0.0',
         'port': 50030,
         'debug': True
         }
