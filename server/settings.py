@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from apps import figures
+from apps import people
 
 SERVER_SETTINGS = {
         'host': '0.0.0.0',
@@ -20,5 +20,5 @@ DB_SETTINGS = {
         }
 
 apps = [
-        ('/figures', figures.app)
+        ('/people', people.app)
         ]
