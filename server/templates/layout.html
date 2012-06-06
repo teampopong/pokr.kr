@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}POPONG{% endblock %}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <!-- styles -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}" />
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        {% block extra_headers %}
+        {% endblock %}
+    </head>
+    <body>
+        <!-- START top navbar -->
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+        <div class="container">
+        <ul id="menu" class="nav">
+        {% for m in menus %}
+			<li class="menu-item {% if m.name == menu %}active{% endif %} "><a href="{{ m.url }}">{{ m.title }}</a></li>
+        {% endfor %}
+        </ul>
+        </div>
+        </div>
+        </div>
+        <!-- END top navbar -->
+
+        <div id="content" class="container">
+        {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

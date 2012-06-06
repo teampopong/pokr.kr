@@ -1,6 +1,7 @@
 #!/usr/bin/env python
+# -*- encoding: utf-8 -*-
 
-from apps import people
+from apps import people, main
 
 SERVER_SETTINGS = {
         'host': '0.0.0.0',
@@ -20,5 +21,6 @@ DB_SETTINGS = {
         }
 
 apps = [
-        ('/people', people.app)
+        ('home', '홈', '', main.app),
+        ('people', '정치인명사전', '/people', people.app)
         ]

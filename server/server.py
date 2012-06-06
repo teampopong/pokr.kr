@@ -63,8 +63,16 @@ def register_apps(server):
     Register all app modules specified in settings.
     '''
 
-    for url_prefix, app in settings.apps:
+    for _, _, url_prefix, app in settings.apps:
         server.register_blueprint(app, url_prefix=url_prefix)
+
+    @server.context_processor
+    def inject_menu():
+        menus = [{ 'name': app[0]
+                 , 'title': app[1].decode('utf-8')
+                 , 'url': app[2]
+                 } for app in settings.apps]
+        return dict(menus=menus)
 
 
 def main():
@@ -72,7 +80,7 @@ def main():
 
     connect_db(server, **settings.DB_SETTINGS)
     connect_cache(server, **settings.CACHE_SETTINGS)
-    ensure_error_in_json(server)
+    # ensure_error_in_json(server)
     register_apps(server)
 
     server.run(**settings.SERVER_SETTINGS)
