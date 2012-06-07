@@ -1,6 +1,6 @@
 #content {
     margin-top: 70px;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .header {
@@ -19,18 +19,18 @@
 }
 
 .text-center {
-	text-align: center;
+    text-align: center;
 }
 
 .inline-block {
-	display:-moz-inline-stack;
-	display:inline-block;
-	zoom:1;
-	*display:inline;
+    display:-moz-inline-stack;
+    display:inline-block;
+    zoom:1;
+    *display:inline;
 }
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
 @media all and (max-width: 979px) {

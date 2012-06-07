@@ -6,9 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
         <!-- styles -->
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}" />
+		{% assets filter="cssmin", output="build/basecss.css"
+			, "css/bootstrap.min.css"
+			, "css/bootstrap-responsive.min.css"
+			, "css/layout.css" %}
+		<link rel="stylesheet" href="{{ ASSET_URL }}" />
+		{% endassets %}
 
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

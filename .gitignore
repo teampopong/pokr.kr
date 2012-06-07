@@ -7,3 +7,6 @@
 /tmp
 
 *.pyc
+
+/server/static/.webassets-cache
+/server/static/build

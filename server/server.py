@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from flask import Flask, jsonify, g
+from flask.ext.assets import Environment
 import memcache
 from pymongo import Connection
 import settings
@@ -14,6 +15,7 @@ def create_server(name, **kwargs):
     '''Create Flask server with database and cache server connection.'''
 
     server = Flask(name, **kwargs)
+    assets = Environment(server)
     return server
 
 
