@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
         <!-- styles -->
-		{% assets filter="cssmin", output="build/basecss.css"
+		{% assets filter="cssmin", output="build/basecss.%(version)s.css"
 			, "css/bootstrap.min.css"
 			, "css/bootstrap-responsive.min.css"
 			, "css/layout.css" %}
