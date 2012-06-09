@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block extra_headers %}
+{% assets filter="less", output="build/people.%(version)s.css"
+	, "people/less/people.less" %}
+<link rel="stylesheet" href="{{ ASSET_URL }}">
+{% endassets %}
+{% endblock %}
+
+{% block content %}
+{% include "search.html" %}
+{% endblock %}

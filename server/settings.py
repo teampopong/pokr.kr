@@ -21,6 +21,6 @@ DB_SETTINGS = {
         }
 
 apps = [
-        ('home', '홈', '', main.app),
+        ('home', '홈', '/', main.app),
         ('people', '정치인명사전', '/people', people.app)
         ]

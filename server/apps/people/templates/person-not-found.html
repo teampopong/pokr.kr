@@ -1,0 +1,12 @@
+{% extends "person.html" %}
+
+{% block title %}
+{{ super() }} - 존재하지 않는 페이지
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="alert alert-error">
+	존재하지 않는 페이지입니다.
+</div>
+{% endblock %}

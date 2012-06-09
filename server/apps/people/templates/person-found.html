@@ -1,0 +1,51 @@
+{% extends "person.html" %}
+
+{% block title %}
+{{ super() }} - {{ person.name }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div id="member-result">
+	<div id="member-view">
+		<div class="row-fluid">
+			<div class="span3 col-member-img">
+				<img id="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg')) }}">
+			</div>
+			<div class="span9 col-member-attrs">
+				<h2>{{ person.name }}
+					<small>
+						{% if person.homepage %}
+						<a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
+						{% endif %}
+
+						{% if person.email %}
+						<a href="mailto:{{ person.email }}"><i class="icon-envelope mobile-icon-large"></i></a>
+						{% endif %}
+					</small>
+				</h2>
+				<table id="member-profile" class="table table-condensed">
+					<tbody>
+						{% if person.birthyear %}
+						<tr>
+							<th>생년월일</th>
+							<td>{{ '%s.%s.%s'|format(person.birthyear, person.birthmonth, person.birthday) }}</td>
+						</tr>
+						{% endif %}
+						{% if person.party %}
+						<tr>
+							<th>소속정당</th>
+							<td>{{ person.party }}</td>
+						</tr>
+						{% endif %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<hr>
+		<div id="insight">
+			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=720&h=150&lang=ko&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
+		</div>
+	</div>
+</div>
+{% endblock %}
