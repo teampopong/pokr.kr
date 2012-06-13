@@ -1,0 +1,6 @@
+Flask==0.8
+Flask-Assets==0.7
+cssmin==0.1.4
+pymongo==2.1
+python-memcached==1.45
+simplejson==2.1.2
