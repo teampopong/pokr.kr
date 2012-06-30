@@ -13,7 +13,7 @@ def main():
     if query is not None:
         return redirect(url_for('people.search', query=query))
 
-    return render_template('person.html', menu='people')
+    return render_template('base.html', menu='people')
 
 # 이름으로 검색
 @app.route('/q/<query>', methods=['GET'])

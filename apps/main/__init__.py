@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from flask import Blueprint, render_template
+from flask import Blueprint, redirect, url_for
 
-app = Blueprint('main', __name__, template_folder='templates')
+app = Blueprint('main', __name__)
 
 @app.route('/')
 def main():
-    return render_template('main.html', menu='home')
+    return redirect(url_for('people.main'))

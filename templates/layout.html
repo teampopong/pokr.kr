@@ -22,20 +22,6 @@
         {% endblock %}
     </head>
     <body>
-        <!-- START top navbar -->
-        <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-        <div class="container">
-        <ul id="menu" class="nav">
-        {% for m in menus %}
-			<li class="menu-item {% if m.name == menu %}active{% endif %} "><a href="{{ m.url }}">{{ m.title }}</a></li>
-        {% endfor %}
-        </ul>
-        </div>
-        </div>
-        </div>
-        <!-- END top navbar -->
-
         <div id="content" class="container">
         {% block content %}{% endblock %}
         </div>

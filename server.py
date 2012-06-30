@@ -68,15 +68,6 @@ def register_apps(server):
     for _, _, url_prefix, app in settings.apps:
         server.register_blueprint(app, url_prefix=url_prefix)
 
-    menus = [{ 'name': app[0]
-             , 'title': app[1].decode('utf-8')
-             , 'url': app[2]
-             } for app in settings.apps]
-
-    @server.context_processor
-    def inject_menu():
-        return dict(menus=menus)
-
 
 def main():
     server = create_server(__name__)
