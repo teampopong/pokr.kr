@@ -1,12 +1,5 @@
 *.sw[poq]
-.DS_Store
-
-.build
-/.stage
-
-/tmp
-
 *.pyc
 
-/server/static/.webassets-cache
-/server/static/build
+/static/.webassets-cache
+/static/build

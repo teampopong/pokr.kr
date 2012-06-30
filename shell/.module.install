@@ -1,7 +1,0 @@
-.build/popong.sh  $POPONG_BINDIR/popong
-popong-*          $POPONG_TOOLSDIR/
-
-webserver         $POPONG_TOOLSDIR/
-
-lockproc          $POPONG_TOOLSDIR/
-synchronized      $POPONG_TOOLSDIR/
