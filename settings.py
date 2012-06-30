@@ -3,6 +3,8 @@
 
 from apps import people, main
 
+SCRIPT_NAME = '/'
+
 SERVER_SETTINGS = {
         'host': '0.0.0.0',
         'port': 50030,
