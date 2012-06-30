@@ -1,0 +1,22 @@
+{% extends "person.html" %}
+
+{% block title %}
+{{ super() }} - '{{ query }}'로 검색
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="alert alert-info">
+	검색결과: {{ query }} ({{ num_results }} 명)
+</div>
+<div id="search-view">
+	{% for person in results %}
+	<div class="inline-block text-center">
+		<a href="{{ url_for('people.person', id_=person.id) }}">
+			<img class="search-list-member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg')) }}"><br>
+			<strong>{{ person.name }}</strong>
+		</a>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
