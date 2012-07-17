@@ -21,7 +21,7 @@ def search(query):
     # TODO: validation & sanitization
     # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
     results = list(g.db['people'].find({
-        'name': {'$regex': query}
+        'name_kr': {'$regex': query}
         }))
     num_results = len(results)
     return render_template('search-results.html', menu='people', results=results,
