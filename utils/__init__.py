@@ -25,3 +25,7 @@ def response_json(f):
         return Response(text, mimetype='application/json')
 
     return interface
+
+def mongojson_filter(s):
+    return json.dumps(s, indent=2, encoding='utf-8', cls=MongoEncoder)
+

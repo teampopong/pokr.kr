@@ -1,0 +1,3 @@
+[submodule "static/js/graphlib"]
+	path = static/js/graphlib
+	url = https://steel@dev.popong.com/repos/popong-graphlib.git

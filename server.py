@@ -5,6 +5,7 @@ from flask.ext.assets import Environment
 import memcache
 from pymongo import Connection
 import settings
+from utils import mongojson_filter
 from werkzeug.exceptions import default_exceptions
 from werkzeug.exceptions import HTTPException
 
@@ -76,6 +77,9 @@ def ensure_error_in_json(server):
     for code in default_exceptions.iterkeys():
         server.error_handler_spec[None][code] = make_json_error
 
+def register_filters(server):
+    server.jinja_env.filters['mongojson'] = mongojson_filter
+
 
 def register_apps(server):
     '''
@@ -92,6 +96,7 @@ def main():
     connect_db(server, **settings.DB_SETTINGS)
     connect_cache(server, **settings.CACHE_SETTINGS)
     # ensure_error_in_json(server)
+    register_filters(server)
     register_apps(server)
 
     server.run(**settings.SERVER_SETTINGS)
