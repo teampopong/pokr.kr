@@ -1,5 +1,16 @@
+body {
+    position: relative;
+    width: 100%;
+}
+
+.absolute-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 #content {
-    margin-top: 70px;
+    padding-top: 70px;
     margin-bottom: 30px;
 }
 
