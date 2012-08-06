@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
-from flask import Flask, jsonify, g
+from flask import _app_ctx_stack, Flask, jsonify, g
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
-import memcache
-from pymongo import Connection
 import settings
 from utils import mongojson_filter, LocaleError
 from werkzeug.exceptions import default_exceptions
@@ -29,6 +27,7 @@ class ReverseProxied(object):
             environ['wsgi.url_scheme'] = scheme
         return self.app(environ, start_response)
 
+
 def create_server(name, **kwargs):
     '''Create Flask server with database and cache server connection.'''
 
@@ -38,25 +37,24 @@ def create_server(name, **kwargs):
     return server
 
 
-def connect_db(server, host, port, database):
-    '''Connect to MongoDB database.'''
+def init_cache(server):
+    server.config['CACHE_SETTINGS'] = settings.CACHE_SETTINGS
 
-    connection = Connection(host, port)
-    db = connection[database]
+    @server.teardown_appcontext
+    def close_cache(error=None):
+        con = getattr(_app_ctx_stack.top, 'cache', None)
+        if con is not None:
+            con.disconnect_all()
 
-    @server.before_request
-    def _connect_db():
-        g.db = db
 
+def init_db(server):
+    server.config['DB_SETTINGS'] = settings.DB_SETTINGS
 
-def connect_cache(server, host, port):
-    '''Connect to Memcached cache.'''
-
-    cache = memcache.Client(['%s:%d' % (host, port)])
-
-    @server.before_request
-    def _connect_cache():
-        g.cache = cache
+    @server.teardown_appcontext
+    def close_db(error=None):
+        con = getattr(_app_ctx_stack.top, 'db', None)
+        if con is not None:
+            con.close()
 
 
 def init_i18n(server):
@@ -110,6 +108,7 @@ def ensure_error_in_json(server):
     for code in default_exceptions.iterkeys():
         server.error_handler_spec[None][code] = make_json_error
 
+
 def register_filters(server):
     server.jinja_env.filters['mongojson'] = mongojson_filter
 
@@ -117,8 +116,8 @@ def register_filters(server):
 def main():
     server = create_server(__name__)
 
-    connect_db(server, **settings.DB_SETTINGS)
-    connect_cache(server, **settings.CACHE_SETTINGS)
+    init_cache(server)
+    init_db(server)
     init_i18n(server)
     init_routes(server)
     # ensure_error_in_json(server)

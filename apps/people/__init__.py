@@ -2,9 +2,12 @@
 # -*- encoding: utf-8 -*-
 
 from flask import Blueprint, g, redirect, render_template, request, url_for
+from utils import get_db
+from werkzeug.local import LocalProxy
 
 app = Blueprint('people', __name__,
         template_folder='templates', static_folder='static')
+db = LocalProxy(get_db)
 
 # 루트
 @app.route('/', methods=['GET'])
@@ -20,7 +23,7 @@ def main():
 def search(query):
     # TODO: validation & sanitization
     # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
-    results = list(g.db['people'].find({
+    results = list(db['people'].find({
         'name_kr': {'$regex': query}
         }))
     return render_template('search-results.html', menu='people', results=results,
@@ -29,7 +32,7 @@ def search(query):
 # 사람
 @app.route('/<int:id_>', methods=['GET'])
 def person(id_):
-    person = g.db['people'].find_one({
+    person = db['people'].find_one({
         'id': id_
         })
 
