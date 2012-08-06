@@ -29,7 +29,9 @@ DB_SETTINGS = {
         'database': 'popongdb'
         }
 
-apps = [
-        ('home', '/', main.app),
-        ('people', '/people', people.app)
-        ]
+
+apps = {
+        '/': main.app,
+        '/<lang>': main.app,
+        '/<lang>/people': people.app
+        }

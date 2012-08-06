@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 
-from utils import patch_url_for; patch_url_for()
-from utils import patch_template_url_for
-
-from flask import Flask, jsonify, g, redirect, request, url_for
+from flask import Flask, jsonify, g
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 import memcache
 from pymongo import Connection
 import settings
-from utils import mongojson_filter
+from utils import mongojson_filter, LocaleError
 from werkzeug.exceptions import default_exceptions
 from werkzeug.exceptions import HTTPException
 
@@ -65,18 +62,33 @@ def connect_cache(server, host, port):
 def init_i18n(server):
     babel = Babel(server, **settings.BABEL_SETTINGS)
 
-    @server.before_request
-    def pop_lang():
-        if request.view_args:
-            lang = request.view_args.pop('lang', None)
-            if lang in settings.LOCALES:
-                g.lang = lang
-
     @babel.localeselector
     def get_lang():
-        return g.lang if hasattr(g, 'lang') else None
+        locale = getattr(g, 'lang', None)
+        if locale not in settings.LOCALES:
+            # TODO: needs a page that handles exceptions
+            raise LocaleError()
+        return locale
 
-    patch_template_url_for(server)
+
+def init_routes(server):
+    '''
+    Register all app modules specified in settings.
+    '''
+
+    default_locale = settings.BABEL_SETTINGS['default_locale']
+
+    for url_prefix, app in settings.apps.items():
+
+        @app.url_defaults
+        def add_language_code(endpoint, values):
+            values.setdefault('lang', getattr(g, 'lang', default_locale))
+
+        @app.url_value_preprocessor
+        def pull_lang_code(endpoint, values):
+            g.lang = values.pop('lang', default_locale)
+
+        server.register_blueprint(app, url_prefix=url_prefix)
 
 
 def ensure_error_in_json(server):
@@ -100,24 +112,6 @@ def ensure_error_in_json(server):
 
 def register_filters(server):
     server.jinja_env.filters['mongojson'] = mongojson_filter
-
-
-def init_routes(server):
-    '''
-    Register all app modules specified in settings.
-    '''
-
-    @server.route('/')
-    def main():
-        default_lang = settings.BABEL_SETTINGS['default_locale']
-        return redirect(url_for('main.main', lang=default_lang))
-
-    @server.route('/favicon.ico')
-    def favicon():
-        return server.send_static_file('images/favicon.ico')
-
-    for _, url_prefix, app in settings.apps:
-        server.register_blueprint(app, url_prefix='/<lang>' + url_prefix)
 
 
 def main():
