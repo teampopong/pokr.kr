@@ -61,7 +61,7 @@
 </div>
 
 <script type="application/json" id="person-data">
-{{ person|mongojson|safe }}
+{{ person|mongojsonify|safe }}
 </script>
 
 {% assets filters="jsmin", output="build/person-found.%(version)s.js"

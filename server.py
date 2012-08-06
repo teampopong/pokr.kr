@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-from flask import _app_ctx_stack, Flask, jsonify, g
+from flask import _app_ctx_stack, Flask, g
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 import settings
-from utils import mongojson_filter, LocaleError
-from werkzeug.exceptions import default_exceptions
-from werkzeug.exceptions import HTTPException
+from utils.mongodb import mongojsonify
+from utils.i18n import LocaleError
 
 
 ##### utils #####
@@ -89,28 +88,8 @@ def init_routes(server):
         server.register_blueprint(app, url_prefix=url_prefix)
 
 
-def ensure_error_in_json(server):
-    '''
-    All error responses that you don't specifically
-    manage yourself will have application/json content
-    type, and will contain JSON like this (just an example):
-
-    { "message": "405: Method Not Allowed" }
-    '''
-
-    def make_json_error(ex):
-        response = jsonify(message=str(ex))
-        response.status_code = (ex.code
-                                if isinstance(ex, HTTPException)
-                                else 500)
-        return response
-
-    for code in default_exceptions.iterkeys():
-        server.error_handler_spec[None][code] = make_json_error
-
-
 def register_filters(server):
-    server.jinja_env.filters['mongojson'] = mongojson_filter
+    server.jinja_env.filters['mongojsonify'] = mongojsonify
 
 
 def main():
@@ -120,7 +99,6 @@ def main():
     init_db(server)
     init_i18n(server)
     init_routes(server)
-    # ensure_error_in_json(server)
     register_filters(server)
 
     server.run(**settings.SERVER_SETTINGS)

@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 
 from flask import Blueprint, g, redirect, render_template, request, url_for
-from utils import get_db
+from utils.conn import get_db
 from werkzeug.local import LocalProxy
 
 app = Blueprint('people', __name__,
