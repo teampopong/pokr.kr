@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ super() }} - '{{ query }}'로 검색
+{{ super() }} - {{ gettext("Search by %(query)s", query=query) }}
 {% endblock %}
 
 {% block content %}
 {{ super() }}
 <div class="alert alert-info">
-	검색결과: {{ query }} ({{ num_results }} 명)
+	{{ gettext("%(num_results)d people found by the query '%(query)s'.", query=query, num_results=results|count) }}
 </div>
 <div id="search-view">
 	{% for person in results %}

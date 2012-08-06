@@ -23,9 +23,8 @@ def search(query):
     results = list(g.db['people'].find({
         'name_kr': {'$regex': query}
         }))
-    num_results = len(results)
     return render_template('search-results.html', menu='people', results=results,
-            query=query, num_results=num_results)
+            query=query)
 
 # 사람
 @app.route('/<int:id_>', methods=['GET'])
