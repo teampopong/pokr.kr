@@ -11,6 +11,13 @@ SERVER_SETTINGS = {
         'debug': True
         }
 
+BABEL_SETTINGS = {
+        'default_locale': 'ko',
+        'default_timezone': 'KST',
+        }
+
+LOCALES = ['en', 'ko']
+
 CACHE_SETTINGS = {
         'host': '127.0.0.1',
         'port': 11211
@@ -23,6 +30,6 @@ DB_SETTINGS = {
         }
 
 apps = [
-        ('home', '홈', '/', main.app),
-        ('people', '정치인명사전', '/people', people.app)
+        ('home', '/', main.app),
+        ('people', '/people', people.app)
         ]

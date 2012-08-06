@@ -1,0 +1,58 @@
+# Translations template for PROJECT.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-08-06 19:08+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: apps/people/templates/base.html:12
+msgid "Korean"
+msgstr ""
+
+#: apps/people/templates/base.html:12
+msgid "Politician Dictionary"
+msgstr ""
+
+#: apps/people/templates/base.html:14
+msgid "search by name!"
+msgstr ""
+
+#: apps/people/templates/base.html:15
+msgid "search now!"
+msgstr ""
+
+#: apps/people/templates/person-found.html:40
+msgid "birthdate"
+msgstr ""
+
+#: apps/people/templates/person-found.html:46
+msgid "party"
+msgstr ""
+
+#: apps/people/templates/person-not-found.html:4
+#: apps/people/templates/person-not-found.html:10
+msgid "Result not found"
+msgstr ""
+
+#: apps/people/templates/search-results.html:4
+#, python-format
+msgid "Search by %(query)s"
+msgstr ""
+
+#: apps/people/templates/search-results.html:10
+#, python-format
+msgid "%(num_results)d people found by the query '%(query)s'."
+msgstr ""
+
