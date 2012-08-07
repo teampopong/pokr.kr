@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ super() }} - {{ person.name_kr }}
+{{ super() }} - {{ person.name_kr|name2eng }}
 {% endblock %}
 
 {% block extra_headers %}
@@ -22,7 +22,7 @@
 				<img id="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg')) }}">
 			</div>
 			<div class="span9 col-member-attrs">
-				<h2>{{ person.name_kr }}
+				<h2>{{ person.name_kr|name2eng }}
 					<small>
 						{% if person.homepage %}
 						<a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
@@ -44,7 +44,7 @@
 						{% if person.party %}
 						<tr>
 							<th>{{ gettext("party") }}</th>
-							<td>{{ person.party }}</td>
+							<td>{{ person.party|party2eng }}</td>
 						</tr>
 						{% endif %}
 					</tbody>

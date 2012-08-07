@@ -5,7 +5,7 @@ from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 import settings
 from utils.mongodb import mongojsonify
-from utils.i18n import LocaleError
+from utils.i18n import LocaleError, name2eng, party2eng
 
 
 ##### utils #####
@@ -64,7 +64,7 @@ def init_i18n(server):
         locale = getattr(g, 'lang', None)
         if locale not in settings.LOCALES:
             # TODO: needs a page that handles exceptions
-            raise LocaleError()
+            raise LocaleError(locale)
         return locale
 
 
@@ -90,6 +90,8 @@ def init_routes(server):
 
 def register_filters(server):
     server.jinja_env.filters['mongojsonify'] = mongojsonify
+    server.jinja_env.filters['name2eng'] = name2eng
+    server.jinja_env.filters['party2eng'] = party2eng
 
 
 def main():
