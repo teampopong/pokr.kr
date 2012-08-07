@@ -32,6 +32,5 @@ DB_SETTINGS = {
 
 apps = {
         '/': main.app,
-        '/<lang>': main.app,
         '/<lang>/people': people.app
         }
