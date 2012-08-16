@@ -1,41 +1,40 @@
 # -*- encoding: utf-8 -*-
 
-from sqlalchemy import Column, Enum, Integer, Unicode
-from sqlalchemy.orm import backref, column_property, relationship
+from sqlalchemy import CHAR, Column, Enum, Integer, Unicode
+from sqlalchemy.orm import backref, relationship
 from models.base import Base
 
 class Person(Base):
-    __tablename__ = 'people'
+    __tablename__ = 'person'
 
     id = Column(Integer, primary_key=True)
 
-    ### Names ###
-    name = Column(Unicode(20), index=True, nullable=False)
+    ### Fields ###
+    name = Column(Unicode(20), nullable=False, index=True)
     name_cn = Column(Unicode(20))
 
-    ### basic infos ###
-    sex = Column(Enum('m', 'f', name='enum_sex'), index=True)
+    gender = Column(Enum('m', 'f', name='enum_gender'), index=True)
 
-    ### Birth ###
-    birthyear = Column(Integer)
-    birthmonth = Column(Integer)
-    birthday = Column(Integer)
-    # TODO: birthdate
+    birthday = Column(CHAR(8), index=True)
 
-    birthcity = Column(Unicode(20))
-    addresss = Column(Unicode(160))
+    birth_city = Column(Unicode(20), index=True)
+    birth_county = Column(Unicode(20))
+
+    addr_city = Column(Unicode(20))
+    addr_county = Column(Unicode(20))
+    addr_detail = Column(Unicode(80))
 
     ### Relations ###
-    affiliations = relationship('PersonParty',
-            order_by='PersonParty.end_date',
+    affiliations = relationship('PartyAffiliation',
+            order_by='PartyAffiliation.end_date',
             backref=backref('person', lazy=False))
-    educations = relationship('PersonSchool',
-            order_by='PersonSchool.adm_year',
+    educations = relationship('Education',
+            order_by='Education.start_year',
             backref=backref('person', lazy=False))
-    elections = relationship('PersonElection',
-            order_by='PersonElection.election.date',
+    elections = relationship('Candidacy',
+            order_by='Candidacy.election.date',
             backref=backref('person', lazy=False))
-    experiences = relationship('Job',
-            order_by='Job.enddate',
+    experiences = relationship('Experience',
+            order_by='Experience.enddate',
             backref=backref('person', lazy=False))
 

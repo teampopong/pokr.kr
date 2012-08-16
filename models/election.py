@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, Date, Enum, Integer
+from sqlalchemy import CHAR, Column, Enum, Integer
 from sqlalchemy.orm import backref, relationship
 from models.base import Base
 
 class Election(Base):
-    __tablename__ = 'elections'
+    __tablename__ = 'election'
 
-    id = Column(Integer, primary_key=True)
-    type = Column(Enum('assembly', 'mayor', 'president', name='enum_election_type'), nullable=False)
-    nth = Column(Integer, nullable=False)
-    date = Column(Date)
+    id = Column(Integer, autoincrement=True, primary_key=True)
+    type = Column(Enum('assembly', 'mayor', 'president', name='enum_election_type'), nullable=False, index=True)
+    nth = Column(Integer, nullable=False, index=True)
+    date = Column(CHAR(8), index=True)
 
-    candidates = relationship('PersonElection',
-            primaryjoin='and_(PersonElection.election_id==Election.id)',
+    candidates = relationship('Candidacy',
+            primaryjoin='and_(Candidacy.election_id==Election.id)',
             backref=backref('election', lazy=False))
-    winners = relationship('PersonElection',
-            primaryjoin='and_(PersonElection.election_id==Election.id,'
-                             'PersonElection.is_electied==True)')
+    winners = relationship('Candidacy',
+            primaryjoin='and_(Candidacy.election_id==Election.id,'
+                             'Candidacy.is_electied==True)')
 
 
