@@ -9,7 +9,7 @@
 
 {% block content %}
 <div id="member-search">
-	<h1><a href="{{ url_for('people.main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo_100x41.png') }}" /><span class="inline-block">{{ gettext("Korean") }}</span>&nbsp;<span class="inline-block">{{ gettext("Politician Dictionary") }}</span></a></h1>
+	<h1><a href="{{ url_for('people.main') }}"><span class="inline-block">{{ gettext("Korean") }}</span>&nbsp;<span class="inline-block">{{ gettext("Politician Dictionary") }}</span></a></h1>
 	<form id="member-search-form" action="{{ url_for("people.main") }}">
 		<input type="text" name="q" autocomplete="off" class="search-query" placeholder="{{ gettext("search by name!") }}"><br>
 		<input type="submit" class="btn" value="{{ gettext("search now!") }}">
