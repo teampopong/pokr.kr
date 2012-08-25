@@ -1,6 +1,13 @@
-Flask==0.8
+Babel==0.9.6
+Flask==0.9
 Flask-Assets==0.7
+Flask-Babel==0.8
+hangul.translit==0.1.1
+html5lib==0.95
+SQLAlchemy==0.7.8
 cssmin==0.1.4
-pymongo==2.1
-python-memcached==1.45
+psycopg2==2.4.5
 simplejson==2.1.2
+pymongo==2.2
+python-memcached==1.48
+webassets==0.7.1
