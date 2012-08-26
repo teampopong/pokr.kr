@@ -7,6 +7,10 @@ update_i18n:
 	pybabel update -i messages.pot -d translations
 	pybabel compile -d translations
 
+update_submodule:
+	git submodule init
+	git submodule update
+
 load_db:
 	mongorestore -d popongdb -c people tests/data/popongdb/people
 
