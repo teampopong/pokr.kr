@@ -19,7 +19,7 @@ TBD
 Install & Run Service
 ---------------------
 
-### Preperations
+### Preparations
 
 1. 저장소 서브모듈들을 로드한다.
 
@@ -27,12 +27,20 @@ Install & Run Service
 
 ### Installation
 
-1. 다음 패키지들을 설치한다. (명령어는 Ubuntu Linux 기준)
+1. 다음 패키지들을 설치한다. 
+
+	Ubuntu Linux:
 
 	$ sudo add-apt-repository ppa:chris-lea/node.js
 	$ sudo apt-get update
 	$ sudo apt-get install python python-dev python2.7 libpq-dev nodejs npm
 		mongodb mongodb-server mongodb-dev memcached
+
+	Mac OS X:
+	
+	Install Homebrew (http://mxcl.github.com/homebrew/)
+	$ brew install python postgresql nodejs mongodb memcached
+	$ curl https://npmjs.org/install.sh | sh
 
 1. 파이썬, node.js 패키지들을 설치한다.
 
