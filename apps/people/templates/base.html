@@ -8,6 +8,12 @@
 {% endblock %}
 
 {% block content %}
+<div class="well" style="padding: 8px 0; background: white; position:fixed; width: 170px;">
+	<ul class="nav nav-list">
+		<li><a href="#">Menu #1</a></li>
+		<li><a href="#">Menu #2</a></li>
+	</ul>
+</div>
 <div id="member-search">
 	<h1><a href="{{ url_for('people.main') }}"><span class="inline-block">{{ gettext("Korean") }}</span>&nbsp;<span class="inline-block">{{ gettext("Politician Dictionary") }}</span></a></h1>
 	<form id="member-search-form" action="{{ url_for("people.main") }}">
