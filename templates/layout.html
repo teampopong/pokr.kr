@@ -6,13 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
         <!-- styles -->
-        {% assets filters="cssmin", output="build/basecss.%(version)s.css"
-            , "css/bootstrap.min.css"
-            , "css/bootstrap-responsive.min.css"
-            , "css/font-awesome.css"
-            , "css/layout.css" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}" />
-        {% endassets %}
+		<link rel="stylesheet" href="//popong.com/static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//popong.com/static/css/bootstrap-responsive.min.css">
+		<link rel="stylesheet" href="//popong.com/static/css/font-awesome.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
