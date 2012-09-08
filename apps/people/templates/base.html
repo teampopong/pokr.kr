@@ -1,24 +1,28 @@
 {% extends "layout.html" %}
 
 {% block extra_headers %}
-{% assets filters="less", output="build/people.%(version)s.css"
-	, "people/less/people.less" %}
-<link rel="stylesheet" href="{{ ASSET_URL }}">
-{% endassets %}
+<link rel="stylesheet/less" href="{{ url_for('people.static', filename="less/people.less") }}">
+<script src="//popong.com/static/js/less-1.3.0.min.js"></script>
 {% endblock %}
 
 {% block content %}
-<div class="well" style="padding: 8px 0; background: white; position:fixed; width: 170px;">
+<div class="people-leftnav border-box">
+	<h1><a href="{{ url_for('people.main') }}"><span class="inline-block">{{ gettext("Korean") }}</span>&nbsp;<span class="inline-block">{{ gettext("Politician Dictionary") }}</span></a></h1>
+	<form id="member-search-form" action="{{ url_for("people.main") }}" style="margin-bottom: 10px;">
+		<input type="text" name="q" autocomplete="off" class="search-query border-box" placeholder="{{ gettext("search") }}" style="width: 100%; padding: 12px 14px;">
+	</form>
 	<ul class="nav nav-list">
 		<li><a href="#">Menu #1</a></li>
 		<li><a href="#">Menu #2</a></li>
 	</ul>
+	<div style="position: fixed; bottom: 20px;">
+		<small>&copy; 2011-2012 <a href="http://popong.com/">team POPONG</a></small>
+	</div>
 </div>
-<div id="member-search">
-	<h1><a href="{{ url_for('people.main') }}"><span class="inline-block">{{ gettext("Korean") }}</span>&nbsp;<span class="inline-block">{{ gettext("Politician Dictionary") }}</span></a></h1>
-	<form id="member-search-form" action="{{ url_for("people.main") }}">
-		<input type="text" name="q" autocomplete="off" class="search-query" placeholder="{{ gettext("search by name!") }}"><br>
-		<input type="submit" class="btn" value="{{ gettext("search now!") }}">
-	</form>
+<div style="position: relative; margin-left: 200px;">
+	<div id="member-search">
+		{% block people_content %}
+		{% endblock %}
+	</div>
 </div>
 {% endblock %}

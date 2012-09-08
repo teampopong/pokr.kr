@@ -4,8 +4,7 @@
 {{ super() }} - {{ gettext("Search by %(query)s", query=query) }}
 {% endblock %}
 
-{% block content %}
-{{ super() }}
+{% block people_content %}
 <div class="alert alert-info">
 	{{ gettext("%(num_results)d people found by the query '%(query)s'.", query=query, num_results=results|count) }}
 </div>

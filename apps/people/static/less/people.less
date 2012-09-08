@@ -11,10 +11,34 @@
 
 
 ///// user-defined stylesheets /////
+.people-leftnav {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 200px;
+	background: #fafafd;
+	padding: 8px;
+
+	h1 {
+		font-size: 12pt;
+		text-align: center;
+		a {
+			color: #333;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
 #member-search {
+	position: relative;
+	width: 100%;
 	display: table;
-	margin: 0 auto;
-	text-align: center;
+	padding: 60px 20px 30px;
+	text-align: left;
 
 	h1 {
 		margin: 20px 0;
