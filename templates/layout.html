@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="//popong.com/static/css/bootstrap-responsive.min.css">
 		<link rel="stylesheet" href="//popong.com/static/css/font-awesome.css">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
-
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/barometer.css') }}">
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -35,6 +35,12 @@
         <div id="content">
 		    {% block content %}{% endblock %}
         </div>
-        <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
+		<img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
+		<!-- barometer start -->
+		<script src='http://getbarometer.s3.amazonaws.com/assets/barometer/javascripts/barometer.js' type='text/javascript'></script>
+		<script type="text/javascript" charset="utf-8">
+		    BAROMETER.load('zh9X6XtA1xrp6zLRRzXpB');
+		</script>
+		<!-- barometer end -->
     </body>
 </html>
