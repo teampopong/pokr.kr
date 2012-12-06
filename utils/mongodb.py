@@ -3,6 +3,7 @@ from flask import Response
 from functools import wraps
 import json
 from json import JSONEncoder
+from pymongo import Connection
 from pymongo.cursor import Cursor
 
 
@@ -14,6 +15,21 @@ class MongoEncoder(JSONEncoder):
             return list(obj)
         else:
             return JSONEncoder.default(self, obj, **kwargs)
+
+
+class mongodb:
+    def __enter__(self):
+        self.conn = Connection(self.host, self.port)
+        self.db = self.conn[self.database]
+        return self.db
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.conn.close()
+
+    def __init__(self, host, port, database):
+        self.host = host
+        self.port = port
+        self.database = database
 
 
 def mongojsonify(s):

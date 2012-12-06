@@ -18,8 +18,16 @@ class Candidacy(Base):
     is_elected = Column(Boolean, default=False, index=True)
     cand_no = Column(Integer)
     vote_score = Column(Integer)
-    vote_rate = Column(Float)
+    vote_share = Column(Float)
     party = column_property(
         select(['Party.name']).where('Party.id==party_id')
     )
 
+    def __init__(self, person_id, election_id, party_id, **kwargs):
+        self.person_id = person_id
+        self.election_id = election_id
+        self.party_id = party_id
+
+        for key, val in kwargs.items():
+            if hasattr(self, key):
+                setattr(self, key, kwargs[key])

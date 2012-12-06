@@ -10,3 +10,8 @@ class Party(Base):
     color = Column(CHAR(6))
 
     members = relationship('PartyAffiliation', backref=backref('party', lazy=False))
+
+    def __init__(self, name, color=None):
+        self.name = name
+        if color:
+            self.color = color
