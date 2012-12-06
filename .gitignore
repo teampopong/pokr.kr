@@ -3,3 +3,5 @@
 
 /static/.webassets-cache
 /static/build
+
+settings.py
