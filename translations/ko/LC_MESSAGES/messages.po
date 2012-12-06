@@ -37,7 +37,7 @@ msgstr "검색 결과가 없습니다"
 #: apps/people/templates/search-results.html:4
 #, python-format
 msgid "Search by %(query)s"
-msgstr "%(query)s로 검색"
+msgstr "%(query)s(으)로 검색"
 
 #: apps/people/templates/search-results.html:9
 #, python-format

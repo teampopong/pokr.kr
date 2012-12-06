@@ -38,7 +38,7 @@
 						{% if person.birthyear %}
 						<tr>
 							<th>{{ gettext("birthdate") }}</th>
-							<td>{{ '%s.%s.%s'|format(person.birthyear, person.birthmonth, person.birthday) }}</td>
+							<td>{{ '%s.%s.%s'|format(person.birthyear, person.birthmonth, person.birthday)|linkall|safe }}</td>
 						</tr>
 						{% endif %}
 						{% if person.party %}
