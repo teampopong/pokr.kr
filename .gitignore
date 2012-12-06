@@ -1,5 +1,9 @@
 *.sw[poq]
 *.pyc
 
+/build
 /static/.webassets-cache
 /static/build
+
+server.log
+settings.py
