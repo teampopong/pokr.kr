@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "person-base.html" %}
 
 {% block title %}
 {{ super() }} - {{ person.name_kr|name2eng }}
@@ -6,10 +6,6 @@
 
 {% block extra_headers %}
 {{ super() }}
-{% assets filters="less", output="build/person-found.%(version)s.css"
-	, "people/less/person-found.less" %}
-<link rel="stylesheet" href="{{ ASSET_URL }}">
-{% endassets %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/graphlib/d3.v2.min.js') }}"></script>
 {% endblock %}
 
@@ -48,7 +44,7 @@
 						{% if person.party %}
 						<tr>
 							<th>{{ gettext("party") }}</th>
-							<td>{{ person.party|party2eng }}</td>
+							<td><a href="{{ url_for('parties.party', name=person.party) }}">{{ person.party|party2eng }}</a></td>
 						</tr>
 						{% endif %}
 					</tbody>
