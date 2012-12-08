@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import _app_ctx_stack, Flask, g
+from flask import _app_ctx_stack, Flask, g, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 import settings
@@ -76,6 +76,7 @@ def init_routes(server):
     '''
 
     @server.route('/entity/<keyword>')
+    @server.endpoint('entity_page')
     def entity_page(keyword):
         return keyword + u'의 페이지입니다'
 
@@ -94,6 +95,8 @@ def init_routes(server):
         server.register_blueprint(app, url_prefix=url_prefix)
 
 
+
+
 def register_filters(server):
     server.jinja_env.filters['mongojsonify'] = mongojsonify
     server.jinja_env.filters['name2eng'] = name2eng
@@ -102,7 +105,7 @@ def register_filters(server):
     # FIXME: keyword source
     with open('keywords.txt', 'r') as f:
         keywords = f.read().decode('utf-8').split()
-    url_map = lambda keyword: '/entity/%s' % keyword
+    url_map = lambda keyword: url_for('entity_page', keyword=keyword)
     any_re = '|'.join(keywords + ['[1-9][0-9]{3}'])
     linkall = LinkAllFilter(url_map, any_re).get()
     server.jinja_env.filters['linkall'] = linkall
