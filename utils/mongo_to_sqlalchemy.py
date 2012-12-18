@@ -14,6 +14,8 @@ from models.person import Person
 from models.party import Party
 from utils.mongodb import mongodb
 
+__all__ = ['create_db', 'migrate_all']
+
 # db connections
 engine = create_engine('DRIVER_HERE://ID_HERE:PWD_HERE@HOST_HERE/DB_HERE') # TODO: fill the blanks
 Session = sessionmaker(bind=engine)
