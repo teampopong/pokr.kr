@@ -41,10 +41,11 @@ def search(query):
 @app.route('/<int:id_>', methods=['GET'])
 def person(id_):
     person = get_person(id_)
+    rivals = get_rivals(person)
 
     if person:
         log_person(id_)
-        return render_template('person-found.html', menu='people', person=person)
+        return render_template('person-found.html', menu='people', person=person, rivals=rivals)
     else:
         return render_template('person-not-found.html', menu='people'), 404
 
@@ -62,6 +63,13 @@ def get_person(id):
         'id': id
         })
     return person
+
+def get_rivals(person):
+    key = 'assembly.%s.district' % person['assembly_no']
+    rivals = list(db['people'].find({
+        key: person['district']
+        }))
+    return rivals
 
 def log_person(id):
     db['log_person'].insert({
