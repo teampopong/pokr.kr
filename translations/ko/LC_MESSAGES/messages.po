@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2012-09-09 14:40+0900\n"
+"POT-Creation-Date: 2012-12-21 01:54+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,22 +17,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: apps/people/templates/base.html:12
+#: apps/party/templates/party-base.html:13
+#: apps/people/templates/person-base.html:13
 msgid "search"
 msgstr "검색"
 
-#: apps/people/templates/person-found.html:44
-msgid "birthdate"
-msgstr "생년월일"
-
-#: apps/people/templates/person-found.html:50
-msgid "party"
-msgstr "소속정당"
-
+#: apps/party/templates/party-not-found.html:4
+#: apps/party/templates/party-not-found.html:9
 #: apps/people/templates/person-not-found.html:4
 #: apps/people/templates/person-not-found.html:9
 msgid "Result not found"
 msgstr "검색 결과가 없습니다"
+
+#: apps/people/templates/person-found.html:42
+msgid "birthdate"
+msgstr "생년월일"
+
+#: apps/people/templates/person-found.html:48
+msgid "party"
+msgstr "소속정당"
+
+#: apps/people/templates/person-found.html:54
+msgid "related people"
+msgstr "관련 정치인"
+
+#: apps/people/templates/person-found.html:67
+msgid "not implemented"
+msgstr "미구현"
+
+#: apps/people/templates/person-found.html:88
+msgid "same district"
+msgstr "동일 선거구 출마"
 
 #: apps/people/templates/search-results.html:4
 #, python-format

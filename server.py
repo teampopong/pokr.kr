@@ -1,11 +1,13 @@
 #!/usr/bin/env python
+# -*- encoding: utf-8 -*-
 
-from flask import _app_ctx_stack, Flask, g
+from flask import _app_ctx_stack, Flask, g, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 import settings
 from utils.mongodb import mongojsonify
 from utils.i18n import LocaleError, name2eng, party2eng
+from utils.linkall import LinkAllFilter
 
 
 ##### utils #####
@@ -73,6 +75,11 @@ def init_routes(server):
     Register all app modules specified in settings.
     '''
 
+    @server.route('/entity/<keyword>')
+    @server.endpoint('entity_page')
+    def entity_page(keyword):
+        return keyword + u'의 페이지입니다'
+
     default_locale = settings.BABEL_SETTINGS['default_locale']
 
     for url_prefix, app in settings.apps.items():
@@ -88,10 +95,20 @@ def init_routes(server):
         server.register_blueprint(app, url_prefix=url_prefix)
 
 
+
+
 def register_filters(server):
     server.jinja_env.filters['mongojsonify'] = mongojsonify
     server.jinja_env.filters['name2eng'] = name2eng
     server.jinja_env.filters['party2eng'] = party2eng
+
+    # FIXME: keyword source
+    with open('keywords.txt', 'r') as f:
+        keywords = f.read().decode('utf-8').split()
+    url_map = lambda keyword: url_for('entity_page', keyword=keyword)
+    any_re = '|'.join(keywords + ['[1-9][0-9]{3}'])
+    linkall = LinkAllFilter(url_map, any_re).get()
+    server.jinja_env.filters['linkall'] = linkall
 
 
 def main():
@@ -101,6 +118,7 @@ def main():
     init_db(server)
     init_i18n(server)
     init_routes(server)
+
     register_filters(server)
 
     server.run(**settings.SERVER_SETTINGS)

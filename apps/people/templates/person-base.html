@@ -12,9 +12,13 @@
 	<form id="member-search-form" action="{{ url_for("people.main") }}" style="margin-bottom: 10px;">
 		<input type="text" name="q" autocomplete="on" class="search-query border-box" placeholder="{{ gettext("search") }}" style="width: 100%; padding: 12px 14px;">
 	</form>
+	<strong>최근 검색된 정치인</strong>
 	<ul class="nav nav-list">
-		<li><a href="#">Menu #1</a></li>
-		<li><a href="#">Menu #2</a></li>
+		{% if recent_people %}
+		{% for person in recent_people %}
+		<li><a href="{{url_for('people.person', id_=person.id)}}">{{person.name_kr}} ({{person.party}})</a></li>
+		{% endfor %}
+		{% endif %}
 	</ul>
 	<div style="position: fixed; bottom: 20px;">
 		<small>&copy; 2011-2012 <a href="http://popong.com/">team POPONG</a></small>

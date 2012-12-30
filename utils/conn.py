@@ -6,11 +6,11 @@ import memcache
 def get_db():
     ctx = _app_ctx_stack.top
     cfg = current_app.config['DB_SETTINGS']
-    con = getattr(ctx, 'db', None)
-    if con is None:
-        con = Connection(host=cfg['host'], port=cfg['port'])
-        ctx.con = con
-    return con[cfg['database']]
+    db = getattr(ctx, 'db', None)
+    if db is None:
+        db = Connection(host=cfg['host'], port=cfg['port'])
+        ctx.db = db
+    return db[cfg['database']]
 
 
 def get_cache():

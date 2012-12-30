@@ -1,0 +1,27 @@
+{% extends "party-base.html" %}
+
+{% block title %}
+{{ super() }} - {{ party.name|party2eng }}
+{% endblock %}
+
+{% block people_content %}
+<div id="member-result">
+	<div id="member-view">
+		<div class="row-fluid">
+			<h2>{{ party.name|party2eng }}</h2>
+		</div>
+		<hr>
+		<div id="search-view">
+			{% for person in party.members %}
+			<div class="inline-block text-center">
+				<a href="{{ url_for('people.person', id_=person.id) }}">
+					<img class="search-list-member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg')) }}"><br>
+					<strong>{{ person.name_kr|name2eng }}</strong>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}
