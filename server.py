@@ -5,8 +5,9 @@ from flask import _app_ctx_stack, Flask, g, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 import settings
-from utils.mongodb import mongojsonify
+from utils.assets import asset
 from utils.i18n import LocaleError, name2eng, party2eng
+from utils.mongodb import mongojsonify
 from utils.linkall import LinkAllFilter
 
 
@@ -104,14 +105,21 @@ def register_filters():
     app.jinja_env.filters['linkall'] = linkall
 
 
-def main():
+def register_context_processors():
 
+    @app.context_processor
+    def inject_asset():
+        return dict(asset=asset)
+
+
+def main():
     init_cache()
     init_db()
     init_i18n()
     init_routes()
 
     register_filters()
+    register_context_processors()
 
     app.run(**settings.SERVER_SETTINGS)
 

@@ -7,8 +7,8 @@
 {% block extra_headers %}
 {{ super() }}
 <script type="text/javascript" src="{{ url_for('static', filename='js/graphlib/d3.v2.min.js') }}"></script>
-<script type="text/javascript" src="//popong.com/static/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="//popong.com/static/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-1.8.1.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap-tooltip.js')}}"></script>
 {% endblock %}
 
 {% block people_content %}

@@ -2,7 +2,7 @@
 
 {% block extra_headers %}
 <link rel="stylesheet/less" href="{{ url_for('people.static', filename="less/people.less") }}">
-<script src="//popong.com/static/js/less-1.3.0.min.js"></script>
+<script src="{{asset('js/less-1.3.0.min.js')}}"></script>
 {% endblock %}
 
 {% block content %}
