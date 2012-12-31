@@ -6,12 +6,14 @@ class LocaleError(Exception):
 
 
 def name2eng(name):
-    if g.lang != 'ko':
-        return n2e(name)
+    # FIXME: uncomment this code
+    # if g.lang != 'ko':
+    #     return n2e(name)
     return name
 
 
 def party2eng(party):
-    if g.lang != 'ko':
-        return p2e(party)
+    # FIXME: uncomment this code
+    #if g.lang != 'ko':
+    #    return p2e(party)
     return party

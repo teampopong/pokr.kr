@@ -4,6 +4,7 @@
 from flask import _app_ctx_stack, Flask, g, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
+
 import settings
 from utils.assets import asset
 from utils.i18n import LocaleError, name2eng, party2eng
@@ -56,39 +57,33 @@ def init_db():
 
 def init_i18n():
     babel = Babel(app, **settings.BABEL_SETTINGS)
+    default_locale = settings.BABEL_SETTINGS['default_locale']
 
     @babel.localeselector
     def get_lang():
-        locale = getattr(g, 'lang', None)
+        locale = getattr(g, 'lang', default_locale)
         if locale not in settings.LOCALES:
             # TODO: needs a page that handles exceptions
             raise LocaleError(locale)
         return locale
 
+    # FIXME: uncomment this code
+    # @app.url_defaults
+    # def add_language_code(endpoint, values):
+    #     values.setdefault('lang', getattr(g, 'lang', default_locale))
+
+    # @app.url_value_preprocessor
+    # def pull_lang_code(endpoint, values):
+    #     g.lang = values.pop('lang', default_locale)
 
 def init_routes():
     '''
     Register all app modules specified in settings.
     '''
 
-    @app.route('/entity/<keyword>')
-    @app.endpoint('entity_page')
-    def entity_page(keyword):
-        return keyword + u'의 페이지입니다'
-
-    default_locale = settings.BABEL_SETTINGS['default_locale']
-
-    for url_prefix, bp in settings.bps.items():
-
-        @bp.url_defaults
-        def add_language_code(endpoint, values):
-            values.setdefault('lang', getattr(g, 'lang', default_locale))
-
-        @bp.url_value_preprocessor
-        def pull_lang_code(endpoint, values):
-            g.lang = values.pop('lang', default_locale)
-
-        app.register_blueprint(bp, url_prefix=url_prefix)
+    from views.main import register; register(app)
+    from views.party import register; register(app)
+    from views.person import register; register(app)
 
 
 def register_filters():

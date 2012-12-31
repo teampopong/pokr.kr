@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2012-12-21 01:54+0900\n"
+"POT-Creation-Date: 2012-12-31 20:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,44 +17,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: apps/party/templates/party-base.html:13
-#: apps/people/templates/person-base.html:13
+#: templates/layout.html:46
 msgid "search"
 msgstr ""
 
-#: apps/party/templates/party-not-found.html:4
-#: apps/party/templates/party-not-found.html:9
-#: apps/people/templates/person-not-found.html:4
-#: apps/people/templates/person-not-found.html:9
+#: templates/layout.html:49
+msgid "recently searched people"
+msgstr ""
+
+#: templates/not-found.html:4 templates/not-found.html:9
 msgid "Result not found"
 msgstr ""
 
-#: apps/people/templates/person-found.html:42
+#: templates/person.html:42
 msgid "birthdate"
 msgstr ""
 
-#: apps/people/templates/person-found.html:48
+#: templates/person.html:48
 msgid "party"
 msgstr ""
 
-#: apps/people/templates/person-found.html:54
+#: templates/person.html:54
 msgid "related people"
 msgstr ""
 
-#: apps/people/templates/person-found.html:67
+#: templates/person.html:67
 msgid "not implemented"
 msgstr ""
 
-#: apps/people/templates/person-found.html:88
+#: templates/person.html:90
 msgid "same district"
 msgstr ""
 
-#: apps/people/templates/search-results.html:4
+#: templates/search-results.html:4
 #, python-format
 msgid "Search by %(query)s"
 msgstr ""
 
-#: apps/people/templates/search-results.html:9
+#: templates/search-results.html:9
 #, python-format
 msgid "%(num_results)d people found by the query '%(query)s'."
 msgstr ""
