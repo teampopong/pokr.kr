@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import _app_ctx_stack, Flask, g, url_for
+from flask import _app_ctx_stack, Flask, url_for, request
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 
 import settings
 from utils.assets import asset
-from utils.i18n import LocaleError, name2eng, party2eng
+from utils.i18n import name2eng, party2eng
 from utils.mongodb import mongojsonify
 from utils.linkall import LinkAllFilter
 
@@ -61,20 +61,10 @@ def init_i18n():
 
     @babel.localeselector
     def get_lang():
-        locale = getattr(g, 'lang', default_locale)
+        locale = request.host.split('.')[0]
         if locale not in settings.LOCALES:
-            # TODO: needs a page that handles exceptions
-            raise LocaleError(locale)
+            locale = default_locale
         return locale
-
-    # FIXME: uncomment this code
-    # @app.url_defaults
-    # def add_language_code(endpoint, values):
-    #     values.setdefault('lang', getattr(g, 'lang', default_locale))
-
-    # @app.url_value_preprocessor
-    # def pull_lang_code(endpoint, values):
-    #     g.lang = values.pop('lang', default_locale)
 
 def init_routes():
     '''
