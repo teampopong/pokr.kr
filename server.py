@@ -34,6 +34,7 @@ class ReverseProxied(object):
 
 
 app = Flask(__name__)
+app.debug = settings.SERVER_SETTINGS['debug']
 app.wsgi_app = ReverseProxied(app.wsgi_app)
 assets = AssetEnvironment(app)
 
@@ -94,19 +95,18 @@ def register_context_processors():
         return dict(asset=asset)
 
 
-def main():
-    init_cache()
-    init_db()
-    init_i18n()
-    init_routes()
+##### setup #####
 
-    register_filters()
-    register_context_processors()
+init_cache()
+init_db()
+init_i18n()
+init_routes()
 
-    app.run(**settings.SERVER_SETTINGS)
+register_filters()
+register_context_processors()
 
 
 ##### main #####
 
 if __name__ == '__main__':
-    main()
+    app.run(**settings.SERVER_SETTINGS)
