@@ -94,6 +94,10 @@ def register_context_processors():
     def inject_asset():
         return dict(asset=asset)
 
+    @app.context_processor
+    def inject_locale():
+        return dict(locale=get_locale())
+
 
 ##### setup #####
 
