@@ -1,4 +1,4 @@
-{% extends "person-base.html" %}
+{% extends "layout.html" %}
 
 {% block title %}
 {{ super() }} - {{ person.name_kr|name2eng }}
@@ -7,9 +7,11 @@
 {% block extra_headers %}
 {{ super() }}
 <script type="text/javascript" src="{{ url_for('static', filename='js/graphlib/d3.v2.min.js') }}"></script>
+<script type="text/javascript" src="{{asset('js/jquery-1.8.1.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap-tooltip.js')}}"></script>
 {% endblock %}
 
-{% block people_content %}
+{% block content %}
 <div id="member-result">
 	<div id="member-view">
 		<div class="row-fluid">
@@ -44,7 +46,27 @@
 						{% if person.party %}
 						<tr>
 							<th>{{ gettext("party") }}</th>
-							<td><a href="{{ url_for('parties.party', name=person.party) }}">{{ person.party|party2eng }}</a></td>
+							<td><a href="{{ url_for('party', name=person.party) }}">{{ person.party|party2eng }}</a></td>
+						</tr>
+						{% endif %}
+						{% if rivals %}
+						<tr>
+							<th>{{gettext("related people")}}</th>
+							<td>
+								{% for rival in rivals|batch(4)|first %}
+								{% if rival.id != person.id %}
+								<a class="related-person" href="{{ url_for('person', id_=rival.id) }}" style="text-decoration: none;">
+									<div style="display: inline-block; text-align:center;">
+										<img src="{{ rival.image|default(url_for('static', filename='images/default_profile.jpg')) }}" style="height: 40px;"><br>
+										{{ rival.name_kr|name2eng }}
+									</div>
+								</a>
+								{% endif %}
+								{% endfor %}
+								{% if rivals|count > 4 %}
+								<a href="#" onclick="alert(&quot;{{gettext("not implemented")}}&quot;);">...</a>
+								{% endif %}
+							</td>
 						</tr>
 						{% endif %}
 					</tbody>
@@ -55,18 +77,27 @@
 		<div id="timeline">
 		</div>
 		<div id="insight">
+			{% if not config['DEBUG'] %}
 			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name_kr }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=720&h=150&lang={{ g.lang }}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
+			{% endif %}
 		</div>
 	</div>
 </div>
+
+<script>
+	$('.related-person').tooltip({
+		placement: 'bottom',
+		title: '{{gettext("same district")}}'
+	});
+</script>
 
 <script type="application/json" id="person-data">
 {{ person|mongojsonify|safe }}
 </script>
 
-{% assets filters="jsmin", output="build/person-found.%(version)s.js"
+{% assets filters="jsmin", output="build/person.%(version)s.js"
 	, "js/graphlib/pgraph.js"
-	, "people/js/person-found.js" %}
+	, "js/person.js" %}
 <script type="text/javascript" src="{{ ASSET_URL }}"></script>
 {% endassets %}
 {% endblock %}
