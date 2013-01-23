@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import _app_ctx_stack, Flask, url_for, request
+from flask import _app_ctx_stack, Flask, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 
 import settings
 from utils.assets import asset
-from utils.i18n import name2eng, party2eng
+from utils.i18n import get_locale, name2eng, party2eng
 from utils.mongodb import mongojsonify
 from utils.linkall import LinkAllFilter
 
@@ -31,9 +31,12 @@ class ReverseProxied(object):
         return self.app(environ, start_response)
 
 
+
+
 app = Flask(__name__)
 app.wsgi_app = ReverseProxied(app.wsgi_app)
 assets = AssetEnvironment(app)
+
 
 def init_cache():
     app.config['CACHE_SETTINGS'] = settings.CACHE_SETTINGS
@@ -57,14 +60,8 @@ def init_db():
 
 def init_i18n():
     babel = Babel(app, **settings.BABEL_SETTINGS)
-    default_locale = settings.BABEL_SETTINGS['default_locale']
+    babel.localeselector(get_locale)
 
-    @babel.localeselector
-    def get_lang():
-        locale = request.host.split('.')[0]
-        if locale not in settings.LOCALES:
-            locale = default_locale
-        return locale
 
 def init_routes():
     '''
