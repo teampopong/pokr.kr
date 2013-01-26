@@ -47,6 +47,12 @@ def get_person(id):
     person = db['people'].find_one({
         'id': id
         })
+    elected_nos = [assembly_no
+            for assembly_no, assem
+            in person.get('assembly', {}).items()
+            if assem.get('elected')]
+    if elected_nos:
+        person['last_elected_no'] = max(elected_nos)
     return person
 
 def get_rivals(person):
