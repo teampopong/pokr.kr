@@ -40,7 +40,7 @@
     <body>
         <div id="content">
             <div class="people-leftnav border-box">
-                <h1><a href="{{ url_for('person_main') }}"><img src="{{ url_for('static', filename='images/logo-polidic-300-alpha-noshadow.png') }}"></a></h1>
+                <h1><a href="{{ url_for('person_main') }}"><img src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
                 <p align='right'>v0.1</p>
                 <form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
                     <input type="text" name="q" autocomplete="on" class="search-query border-box" placeholder="{{ gettext("search") }}" style="width: 100%; padding: 12px 14px;">
@@ -50,7 +50,7 @@
                 <ul class="nav nav-list">
                     {% if recent_people %}
                     {% for person in recent_people %}
-                    <li><a href="{{url_for('person', id_=person.id)}}">{{person.name_kr}} ({{person.party}})</a></li>
+                    <li><a href="{{url_for('person', id_=person.id)}}">{{person.name_kr|name2eng}} ({{person.party|party2eng}})</a></li>
                     {% endfor %}
                     {% endif %}
                 </ul>

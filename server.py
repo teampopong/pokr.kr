@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import _app_ctx_stack, Flask, g, url_for
+from flask import _app_ctx_stack, Flask, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 
 import settings
 from utils.assets import asset
-from utils.i18n import LocaleError, name2eng, party2eng
+from utils.i18n import get_locale, name2eng, party2eng
 from utils.mongodb import mongojsonify
 from utils.linkall import LinkAllFilter
 
@@ -31,9 +31,13 @@ class ReverseProxied(object):
         return self.app(environ, start_response)
 
 
+
+
 app = Flask(__name__)
+app.debug = settings.SERVER_SETTINGS['debug']
 app.wsgi_app = ReverseProxied(app.wsgi_app)
 assets = AssetEnvironment(app)
+
 
 def init_cache():
     app.config['CACHE_SETTINGS'] = settings.CACHE_SETTINGS
@@ -57,24 +61,8 @@ def init_db():
 
 def init_i18n():
     babel = Babel(app, **settings.BABEL_SETTINGS)
-    default_locale = settings.BABEL_SETTINGS['default_locale']
+    babel.localeselector(get_locale)
 
-    @babel.localeselector
-    def get_lang():
-        locale = getattr(g, 'lang', default_locale)
-        if locale not in settings.LOCALES:
-            # TODO: needs a page that handles exceptions
-            raise LocaleError(locale)
-        return locale
-
-    # FIXME: uncomment this code
-    # @app.url_defaults
-    # def add_language_code(endpoint, values):
-    #     values.setdefault('lang', getattr(g, 'lang', default_locale))
-
-    # @app.url_value_preprocessor
-    # def pull_lang_code(endpoint, values):
-    #     g.lang = values.pop('lang', default_locale)
 
 def init_routes():
     '''
@@ -106,20 +94,23 @@ def register_context_processors():
     def inject_asset():
         return dict(asset=asset)
 
+    @app.context_processor
+    def inject_locale():
+        return dict(locale=get_locale())
 
-def main():
-    init_cache()
-    init_db()
-    init_i18n()
-    init_routes()
 
-    register_filters()
-    register_context_processors()
+##### setup #####
 
-    app.run(**settings.SERVER_SETTINGS)
+init_cache()
+init_db()
+init_i18n()
+init_routes()
+
+register_filters()
+register_context_processors()
 
 
 ##### main #####
 
 if __name__ == '__main__':
-    main()
+    app.run(**settings.SERVER_SETTINGS)
