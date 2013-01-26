@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-{{ super() }} - {{ person.name_kr|name2eng }}
+{{person.name_kr|name2eng}}{% if person.party %} ({{person.party|party2eng}}){% endif %}, {% if person.last_elected_no %}{{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} :: {{super()}} {{gettext('Politician Dictionary')}}
 {% endblock %}
 
 {% block extra_headers %}
