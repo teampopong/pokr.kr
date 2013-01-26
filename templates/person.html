@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-{% if person.last_elected_no %}{{person.last_elected_no}}대 국회의원 {% endif %}{{person.name_kr|name2eng}}{% if person.party %} ({{person.party|party2eng}}){% endif %} :: {{super()}} 정치인명사전
+{{person.name_kr|name2eng}}{% if person.party %} ({{person.party|party2eng}}){% endif %}, {% if person.last_elected_no %}{{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} :: {{super()}} {{gettext('Politician Dictionary')}}
 {% endblock %}
 
 {% block extra_headers %}
