@@ -4,6 +4,9 @@
         <title>{% block title %}POPONG{% endblock %}</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        {% for lang, url in locale_links.items() %}
+        <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
+        {% endfor %}
 
         <!-- styles -->
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
@@ -45,8 +48,8 @@
                 <form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
                     <input type="text" name="q" autocomplete="on" class="search-query border-box" placeholder="{{ gettext("search") }}" style="width: 100%; padding: 12px 14px;">
                 </form>
-				{% block leftnav %}
-				<strong>{{gettext("recently searched people")}}</strong>
+                {% block leftnav %}
+                <strong>{{gettext("recently searched people")}}</strong>
                 <ul class="nav nav-list">
                     {% if recent_people %}
                     {% for person in recent_people %}
@@ -54,7 +57,7 @@
                     {% endfor %}
                     {% endif %}
                 </ul>
-				{% endblock %}
+                {% endblock %}
                 <div style="position: fixed; bottom: 20px;">
                     <small>&copy; 2011-2013 <a href="http://popong.com/">team POPONG</a></small>
                 </div>
@@ -67,8 +70,8 @@
             </div>
             <div class="people-rightnav border-box">
                 <div id="people-recommendation">
-					{% block rightnav %}
-					{% endblock %}
+                    {% block rightnav %}
+                    {% endblock %}
                 </div>
             </div>
         </div>
