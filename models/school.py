@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, Unicode
 from sqlalchemy.orm import backref, relationship
-from models.base import Base
+from database import Base
 
 class School(Base):
     __tablename__ = 'school'

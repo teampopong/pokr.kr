@@ -1,5 +1,5 @@
 from sqlalchemy import CHAR, Boolean, Column, ForeignKey, Integer
-from models.base import Base
+from database import Base
 
 class PartyAffiliation(Base):
     __tablename__ = 'party_affiliation'

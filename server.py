@@ -5,6 +5,7 @@ from flask import _app_ctx_stack, Flask, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 
+from database import init_db
 import settings
 from utils.assets import asset
 from utils.i18n import get_locale, name2eng, party2eng
@@ -37,26 +38,6 @@ app = Flask(__name__)
 app.debug = settings.SERVER_SETTINGS['debug']
 app.wsgi_app = ReverseProxied(app.wsgi_app)
 assets = AssetEnvironment(app)
-
-
-def init_cache():
-    app.config['CACHE_SETTINGS'] = settings.CACHE_SETTINGS
-
-    @app.teardown_appcontext
-    def close_cache(error=None):
-        con = getattr(_app_ctx_stack.top, 'cache', None)
-        if con is not None:
-            con.disconnect_all()
-
-
-def init_db():
-    app.config['DB_SETTINGS'] = settings.DB_SETTINGS
-
-    @app.teardown_appcontext
-    def close_db(error=None):
-        con = getattr(_app_ctx_stack.top, 'db', None)
-        if con is not None:
-            con.close()
 
 
 def init_i18n():
@@ -101,7 +82,6 @@ def register_context_processors():
 
 ##### setup #####
 
-init_cache()
 init_db()
 init_i18n()
 init_routes()

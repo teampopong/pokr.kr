@@ -2,7 +2,7 @@
 
 from sqlalchemy import CHAR, Column, Enum, Integer
 from sqlalchemy.orm import backref, relationship
-from models.base import Base
+from database import Base
 
 class Election(Base):
     __tablename__ = 'election'

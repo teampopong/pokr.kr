@@ -1,4 +1,3 @@
-import base
 import candidacy
 import education
 import election

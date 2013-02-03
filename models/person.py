@@ -2,7 +2,7 @@
 
 from sqlalchemy import CHAR, Column, Enum, Integer, String, Unicode
 from sqlalchemy.orm import backref, relationship
-from models.base import Base
+from database import Base
 
 class Person(Base):
     __tablename__ = 'person'

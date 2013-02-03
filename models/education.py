@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from sqlalchemy import Column, Enum, ForeignKey, Integer, Unicode
-from models.base import Base
+from database import Base
 
 class Education(Base):
     __tablename__ = 'education'

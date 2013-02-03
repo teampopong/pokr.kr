@@ -1,6 +1,6 @@
 from sqlalchemy import CHAR, Column, Integer, Unicode
 from sqlalchemy.orm import backref, relationship
-from models.base import Base
+from database import Base
 
 class Party(Base):
     __tablename__ = 'party'

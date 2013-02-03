@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, select, Unicode
 from sqlalchemy.orm import column_property
-from models.base import Base
+from database import Base
 
 class Candidacy(Base):
     __tablename__ = 'candidacy'
