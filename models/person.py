@@ -1,8 +1,13 @@
 # -*- encoding: utf-8 -*-
 
+from datetime import date
+from flaskext.babel import format_date
 from sqlalchemy import CHAR, Column, Enum, Integer, String, Unicode
 from sqlalchemy.orm import backref, relationship
+
 from database import Base
+from models.education import education
+from models.party_affiliation import party_affiliation
 
 class Person(Base):
     __tablename__ = 'person'
@@ -30,12 +35,16 @@ class Person(Base):
     homepage = Column(String(255))
 
     ### Relations ###
-    affiliations = relationship('PartyAffiliation',
-            order_by='PartyAffiliation.end_date',
-            backref=backref('person', lazy=False))
-    educations = relationship('Education',
-            order_by='Education.start_year',
-            backref=backref('person', lazy=False))
+    parties = relationship('Party',
+            secondary=party_affiliation,
+            order_by=party_affiliation.columns['start_date'].desc(),
+            backref='person',
+            lazy='joined')
+    schools = relationship('School',
+            secondary=education,
+            order_by=education.columns['start_year'].desc(),
+            backref='person',
+            lazy='joined')
     #elections = relationship('Candidacy',
     #        order_by='Candidacy.election.date',
     #        backref=backref('person', lazy=False))
@@ -49,3 +58,23 @@ class Person(Base):
         for key, val in kwargs.items():
             if hasattr(self, key):
                 setattr(self, key, kwargs[key])
+
+    @property
+    def birthday_year(self):
+        return int(self.birthday[:4])
+
+    @property
+    def birthday_month(self):
+        return int(self.birthday[4:6]) or 1
+
+    @property
+    def birthday_day(self):
+        return int(self.birthday[6:8]) or 1
+
+    @property
+    def birthday_formatted(self):
+        return format_date(date(self.birthday_year, self.birthday_month, self.birthday_day))
+
+    @property
+    def cur_party(self):
+        return self.parties[0] if self.parties else None
