@@ -2,7 +2,6 @@
 # -*- encoding: utf-8 -*-
 
 from flask import redirect, url_for
-from views.person import get_person
 from werkzeug.local import LocalProxy
 
 NUM_RECENT_PEOPLE = 10

@@ -55,7 +55,7 @@
 							<td>
 								{% for rival in rivals|batch(4)|first %}
 								{% if rival.id != person.id %}
-								<a class="related-person" href="{{ url_for('person', id_=rival.id) }}" style="text-decoration: none;">
+								<a class="related-person" href="{{ url_for('person', id=rival.id) }}" style="text-decoration: none;">
 									<div style="display: inline-block; text-align:center;">
 										<img src="{{ rival.image|default(url_for('static', filename='images/default_profile.jpg')) }}" style="height: 40px;"><br>
 										{{ rival.name|name2eng }}

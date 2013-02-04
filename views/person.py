@@ -3,6 +3,7 @@
 
 from flask import Blueprint, g, redirect, render_template, request, url_for
 from models.person import Person
+from sqlalchemy.orm.exc import NoResultFound
 import time
 from werkzeug.local import LocalProxy
 
@@ -28,20 +29,17 @@ def register(app):
                 query=query)
 
     # 사람
-    @app.route('/person/<int:id_>', methods=['GET'])
-    def person(id_):
-        person = get_person(id_)
+    @app.route('/person/<int:id>', methods=['GET'])
+    def person(id):
+        try:
+            person = Person.query.filter_by(id=id).one()
 
-        if person:
-            log_person(id_)
-            rivals = get_rivals(person)
-            return render_template('person.html', person=person, rivals=rivals)
-        else:
+        except NoResultFound, e:
             return render_template('not-found.html'), 404
 
-def get_person(id):
-    person = Person.query.filter_by(id=id).one()
-    return person
+        log_person(id)
+        rivals = get_rivals(person)
+        return render_template('person.html', person=person, rivals=rivals)
 
 def get_rivals(person):
     # FIXME: make this work w/ postgres
