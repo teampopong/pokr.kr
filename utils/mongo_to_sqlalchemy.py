@@ -4,12 +4,10 @@ from collections import defaultdict
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-import models
-from models.base import Base
+from database import Base
 from models.candidacy import Candidacy
 from models.election import Election
 from models.party import Party
-from models.party_affiliation import PartyAffiliation
 from models.person import Person
 from models.party import Party
 from utils.mongodb import mongodb
@@ -110,6 +108,9 @@ def get_person_id(person):
 def has_person(session, person_id):
     return session.query(Person).filter_by(id=person_id).count() > 0
 
+def get_person(session, person_id):
+    return session.query(Person).filter_by(id=person_id).one()
+
 def add_parties(session, r):
     add_party(session, r['party'])
     for age, candidacy in r['assembly'].items():
@@ -122,6 +123,9 @@ def add_party(session, name):
 
 def has_party(session, name):
     return session.query(Party).filter_by(name=name).count() > 0
+
+def get_party(session, party_id):
+    return session.query(Party).filter_by(id=party_id).one()
 
 def add_elections(session, r):
     for age, candidacy in r['assembly'].items():
@@ -199,9 +203,9 @@ def add_party_affiliation(session, person_id, party_id,
         is_current_member=True):
 
     # 같은 정당에 여러 번 들어갈 수 있음
-    party_affiliation = PartyAffiliation(person_id,
-            party_id, is_current_member=is_current_member)
-    session.add(party_affiliation)
+    person = get_person(session, person_id)
+    party = get_party(session, party_id)
+    person.parties.append(party)
 
 def create_db():
     Base.metadata.create_all(engine)
