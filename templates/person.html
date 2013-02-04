@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-{{ super() }} - {{ person.name_kr|name2eng }}
+{{ super() }} - {{ person.name|name2eng }}
 {% endblock %}
 
 {% block extra_headers %}
@@ -19,7 +19,7 @@
 				<img id="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg')) }}">
 			</div>
 			<div class="span9 col-member-attrs">
-				<h2>{{ person.name_kr|name2eng }}
+				<h2>{{ person.name|name2eng }}
 					<small>
 						{% if person.twitter %}
 						<a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
@@ -30,23 +30,23 @@
 						{% if person.homepage %}
 						<a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
 						{% endif %}
-						{% if person.email %}
+						{#% if person.email %}
 						<a href="mailto:{{ person.email }}"><i class="icon-envelope mobile-icon-large"></i></a>
-						{% endif %}
+						{% endif %#}
 					</small>
 				</h2>
 				<table id="member-profile" class="table table-condensed">
 					<tbody>
-						{% if person.birthyear %}
+						{% if person.birthday %}
 						<tr>
 							<th>{{ gettext("birthdate") }}</th>
-							<td>{{ '%s.%s.%s'|format(person.birthyear, person.birthmonth, person.birthday)|linkall|safe }}</td>
+							<td>{{ person.birthday_formatted|linkall|safe }}</td>
 						</tr>
 						{% endif %}
-						{% if person.party %}
+						{% if person.cur_party %}
 						<tr>
 							<th>{{ gettext("party") }}</th>
-							<td><a href="{{ url_for('party', name=person.party) }}">{{ person.party|party2eng }}</a></td>
+							<td><a href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|party2eng }}</a></td>
 						</tr>
 						{% endif %}
 						{% if rivals %}
@@ -58,7 +58,7 @@
 								<a class="related-person" href="{{ url_for('person', id_=rival.id) }}" style="text-decoration: none;">
 									<div style="display: inline-block; text-align:center;">
 										<img src="{{ rival.image|default(url_for('static', filename='images/default_profile.jpg')) }}" style="height: 40px;"><br>
-										{{ rival.name_kr|name2eng }}
+										{{ rival.name|name2eng }}
 									</div>
 								</a>
 								{% endif %}
@@ -78,7 +78,7 @@
 		</div>
 		<div id="insight">
 			{% if not config['DEBUG'] %}
-			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name_kr }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=720&h=150&lang={{ g.lang }}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
+			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=720&h=150&lang={{ g.lang }}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
 			{% endif %}
 		</div>
 	</div>
@@ -92,12 +92,12 @@
 </script>
 
 <script type="application/json" id="person-data">
-{{ person|mongojsonify|safe }}
+{#{ person|jsonify|safe }#}
 </script>
 
-{% assets filters="jsmin", output="build/person.%(version)s.js"
+{#% assets filters="jsmin", output="build/person.%(version)s.js"
 	, "js/graphlib/pgraph.js"
 	, "js/person.js" %}
 <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-{% endassets %}
+{% endassets %#}
 {% endblock %}

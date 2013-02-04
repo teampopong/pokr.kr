@@ -2,10 +2,8 @@
 # -*- encoding: utf-8 -*-
 
 from flask import redirect, render_template, request, url_for
-from utils.conn import get_db
 from werkzeug.local import LocalProxy
-
-db = LocalProxy(get_db)
+from models.party import Party
 
 def register(app):
 
@@ -24,14 +22,8 @@ def register(app):
     def party(name):
         # TODO: validation & sanitization
         # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
-        members = list(db['people'].find({
-            'party': name
-            }))
-        party = {
-            'name': name,
-            'members': members
-        }
-        if members:
+        party = Party.query.filter_by(name=name).one()
+        if party:
             return render_template('party.html', party=party)
         else:
             return render_template('not-found.html'), 404

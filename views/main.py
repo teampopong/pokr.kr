@@ -3,12 +3,9 @@
 
 from flask import redirect, url_for
 from views.person import get_person
-from utils.conn import get_db
 from werkzeug.local import LocalProxy
 
 NUM_RECENT_PEOPLE = 10
-
-db = LocalProxy(get_db)
 
 def register(app):
 
@@ -31,10 +28,12 @@ def register(app):
         return keyword + u'의 페이지입니다'
 
 def recent(num_recent_people):
-    rp = db['log_person'].find()\
-            .sort([
-                ('date', -1)
-                ])\
-            .limit(num_recent_people)
-    rp = [get_person(p['id']) for p in rp]
-    return rp
+    # FIXME: make this work w/ postgres
+    # rp = db['log_person'].find()\
+    #         .sort([
+    #             ('date', -1)
+    #             ])\
+    #         .limit(num_recent_people)
+    # rp = [get_person(p['id']) for p in rp]
+    # return rp
+    return []

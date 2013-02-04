@@ -38,19 +38,17 @@ class Person(Base):
     parties = relationship('Party',
             secondary=party_affiliation,
             order_by=party_affiliation.columns['start_date'].desc(),
-            backref='person',
-            lazy='joined')
+            backref='person')
     schools = relationship('School',
             secondary=education,
             order_by=education.columns['start_year'].desc(),
-            backref='person',
-            lazy='joined')
+            backref='person')
     #elections = relationship('Candidacy',
     #        order_by='Candidacy.election.date',
     #        backref=backref('person', lazy=False))
     experiences = relationship('Experience',
             order_by='Experience.end_date',
-            backref=backref('person', lazy=False))
+            backref=backref('person'))
 
     def __init__(self, name, **kwargs):
         self.name = name

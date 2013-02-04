@@ -2,11 +2,9 @@
 # -*- encoding: utf-8 -*-
 
 from flask import Blueprint, g, redirect, render_template, request, url_for
+from models.person import Person
 import time
-from utils.conn import get_db
 from werkzeug.local import LocalProxy
-
-db = LocalProxy(get_db)
 
 def register(app):
 
@@ -25,9 +23,7 @@ def register(app):
     def search(query):
         # TODO: validation & sanitization
         # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
-        results = list(db['people'].find({
-            'name_kr': {'$regex': query}
-            }))
+        results = Person.query.filter(Person.name.like(u'%{0}%'.format(query))).all()
         return render_template('search-results.html', results=results,
                 query=query)
 
@@ -44,20 +40,22 @@ def register(app):
             return render_template('not-found.html'), 404
 
 def get_person(id):
-    person = db['people'].find_one({
-        'id': id
-        })
+    person = Person.query.filter_by(id=id).one()
     return person
 
 def get_rivals(person):
-    key = 'assembly.%s.district' % person['assembly_no']
-    rivals = list(db['people'].find({
-        key: person['district']
-        }))
-    return rivals
+    # FIXME: make this work w/ postgres
+    # key = 'assembly.%s.district' % person['assembly_no']
+    # rivals = list(db['people'].find({
+    #     key: person['district']
+    #     }))
+    # return rivals
+    return []
 
 def log_person(id):
-    db['log_person'].insert({
-        'id': id,
-        'date': time.time()
-    })
+    # FIXME: make this work w/ postgres
+    # db['log_person'].insert({
+    #     'id': id,
+    #     'date': time.time()
+    # })
+    pass

@@ -12,7 +12,7 @@ class Party(Base):
 
     members = relationship('Person',
             secondary=party_affiliation,
-            backref=backref('party', lazy=False))
+            backref='party')
 
     def __init__(self, name, color=None):
         self.name = name
