@@ -2,7 +2,8 @@
 
 from datetime import date
 from flaskext.babel import format_date
-from sqlalchemy import CHAR, Column, Enum, Integer, String, Unicode
+from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Unicode
+from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
 
 from database import Base
@@ -57,9 +58,13 @@ class Person(Base):
             if hasattr(self, key):
                 setattr(self, key, kwargs[key])
 
-    @property
+    @hybrid_property
     def birthday_year(self):
         return int(self.birthday[:4])
+
+    @birthday_year.expression
+    def birthday_year(cls):
+        return func.substr(cls.birthday, 1, 4)
 
     @property
     def birthday_month(self):
@@ -70,8 +75,14 @@ class Person(Base):
         return int(self.birthday[6:8]) or 1
 
     @property
+    def birthday_date(self):
+        return date(self.birthday_year,
+                self.birthday_month,
+                self.birthday_day)
+
+    @property
     def birthday_formatted(self):
-        return format_date(date(self.birthday_year, self.birthday_month, self.birthday_day))
+        return format_date(self.birthday_date)
 
     @property
     def cur_party(self):
