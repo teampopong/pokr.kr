@@ -9,7 +9,7 @@ from database import init_db
 import settings
 from utils.assets import asset
 from utils.i18n import get_locale, name2eng, party2eng
-from utils.mongodb import mongojsonify
+from utils.filters import jsonify
 from utils.linkall import LinkAllFilter
 
 
@@ -56,7 +56,7 @@ def init_routes():
 
 
 def register_filters():
-    app.jinja_env.filters['mongojsonify'] = mongojsonify
+    app.jinja_env.filters['jsonify'] = jsonify
     app.jinja_env.filters['name2eng'] = name2eng
     app.jinja_env.filters['party2eng'] = party2eng
 
