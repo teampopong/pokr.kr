@@ -17,7 +17,8 @@ class Person(Base):
 
     ### Fields ###
     name = Column(Unicode(20), nullable=False, index=True)
-    name_cn = Column(Unicode(20))
+    name_en = Column(String(80), index=True)
+    name_cn = Column(Unicode(20), index=True)
 
     gender = Column(Enum('m', 'f', name='enum_gender'), index=True)
 
