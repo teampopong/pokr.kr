@@ -18,7 +18,7 @@
 			<div class="span3 col-member-img">
 				<img id="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg')) }}">
 			</div>
-			<div class="span9 col-member-attrs">
+			<div class="span7 col-member-attrs">
 				<h2>{{ person.name_kr|name2eng }}
 					<small>
 						{% if person.name_cn %}({{person.name_cn}}){% endif %}
@@ -72,10 +72,12 @@
 						{% endif %}
 					</tbody>
 				</table>
-			</div>
+            </div>
+            <div class="span2 col-member-map" id="map">
+            </div>
 		</div>
 		<hr>
-		<div id="timeline">
+        <div id="timeline">
 		</div>
 		<div id="insight">
 			{% if not config['DEBUG'] %}
