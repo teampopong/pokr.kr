@@ -1,3 +1,6 @@
+///// varibles /////
+@hover_color    : #058;
+
 ///// mixins /////
 .border-box {
 	box-sizing: border-box; *behavior: url(/static/boxsizing.htc);
@@ -76,7 +79,7 @@
 		}
 
 		a:hover {
-			color: #005580;
+			color: @hover_color;
 		}
 	}
 
@@ -166,13 +169,13 @@
 }
 
 a [class^="icon-"] {
-	color: #08c;
+	color: #999;
 	text-decoration: none;
 	margin: auto 1px;
 }
 
 a [class^="icon-"]:hover {
-	color: #058;
+	color: @hover_color;
 	text-decoration: none;
 }
 
