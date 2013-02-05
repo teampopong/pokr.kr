@@ -21,6 +21,7 @@
 			<div class="span9 col-member-attrs">
 				<h2>{{ person.name_kr|name2eng }}
 					<small>
+						{% if person.name_cn %}({{person.name_cn}}){% endif %}
 						{% if person.twitter %}
 						<a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
 						{% endif %}
