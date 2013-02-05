@@ -19,7 +19,7 @@ engine = create_engine('DRIVER_HERE://ID_HERE:PWD_HERE@HOST_HERE/DB_HERE') # TOD
 Session = sessionmaker(bind=engine)
 
 # maps & variables
-name_counts = defaultdict(int)
+id_counts = defaultdict(int)
 
 map_gender = {
         u'남': 'm',
@@ -68,9 +68,12 @@ def migrate(session, r):
     #add_education(session, r)
 
 def add_person(session, r):
-    person_id = get_person_id(r)
+    person = session.query(Person).filter_by(name=r['name_kr'], birthday_year=r['birthyear']).first()
 
-    if not has_person(session, person_id):
+    if person:
+        person_id = person.id
+    else:
+        person_id = get_person_id(r)
         gender = map_gender[r['sex']]
         birthday = '%04d%02d%02d' % (
                 int(r.get('birthyear', 0)),
@@ -96,14 +99,10 @@ def add_person(session, r):
     return person_id
 
 def get_person_id(person):
-    name = person['name_kr']
-    name_counts[name] += 1
-    count = name_counts[name]
-    return '%04d%d%d' % (
-            int(person['birthyear']),
-            map_gender_int[person['sex']],
-            count
-            )
+    key_part = '%s%d' % (person['birthyear'], map_gender_int[person['sex']])
+    id_counts[key_part] += 1
+    count = id_counts[key_part]
+    return int('%s%d' % (key_part, count))
 
 def has_person(session, person_id):
     return session.query(Person).filter_by(id=person_id).count() > 0
@@ -216,7 +215,7 @@ def migrate_all():
         people = db['people'].find()
         for person in people:
             preprocess(person)
-            print person['name_kr']
+            print person['name_kr'].encode('utf-8')
             migrate(session, person)
             #try:
             #    migrate(session, person)
