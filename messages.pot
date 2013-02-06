@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-01-26 20:17+0900\n"
+"POT-Creation-Date: 2013-02-06 15:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/layout.html:46
-msgid "search"
-msgstr ""
-
 #: templates/layout.html:49
-msgid "recently searched people"
+msgid "search"
 msgstr ""
 
 #: templates/not-found.html:4 templates/not-found.html:9
@@ -38,24 +34,12 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:42
+#: templates/person.html:43
 msgid "birthdate"
 msgstr ""
 
-#: templates/person.html:48
+#: templates/person.html:49
 msgid "party"
-msgstr ""
-
-#: templates/person.html:54
-msgid "related people"
-msgstr ""
-
-#: templates/person.html:67
-msgid "not implemented"
-msgstr ""
-
-#: templates/person.html:90
-msgid "same district"
 msgstr ""
 
 #: templates/search-results.html:4
@@ -66,5 +50,17 @@ msgstr ""
 #: templates/search-results.html:9
 #, python-format
 msgid "%(num_results)d people found by the query '%(query)s'."
+msgstr ""
+
+#: templates/widgets/relation.html:5
+msgid "related people"
+msgstr ""
+
+#: templates/widgets/relation.html:18
+msgid "not implemented"
+msgstr ""
+
+#: templates/widgets/relation.html:26
+msgid "in the same party"
 msgstr ""
 

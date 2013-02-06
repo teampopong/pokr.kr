@@ -1,4 +1,6 @@
 {% if related_people %}
+<!-- TODO: tr, td 형태 제거 -->
+<!-- TODO: 스타일링은 외부 css 의존하지 않게 -->
 <tr>
 	<th>{{gettext("related people")}}</th>
 	<td>
@@ -17,4 +19,11 @@
 		{% endif %}
 	</td>
 </tr>
+<script>
+	// FIXME: GUID 이용해서 selector scope 명확하게.
+	$('.related-person').tooltip({
+		placement: 'bottom',
+		title: '{{gettext("in the same party")}}'
+	});
+</script>
 {% endif %}
