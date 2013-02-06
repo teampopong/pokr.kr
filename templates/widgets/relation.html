@@ -1,0 +1,20 @@
+{% if related_people %}
+<tr>
+	<th>{{gettext("related people")}}</th>
+	<td>
+		{% for related_person in related_people|batch(4)|first %}
+		{% if related_person.id != person_id %}
+		<a class="related-person" href="{{ url_for('person', id=related_person.id) }}" style="text-decoration: none;">
+			<div style="display: inline-block; text-align:center;">
+				<img src="{{ related_person.image|default(url_for('static', filename='images/default_profile.jpg')) }}" style="height: 40px;"><br>
+				{{ related_person.name|name2eng }}
+			</div>
+		</a>
+		{% endif %}
+		{% endfor %}
+		{% if related_people|count > 4 %}
+		<a href="#" onclick="alert(&quot;{{gettext("not implemented")}}&quot;);">...</a>
+		{% endif %}
+	</td>
+</tr>
+{% endif %}

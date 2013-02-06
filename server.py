@@ -12,6 +12,7 @@ from utils.host import host
 from utils.i18n import get_locale, name2eng, party2eng
 from utils.filters import jsonify
 from utils.linkall import LinkAllFilter
+from widgets import widgets
 
 
 ##### utils #####
@@ -75,6 +76,10 @@ def register_context_processors():
     @app.context_processor
     def inject_asset():
         return dict(asset=asset)
+
+    @app.context_processor
+    def inject_widgets():
+        return dict(widgets=widgets)
 
     @app.context_processor
     def inject_locales():

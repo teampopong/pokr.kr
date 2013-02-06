@@ -38,17 +38,7 @@ def register(app):
             return render_template('not-found.html'), 404
 
         log_person(id)
-        rivals = get_rivals(person)
-        return render_template('person.html', person=person, rivals=rivals)
-
-def get_rivals(person):
-    # FIXME: make this work w/ postgres
-    # key = 'assembly.%s.district' % person['assembly_no']
-    # rivals = list(db['people'].find({
-    #     key: person['district']
-    #     }))
-    # return rivals
-    return []
+        return render_template('person.html', person=person)
 
 def log_person(id):
     # FIXME: make this work w/ postgres
