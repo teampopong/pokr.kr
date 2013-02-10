@@ -14,7 +14,7 @@ class Election(Base):
 
     candidates = relationship('Candidacy',
             primaryjoin='and_(Candidacy.election_id==Election.id)',
-            backref=backref('election', lazy=False))
+            backref='election')
     winners = relationship('Candidacy',
             primaryjoin='and_(Candidacy.election_id==Election.id,'
                              'Candidacy.is_elected==True)')

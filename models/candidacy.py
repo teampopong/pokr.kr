@@ -19,9 +19,6 @@ class Candidacy(Base):
     cand_no = Column(Integer)
     vote_score = Column(Integer)
     vote_share = Column(Float)
-    party = column_property(
-        select(['Party.name']).where('Party.id==party_id')
-    )
 
     def __init__(self, person_id, election_id, party_id, **kwargs):
         self.person_id = person_id

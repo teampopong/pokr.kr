@@ -45,9 +45,8 @@ class Person(Base):
             secondary=education,
             order_by=education.columns['start_year'].desc(),
             backref='person')
-    #elections = relationship('Candidacy',
-    #        order_by='Candidacy.election.date',
-    #        backref=backref('person', lazy=False))
+    candidacies = relationship('Candidacy',
+            backref='person')
     experiences = relationship('Experience',
             order_by='Experience.end_date',
             backref=backref('person'))
