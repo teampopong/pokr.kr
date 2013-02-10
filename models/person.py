@@ -31,6 +31,7 @@ class Person(Base):
     addr_county = Column(Unicode(20), index=True)
     addr_detail = Column(Unicode(80))
 
+    image = Column(String(1024))
     twitter = Column(String(20))
     facebook = Column(String(80))
     blog = Column(String(255))
