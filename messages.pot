@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-06 15:35+0900\n"
+"POT-Creation-Date: 2013-02-11 01:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,11 @@ msgstr ""
 msgid "not implemented"
 msgstr ""
 
-#: templates/widgets/relation.html:26
+#: widgets/relation.py:17
 msgid "in the same party"
+msgstr ""
+
+#: widgets/relation.py:19
+msgid "in the same constituency"
 msgstr ""
 

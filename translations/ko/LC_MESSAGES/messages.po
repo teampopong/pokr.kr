@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-06 15:35+0900\n"
+"POT-Creation-Date: 2013-02-11 01:27+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -60,7 +60,11 @@ msgstr "관련 정치인"
 msgid "not implemented"
 msgstr "미구현"
 
-#: templates/widgets/relation.html:26
+#: widgets/relation.py:17
 msgid "in the same party"
-msgstr "동일 정당 소속"
+msgstr "동일 정당"
+
+#: widgets/relation.py:19
+msgid "in the same constituency"
+msgstr "동일 선거구 출마"
 
