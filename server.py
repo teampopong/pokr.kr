@@ -52,9 +52,7 @@ def init_routes():
     Register all app modules specified in settings.
     '''
 
-    from views.main import register; register(app)
-    from views.party import register; register(app)
-    from views.person import register; register(app)
+    from views import register_all; register_all(app)
 
 
 def register_filters():
