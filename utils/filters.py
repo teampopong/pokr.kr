@@ -2,6 +2,7 @@
 
 import json
 from sqlalchemy.ext.declarative import DeclarativeMeta
+import uuid
 
 class MyJSONEncoder(json.JSONEncoder):
     def default(self, obj, **kwargs):
@@ -18,7 +19,19 @@ class MyJSONEncoder(json.JSONEncoder):
             # a json-encodable dict
             return fields
 
-        return JSONEncoder.default(self, obj, **kwargs)
+        return json.JSONEncoder.default(self, obj, **kwargs)
 
 def jsonify(s):
     return json.dumps(s, indent=2, encoding='utf-8', cls=MyJSONEncoder)
+
+def guid_factory():
+    guids = {}
+
+    def factory(key):
+        val = guids.get(key)
+        if not val:
+            val = 'u%s' % uuid.uuid4().hex[:8]
+            guids[key] = val
+        return val
+
+    return factory

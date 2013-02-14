@@ -2,6 +2,8 @@ from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, select, Unic
 from sqlalchemy.orm import column_property
 from database import Base
 
+from models.election import Election
+
 class Candidacy(Base):
     __tablename__ = 'candidacy'
 
@@ -15,6 +17,8 @@ class Candidacy(Base):
     region1 = Column(Unicode(20), nullable=False, index=True)
     region2 = Column(Unicode(20), index=True)
     region3 = Column(Unicode(4), index=True)
+    age = column_property(select([Election.age]).where(Election.id==election_id),\
+            deferred=True)
     is_elected = Column(Boolean, default=False, index=True)
     cand_no = Column(Integer)
     vote_score = Column(Integer)

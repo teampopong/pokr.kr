@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-11 01:27+0900\n"
+"POT-Creation-Date: 2013-02-15 00:36+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,11 +34,11 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:43
+#: templates/person.html:42
 msgid "birthdate"
 msgstr ""
 
-#: templates/person.html:49
+#: templates/person.html:48
 msgid "party"
 msgstr ""
 
@@ -60,11 +60,21 @@ msgstr ""
 msgid "not implemented"
 msgstr ""
 
-#: widgets/relation.py:17
-msgid "in the same party"
+#: widgets/relation.py:22
+msgid "in the same constituency"
 msgstr ""
 
-#: widgets/relation.py:19
-msgid "in the same constituency"
+#: widgets/timeline.py:50
+msgid "birth"
+msgstr ""
+
+#: widgets/timeline.py:62
+#, python-format
+msgid "won the %(age)dth election"
+msgstr ""
+
+#: widgets/timeline.py:65
+#, python-format
+msgid "lost the %(age)dth election"
 msgstr ""
 

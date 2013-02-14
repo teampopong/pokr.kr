@@ -6,7 +6,6 @@
 
 {% block extra_headers %}
 {{ super() }}
-<script type="text/javascript" src="{{ url_for('static', filename='js/graphlib/d3.v2.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('js/jquery-1.8.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap-tooltip.js')}}"></script>
 {% endblock %}
@@ -56,24 +55,12 @@
 			</div>
 		</div>
 		<hr>
-		<div id="timeline">
-		</div>
+		{{widgets.timeline(person.id)|safe}}
 		<div id="insight">
 			{% if not config['DEBUG'] %}
-			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=720&h=150&lang={{ g.lang }}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
+			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=720&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
 			{% endif %}
 		</div>
 	</div>
 </div>
-
-
-<script type="application/json" id="person-data">
-{#{ person|jsonify|safe }#}
-</script>
-
-{#% assets filters="jsmin", output="build/person.%(version)s.js"
-	, "js/graphlib/pgraph.js"
-	, "js/person.js" %}
-<script type="text/javascript" src="{{ ASSET_URL }}"></script>
-{% endassets %#}
 {% endblock %}
