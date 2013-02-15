@@ -87,6 +87,7 @@ def add_person(session, r):
                 name_cn=r['name_cn'],
                 gender=gender,
                 birthday=birthday,
+                image=r.get('image', None),
                 twitter=r.get('twitter', None),
                 facebook=r.get('facebook', None),
                 blog=r.get('blog', None),
