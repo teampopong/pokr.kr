@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from __future__ import unicode_literals
+from calendar import month_abbr
 from flask import render_template
 from flask.ext.babel import gettext
 
@@ -50,7 +51,7 @@ def birthday_event(person):
     return event(gettext('birth'),
             '{0} {1} {2}'.format(
                 person.birthday_day,
-                person.birthday_month,
+                month_abbr[person.birthday_month],
                 person.birthday_year
                 ))
 
