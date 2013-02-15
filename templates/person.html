@@ -15,7 +15,7 @@
 	<div id="member-view">
 		<div class="row-fluid">
 			<div class="span3 col-member-img">
-				<img id="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), true) }}">
+				<img id="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}">
 			</div>
 			<div class="span9 col-member-attrs">
 				<h2>{{ person.name|name2eng }}
