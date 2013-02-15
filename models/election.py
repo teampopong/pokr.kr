@@ -12,12 +12,7 @@ class Election(Base):
     age = Column(Integer, nullable=False, index=True)
     date = Column(CHAR(8), index=True)
 
-    candidates = relationship('Candidacy',
-            primaryjoin='and_(Candidacy.election_id==Election.id)',
-            backref='election')
-    winners = relationship('Candidacy',
-            primaryjoin='and_(Candidacy.election_id==Election.id,'
-                             'Candidacy.is_elected==True)')
+    candidates = relationship('Candidacy', backref='election')
 
     def __init__(self, _type, age, date=None):
         self.type = _type

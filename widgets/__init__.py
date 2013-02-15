@@ -1,9 +1,11 @@
 # -*- encoding: utf-8 -*-
 
 from relation import relation
+from timeline import timeline
 
 __all__ = ['widgets']
 
 widgets = {
-    'relation': relation
+    'relation': relation,
+    'timeline': timeline,
 }

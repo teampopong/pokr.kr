@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-11 01:27+0900\n"
+"POT-Creation-Date: 2013-02-15 00:36+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -34,11 +34,11 @@ msgstr "%(last_elected_no)d대 국회의원"
 msgid "Politician Dictionary"
 msgstr "정치인명사전"
 
-#: templates/person.html:43
+#: templates/person.html:42
 msgid "birthdate"
 msgstr "생년월일"
 
-#: templates/person.html:49
+#: templates/person.html:48
 msgid "party"
 msgstr "소속정당"
 
@@ -60,11 +60,21 @@ msgstr "관련 정치인"
 msgid "not implemented"
 msgstr "미구현"
 
-#: widgets/relation.py:17
-msgid "in the same party"
-msgstr "동일 정당"
-
-#: widgets/relation.py:19
+#: widgets/relation.py:22
 msgid "in the same constituency"
 msgstr "동일 선거구 출마"
+
+#: widgets/timeline.py:50
+msgid "birth"
+msgstr "출생"
+
+#: widgets/timeline.py:62
+#, python-format
+msgid "won the %(age)dth election"
+msgstr "%(age)d대 당선"
+
+#: widgets/timeline.py:65
+#, python-format
+msgid "lost the %(age)dth election"
+msgstr "%(age)d대 낙선"
 
