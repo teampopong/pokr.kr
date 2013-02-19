@@ -49,7 +49,7 @@
 							<td><a href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|party2eng }}</a></td>
 						</tr>
 						{% endif %}
-						{{widgets.relation(person.id)|safe}}
+						{{widgets.relation(person)|safe}}
 					</tbody>
 				</table>
             </div>

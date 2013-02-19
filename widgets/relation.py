@@ -10,8 +10,11 @@ from models.election import Election
 from models.party import Party
 from models.person import Person
 
-def relation(person_id, size=4):
-    person = Person.query.filter_by(id=person_id).first()
+def relation(person_or_id, size=4):
+    if isinstance(person_or_id, Person):
+        person = person_or_id
+    else:
+        person = Person.query.filter_by(id=person_or_id).first()
 
     related_people = []
     #related_people.extend((gettext('in the same party'), person)\
@@ -21,7 +24,7 @@ def relation(person_id, size=4):
     #shuffle(related_people)
 
     return render_template('widgets/relation.html',
-            person_id=person_id,
+            person_id=person.id,
             related_people=related_people,
             size=size)
 
