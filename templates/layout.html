@@ -48,7 +48,12 @@
             <div id="leftnav">
                 <h1><a href="{{ url_for('person_main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
                 <form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
-                    <input type="text" name="q" autocomplete="on" class="search-query border-box" placeholder="{{ gettext("search") }}" style="width: 100%; padding: 12px 14px;">
+                    <div class="input-append">
+                        <input type="text" name="q" autocomplete="on" class="border-box" placeholder="{{ gettext("search") }}">
+                        <button class="btn add-on">
+                            <i class="icon-search"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
             {#% block leftnav %}
@@ -66,10 +71,6 @@
                 {% endblock %}
             </div>
             <div id="rightnav">
-            </div>
-        </div>
-        <div>
-            <div id="people-recommendation">
                 {% block rightnav %}
                 {% endblock %}
             </div>
