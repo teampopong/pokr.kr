@@ -6,16 +6,9 @@ import re
 from werkzeug.local import LocalProxy
 from models.person import Person
 
-NUM_RECENT_PEOPLE = 10
-
 year_re = re.compile(r'[1-9][0-9]{3}')
 
 def register(app):
-
-    @app.context_processor
-    def inject_recent():
-        rp = recent(NUM_RECENT_PEOPLE)
-        return dict(recent_people=rp)
 
     @app.route('/')
     def main():
@@ -38,14 +31,3 @@ def register(app):
         results = Person.query.filter_by(birthday_year=year).all()
         return render_template('search-results.html', results=results,
                 query=year)
-
-def recent(num_recent_people):
-    # FIXME: make this work w/ postgres
-    # rp = db['log_person'].find()\
-    #         .sort([
-    #             ('date', -1)
-    #             ])\
-    #         .limit(num_recent_people)
-    # rp = [get_person(p['id']) for p in rp]
-    # return rp
-    return []
