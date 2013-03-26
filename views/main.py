@@ -5,10 +5,16 @@ from flask import redirect, render_template, url_for
 import re
 from werkzeug.local import LocalProxy
 from models.person import Person
+from models.party import Party
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 
 def register(app):
+
+    @app.context_processor
+    def inject_parties():
+        parties = Party.query.order_by('name').all()
+        return dict(parties=parties)
 
     @app.route('/')
     def main():

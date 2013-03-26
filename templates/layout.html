@@ -54,6 +54,12 @@
                         </button>
                     </div>
                 </form>
+                <strong>정당으로 검색:</strong><hr style="margin: 0;">
+                <ul id="parties">
+                    {% for party in parties %}
+                    <li><a href="{{url_for('party', name=party.name)}}">{{party.name}}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
             <div id="content">
                 {% block content %}
