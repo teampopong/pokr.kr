@@ -1,7 +1,10 @@
+{% if not is_pjax %}
 <!DOCTYPE html>
 <html>
     <head>
+{% endif %}
         <title>{% block title %}POPONG{% endblock %}</title>
+{% if not is_pjax %}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         {% for lang, url in locale_links.items() %}
@@ -21,11 +24,14 @@
         <![endif]-->
 
         <script src="{{url_for('static', filename='js/jquery-1.8.3.js')}}"></script>
+        <script src="{{url_for('static', filename='js/jquery.pjax.js')}}"></script>
         <script src="{{url_for('static', filename='js/typeahead.min.js')}}"></script>
 
+{% endif %}
         {% block extra_headers %}
         {% endblock %}
 
+{% if not is_pjax %}
         <script src="{{asset('js/less-1.3.0.min.js')}}"></script>
 
         {% if not config['DEBUG'] %}
@@ -45,6 +51,7 @@
     </head>
     <body>
         <div id="container">
+{% endif %}
             <div id="leftnav">
                 <h1><a href="{{ url_for('person_main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
                 <form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
@@ -76,6 +83,7 @@
                 <div id="cards-cart">
                 </div>
             </div>
+{% if not is_pjax %}
         </div>
         <div id="footer">
             <p class="text-center">
@@ -84,6 +92,24 @@
         </div>
         <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
         <script>
+			$(window).load(function () {
+				$(document).pjax('a', '#container');
+			});
+            $(document).on('pjax:complete', function() {
+                var links = document.getElementsByTagName('link');
+                var typePattern = /^text\/(x-)?less$/;
+
+                less.sheets = [];
+
+                for (var i = 0; i < links.length; i++) {
+                    if (links[i].rel === 'stylesheet/less' || (links[i].rel.match(/stylesheet/) &&
+                    (links[i].type.match(typePattern)))) {
+                        less.sheets.push(links[i]);
+                    }
+                }
+
+                less.refresh(false);
+            });
             $('input#search').typeahead({
                 name: 'people_names',
                 prefetch: "{{url_for('person_all_names')}}"
@@ -97,3 +123,4 @@
         <!-- barometer end -->
     </body>
 </html>
+{% endif %}

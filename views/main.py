@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import redirect, render_template, url_for
+from flask import redirect, request, render_template, url_for
 import re
 from werkzeug.local import LocalProxy
 from models.person import Person
@@ -15,6 +15,11 @@ def register(app):
     def inject_parties():
         parties = Party.query.order_by('name').all()
         return dict(parties=parties)
+
+    @app.context_processor
+    def inject_is_pjax():
+        is_pjax = request.headers.get('X-PJAX') is not None
+        return dict(is_pjax=is_pjax)
 
     @app.route('/')
     def main():
