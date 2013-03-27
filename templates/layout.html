@@ -21,6 +21,7 @@
         <![endif]-->
 
         <script src="{{url_for('static', filename='js/jquery-1.8.3.js')}}"></script>
+        <script src="{{url_for('static', filename='js/typeahead.min.js')}}"></script>
 
         {% block extra_headers %}
         {% endblock %}
@@ -48,7 +49,7 @@
                 <h1><a href="{{ url_for('person_main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
                 <form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
                     <div class="input-append">
-                        <input type="text" name="q" autocomplete="on" class="border-box" placeholder="{{ gettext("search") }}">
+                        <input id="search" type="text" name="q" autocomplete="on" class="border-box" placeholder="{{ gettext("search") }}">
                         <button class="btn add-on">
                             <i class="icon-search"></i>
                         </button>
@@ -82,6 +83,12 @@
             </p>
         </div>
         <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
+        <script>
+            $('input#search').typeahead({
+                name: 'people_names',
+                prefetch: "{{url_for('person_all_names')}}"
+            });
+        </script>
         <!-- barometer start -->
         <script src='http://getbarometer.s3.amazonaws.com/assets/barometer/javascripts/barometer.js' type='text/javascript'></script>
         <script type="text/javascript" charset="utf-8">

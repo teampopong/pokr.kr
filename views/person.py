@@ -2,10 +2,14 @@
 # -*- encoding: utf-8 -*-
 
 from flask import Blueprint, g, redirect, render_template, request, url_for
+from database import db_session
+import json
 from models.person import Person
 from sqlalchemy.orm.exc import NoResultFound
 import time
 from werkzeug.local import LocalProxy
+
+PERSON_ALL_NAMES = json.dumps([i[0] for i in db_session.query(Person.name.distinct())])
 
 def register(app):
 
@@ -18,6 +22,10 @@ def register(app):
 
         # TODO: 기본 페이지
         return render_template('layout.html')
+
+    @app.route('/person/all-names.json', methods=['GET'])
+    def person_all_names():
+        return PERSON_ALL_NAMES
 
     # 이름으로 검색
     @app.route('/person/q/<query>', methods=['GET'])
