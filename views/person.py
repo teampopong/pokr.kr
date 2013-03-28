@@ -9,7 +9,7 @@ from sqlalchemy.orm.exc import NoResultFound
 import time
 from werkzeug.local import LocalProxy
 
-PERSON_ALL_NAMES = json.dumps([i[0] for i in db_session.query(Person.name.distinct())])
+person_names_json = json.dumps([i[0] for i in db_session.query(Person.name.distinct())])
 
 def register(app):
 
@@ -25,7 +25,7 @@ def register(app):
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():
-        return PERSON_ALL_NAMES
+        return person_names_json
 
     # 이름으로 검색
     @app.route('/person/q/<query>', methods=['GET'])

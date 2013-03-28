@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+from database import db_session
 from flask import redirect, request, render_template, url_for
 import re
 from werkzeug.local import LocalProxy
@@ -8,13 +9,14 @@ from models.person import Person
 from models.party import Party
 
 year_re = re.compile(r'[1-9][0-9]{3}')
+party_names = [i[0] for i\
+        in db_session.query(Party.name.distinct()).order_by(Party.name).all()]
 
 def register(app):
 
     @app.context_processor
     def inject_parties():
-        parties = Party.query.order_by('name').all()
-        return dict(parties=parties)
+        return dict(party_names=party_names)
 
     @app.context_processor
     def inject_is_pjax():

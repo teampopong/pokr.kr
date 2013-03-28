@@ -64,8 +64,8 @@
                 </form>
                 <strong>정당으로 검색:</strong><hr style="margin: 0;">
                 <ul id="parties">
-                    {% for party in parties %}
-                    <li><a href="{{url_for('party', name=party.name)}}">{{party.name}}</a></li>
+                    {% for party_name in party_names %}
+                    <li><a href="{{url_for('party', name=party_name)}}">{{party_name}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
