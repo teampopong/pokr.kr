@@ -7,6 +7,7 @@
 {% block extra_headers %}
 {{ super() }}
 <link rel="stylesheet/less" href="{{url_for('static', filename="less/person.less")}}">
+<script type="text/javascript" src="{{asset('js/bootstrap-tab.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap-tooltip.js')}}"></script>
 {% endblock %}
 
@@ -31,30 +32,40 @@
 {% endblock %}
 
 {% block content %}
-<div id="member-view">
-	<table id="member-profile" class="table table-condensed">
-		<tbody>
-			{% if person.birthday %}
-			<tr>
-				<th>{{ gettext("birthdate") }}</th>
-				<td>{{ person.birthday_formatted|linkall|safe }}</td>
-			</tr>
+<div id="member-view" class="tabbable">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#profile" data-toggle="tab">{{gettext("profile")}}</a></li>
+		<li><a href="#timeline" data-toggle="tab">{{gettext("timeline")}}</a></li>
+		<li><a href="#trends" data-toggle="tab">{{gettext("trends")}}</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="profile">
+			<table id="member-profile" class="table table-condensed">
+				<tbody>
+					{% if person.birthday %}
+					<tr>
+						<th>{{ gettext("birthdate") }}</th>
+						<td>{{ person.birthday_formatted|linkall|safe }}</td>
+					</tr>
+					{% endif %}
+					{% if person.cur_party %}
+					<tr>
+						<th>{{ gettext("party") }}</th>
+						<td><a href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|party2eng }}</a></td>
+					</tr>
+					{% endif %}
+					{{widgets.relation(person)|safe}}
+				</tbody>
+			</table>
+		</div>
+		<div class="tab-pane" id="timeline">
+			{{widgets.timeline(person.id)|safe}}
+		</div>
+		<div class="tab-pane" id="trends">
+			{% if not config['DEBUG'] %}
+			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=640&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
 			{% endif %}
-			{% if person.cur_party %}
-			<tr>
-				<th>{{ gettext("party") }}</th>
-				<td><a href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|party2eng }}</a></td>
-			</tr>
-			{% endif %}
-			{{widgets.relation(person)|safe}}
-		</tbody>
-	</table>
-	<hr>
-	{{widgets.timeline(person.id)|safe}}
-	<div id="insight">
-		{% if not config['DEBUG'] %}
-		<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=640&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
-		{% endif %}
+		</div>
 	</div>
 </div>
 {% endblock %}
