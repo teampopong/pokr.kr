@@ -51,7 +51,7 @@
 					{% if person.cur_party %}
 					<tr>
 						<th>{{ gettext("party") }}</th>
-						<td><a href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|party2eng }}</a></td>
+						<td><a data-pjax href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|party2eng }}</a></td>
 					</tr>
 					{% endif %}
 					{{widgets.relation(person)|safe}}

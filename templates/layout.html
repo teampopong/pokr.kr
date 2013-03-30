@@ -53,7 +53,7 @@
         <div id="container">
 {% endif %}
             <div id="leftnav">
-                <h1><a href="{{ url_for('person_main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
+                <h1><a data-pjax href="{{ url_for('person_main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
                 <form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
                     <div class="input-append">
                         <input id="search" type="text" name="q" autocomplete="on" class="border-box" placeholder="{{ gettext("search") }}">
@@ -65,7 +65,7 @@
                 <strong>정당으로 검색:</strong><hr style="margin: 0;">
                 <ul id="parties">
                     {% for party_name in party_names %}
-                    <li><a href="{{url_for('party', name=party_name)}}">{{party_name}}</a></li>
+                    <li><a data-pjax href="{{url_for('party', name=party_name)}}">{{party_name}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -92,9 +92,9 @@
         </div>
         <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
         <script>
-			$(window).load(function () {
-				$(document).pjax('a', '#container');
-			});
+            $(window).load(function () {
+                $(document).pjax('a[data-pjax]', '#container');
+            });
             $(document).on('pjax:complete', function() {
                 var links = document.getElementsByTagName('link');
                 var typePattern = /^text\/(x-)?less$/;
