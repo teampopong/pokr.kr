@@ -126,18 +126,45 @@ body {
     right: 0;
 }
 
-#parties {
-    display: block;
+#search-options {
     position: absolute;
-    top: 135px;
+    top: 115px;
     bottom: 0;
     left: 0;
-    width: 150px;
-    list-style: none;
-    margin-left: 0;
-    padding: 0 10px 10px 10px;
+    right: 0;
+    padding: 0 10px;
     overflow-x: hidden;
     overflow-y: auto;
+
+    .accordion-toggle {
+        color: #333;
+        font-weight: bold;
+        padding: 3px 0 3px 3px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .accordion-inner {
+        padding: 0 0 0 3px;
+    }
+}
+
+#search-party {
+    position: relative;
+    width: 100%;
+    .border-box;
+    border: 1px solid #999;
+
+    ul {
+        display: block;
+        height: 150px;
+        margin: 0;
+        list-style: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
 
 #card-container {

@@ -25,6 +25,8 @@
 
         <script src="{{url_for('static', filename='js/jquery-1.8.3.js')}}"></script>
         <script src="{{url_for('static', filename='js/jquery.pjax.js')}}"></script>
+        <script src="{{url_for('static', filename='js/bootstrap-transition.js')}}"></script>
+        <script src="{{url_for('static', filename='js/bootstrap-collapse.js')}}"></script>
         <script src="{{url_for('static', filename='js/typeahead.min.js')}}"></script>
 
 {% endif %}
@@ -62,12 +64,20 @@
                         </button>
                     </div>
                 </form>
-                <strong>정당으로 검색:</strong><hr style="margin: 0;">
-                <ul id="parties">
-                    {% for party_name in party_names %}
-                    <li><a data-pjax href="{{url_for('party', name=party_name)}}">{{party_name}}</a></li>
-                    {% endfor %}
-                </ul>
+                <div id="search-options" class="accordion">
+                    <div id="search-party" class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#search-options" href="#parties">{{gettext("search by party:")}}</a>
+                        </div>
+                        <div id="parties" class="accordion-body collapse in">
+                            <ul class="accordion-inner">
+                                {% for party_name in party_names %}
+                                <li><a data-pjax href="{{url_for('party', name=party_name)}}">{{party_name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="content">
                 {% block content %}
