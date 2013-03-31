@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-15 00:36+0900\n"
+"POT-Creation-Date: 2013-03-31 16:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/layout.html:49
+#: templates/layout.html:61
 msgid "search"
+msgstr ""
+
+#: templates/layout.html:70
+msgid "search by party:"
 msgstr ""
 
 #: templates/not-found.html:4 templates/not-found.html:9
@@ -34,11 +38,23 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:42
+#: templates/person.html:37
+msgid "profile"
+msgstr ""
+
+#: templates/person.html:38
+msgid "timeline"
+msgstr ""
+
+#: templates/person.html:39
+msgid "trends"
+msgstr ""
+
+#: templates/person.html:47
 msgid "birthdate"
 msgstr ""
 
-#: templates/person.html:48
+#: templates/person.html:53
 msgid "party"
 msgstr ""
 
@@ -47,7 +63,7 @@ msgstr ""
 msgid "Search by %(query)s"
 msgstr ""
 
-#: templates/search-results.html:9
+#: templates/search-results.html:14
 #, python-format
 msgid "%(num_results)d people found by the query '%(query)s'."
 msgstr ""
@@ -64,16 +80,16 @@ msgstr ""
 msgid "in the same constituency"
 msgstr ""
 
-#: widgets/timeline.py:50
+#: widgets/timeline.py:51
 msgid "birth"
 msgstr ""
 
-#: widgets/timeline.py:62
+#: widgets/timeline.py:67
 #, python-format
 msgid "won the %(age)dth election"
 msgstr ""
 
-#: widgets/timeline.py:65
+#: widgets/timeline.py:70
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr ""

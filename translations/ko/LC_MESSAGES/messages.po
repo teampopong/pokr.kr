@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-02-15 00:36+0900\n"
+"POT-Creation-Date: 2013-03-31 16:21+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,9 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/layout.html:49
+#: templates/layout.html:61
 msgid "search"
 msgstr "검색"
+
+#: templates/layout.html:70
+msgid "search by party:"
+msgstr "정당으로 검색:"
 
 #: templates/not-found.html:4 templates/not-found.html:9
 msgid "Result not found"
@@ -34,11 +38,23 @@ msgstr "%(last_elected_no)d대 국회의원"
 msgid "Politician Dictionary"
 msgstr "정치인명사전"
 
-#: templates/person.html:42
+#: templates/person.html:37
+msgid "profile"
+msgstr "기본정보"
+
+#: templates/person.html:38
+msgid "timeline"
+msgstr "타임라인"
+
+#: templates/person.html:39
+msgid "trends"
+msgstr "트렌드"
+
+#: templates/person.html:47
 msgid "birthdate"
 msgstr "생년월일"
 
-#: templates/person.html:48
+#: templates/person.html:53
 msgid "party"
 msgstr "소속정당"
 
@@ -47,7 +63,7 @@ msgstr "소속정당"
 msgid "Search by %(query)s"
 msgstr "%(query)s(으)로 검색"
 
-#: templates/search-results.html:9
+#: templates/search-results.html:14
 #, python-format
 msgid "%(num_results)d people found by the query '%(query)s'."
 msgstr "검색 결과: %(query)s (%(num_results)d 명)"
@@ -64,16 +80,16 @@ msgstr "미구현"
 msgid "in the same constituency"
 msgstr "동일 선거구 출마"
 
-#: widgets/timeline.py:50
+#: widgets/timeline.py:51
 msgid "birth"
 msgstr "출생"
 
-#: widgets/timeline.py:62
+#: widgets/timeline.py:67
 #, python-format
 msgid "won the %(age)dth election"
 msgstr "%(age)d대 당선"
 
-#: widgets/timeline.py:65
+#: widgets/timeline.py:70
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
