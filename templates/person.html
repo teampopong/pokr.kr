@@ -12,23 +12,25 @@
 {% endblock %}
 
 {% block card %}
-<img id="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}">
-<h2><span>{{ person.name|name2eng }}</span><br>
-	<small>
-		{% if person.twitter %}
-		<a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
-		{% endif %}
-		{% if person.facebook %}
-		<a href="http://facebook.com/{{ person.facebook }}"><i class="icon-facebook-sign mobile-icon-large"></i></a>
-		{% endif %}
-		{% if person.homepage %}
-		<a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
-		{% endif %}
-		{#% if person.email %}
-		<a href="mailto:{{ person.email }}"><i class="icon-envelope mobile-icon-large"></i></a>
-		{% endif %#}
-	</small>
-</h2>
+<div class="card" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
+    <img class="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}">
+    <h2><span class="member-name">{{ person.name|name2eng }}</span><br>
+        <small>
+            {% if person.twitter %}
+            <a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
+            {% endif %}
+            {% if person.facebook %}
+            <a href="http://facebook.com/{{ person.facebook }}"><i class="icon-facebook-sign mobile-icon-large"></i></a>
+            {% endif %}
+            {% if person.homepage %}
+            <a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
+            {% endif %}
+            {#% if person.email %}
+            <a href="mailto:{{ person.email }}"><i class="icon-envelope mobile-icon-large"></i></a>
+            {% endif %#}
+        </small>
+    </h2>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -68,4 +70,5 @@
 		</div>
 	</div>
 </div>
+<a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()"><i class="icon-plus icon-large"></i></a>
 {% endblock %}

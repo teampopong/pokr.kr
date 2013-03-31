@@ -21,10 +21,13 @@
 
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="{{url_for('static', filename='js/json2.js')}}"></script>
+        <script src="{{url_for('static', filename='js/localstorageshim.min.js')}}"></script>
         <![endif]-->
 
         <script src="{{url_for('static', filename='js/jquery-1.8.3.js')}}"></script>
         <script src="{{url_for('static', filename='js/jquery.pjax.js')}}"></script>
+        <script src="{{url_for('static', filename='js/mustache.js')}}"></script>
         <script src="{{url_for('static', filename='js/bootstrap-transition.js')}}"></script>
         <script src="{{url_for('static', filename='js/bootstrap-collapse.js')}}"></script>
         <script src="{{url_for('static', filename='js/typeahead.min.js')}}"></script>
@@ -85,12 +88,14 @@
             </div>
             <div id="rightnav">
                 <div id="card-container">
-                    <div id="card">
-                        {% block card %}
-                        {% endblock %}
-                    </div>
+                    {% block card %}
+                    {% endblock %}
                 </div>
-                <div id="cards-cart">
+                <div id="cards-cart-container">
+                    <h3>Cart</h3>
+                    <a class="btn-clear-cart" href="#" onclick="CART.clearCart()">clear</a>
+                    <div id="cards-cart">
+                    </div>
                 </div>
             </div>
 {% if not is_pjax %}
@@ -101,9 +106,12 @@
             </p>
         </div>
         <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
+        <script src="{{url_for('static', filename='js/popong.js')}}"></script>
+        <script src="{{url_for('static', filename="js/cart.js")}}"></script>
         <script>
             $(window).load(function () {
                 $(document).pjax('a[data-pjax]', '#container');
+                $('.member-img').clipImage();
             });
             $(document).on('pjax:complete', function() {
                 var links = document.getElementsByTagName('link');

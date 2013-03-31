@@ -176,7 +176,7 @@ body {
     border: 1px solid #999;
 }
 
-#card {
+.card {
     position: relative;
     width: 120px;
     margin: 7px auto;
@@ -185,9 +185,10 @@ body {
     .box-shadow;
     background: #fafafa;
 
-    #member-img {
+    .member-img {
         display: block;
-        width: 100%;
+        width: 120px;
+        height: 160px;
         margin: 0 auto;
         .border-radius;
     }
@@ -204,13 +205,75 @@ body {
     }
 }
 
-#cards-cart {
+#cards-cart-container {
     position: absolute;
     top: 240px;
     bottom: 0;
     left: 0;
     right: 0;
     border: 1px solid #999;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    h3 {
+        font-size: 12pt;
+        margin: 10px 0 5px 5px;
+        line-height: 1em;
+    }
+
+    .card {
+        float: left;
+        width: 45px;
+        margin: 5px 0 0 5px;
+
+        .btn-remove-card {
+            display: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: right;
+            background: rgba(127, 127, 127, 0.3);
+        }
+
+        &:hover .btn-remove-card {
+            display: block;
+        }
+
+        &:hover {
+            background: #ececec;
+        }
+
+        a,
+        a:hover {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .member-img {
+            width: 45px;
+            height: 60px;
+        }
+
+        h2 {
+            font-size: 10pt;
+        }
+
+        small {
+            display: none;
+        }
+    }
+}
+
+.btn-save-card {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.btn-clear-cart {
+    position: absolute;
+    top: 10px;
+    right: 5px;
 }
 
 .input-append {
