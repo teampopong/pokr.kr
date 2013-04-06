@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-03-31 16:21+0900\n"
+"POT-Creation-Date: 2013-04-06 23:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/layout.html:61
+#: templates/layout.html:64
 msgid "search"
 msgstr ""
 
-#: templates/layout.html:70
+#: templates/layout.html:73
 msgid "search by party:"
 msgstr ""
 
@@ -38,24 +38,44 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:37
+#: templates/person.html:39
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:38
+#: templates/person.html:40
 msgid "timeline"
 msgstr ""
 
-#: templates/person.html:39
+#: templates/person.html:41
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:47
+#: templates/person.html:49
 msgid "birthdate"
 msgstr ""
 
-#: templates/person.html:53
+#: templates/person.html:55
 msgid "party"
+msgstr ""
+
+#: templates/person.html:61
+msgid "election district"
+msgstr ""
+
+#: templates/person.html:67
+msgid "job"
+msgstr ""
+
+#: templates/person.html:73
+msgid "education"
+msgstr ""
+
+#: templates/person.html:79
+msgid "work experience"
+msgstr ""
+
+#: templates/person.html:89
+msgid "address"
 msgstr ""
 
 #: templates/search-results.html:4

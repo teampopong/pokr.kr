@@ -10,7 +10,7 @@ from models.election import Election
 from models.party import Party
 from models.person import Person
 from models.party import Party
-from utils.mongodb import mongodb
+from utils.mongodb import mongodb, mongojsonify
 
 __all__ = ['create_db', 'migrate_all']
 
@@ -67,6 +67,10 @@ def migrate(session, r):
     #add_school(session, r)
     #add_education(session, r)
 
+def without_history(r):
+    new = { k: v for k, v in r.items() if k != 'assembly' }
+    return new
+
 def add_person(session, r):
     person = session.query(Person).filter_by(name=r['name_kr'], birthday_year=r['birthyear']).first()
 
@@ -92,6 +96,7 @@ def add_person(session, r):
                 facebook=r.get('facebook', None),
                 blog=r.get('blog', None),
                 homepage=r.get('homepage', None),
+                extra_vars=mongojsonify(without_history(r))
                 )
 
         # TODO: address 추가

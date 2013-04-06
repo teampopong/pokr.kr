@@ -56,6 +56,40 @@
 						<td><a data-pjax href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|party2eng }}</a></td>
 					</tr>
 					{% endif %}
+					{% if person.extra_vars.district %}
+					<tr>
+						<th>{{ gettext("election district") }}</th>
+                        <td>{{person.extra_vars.district}}</td>
+					</tr>
+					{% endif %}
+					{% if person.extra_vars.job %}
+					<tr>
+						<th>{{ gettext("job") }}</th>
+                        <td>{{person.extra_vars.job}}</td>
+					</tr>
+					{% endif %}
+					{% if person.extra_vars.education %}
+					<tr>
+						<th>{{ gettext("education") }}</th>
+                        <td>{{person.extra_vars.education}}</td>
+					</tr>
+					{% endif %}
+					{% if person.extra_vars.experience %}
+					<tr>
+						<th>{{ gettext("work experience") }}</th>
+                        <td>
+                            {% for exp in person.extra_vars.experience %}
+                            {{exp}}<br>
+                            {% endfor %}
+                        </td>
+					</tr>
+					{% endif %}
+					{% if person.extra_vars.address %}
+					<tr>
+						<th>{{ gettext("address") }}</th>
+                        <td>{{person.extra_vars.address}}</td>
+					</tr>
+					{% endif %}
 					{{widgets.relation(person)|safe}}
 				</tbody>
 			</table>

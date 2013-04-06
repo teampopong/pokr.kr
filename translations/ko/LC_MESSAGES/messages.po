@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-03-31 16:21+0900\n"
+"POT-Creation-Date: 2013-04-06 23:11+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/layout.html:61
+#: templates/layout.html:64
 msgid "search"
 msgstr "검색"
 
-#: templates/layout.html:70
+#: templates/layout.html:73
 msgid "search by party:"
 msgstr "정당으로 검색:"
 
@@ -38,25 +38,45 @@ msgstr "%(last_elected_no)d대 국회의원"
 msgid "Politician Dictionary"
 msgstr "정치인명사전"
 
-#: templates/person.html:37
+#: templates/person.html:39
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:38
+#: templates/person.html:40
 msgid "timeline"
 msgstr "타임라인"
 
-#: templates/person.html:39
+#: templates/person.html:41
 msgid "trends"
 msgstr "트렌드"
 
-#: templates/person.html:47
+#: templates/person.html:49
 msgid "birthdate"
 msgstr "생년월일"
 
-#: templates/person.html:53
+#: templates/person.html:55
 msgid "party"
 msgstr "소속정당"
+
+#: templates/person.html:61
+msgid "election district"
+msgstr "지역구"
+
+#: templates/person.html:67
+msgid "job"
+msgstr "직업"
+
+#: templates/person.html:73
+msgid "education"
+msgstr "학력"
+
+#: templates/person.html:79
+msgid "work experience"
+msgstr "경력"
+
+#: templates/person.html:89
+msgid "address"
+msgstr "주소"
 
 #: templates/search-results.html:4
 #, python-format
@@ -93,4 +113,7 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
+
+#~ msgid "district"
+#~ msgstr ""
 

@@ -41,9 +41,13 @@ def register(app):
     def person(id):
         try:
             person = Person.query.filter_by(id=id).one()
-
         except NoResultFound, e:
             return render_template('not-found.html'), 404
+
+        try:
+            person.extra_vars = json.loads(person.extra_vars)
+        except ValueError, e:
+            pass
 
         log_person(id)
         # XXX: script tag가 포함되어 있으면 pjax 불가

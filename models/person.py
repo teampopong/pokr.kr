@@ -2,7 +2,7 @@
 
 from datetime import date
 from flaskext.babel import format_date
-from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Unicode
+from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
 
@@ -36,6 +36,7 @@ class Person(Base):
     facebook = Column(String(80))
     blog = Column(String(255))
     homepage = Column(String(255))
+    extra_vars = Column(Text)
 
     ### Relations ###
     parties = relationship('Party',
