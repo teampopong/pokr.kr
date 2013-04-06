@@ -8,15 +8,15 @@ Install & Run Service
 
 1. install dependant packages
 
-	Ubuntu Linux:
+    - Ubuntu Linux:
 
 	$ sudo apt-get update
-	$ sudo apt-get install python python-dev python2.7 libpq-dev
+	$ sudo apt-get install python python-dev python2.7 libpq-dev libevent-dev
 
-	Mac OS X:
+    - Mac OS X:
 	
 	Install Homebrew (http://mxcl.github.com/homebrew/)
-	$ brew install python postgresql
+	$ brew install python postgresql libevent
 
 1. install **polidic**
 
