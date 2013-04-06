@@ -1,17 +1,14 @@
 install:
-	npm install -g less
 	pip install -r requirements.txt
-
-update_i18n:
-	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o messages.pot .
-	pybabel update -i messages.pot -d translations
-	pybabel compile -d translations
-
-update_submodule:
 	git submodule init
 	git submodule update
+	cp settings.py.sample settings.py
 
-load_db:
-	mongorestore -d popongdb -c people tests/data/popongdb/people
+extract_i18n:
+	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o messages.pot .
+	pybabel update -i messages.pot -d translations
 
-.PHONY: install update_i18n load_db
+update_i18n:
+	pybabel compile -d translations
+
+.PHONY: install extract_i18n update_i18n
