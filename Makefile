@@ -11,4 +11,7 @@ extract_i18n:
 update_i18n:
 	pybabel compile -d translations
 
-.PHONY: install extract_i18n update_i18n
+load_db:
+	pg_restore -d popongdb data/db.sql
+
+.PHONY: install extract_i18n update_i18n load_db
