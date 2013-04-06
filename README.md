@@ -28,6 +28,10 @@ Install & Run Service
 
 	$ vi settings.py
 
+1. load data
+
+	$ make load_db
+
 ### Run
 
 1. run the server
