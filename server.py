@@ -2,7 +2,6 @@
 # -*- encoding: utf-8 -*-
 
 from flask import _app_ctx_stack, Flask, request, url_for
-from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 
 from database import init_db
@@ -39,7 +38,6 @@ class ReverseProxied(object):
 app = Flask(__name__)
 app.debug = settings.SERVER_SETTINGS['debug']
 app.wsgi_app = ReverseProxied(app.wsgi_app)
-assets = AssetEnvironment(app)
 
 
 def init_i18n():
