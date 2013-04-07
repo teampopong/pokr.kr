@@ -45,13 +45,16 @@ def register(app):
             return render_template('not-found.html'), 404
 
         try:
-            person.extra_vars = json.loads(person.extra_vars)
+            person_extra_vars = json.loads(person.extra_vars)
+            if not isinstance(person_extra_vars['experience'], list):
+                person_extra_vars = [person_extra_vars['experience']]
         except ValueError, e:
             pass
 
         log_person(id)
         # XXX: script tag가 포함되어 있으면 pjax 불가
-        return render_template('person.html', person=person, is_pjax=False)
+        return render_template('person.html', person=person,
+                person_extra_vars=person_extra_vars, is_pjax=False)
 
 def log_person(id):
     # FIXME: make this work w/ postgres
