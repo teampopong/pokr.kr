@@ -7,3 +7,4 @@
 
 server.log
 settings.py
+alembic.ini
