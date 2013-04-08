@@ -46,7 +46,7 @@ def register(app):
 
         try:
             person_extra_vars = json.loads(person.extra_vars)
-            if not isinstance(person_extra_vars.get('experience', None), list):
+            if type(person_extra_vars.get('experience', None)) in [str, unicode]:
                 person_extra_vars['experience'] = [person_extra_vars['experience']]
         except ValueError, e:
             pass
