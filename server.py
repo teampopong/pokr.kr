@@ -11,24 +11,24 @@ from utils.linkall import init_app as init_linkall
 from utils.reverse_proxy import init_app as init_reverse_proxy
 from views import init_app as init_view
 from widgets import init_app as init_widgets
-import settings
+from settings import BABEL_SETTINGS, SCRIPT_NAME, SERVER_SETTINGS
 
 
 
 
 app = Flask(__name__)
-app.debug = settings.SERVER_SETTINGS['debug']
+app.debug = SERVER_SETTINGS['debug']
 
 
 init_asset(app)
 init_db()
 init_filters(app)
-init_i18n(app, **settings.BABEL_SETTINGS)
+init_i18n(app, **BABEL_SETTINGS)
 init_linkall(app)
-init_reverse_proxy(app, settings.SCRIPT_NAME)
+init_reverse_proxy(app, SCRIPT_NAME)
 init_view(app)
 init_widgets(app)
 
 
 if __name__ == '__main__':
-    app.run(**settings.SERVER_SETTINGS)
+    app.run(**SERVER_SETTINGS)
