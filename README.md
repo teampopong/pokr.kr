@@ -26,7 +26,8 @@ Install & Run Service
 
 1. modify settings file
 
-	$ vi settings.py
+	- settings.py
+	- alembic.ini
 
 1. load data
 

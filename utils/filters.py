@@ -4,6 +4,11 @@ import json
 from sqlalchemy.ext.declarative import DeclarativeMeta
 import uuid
 
+
+def init_app(app):
+    app.jinja_env.filters['jsonify'] = jsonify
+
+
 class MyJSONEncoder(json.JSONEncoder):
     def default(self, obj, **kwargs):
         # handles SQLAlchemy object

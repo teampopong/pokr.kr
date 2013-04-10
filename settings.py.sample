@@ -14,8 +14,6 @@ BABEL_SETTINGS = {
         'default_timezone': 'KST',
         }
 
-LOCALES = ['en', 'ko']
-
 POSTGRES_SETTINGS = {
         'dialect': 'postgresql',
         'driver': 'psycopg2',
