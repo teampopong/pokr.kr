@@ -10,7 +10,7 @@ from models.party import Party
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 party_names = [i[0] for i\
-        in db_session.query(Party.name.distinct()).order_by(Party.name).all()]
+        in db_session.query(Party.name).order_by(Party.order).all()]
 
 def register(app):
 
