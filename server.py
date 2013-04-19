@@ -21,7 +21,7 @@ app.debug = SERVER_SETTINGS['debug']
 
 
 init_asset(app)
-init_db()
+init_db(app)
 init_filters(app)
 init_i18n(app, **BABEL_SETTINGS)
 init_linkall(app)
