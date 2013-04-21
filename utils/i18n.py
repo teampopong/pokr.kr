@@ -1,64 +1,90 @@
-from flask import request
-from flask.ext.babel import Babel
-from flask.ext.babel import refresh as babel_refresh
+from flask import current_app as cur_app, request
+from flask.ext.babel import Babel, get_locale
+from functools import wraps
 
 from utils.nlp.utils.translit import translit
 
 
-__all__ = ['babel', 'init_app']
+__all__ = ['PopongBabel']
 
 
-babel = Babel()
+class PopongBabel(Babel):
+
+    def init_app(self, app):
+        super(PopongBabel, self).init_app(app)
+
+        self.localeselector(localeselector)
+
+        # shortcuts
+        app.babel = self
+        app.LOCALES = self.list_translations() + ['en']
+
+        # jinja filters
+        app.jinja_env.filters['name2eng'] = name2eng
+        app.jinja_env.filters['party2eng'] = party2eng
+
+        # context processor
+        app.context_processor(inject_locales)
 
 
 class InvalidLocaleError(Exception):
     pass
 
 
-def init_app(app, **settings):
-    babel.init_app(app)
+class NotInAppContextError(Exception):
+    pass
 
-    # babel settings
-    for key, val in settings.items():
-        app.config[('babel_%s' % key).upper()] = val
-    babel.localeselector(get_locale)
-    babel_refresh()
 
-    # helper
-    babel.LOCALES = babel.list_translations() + ['en']
+@wraps
+def babel_context(f):
+    def decorated(*args, **kwargs):
+        if not hasattr(cur_app, 'babel') or not hasattr(cur_app, 'LOCALES'):
+            raise NotInAppContextError()
 
-    # jinja filters
-    app.jinja_env.filters['name2eng'] = name2eng
-    app.jinja_env.filters['party2eng'] = party2eng
+        f(*args, **kwargs)
+    return decorated
 
-    # context processor
-    @app.context_processor
-    def inject_locales():
-        locale_links = {
-                locale: request.url.replace(request.host, host(locale))
-                for locale in babel.LOCALES
-            }
-        return dict(locale_links=locale_links,
-                locale=get_locale())
+
+@babel_context
+def is_valid_locale(locale):
+    return locale in cur_app.LOCALES
+
+
+def assert_valid_locale(locale):
+    if not is_valid_locale(locale):
+        raise InvalidLocaleError()
 
 
 def host(locale=None):
-    if locale not in babel.LOCALES:
-        raise InvalidLocaleError()
+    assert_valid_locale(locale)
 
-    if request.host.split('.', 1)[0] not in babel.LOCALES:
+    bottom_level_domain, rest = request.host.split('.', 1)
+    if not is_valid_locale(bottom_level_domain):
         host = request.host
     else:
-        host = request.host.split('.', 1)[1]
+        host = rest
 
     return '{locale}.{host}'.format(locale=locale, host=host)
 
 
-def get_locale():
-    locale = request.host.split('.', 1)[0]
-    if locale not in babel.LOCALES:
-        locale = babel.default_locale
+@babel_context
+def localeselector():
+    locale, _ = request.host.split('.', 1)
+    if not is_valid_locale(locale):
+        locale = cur_app.babel.default_locale
     return locale
+
+
+@babel_context
+def inject_locales():
+    # TODO: caching
+    locale_links = {
+            locale: request.url.replace(request.host, host(locale))
+            for locale in cur_app.LOCALES
+        }
+
+    return dict(locale_links=locale_links,
+            locale=get_locale())
 
 
 def name2eng(name):

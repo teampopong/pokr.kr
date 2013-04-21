@@ -6,7 +6,7 @@ from flask import Flask
 from database import init_db
 from utils.assets import init_app as init_asset
 from utils.filters import init_app as init_filters
-from utils.i18n import init_app as init_i18n
+from utils.i18n import PopongBabel
 from utils.linkall import init_app as init_linkall
 from utils.reverse_proxy import init_app as init_reverse_proxy
 from views import init_app as init_view
@@ -23,7 +23,7 @@ app.debug = SERVER_SETTINGS['debug']
 init_asset(app)
 init_db(app)
 init_filters(app)
-init_i18n(app, **BABEL_SETTINGS)
+PopongBabel(app, **BABEL_SETTINGS)
 init_linkall(app)
 init_reverse_proxy(app, SCRIPT_NAME)
 init_view(app)
