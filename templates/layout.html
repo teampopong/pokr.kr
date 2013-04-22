@@ -74,8 +74,8 @@
                         </div>
                         <div id="parties" class="accordion-body collapse in">
                             <ul class="accordion-inner">
-                                {% for party_name in party_names %}
-                                <li><a data-pjax href="{{url_for('party', name=party_name)}}">{{party_name|translit(type='party')}}</a></li>
+                                {% for party in party_list %}
+                                <li class="select-party"><a data-pjax href="{{url_for('party', name=party.name)}}">{{party.name|translit(type='party')}}</a><span class="party-size">({{party.size or 0}})</span></li>
                                 {% endfor %}
                             </ul>
                         </div>

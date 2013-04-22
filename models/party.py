@@ -10,7 +10,10 @@ class Party(Base):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(Unicode(20), nullable=False, index=True)
     color = Column(CHAR(6))
+
+    # derived(duplicated) infos
     order = Column(Integer)
+    size = Column(Integer)
 
     members = relationship('Person',
             secondary=party_affiliation,

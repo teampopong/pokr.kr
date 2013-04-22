@@ -9,14 +9,13 @@ from models.person import Person
 from models.party import Party
 
 year_re = re.compile(r'[1-9][0-9]{3}')
-party_names = [i[0] for i\
-        in db_session.query(Party.name).order_by(Party.order).all()]
+party_list = db_session.query(Party.name, Party.size).order_by(Party.order).filter(Party.name != '무소속').all()
 
 def register(app):
 
     @app.context_processor
     def inject_parties():
-        return dict(party_names=party_names)
+        return dict(party_list=party_list)
 
     @app.context_processor
     def inject_is_pjax():
