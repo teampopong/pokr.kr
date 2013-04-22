@@ -49,6 +49,9 @@ def rivals(person):
     if not candidacy:
         return []
 
+    if candidacy.region1 == u'비례대표':
+        return []
+
     candidacies = Candidacy.query.filter_by(election_id=candidacy.election_id,
             region1=candidacy.region1,
             region2=candidacy.region2,
