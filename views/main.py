@@ -9,7 +9,7 @@ from models.person import Person
 from models.party import Party
 
 year_re = re.compile(r'[1-9][0-9]{3}')
-party_list = db_session.query(Party.name, Party.size).order_by(Party.order).filter(Party.name != '무소속').all()
+party_list = db_session.query(Party.name, Party.size).order_by(Party.order).filter(Party.name != u'무소속').all()
 
 def register(app):
 
