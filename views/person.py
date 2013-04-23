@@ -33,6 +33,11 @@ def register(app):
         # TODO: validation & sanitization
         # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
         results = Person.query.filter(Person.name.like(u'%{0}%'.format(query))).all()
+
+        if len(results) == 1:
+            person = results[0]
+            return redirect(url_for('person', id=person.id))
+
         return render_template('search-results.html', results=results,
                 query=query)
 
