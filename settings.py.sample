@@ -6,7 +6,8 @@ SCRIPT_NAME = '/'
 SERVER_SETTINGS = {
         'host': '0.0.0.0',
         'port': 50029,
-        'debug': True
+        'debug': True,
+        'use_reloader': False,
         }
 
 BABEL_SETTINGS = {
