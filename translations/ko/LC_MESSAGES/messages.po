@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-04-06 23:11+0900\n"
+"POT-Creation-Date: 2013-04-28 00:33+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -50,31 +50,35 @@ msgstr "타임라인"
 msgid "trends"
 msgstr "트렌드"
 
-#: templates/person.html:49
+#: templates/person.html:42
+msgid "aggregated"
+msgstr "모아보기"
+
+#: templates/person.html:50
 msgid "birthdate"
 msgstr "생년월일"
 
-#: templates/person.html:55
+#: templates/person.html:56
 msgid "party"
 msgstr "소속정당"
 
-#: templates/person.html:61
+#: templates/person.html:62
 msgid "election district"
 msgstr "지역구"
 
-#: templates/person.html:67
+#: templates/person.html:68
 msgid "job"
 msgstr "직업"
 
-#: templates/person.html:73
+#: templates/person.html:74
 msgid "education"
 msgstr "학력"
 
-#: templates/person.html:79
+#: templates/person.html:80
 msgid "work experience"
 msgstr "경력"
 
-#: templates/person.html:89
+#: templates/person.html:90
 msgid "address"
 msgstr "주소"
 
@@ -113,7 +117,4 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
-
-#~ msgid "district"
-#~ msgstr ""
 

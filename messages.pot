@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-04-06 23:11+0900\n"
+"POT-Creation-Date: 2013-04-28 00:33+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,31 +50,35 @@ msgstr ""
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:49
+#: templates/person.html:42
+msgid "aggregated"
+msgstr ""
+
+#: templates/person.html:50
 msgid "birthdate"
 msgstr ""
 
-#: templates/person.html:55
+#: templates/person.html:56
 msgid "party"
 msgstr ""
 
-#: templates/person.html:61
+#: templates/person.html:62
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:67
+#: templates/person.html:68
 msgid "job"
 msgstr ""
 
-#: templates/person.html:73
+#: templates/person.html:74
 msgid "education"
 msgstr ""
 
-#: templates/person.html:79
+#: templates/person.html:80
 msgid "work experience"
 msgstr ""
 
-#: templates/person.html:89
+#: templates/person.html:90
 msgid "address"
 msgstr ""
 

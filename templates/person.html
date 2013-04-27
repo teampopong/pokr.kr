@@ -39,6 +39,7 @@
 		<li class="active"><a href="#profile" data-toggle="tab">{{gettext("profile")}}</a></li>
 		<li><a href="#timeline" data-toggle="tab">{{gettext("timeline")}}</a></li>
 		<li><a href="#trends" data-toggle="tab">{{gettext("trends")}}</a></li>
+		<li><a href="#aggregated" data-toggle="tab" class="tab-aggregated">{{gettext("aggregated")}}</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane active" id="profile">
@@ -102,7 +103,11 @@
 			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=640&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
 			{% endif %}
 		</div>
+		<div class="tab-pane" id="aggregated">
+            <!-- dummy -->
+        </div>
 	</div>
 </div>
 <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()"><i class="icon-plus icon-large"></i></a>
+<script src="{{url_for('static', filename="js/person.js")}}"></script>
 {% endblock %}
