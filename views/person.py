@@ -1,17 +1,22 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import Blueprint, g, redirect, render_template, request, url_for
-from database import db_session
 import json
-from models.person import Person
-from sqlalchemy.orm.exc import NoResultFound
+import operator
 import time
+
+from flask import g, redirect, render_template, request, url_for
+from sqlalchemy import or_
+from sqlalchemy.orm.exc import NoResultFound
 from werkzeug.local import LocalProxy
 
-person_names_json = json.dumps([i[0] for i in db_session.query(Person.name.distinct())])
+from database import db_session
+from models.person import Person
+
 
 def register(app):
+
+    person_names_json = json.dumps(all_person_names())
 
     # 루트
     @app.route('/person/', methods=['GET'])
@@ -32,7 +37,10 @@ def register(app):
     def search(query):
         # TODO: validation & sanitization
         # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
-        results = Person.query.filter(Person.name.like(u'%{0}%'.format(query))).all()
+        results = Person.query.filter(or_(
+                    Person.name.like(u'%{0}%'.format(query)),
+                    Person.name_en.ilike(u'%{0}%'.format(query))
+                )).all()
 
         if len(results) == 1:
             person = results[0]
@@ -60,6 +68,16 @@ def register(app):
         # XXX: script tag가 포함되어 있으면 pjax 불가
         return render_template('person.html', person=person,
                 person_extra_vars=person_extra_vars, is_pjax=False)
+
+
+def all_person_names():
+    name_tuples = [list(i) for i in db_session.query(
+        Person.name,
+        Person.name_en,
+        )]
+    all_names = list(set(reduce(operator.add, name_tuples)))
+    return all_names
+
 
 def log_person(id):
     # FIXME: make this work w/ postgres
