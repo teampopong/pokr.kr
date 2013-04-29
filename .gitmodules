@@ -3,4 +3,4 @@
 	url = https://dev.popong.com/repos/popong-graphlib.git
 [submodule "utils/nlp"]
 	path = utils/nlp
-	url = https://dev.popong.com/repos/nlp.git
+	url = git@github.com:teampopong/nlp.git
