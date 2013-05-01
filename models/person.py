@@ -3,11 +3,11 @@
 from datetime import date
 from flaskext.babel import format_date
 from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
 
 from database import Base
-from models.education import education
 from models.party_affiliation import party_affiliation
 
 class Person(Base):
@@ -27,6 +27,9 @@ class Person(Base):
     birth_city = Column(Unicode(20), index=True)
     birth_county = Column(Unicode(20), index=True)
 
+    education = Column(ARRAY(Unicode(60)))
+    education_id = Column(ARRAY(String(20)))
+
     addr_city = Column(Unicode(20), index=True)
     addr_county = Column(Unicode(20), index=True)
     addr_detail = Column(Unicode(80))
@@ -42,10 +45,6 @@ class Person(Base):
     parties = relationship('Party',
             secondary=party_affiliation,
             order_by=party_affiliation.columns['start_date'].desc(),
-            backref='person')
-    schools = relationship('School',
-            secondary=education,
-            order_by=education.columns['start_year'].desc(),
             backref='person')
     candidacies = relationship('Candidacy',
             backref='person')
