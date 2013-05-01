@@ -1,10 +1,10 @@
-{% extends "party-base.html" %}
+{% extends "layout.html" %}
 
 {% block title %}
 {{ super() }} - {{ gettext("Result not found") }}
 {% endblock %}
 
-{% block people_content %}
+{% block content %}
 <div class="alert alert-error">
 	{{ gettext("Result not found") }}.
 </div>

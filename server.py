@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import _app_ctx_stack, Flask, g
+from flask import _app_ctx_stack, Flask, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
+
 import settings
+from utils.assets import asset
+from utils.i18n import get_locale, name2eng, party2eng
 from utils.mongodb import mongojsonify
-from utils.i18n import LocaleError, name2eng, party2eng
 from utils.linkall import LinkAllFilter
 
 
@@ -29,9 +31,13 @@ class ReverseProxied(object):
         return self.app(environ, start_response)
 
 
+
+
 app = Flask(__name__)
+app.debug = settings.SERVER_SETTINGS['debug']
 app.wsgi_app = ReverseProxied(app.wsgi_app)
 assets = AssetEnvironment(app)
+
 
 def init_cache():
     app.config['CACHE_SETTINGS'] = settings.CACHE_SETTINGS
@@ -55,14 +61,7 @@ def init_db():
 
 def init_i18n():
     babel = Babel(app, **settings.BABEL_SETTINGS)
-
-    @babel.localeselector
-    def get_lang():
-        locale = getattr(g, 'lang', None)
-        if locale not in settings.LOCALES:
-            # TODO: needs a page that handles exceptions
-            raise LocaleError(locale)
-        return locale
+    babel.localeselector(get_locale)
 
 
 def init_routes():
@@ -70,23 +69,9 @@ def init_routes():
     Register all app modules specified in settings.
     '''
 
-    @app.route('/entity/<keyword>')
-    def entity_page(keyword):
-        return keyword + u'의 페이지입니다'
-
-    default_locale = settings.BABEL_SETTINGS['default_locale']
-
-    for url_prefix, bp in settings.bps.items():
-
-        @bp.url_defaults
-        def add_language_code(endpoint, values):
-            values.setdefault('lang', getattr(g, 'lang', default_locale))
-
-        @bp.url_value_preprocessor
-        def pull_lang_code(endpoint, values):
-            g.lang = values.pop('lang', default_locale)
-
-        app.register_blueprint(bp, url_prefix=url_prefix)
+    from views.main import register; register(app)
+    from views.party import register; register(app)
+    from views.person import register; register(app)
 
 
 def register_filters():
@@ -97,25 +82,35 @@ def register_filters():
     # FIXME: keyword source
     with open('keywords.txt', 'r') as f:
         keywords = f.read().decode('utf-8').split()
-    url_map = lambda keyword: '/entity/%s' % keyword
+    url_map = lambda keyword: url_for('entity_page', keyword=keyword)
     any_re = '|'.join(keywords + ['[1-9][0-9]{3}'])
     linkall = LinkAllFilter(url_map, any_re).get()
     app.jinja_env.filters['linkall'] = linkall
 
 
-def main():
+def register_context_processors():
 
-    init_cache()
-    init_db()
-    init_i18n()
-    init_routes()
+    @app.context_processor
+    def inject_asset():
+        return dict(asset=asset)
 
-    register_filters()
+    @app.context_processor
+    def inject_locale():
+        return dict(locale=get_locale())
 
-    app.run(**settings.SERVER_SETTINGS)
+
+##### setup #####
+
+init_cache()
+init_db()
+init_i18n()
+init_routes()
+
+register_filters()
+register_context_processors()
 
 
 ##### main #####
 
 if __name__ == '__main__':
-    main()
+    app.run(**settings.SERVER_SETTINGS)

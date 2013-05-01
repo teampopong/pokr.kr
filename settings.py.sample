@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from apps import party, people, main
-
 SCRIPT_NAME = '/'
 
 SERVER_SETTINGS = {
@@ -27,11 +25,4 @@ DB_SETTINGS = {
         'host': 'localhost',
         'port': 27017,
         'database': 'popongdb'
-        }
-
-
-bps = {
-        '/': main.app,
-        '/<lang>/party': party.app,
-        '/<lang>/people': people.app
         }
