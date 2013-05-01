@@ -20,8 +20,7 @@ class PopongBabel(Babel):
         app.LOCALES = self.list_translations() + ['en']
 
         # jinja filters
-        app.jinja_env.filters['name2eng'] = name2eng
-        app.jinja_env.filters['party2eng'] = party2eng
+        app.jinja_env.filters['translit'] = filter_translit
 
         # context processor
         app.context_processor(inject_locales)
@@ -84,16 +83,15 @@ def inject_locales():
         }
 
     return dict(locale_links=locale_links,
-            locale=get_locale())
+            locale=str(get_locale()))
 
-
-def name2eng(name):
-    if get_locale() != 'ko':
-        return translit(name, 'ko', 'en', 'name')
-    return name
-
-
-def party2eng(party):
-    if get_locale() != 'ko':
-        return translit(party, 'ko', 'en', 'party')
-    return party
+def filter_translit(*args, **kwargs):
+    locale = str(get_locale())
+    _type = kwargs.get('type')
+    if len(args) == 1:
+        string = args[0]
+        return translit(string, 'ko', locale, _type) if locale != 'ko' else string
+    elif args:
+        raise Exception('filter_translit() only accepts one or zero argument')
+    else:
+        return lambda x: filter_translit(x, type=_type)

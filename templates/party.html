@@ -2,7 +2,7 @@
 {# TODO: extends search-results.html #}
 
 {% block title %}
-{{ super() }} - {{ party.name|party2eng }}
+{{ super() }} - {{ party.name|translit(type='party') }}
 {% endblock %}
 
 {% block extra_headers %}
@@ -11,14 +11,14 @@
 {% endblock %}
 
 {% block content %}
-<h2>{{ party.name|party2eng }}</h2>
+<h2>{{ party.name|translit(type='party') }}</h2>
 <hr>
 <div id="search-view">
 	{% for person in party.current_members %}
 	<div class="inline-block text-center">
 		<a href="{{ url_for('person', id=person.id) }}">
 			<img class="search-list-member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"><br>
-			<strong>{{ person.name|name2eng }}</strong>
+			<strong>{{ person.name|translit(type='name') }}</strong>
 		</a>
 	</div>
 	{% endfor %}
