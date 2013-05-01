@@ -210,18 +210,19 @@ def create_db():
     Base.metadata.create_all(engine)
 
 def migrate_all():
-    session = Session()
     with mongodb('localhost', 27017, 'popongdb') as db:
-        people = db['people'].find()
-        for person in people:
-            preprocess(person)
-            print person['name_kr'].encode('utf-8')
-            migrate(session, person)
-            #try:
-            #    migrate(session, person)
-            #except Exception, e:
-            #    import pprint
-            #    pprint.pprint(person)
-            #    raise e
-    session.commit()
-    session.close()
+        for no in xrange(1, 20):
+            print '%d대' % no
+            session = Session()
+            people = db['people'].find({ 'assembly_no': no })
+            for person in people:
+                preprocess(person)
+                print person['name_kr']
+                try:
+                    migrate(session, person)
+                except Exception, e:
+                    import pprint
+                    pprint.pprint(person)
+                    raise e
+            session.commit()
+            session.close()
