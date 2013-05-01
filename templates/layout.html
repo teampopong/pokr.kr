@@ -12,13 +12,16 @@
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/barometer.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/timeline.css') }}">
-        <link rel="stylesheet/less" href="{{ url_for('static', filename="less/layout.less") }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/barometer.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/timeline.css')}}">
+        <link rel="stylesheet/less" href="{{url_for('static', filename="less/layout.less")}}">
+
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+
+        <script src="{{url_for('static', filename='js/jquery-1.8.3.js')}}"></script>
+        <script src="{{url_for('static', filename='js/jquery-ui-1.9.2.custom.min.js')}}"></script>
 
         {% block extra_headers %}
         {% endblock %}
@@ -41,39 +44,40 @@
         {% endif %}
     </head>
     <body>
-        <div id="content">
-            <div class="people-leftnav border-box">
-                <h1><a href="{{ url_for('person_main') }}"><img src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
-                <p align='right'>v0.1</p>
+        <div id="container">
+            <div id="leftnav">
+                <h1><a href="{{ url_for('person_main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
                 <form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
                     <input type="text" name="q" autocomplete="on" class="search-query border-box" placeholder="{{ gettext("search") }}" style="width: 100%; padding: 12px 14px;">
                 </form>
-                {% block leftnav %}
-                <strong>{{gettext("recently searched people")}}</strong>
-                <ul class="nav nav-list">
-                    {% if recent_people %}
-                    {% for person in recent_people %}
-                    <li><a href="{{url_for('person', id=person.id)}}">{{person.name|name2eng}} ({{person.party|party2eng}})</a></li>
-                    {% endfor %}
-                    {% endif %}
-                </ul>
+            </div>
+            {#% block leftnav %}
+            <strong>{{gettext("recently searched people")}}</strong>
+            <ul class="nav nav-list">
+                {% if recent_people %}
+                {% for person in recent_people %}
+                <li><a href="{{url_for('person', id=person.id)}}">{{person.name|name2eng}} ({{person.party|party2eng}})</a></li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+            {% endblock %#}
+            <div id="content">
+                {% block content %}
                 {% endblock %}
-                <div style="position: fixed; bottom: 20px;">
-                    <small>&copy; 2011-2013 <a href="http://popong.com/">team POPONG</a></small>
-                </div>
             </div>
-            <div style="position: relative; margin-left: 200px;">
-                <div id="member-search">
-                    {% block content %}
-                    {% endblock %}
-                </div>
+            <div id="rightnav">
             </div>
-            <div class="people-rightnav border-box">
-                <div id="people-recommendation">
-                    {% block rightnav %}
-                    {% endblock %}
-                </div>
+        </div>
+        <div>
+            <div id="people-recommendation">
+                {% block rightnav %}
+                {% endblock %}
             </div>
+        </div>
+        <div id="footer">
+            <p class="text-center">
+            <small>&copy; 2011-2013 <a href="http://popong.com/">team POPONG</a>. All right reserved.</small>
+            </p>
         </div>
         <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
         <!-- barometer start -->

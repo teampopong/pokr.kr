@@ -4,6 +4,11 @@
 {{ super() }} - {{ gettext("Search by %(query)s", query=query) }}
 {% endblock %}
 
+{% block extra_headers %}
+{{ super() }}
+<link rel="stylesheet/less" href="{{url_for('static', filename="less/search-results.less")}}">
+{% endblock %}
+
 {% block content %}
 <div class="alert alert-info">
 	{{ gettext("%(num_results)d people found by the query '%(query)s'.", query=query, num_results=results|count) }}
