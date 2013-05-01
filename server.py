@@ -17,6 +17,7 @@ from settings import BABEL_SETTINGS, SCRIPT_NAME, SERVER_SETTINGS
 
 
 app = Flask(__name__)
+app.jinja_env.globals.update(zip=zip)
 app.debug = SERVER_SETTINGS['debug']
 
 

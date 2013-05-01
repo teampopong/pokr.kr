@@ -49,6 +49,14 @@ def register(app):
         return render_template('search-results.html', results=results,
                 query=query)
 
+    # 학교로 검색
+    # FIXME: 별도의 함수로 빼지 말고 통합 검색
+    @app.route('/person/school/<education_id>', methods=['GET'])
+    def school(education_id):
+        results = Person.query.filter(Person.education_id.any(education_id)).all()
+        return render_template('search-results.html', results=results,
+                query=education_id)
+
     # 사람
     @app.route('/person/<int:id>', methods=['GET'])
     def person(id):

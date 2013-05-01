@@ -69,10 +69,14 @@
                         <td>{{person_extra_vars.job|translit}}</td>
 					</tr>
 					{% endif %}
-					{% if person_extra_vars.education %}
+					{% if person.education %}
 					<tr>
 						<th>{{ gettext("education") }}</th>
-                        <td>{{person_extra_vars.education|translit}}</td>
+                        <td>
+                        {% for term, education_id in zip(person.education, person.education_id) %}
+                        {% if education_id %}<a href="{{url_for('school', education_id=education_id)}}">{% endif %}{{term}}{% if education_id %}</a>{% endif %}
+                        {% endfor %}
+                        </td>
 					</tr>
 					{% endif %}
 					{% if person_extra_vars.experience %}
