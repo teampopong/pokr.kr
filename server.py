@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import _app_ctx_stack, Flask, url_for
+from flask import _app_ctx_stack, Flask, request, url_for
 from flask.ext.assets import Environment as AssetEnvironment
 from flask.ext.babel import Babel
 
 from database import init_db
 import settings
 from utils.assets import asset
+from utils.host import host
 from utils.i18n import get_locale, name2eng, party2eng
 from utils.filters import jsonify
 from utils.linkall import LinkAllFilter
@@ -76,8 +77,11 @@ def register_context_processors():
         return dict(asset=asset)
 
     @app.context_processor
-    def inject_locale():
-        return dict(locale=get_locale())
+    def inject_locales():
+        locale_links = dict((locale, request.url.replace(request.host, host(locale)))
+                for locale in settings.LOCALES)
+        return dict(locale_links=locale_links,
+                locale=get_locale())
 
 
 ##### setup #####

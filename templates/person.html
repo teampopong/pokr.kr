@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-{{ super() }} - {{ person.name|name2eng }}
+{{person.name_kr|name2eng}}{% if person.party %} ({{person.party|party2eng}}){% endif %}, {% if person.last_elected_no %}{{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} :: {{super()}} {{gettext('Politician Dictionary')}}
 {% endblock %}
 
 {% block extra_headers %}
@@ -21,6 +21,7 @@
 			<div class="span9 col-member-attrs">
 				<h2>{{ person.name|name2eng }}
 					<small>
+						{% if person.name_cn %}({{person.name_cn}}){% endif %}
 						{% if person.twitter %}
 						<a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
 						{% endif %}
