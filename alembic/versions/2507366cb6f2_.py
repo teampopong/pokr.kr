@@ -30,7 +30,7 @@ def upgrade():
     for person in people:
         name_en = translit(person.name, 'ko', 'en', 'name')
         op.execute(person_t.update().\
-                where(person_t.c.name == person.name).\
+                where(person_t.c.id == person.id).\
                 values({'name_en': op.inline_literal(name_en)})
         )
 
