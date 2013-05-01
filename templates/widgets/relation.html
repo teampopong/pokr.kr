@@ -1,0 +1,26 @@
+{% if related_people %}
+<!-- TODO: tr, td 형태 제거 -->
+<!-- TODO: 스타일링은 외부 css 의존하지 않게 -->
+<tr>
+	<th>{{gettext("related people")}}</th>
+	<td>
+		{% for description, related_person in related_people|batch(size)|first %}
+		{% if related_person.id != person_id %}
+		<a class="related-person" data-placement="bottom" data-title="{{description}}" href="{{ url_for('person', id=related_person.id, _external=True) }}" style="text-decoration: none;">
+			<div style="display: inline-block; text-align:center;">
+				<img src="{{ related_person.image|default(url_for('static', filename='images/default_profile.jpg', _external=True), true) }}" style="height: 40px;"><br>
+				{{ related_person.name|name2eng }}
+			</div>
+		</a>
+		{% endif %}
+		{% endfor %}
+		{% if related_people|count > size %}
+		<a href="#" onclick="alert(&quot;{{gettext("not implemented")}}&quot;);">...</a>
+		{% endif %}
+	</td>
+</tr>
+<script>
+	// FIXME: GUID 이용해서 selector scope 명확하게.
+	$('.related-person').tooltip();
+</script>
+{% endif %}

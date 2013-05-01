@@ -2,11 +2,10 @@
 # -*- encoding: utf-8 -*-
 
 from flask import Blueprint, g, redirect, render_template, request, url_for
+from models.person import Person
+from sqlalchemy.orm.exc import NoResultFound
 import time
-from utils.conn import get_db
 from werkzeug.local import LocalProxy
-
-db = LocalProxy(get_db)
 
 def register(app):
 
@@ -25,45 +24,26 @@ def register(app):
     def search(query):
         # TODO: validation & sanitization
         # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
-        results = list(db['people'].find({
-            'name_kr': {'$regex': query}
-            }))
+        results = Person.query.filter(Person.name.like(u'%{0}%'.format(query))).all()
         return render_template('search-results.html', results=results,
                 query=query)
 
     # 사람
-    @app.route('/person/<int:id_>', methods=['GET'])
-    def person(id_):
-        person = get_person(id_)
+    @app.route('/person/<int:id>', methods=['GET'])
+    def person(id):
+        try:
+            person = Person.query.filter_by(id=id).one()
 
-        if person:
-            log_person(id_)
-            rivals = get_rivals(person)
-            return render_template('person.html', person=person, rivals=rivals)
-        else:
+        except NoResultFound, e:
             return render_template('not-found.html'), 404
 
-def get_person(id):
-    person = db['people'].find_one({
-        'id': id
-        })
-    elected_nos = [assembly_no
-            for assembly_no, assem
-            in person.get('assembly', {}).items()
-            if assem.get('elected')]
-    if elected_nos:
-        person['last_elected_no'] = max(elected_nos)
-    return person
-
-def get_rivals(person):
-    key = 'assembly.%s.district' % person['assembly_no']
-    rivals = list(db['people'].find({
-        key: person['district']
-        }))
-    return rivals
+        log_person(id)
+        return render_template('person.html', person=person)
 
 def log_person(id):
-    db['log_person'].insert({
-        'id': id,
-        'date': time.time()
-    })
+    # FIXME: make this work w/ postgres
+    # db['log_person'].insert({
+    #     'id': id,
+    #     'date': time.time()
+    # })
+    pass

@@ -16,13 +16,13 @@ BABEL_SETTINGS = {
 
 LOCALES = ['en', 'ko']
 
-CACHE_SETTINGS = {
-        'host': '127.0.0.1',
-        'port': 11211
+POSTGRES_SETTINGS = {
+        'dialect': 'postgresql',
+        'driver': 'psycopg2',
+        'host': 'localhost',
+        'id': '', # fill this
+        'password': '', # fill this
+        'db': 'popongdb',
         }
 
-DB_SETTINGS = {
-        'host': 'localhost',
-        'port': 27017,
-        'database': 'popongdb'
-        }
+sqlalchemy_uri = '{dialect}+{driver}://{id}:{password}@{host}/{db}'.format(**POSTGRES_SETTINGS)

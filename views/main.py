@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import redirect, url_for
-from views.person import get_person
-from utils.conn import get_db
+from flask import redirect, render_template, url_for
+import re
 from werkzeug.local import LocalProxy
+from models.person import Person
 
 NUM_RECENT_PEOPLE = 10
 
-db = LocalProxy(get_db)
+year_re = re.compile(r'[1-9][0-9]{3}')
 
 def register(app):
 
@@ -28,13 +28,24 @@ def register(app):
     @app.route('/entity/<keyword>')
     @app.endpoint('entity_page')
     def entity_page(keyword):
+        if year_re.match(keyword):
+            return redirect(url_for('year', year=keyword))
+
         return keyword + u'의 페이지입니다'
 
+    @app.route('/year/<year>')
+    def year(year):
+        results = Person.query.filter_by(birthday_year=year).all()
+        return render_template('search-results.html', results=results,
+                query=year)
+
 def recent(num_recent_people):
-    rp = db['log_person'].find()\
-            .sort([
-                ('date', -1)
-                ])\
-            .limit(num_recent_people)
-    rp = [get_person(p['id']) for p in rp]
-    return rp
+    # FIXME: make this work w/ postgres
+    # rp = db['log_person'].find()\
+    #         .sort([
+    #             ('date', -1)
+    #             ])\
+    #         .limit(num_recent_people)
+    # rp = [get_person(p['id']) for p in rp]
+    # return rp
+    return []

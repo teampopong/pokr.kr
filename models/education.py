@@ -1,22 +1,20 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, Enum, ForeignKey, Integer, Unicode
-from models.base import Base
+from sqlalchemy import Table, Column, Enum, ForeignKey, Integer, Unicode
+from database import Base
 
-class Education(Base):
-    __tablename__ = 'education'
+courses = ['elementary', 'middle', 'high', 'undergrad', 'grad']
+statuses = ['in', 'dropped', 'graduated', 'completed']
 
-    ### join ###
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    person_id = Column(Integer, ForeignKey('person.id'), nullable=False)
-    school_id = Column(Integer, ForeignKey('school.id'), nullable=False)
+education = Table('education', Base.metadata,
+    Column('id', Integer, autoincrement=True, primary_key=True),
+    Column('person_id', Integer, ForeignKey('person.id'), nullable=False),
+    Column('school_id', Integer, ForeignKey('school.id'), nullable=False),
 
-    ### additional infos ###
-    course = Column(Enum('elementary', 'middle', 'high', 'undergrad', 'grad',
-                         name='enum_education_course'),
-                    index=True)
-    mayor = Column(Unicode(20))
-    start_year = Column(Integer, index=True)
-    end_year = Column(Integer)
-    status = Column(Enum('in', 'dropped', 'graduated', 'completed',
-                    name='enum_education_status'))
+    # additional infos
+    Column('course', Enum(*courses, name='enum_education_course'), index=True),
+    Column('mayor', Unicode(20)),
+    Column('start_year', Integer, index=True),
+    Column('end_year', Integer),
+    Column('status', Enum(*statuses, name='enum_education_status')),
+)

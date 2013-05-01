@@ -1,5 +1,5 @@
 from sqlalchemy import CHAR, Column, ForeignKey, Integer, Unicode
-from models.base import Base
+from database import Base
 
 class Experience(Base):
     __tablename__ = 'experience'

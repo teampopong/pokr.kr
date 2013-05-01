@@ -11,9 +11,9 @@
 <div id="search-view">
 	{% for person in results %}
 	<div class="inline-block text-center">
-		<a href="{{ url_for('person', id_=person.id) }}">
+		<a href="{{ url_for('person', id=person.id) }}">
 			<img class="search-list-member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg')) }}"><br>
-			<strong>{{ person.name_kr }}</strong>
+			<strong>{{ person.name }}</strong>
 		</a>
 	</div>
 	{% endfor %}

@@ -1,6 +1,8 @@
 from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, select, Unicode
 from sqlalchemy.orm import column_property
-from models.base import Base
+from database import Base
+
+from models.election import Election
 
 class Candidacy(Base):
     __tablename__ = 'candidacy'
@@ -15,11 +17,18 @@ class Candidacy(Base):
     region1 = Column(Unicode(20), nullable=False, index=True)
     region2 = Column(Unicode(20), index=True)
     region3 = Column(Unicode(4), index=True)
+    age = column_property(select([Election.age]).where(Election.id==election_id),\
+            deferred=True)
     is_elected = Column(Boolean, default=False, index=True)
     cand_no = Column(Integer)
     vote_score = Column(Integer)
-    vote_rate = Column(Float)
-    party = column_property(
-        select(['Party.name']).where('Party.id==party_id')
-    )
+    vote_share = Column(Float)
 
+    def __init__(self, person_id, election_id, party_id, **kwargs):
+        self.person_id = person_id
+        self.election_id = election_id
+        self.party_id = party_id
+
+        for key, val in kwargs.items():
+            if hasattr(self, key):
+                setattr(self, key, kwargs[key])

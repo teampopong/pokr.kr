@@ -1,0 +1,15 @@
+<script type="text/javascript" src="{{url_for('static', filename='js/graphlib/d3.v2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/graphlib/pgraph.js')}}"></script>
+<script type="application/json" id="{{guids('events')}}">
+{{events|jsonify|safe}}
+</script>
+
+<div id="{{guids('canvas')}}">
+</div>
+
+<script>
+	var rawdata = document.getElementById('{{guids("events")}}').text,
+        events = JSON.parse(rawdata),
+		graph = PG.graph.Timeline('#{{guids("canvas")}}', 720, 100);
+    graph.render(events);
+</script>
