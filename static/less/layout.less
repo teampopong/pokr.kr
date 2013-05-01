@@ -3,22 +3,26 @@
 
 ///// mixins /////
 .border-box {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	*behavior: url(/static/boxsizing.htc);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    *behavior: url(/static/boxsizing.htc);
 }
 
 .border-radius (@radius: 5px) {
-	border-radius: @radius;
-	-moz-border-radius: @radius;
-	-webkit-border-radius: @radius;
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
 }
 
 .border-radius (@tl: 5px, @tr: 5px, @br: 5px, @bl: 5px) {
-	border-radius: @arguments;
-	-moz-border-radius: @arguments;
-	-webkit-border-radius: @arguments;
+    border-radius: @arguments;
+    -moz-border-radius: @arguments;
+    -webkit-border-radius: @arguments;
+}
+
+.box-shadow {
+    box-shadow: 1px 1px rgba(128, 128, 128, 0.3);
 }
 
 .inline-block {
@@ -29,7 +33,7 @@
 }
 
 .text-center {
-	text-align: center;
+    text-align: center;
 }
 
 .absolute-top-right {
@@ -63,70 +67,115 @@ a [class^="icon-"]:hover {
 ///// user-defined stylesheets /////
 body {
     position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #container {
     position: fixed;
-	top: 20px;
-	bottom: 40px;
-	left: 20px;
-	right: 20px;
+    top: 20px;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
 }
 
 #leftnav,
 #rightnav,
 #content {
-	.border-box;
+    .border-box;
 }
 
 #leftnav {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	width: 180px;
-	padding: 10px;
-	background: white;
-	border: 1px solid #999;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #999;
 }
 
 #content {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 190px;
-	right: 190px;
-	padding: 10px;
-	overflow-y: auto;
-	border: 1px solid #999;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 190px;
+    right: 190px;
+    padding: 10px;
+    overflow-y: auto;
+    border: 1px solid #999;
 }
 
 #rightnav {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	width: 180px;
-	padding: 10px;
-	background: white;
-	border: 1px solid #999;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    padding: 10px;
+    background: white;
 }
 
 #footer {
-	position: fixed;
-	bottom: 5px;
-	left: 0;
-	right: 0;
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+
+#card-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 230px;
+    border: 1px solid #999;
+}
+
+#card {
+    position: relative;
+    width: 120px;
+    margin: 7px auto;
+    border: 1px solid #999;
+    .border-radius;
+    .box-shadow;
+    background: #fafafa;
+
+    #member-img {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        .border-radius;
+    }
+
+    h2 {
+        font-size: 14pt;
+        margin: 2px 0;
+        text-align: right;
+        line-height: 1em;
+    }
+
+    [class^="icon-"] {
+        font-size: 9pt;
+    }
+}
+
+#cards-cart {
+    position: absolute;
+    top: 240px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid #999;
 }
 
 .input-append {
-	height: inherit !important;
+    height: inherit !important;
 
-	input {
-		width: 137px;
-	}
+    input {
+        width: 137px;
+    }
 }
