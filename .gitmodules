@@ -1,6 +1,6 @@
 [submodule "static/js/graphlib"]
 	path = static/js/graphlib
-	url = git@github.com:teampopong/graphlib.git
+	url = https://github.com/teampopong/graphlib.git
 [submodule "utils/nlp"]
 	path = utils/nlp
-	url = git@github.com:teampopong/nlp.git
+	url = https://github.com/teampopong/nlp.git
