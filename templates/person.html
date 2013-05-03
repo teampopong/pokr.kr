@@ -124,6 +124,8 @@
         </div>
     </div>
 </div>
-<a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()"><i class="icon-plus icon-large"></i></a>
+<a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()">
+    {{ gettext('add to cart') }} <i class="icon-plus icon-large"></i>
+</a>
 <script src="{{url_for('static', filename="js/person.js")}}"></script>
 {% endblock %}

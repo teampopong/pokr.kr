@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-03 18:43+0900\n"
+"POT-Creation-Date: 2013-05-03 19:46+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,11 +48,11 @@ msgstr ""
 msgid "aggregated"
 msgstr ""
 
-#: templates/person.html:40 templates/person.html:46
+#: templates/person.html:40
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:41 templates/person.html:106
+#: templates/person.html:41 templates/person.html:105
 msgid "elections"
 msgstr ""
 
@@ -60,27 +60,27 @@ msgstr ""
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:51
+#: templates/person.html:50
 msgid "birthdate"
 msgstr ""
 
-#: templates/person.html:57
+#: templates/person.html:56
 msgid "party"
 msgstr ""
 
-#: templates/person.html:63
+#: templates/person.html:62
 msgid "education"
 msgstr ""
 
-#: templates/person.html:73
+#: templates/person.html:72
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:92
+#: templates/person.html:91
 msgid "address"
 msgstr ""
 
-#: templates/person.html:98
+#: templates/person.html:97
 msgid "election district"
 msgstr ""
 
@@ -90,6 +90,10 @@ msgstr ""
 
 #: templates/person.html:112 widgets/relation.py:22
 msgid "in the same constituency"
+msgstr ""
+
+#: templates/person.html:128
+msgid "add to cart"
 msgstr ""
 
 #: templates/search-results.html:4

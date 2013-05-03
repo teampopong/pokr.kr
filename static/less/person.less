@@ -1,3 +1,9 @@
+.border-radius (@radius: 5px) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
 .tab-pane {
     margin-bottom: 30px;
 }
@@ -22,7 +28,6 @@ tr:first-child td {
         padding-bottom: 10px;
     }
 }
-
 
 #member-profile th {
     width: 15%;
@@ -57,6 +62,20 @@ tr:first-child td {
             background: transparent !important;
             border: 0 !important;
         }
+    }
+}
+
+.btn-save-card {
+    color: #999;
+    background-color: #EEE;
+    font-weight: bold;
+    padding: 2px 5px;
+    .border-radius;
+    &:hover,
+    &:hover i,
+    &:hover i:hover {
+        text-decoration: none;
+        color: #005580;
     }
 }
 
