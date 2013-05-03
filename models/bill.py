@@ -1,24 +1,26 @@
 # -*- coding: utf-8 -*-
 
 from sqlalchemy import Column, Date, Integer, String, Unicode
+from sqlalchemy.dialects.postgresql import ARRAY
 from database import Base
+
 
 class Bill(Base):
     __tablename__ = 'bill'
 
-    # TODO: 대수 입력
-    # TODO: `proposers` join
-    # TODO: Convert `status`, `proposer_type` to Enum
+    id = Column(String(20), primary_key=True)
+    name = Column(Unicode(150), nullable=False)
 
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    name = Column(Unicode(150))
+    age = Column(Integer, index=True, nullable=False)
+    proposed_date = Column(Date, index=True)
+    decision_date = Column(Date, index=True)
 
-    proposed_date = Column(Date)
-    decision_date = Column(Date)
-
-    committee = Column(Unicode(30), nullable=True)
-    proposer_type = Column(Integer)
+    proposers = Column(ARRAY(Unicode(100)))
+    proposer_representative = Column(Unicode(100))
+    committee = Column(Unicode(100), index=True)
+    proposer_type = Column(Integer, index=True)
 
     status = Column(Integer, index=True)
     status_detail = Column(Unicode(10))
     link_id = Column(String(40), index=True)
+    attachments = Column(ARRAY(String(1024)))
