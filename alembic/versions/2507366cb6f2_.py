@@ -10,9 +10,14 @@ Create Date: 2013-04-30 00:11:14.194453
 revision = '2507366cb6f2'
 down_revision = '2a31d97fa618'
 
+from os.path import abspath, dirname, join
+import sys
+
 from alembic import op
 import sqlalchemy as sa
 
+parentdir = dirname(dirname(dirname(abspath(__file__))))
+sys.path.insert(0,parentdir)
 from models.person import Person
 from utils.nlp.utils.translit import translit
 
