@@ -35,82 +35,82 @@
 
 {% block content %}
 <div id="member-view" class="tabbable">
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="#aggregated" data-toggle="tab" class="tab-aggregated">{{gettext("aggregated")}}</a></li>
-		<li><a href="#profile" data-toggle="tab">{{gettext("profile")}}</a></li>
-		<li><a href="#timeline" data-toggle="tab">{{gettext("timeline")}}</a></li>
-		<li><a href="#trends" data-toggle="tab">{{gettext("trends")}}</a></li>
-	</ul>
-	<div class="tab-content">
-		<div class="tab-pane active" id="profile">
-			<table id="member-profile" class="table table-condensed">
-				<tbody>
-					{% if person.birthday %}
-					<tr>
-						<th>{{ gettext("birthdate") }}</th>
-						<td>{{ person.birthday_formatted|linkall|safe }}</td>
-					</tr>
-					{% endif %}
-					{% if person.cur_party %}
-					<tr>
-						<th>{{ gettext("party") }}</th>
-						<td><a data-pjax href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|translit(type='party') }}</a></td>
-					</tr>
-					{% endif %}
-					{% if person_extra_vars.district %}
-					<tr>
-						<th>{{ gettext("election district") }}</th>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#aggregated" data-toggle="tab" class="tab-aggregated">{{gettext("aggregated")}}</a></li>
+        <li><a href="#profile" data-toggle="tab">{{gettext("profile")}}</a></li>
+        <li><a href="#timeline" data-toggle="tab">{{gettext("timeline")}}</a></li>
+        <li><a href="#trends" data-toggle="tab">{{gettext("trends")}}</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="profile">
+            <table id="member-profile" class="table table-condensed">
+                <tbody>
+                    {% if person.birthday %}
+                    <tr>
+                        <th>{{ gettext("birthdate") }}</th>
+                        <td>{{ person.birthday_formatted|linkall|safe }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if person.cur_party %}
+                    <tr>
+                        <th>{{ gettext("party") }}</th>
+                        <td><a data-pjax href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|translit(type='party') }}</a></td>
+                    </tr>
+                    {% endif %}
+                    {% if person_extra_vars.district %}
+                    <tr>
+                        <th>{{ gettext("election district") }}</th>
                         <td>{{person_extra_vars.district|translit}}</td>
-					</tr>
-					{% endif %}
-					{% if person_extra_vars.job %}
-					<tr>
-						<th>{{ gettext("job") }}</th>
+                    </tr>
+                    {% endif %}
+                    {% if person_extra_vars.job %}
+                    <tr>
+                        <th>{{ gettext("job") }}</th>
                         <td>{{person_extra_vars.job|translit}}</td>
-					</tr>
-					{% endif %}
-					{% if person.education %}
-					<tr>
-						<th>{{ gettext("education") }}</th>
+                    </tr>
+                    {% endif %}
+                    {% if person.education %}
+                    <tr>
+                        <th>{{ gettext("education") }}</th>
                         <td>
                         {% for term, education_id in zip(person.education, person.education_id) %}
                         {% if education_id %}<a href="{{url_for('school', education_id=education_id)}}">{% endif %}{{term}}{% if education_id %}</a>{% endif %}
                         {% endfor %}
                         </td>
-					</tr>
-					{% endif %}
-					{% if person_extra_vars.experience %}
-					<tr>
-						<th>{{ gettext("work experience") }}</th>
+                    </tr>
+                    {% endif %}
+                    {% if person_extra_vars.experience %}
+                    <tr>
+                        <th>{{ gettext("work experience") }}</th>
                         <td>
                             {% for exp in person_extra_vars.experience %}
                             {{exp|translit}}<br>
                             {% endfor %}
                         </td>
-					</tr>
-					{% endif %}
-					{% if person_extra_vars.address %}
-					<tr>
-						<th>{{ gettext("address") }}</th>
+                    </tr>
+                    {% endif %}
+                    {% if person_extra_vars.address %}
+                    <tr>
+                        <th>{{ gettext("address") }}</th>
                         <td>{{person_extra_vars.address|translit}}</td>
-					</tr>
-					{% endif %}
-					{{widgets.relation(person)|safe}}
-				</tbody>
-			</table>
-		</div>
-		<div class="tab-pane active" id="timeline">
-			{{widgets.timeline(person.id)|safe}}
-		</div>
-		<div class="tab-pane active" id="trends">
-			{% if not config['DEBUG'] %}
-			<script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=640&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
-			{% endif %}
-		</div>
-		<div class="tab-pane active" id="aggregated">
+                    </tr>
+                    {% endif %}
+                    {{widgets.relation(person)|safe}}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane active" id="timeline">
+            {{widgets.timeline(person.id)|safe}}
+        </div>
+        <div class="tab-pane active" id="trends">
+            {% if not config['DEBUG'] %}
+            <script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=640&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
+            {% endif %}
+        </div>
+        <div class="tab-pane active" id="aggregated">
             <!-- dummy -->
         </div>
-	</div>
+    </div>
 </div>
 <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()"><i class="icon-plus icon-large"></i></a>
 <script src="{{url_for('static', filename="js/person.js")}}"></script>
