@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-04-28 00:33+0900\n"
+"POT-Creation-Date: 2013-05-03 19:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,38 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+
+#: templates/bill.html:15
+msgid "assembly #"
+msgstr ""
+
+#: templates/bill.html:21
+msgid "proposed date"
+msgstr ""
+
+#: templates/bill.html:27
+msgid "decision date"
+msgstr ""
+
+#: templates/bill.html:33
+msgid "representative proposer"
+msgstr ""
+
+#: templates/bill.html:39
+msgid "proposers"
+msgstr ""
+
+#: templates/bill.html:45
+msgid "committee"
+msgstr ""
+
+#: templates/bill.html:51
+msgid "status"
+msgstr ""
+
+#: templates/bill.html:57
+msgid "attachments"
+msgstr ""
 
 #: templates/layout.html:64
 msgid "search"
@@ -39,19 +71,19 @@ msgid "Politician Dictionary"
 msgstr ""
 
 #: templates/person.html:39
-msgid "profile"
+msgid "aggregated"
 msgstr ""
 
 #: templates/person.html:40
-msgid "timeline"
+msgid "profile"
 msgstr ""
 
 #: templates/person.html:41
-msgid "trends"
+msgid "timeline"
 msgstr ""
 
 #: templates/person.html:42
-msgid "aggregated"
+msgid "trends"
 msgstr ""
 
 #: templates/person.html:50
@@ -74,11 +106,11 @@ msgstr ""
 msgid "education"
 msgstr ""
 
-#: templates/person.html:80
+#: templates/person.html:84
 msgid "work experience"
 msgstr ""
 
-#: templates/person.html:90
+#: templates/person.html:94
 msgid "address"
 msgstr ""
 

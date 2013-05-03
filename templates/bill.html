@@ -2,14 +2,62 @@
 {# TODO: extends search-results.html #}
 
 {% block title %}
-{{ super() }} - {{ bill.id }} {{ bill.name }
+{{ super() }} - {{ bill.id }} {{ bill.name }}
 {% endblock %}
 
 {% block content %}
 <h2>{{ bill.id }}: {{ bill.name }}</h2>
 <hr>
-<div id="search-view">
-    {# TODO: search view #}
-    View
-</div>
+<table class="table table-condensed">
+    <tbody>
+        {% if bill.age %}
+        <tr>
+            <th>{{ gettext("assembly #") }}</th>
+            <td>{{ bill.age }}</td>
+        </tr>
+        {% endif %}
+        {% if bill.proposed_date %}
+        <tr>
+            <th>{{ gettext("proposed date") }}</th>
+            <td>{{ bill.proposed_date }}</td>
+        </tr>
+        {% endif %}
+        {% if bill.decision_date %}
+        <tr>
+            <th>{{ gettext("decision date") }}</th>
+            <td>{{ bill.decision_date }}</td>
+        </tr>
+        {% endif %}
+        {% if bill.proposer_representative %}
+        <tr>
+            <th>{{ gettext("representative proposer") }}</th>
+            <td>{{ bill.proposer_representative }}</td>
+        </tr>
+        {% endif %}
+        {% if bill.proposers %}
+        <tr>
+            <th>{{ gettext("proposers") }}</th>
+            <td>{% for proposer in bill.proposers %}{{proposer}}{% endfor %}</td>
+        </tr>
+        {% endif %}
+        {% if bill.committee %}
+        <tr>
+            <th>{{ gettext("committee") }}</th>
+            <td>{{ bill.committee }}</td>
+        </tr>
+        {% endif %}
+        {% if bill.status_detail %}
+        <tr>
+            <th>{{ gettext("status") }}</th>
+            <td>{{ bill.status_detail }}</td>
+        </tr>
+        {% endif %}
+        {% if bill.attachments %}
+        <tr>
+            <th>{{ gettext("attachments") }}</th>
+            <td><ol>{% for attachment in bill.attachments %}<li><a href="{{attachment}}">{{attachment.rsplit('.', 1)[-1].upper()}}</a></li>{% endfor %}</ol></td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
 {% endblock %}
