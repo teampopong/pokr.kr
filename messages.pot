@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-03 17:10+0900\n"
+"POT-Creation-Date: 2013-05-03 18:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "search by party:"
 msgstr ""
 
-#: templates/layout.html:105
+#: templates/layout.html:109
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
@@ -48,40 +48,48 @@ msgstr ""
 msgid "aggregated"
 msgstr ""
 
-#: templates/person.html:40
+#: templates/person.html:40 templates/person.html:46
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:41
-msgid "timeline"
+#: templates/person.html:41 templates/person.html:106
+msgid "elections"
 msgstr ""
 
 #: templates/person.html:42
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:50
+#: templates/person.html:51
 msgid "birthdate"
 msgstr ""
 
-#: templates/person.html:56
+#: templates/person.html:57
 msgid "party"
 msgstr ""
 
-#: templates/person.html:62
+#: templates/person.html:63
 msgid "education"
 msgstr ""
 
-#: templates/person.html:72
+#: templates/person.html:73
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:91
+#: templates/person.html:92
 msgid "address"
 msgstr ""
 
-#: templates/person.html:97
+#: templates/person.html:98
 msgid "election district"
+msgstr ""
+
+#: templates/person.html:108
+msgid "timeline"
+msgstr ""
+
+#: templates/person.html:112 widgets/relation.py:22
+msgid "in the same constituency"
 msgstr ""
 
 #: templates/search-results.html:4
@@ -94,16 +102,8 @@ msgstr ""
 msgid "%(num_results)d people found by the query '%(query)s'."
 msgstr ""
 
-#: templates/widgets/relation.html:5
-msgid "related people"
-msgstr ""
-
-#: templates/widgets/relation.html:18
+#: templates/widgets/relation.html:15
 msgid "not implemented"
-msgstr ""
-
-#: widgets/relation.py:22
-msgid "in the same constituency"
 msgstr ""
 
 #: widgets/timeline.py:51

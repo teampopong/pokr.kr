@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-03 17:10+0900\n"
+"POT-Creation-Date: 2013-05-03 18:43+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr "검색"
 msgid "search by party:"
 msgstr "정당으로 검색:"
 
-#: templates/layout.html:105
+#: templates/layout.html:109
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
@@ -48,41 +48,49 @@ msgstr "정치인명사전"
 msgid "aggregated"
 msgstr "모아보기"
 
-#: templates/person.html:40
+#: templates/person.html:40 templates/person.html:46
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:41
-msgid "timeline"
-msgstr "타임라인"
+#: templates/person.html:41 templates/person.html:106
+msgid "elections"
+msgstr "선거활동"
 
 #: templates/person.html:42
 msgid "trends"
 msgstr "트렌드"
 
-#: templates/person.html:50
+#: templates/person.html:51
 msgid "birthdate"
 msgstr "생년월일"
 
-#: templates/person.html:56
+#: templates/person.html:57
 msgid "party"
 msgstr "소속정당"
 
-#: templates/person.html:62
+#: templates/person.html:63
 msgid "education"
 msgstr "학력"
 
-#: templates/person.html:72
+#: templates/person.html:73
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:91
+#: templates/person.html:92
 msgid "address"
 msgstr "주소"
 
-#: templates/person.html:97
+#: templates/person.html:98
 msgid "election district"
 msgstr "지역구"
+
+#: templates/person.html:108
+msgid "timeline"
+msgstr "타임라인"
+
+#: templates/person.html:112 widgets/relation.py:22
+msgid "in the same constituency"
+msgstr "동일 선거구 출마"
 
 #: templates/search-results.html:4
 #, python-format
@@ -94,17 +102,9 @@ msgstr "%(query)s(으)로 검색"
 msgid "%(num_results)d people found by the query '%(query)s'."
 msgstr "검색 결과: %(query)s (%(num_results)d 명)"
 
-#: templates/widgets/relation.html:5
-msgid "related people"
-msgstr "관련 정치인"
-
-#: templates/widgets/relation.html:18
+#: templates/widgets/relation.html:15
 msgid "not implemented"
 msgstr "미구현"
-
-#: widgets/relation.py:22
-msgid "in the same constituency"
-msgstr "동일 선거구 출마"
 
 #: widgets/timeline.py:51
 msgid "birth"
@@ -119,4 +119,7 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
+
+#~ msgid "related people"
+#~ msgstr "관련 정치인"
 

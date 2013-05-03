@@ -38,7 +38,7 @@
     <ul class="nav nav-tabs">
         <li class="active"><a href="#aggregated" data-toggle="tab" class="tab-aggregated">{{gettext("aggregated")}}</a></li>
         <li><a href="#profile" data-toggle="tab">{{gettext("profile")}}</a></li>
-        <li><a href="#timeline" data-toggle="tab">{{gettext("timeline")}}</a></li>
+        <li><a href="#elections" data-toggle="tab">{{gettext("elections")}}</a></li>
         <li><a href="#trends" data-toggle="tab">{{gettext("trends")}}</a></li>
     </ul>
     <div class="tab-content">
@@ -98,12 +98,21 @@
                         <td>{{person_extra_vars.district|translit}}</td>
                     </tr>
                     {% endif %}
-                    {{widgets.relation(person)|safe}}
                 </tbody>
             </table>
         </div>
-        <div class="tab-pane active" id="timeline">
-            {{widgets.timeline(person.id)|safe}}
+        <div class="tab-pane active" id="elections">
+            <h3>{{ gettext('elections') }}</h3>
+            <table class="table table-condensed">
+                <tr>
+                    <th>{{ gettext('timeline') }}</th>
+                    <td>{{widgets.timeline(person.id)|safe}}</td>
+                </tr>
+                <tr>
+                    <th>{{ gettext('in the same constituency') }}</th>
+                    <td>{{widgets.relation(person)|safe}}</td>
+                </tr>
+            </table>
         </div>
         <div class="tab-pane active" id="trends">
             {% if not config['DEBUG'] %}
