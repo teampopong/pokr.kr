@@ -1,45 +1,32 @@
 POPONG Korean Politician Dictionary
 ===================================
 
-Install & Run Service
----------------------
+## Installation
 
-### Installation
-
-1. install dependant packages
-
+1. Install dependant packages
     - Ubuntu Linux:
 
-	$ sudo apt-get update
-	$ sudo apt-get install python python-dev python2.7 libpq-dev libevent-dev
+            $ sudo apt-get update
+            $ sudo apt-get install python python-dev python2.7 libpq-dev libevent-dev
 
     - Mac OS X:
 	
-	Install Homebrew (http://mxcl.github.com/homebrew/)
-	$ brew install python postgresql libevent
+            Install Homebrew (http://mxcl.github.com/homebrew/)
+            $ brew install python postgresql libevent
 
-1. install **polidic**
+1. Install **polidic**
 
-	$ sudo make install
+        $ sudo make install
 
-### Setup
+## Setup
 
-1. modify settings file
+1. Modify settings file
+    - settings.py
+    - alembic.ini
+1. Load data
 
-	- settings.py
-	- alembic.ini
+        $ make load_db
 
-1. load data
-
-	$ make load_db
-
-### Run
-
-1. run the server
+## Run
 
 	$ python server.py
-
-### TODO
-
-1. setuptools
-1. tests
