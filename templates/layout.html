@@ -83,14 +83,18 @@
                 </div>
             </div>
             <div id="content">
-                {% block content %}
-                {% endblock %}
+                <div class="row-fluid">
+                    <div id="card-container" class="span2">
+                        {% block card %}
+                        {% endblock %}
+                    </div>
+                    <div id="spec-container" class="span10">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
             </div>
             <div id="rightnav">
-                <div id="card-container">
-                    {% block card %}
-                    {% endblock %}
-                </div>
                 <div id="cards-cart-container">
                     <h3>Cart</h3>
                     <a class="btn-clear-cart" href="#" onclick="CART.clearCart()">clear</a>
