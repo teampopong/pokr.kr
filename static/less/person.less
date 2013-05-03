@@ -50,17 +50,18 @@ tr:first-child td {
 
 #trends {
     width: 650px;
-    margin-top: 10px;
-
     table {
         tr:first-child,
+        tr:nth-child(2),
         tr:last-child {
             display: none;
         }
-
-        td > div {
-            background: transparent !important;
-            border: 0 !important;
+        td {
+            border: none;
+            div {
+                background: transparent !important;
+                border: 0 !important;
+            }
         }
     }
 }

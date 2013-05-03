@@ -94,7 +94,7 @@ msgstr "선거활동"
 
 #: templates/person.html:42
 msgid "trends"
-msgstr "트렌드"
+msgstr "검색추이"
 
 #: templates/person.html:50
 msgid "birthdate"
