@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-04-28 00:33+0900\n"
+"POT-Creation-Date: 2013-05-03 18:41+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -25,6 +25,12 @@ msgstr "검색"
 msgid "search by party:"
 msgstr "정당으로 검색:"
 
+#: templates/layout.html:105
+msgid ""
+"For any questions, problems and suggestions, please click the 'Feedback' "
+"button above."
+msgstr "질문이나 오류, 건의사항이 있는 경우 상단의 'Feedback' 버튼을 클릭해주세요."
+
 #: templates/not-found.html:4 templates/not-found.html:9
 msgid "Result not found"
 msgstr "검색 결과가 없습니다"
@@ -39,20 +45,20 @@ msgid "Politician Dictionary"
 msgstr "정치인명사전"
 
 #: templates/person.html:39
+msgid "aggregated"
+msgstr "모아보기"
+
+#: templates/person.html:40
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:40
+#: templates/person.html:41
 msgid "timeline"
 msgstr "타임라인"
 
-#: templates/person.html:41
+#: templates/person.html:42
 msgid "trends"
 msgstr "트렌드"
-
-#: templates/person.html:42
-msgid "aggregated"
-msgstr "모아보기"
 
 #: templates/person.html:50
 msgid "birthdate"
@@ -63,24 +69,24 @@ msgid "party"
 msgstr "소속정당"
 
 #: templates/person.html:62
-msgid "election district"
-msgstr "지역구"
-
-#: templates/person.html:68
-msgid "job"
-msgstr "직업"
-
-#: templates/person.html:74
 msgid "education"
 msgstr "학력"
 
-#: templates/person.html:80
-msgid "work experience"
+#: templates/person.html:64
+msgid "original"
+msgstr "원본"
+
+#: templates/person.html:74
+msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:90
+#: templates/person.html:93
 msgid "address"
 msgstr "주소"
+
+#: templates/person.html:99
+msgid "election district"
+msgstr "지역구"
 
 #: templates/search-results.html:4
 #, python-format
