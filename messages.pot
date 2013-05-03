@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-04-28 00:33+0900\n"
+"POT-Creation-Date: 2013-05-03 16:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,19 +39,19 @@ msgid "Politician Dictionary"
 msgstr ""
 
 #: templates/person.html:39
-msgid "profile"
+msgid "aggregated"
 msgstr ""
 
 #: templates/person.html:40
-msgid "timeline"
+msgid "profile"
 msgstr ""
 
 #: templates/person.html:41
-msgid "trends"
+msgid "timeline"
 msgstr ""
 
 #: templates/person.html:42
-msgid "aggregated"
+msgid "trends"
 msgstr ""
 
 #: templates/person.html:50
@@ -63,23 +63,19 @@ msgid "party"
 msgstr ""
 
 #: templates/person.html:62
-msgid "election district"
-msgstr ""
-
-#: templates/person.html:68
-msgid "job"
-msgstr ""
-
-#: templates/person.html:74
 msgid "education"
 msgstr ""
 
-#: templates/person.html:80
-msgid "work experience"
+#: templates/person.html:72
+msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:90
+#: templates/person.html:91
 msgid "address"
+msgstr ""
+
+#: templates/person.html:97
+msgid "election district"
 msgstr ""
 
 #: templates/search-results.html:4

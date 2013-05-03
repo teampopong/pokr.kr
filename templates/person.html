@@ -13,8 +13,8 @@
 
 {% block card %}
 <div class="card" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
-    <img class="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}">
-    <h2><span class="member-name">{{ person.name|translit(type='name') }}</span><br>
+    <img class="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"> 
+    <h2><span class="member-name">{{ person.name|translit(type='name') }}</span><br> 
         <small>
             {% if person.twitter %}
             <a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
@@ -57,18 +57,6 @@
                         <td><a data-pjax href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|translit(type='party') }}</a></td>
                     </tr>
                     {% endif %}
-                    {% if person_extra_vars.district %}
-                    <tr>
-                        <th>{{ gettext("election district") }}</th>
-                        <td>{{person_extra_vars.district|translit}}</td>
-                    </tr>
-                    {% endif %}
-                    {% if person_extra_vars.job %}
-                    <tr>
-                        <th>{{ gettext("job") }}</th>
-                        <td>{{person_extra_vars.job|translit}}</td>
-                    </tr>
-                    {% endif %}
                     {% if person.education %}
                     <tr>
                         <th>{{ gettext("education") }}</th>
@@ -79,13 +67,22 @@
                         </td>
                     </tr>
                     {% endif %}
-                    {% if person_extra_vars.experience %}
+                    {% if person_extra_vars.job or person_extra_vars.experience %}
                     <tr>
-                        <th>{{ gettext("work experience") }}</th>
+                        <th>{{ gettext("work experiences") }}</th>
                         <td>
-                            {% for exp in person_extra_vars.experience %}
-                            {{exp|translit}}<br>
-                            {% endfor %}
+                            {% if person_extra_vars.job %}
+                            <span id="currentjob">
+                                {{person_extra_vars.job|translit}}
+                            </span>
+                            {% endif %}
+                            {% if person_extra_vars.experience %}
+                            <span id="experiences">
+                                {% for exp in person_extra_vars.experience %}
+                                {{exp|translit}}<br>
+                                {% endfor %}
+                            </span>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endif %}
@@ -93,6 +90,12 @@
                     <tr>
                         <th>{{ gettext("address") }}</th>
                         <td>{{person_extra_vars.address|translit}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if person_extra_vars.district %}
+                    <tr>
+                        <th>{{ gettext("election district") }}</th>
+                        <td>{{person_extra_vars.district|translit}}</td>
                     </tr>
                     {% endif %}
                     {{widgets.relation(person)|safe}}
