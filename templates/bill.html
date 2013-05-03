@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{# TODO: extends search-results.html #}
+
+{% block title %}
+{{ super() }} - {{ bill.id }} {{ bill.name }
+{% endblock %}
+
+{% block content %}
+<h2>{{ bill.id }}: {{ bill.name }}</h2>
+<hr>
+<div id="search-view">
+    {# TODO: search view #}
+    View
+</div>
+{% endblock %}

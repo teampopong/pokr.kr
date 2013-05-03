@@ -6,3 +6,4 @@ import party
 import party_affiliation
 import person
 import school
+import bill
