@@ -61,9 +61,11 @@
                     <tr>
                         <th>{{ gettext("education") }}</th>
                         <td>
-                        {% for term, education_id in zip(person.education, person.education_id) %}
-                        {% if education_id %}<a href="{{url_for('school', education_id=education_id)}}">{% endif %}{{term}}{% if education_id %}</a>{% endif %}
-                        {% endfor %}
+                            <span class="tooltipped" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.education}}">
+                            {% for term, education_id in zip(person.education, person.education_id) %}
+                            {% if education_id %}<a href="{{url_for('school', education_id=education_id)}}">{% endif %}{{term}}{% if education_id %}</a>{% endif %}
+                            {% endfor %}
+                            </span>
                         </td>
                     </tr>
                     {% endif %}

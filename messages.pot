@@ -17,6 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
+#: templates/bill.html:15
+msgid "assembly #"
+msgstr ""
+
+#: templates/bill.html:21
+msgid "proposed date"
+msgstr ""
+
+#: templates/bill.html:27
+msgid "decision date"
+msgstr ""
+
+#: templates/bill.html:33
+msgid "representative proposer"
+msgstr ""
+
+#: templates/bill.html:39
+msgid "proposers"
+msgstr ""
+
+#: templates/bill.html:45
+msgid "committee"
+msgstr ""
+
+#: templates/bill.html:51
+msgid "status"
+msgstr ""
+
+#: templates/bill.html:57
+msgid "attachments"
+msgstr ""
+
 #: templates/layout.html:64
 msgid "search"
 msgstr ""
@@ -72,15 +104,19 @@ msgstr ""
 msgid "education"
 msgstr ""
 
-#: templates/person.html:72
+#: templates/person.html:64
+msgid "original"
+msgstr ""
+
+#: templates/person.html:74
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:91
+#: templates/person.html:93
 msgid "address"
 msgstr ""
 
-#: templates/person.html:97
+#: templates/person.html:99
 msgid "election district"
 msgstr ""
 

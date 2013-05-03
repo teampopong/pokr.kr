@@ -7,7 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2013-05-03 19:46+0900\n"
+=======
+"POT-Creation-Date: 2013-05-03 19:33+0900\n"
+>>>>>>> 7f31dd8c428b49dd0f6982df2f16d6ee8814e691
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -16,6 +20,38 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+
+#: templates/bill.html:15
+msgid "assembly #"
+msgstr "국회 대수"
+
+#: templates/bill.html:21
+msgid "proposed date"
+msgstr "제안일자"
+
+#: templates/bill.html:27
+msgid "decision date"
+msgstr "의결일자"
+
+#: templates/bill.html:33
+msgid "representative proposer"
+msgstr "대표제안자"
+
+#: templates/bill.html:39
+msgid "proposers"
+msgstr "제안자"
+
+#: templates/bill.html:45
+msgid "committee"
+msgstr "관련의원회"
+
+#: templates/bill.html:51
+msgid "status"
+msgstr "상태"
+
+#: templates/bill.html:57
+msgid "attachments"
+msgstr "첨부자료"
 
 #: templates/layout.html:64
 msgid "search"
@@ -72,15 +108,19 @@ msgstr "소속정당"
 msgid "education"
 msgstr "학력"
 
-#: templates/person.html:72
+#: templates/person.html:64
+msgid "original"
+msgstr "원본"
+
+#: templates/person.html:74
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:91
+#: templates/person.html:93
 msgid "address"
 msgstr "주소"
 
-#: templates/person.html:97
+#: templates/person.html:99
 msgid "election district"
 msgstr "지역구"
 
