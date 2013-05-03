@@ -101,8 +101,11 @@
 {% if not is_pjax %}
         </div>
         <div id="footer">
-            <p class="text-center">
-            <small>&copy; 2011-2013 <a href="http://popong.com/">team POPONG</a>. All right reserved.</small>
+            <p id="feedback-plea" class="pull-left">
+            <small>{{ gettext("For any questions, problems and suggestions, please click the 'Feedback' button above.") }}</small>
+            </p>
+            <p id="copyright" class="pull-right">
+            <small>&copy; 2011-2013 <a href="http://popong.com/">Team POPONG</a>. All right reserved.</small>
             </p>
         </div>
         <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
