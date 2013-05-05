@@ -1,6 +1,8 @@
 ///// varibles /////
+@link_color     : #08c;
 @hover_color    : #058;
 @bg_color       : #f1efeb;
+@icon_color     : silver;
 
 ///// mixins /////
 .border-box {
@@ -54,8 +56,8 @@
     vertical-align: top;
 }
 
-a [class^="icon-"] {
-    color: #999;
+[class^="icon-"] {
+    color: @icon_color;
     text-decoration: none;
     margin: auto 1px;
 }
@@ -63,6 +65,10 @@ a [class^="icon-"] {
 a [class^="icon-"]:hover {
     color: @hover_color;
     text-decoration: none;
+}
+
+a i.nolink:hover {
+    color: @icon_color;
 }
 
 
@@ -207,6 +213,13 @@ body {
     overflow-y: auto;
 }
 
+#party-name {
+    font-size: 14pt;
+    line-height: 30px;
+    text-align: center;
+    margin-top: -40px;
+}
+
 .card {
     position: relative;
     width: 90px;
@@ -235,7 +248,6 @@ body {
     [class^="icon-"] {
         font-size: 13pt;
         margin-top: 4px;
-        color: silver;
     }
 }
 

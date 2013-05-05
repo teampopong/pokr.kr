@@ -70,7 +70,9 @@
                 <div id="search-options" class="accordion">
                     <div id="search-party" class="accordion-group">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#search-options" href="#parties">{{gettext("search by party:")}}</a>
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#search-options" href="#parties">
+                                {{gettext("search by party")}} <i class="icon-info-sign tooltipped nolink" data-placement="bottom" data-title="{{ gettext('Sorted by frecency') }}"></i>
+                            </a>
                         </div>
                         <div id="parties" class="accordion-body collapse in">
                             <ul class="accordion-inner">
