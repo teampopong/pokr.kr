@@ -11,11 +11,15 @@ revision = '2c793359a1c0'
 down_revision = '2f5c5a76269e'
 
 import json
+import sys
+from os.path import abspath, dirname, join
 
 from alembic import op
 import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
+parentdir = dirname(dirname(dirname(abspath(__file__))))
+sys.path.insert(0,parentdir)
 from models.person import Person
 from utils.nlp.structurizer import markup
 
