@@ -4,7 +4,7 @@ from collections import defaultdict
 import os.path
 import re
 
-from flask import current_app, redirect, request, url_for
+from flask import current_app, redirect, render_template, request, url_for
 
 
 dict_path = 'data/mobile_user_agents.txt'
@@ -23,7 +23,7 @@ class PopongMobile(object):
         def mobile():
             if not self.is_mobile():
                 return redirect(url_for('person_main'))
-            return 'mobile'
+            return render_template('mobile.html')
 
         @app.before_request
         def redirect_if_mobile():
