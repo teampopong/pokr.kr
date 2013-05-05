@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{# TODO: extends search-results.html #}
+
+{% block title %}
+{{ super() }} - {{ school.name }}
+{% endblock %}
+
+{% block extra_headers %}
+{{ super() }}
+<link rel="stylesheet/less" href="{{url_for('static', filename="less/search-results.less")}}">
+{% endblock %}
+
+{% block card %}
+<img class="instance-img" src="{{ url_for('static', filename='images/default_school.jpg') }}">
+<h2 class="instance-name">{{ school.name }}</h2>
+{% endblock %}
+
+{% block content %}
+<div id="search-view">
+	{% for person in school.alumni %}
+	<div class="inline-block text-center">
+		<a href="{{ url_for('person', id=person.id) }}">
+			<img class="search-list-member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"><br>
+			<strong>{{ person.name|translit(type='name') }}</strong>
+		</a>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
