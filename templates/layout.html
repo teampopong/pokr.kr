@@ -83,15 +83,13 @@
                 </div>
             </div>
             <div id="content">
-                <div class="row-fluid">
-                    <div id="card-container" class="span2">
-                        {% block card %}
-                        {% endblock %}
-                    </div>
-                    <div id="spec-container" class="span10">
-                        {% block content %}
-                        {% endblock %}
-                    </div>
+                <div id="card-container">
+                    {% block card %}
+                    {% endblock %}
+                </div>
+                <div id="spec-container">
+                    {% block content %}
+                    {% endblock %}
                 </div>
             </div>
             <div id="rightnav">

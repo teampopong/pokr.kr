@@ -1,5 +1,6 @@
 ///// varibles /////
 @hover_color    : #058;
+@bg_color       : #f1efeb;
 
 ///// mixins /////
 .border-box {
@@ -72,6 +73,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
+    background: @bg_color;
 }
 
 #container {
@@ -106,8 +108,8 @@ body {
     left: 190px;
     right: 190px;
     padding: 10px;
-    overflow-y: auto;
     border: 1px solid #999;
+    background: white;
 }
 
 #rightnav {
@@ -185,22 +187,40 @@ body {
 }
 
 #card-container {
-    margin-top: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 110px;
+    .border-box;
+    padding: 10px;
+}
+
+#spec-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 110px;
+    right: 0;
+    .border-box;
+    padding: 10px;
+    overflow-y: auto;
 }
 
 .card {
     position: relative;
-    width: 120px;
+    width: 90px;
     margin: 7px auto;
     border: 1px solid #999;
     .border-radius;
     .box-shadow;
     background: #fafafa;
+    overflow: hidden;
 
     .member-img {
         display: block;
-        width: 120px;
-        height: 160px;
+        width: 90px;
+        height: 120px;
         margin: 0 auto;
         .border-radius;
     }

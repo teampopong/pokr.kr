@@ -1,3 +1,6 @@
+@bg_color       : #f1efeb;
+
+
 .border-radius (@radius: 5px) {
     border-radius: @radius;
     -moz-border-radius: @radius;
@@ -35,6 +38,45 @@ th {
     }
 }
 
+
+#person-section-tabs {
+    position: absolute;
+    top: 220px;
+    bottom: -2px;
+    left: -2px;
+    right: 0;
+
+    margin-bottom: 0;
+    padding-top: 20px;
+
+    background: @bg_color;
+    border-right: 1px solid #999;
+    border-left: 2px solid @bg_color;
+    border-top: 1px solid #999;
+    border-bottom: 2px solid @bg_color;
+
+    text-align: right;
+    font-size: 11pt;
+
+    li {
+        line-height: 30px;
+        border: 1px solid #999;
+        margin-top: -1px;
+        margin-right: -1px;
+
+        &.active {
+            background: white;
+        }
+
+        a {
+            padding-right: 5px;
+
+            &:hover {
+                background: white;
+            }
+        }
+    }
+}
 
 
 #currentjob {
