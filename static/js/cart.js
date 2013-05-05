@@ -7,7 +7,7 @@ var namespace = 'cards-cart',
 
 var TMPL_CARD = '\
 <div class="card">\
-    <a href="{{url}}">\
+    <a class="person-link" href="{{url}}">\
         <img class="member-img" src="{{image}}">\
         <h2><span>{{name}}</span></h2>\
     </a>\
@@ -41,6 +41,7 @@ function loadCards() {
     $.each(items, function (i, item) {
         prependCard(item);
     });
+    PO.linkPeople('.card .person-link');
 }
 
 function prependCard(item) {

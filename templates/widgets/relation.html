@@ -3,7 +3,7 @@
 <!-- TODO: 스타일링은 외부 css 의존하지 않게 -->
     {% for description, related_person in related_people|batch(size)|first %}
     {% if related_person.id != person_id %}
-    <a class="related-person" href="{{ url_for('person', id=related_person.id, _external=True) }}" style="text-decoration: none;">
+    <a class="related-person person-link" href="{{ url_for('person', id=related_person.id, _external=True) }}" style="text-decoration: none;">
             <div style="display: inline-block; text-align:center;">
                     <img src="{{ related_person.image|default(url_for('static', filename='images/default_profile.jpg', _external=True), True) }}" style="height: 40px;"><br>
                     {{ related_person.name|translit(type='name') }}
@@ -14,4 +14,7 @@
     {% if related_people|count > size %}
     <a href="#" onclick="alert(&quot;{{gettext("not implemented")}}&quot;);">...</a>
     {% endif %}
+<script>
+PO.linkPeople('.related-person');
+</script>
 {% endif %}
