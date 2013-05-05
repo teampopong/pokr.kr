@@ -1,13 +1,17 @@
 {% extends "layout.html" %}
 {# TODO: extends search-results.html #}
 
+{% block card %}
+<img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
+<h2 class="instance-name">{{ bill.id }}</h2>
+{% endblock %}
+
 {% block title %}
 {{ super() }} - {{ bill.id }} {{ bill.name }}
 {% endblock %}
 
 {% block content %}
-<h2>{{ bill.id }}: {{ bill.name }}</h2>
-<hr>
+<h2 id="bill-name">{{ bill.name }}</h2>
 <table class="table table-condensed">
     <tbody>
         {% if bill.age %}

@@ -13,7 +13,7 @@
 {% block card %}
 <img class="party-img" src="{{ party.logo|default(url_for('static', filename='images/default_party.jpg'), True) }}" title="{{ party.name }}">
 {% if not party.logo %}
-<h2 id="party-name">{{ party.name|translit(type='party') }}</h2>
+<h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
 {% endif %}
 {% endblock %}
 
