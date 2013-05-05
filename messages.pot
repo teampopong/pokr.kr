@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-03 19:46+0900\n"
+"POT-Creation-Date: 2013-05-05 15:56+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,11 +53,15 @@ msgstr ""
 msgid "search"
 msgstr ""
 
-#: templates/layout.html:73
-msgid "search by party:"
+#: templates/layout.html:74
+msgid "search by party"
 msgstr ""
 
-#: templates/layout.html:109
+#: templates/layout.html:74
+msgid "Sorted by frecency"
+msgstr ""
+
+#: templates/layout.html:111
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
@@ -76,60 +80,65 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:39
+#: templates/person.html:36
+msgid "add to cart"
+msgstr ""
+
+#: templates/person.html:45
 msgid "aggregated"
 msgstr ""
 
-#: templates/person.html:40
+#: templates/person.html:46
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:41 templates/person.html:105
+#: templates/person.html:47 templates/person.html:122
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:42
-msgid "trends"
+#: templates/person.html:55
+msgid "birthday"
 msgstr ""
 
-#: templates/person.html:50
-msgid "birthdate"
-msgstr ""
-
-#: templates/person.html:56
+#: templates/person.html:61
 msgid "party"
 msgstr ""
 
-#: templates/person.html:62
+#: templates/person.html:67
 msgid "education"
 msgstr ""
 
-#: templates/person.html:64
+#: templates/person.html:69
 msgid "original"
 msgstr ""
 
-#: templates/person.html:74
+#: templates/person.html:79
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:93
+#: templates/person.html:98
 msgid "address"
 msgstr ""
 
-#: templates/person.html:99
+#: templates/person.html:104
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:108
+#: templates/person.html:110
+msgid "trends"
+msgstr ""
+
+#: templates/person.html:110
+#, python-format
+msgid "Results from Google Trends searched by query %(name)s"
+msgstr ""
+
+#: templates/person.html:125
 msgid "timeline"
 msgstr ""
 
-#: templates/person.html:112 widgets/relation.py:22
+#: templates/person.html:129 widgets/relation.py:22
 msgid "in the same constituency"
-msgstr ""
-
-#: templates/person.html:128
-msgid "add to cart"
 msgstr ""
 
 #: templates/search-results.html:4
