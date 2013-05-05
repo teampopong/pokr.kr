@@ -18,4 +18,8 @@ PO.linkPeople = function (elem) {
     });
 };
 
+$(window).load(function () {
+    $('.tooltipped').tooltip();
+});
+
 }());
