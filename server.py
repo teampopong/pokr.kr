@@ -8,6 +8,7 @@ from utils.assets import init_app as init_asset
 from utils.filters import init_app as init_filters
 from utils.i18n import PopongBabel
 from utils.linkall import init_app as init_linkall
+from utils.mobile import PopongMobile
 from utils.reverse_proxy import init_app as init_reverse_proxy
 from views import init_app as init_view
 from widgets import init_app as init_widgets
@@ -25,6 +26,7 @@ init_asset(app)
 init_db(app)
 init_filters(app)
 PopongBabel(app, **BABEL_SETTINGS)
+PopongMobile(app)
 init_linkall(app)
 init_reverse_proxy(app, SCRIPT_NAME)
 init_view(app)

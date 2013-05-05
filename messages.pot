@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-05 15:56+0900\n"
+"POT-Creation-Date: 2013-05-05 23:05+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,54 +17,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:15
+#: templates/bill.html:19
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:21
+#: templates/bill.html:25
 msgid "proposed date"
 msgstr ""
 
-#: templates/bill.html:27
+#: templates/bill.html:31
 msgid "decision date"
 msgstr ""
 
-#: templates/bill.html:33
+#: templates/bill.html:37
 msgid "representative proposer"
 msgstr ""
 
-#: templates/bill.html:39
+#: templates/bill.html:43
 msgid "proposers"
 msgstr ""
 
-#: templates/bill.html:45
+#: templates/bill.html:49
 msgid "committee"
 msgstr ""
 
-#: templates/bill.html:51
+#: templates/bill.html:55
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:57
+#: templates/bill.html:61
 msgid "attachments"
 msgstr ""
 
-#: templates/layout.html:64
+#: templates/layout.html:65
 msgid "search"
 msgstr ""
 
-#: templates/layout.html:74
+#: templates/layout.html:75
 msgid "search by party"
 msgstr ""
 
-#: templates/layout.html:74
+#: templates/layout.html:75
 msgid "Sorted by frecency"
 msgstr ""
 
-#: templates/layout.html:111
+#: templates/layout.html:110
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
+msgstr ""
+
+#: templates/mobile.html:1
+msgid "Sorry, mobile browsers are not supported. Please use a desktop browser."
 msgstr ""
 
 #: templates/not-found.html:4 templates/not-found.html:9
@@ -84,60 +88,56 @@ msgstr ""
 msgid "add to cart"
 msgstr ""
 
-#: templates/person.html:45
-msgid "aggregated"
-msgstr ""
-
-#: templates/person.html:46
+#: templates/person.html:40 templates/person.html:49
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:47 templates/person.html:122
+#: templates/person.html:41 templates/person.html:121
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:55
+#: templates/person.html:54
 msgid "birthday"
 msgstr ""
 
-#: templates/person.html:61
+#: templates/person.html:60
 msgid "party"
 msgstr ""
 
-#: templates/person.html:67
+#: templates/person.html:66
 msgid "education"
 msgstr ""
 
-#: templates/person.html:69
+#: templates/person.html:68
 msgid "original"
 msgstr ""
 
-#: templates/person.html:79
+#: templates/person.html:78
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:98
+#: templates/person.html:97
 msgid "address"
 msgstr ""
 
-#: templates/person.html:104
+#: templates/person.html:103
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:110
+#: templates/person.html:109
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:110
+#: templates/person.html:109
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
-#: templates/person.html:125
+#: templates/person.html:124
 msgid "timeline"
 msgstr ""
 
-#: templates/person.html:129 widgets/relation.py:22
+#: templates/person.html:128 widgets/relation.py:22
 msgid "in the same constituency"
 msgstr ""
 

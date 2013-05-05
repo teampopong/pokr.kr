@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-05 15:56+0900\n"
+"POT-Creation-Date: 2013-05-05 23:05+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,55 +17,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:15
+#: templates/bill.html:19
 msgid "assembly #"
 msgstr "국회 대수"
 
-#: templates/bill.html:21
+#: templates/bill.html:25
 msgid "proposed date"
 msgstr "제안일자"
 
-#: templates/bill.html:27
+#: templates/bill.html:31
 msgid "decision date"
 msgstr "의결일자"
 
-#: templates/bill.html:33
+#: templates/bill.html:37
 msgid "representative proposer"
 msgstr "대표제안자"
 
-#: templates/bill.html:39
+#: templates/bill.html:43
 msgid "proposers"
 msgstr "제안자"
 
-#: templates/bill.html:45
+#: templates/bill.html:49
 msgid "committee"
 msgstr "관련의원회"
 
-#: templates/bill.html:51
+#: templates/bill.html:55
 msgid "status"
 msgstr "상태"
 
-#: templates/bill.html:57
+#: templates/bill.html:61
 msgid "attachments"
 msgstr "첨부자료"
 
-#: templates/layout.html:64
+#: templates/layout.html:65
 msgid "search"
 msgstr "검색"
 
-#: templates/layout.html:74
+#: templates/layout.html:75
 msgid "search by party"
 msgstr "정당으로 검색:"
 
-#: templates/layout.html:74
+#: templates/layout.html:75
 msgid "Sorted by frecency"
 msgstr "빈도와 시간 순으로 정렬됨"
 
-#: templates/layout.html:111
+#: templates/layout.html:110
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
 msgstr "질문이나 오류, 건의사항이 있는 경우 상단의 'Feedback' 버튼을 클릭해주세요."
+
+#: templates/mobile.html:1
+msgid "Sorry, mobile browsers are not supported. Please use a desktop browser."
+msgstr "죄송합니다, 모바일 브라우저는 현재 지원되지 않습니다. 데스크탑 브라우저로 다시 접속해주세요!"
 
 #: templates/not-found.html:4 templates/not-found.html:9
 msgid "Result not found"
@@ -84,60 +88,56 @@ msgstr "정치인명사전"
 msgid "add to cart"
 msgstr "카트에 추가"
 
-#: templates/person.html:45
-msgid "aggregated"
-msgstr "모아보기"
-
-#: templates/person.html:46
+#: templates/person.html:40 templates/person.html:49
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:47 templates/person.html:122
+#: templates/person.html:41 templates/person.html:121
 msgid "elections"
 msgstr "선거활동"
 
-#: templates/person.html:55
+#: templates/person.html:54
 msgid "birthday"
 msgstr "출생일"
 
-#: templates/person.html:61
+#: templates/person.html:60
 msgid "party"
 msgstr "정당"
 
-#: templates/person.html:67
+#: templates/person.html:66
 msgid "education"
 msgstr "최종학력"
 
-#: templates/person.html:69
+#: templates/person.html:68
 msgid "original"
 msgstr "원본"
 
-#: templates/person.html:79
+#: templates/person.html:78
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:98
+#: templates/person.html:97
 msgid "address"
 msgstr "거주지"
 
-#: templates/person.html:104
+#: templates/person.html:103
 msgid "election district"
 msgstr "선거구"
 
-#: templates/person.html:110
+#: templates/person.html:109
 msgid "trends"
 msgstr "검색추이"
 
-#: templates/person.html:110
+#: templates/person.html:109
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "본 그래프는 '%(name)s'을(를) 구글링한 결과로, 부정확할 수 있습니다"
 
-#: templates/person.html:125
+#: templates/person.html:124
 msgid "timeline"
 msgstr "타임라인"
 
-#: templates/person.html:129 widgets/relation.py:22
+#: templates/person.html:128 widgets/relation.py:22
 msgid "in the same constituency"
 msgstr "동일 선거구 출마"
 
