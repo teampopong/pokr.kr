@@ -98,12 +98,6 @@
                         <td>{{person_extra_vars.address|translit}}</td>
                     </tr>
                     {% endif %}
-                    {% if person_extra_vars.district %}
-                    <tr>
-                        <th>{{ gettext("election district") }}</th>
-                        <td>{{person_extra_vars.district|translit}}</td>
-                    </tr>
-                    {% endif %}
                     {% if not config['DEBUG'] %}
                     <tr>
                         <th>{{ gettext("trends") }} <i class="icon-exclamation-sign tooltipped" data-placement="bottom" data-title="{{ gettext('Results from Google Trends searched by query %(name)s', name=person.name) }}"></i></th>
@@ -124,6 +118,12 @@
                     <th>{{ gettext('timeline') }}</th>
                     <td>{{widgets.timeline(person.id)|safe}}</td>
                 </tr>
+                {% if person_extra_vars.district %}
+                <tr>
+                    <th>{{ gettext("election district") }}</th>
+                    <td>{{person_extra_vars.district|translit}}</td>
+                </tr>
+                {% endif %}
                 <tr>
                     <th>{{ gettext('in the same constituency') }}</th>
                     <td>{{widgets.relation(person)|safe}}</td>
