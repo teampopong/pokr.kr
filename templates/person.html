@@ -72,6 +72,12 @@
                         </td>
                     </tr>
                     {% endif %}
+                    {% if person_extra_vars.address %}
+                    <tr>
+                        <th>{{ gettext("address") }}</th>
+                        <td>{{person_extra_vars.address|translit}}</td>
+                    </tr>
+                    {% endif %}
                     {% if person_extra_vars.job or person_extra_vars.experience %}
                     <tr>
                         <th>{{ gettext("work experiences") }}</th>
@@ -89,12 +95,6 @@
                             </span>
                             {% endif %}
                         </td>
-                    </tr>
-                    {% endif %}
-                    {% if person_extra_vars.address %}
-                    <tr>
-                        <th>{{ gettext("address") }}</th>
-                        <td>{{person_extra_vars.address|translit}}</td>
                     </tr>
                     {% endif %}
                     {% if not config['DEBUG'] %}
