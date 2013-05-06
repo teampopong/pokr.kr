@@ -8,7 +8,6 @@ $('#person-section-tabs a').click(function () {
 
 $(window).load(function () {
     $('#spec-container').scrollspy();
-    $('.tooltipped').tooltip();
 });
 
 $('#spec-container').scroll(function () {

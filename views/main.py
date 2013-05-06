@@ -17,11 +17,6 @@ def register(app):
     def inject_parties():
         return dict(party_list=party_list)
 
-    @app.context_processor
-    def inject_is_pjax():
-        is_pjax = request.headers.get('X-PJAX') is not None
-        return dict(is_pjax=is_pjax)
-
     @app.route('/')
     def main():
         return redirect(url_for('person_main'))
