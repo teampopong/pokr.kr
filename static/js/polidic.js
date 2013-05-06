@@ -1,5 +1,8 @@
 (function () {
 
+
+/* POPONG common library */
+
 if (window.PO) {
     return;
 }
@@ -18,8 +21,22 @@ PO.linkPeople = function (elem) {
     });
 };
 
-$(window).load(function () {
+
+/* Warm-up scripts */
+
+$(document).ready(onReady);
+$(window).load(onLoad);
+
+function onReady() {
+    $('input#search').typeahead({
+        name: 'people_names',
+        prefetch: "{{url_for('person_all_names')}}"
+    });
+}
+
+function onLoad() {
+    $('.member-img').clipImage();
     $('.tooltipped').tooltip();
-});
+};
 
 }());

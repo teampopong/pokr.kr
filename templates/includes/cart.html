@@ -1,0 +1,8 @@
+{# TODO: widget으로 만들어서 충돌 없이 여러 종류의 cart를 사용 가능하게. #}
+<div id="cards-cart-container">
+	<h3>Cart <i class="icon-shopping-cart"></i></h3>
+	<div id="cards-cart">
+	</div>
+	<a class="btn-clear-cart" href="#" onclick="CART.clearCart()">clear</a>
+</div>
+<script src="{{url_for('static', filename="js/cart.js")}}"></script>
