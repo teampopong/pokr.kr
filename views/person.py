@@ -65,9 +65,8 @@ def register(app):
             pass
 
         log_person(id)
-        # XXX: script tag가 포함되어 있으면 pjax 불가
         return render_template('person.html', person=person,
-                person_extra_vars=person_extra_vars, is_pjax=False)
+                person_extra_vars=person_extra_vars)
 
 
 def all_person_names():
