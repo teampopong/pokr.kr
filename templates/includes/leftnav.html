@@ -1,5 +1,5 @@
 <h1><a href="{{ url_for('person_main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
-<form id="member-search-form" action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
+<form action="{{ url_for("person_main") }}" style="margin-bottom: 10px;">
 	<div class="input-append">
 		<input id="search" type="text" name="q" autocomplete="on" class="border-box" placeholder="{{ gettext("search") }}">
 		<button class="btn add-on">

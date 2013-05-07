@@ -1,74 +1,15 @@
-///// varibles /////
-@link_color     : #08c;
-@hover_color    : #058;
-@bg_color       : #f1efeb;
-@icon_color     : silver;
+@import "includes.less";
 
-///// mixins /////
-.border-box {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    *behavior: url(/static/boxsizing.htc);
+///// override DOM styles /////
+tr:first-child th,
+tr:first-child td {
+    border-top: 0;
 }
 
-// TODO: move to utils.less for import
-.border-radius (@radius: 5px) {
-    border-radius: @radius;
-    -moz-border-radius: @radius;
-    -webkit-border-radius: @radius;
-}
-
-.border-radius (@tl: 5px, @tr: 5px, @br: 5px, @bl: 5px) {
-    border-radius: @arguments;
-    -moz-border-radius: @arguments;
-    -webkit-border-radius: @arguments;
-}
-
-.box-shadow {
-    box-shadow: 1px 1px rgba(128, 128, 128, 0.3);
-}
-
-.inline-block {
-    display:-moz-inline-stack;
-    display:inline-block;
-    zoom:1;
-    *display:inline;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.absolute-top-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.clear {
-    clear: both;
-}
-
-
-///// override bootstrap styles /////
-[class^="icon-"]::before {
-    vertical-align: top;
-}
-
-[class^="icon-"] {
-    color: @icon_color;
-    text-decoration: none;
-    margin: auto 1px;
-}
-
-a [class^="icon-"]:hover {
-    color: @hover_color;
-    text-decoration: none;
-}
-
-a i.nolink:hover {
-    color: @icon_color;
+th {
+    width: 15%;
+    max-width: 80px;
+    min-width: 60px;
 }
 
 
@@ -175,21 +116,21 @@ body {
         overflow-x: hidden;
         overflow-y: auto;
     }
-}
 
-.select-party {
-    position: relative;
-    line-height: 22px;
-}
+	.select-party {
+		position: relative;
+		line-height: 22px;
+	}
 
-.party-size {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    color: #999;
-    font-size: 9pt;
-    text-align: right;
+	.party-size {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		color: #999;
+		font-size: 9pt;
+		text-align: right;
+	}
 }
 
 #card-container {
@@ -200,12 +141,20 @@ body {
     width: 15%;
     .border-box;
     padding: 10px;
-    .instance-img {
-        width: 150px;
-        height: 100px;
-        display: block;
-        margin: 0 auto;
-    }
+
+	.instance-img {
+		width: 150px;
+		height: 100px;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.instance-name {
+		font-size: 15pt;
+		line-height: 30px;
+		text-align: center;
+		margin-top: -70px;
+	}
 }
 
 #spec-container {
@@ -217,44 +166,6 @@ body {
     .border-box;
     padding: 10px;
     overflow-y: auto;
-}
-
-.instance-name {
-    font-size: 15pt;
-    line-height: 30px;
-    text-align: center;
-    margin-top: -70px;
-}
-
-.card {
-    position: relative;
-    width: 90px;
-    margin: 7px auto;
-    border: 1px solid #999;
-    .border-radius;
-    .box-shadow;
-    background: #fafafa;
-    overflow: hidden;
-
-    .member-img {
-        display: block;
-        width: 90px;
-        height: 120px;
-        margin: 0 auto;
-        .border-radius;
-    }
-
-    h2 {
-        font-size: 14pt;
-        margin: 2px;
-        text-align: right;
-        line-height: 1.1em;
-    }
-
-    [class^="icon-"] {
-        font-size: 13pt;
-        margin-top: 4px;
-    }
 }
 
 #cards-cart-container {
@@ -273,96 +184,9 @@ body {
         line-height: 1em;
     }
 
-    .card {
-        float: left;
-        width: 48px;
-        margin: 5px 0 0 5px;
-
-        .btn-remove-card {
-            display: none;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            text-align: right;
-            background: rgba(127, 127, 127, 0.3);
-        }
-
-        &:hover .btn-remove-card {
-            display: block;
-        }
-
-        &:hover {
-            background: #ececec;
-        }
-
-        a,
-        a:hover {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .member-img {
-            width: 48px;
-            height: 64px;
-        }
-
-        h2 {
-            font-size: 10pt;
-        }
-
-        small {
-            display: none;
-        }
-    }
-}
-
-.btn-clear-cart {
-    position: absolute;
-    bottom: 10px;
-    right: 5px;
-}
-
-.input-append {
-    height: inherit !important;
-    font-size: inherit;
-
-    .tt-hint {
-        .border-box;
-    }
-
-    .tt-dropdown-menu {
-        width: 100%;
-        background: white;
-        border: 1px solid skyblue;
-        .border-box;
-        .border-radius;
-    }
-
-    .tt-suggestions p {
-        margin: 0 0 3px;
-        padding: 0 6px;
-    }
-
-    .tt-is-under-cursor {
-        background: lightskyblue;
-    }
-
-    input {
-        width: 137px;
-    }
-}
-
-tr:first-child th,
-tr:first-child td {
-    border-top: 0;
-}
-
-th {
-    width: 15%;
-    max-width: 80px;
-    min-width: 60px;
-}
-
-#bill-name {
-    margin-bottom: 30px;
+	.btn-clear-cart {
+		position: absolute;
+		bottom: 10px;
+		right: 5px;
+	}
 }

@@ -1,0 +1,85 @@
+@import "includes.less";
+
+.card {
+	// common
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #999;
+    background: #fafafa;
+
+	.inline-block;
+	.text-center;
+    .border-radius;
+    .box-shadow;
+
+	width: 60px;
+	margin: 5px 0 0 5px;
+
+    [class^="icon-"] {
+        font-size: 13pt;
+        margin-top: 4px;
+    }
+
+	a,
+	a:hover {
+		color: #333;
+		text-decoration: none;
+	}
+
+	.person-img {
+        display: block;
+		width: 60px;
+		height: 80px;
+        margin: 0 auto;
+	}
+
+	h2 {
+		font-size: 10pt;
+	}
+
+	.btn-remove-card {
+		display: none;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		text-align: right;
+		background: rgba(127, 127, 127, 0.3);
+	}
+
+	&:hover .btn-remove-card {
+		display: block;
+	}
+
+	&:hover {
+		background: #ececec;
+	}
+}
+
+.card.card-small {
+	width: 48px;
+
+    .person-img {
+		width: 48px;
+        height: 64px;
+    }
+}
+
+.card.card-large {
+	display: block;
+    width: 90px;
+    margin: 7px auto;
+
+    .person-img {
+        width: 90px;
+        height: 120px;
+    }
+
+    h2 {
+        font-size: 14pt;
+        margin: 2px;
+        text-align: right;
+        line-height: 1.1em;
+    }
+
+}
+

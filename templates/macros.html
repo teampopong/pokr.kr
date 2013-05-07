@@ -1,0 +1,7 @@
+{% macro people_list(people) -%}
+<div id="search-view">
+	{% for person in people %}
+		{{widgets.card(person)|safe}}
+	{% endfor %}
+</div>
+{%- endmacro %}

@@ -1,0 +1,25 @@
+{% if detailed %}
+<div class="card card-large" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
+    <img class="person-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"> 
+    <h2><span class="person-name">{{ person.name|translit(type='name') }}</span><br> 
+        <small>
+            {% if person.twitter %}
+            <a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
+            {% endif %}
+            {% if person.facebook %}
+            <a href="http://facebook.com/{{ person.facebook }}"><i class="icon-facebook-sign mobile-icon-large"></i></a>
+            {% endif %}
+            {% if person.homepage %}
+            <a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
+            {% endif %}
+        </small>
+    </h2>
+</div>
+{% else %}
+<div class="card">
+	<a class="person-link" href="{{url_for('person', id=person.id)}}">
+		<img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
+        <div class="person-name">{{person.name|translit(type='name')}}</div>
+    </a>
+</div>
+{% endif %}

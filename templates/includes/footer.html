@@ -8,6 +8,13 @@
 </div>
 <img class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
 
+<script>
+$('input#search').typeahead({
+	name: 'people_names',
+	prefetch: "{{url_for('person_all_names')}}"
+});
+</script>
+
 <!-- barometer start -->
 <script src='http://getbarometer.s3.amazonaws.com/assets/barometer/javascripts/barometer.js' type='text/javascript'></script>
 <script type="text/javascript" charset="utf-8">

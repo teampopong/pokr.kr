@@ -1,26 +1,15 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
 
 {% block title %}
 {{ super() }} - {{ gettext("Search by %(query)s", query=query) }}
 {% endblock %}
 
-{% block extra_headers %}
-{{ super() }}
-<link rel="stylesheet/less" href="{{url_for('static', filename="less/search-results.less")}}">
-{% endblock %}
-
 {% block content %}
-<div class="alert alert-info">
-	{{ gettext("%(num_results)d people found by the query '%(query)s'.", query=query, num_results=results|count) }}
-</div>
-<div id="search-view">
-	{% for person in results %}
-	<div class="inline-block text-center">
-		<a href="{{ url_for('person', id=person.id) }}">
-			<img class="search-list-member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"><br>
-			<strong>{{ person.name|translit(type='name') }}</strong>
-		</a>
+{% if query %}
+	<div class="alert alert-info">
+		{{ gettext("%(num_results)d people found by the query '%(query)s'.", query=query, num_results=results|count) }}
 	</div>
-	{% endfor %}
-</div>
+{% endif %}
+{{macro.people_list(results)}}
 {% endblock %}

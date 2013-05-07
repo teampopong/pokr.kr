@@ -8,28 +8,13 @@
 {{ super() }}
 <link rel="stylesheet/less" href="{{url_for('static', filename="less/person.less")}}">
 <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
+<script>
+window.currentPage = 'person';
+</script>
 {% endblock %}
 
 {% block card %}
-<div class="card" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
-    <img class="member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"> 
-    <h2><span class="member-name">{{ person.name|translit(type='name') }}</span><br> 
-        <small>
-            {% if person.twitter %}
-            <a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
-            {% endif %}
-            {% if person.facebook %}
-            <a href="http://facebook.com/{{ person.facebook }}"><i class="icon-facebook-sign mobile-icon-large"></i></a>
-            {% endif %}
-            {% if person.homepage %}
-            <a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
-            {% endif %}
-            {#% if person.email %}
-            <a href="mailto:{{ person.email }}"><i class="icon-envelope mobile-icon-large"></i></a>
-            {% endif %#}
-        </small>
-    </h2>
-</div>
+{{widgets.card(person, detailed=True)|safe}}
 <div id="to-cart">
     <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()">
         {{ gettext('add to cart') }}
@@ -42,11 +27,11 @@
 {% endblock %}
 
 {% block content %}
-<div id="member-view" data-spy="scroll" data-target="#person-section-tabs">
+<div id="person-view">
     <div id="person-sections">
         <div class="section" id="section-profile">
             <h3>{{ gettext('profile') }}</h3>
-            <table id="member-profile" class="table table-condensed">
+            <table id="person-profile" class="table table-condensed">
                 <tbody>
                     {% if person.birthday %}
                     <tr>

@@ -5,11 +5,12 @@ var namespace = 'cards-cart',
     $cart = $('#'+namespace),
     $currentCard = $('#card-container .card');
 
+// TODO: Load the template from the server dynamically
 var TMPL_CARD = '\
-<div class="card">\
+<div class="card card-small">\
     <a class="person-link" href="{{url}}">\
-        <img class="member-img" src="{{image}}">\
-        <h2><span>{{name}}</span></h2>\
+        <img class="person-img" src="{{image}}">\
+        <div class="person-name">{{name}}</div>\
     </a>\
     <a class="btn-remove-card" href="#" onclick="CART.removeCard(this); return false;">x</a>\
 </div>\
@@ -41,12 +42,11 @@ function loadCards() {
     $.each(items, function (i, item) {
         prependCard(item);
     });
-    PO.linkPeople('.card .person-link');
 }
 
 function prependCard(item) {
     var $item = $(item).appendTo($cart);
-    $item.find('.member-img').clipImage();
+    $item.find('.person-img').clipImage();
 }
 
 function saveCards() {
@@ -62,8 +62,8 @@ CART.clearCart = function () {
 CART.saveCurrentCard = function () {
     var data = {
             id: $currentCard.data('id'),
-            image: $currentCard.find('.member-img').attr('src'),
-            name: $currentCard.find('.member-name').text(),
+            image: $currentCard.find('.person-img').attr('src'),
+            name: $currentCard.find('.person-name').text(),
             url: $currentCard.data('url')
         },
         html = Mustache.render(TMPL_CARD, data);

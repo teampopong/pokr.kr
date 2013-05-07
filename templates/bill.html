@@ -1,13 +1,20 @@
 {% extends "layout.html" %}
-{# TODO: extends search-results.html #}
+
+{% block title %}
+{{ super() }} - {{ bill.id }} {{ bill.name }}
+{% endblock %}
+
+{% block extra_headers %}
+<style>
+#bill-name {
+    margin-bottom: 30px;
+}
+</style>
+{% endblock %}
 
 {% block card %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
 <h2 class="instance-name">{{ bill.id }}</h2>
-{% endblock %}
-
-{% block title %}
-{{ super() }} - {{ bill.id }} {{ bill.name }}
 {% endblock %}
 
 {% block content %}

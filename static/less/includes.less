@@ -1,0 +1,51 @@
+///// variables /////
+@link_color     : #08c;
+@hover_color    : #058;
+@bg_color       : #f1efeb;
+@icon_color     : silver;
+
+
+///// mixins /////
+.border-box {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    *behavior: url(/static/boxsizing.htc);
+}
+
+.border-radius (@radius: 5px) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+.border-radius (@tl: 5px, @tr: 5px, @br: 5px, @bl: 5px) {
+    border-radius: @arguments;
+    -moz-border-radius: @arguments;
+    -webkit-border-radius: @arguments;
+}
+
+.box-shadow {
+    box-shadow: 1px 1px rgba(128, 128, 128, 0.3);
+}
+
+.inline-block {
+    display:-moz-inline-stack;
+    display:inline-block;
+    zoom:1;
+    *display:inline;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.absolute-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.clear {
+    clear: both;
+}

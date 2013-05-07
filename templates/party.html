@@ -1,13 +1,8 @@
 {% extends "layout.html" %}
-{# TODO: extends search-results.html #}
+{% import 'macros.html' as macro with context %}
 
 {% block title %}
 {{ super() }} - {{ party.name|translit(type='party') }}
-{% endblock %}
-
-{% block extra_headers %}
-{{ super() }}
-<link rel="stylesheet/less" href="{{url_for('static', filename="less/search-results.less")}}">
 {% endblock %}
 
 {% block card %}
@@ -18,15 +13,5 @@
 {% endblock %}
 
 {% block content %}
-<div id="search-view">
-	{% for person in party.current_members %}
-	<div class="inline-block text-center">
-		<a href="{{ url_for('person', id=person.id) }}">
-			<img class="search-list-member-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"><br>
-			<strong>{{ person.name|translit(type='name') }}</strong>
-		</a>
-	</div>
-	{% endfor %}
-</div>
-
+{{macro.people_list(party.current_members)}}
 {% endblock %}
