@@ -1,3 +1,4 @@
+import bill
 import candidacy
 import education
 import election
@@ -5,5 +6,5 @@ import experience
 import party
 import party_affiliation
 import person
+import pledge
 import school
-import bill
