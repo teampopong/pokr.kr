@@ -6,7 +6,10 @@
 
 {% block extra_headers %}
 {{ super() }}
-<link rel="stylesheet/less" href="{{url_for('static', filename="less/person.less")}}">
+{% assets filters='less', output='build/person.%(version)s.css',
+	depends=['**/*.less'], 'less/person.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
 <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
 <script>
 window.currentPage = 'person';
