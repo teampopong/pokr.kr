@@ -34,4 +34,4 @@ def upgrade():
         }))
 
 def downgrade():
-    op.execute(school_t.remove())
+    op.execute(school_t.delete())
