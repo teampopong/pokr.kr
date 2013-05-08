@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-08 21:16+0900\n"
+"POT-Creation-Date: 2013-05-09 02:54+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -49,7 +49,7 @@ msgstr "상태"
 msgid "attachments"
 msgstr "첨부자료"
 
-#: templates/bills.html:8
+#: templates/bills.html:9
 msgid "bills"
 msgstr "의안"
 
@@ -61,6 +61,14 @@ msgstr "보이기"
 msgid "hide"
 msgstr "감추기"
 
+#: templates/macros.html:20
+msgid "prev"
+msgstr "이전"
+
+#: templates/macros.html:23
+msgid "next"
+msgstr "다음"
+
 #: templates/mobile.html:9
 msgid "Sorry, mobile browsers are not supported. Please use a desktop browser."
 msgstr "죄송합니다, 모바일 브라우저는 현재 지원되지 않습니다. 데스크탑 브라우저로 다시 접속해주세요!"
@@ -69,7 +77,7 @@ msgstr "죄송합니다, 모바일 브라우저는 현재 지원되지 않습니
 msgid "Result not found"
 msgstr "검색 결과가 없습니다"
 
-#: templates/parties.html:8
+#: templates/parties.html:9
 msgid "parties"
 msgstr "정당"
 
@@ -77,7 +85,82 @@ msgstr "정당"
 msgid "people"
 msgstr "정치인"
 
-#: templates/schools.html:8
+#: templates/person.html:5
+#, python-format
+msgid "Member of %(last_elected_no)dth National Assembly,"
+msgstr "%(last_elected_no)d대 국회의원"
+
+#: templates/person.html:5
+msgid "Politician Dictionary"
+msgstr "정치인명사전"
+
+#: templates/person.html:24
+msgid "add to cart"
+msgstr "카트에 추가"
+
+#: templates/person.html:28 templates/person.html:37
+msgid "profile"
+msgstr "기본정보"
+
+#: templates/person.html:29 templates/person.html:103
+msgid "elections"
+msgstr "선거활동"
+
+#: templates/person.html:42
+msgid "birthday"
+msgstr "출생"
+
+#: templates/person.html:48
+msgid "party"
+msgstr "정당"
+
+#: templates/person.html:54
+msgid "education"
+msgstr "최종학력"
+
+#: templates/person.html:56
+msgid "original"
+msgstr "원본"
+
+#: templates/person.html:66
+msgid "address"
+msgstr "주소"
+
+#: templates/person.html:72
+msgid "work experiences"
+msgstr "경력"
+
+#: templates/person.html:91
+msgid "trends"
+msgstr "검색추이"
+
+#: templates/person.html:91
+#, python-format
+msgid "Results from Google Trends searched by query %(name)s"
+msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
+
+#: templates/person.html:106
+msgid "timeline"
+msgstr "타임라인"
+
+#: templates/person.html:111
+msgid "election district"
+msgstr "선거구"
+
+#: templates/person.html:116 widgets/relation.py:22
+msgid "in the same constituency"
+msgstr "동일 선거구 출마"
+
+#: templates/person.html:120
+msgid "pledges"
+msgstr "공약"
+
+#: templates/person.html:123
+#, python-format
+msgid "%(age)dth"
+msgstr "%(age)d대"
+
+#: templates/schools.html:9
 msgid "schools"
 msgstr "교육기관"
 
@@ -113,10 +196,6 @@ msgstr "빈도와 시간 순으로 정렬됨"
 msgid "not implemented"
 msgstr "미구현"
 
-#: widgets/relation.py:22
-msgid "in the same constituency"
-msgstr "동일 선거구 출마"
-
 #: widgets/timeline.py:51
 msgid "birth"
 msgstr "출생"
@@ -130,55 +209,4 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
-
-#~ msgid "Member of %(last_elected_no)dth National Assembly,"
-#~ msgstr "%(last_elected_no)d대 국회의원"
-
-#~ msgid "Politician Dictionary"
-#~ msgstr "정치인명사전"
-
-#~ msgid "add to cart"
-#~ msgstr "카트에 추가"
-
-#~ msgid "profile"
-#~ msgstr "기본정보"
-
-#~ msgid "elections"
-#~ msgstr "선거활동"
-
-#~ msgid "birthday"
-#~ msgstr "출생일"
-
-#~ msgid "party"
-#~ msgstr "정당"
-
-#~ msgid "education"
-#~ msgstr "최종학력"
-
-#~ msgid "original"
-#~ msgstr "원본"
-
-#~ msgid "address"
-#~ msgstr "거주지"
-
-#~ msgid "work experiences"
-#~ msgstr "경력"
-
-#~ msgid "trends"
-#~ msgstr "검색추이"
-
-#~ msgid "Results from Google Trends searched by query %(name)s"
-#~ msgstr "본 그래프는 '%(name)s'을(를) 구글링한 결과로, 부정확할 수 있습니다"
-
-#~ msgid "timeline"
-#~ msgstr "타임라인"
-
-#~ msgid "election district"
-#~ msgstr "선거구"
-
-#~ msgid "pledges"
-#~ msgstr "공약"
-
-#~ msgid "%(age)dth"
-#~ msgstr "%(age)d대"
 

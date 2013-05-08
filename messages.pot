@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-08 21:16+0900\n"
+"POT-Creation-Date: 2013-05-09 02:54+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "attachments"
 msgstr ""
 
-#: templates/bills.html:8
+#: templates/bills.html:9
 msgid "bills"
 msgstr ""
 
@@ -61,6 +61,14 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
+#: templates/macros.html:20
+msgid "prev"
+msgstr ""
+
+#: templates/macros.html:23
+msgid "next"
+msgstr ""
+
 #: templates/mobile.html:9
 msgid "Sorry, mobile browsers are not supported. Please use a desktop browser."
 msgstr ""
@@ -69,7 +77,7 @@ msgstr ""
 msgid "Result not found"
 msgstr ""
 
-#: templates/parties.html:8
+#: templates/parties.html:9
 msgid "parties"
 msgstr ""
 
@@ -77,7 +85,82 @@ msgstr ""
 msgid "people"
 msgstr ""
 
-#: templates/schools.html:8
+#: templates/person.html:5
+#, python-format
+msgid "Member of %(last_elected_no)dth National Assembly,"
+msgstr ""
+
+#: templates/person.html:5
+msgid "Politician Dictionary"
+msgstr ""
+
+#: templates/person.html:24
+msgid "add to cart"
+msgstr ""
+
+#: templates/person.html:28 templates/person.html:37
+msgid "profile"
+msgstr ""
+
+#: templates/person.html:29 templates/person.html:103
+msgid "elections"
+msgstr ""
+
+#: templates/person.html:42
+msgid "birthday"
+msgstr ""
+
+#: templates/person.html:48
+msgid "party"
+msgstr ""
+
+#: templates/person.html:54
+msgid "education"
+msgstr ""
+
+#: templates/person.html:56
+msgid "original"
+msgstr ""
+
+#: templates/person.html:66
+msgid "address"
+msgstr ""
+
+#: templates/person.html:72
+msgid "work experiences"
+msgstr ""
+
+#: templates/person.html:91
+msgid "trends"
+msgstr ""
+
+#: templates/person.html:91
+#, python-format
+msgid "Results from Google Trends searched by query %(name)s"
+msgstr ""
+
+#: templates/person.html:106
+msgid "timeline"
+msgstr ""
+
+#: templates/person.html:111
+msgid "election district"
+msgstr ""
+
+#: templates/person.html:116 widgets/relation.py:22
+msgid "in the same constituency"
+msgstr ""
+
+#: templates/person.html:120
+msgid "pledges"
+msgstr ""
+
+#: templates/person.html:123
+#, python-format
+msgid "%(age)dth"
+msgstr ""
+
+#: templates/schools.html:9
 msgid "schools"
 msgstr ""
 
@@ -111,10 +194,6 @@ msgstr ""
 
 #: templates/widgets/relation.html:10
 msgid "not implemented"
-msgstr ""
-
-#: widgets/relation.py:22
-msgid "in the same constituency"
 msgstr ""
 
 #: widgets/timeline.py:51
