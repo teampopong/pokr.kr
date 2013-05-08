@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
 
+from collections import defaultdict
 from datetime import date
+
 from flaskext.babel import format_date
 from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
@@ -8,7 +10,9 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
 
 from database import Base
+from models.candidacy import Candidacy
 from models.party_affiliation import party_affiliation
+from models.pledge import Pledge
 
 class Person(Base):
     __tablename__ = 'person'
@@ -88,3 +92,19 @@ class Person(Base):
     @property
     def cur_party(self):
         return self.parties[0] if self.parties else None
+
+    @property
+    def pledges(self):
+        query = Pledge.query.join(Candidacy,
+                                  Candidacy.id == Pledge.candidacy_id)\
+                            .join(Person,
+                                  Person.id == Candidacy.person_id)\
+                            .filter(Person.id == self.id)\
+                            .order_by(Pledge.id)
+
+        result = defaultdict(list)
+        for pledge in query:
+            result[pledge.candidacy.age].append(pledge)
+
+        return result
+

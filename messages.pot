@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-08 21:13+0900\n"
+"POT-Creation-Date: 2013-05-08 21:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,6 +53,14 @@ msgstr ""
 msgid "bills"
 msgstr ""
 
+#: templates/macros.html:10
+msgid "show"
+msgstr ""
+
+#: templates/macros.html:10
+msgid "hide"
+msgstr ""
+
 #: templates/mobile.html:9
 msgid "Sorry, mobile browsers are not supported. Please use a desktop browser."
 msgstr ""
@@ -67,72 +75,6 @@ msgstr ""
 
 #: templates/people.html:9
 msgid "people"
-msgstr ""
-
-#: templates/person.html:4
-#, python-format
-msgid "Member of %(last_elected_no)dth National Assembly,"
-msgstr ""
-
-#: templates/person.html:4
-msgid "Politician Dictionary"
-msgstr ""
-
-#: templates/person.html:20
-msgid "add to cart"
-msgstr ""
-
-#: templates/person.html:24 templates/person.html:33
-msgid "profile"
-msgstr ""
-
-#: templates/person.html:25 templates/person.html:99
-msgid "elections"
-msgstr ""
-
-#: templates/person.html:38
-msgid "birthday"
-msgstr ""
-
-#: templates/person.html:44
-msgid "party"
-msgstr ""
-
-#: templates/person.html:50
-msgid "education"
-msgstr ""
-
-#: templates/person.html:52
-msgid "original"
-msgstr ""
-
-#: templates/person.html:62
-msgid "address"
-msgstr ""
-
-#: templates/person.html:68
-msgid "work experiences"
-msgstr ""
-
-#: templates/person.html:87
-msgid "trends"
-msgstr ""
-
-#: templates/person.html:87
-#, python-format
-msgid "Results from Google Trends searched by query %(name)s"
-msgstr ""
-
-#: templates/person.html:102
-msgid "timeline"
-msgstr ""
-
-#: templates/person.html:107
-msgid "election district"
-msgstr ""
-
-#: templates/person.html:112 widgets/relation.py:22
-msgid "in the same constituency"
 msgstr ""
 
 #: templates/schools.html:8
@@ -169,6 +111,10 @@ msgstr ""
 
 #: templates/widgets/relation.html:10
 msgid "not implemented"
+msgstr ""
+
+#: widgets/relation.py:22
+msgid "in the same constituency"
 msgstr ""
 
 #: widgets/timeline.py:51

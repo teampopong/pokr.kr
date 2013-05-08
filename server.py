@@ -2,6 +2,7 @@
 # -*- encoding: utf-8 -*-
 
 from flask import Flask
+from flask.ext.assets import Environment as Asset
 
 from database import init_db
 from utils.assets import init_app as init_asset
@@ -22,6 +23,7 @@ app.jinja_env.globals.update(zip=zip)
 app.debug = SERVER_SETTINGS['debug']
 
 
+Asset(app)
 init_asset(app)
 init_db(app)
 init_filters(app)

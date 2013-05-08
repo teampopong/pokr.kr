@@ -194,3 +194,25 @@ body {
 		right: 5px;
 	}
 }
+
+a.btn-show {
+	text-decoration: none;
+
+	.text-show {
+		display: inline;
+	}
+
+	.text-hide {
+		display: none;
+	}
+
+	&.active {
+		.text-show {
+			display: none;
+		}
+
+		.text-hide {
+			display: inline;
+		}
+	}
+}
