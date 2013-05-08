@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
+<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/barometer.css')}}">
 {% assets filters='less', output='build/custom.%(version)s.css',
 	depends=['**/*.less'], 'less/polidic.less' %}
