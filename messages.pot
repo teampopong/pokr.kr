@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-05 23:05+0900\n"
+"POT-Creation-Date: 2013-05-08 21:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,62 +17,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:19
+#: templates/bill.html:26
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:25
+#: templates/bill.html:32
 msgid "proposed date"
 msgstr ""
 
-#: templates/bill.html:31
+#: templates/bill.html:38
 msgid "decision date"
 msgstr ""
 
-#: templates/bill.html:37
+#: templates/bill.html:44
 msgid "representative proposer"
 msgstr ""
 
-#: templates/bill.html:43
+#: templates/bill.html:50
 msgid "proposers"
 msgstr ""
 
-#: templates/bill.html:49
+#: templates/bill.html:56
 msgid "committee"
 msgstr ""
 
-#: templates/bill.html:55
+#: templates/bill.html:62
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:61
+#: templates/bill.html:68
 msgid "attachments"
 msgstr ""
 
-#: templates/layout.html:65
-msgid "search"
+#: templates/bills.html:8
+msgid "bills"
 msgstr ""
 
-#: templates/layout.html:75
-msgid "search by party"
-msgstr ""
-
-#: templates/layout.html:75
-msgid "Sorted by frecency"
-msgstr ""
-
-#: templates/layout.html:110
-msgid ""
-"For any questions, problems and suggestions, please click the 'Feedback' "
-"button above."
-msgstr ""
-
-#: templates/mobile.html:1
+#: templates/mobile.html:9
 msgid "Sorry, mobile browsers are not supported. Please use a desktop browser."
 msgstr ""
 
 #: templates/not-found.html:4 templates/not-found.html:9
 msgid "Result not found"
+msgstr ""
+
+#: templates/parties.html:8
+msgid "parties"
+msgstr ""
+
+#: templates/people.html:9
+msgid "people"
 msgstr ""
 
 #: templates/person.html:4
@@ -84,74 +78,96 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:36
+#: templates/person.html:20
 msgid "add to cart"
 msgstr ""
 
-#: templates/person.html:40 templates/person.html:49
+#: templates/person.html:24 templates/person.html:33
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:41 templates/person.html:121
+#: templates/person.html:25 templates/person.html:99
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:54
+#: templates/person.html:38
 msgid "birthday"
 msgstr ""
 
-#: templates/person.html:60
+#: templates/person.html:44
 msgid "party"
 msgstr ""
 
-#: templates/person.html:66
+#: templates/person.html:50
 msgid "education"
 msgstr ""
 
-#: templates/person.html:68
+#: templates/person.html:52
 msgid "original"
 msgstr ""
 
-#: templates/person.html:78
-msgid "work experiences"
-msgstr ""
-
-#: templates/person.html:97
+#: templates/person.html:62
 msgid "address"
 msgstr ""
 
-#: templates/person.html:103
-msgid "election district"
+#: templates/person.html:68
+msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:109
+#: templates/person.html:87
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:109
+#: templates/person.html:87
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
-#: templates/person.html:124
+#: templates/person.html:102
 msgid "timeline"
 msgstr ""
 
-#: templates/person.html:128 widgets/relation.py:22
+#: templates/person.html:107
+msgid "election district"
+msgstr ""
+
+#: templates/person.html:112 widgets/relation.py:22
 msgid "in the same constituency"
 msgstr ""
 
-#: templates/search-results.html:4
+#: templates/schools.html:8
+msgid "schools"
+msgstr ""
+
+#: templates/search-results.html:5
 #, python-format
 msgid "Search by %(query)s"
 msgstr ""
 
-#: templates/search-results.html:14
+#: templates/search-results.html:11
 #, python-format
 msgid "%(num_results)d people found by the query '%(query)s'."
 msgstr ""
 
-#: templates/widgets/relation.html:15
+#: templates/includes/footer.html:3
+msgid ""
+"For any questions, problems and suggestions, please click the 'Feedback' "
+"button above."
+msgstr ""
+
+#: templates/includes/leftnav.html:4
+msgid "search"
+msgstr ""
+
+#: templates/includes/leftnav.html:14
+msgid "search by party"
+msgstr ""
+
+#: templates/includes/leftnav.html:14
+msgid "Sorted by frecency"
+msgstr ""
+
+#: templates/widgets/relation.html:10
 msgid "not implemented"
 msgstr ""
 

@@ -14,9 +14,8 @@ def register(app):
         query = request.args.get('q', None)
         if query is not None:
             return redirect(url_for('party', name=query))
-
-        # TODO: 정당 목록 나오도록 수정
-        return render_template('layout.html')
+        parties = Party.query.all()
+        return render_template('parties.html', parties=parties)
 
     # 이름으로 검색
     @app.route('/party/q/<name>', methods=['GET'])

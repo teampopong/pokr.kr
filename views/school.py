@@ -9,13 +9,12 @@ from models.school import School
 
 def register(app): # 루트
     @app.route('/school/', methods=['GET'])
-    def person_main():
+    def school_main():
         query = request.args.get('q', None)
         if query is not None:
             return redirect(url_for('search', query=query))
-
-        # TODO: 기본 페이지
-        return render_template('layout.html')
+        schools = School.query.all()
+        return render_template('schools.html', schools=schools)
 
     # 학교로 검색
     # FIXME: 별도의 함수로 빼지 말고 통합 검색

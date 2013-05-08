@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block card %}
+<h2 class="class-name">{{ gettext('people') }}</h2>
+{% endblock %}
+
+{% block content %}
+{% for person in people %}
+<a href="{{ url_for('person', id=person.id) }}">{{ person.name|translit(type='name') }}</a>
+{% endfor %}
+{% endblock %}

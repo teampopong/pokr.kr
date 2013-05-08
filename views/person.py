@@ -24,9 +24,8 @@ def register(app):
         query = request.args.get('q', None)
         if query is not None:
             return redirect(url_for('search', query=query))
-
-        # TODO: 기본 페이지
-        return render_template('layout.html')
+        people = Person.query.all()
+        return render_template('people.html', people=people)
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():

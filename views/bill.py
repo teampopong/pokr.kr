@@ -9,8 +9,8 @@ def register(app):
 
     @app.route('/bill/', methods=['GET'])
     def bill_main():
-        # TODO: 의안 목록 나오도록 수정
-        return render_template('layout.html')
+        bills = Bill.query.all()
+        return render_template('bills.html', bills=bills)
 
     @app.route('/bill/<id>', methods=['GET'])
     def bill(id):

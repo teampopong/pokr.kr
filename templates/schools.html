@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block card %}
+<h2 class="class-name">{{ gettext('schools') }}</h2>
+{% endblock %}
+
+{% block content %}
+{% for school in schools %}
+<a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='name') }}</a>
+{% endfor %}
+{% endblock %}

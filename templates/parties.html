@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block card %}
+<h2 class="class-name">{{ gettext('parties') }}</h2>
+{% endblock %}
+
+{% block content %}
+{% for party in parties %}
+<a href="{{ url_for('party', name=party.name) }}">{{ party.name|translit(type='party') }}</a>
+{% endfor %}
+{% endblock %}
