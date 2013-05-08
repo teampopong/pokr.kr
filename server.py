@@ -19,7 +19,7 @@ from settings import BABEL_SETTINGS, SCRIPT_NAME, SERVER_SETTINGS
 
 
 app = Flask(__name__)
-app.jinja_env.globals.update(zip=zip)
+app.jinja_env.globals.update(zip=zip, max=max)
 app.debug = SERVER_SETTINGS['debug']
 
 

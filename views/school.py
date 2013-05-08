@@ -7,14 +7,21 @@ from werkzeug.local import LocalProxy
 from models.school import School
 
 
+PAGESIZE = 20
+
+
 def register(app): # 루트
     @app.route('/school/', methods=['GET'])
     def school_main():
         query = request.args.get('q', None)
+        offset = int(request.args.get('offset', 0))
+
         if query is not None:
             return redirect(url_for('search', query=query))
-        schools = School.query.all()
-        return render_template('schools.html', schools=schools)
+
+        schools = School.query.order_by(School.id)
+        return render_template('schools.html', schools=schools, offset=offset,
+                pagesize=PAGESIZE)
 
     # 학교로 검색
     # FIXME: 별도의 함수로 빼지 말고 통합 검색

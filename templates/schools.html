@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
 
 {% block title %}
 {{ super() }}
@@ -9,7 +10,11 @@
 {% endblock %}
 
 {% block content %}
-{% for school in schools %}
-<a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='name') }}</a>
-{% endfor %}
+<ul>
+{% call(school) macro.list(schools, offset, pagesize,
+        url_for('school_main', offset=max(0, offset-pagesize)),
+        url_for('school_main', offset=offset+pagesize)) %}
+    <li><a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='name') }}</a></li>
+{% endcall %}
+</ul>
 {% endblock %}

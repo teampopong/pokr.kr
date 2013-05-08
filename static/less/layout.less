@@ -216,3 +216,27 @@ a.btn-show {
 		}
 	}
 }
+
+.pagenav {
+    position: relative;
+    margin-top: 10px;
+}
+
+.btn-pagenav {
+    [class^="icon-"] {
+        color: #333;
+        .inline-block;
+    }
+
+    &.btn-prev {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &.btn-next {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}

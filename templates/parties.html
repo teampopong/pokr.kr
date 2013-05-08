@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
 
 {% block title %}
 {{ super() }}
@@ -9,7 +10,11 @@
 {% endblock %}
 
 {% block content %}
-{% for party in parties %}
-<a href="{{ url_for('party', name=party.name) }}">{{ party.name|translit(type='party') }}</a>
-{% endfor %}
+<ul>
+{% call(party) macro.list(parties, offset, pagesize,
+        url_for('party_main', offset=max(0, offset-pagesize)),
+        url_for('party_main', offset=offset+pagesize)) %}
+    <li><a href="{{ url_for('party', name=party.name) }}">{{ party.name|translit(type='party') }}</a></li>
+{% endcall %}
+</ul>
 {% endblock %}

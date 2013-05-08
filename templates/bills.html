@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
 
 {% block title %}
 {{ super() }}
@@ -10,11 +11,13 @@
 
 {% block content %}
 <ul>
-    {% for bill in bills %}
+{% call(bill) macro.list(bills, offset, pagesize,
+        url_for('bill_main', offset=max(0, offset-pagesize)),
+        url_for('bill_main', offset=offset+pagesize)) %}
     <li><a href="{{ url_for('bill', id=bill.id) }}">
         {{ bill.proposed_date }}
         {{ bill.name|translit(type='bill') }}
     </a></li>
-    {% endfor %}
+{% endcall %}
 </ul>
 {% endblock %}

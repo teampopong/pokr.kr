@@ -10,7 +10,11 @@
 {% endblock %}
 
 {% block content %}
-{% for person in people %}
-<a href="{{ url_for('person', id=person.id) }}">{{ person.name|translit(type='name') }}</a>
-{% endfor %}
+<div id="search-view">
+{% call(person) macro.list(people, offset, pagesize,
+        url_for('person_main', offset=max(0, offset-pagesize)),
+        url_for('person_main', offset=offset+pagesize)) %}
+{{widgets.card(person)|safe}}
+{% endcall %}
+</div>
 {% endblock %}

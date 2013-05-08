@@ -1,11 +1,26 @@
 {% macro people_list(people) -%}
-<div id="search-view">
-	{% for person in people %}
-		{{widgets.card(person)|safe}}
-	{% endfor %}
-</div>
+    <div id="search-view">
+        {% for person in people %}
+            {{widgets.card(person)|safe}}
+        {% endfor %}
+    </div>
 {%- endmacro %}
 
 {% macro btn_show(target) -%}
-<a href="#" class="btn-show" data-target="{{target}}"><span class="text-show">[{{gettext('show')}}]</span><span class="text-hide">[{{gettext('hide')}}]</span></a>
+    <a href="#" class="btn-show" data-target="{{target}}"><span class="text-show">[{{gettext('show')}}]</span><span class="text-hide">[{{gettext('hide')}}]</span></a>
+{%- endmacro %}
+
+{% macro list(query, offset=0, pagesize=20, prev_url='#', next_url='#') -%}
+    {% set items = query.offset(offset).limit(pagesize+1).all() %}
+    {% for item in items|batch(pagesize)|first %}
+        {{caller(item)}}
+    {% endfor %}
+    <div class="pagenav">
+        {% if offset %}
+            <a class="btn btn-pagenav btn-prev" href="{{prev_url}}"><i class="icon-angle-left"></i> {{gettext('prev')}}</a>
+        {% endif %}
+        {% if items|count > pagesize %}
+            <a class="btn btn-pagenav btn-next" href="{{next_url}}">{{gettext('next')}} <i class="icon-angle-right"></i></a>
+        {% endif %}
+    </div>
 {%- endmacro %}
