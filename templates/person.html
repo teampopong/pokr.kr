@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% import 'macros.html' as macro with context %}
 
 {% block title %}
 {{person.name|translit(type='name')}}{% if person.cur_party.name %} ({{person.cur_party.name|translit(type='party')}}){% endif %}{% if person.last_elected_no %}, {{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} :: {{super()}} {{gettext('Politician Dictionary')}}
@@ -115,6 +116,20 @@ window.currentPage = 'person';
                     <th>{{ gettext('in the same constituency') }}</th>
                     <td>{{widgets.relation(person)|safe}}</td>
                 </tr>
+				<tr>
+					<th>{{gettext('pledges')}}</th>
+					<td>
+						{% for age, pledges in person.pledges.items() %}
+						<h4>{{gettext('%(age)dth', age=age)}} {{macro.btn_show('#pledges-%d' % age)}}</h4>
+						<div id="pledges-{{age}}" class="hide">
+							{% for pledge in pledges %}
+								<strong>{{pledge.pledge}}</strong>
+								<p>{{pledge.description}}</p>
+							{% endfor %}
+						</div>
+						{% endfor %}
+					</td>
+				</tr>
             </table>
         </div>
     </div>

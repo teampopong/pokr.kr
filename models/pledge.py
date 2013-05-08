@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from sqlalchemy import Column, ForeignKey, Integer, Unicode, UnicodeText
+from sqlalchemy.orm import relationship
 from database import Base
 
 class Pledge(Base):
@@ -10,3 +11,6 @@ class Pledge(Base):
     candidacy_id = Column(Integer, ForeignKey('candidacy.id'), nullable=False)
     pledge = Column(Unicode(128))
     description = Column(UnicodeText)
+
+    candidacy = relationship('Candidacy',
+            backref='pledge')
