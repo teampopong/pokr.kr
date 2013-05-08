@@ -70,4 +70,15 @@ $.fn.clipImage = (function() {
 	};
 })();
 
+$('.btn-show').live('click.show', function () {
+    var $this = $(this),
+        target = $this.data('target'),
+        $target = $(target);
+
+    $this.toggleClass('active');
+    $target.toggleClass('hide');
+
+    return false;
+});
+
 }());

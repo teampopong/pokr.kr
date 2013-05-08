@@ -5,3 +5,7 @@
 	{% endfor %}
 </div>
 {%- endmacro %}
+
+{% macro btn_show(target) -%}
+<a href="#" class="btn-show" data-target="{{target}}"><span class="text-show">[{{gettext('show')}}]</span><span class="text-hide">[{{gettext('hide')}}]</span></a>
+{%- endmacro %}
