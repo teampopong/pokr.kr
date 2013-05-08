@@ -19,7 +19,7 @@ def register(app):
 
     @app.route('/')
     def main():
-        return redirect(url_for('person_main'))
+        return render_template('main.html')
 
     @app.route('/favicon.ico')
     def favicon():
