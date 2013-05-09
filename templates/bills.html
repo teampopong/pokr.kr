@@ -11,7 +11,7 @@
 
 {% block content %}
 <ul>
-{% call(bill) macro.list(bills, page) %}
+{% call(bill) macro.list(bills) %}
     <li><a href="{{ url_for('bill', id=bill.id) }}">
         {{ bill.proposed_date }}
         {{ bill.name|translit(type='bill') }}

@@ -11,8 +11,7 @@ def register(app):
     @app.route('/bill/', methods=['GET'])
     def bill_main():
         bills = Bill.query.order_by(Bill.id)
-        page = int(request.args.get('page', 1))
-        return render_template('bills.html', bills=bills, page=page)
+        return render_template('bills.html', bills=bills)
 
     @app.route('/bill/<id>', methods=['GET'])
     def bill(id):

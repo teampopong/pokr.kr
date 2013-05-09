@@ -13,13 +13,12 @@ def register(app):
     @app.route('/party/', methods=['GET'])
     def party_main():
         query = request.args.get('q', None)
-        page = int(request.args.get('page', 1))
 
         if query is not None:
             return redirect(url_for('party', name=query))
 
         parties = Party.query.order_by(Party.id)
-        return render_template('parties.html', parties=parties, page=page)
+        return render_template('parties.html', parties=parties)
 
     # 이름으로 검색
     @app.route('/party/q/<name>', methods=['GET'])

@@ -11,13 +11,12 @@ def register(app): # 루트
     @app.route('/school/', methods=['GET'])
     def school_main():
         query = request.args.get('q', None)
-        page = int(request.args.get('page', 1))
 
         if query is not None:
             return redirect(url_for('search', query=query))
 
         schools = School.query.order_by(School.id)
-        return render_template('schools.html', schools=schools, page=page)
+        return render_template('schools.html', schools=schools)
 
     # 학교로 검색
     # FIXME: 별도의 함수로 빼지 말고 통합 검색

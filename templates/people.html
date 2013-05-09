@@ -11,7 +11,7 @@
 
 {% block content %}
 <div id="search-view">
-{% call(person) macro.list(people, page) %}
+{% call(person) macro.list(people) %}
 {{widgets.card(person)|safe}}
 {% endcall %}
 </div>

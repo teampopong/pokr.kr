@@ -22,13 +22,12 @@ def register(app):
     @app.route('/person/', methods=['GET'])
     def person_main():
         query = request.args.get('q', None)
-        page = int(request.args.get('page', 1))
 
         if query is not None:
             return redirect(url_for('search', query=query))
 
         people = Person.query.order_by(Person.id)
-        return render_template('people.html', people=people, page=page)
+        return render_template('people.html', people=people)
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():
