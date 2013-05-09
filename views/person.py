@@ -5,10 +5,10 @@ import json
 import operator
 import time
 
-from flask import g, redirect, render_template, request, url_for
+from flask import redirect, render_template, request, url_for
 from sqlalchemy import or_
 from sqlalchemy.orm.exc import NoResultFound
-from werkzeug.local import LocalProxy
+from sqlalchemy.sql.expression import desc
 
 from database import db_session
 from models.person import Person
@@ -26,7 +26,7 @@ def register(app):
         if query is not None:
             return redirect(url_for('search', query=query))
 
-        people = Person.query.order_by(Person.id)
+        people = Person.query.order_by(desc(Person.id))
         return render_template('people.html', people=people)
 
     @app.route('/person/all-names.json', methods=['GET'])
@@ -71,10 +71,10 @@ def register(app):
 
 
 def all_person_names():
-    name_tuples = [list(i) for i in db_session.query(
+    name_tuples = (list(i) for i in db_session.query(
         Person.name,
         Person.name_en,
-        )]
+        ))
     all_names = list(set(reduce(operator.add, name_tuples)))
     return all_names
 

@@ -3,6 +3,8 @@
 
 from flask import redirect, render_template, request, url_for
 from sqlalchemy.orm.exc import NoResultFound
+from sqlalchemy.sql.expression import desc
+
 from models.bill import Bill
 
 
@@ -10,7 +12,7 @@ def register(app):
 
     @app.route('/bill/', methods=['GET'])
     def bill_main():
-        bills = Bill.query.order_by(Bill.id)
+        bills = Bill.query.order_by(desc(Bill.id))
         return render_template('bills.html', bills=bills)
 
     @app.route('/bill/<id>', methods=['GET'])

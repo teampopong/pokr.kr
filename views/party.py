@@ -3,7 +3,8 @@
 
 from flask import redirect, render_template, request, url_for
 from sqlalchemy.orm.exc import NoResultFound
-from werkzeug.local import LocalProxy
+from sqlalchemy.sql.expression import desc
+
 from models.party import Party
 
 
@@ -17,7 +18,7 @@ def register(app):
         if query is not None:
             return redirect(url_for('party', name=query))
 
-        parties = Party.query.order_by(Party.id)
+        parties = Party.query.order_by(desc(Party.id))
         return render_template('parties.html', parties=parties)
 
     # 이름으로 검색
