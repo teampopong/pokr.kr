@@ -14,9 +14,6 @@ from database import db_session
 from models.person import Person
 
 
-PAGESIZE = 20
-
-
 def register(app):
 
     person_names_json = json.dumps(all_person_names())
@@ -25,14 +22,13 @@ def register(app):
     @app.route('/person/', methods=['GET'])
     def person_main():
         query = request.args.get('q', None)
-        offset = int(request.args.get('offset', 0))
+        page = int(request.args.get('page', 1))
 
         if query is not None:
             return redirect(url_for('search', query=query))
 
         people = Person.query.order_by(Person.id)
-        return render_template('people.html', people=people, offset=offset,
-                pagesize=PAGESIZE)
+        return render_template('people.html', people=people, page=page)
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():

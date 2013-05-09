@@ -11,9 +11,7 @@
 
 {% block content %}
 <ul>
-{% call(school) macro.list(schools, offset, pagesize,
-        url_for('school_main', offset=max(0, offset-pagesize)),
-        url_for('school_main', offset=offset+pagesize)) %}
+{% call(school) macro.list(schools, page) %}
     <li><a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='name') }}</a></li>
 {% endcall %}
 </ul>

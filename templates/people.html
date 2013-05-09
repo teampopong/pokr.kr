@@ -11,9 +11,7 @@
 
 {% block content %}
 <div id="search-view">
-{% call(person) macro.list(people, offset, pagesize,
-        url_for('person_main', offset=max(0, offset-pagesize)),
-        url_for('person_main', offset=offset+pagesize)) %}
+{% call(person) macro.list(people, page) %}
 {{widgets.card(person)|safe}}
 {% endcall %}
 </div>

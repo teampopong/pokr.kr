@@ -11,9 +11,7 @@
 
 {% block content %}
 <ul>
-{% call(bill) macro.list(bills, offset, pagesize,
-        url_for('bill_main', offset=max(0, offset-pagesize)),
-        url_for('bill_main', offset=offset+pagesize)) %}
+{% call(bill) macro.list(bills, page) %}
     <li><a href="{{ url_for('bill', id=bill.id) }}">
         {{ bill.proposed_date }}
         {{ bill.name|translit(type='bill') }}

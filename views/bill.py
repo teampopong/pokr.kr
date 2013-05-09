@@ -6,16 +6,13 @@ from sqlalchemy.orm.exc import NoResultFound
 from models.bill import Bill
 
 
-PAGESIZE = 20
-
-
 def register(app):
 
     @app.route('/bill/', methods=['GET'])
     def bill_main():
         bills = Bill.query.order_by(Bill.id)
-        offset = int(request.args.get('offset', 0))
-        return render_template('bills.html', bills=bills, offset=offset, pagesize=PAGESIZE)
+        page = int(request.args.get('page', 1))
+        return render_template('bills.html', bills=bills, page=page)
 
     @app.route('/bill/<id>', methods=['GET'])
     def bill(id):

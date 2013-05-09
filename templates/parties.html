@@ -11,9 +11,7 @@
 
 {% block content %}
 <ul>
-{% call(party) macro.list(parties, offset, pagesize,
-        url_for('party_main', offset=max(0, offset-pagesize)),
-        url_for('party_main', offset=offset+pagesize)) %}
+{% call(party) macro.list(parties, page) %}
     <li><a href="{{ url_for('party', name=party.name) }}">{{ party.name|translit(type='party') }}</a></li>
 {% endcall %}
 </ul>

@@ -6,7 +6,7 @@ from flask.ext.assets import Environment as Asset
 
 from database import init_db
 from utils.assets import init_app as init_asset
-from utils.filters import init_app as init_filters
+from utils.jinja import init_app as init_jinja
 from utils.i18n import PopongBabel
 from utils.linkall import init_app as init_linkall
 from utils.mobile import PopongMobile
@@ -19,14 +19,13 @@ from settings import BABEL_SETTINGS, SCRIPT_NAME, SERVER_SETTINGS
 
 
 app = Flask(__name__)
-app.jinja_env.globals.update(zip=zip, max=max)
 app.debug = SERVER_SETTINGS['debug']
 
 
 Asset(app)
 init_asset(app)
 init_db(app)
-init_filters(app)
+init_jinja(app)
 PopongBabel(app, **BABEL_SETTINGS)
 PopongMobile(app)
 init_linkall(app)

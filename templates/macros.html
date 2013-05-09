@@ -10,8 +10,13 @@
     <a href="#" class="btn-show" data-target="{{target}}"><span class="text-show">[{{gettext('show')}}]</span><span class="text-hide">[{{gettext('hide')}}]</span></a>
 {%- endmacro %}
 
-{% macro list(query, offset=0, pagesize=20, prev_url='#', next_url='#') -%}
+{% macro list(query, page=1, pagesize=20, prev_url='', next_url='') -%}
+
+	{% set prev_url = prev_url or Href(request.base_url)('', page=max(1, page - 1)) %}
+	{% set next_url = next_url or Href(request.base_url)('', page=page + 1) %}
+	{% set offset = (page - 1) * pagesize %}
     {% set items = query.offset(offset).limit(pagesize+1).all() %}
+
     {% for item in items|batch(pagesize)|first %}
         {{caller(item)}}
     {% endfor %}
