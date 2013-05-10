@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from card import card
-from relation import relation
+from relation import rivals
 from timeline import timeline
 
 
@@ -10,7 +10,7 @@ __all__ = ['init_app']
 
 widgets = {
     'card': card,
-    'relation': relation,
+    'rivals': rivals,
     'timeline': timeline,
 }
 

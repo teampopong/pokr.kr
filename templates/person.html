@@ -106,37 +106,45 @@ window.currentPage = 'person';
                     <th>{{ gettext('timeline') }}</th>
                     <td>{{widgets.timeline(person.id)|safe}}</td>
                 </tr>
-                {% if person_extra_vars.district %}
+                {% set pledges = person.pledges %}
+                {% for candidacy in person.candidacies %}
+                <tr class="bg-gray">
+                    <th colspan="2">{{gettext('%(age)dth', age=candidacy.age)}}</th>
+                </tr>
+                {% if candidacy.district_id %}
                 <tr>
-                    <th>{{ gettext("election district") }}</th>
-                    <td>{{person_extra_vars.district|translit}}</td>
+                    <th>{{gettext('election district')}}</th>
+                    <td>
+                    {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
+                        {% if region_id %}<a href="{{url_for('region', id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                    {% endfor %}
+                    </td>
                 </tr>
                 {% endif %}
-                {% if person.pledges %}
+                {% if pledges and pledges[candidacy.age] %}
                 <tr>
                     <th>
                         {{gettext('pledges')}}
                         {{macro.btn_show('.pledge-description', '[%s]' % gettext('expand'), '[%s]' % gettext('collapse'))}}
                     </th>
                     <td>
-                        {% for age, pledges in person.pledges.items() %}
-                        <ul id="pledges-{{age}}">
-                            {% for pledge in pledges %}
+                        <ul id="pledges-{{candidacy.age}}">
+                            {% for pledge in pledges[candidacy.age] %}
                                 <li class="pledge">
                                     {{pledge.pledge}}
                                     <pre class="pledge-description hide">{{pledge.description}}</pre>
                                 </li>
                             {% endfor %}
                         </ul>
-                        {% endfor %}
                     </td>
                 </tr>
                 {% endif %}
                 <!-- FIXME: 동일 선거구 출마자가 없을 때, 안보여주기 -->
                 <tr>
                     <th>{{ gettext('in the same constituency') }}</th>
-                    <td>{{widgets.relation(person)|safe}}</td>
+                    <td>{{widgets.rivals(person, age=candidacy.age)|safe}}</td>
                 </tr>
+                {% endfor %}
             </table>
         </div>
     </div>

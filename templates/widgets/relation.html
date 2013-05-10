@@ -1,10 +1,6 @@
 {% if related_people %}
-<!-- TODO: tr, td 형태 제거 -->
-<!-- TODO: 스타일링은 외부 css 의존하지 않게 -->
     {% for description, related_person in related_people|batch(size)|first %}
-		{% if related_person.id != person_id %}
-			{{widgets.card(related_person)|safe}}
-		{% endif %}
+        {{widgets.card(related_person)|safe}}
     {% endfor %}
     {% if related_people|count > size %}
     <a href="#" onclick="alert(&quot;{{gettext("not implemented")}}&quot;);">...</a>
