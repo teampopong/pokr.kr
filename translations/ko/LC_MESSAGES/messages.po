@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-10 17:48+0900\n"
+"POT-Creation-Date: 2013-05-10 18:43+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -57,15 +57,15 @@ msgstr "의안"
 msgid "show"
 msgstr "보이기"
 
-#: templates/macros.html:10
+#: templates/macros.html:11
 msgid "hide"
-msgstr "감추기"
+msgstr "숨기기"
 
-#: templates/macros.html:26
+#: templates/macros.html:30
 msgid "prev"
 msgstr "이전"
 
-#: templates/macros.html:29
+#: templates/macros.html:33
 msgid "next"
 msgstr "다음"
 
@@ -147,16 +147,19 @@ msgstr "타임라인"
 msgid "election district"
 msgstr "선거구"
 
-#: templates/person.html:117
+#: templates/person.html:118
 msgid "pledges"
 msgstr "공약"
 
-#: templates/person.html:120
-#, python-format
-msgid "%(age)dth"
-msgstr "%(age)d대"
+#: templates/person.html:119
+msgid "expand"
+msgstr "상세보기"
 
-#: templates/person.html:133 widgets/relation.py:22
+#: templates/person.html:119
+msgid "collapse"
+msgstr "요약보기"
+
+#: templates/person.html:137 widgets/relation.py:22
 msgid "in the same constituency"
 msgstr "동일 선거구 출마"
 
@@ -174,21 +177,21 @@ msgstr "%(query)s(으)로 검색"
 msgid "%(num_results)d people found by the query '%(query)s'."
 msgstr "검색 결과: %(query)s (%(num_results)d 명)"
 
-#: templates/includes/footer.html:3
+#: templates/includes/footer.html:2
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
 msgstr "질문이나 오류, 건의사항이 있는 경우 상단의 'Feedback' 버튼을 클릭해주세요."
 
-#: templates/includes/footer.html:6
+#: templates/includes/footer.html:4
 msgid "code"
 msgstr "코드"
 
-#: templates/includes/footer.html:7
+#: templates/includes/footer.html:5
 msgid "data"
 msgstr "데이터"
 
-#: templates/includes/footer.html:8
+#: templates/includes/footer.html:6
 msgid "sources"
 msgstr "소스"
 
@@ -221,12 +224,4 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
-
-#~ msgid ""
-#~ "View\n"
-#~ "            <a "
-#~ "href=\"http://github.com/teampopong/polidic\">code</a>, \n"
-#~ "            <a href=\"http://popong.com/sources\">data</a>\n"
-#~ "            sources"
-#~ msgstr ""
 

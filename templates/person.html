@@ -114,10 +114,12 @@ window.currentPage = 'person';
                 {% endif %}
                 {% if person.pledges %}
                 <tr>
-                    <th>{{gettext('pledges')}}</th>
+                    <th>
+                        {{gettext('pledges')}}
+                        {{macro.btn_show('.pledge-description', '[%s]' % gettext('expand'), '[%s]' % gettext('collapse'))}}
+                    </th>
                     <td>
                         {% for age, pledges in person.pledges.items() %}
-                        <h4>{{gettext('%(age)dth', age=age)}} {{macro.btn_show('.pledge-description')}}</h4>
                         <ul id="pledges-{{age}}">
                             {% for pledge in pledges %}
                                 <li class="pledge">

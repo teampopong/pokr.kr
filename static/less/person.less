@@ -1,5 +1,6 @@
 @bg_color       : #f1efeb;
-
+@link_color     : silver;
+@hover_color    : #005580;
 
 .border-radius (@radius: 5px) {
     border-radius: @radius;
@@ -21,6 +22,17 @@
         color: olivedrab;
         border-bottom: 1px solid #DDD;
         margin-bottom: 20px;
+    }
+    #person-sections{
+        .text-show,
+        .text-hide {
+            font-size: 70%;
+        }
+        th {
+            a {
+                color: @link_color;
+            }
+        }
     }
 }
 
@@ -102,13 +114,13 @@
     
     .btn-save-card {
         color: #FFF;
-        background-color: silver;
+        background-color: @link_color;
         font-weight: bold;
         padding: 3px 7px;
         .border-radius;
         &:hover {
             text-decoration: none;
-            background: #005580;
+            background: @hover_color;
         }
     }
 }
