@@ -25,15 +25,15 @@ window.currentPage = 'person';
     </a>
 </div>
 <ul id="person-section-tabs" class="nav">
-    <li class="active"><a href="#section-profile">{{gettext("profile")}}</a></li>
-    <li><a href="#section-elections">{{gettext("elections")}}</a></li>
+    <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
+    <li><a href="#elections">{{gettext("elections")}}</a></li>
 </ul>
 {% endblock %}
 
 {% block content %}
 <div id="person-view">
     <div id="person-sections">
-        <div class="section" id="section-profile">
+        <div class="section" id="profile">
             <h3>{{ gettext('profile') }}</h3>
             <table id="person-profile" class="table table-condensed">
                 <tbody>
@@ -99,7 +99,7 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
-        <div class="section" id="section-elections">
+        <div class="section" id="elections">
             <h3>{{ gettext('elections') }}</h3>
             <table class="table table-condensed">
                 <tr>
