@@ -53,7 +53,7 @@ window.currentPage = 'person';
                     <tr>
                         <th>{{ gettext("education") }}</th>
                         <td>
-                            <span class="tooltipped" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.education}}">
+                            <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.education}}">
                             {% for term, education_id in zip(person.education, person.education_id) %}
                             {% if education_id %}<a href="{{url_for('school', education_id=education_id)}}">{% endif %}{{term}}{% if education_id %}</a>{% endif %}
                             {% endfor %}
@@ -88,7 +88,7 @@ window.currentPage = 'person';
                     {% endif %}
                     {% if not config['DEBUG'] %}
                     <tr>
-                        <th>{{ gettext("trends") }} <i class="icon-exclamation-sign tooltipped" data-placement="bottom" data-title="{{ gettext('Results from Google Trends searched by query %(name)s', name=person.name) }}"></i></th>
+                        <th>{{ gettext("trends") }} <i class="icon-exclamation-sign tooltipped tooltipped-delay" data-placement="bottom" data-title="{{ gettext('Results from Google Trends searched by query %(name)s', name=person.name) }}"></i></th>
                         <td>
                             <div id="trends">
                                 <script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=640&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
