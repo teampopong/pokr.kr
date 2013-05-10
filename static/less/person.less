@@ -1,3 +1,4 @@
+@import "includes.less";
 @bg_color       : #f1efeb;
 @link_color     : silver;
 @hover_color    : #005580;
@@ -33,6 +34,7 @@
         th {
             a {
                 color: @link_color;
+                .inline-block;
             }
         }
         pre {
@@ -66,19 +68,22 @@
 
     li {
         line-height: 30px;
-        border: 1px solid #999;
         margin-top: -1px;
         margin-right: -1px;
+        padding: 5px 0 5px 20%;
 
-        &.active {
-            background: white;
+        &.active a {
+            background: @hover_color;
         }
 
         a {
+            background: @link_color;
+            color: white;
+            font-weight: bold;
             padding-right: 5px;
 
             &:hover {
-                background: white;
+                background: @hover_color;
             }
         }
     }
