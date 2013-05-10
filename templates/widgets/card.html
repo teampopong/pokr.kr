@@ -17,8 +17,8 @@
 </div>
 {% else %}
 <div class="card">
-	<a class="person-link" href="{{url_for('person', id=person.id)}}">
-		<img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
+    <a class="person-link" href="{{url_for('person', id=person.id)}}">
+        <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
         <div class="person-name">{{person.name|translit(type='name')}}</div>
     </a>
 </div>

@@ -1,5 +1,9 @@
+@import "includes.less";
 @bg_color       : #f1efeb;
-
+@link_color     : silver;
+@hover_color    : #005580;
+@spec_color     : #888;
+@spec_size      : 12px;
 
 .border-radius (@radius: 5px) {
     border-radius: @radius;
@@ -21,6 +25,25 @@
         color: olivedrab;
         border-bottom: 1px solid #DDD;
         margin-bottom: 20px;
+    }
+    #person-sections{
+        .text-show,
+        .text-hide {
+            font-size: 70%;
+        }
+        th {
+            a {
+                color: @link_color;
+                .inline-block;
+            }
+        }
+        pre {
+            background-color: inherit;
+            border: none;
+            color: @spec_color;
+            font-size: @spec_size;
+            padding: 0 0 0 10px;
+        }
     }
 }
 
@@ -45,19 +68,22 @@
 
     li {
         line-height: 30px;
-        border: 1px solid #999;
         margin-top: -1px;
         margin-right: -1px;
+        padding: 5px 0 5px 20%;
 
-        &.active {
-            background: white;
+        &.active a {
+            background: @hover_color;
         }
 
         a {
+            background: @link_color;
+            color: white;
+            font-weight: bold;
             padding-right: 5px;
 
             &:hover {
-                background: white;
+                background: @hover_color;
             }
         }
     }
@@ -70,9 +96,9 @@
 }
 
 #experiences {
-    color: #888;
+    color: @spec_color;
     display: block;
-    font-size: 12px;
+    font-size: @spec_size;
     line-height: 17px;
     padding-left: 10px;
 }
@@ -102,13 +128,13 @@
     
     .btn-save-card {
         color: #FFF;
-        background-color: silver;
+        background-color: @link_color;
         font-weight: bold;
         padding: 3px 7px;
         .border-radius;
         &:hover {
             text-decoration: none;
-            background: #005580;
+            background: @hover_color;
         }
     }
 }

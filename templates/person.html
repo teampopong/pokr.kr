@@ -8,7 +8,7 @@
 {% block extra_headers %}
 {{ super() }}
 {% assets filters='less', output='build/person.%(version)s.css',
-	depends=['**/*.less'], 'less/person.less' %}
+    depends=['**/*.less'], 'less/person.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
@@ -25,15 +25,15 @@ window.currentPage = 'person';
     </a>
 </div>
 <ul id="person-section-tabs" class="nav">
-    <li class="active"><a href="#section-profile">{{gettext("profile")}}</a></li>
-    <li><a href="#section-elections">{{gettext("elections")}}</a></li>
+    <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
+    <li><a href="#elections">{{gettext("elections")}}</a></li>
 </ul>
 {% endblock %}
 
 {% block content %}
 <div id="person-view">
     <div id="person-sections">
-        <div class="section" id="section-profile">
+        <div class="section" id="profile">
             <h3>{{ gettext('profile') }}</h3>
             <table id="person-profile" class="table table-condensed">
                 <tbody>
@@ -99,7 +99,7 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
-        <div class="section" id="section-elections">
+        <div class="section" id="elections">
             <h3>{{ gettext('elections') }}</h3>
             <table class="table table-condensed">
                 <tr>
@@ -112,24 +112,31 @@ window.currentPage = 'person';
                     <td>{{person_extra_vars.district|translit}}</td>
                 </tr>
                 {% endif %}
+                {% if person.pledges %}
+                <tr>
+                    <th>
+                        {{gettext('pledges')}}
+                        {{macro.btn_show('.pledge-description', '[%s]' % gettext('expand'), '[%s]' % gettext('collapse'))}}
+                    </th>
+                    <td>
+                        {% for age, pledges in person.pledges.items() %}
+                        <ul id="pledges-{{age}}">
+                            {% for pledge in pledges %}
+                                <li class="pledge">
+                                    {{pledge.pledge}}
+                                    <pre class="pledge-description hide">{{pledge.description}}</pre>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endif %}
+                <!-- FIXME: 동일 선거구 출마자가 없을 때, 안보여주기 -->
                 <tr>
                     <th>{{ gettext('in the same constituency') }}</th>
                     <td>{{widgets.relation(person)|safe}}</td>
                 </tr>
-				<tr>
-					<th>{{gettext('pledges')}}</th>
-					<td>
-						{% for age, pledges in person.pledges.items() %}
-						<h4>{{gettext('%(age)dth', age=age)}} {{macro.btn_show('#pledges-%d' % age)}}</h4>
-						<div id="pledges-{{age}}" class="hide">
-							{% for pledge in pledges %}
-								<strong>{{pledge.pledge}}</strong>
-								<pre>{{pledge.description}}</pre>
-							{% endfor %}
-						</div>
-						{% endfor %}
-					</td>
-				</tr>
             </table>
         </div>
     </div>

@@ -6,8 +6,12 @@
     </div>
 {%- endmacro %}
 
-{% macro btn_show(target) -%}
-    <a href="#" class="btn-show" data-target="{{target}}"><span class="text-show">[{{gettext('show')}}]</span><span class="text-hide">[{{gettext('hide')}}]</span></a>
+{% macro btn_show(target, show=None, hide=None) -%}
+{% set show = show or gettext('show') %}
+{% set hide = hide or gettext('hide') %}
+<a href="#" class="btn-show" data-target="{{target}}">
+    <span class="text-show">{{show}}</span><span class="text-hide">{{hide}}</span>
+</a>
 {%- endmacro %}
 
 {% macro list(query, page=None, pagesize=20, prev_url=None, next_url=None) -%}

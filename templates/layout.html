@@ -9,16 +9,16 @@
         <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
         {% endfor %}
 
-		{% include 'includes/includes.html' %}
+        {% include 'includes/includes.html' %}
 
-		{% block extra_headers %}{% endblock %}
+        {% block extra_headers %}{% endblock %}
 
-		{% include 'includes/google-analytics.html' %}
+        {% include 'includes/google-analytics.html' %}
     </head>
     <body>
         <div id="container">
             <div id="leftnav">
-				{% include 'includes/leftnav.html' %}
+                {% include 'includes/leftnav.html' %}
             </div>
             <div id="content">
                 <div id="card-container">
@@ -31,10 +31,9 @@
                 </div>
             </div>
             <div id="rightnav">
-				{% include 'includes/cart.html' %}
+                {% include 'includes/cart.html' %}
             </div>
         </div>
-
-		{% include 'includes/footer.html' %}
+        {% include 'includes/footer.html' %}
     </body>
 </html>
