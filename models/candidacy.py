@@ -1,4 +1,5 @@
-from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, select, Unicode
+from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, select, String, Unicode
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import column_property
 from database import Base
 
@@ -14,9 +15,8 @@ class Candidacy(Base):
     party_id = Column(Integer, ForeignKey('party.id'))
 
     ### additional infos ###
-    region1 = Column(Unicode(20), nullable=False, index=True)
-    region2 = Column(Unicode(20), index=True)
-    region3 = Column(Unicode(4), index=True)
+    district = Column(ARRAY(Unicode(20)))
+    district_id = Column(ARRAY(String(16)))
     age = column_property(select([Election.age]).where(Election.id==election_id),\
             deferred=True)
     is_elected = Column(Boolean, default=False, index=True)

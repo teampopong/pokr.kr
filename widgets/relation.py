@@ -1,9 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 from __future__ import unicode_literals
+from random import shuffle
+
 from flask import render_template
 from flask.ext.babel import gettext
-from random import shuffle
+from sqlalchemy import Text
+from sqlalchemy.dialects.postgresql import ARRAY
+from sqlalchemy.sql.expression import cast
 
 from models.candidacy import Candidacy
 from models.election import Election
@@ -49,14 +53,14 @@ def rivals(person):
     if not candidacy:
         return []
 
-    if candidacy.region1 == u'비례대표':
+    district_ids = [id for id in candidacy.district_id if id]
+    if not district_ids:
         return []
 
-    candidacies = Candidacy.query.filter_by(election_id=candidacy.election_id,
-            region1=candidacy.region1,
-            region2=candidacy.region2,
-            region3=candidacy.region3
-            ).all()
+    candidacies = Candidacy.query\
+            .filter_by(election_id=candidacy.election_id)\
+            .filter(cast(Candidacy.district_id, ARRAY(Text)).contains([district_ids[-1]]))\
+            .all()
     candidates = [candidacy.person for candidacy in candidacies]
 
     return candidates
