@@ -17,6 +17,7 @@ from os.path import abspath, dirname, join
 from alembic import op
 import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
+from sqlalchemy.sql.expression import and_
 
 parentdir = dirname(dirname(dirname(abspath(__file__))))
 sys.path.insert(0,parentdir)
@@ -54,8 +55,8 @@ def upgrade():
                 import sys; sys.exit(1)
 
             op.execute(candidacy_t.update().\
-                    where(candidacy_t.c.person_id == person.id
-                          and candidacy_t.c.election_id == election.id).\
+                    where(and_(candidacy_t.c.person_id == person.id,
+                               candidacy_t.c.election_id == election.id)).\
                     values({
                         candidacy_t.c.district: [term[0] for term in structurized],
                         candidacy_t.c.district_id: [term[1] for term in structurized],
