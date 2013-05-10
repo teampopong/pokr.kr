@@ -1,6 +1,9 @@
 from sqlalchemy import Column, String, Unicode
 from database import Base
 
+from models.person import Person
+from models.candidacy import Candidacy
+
 class Region(Base):
     __tablename__ = 'region'
 
@@ -8,4 +11,11 @@ class Region(Base):
     name = Column(Unicode(20), nullable=False)
     name_cn = Column(Unicode(20))
     name_en = Column(String(80))
+
+    @property
+    def candidates(self):
+        return Person.query\
+                     .join(Candidacy)\
+                     .filter(Candidacy.person_id == Person.id)\
+                     .filter(Candidacy.district_id.any(self.id))
 

@@ -116,7 +116,7 @@ window.currentPage = 'person';
                     <th>{{gettext('election district')}}</th>
                     <td>
                     {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
-                        {% if region_id %}<a href="{{url_for('region', id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                        {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
                     {% endfor %}
                     </td>
                 </tr>

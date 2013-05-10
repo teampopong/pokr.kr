@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block card %}
+<h2 class="class-name">{{ gettext('regions') }}</h2>
+{% endblock %}
+
+{% block content %}
+<ul>
+{% call(region) macro.list(regions) %}
+    <li><a href="{{ url_for('region', region_id=region.id) }}">{{ region.name if locale == 'ko' else region.name_en }}</a></li>
+{% endcall %}
+</ul>
+{% endblock %}
+

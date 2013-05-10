@@ -1,10 +1,14 @@
 {% extends "layout.html" %}
+{% import 'macros.html' as macro with context %}
 
 {% block title %}
-{{ super() }} - {{ id }}
+{{ super() }} - {{ region.name }}
+{% endblock %}
+
+{% block card %}
+<strong>{{ region.name }}</strong>
 {% endblock %}
 
 {% block content %}
-{{id}}
+{{macro.people_list(region.candidates.all())}}
 {% endblock %}
-

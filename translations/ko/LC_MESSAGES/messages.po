@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-10 18:43+0900\n"
+"POT-Creation-Date: 2013-05-11 02:50+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -143,25 +143,34 @@ msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 msgid "timeline"
 msgstr "타임라인"
 
-#: templates/person.html:111
+#: templates/person.html:112
+#, python-format
+msgid "%(age)dth"
+msgstr "%(age)d대"
+
+#: templates/person.html:116
 msgid "election district"
 msgstr "선거구"
 
-#: templates/person.html:118
+#: templates/person.html:127
 msgid "pledges"
 msgstr "공약"
 
-#: templates/person.html:119
+#: templates/person.html:128
 msgid "expand"
 msgstr "상세보기"
 
-#: templates/person.html:119
+#: templates/person.html:128
 msgid "collapse"
 msgstr "요약보기"
 
-#: templates/person.html:137 widgets/relation.py:22
+#: templates/person.html:144 widgets/relation.py:23
 msgid "in the same constituency"
 msgstr "동일 선거구 출마"
+
+#: templates/regions.html:9
+msgid "regions"
+msgstr "지역"
 
 #: templates/schools.html:9
 msgid "schools"
@@ -207,7 +216,7 @@ msgstr "정당으로 검색:"
 msgid "Sorted by frecency"
 msgstr "빈도와 시간 순으로 정렬됨"
 
-#: templates/widgets/relation.html:10
+#: templates/widgets/relation.html:6
 msgid "not implemented"
 msgstr "미구현"
 

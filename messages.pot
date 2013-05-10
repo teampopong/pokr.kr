@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-10 18:43+0900\n"
+"POT-Creation-Date: 2013-05-11 02:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,24 +142,33 @@ msgstr ""
 msgid "timeline"
 msgstr ""
 
-#: templates/person.html:111
+#: templates/person.html:112
+#, python-format
+msgid "%(age)dth"
+msgstr ""
+
+#: templates/person.html:116
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:118
+#: templates/person.html:127
 msgid "pledges"
 msgstr ""
 
-#: templates/person.html:119
+#: templates/person.html:128
 msgid "expand"
 msgstr ""
 
-#: templates/person.html:119
+#: templates/person.html:128
 msgid "collapse"
 msgstr ""
 
-#: templates/person.html:137 widgets/relation.py:22
+#: templates/person.html:144 widgets/relation.py:23
 msgid "in the same constituency"
+msgstr ""
+
+#: templates/regions.html:9
+msgid "regions"
 msgstr ""
 
 #: templates/schools.html:9
@@ -207,7 +215,7 @@ msgstr ""
 msgid "Sorted by frecency"
 msgstr ""
 
-#: templates/widgets/relation.html:10
+#: templates/widgets/relation.html:6
 msgid "not implemented"
 msgstr ""
 
