@@ -16,7 +16,13 @@ $(window).load(onLoad);
 
 function onLoad() {
     $('.person-img').clipImage();
-    $('.tooltipped').tooltip();
+    $('.tooltipped:not(.tooltipped-delay)').tooltip();
+    $('.tooltipped-delay').tooltip({
+        delay: {
+            show: 1000,
+            hide: 0
+        }
+    });
 };
 
 }());
