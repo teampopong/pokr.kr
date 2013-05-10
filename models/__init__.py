@@ -7,4 +7,5 @@ import party
 import party_affiliation
 import person
 import pledge
+import region
 import school

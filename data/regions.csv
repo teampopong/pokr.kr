@@ -1,0 +1,3752 @@
+code,ko,en,cn
+11,서울특별시,Seoul,서울特別市
+11010,종로구,Jongno-gu,鍾路區
+1101053,사직동,Sajik-dong,社稷洞
+1101054,삼청동,Samcheong-dong,三淸洞
+1101055,부암동,Buam-dong,付岩洞
+1101056,평창동,Pyeongchang-dong,平倉洞
+1101057,무악동,Muak-dong,毋岳洞
+1101058,교남동,Gyonam-dong,橋南洞
+1101060,가회동,Gahoe-dong,嘉會洞
+1101061,종로1·2·3·4가동,Jongno 1·2·3·4(ilisamsa)-ga-dong,鍾路1·2·3·4街洞
+1101063,종로5·6가동,Jongno 5·6(oryuk)-ga-dong,鍾路5·6街洞
+1101064,이화동,Ihwa-dong,梨花洞
+1101065,혜화동,Hyehwa-dong,惠化洞
+1101066,명륜3가동,Myeongnyun3(sam)-ga-dong,明倫3街洞
+1101067,창신1동,Changsin 1(il)-dong,昌信1洞
+1101068,창신2동,Changsin 2(i)-dong,昌信2洞
+1101069,창신3동,Changsin 3(sam)-dong,昌信3洞
+1101070,숭인1동,Sungin 1(il)-dong,崇仁1洞
+1101071,숭인2동,Sungin 2(i)-dong,崇仁2洞
+1101072,청운효자동,Cheongunhyoja-dong,淸雲孝子洞
+11020,중구,Jung-gu,中區
+1102052,소공동,Sogong-dong,小公洞
+1102054,회현동,Hoehyeon-dong,會賢洞
+1102055,명동,Myeong-dong,明洞
+1102057,필동,Pil-dong,筆洞
+1102058,장충동,Jangchung-dong,奬忠洞
+1102059,광희동,Gwanghui-dong ,光熙洞
+1102060,을지로동,Euljiro-dong,乙之路洞
+1102061,신당1동,Sindang 1(il)-dong,新堂1洞
+1102062,신당2동,Sindang 2(i)-dong,新堂2洞
+1102063,신당3동,Sindang 3(sam)-dong,新堂3洞
+1102064,신당4동,Sindang 4(sa)-dong,新堂4洞
+1102065,신당5동,Sindang 5(o)-dong,新堂5洞
+1102066,신당6동,Sindang 6(yuk)-dong,新堂6洞
+1102067,황학동,Hwanghak-dong,黃鶴洞
+1102068,중림동,Jungnim-dong,中林洞
+11030,용산구,Yongsan-gu,龍山區
+1103051,후암동,Huam-dong,厚岩洞
+1103052,용산2가동,Yongsan 2-ga-dong,龍山2街洞
+1103053,남영동,Namyeong-dong,南營洞
+1103057,원효로2동,Wonhyoro 2(i)-dong,元曉路2洞
+1103058,효창동,Hyochang-dong,孝昌洞
+1103059,용문동,Yongmun-dong,龍門洞
+1103063,이촌1동,Ichon 1(il)-dong,二村1洞
+1103064,이촌2동,Ichon 2(i)-dong,二村2洞
+1103065,이태원1동,Itaewon 1(il)-dong,梨泰院1洞
+1103066,이태원2동,Itaewon 2(i)-dong,梨泰院2洞
+1103069,서빙고동,Seobinggo-dong,西氷庫洞
+1103070,보광동,Bogwang-dong,普光洞
+1103071,청파동,Cheongpa-dong,靑坡洞
+1103072,원효로1동,Wonhyoro 1(il)-dong,元曉路1洞
+1103073,한강로동,Hangangno-dong,漢江路洞
+1103074,한남동,Hannam-dong,漢南洞
+11040,성동구,Seongdong-gu,城東區
+1104052,왕십리2동,Wangsimni 2(i)-dong,往十里2洞
+1104054,마장동,Majang-dong,馬場洞
+1104055,사근동,Sageun-dong,沙斤洞
+1104056,행당1동,Haengdang 1(il)-dong,杏堂1洞
+1104057,행당2동,Haengdang 2(i)-dong,杏堂2洞
+1104058,응봉동,Eungbong-dong,鷹峰洞
+1104059,금호1가동,Geumho 1(il)-ga-dong,金湖1街洞
+1104062,금호4가동,Geumho 4(sa)-ga-dong,金湖4街洞
+1104065,성수1가1동,Seongsu 1(il)-ga1(il)-dong,聖水1街1洞
+1104066,성수1가2동,Seongsu 1(il)-ga2(i)-dong,聖水1街2洞
+1104067,성수2가1동,Seongsu 2(i)-ga1(il)-dong,聖水2街1洞
+1104068,성수2가3동,Seongsu 2(i)-ga 3(sam)-dong,聖水2街3洞
+1104069,송정동,Songjeong-dong,松亭洞
+1104070,용답동,Yongdap-dong,龍踏洞
+1104071,왕십리도선동,WangsimniDoseon-dong,往十里道詵洞
+1104072,금호2·3가동,Geumho 2·3(i·sam)-ga-dong,金湖2·3街洞
+1104073,옥수동,Oksu-dong,玉水洞
+11050,광진구,Gwangjin-gu,廣津區
+1105053,화양동,Hwayang-dong,華陽洞
+1105054,군자동,Gunja-dong,君子洞
+1105055,중곡1동,Junggok 1(il)-dong,中谷1洞
+1105056,중곡2동,Junggok 2(i)-dong,中谷2洞
+1105057,중곡3동,Junggok 3(sam)-dong,中谷3洞
+1105058,중곡4동,Junggok 4(sa)-dong,中谷4洞
+1105059,능동,Neung-dong,陵洞
+1105060,구의1동,Guui 1(il)-dong,九宜1洞
+1105061,구의2동,Guui 2(i)-dong,九宜2洞
+1105062,구의3동,Guui 3(sam)-dong,九宜3洞
+1105063,광장동,Gwangjang-dong,廣壯洞
+1105064,자양1동,Jayang 1(il)-dong,紫陽1洞
+1105065,자양2동,Jayang 2(i)-dong,紫陽2洞
+1105066,자양3동,Jayang 3(sam)-dong,紫陽3洞
+1105067,자양4동,Jayang 4(sa)-dong,紫陽4洞
+11060,동대문구,Dongdaemun-gu,東大門區
+1106071,회기동,Hoegi-dong,回基洞
+1106072,휘경1동,Hwigyeong 1(il)-dong,徽慶1洞
+1106073,휘경2동,Hwigyeong 2(i)-dong,徽慶2洞
+1106080,청량리동,Cheongnyangni-dong,淸凉里洞
+1106081,용신동,Yongsin-dong,龍新洞
+1106082,제기동,Jegi-dong,祭基洞
+1106083,전농1동,Jeonnong 1(il)-dong,典農1洞
+1106084,전농2동,Jeonnong 2(i)-dong,典農2洞
+1106085,답십리1동,Dapsimni 1(il)-dong,畓十里1洞
+1106086,답십리2동,Dapsimni 2(i)-dong,畓十里2洞
+1106087,장안1동,Jangan 1(il)-dong,長安1洞
+1106088,장안2동,Jangan 2(i)-dong,長安2洞
+1106089,이문1동,Imun 1(il)-dong,里門1洞
+1106090,이문2동,Imun 2(i)-dong,里門2洞
+11070,중랑구,Jungnang-gu,中浪區
+1107052,면목2동,Myeonmok 2(i)-dong,面牧2洞
+1107054,면목4동,Myeonmok 4(sa)-dong,面牧4洞
+1107055,면목5동,Myeonmok 5(o)-dong,面牧5洞
+1107057,면목7동,Myeonmok 7(chil)-dong,面牧7洞
+1107059,상봉1동,Sangbong 1(il)-dong,上鳳1洞
+1107060,상봉2동,Sangbong 2(i)-dong,上鳳2洞
+1107061,중화1동,Junghwa 1(il)-dong,中和1洞
+1107062,중화2동,Junghwa 2(i)-dong,中和2洞
+1107064,묵1동,Muk 1(il)-dong,墨1洞
+1107065,묵2동,Muk 2(i)-dong,墨2洞
+1107068,망우3동,Mangu 3(sam)-dong,忘憂3洞
+1107069,신내1동,Sinnae 1(il)-dong,新內1洞
+1107070,신내2동,Sinnae 2(i)-dong,新內2洞
+1107071,면목본동,Myeonmokbon-dong,面牧本洞
+1107072,면목3·8동,Myeonmok 3·8(sam·pal)-dong,面牧3·8洞
+1107073,망우본동,Mangubon-dong,忘憂本洞
+11080,성북구,Seongbuk-gu,城北區
+1108058,돈암1동,Donam 1(il)-dong,敦岩1洞
+1108059,돈암2동,Donam 2(i)-dong,敦岩2洞
+1108060,안암동,Anam-dong,安岩洞
+1108061,보문동,Bomun-dong,普門洞
+1108062,정릉1동,Jeongneung 1(il)-dong,貞陵1洞
+1108063,정릉2동,Jeongneung 2(i)-dong,貞陵2洞
+1108064,정릉3동,Jeongneung 3(sam)-dong,貞陵3洞
+1108065,정릉4동,Jeongneung 4(sa)-dong,貞陵4洞
+1108066,길음1동,Gireum 1(il)-dong,吉音1洞
+1108068,길음2동,Gireum 2(i)-dong,吉音2洞
+1108071,월곡1동,Wolgok 1(il)-dong,月谷1洞
+1108072,월곡2동,Wolgok 2(i)-dong,月谷2洞
+1108076,장위1동,Jangwi 1(il)-dong,長位1洞
+1108077,장위2동,Jangwi 2(i)-dong,長位2洞
+1108078,장위3동,Jangwi 3(sam)-dong,長位3洞
+1108081,성북동,Seongbuk-dong,城北洞
+1108082,삼선동,Samseon-dong,三仙洞
+1108083,동선동,Dongseon-dong,東仙洞
+1108084,종암동,Jongam-dong,鍾岩洞
+1108085,석관동,Seokgwan-dong,石串洞
+11090,강북구,Gangbuk-gu,江北區
+1109060,번1동,Beon 1(il)-dong,樊1洞
+1109061,번2동,Beon 2(i)-dong,樊2洞
+1109062,번3동,Beon 3(sam)-dong,樊3洞
+1109063,수유1동,Suyu 1(il)-dong,水踰1洞
+1109064,수유2동,Suyu 2(i)-dong,水踰2洞
+1109065,수유3동,Suyu 3(sam)-dong,水踰3洞
+1109069,삼양동,Samyang-dong,三陽洞
+1109070,미아동,Mia-dong,彌阿洞
+1109071,송중동,Songjung-dong,松中洞
+1109072,송천동,Songcheon-dong,松川洞
+1109073,삼각산동,Samgaksan-dong,三角山洞
+1109074,우이동,Ui-dong,牛耳洞
+1109075,인수동,Insu-dong,仁壽洞
+11100,도봉구,Dobong-gu,道峰區
+1110051,쌍문1동,Ssangmun 1(il)-dong,雙門1洞
+1110052,쌍문2동,Ssangmun 2(i)-dong,雙門2洞
+1110053,쌍문3동,Ssangmun 3(sam)-dong,雙門3洞
+1110054,쌍문4동,Ssangmun 4(sa)-dong,雙門4洞
+1110055,방학1동,Banghak 1(il)-dong,放鶴1洞
+1110056,방학2동,Banghak 2(i)-dong,放鶴2洞
+1110057,방학3동,Banghak 3(sam)-dong,放鶴3洞
+1110059,창1동,Chang 1(il)-dong,倉1洞
+1110060,창2동,Chang 2(i)-dong,倉2洞
+1110061,창3동,Chang 3(sam)-dong,倉3洞
+1110062,창4동,Chang 4(sa)-dong,倉4洞
+1110063,창5동,Chang 5(o)-dong,倉5洞
+1110064,도봉1동,Dobong 1(il)-dong,道峰1洞
+1110065,도봉2동,Dobong 2(i)-dong,道峰2洞
+11110,노원구,Nowon-gu,蘆原區
+1111051,월계1동,Wolgye 1(il)-dong,月溪1洞
+1111052,월계2동,Wolgye 2(i)-dong,月溪2洞
+1111053,월계3동,Wolgye 3(sam)-dong,月溪3洞
+1111056,공릉2동,Gongneung 2(i)-dong,孔陵2洞
+1111058,하계1동,Hagye 1(il)-dong,下溪1洞
+1111059,하계2동,Hagye 2(i)-dong,下溪2洞
+1111060,중계본동,Junggyebon-dong,中溪本洞
+1111061,중계1동,Junggye 1(il)-dong,中溪1洞
+1111064,중계4동,Junggye 4(sa)-dong,中溪4洞
+1111065,상계1동,Sanggye 1(il)-dong,上溪1洞
+1111066,상계2동,Sanggye 2(i)-dong,上溪2洞
+1111069,상계5동,Sanggye 5(o)-dong,上溪5洞
+1111072,상계8동,Sanggye 8(pal)-dong,上溪8洞
+1111073,상계9동,Sanggye 9(gu)-dong,上溪9洞
+1111074,상계10동,Sanggye 10(sip)-dong,上溪10洞
+1111075,공릉1·3동,Gongneung 1·3(il·sam)-dong,孔陵1·3洞
+1111076,상계3·4동,Sanggye 3·4(sam·sa)-dong,上溪3·4洞
+1111077,상계6·7동,Sanggye 6·7(yuk·chil)-dong,上溪6·7洞
+1111078,중계2·3동,Junggye 2·3(i·sam)-dong,中溪2·3洞
+11120,은평구,Eunpyeong-gu,恩平區
+1112051,녹번동,Nokbeon-dong,碌磻洞
+1112052,불광1동,Bulgwang 1(il)-dong,佛光1洞
+1112072,불광2동,Bulgwang 2(i)-dong,佛光2洞
+1112055,갈현1동,Galhyeon 1(il)-dong,葛峴1洞
+1112056,갈현2동,Galhyeon 2(i)-dong,葛峴2洞
+1112057,구산동,Gusan-dong,龜山洞
+1112058,대조동,Daejo-dong,大棗洞
+1112059,응암1동,Eungam 1(il)-dong,鷹岩1洞
+1112060,응암2동,Eungam 2(i)-dong,鷹岩2洞
+1112073,응암3동,Eungam 3(sam)-dong,鷹岩3洞
+1112074,역촌동,Yeokchon-dong,驛村洞
+1112065,신사1동,Sinsa 1(il)-dong,新寺1洞
+1112066,신사2동,Sinsa 2(i)-dong,新寺2洞
+1112067,증산동,Jeungsan-dong,甑山洞
+1112068,수색동,Susaek-dong,水色洞
+1112071,진관동,Jingwan-dong,津寬洞
+11130,서대문구,Seodaemun-gu,西大門區
+1113052,천연동,Cheonyeon-dong,天然洞
+1113062,홍제1동,Hongje 1(il)-dong,弘濟1洞
+1113064,홍제3동,Hongje 3(sam)-dong,弘濟3洞
+1113065,홍제2동,Hongje 2(i)-dong,弘濟2洞
+1113066,홍은1동,Hongeun 1(il)-dong,弘恩1洞
+1113068,홍은2동,Hongeun 2(i)-dong,弘恩2洞
+1113069,남가좌1동,Namgajwa 1(il)-dong,南加佐1洞
+1113070,남가좌2동,Namgajwa 2(i)-dong,南加佐2洞
+1113071,북가좌1동,Bukgajwa 1(il)-dong,北加佐1洞
+1113072,북가좌2동,Bukgajwa 2(i)-dong,北加佐2洞
+1113073,충현동,Chunghyeon-dong,忠峴洞
+1113074,북아현동,Bugahyeon-dong,北阿峴洞
+1113075,신촌동,Sinchon-dong,新村洞
+1113076,연희동,Yeonhui-dong,延禧洞
+11140,마포구,Mapo-gu,麻浦區
+1114059,용강동,Yonggang-dong,龍江洞
+1114060,대흥동,Daeheung-dong,大興洞
+1114061,염리동,Yeomni-dong,鹽里洞
+1114063,신수동,Sinsu-dong,新水洞
+1114066,서교동,Seogyo-dong,西橋洞
+1114068,합정동,Hapjeong-dong,合井洞
+1114069,망원1동,Mangwon 1(il)-dong,望遠1洞
+1114070,망원2동,Mangwon 2(i)-dong,望遠2洞
+1114071,연남동,Yeonnam-dong,延南洞
+1114072,성산1동,Seongsan 1(il)-dong,城山1洞
+1114073,성산2동,Seongsan 2(i)-dong,城山2洞
+1114074,상암동,Sangam-dong,上岩洞
+1114075,도화동,Dohwa-dong,桃花洞
+1114076,서강동,Seogang-dong,西江洞
+1114077,공덕동,gongdeok-dong,孔德洞
+1114078,아현동,Ahyeon-dong,阿峴洞
+11150,양천구,Yangcheon-gu,陽川區
+1115051,목1동,Mok 1(il)-dong,木1洞
+1115052,목2동,Mok 2(i)-dong,木2洞
+1115053,목3동,Mok 3(sam)-dong,木3洞
+1115054,목4동,Mok 4(sa)-dong,木4洞
+1115071,목5동,Mok 5(o)-dong,木5洞
+1115057,신월1동,Sinwol 1(il)-dong,新月1洞
+1115058,신월2동,Sinwol 2(i)-dong,新月2洞
+1115059,신월3동,Sinwol 3(sam)-dong,新月3洞
+1115060,신월4동,Sinwol 4(sa)-dong,新月4洞
+1115061,신월5동,Sinwol 5(o)-dong,新月5洞
+1115062,신월6동,Sinwol 6(yuk)-dong,新月6洞
+1115063,신월7동,Sinwol 7(chil)-dong,新月7洞
+1115064,신정1동,Sinjeong 1(il)-dong,新亭1洞
+1115065,신정2동,Sinjeong 2(i)-dong,新亭2洞
+1115066,신정3동,Sinjeong 3(sam)-dong,新亭3洞
+1115072,신정4동,Sinjeong 4(sa)-dong,新亭4洞
+1115069,신정6동,Sinjeong 6(yuk)-dong,新亭6洞
+1115070,신정7동,Sinjeong 7(chil)-dong,新亭7洞
+11160,강서구,Gangseo-gu,江西區
+1116051,염창동,Yeomchang-dong,鹽倉洞
+1116052,등촌1동,Deungchon 1(il)-dong,登村1洞
+1116053,등촌2동,Deungchon 2(i)-dong,登村2洞
+1116054,등촌3동,Deungchon 3(sam)-dong,登村3洞
+1116055,화곡본동,Hwagokbon-dong,禾谷本洞
+1116057,화곡2동,Hwagok 2(i)-dong,禾谷2洞
+1116058,화곡3동,Hwagok 3(sam)-dong,禾谷3洞
+1116059,화곡4동,Hwagok 4(sa)-dong,禾谷4洞
+1116061,화곡6동,Hwagok 6(yuk)-dong,禾谷6洞
+1116063,화곡8동,Hwagok 8(pal)-dong,禾谷8洞
+1116064,가양1동,Gayang 1(il)-dong,加陽1洞
+1116065,가양2동,Gayang 2(i)-dong,加陽2洞
+1116066,가양3동,Gayang 3(sam)-dong,加陽3洞
+1116067,발산1동,Balsan 1(il)-dong,鉢山1洞
+1116069,공항동,Gonghang-dong,空港洞
+1116070,방화1동,Banghwa 1(il)-dong,傍花1洞
+1116071,방화2동,Banghwa 2(i)-dong,傍花2洞
+1116072,방화3동,Banghwa 3(sam)-dong,傍花3洞
+1116073,화곡1동,Hwagok 1(il)-dong,禾谷1洞
+1116074,우장산동,Ujangsan-dong,雨裝山洞
+11170,구로구,Guro-gu,九老區
+1117051,신도림동,Sindorim-dong,新道林洞
+1117052,구로1동,Guro 1(il)-dong,九老1洞
+1117054,구로3동,Guro 3(sam)-dong,九老3洞
+1117055,구로4동,Guro 4(sa)-dong,九老4洞
+1117056,구로5동,Guro 5(o)-dong,九老5洞
+1117061,고척1동,Gocheok 1(il)-dong,高尺1洞
+1117062,고척2동,Gocheok 2(i)-dong,高尺2洞
+1117064,개봉2동,Gaebong 2(i)-dong,開峰2洞
+1117065,개봉3동,Gaebong 3(sam)-dong,開峰3洞
+1117067,오류1동,Oryu 1(il)-dong,梧柳1洞
+1117068,오류2동,Oryu 2(i)-dong,梧柳2洞
+1117069,수궁동,Sugung-dong,水宮洞
+1117070,가리봉동,Garibong-dong,加里峰洞
+1117071,구로2동,Guro 2(i)-dong,九老2洞
+1117072,개봉1동,Gaebong 1(il)-dong,開峰1洞
+11180,금천구,Geumcheon-gu,衿川區
+1118051,가산동,Gasan-dong,加山洞
+1118052,독산1동,Doksan 1(il)-dong,禿山1洞
+1118053,독산2동,Doksan 2(i)-dong,禿山2洞
+1118054,독산3동,Doksan 3(sam)-dong,禿山3洞
+1118055,독산4동,Doksan 4(sa)-dong,禿山4洞
+1118057,시흥1동,Siheung 1(il)-dong,始興1洞
+1118058,시흥2동,Siheung 2(i)-dong,始興2洞
+1118059,시흥3동,Siheung 3(sam)-dong,始興3洞
+1118060,시흥4동,Siheung 4(sa)-dong,始興4洞
+1118061,시흥5동,Siheung 5(o)-dong,始興5洞
+11190,영등포구,Yeongdeungpo-gu,永登浦區
+1119054,여의동,Yeoui-dong,汝矣洞
+1119055,당산1동,Dangsan 1(il)-dong,堂山1洞
+1119056,당산2동,Dangsan  2(i)-dong,堂山2洞
+1119061,양평1동,Yangpyeong 1(il)-dong,楊平1洞
+1119062,양평2동,Yangpyeong 2(i)-dong,楊平2洞
+1119063,신길1동,Singil 1(il)-dong,新吉1洞
+1119065,신길3동,Singil 3(sam)-dong,新吉3洞
+1119066,신길4동,Singil 4(sa)-dong,新吉4洞
+1119067,신길5동,Singil 5(o)-dong,新吉5洞
+1119068,신길6동,Singil 6(yuk)-dong,新吉6洞
+1119069,신길7동,Singil 7(chil)-dong,新吉7洞
+1119070,대림1동,Daerim 1(il)-dong,大林1洞
+1119071,대림2동,Daerim 2(i)-dong,大林2洞
+1119072,대림3동,Daerim 3(sam)-dong,大林3洞
+1119073,영등포본동,Yeongdeungpobon-dong,永登浦本洞
+1119074,영등포동,Yeongdeungpo-dong,永登浦洞
+1119075,도림동,Dorim-dong,道林洞
+1119076,문래동,Mullae-dong,文來洞
+11200,동작구,Dongjak-gu,銅雀區
+1120052,노량진2동,Noryangjin 2(i)-dong,鷺梁津2洞
+1120053,상도1동,Sangdo 1(il)-dong,上道1洞
+1120054,상도2동,Sangdo 2(i)-dong,上道2洞
+1120055,상도3동,Sangdo 3(sam)-dong,上道3洞
+1120056,상도4동,Sangdo 4(sa)-dong,上道4洞
+1120063,사당1동,Sadang 1(il)-dong,舍堂1洞
+1120065,사당3동,Sadang 3(sam)-dong,舍堂3洞
+1120066,사당4동,Sadang 4(sa)-dong,舍堂4洞
+1120067,사당5동,Sadang 5(o)-dong,舍堂5洞
+1120068,대방동,Daebang-dong,大方洞
+1120069,신대방1동,Sindaebang 1(il)-dong,新大方1洞
+1120070,신대방2동,Sindaebang 2(i)-dong,新大方2洞
+1120071,흑석동,Heukseok-dong,黑石洞
+1120072,노량진1동,Noryangjin 1(il)-dong,鷺梁津1洞
+1120073,사당2동,Sadang 2(i)-dong,舍堂2洞
+11210,관악구,Gwanak-gu,冠岳區
+1121052,보라매동,Boramae-dong,보라매洞
+1121054,청림동,Cheongnim-dong,靑林洞
+1121057,행운동,Haengun-dong,幸運洞
+1121058,낙성대동,Nagseongdae-dong,落星垈洞
+1121061,중앙동,Jungang-dong,中央洞
+1121062,인헌동,Inheon-dong,仁憲洞
+1121063,남현동,Namhyeon-dong,南峴洞
+1121064,서원동,Sewon-dong,書院洞
+1121065,신원동,Sinwon-dong,新源洞
+1121066,서림동,Serim-dong,瑞林洞
+1121068,신사동,Sinsa-dong,新士洞
+1121069,신림동,Sillim-dong,新林洞
+1121071,난향동,Nanhyang-dong,蘭香洞
+1121072,조원동,Jowon-dong,棗園洞
+1121073,대학동,Daehak-dong,大學洞
+1121078,은천동,Euncheon-dong,殷川洞
+1121079,성현동,Seonghyeon-dong,成賢洞
+1121080,청룡동,Cheongnyong-dong,靑龍洞
+1121081,난곡동,Nangok-dong,蘭谷洞
+1121082,삼성동,Samseong-dong,三聖洞
+1121083,미성동,Miseong-dong,美星洞
+11220,서초구,Seocho-gu,瑞草區
+1122051,서초1동,Seocho 1(il)-dong,瑞草1洞
+1122052,서초2동,Seocho 2(i)-dong,瑞草2洞
+1122053,서초3동,Seocho 3(sam)-dong,瑞草3洞
+1122054,서초4동,Seocho 4(sa)-dong,瑞草4洞
+1122055,잠원동,Jamwon-dong,蠶院洞
+1122056,반포본동,Banpobon-dong,盤浦本洞
+1122057,반포1동,Banpo 1(il)-dong,盤浦1洞
+1122058,반포2동,Banpo 2(i)-dong,盤浦2洞
+1122059,반포3동,Banpo 3(sam)-dong,盤浦3洞
+1122060,반포4동,Banpo 4(sa)-dong,盤浦4洞
+1122061,방배본동,Bangbaebon-dong,方背本洞
+1122062,방배1동,Bangbae 1(il)-dong,方背1洞
+1122063,방배2동,Bangbae 2(i)-dong,方背2洞
+1122064,방배3동,Bangbae 3(sam)-dong,方背3洞
+1122065,방배4동,Bangbae 4(sa)-dong,方背4洞
+1122066,양재1동,Yangjae 1(il)-dong,良才1洞
+1122067,양재2동,Yangjae 2(i)-dong,良才2洞
+1122068,내곡동,Naegok-dong,內谷洞
+11230,강남구,Gangnam-gu,江南區
+1123051,신사동,Sinsa-dong,新沙洞
+1123052,논현1동,Nonhyeon 1(il)-dong,論峴1洞
+1123053,논현2동,Nonhyeon 2(i)-dong,論峴2洞
+1123058,삼성1동,Samseong 1(il)-dong,三成1洞
+1123059,삼성2동,Samseong 2(i)-dong,三成2洞
+1123060,대치1동,Daechi 1(il)-dong,大峙1洞
+1123063,대치4동,Daechi 4(sa)-dong,大峙4洞
+1123064,역삼1동,Yeoksam 1(il)-dong,驛三1洞
+1123065,역삼2동,Yeoksam 2(i)-dong,驛三2洞
+1123066,도곡1동,Dogok 1(il)-dong,道谷1洞
+1123067,도곡2동,Dogok 2(i)-dong,道谷2洞
+1123068,개포1동,Gaepo 1(il)-dong,開浦1洞
+1123071,개포4동,Gaepo 4(sa)-dong,開浦4洞
+1123072,일원본동,Irwonbon-dong,逸院本洞
+1123073,일원1동,Irwon 1(il)-dong,逸院1洞
+1123074,일원2동,Irwon 2(i)-dong,逸院2洞
+1123075,수서동,Suseo-dong,水西洞
+1123076,세곡동,Segok-dong,細谷洞
+1123077,압구정동,Apgujeong-dong,狎鷗亭洞
+1123078,청담동,Cheongdam-dong,淸潭洞
+1123079,대치2동,Daechi 2(i)-dong,大峙2洞
+1123080,개포2동,Gaepo 2(i)-dong,開浦2洞
+11240,송파구,Songpa-gu,松坡區
+1124051,풍납1동,Pungnap 1(il)-dong,風納1洞
+1124052,풍납2동,Pungnap 2(i)-dong,風納2洞
+1124053,거여1동,Geoyeo 1(il)-dong,巨餘1洞
+1124054,거여2동,Geoyeo 2(i)-dong,巨餘2洞
+1124055,마천1동,Macheon 1(il)-dong,馬川1洞
+1124056,마천2동,Macheon 2(i)-dong,馬川2洞
+1124057,방이1동,Bangi 1(il)-dong,芳夷1洞
+1124058,방이2동,Bangi 2(i)-dong,芳夷2洞
+1124059,오륜동,Oryun-dong,五輪洞
+1124060,오금동,Ogeum-dong,梧琴洞
+1124061,송파1동,Songpa 1(il)-dong,松坡1洞
+1124062,송파2동,Songpa 2(i)-dong,松坡2洞
+1124063,석촌동,Seokchon-dong,石村洞
+1124064,삼전동,Samjeon-dong,三田洞
+1124065,가락본동,Garakbon-dong,可樂本洞
+1124066,가락1동,Garak 1(il)-dong,可樂1洞
+1124067,가락2동,Garak 2(i)-dong,可樂2洞
+1124068,문정1동,Munjeong 1(il)-dong,文井1洞
+1124069,문정2동,Munjeong 2(i)-dong,文井2洞
+1124070,장지동,Jangji-dong,長旨洞
+1124071,잠실본동,Jamsilbon-dong,蠶室本洞
+1124075,잠실4동,Jamsil 4(sa)-dong,蠶室4洞
+1124077,잠실6동,Jamsil 6(yuk)-dong,蠶室6洞
+1124078,잠실7동,Jamsil 7(chil)-dong,蠶室7洞
+1124079,잠실2동,Jamsil 2(i)-dong,蠶室2洞
+1124080,잠실3동,Jamsil 3(sam)-dong,蠶室3洞
+11250,강동구,Gangdong-gu,江東區
+1125051,강일동,Gangil-dong,江一洞
+1125052,상일동,Sangil-dong,上一洞
+1125053,명일1동,Myeongil 1(il)-dong,明逸1洞
+1125054,명일2동,Myeongil 2(i)-dong,明逸2洞
+1125055,고덕1동,Godeok 1(il)-dong,古德1洞
+1125056,고덕2동,Godeok 2(i)-dong,古德2洞
+1125058,암사2동,Amsa 2(i)-dong,岩寺2洞
+1125059,암사3동,Amsa 3(sam)-dong,岩寺3洞
+1125061,천호1동,Cheonho 1(il)-dong,千戶1洞
+1125063,천호3동,Cheonho 3(sam)-dong,千戶3洞
+1125065,성내1동,Seongnae 1(il)-dong,城內1洞
+1125066,성내2동,Seongnae 2(i)-dong,城內2洞
+1125067,성내3동,Seongnae 3(sam)-dong,城內3洞
+1125070,둔촌1동,Dunchon 1(il)-dong,遁村1洞
+1125071,둔촌2동,Dunchon 2(i)-dong,遁村2洞
+1125072,암사1동,Amsa 1(il)-dong,岩寺1洞
+1125073,천호2동,Cheonho 2(i)-dong,千戶2洞
+1125074,길동,Gil-dong,吉洞
+21,부산광역시,Busan,釜山廣域市
+21010,중구,Jung-gu,中區
+2101051,중앙동,Jungang-dong,中央洞
+2101052,동광동,Donggwang-dong,東光洞
+2101053,대청동,Daecheong-dong,大廳洞
+2101054,보수동,Bosu-dong,寶水洞
+2101056,부평동,Bupyeong-dong,富平洞
+2101057,광복동,Gwangbok-dong,光復洞
+2101058,남포동,Nampo-dong,南浦洞
+2101059,영주1동,Yeongju 1(il)-dong,瀛州1洞
+2101060,영주2동,Yeongju 2(i)-dong,瀛州2洞
+21020,서구,Seo-gu,西區
+2102051,동대신1동,Dongdaesin 1(il)-dong,東大新1洞
+2102052,동대신2동,Dongdaesin 2(i)-dong,東大新2洞
+2102053,동대신3동,Dongdaesin 3(sam)-dong,東大新3洞
+2102054,서대신1동,Seodaesin 1(il)-dong,西大新1洞
+2102056,서대신3동,Seodaesin 3(sam)-dong,西大新3洞
+2102057,서대신4동,Seodaesin 4(sa)-dong,西大新4洞
+2102059,부민동,Bumin-dong,富民洞
+2102061,아미동,Ami-dong,峨嵋洞
+2102063,초장동,Chojang-dong,草場洞
+2102064,충무동,Chungmu-dong,忠武洞
+2102065,남부민1동,Nambumin 1(il)-dong,南富民1洞
+2102068,암남동,Amnam-dong,岩南洞
+2102069,남부민2동,Nambumin 2(i)-dong,南富民2洞
+21030,동구,Dong-gu,東區
+2103051,초량1동,Choryang 1(il)-dong,草梁1洞
+2103052,초량2동,Choryang 2(i)-dong,草梁2洞
+2103053,초량3동,Choryang 3(sam)-dong,草梁3洞
+2103055,초량6동,Choryang 6(yuk)-dong,草梁6洞
+2103056,수정1동,Sujeong 1(il)-dong,水晶1洞
+2103057,수정2동,Sujeong 2(i)-dong,水晶2洞
+2103059,수정4동,Sujeong 4(sa)-dong,水晶4洞
+2103060,수정5동,Sujeong 5(o)-dong,水晶5洞
+2103061,좌천1동,Jwacheon 1(il)-dong,佐川1洞
+2103064,좌천4동,Jwacheon 4(sa)-dong,佐川4洞
+2103065,범일1동,Beomil 1(il)-dong,凡一1洞
+2103066,범일2동,Beomil 2(i)-dong,凡一2洞
+2103067,범일4동,Beomil 4(sa)-dong,凡一4洞
+2103068,범일5동,Beomil 5(o)-dong,凡一5洞
+21040,영도구,Yeongdo-gu,影島區
+2104053,남항동,Namhang-dong,南港洞
+2104054,영선1동,Yeongseon 1(il)-dong,瀛仙1洞
+2104055,영선2동,Yeongseon 2(i)-dong,瀛仙2洞
+2104059,봉래1동,Bongnae 1(il)-dong,蓬萊1洞
+2104069,봉래2동,Bongnae 2(i)-dong,蓬萊2洞
+2104063,청학1동,Cheonghak 1(il)-dong,靑鶴1洞
+2104064,청학2동,Cheonghak 2(i)-dong,靑鶴2洞
+2104065,동삼1동,Dongsam 1(il)-dong,東三1洞
+2104066,동삼2동,Dongsam 2(i)-dong,東三2洞
+2104067,동삼3동,Dongsam 3(sam)-dong,東三3洞
+2104068,신선동,Sinseon-dong,新仙洞
+21050,부산진구,Busanjin-gu,釜山鎭區
+2105051,부전1동,Bujeon 1(il)-dong,釜田1洞
+2105052,부전2동,Bujeon 2(i)-dong,釜田2洞
+2105053,범전동,Beomjeon-dong,凡田洞
+2105054,연지동,Yeonji-dong,蓮池洞
+2105055,초읍동,Choeup-dong,草邑洞
+2105056,양정1동,Yangjeong 1(il)-dong,楊亭1洞
+2105057,양정2동,Yangjeong 2(i)-dong,楊亭2洞
+2105060,전포1동,Jeonpo 1(il)-dong,田浦1洞
+2105061,전포2동,Jeonpo 2(i)-dong,田浦2洞
+2105062,전포3동,Jeonpo 3(sam)-dong,田浦3洞
+2105064,부암1동,Buam 1(il)-dong,釜岩1洞
+2105066,부암3동,Buam 3(sam)-dong,釜岩3洞
+2105067,당감1동,Danggam 1(il)-dong,堂甘1洞
+2105068,당감2동,Danggam 2(i)-dong,堂甘2洞
+2105069,당감3동,Danggam 3(sam)-dong,堂甘3洞
+2105070,당감4동,Danggam 4(sa)-dong,堂甘4洞
+2105071,가야1동,Gaya 1(il)-dong,伽倻1洞
+2105072,가야2동,Gaya 2(i)-dong,伽倻2洞
+2105073,가야3동,Gaya 3(sam)-dong,伽倻3洞
+2105074,개금1동,Gaegeum 1(il)-dong,開琴1洞
+2105075,개금2동,Gaegeum 2(i)-dong,開琴2洞
+2105076,개금3동,Gaegeum 3(sam)-dong,開琴3洞
+2105077,범천1동,Beomcheon 1(il)-dong,凡川1洞
+2105078,범천2동,Beomcheon 2(i)-dong,凡川2洞
+2105079,범천4동,Beomcheon 4(sa)-dong,凡川4洞
+21060,동래구,Dongnae-gu,東萊區
+2106051,수민동,Sumin-dong,壽民洞
+2106052,복산동,Boksan-dong,福山洞
+2106053,명륜1동,Myeongnyun 1(il)-dong,明倫1洞
+2106054,명륜2동,Myeongnyun 2(i)-dong,明倫2洞
+2106055,온천1동,Oncheon 1(il)-dong,溫泉1洞
+2106056,온천2동,Oncheon 2(i)-dong,溫泉2洞
+2106057,온천3동,Oncheon 3(sam)-dong,溫泉3洞
+2106058,사직1동,Sajik 1(il)-dong,社稷1洞
+2106059,사직2동,Sajik 2(i)-dong,社稷2洞
+2106060,사직3동,Sajik 3(sam)-dong,社稷3洞
+2106061,안락1동,Allak 1(il)-dong,安樂1洞
+2106062,안락2동,Allak 2(i)-dong,安樂2洞
+2106063,명장1동,Myeongjang 1(il)-dong,鳴藏1洞
+2106064,명장2동,Myeongjang 2(i)-dong,鳴藏2洞
+21070,남구,Nam-gu,南區
+2107051,대연1동,Daeyeon 1(il)-dong,大淵1洞
+2107052,대연2동,Daeyeon 2(i)-dong,大淵2洞
+2107053,대연3동,Daeyeon 3(sam)-dong,大淵3洞
+2107054,대연4동,Daeyeon 4(sa)-dong,大淵4洞
+2107055,대연5동,Daeyeon 5(o)-dong,大淵5洞
+2107056,대연6동,Daeyeon 6(yuk)-dong,大淵6洞
+2107057,용호1동,Yongho 1(il)-dong,龍湖1洞
+2107058,용호2동,Yongho 2(i)-dong,龍湖2洞
+2107059,용호3동,Yongho 3(sam)-dong,龍湖3洞
+2107060,용호4동,Yongho 4(sa)-dong,龍湖4洞
+2107061,용당동,Yongdang-dong,龍塘洞
+2107062,감만1동,Gamman 1(il)-dong,戡蠻1洞
+2107063,감만2동,Gamman 2(i)-dong,戡蠻2洞
+2107064,우암1동,Uam 1(il)-dong,牛岩1洞
+2107065,우암2동,Uam 2(i)-dong,牛岩2洞
+2107066,문현1동,Munhyeon 1(il)-dong,門峴1洞
+2107067,문현2동,Munhyeon 2(i)-dong,門峴2洞
+2107068,문현3동,Munhyeon 3(sam)-dong,門峴3洞
+2107069,문현4동,Munhyeon 4(sa)-dong,門峴4洞
+21080,북구,Buk-gu,北區
+2108051,구포1동,Gupo 1(il)-dong,龜浦1洞
+2108052,구포2동,Gupo 2(i)-dong,龜浦2洞
+2108053,구포3동,Gupo 3(sam)-dong,龜浦3洞
+2108054,금곡동,Geumgok-dong,金谷洞
+2108055,화명1동,Hwamyeong 1(il)-dong,華明1洞
+2108062,화명2동,Hwamyeong 2(i)-dong,華明2洞
+2108063,화명3동,Hwamyeong 3(sam)-dong,華明3洞
+2108056,덕천1동,Deokcheon 1(il)-dong,德川1洞
+2108057,덕천2동,Deokcheon 2(i)-dong,德川2洞
+2108058,덕천3동,Deokcheon 3(sam)-dong,德川3洞
+2108059,만덕1동,Mandeok 1(il)-dong,萬德1洞
+2108060,만덕2동,Mandeok 2(i)-dong,萬德2洞
+2108061,만덕3동,Mandeok 3(sam)-dong,萬德3洞
+21090,해운대구,Haeundae-gu,海雲臺區
+2109051,우1동,U 1(il)-dong,佑1洞
+2109052,우2동,U 2(i)-dong,佑2洞
+2109053,중1동,Jung 1(il)-dong,中1洞
+2109054,중2동,Jung 2(i)-dong,中2洞
+2109066,좌1동,Jwa 1(il)-dong,佐1洞
+2109067,좌2동,Jwa 2(i)-dong,佐2洞
+2109068,좌3동,Jwa 3(sam)-dong,佐3洞
+2109069,좌4동,Jwa 4(sa)-dong,佐4洞
+2109056,송정동,Songjeong-dong,松亭洞
+2109070,반여1동,Banyeo 1(il)-dong,盤如1洞
+2109058,반여2동,Banyeo 2(i)-dong,盤如2洞
+2109059,반여3동,Banyeo 3(sam)-dong,盤如3洞
+2109071,반여4동,Banyeo 4(sa)-dong,盤如4洞
+2109061,반송1동,Bansong 1(il)-dong,盤松1洞
+2109062,반송2동,Bansong 2(i)-dong,盤松2洞
+2109063,반송3동,Bansong 3(sam)-dong,盤松3洞
+2109064,재송1동,Jaesong 1(il)-dong,栽松1洞
+2109065,재송2동,Jaesong 2(i)-dong,栽松2洞
+21100,사하구,Saha-gu,沙下區
+2110051,괴정1동,Goejeong 1(il)-dong,槐亭1洞
+2110052,괴정2동,Goejeong 2(i)-dong,槐亭2洞
+2110053,괴정3동,Goejeong 3(sam)-dong,槐亭3洞
+2110054,괴정4동,Goejeong 4(sa)-dong,槐亭4洞
+2110055,당리동,Dangni-dong,堂里洞
+2110056,하단1동,Hadan 1(il)-dong,下端1洞
+2110057,하단2동,Hadan 2(i)-dong,下端2洞
+2110058,신평1동,Sinpyeong 1(il)-dong,新平1洞
+2110059,신평2동,Sinpyeong 2(i)-dong,新平2洞
+2110060,장림1동,Jangnim 1(il)-dong,長林1洞
+2110061,장림2동,Jangnim 2(i)-dong,長林2洞
+2110062,다대1동,Dadae 1(il)-dong,多大1洞
+2110063,다대2동,Dadae 2(i)-dong,多大2洞
+2110064,구평동,Gupyeong-dong,舊平洞
+2110065,감천1동,Gamcheon 1(il)-dong,甘川1洞
+2110066,감천2동,Gamcheon 2(i)-dong,甘川2洞
+21110,금정구,Geumjeong-gu,金井區
+2111051,서1동,Seo 1(il)-dong,西1洞
+2111052,서2동,Seo 2(i)-dong,西2洞
+2111055,금사동,Geumsa-dong,錦絲洞
+2111057,부곡1동,Bugok 1(il)-dong,釜谷1洞
+2111058,부곡2동,Bugok 2(i)-dong,釜谷2洞
+2111059,부곡3동,Bugok 3(sam)-dong,釜谷3洞
+2111060,부곡4동,Bugok 4(sa)-dong,釜谷4洞
+2111061,장전1동,Jangjeon 1(il)-dong,長箭1洞
+2111062,장전2동,Jangjeon 2(i)-dong,長箭2洞
+2111063,장전3동,Jangjeon 3(sam)-dong,長箭3洞
+2111064,선두구동,Seondugu-dong,仙杜邱洞
+2111067,청룡노포동,Cheongnyongnopo-dong,靑龍老圃洞
+2111068,남산동,Namsan-dong,南山洞
+2111069,구서1동,Guseo 1(il)-dong,久瑞1洞
+2111070,구서2동,Guseo 2(i)-dong,久瑞2洞
+2111071,금성동,Geumseong-dong,金城洞
+2111072,서3동,Seo 3(sam)-dong,西3洞
+21120,강서구,Gangseo-gu,江西區
+2112051,대저1동,Daejeo 1(il)-dong,大渚1洞
+2112052,대저2동,Daejeo 2(i)-dong,大渚2洞
+2112053,강동동,Gangdong-dong,江東洞
+2112054,명지동,Myeongji-dong,鳴旨洞
+2112055,가락동,Garak-dong,駕洛洞
+2112056,녹산동,Noksan-dong,菉山洞
+2112057,천가동,Cheonga-dong,天加洞
+21130,연제구,Yeonje-gu,蓮堤區
+2113051,거제1동,Geoje 1(il)-dong,巨堤1洞
+2113052,거제2동,Geoje 2(i)-dong,巨堤2洞
+2113053,거제3동,Geoje 3(sam)-dong,巨堤3洞
+2113054,거제4동,Geoje 4(sa)-dong,巨堤4洞
+2113055,연산1동,Yeonsan 1(il)-dong,蓮山1洞
+2113056,연산2동,Yeonsan 2(i)-dong,蓮山2洞
+2113057,연산3동,Yeonsan 3(sam)-dong,蓮山3洞
+2113058,연산4동,Yeonsan 4(sa)-dong,蓮山4洞
+2113059,연산5동,Yeonsan 5(o)-dong,蓮山5洞
+2113060,연산6동,Yeonsan 6(yuk)-dong,蓮山6洞
+2113062,연산8동,Yeonsan 8(pal)-dong,蓮山8洞
+2113063,연산9동,Yeonsan 9(gu)-dong,蓮山9洞
+21140,수영구,Suyeong-gu,水營區
+2114051,남천1동,Namcheon 1(il)-dong,南川1洞
+2114052,남천2동,Namcheon 2(i)-dong,南川2洞
+2114053,수영동,Suyeong-dong,水營洞
+2114054,망미1동,Mangmi 1(il)-dong,望美1洞
+2114055,망미2동,Mangmi 2(i)-dong,望美2洞
+2114056,광안1동,Gwangan 1(il)-dong,廣安1洞
+2114057,광안2동,Gwangan 2(i)-dong,廣安2洞
+2114058,광안3동,Gwangan 3(sam)-dong,廣安3洞
+2114059,광안4동,Gwangan 4(sa)-dong,廣安4洞
+2114060,민락동,Millak-dong,民樂洞
+21150,사상구,Sasang-gu,沙上區
+2115051,삼락동,Samnak-dong,三樂洞
+2115052,모라1동,Mora 1(il)-dong,毛羅1洞
+2115054,모라3동,Mora 3(sam)-dong,毛羅3洞
+2115055,덕포1동,Deokpo 1(il)-dong,德浦1洞
+2115056,덕포2동,Deokpo 2(i)-dong,德浦2洞
+2115057,괘법동,Gwaebeop-dong,掛法洞
+2115060,주례1동,Jurye 1(il)-dong,周禮1洞
+2115061,주례2동,Jurye 2(i)-dong,周禮2洞
+2115062,주례3동,Jurye 3(sam)-dong,周禮3洞
+2115063,학장동,Hakjang-dong,鶴章洞
+2115064,엄궁동,Eomgung-dong,嚴弓洞
+2115065,감전동,Gamjeon-dong,甘田洞
+21310,기장군,Gijang-gun,機張郡
+2131011,기장읍,Gijang-eup,機張邑
+2131012,장안읍,Jangan-eup,長安邑
+2131031,일광면,Ilgwang-myeon,日光面
+2131032,정관면,Jeonggwan-myeon,鼎冠面
+2131033,철마면,Cheolma-myeon,鐵馬面
+22,대구광역시,Daegu,大邱廣域市
+22010,중구,Jung-gu,中區
+2201051,동인1·2·4가동,Dongin 1·2·4(ilisa)-ga -dong,東仁1·2·4街洞
+2201052,동인3가동,Dongin 3(sam)-ga-dong,東仁3街洞
+2201054,삼덕동,Samdeok-dong,三德洞
+2201056,성내1동,Seongnae 1(il)-dong,城內1洞
+2201059,성내2동,Seongnae 2(i)-dong,城內2洞
+2201061,성내3동,Seongnae 3(sam)-dong,城內3洞
+2201062,대신동,Daesin-dong,大新洞
+2201064,남산1동,Namsan 1(il)-dong,南山1洞
+2201065,남산2동,Namsan 2(i)-dong,南山2洞
+2201066,남산3동,Namsan 3(sam)-dong,南山3洞
+2201067,남산4동,Namsan 4(sa)-dong,南山4洞
+2201068,대봉1동,Daebong 1(il)-dong,大鳳1洞
+2201069,대봉2동,Daebong 2(i)-dong,大鳳2洞
+22020,동구,Dong-gu,東區
+2202051,신암1동,Sinam 1(il)-dong,新岩1洞
+2202052,신암2동,Sinam 2(i)-dong,新岩2洞
+2202053,신암3동,Sinam 3(sam)-dong,新岩3洞
+2202054,신암4동,Sinam 4(sa)-dong,新岩4洞
+2202055,신암5동,Sinam 5(o)-dong,新岩5洞
+2202056,신천1·2동,Sincheon 1·2(ili)-dong,新川1·2洞
+2202058,신천3동,Sincheon 3(sam)-dong,新川3洞
+2202059,신천4동,Sincheon 4(sa)-dong,新川4洞
+2202060,효목1동,Hyomok 1(il)-dong,孝睦1洞
+2202061,효목2동,Hyomok 2(i)-dong,孝睦2洞
+2202062,도평동,Dopyeong-dong,道坪洞
+2202063,불로·봉무동,Bullobongmu-dong,不老·鳳舞洞
+2202065,지저동,Jijeo-dong,枝底洞
+2202066,동촌동,Dongchon-dong,東村洞
+2202068,방촌동,Bangchon-dong,芳村洞
+2202069,해안동,Haean-dong,解顔洞
+2202071,공산동,Gongsan-dong,公山洞
+2202073,안심1동,Ansim 1(il)-dong,安心1洞
+2202074,안심2동,Ansim 2(i)-dong,安心2洞
+2202075,안심3·4동,Ansim 3·4(samsa)-dong,安心3·4洞
+22030,서구,Seo-gu,西區
+2203051,내당1동,Naedang 1(il)-dong,內唐1洞
+2203052,내당2·3동,Naedang 2·3(isam)-dong,內唐2·3洞
+2203053,내당4동,Naedang 4(sa)-dong,內唐4洞
+2203054,비산1동,Bisan 1(il)-dong,飛山1洞
+2203055,비산2·3동,Bisan 2·3(isam)-dong,飛山2·3洞
+2203056,비산4동,Bisan 4(sa)-dong,飛山4洞
+2203057,비산5동,Bisan 5(o)-dong,飛山5洞
+2203058,비산6동,Bisan 6(yuk)-dong,飛山6洞
+2203059,비산7동,Bisan 7(chil)-dong,飛山7洞
+2203060,평리1동,Pyeongni 1(il)-dong,坪里1洞
+2203061,평리2동,Pyeongni 2(i)-dong,坪里2洞
+2203062,평리3동,Pyeongni 3(sam)-dong,坪里3洞
+2203063,평리4동,Pyeongni 4(sa)-dong,坪里4洞
+2203064,평리5동,Pyeongni 5(o)-dong,坪里5洞
+2203065,평리6동,Pyeongni 6(yuk)-dong,坪里6洞
+2203066,상중이동,Sangjungi-dong,上中梨洞
+2203068,원대동,Wondae-dong,院垈洞
+22040,남구,Nam-gu,南區
+2204051,이천동,Icheon-dong,梨泉洞
+2204053,봉덕1동,Bongdeok 1(il)-dong,鳳德1洞
+2204054,봉덕2동,Bongdeok 2(i)-dong,鳳德2洞
+2204055,봉덕3동,Bongdeok 3(sam)-dong,鳳德3洞
+2204056,대명1동,Daemyeong 1(il)-dong,大明1洞
+2204057,대명2동,Daemyeong 2(i)-dong,大明2洞
+2204058,대명3동,Daemyeong 3(sam)-dong,大明3洞
+2204059,대명4동,Daemyeong 4(sa)-dong,大明4洞
+2204060,대명5동,Daemyeong 5(o)-dong,大明5洞
+2204061,대명6동,Daemyeong 6(yuk)-dong,大明6洞
+2204064,대명9동,Daemyeong 9(gu)-dong,大明9洞
+2204065,대명10동,Daemyeong 10(sip)-dong,大明10洞
+2204066,대명11동,Daemyeong 11(sibil)-dong,大明11洞
+22050,북구,Buk-gu,北區
+2205051,고성동,Goseong-dong,古城洞
+2205052,칠성동,Chilseong-dong,七星洞
+2205055,침산1동,Chimsan 1(il)-dong,砧山1洞
+2205056,침산2동,Chimsan 2(i)-dong,砧山2洞
+2205057,침산3동,Chimsan 3(sam)-dong,砧山3洞
+2205061,산격1동,Sangyeok 1(il)-dong,山格1洞
+2205062,산격2동,Sangyeok 2(i)-dong,山格2洞
+2205063,산격3동,Sangyeok 3(sam)-dong,山格3洞
+2205064,산격4동,Sangyeok 4(sa)-dong,山格4洞
+2205065,복현1동,Bokhyeon 1(il)-dong,伏賢1洞
+2205066,복현2동,Bokhyeon 2(i)-dong,伏賢2洞
+2205067,대현1동,Daehyeon 1(il)-dong,大賢1洞
+2205068,대현2동,Daehyeon 2(i)-dong,大賢2洞
+2205070,검단동,Geomdan-dong,檢丹洞
+2205071,무태조야동,Mutaejoya-dong,無怠助也洞
+2205075,관문동,Gwanmun-dong,關門洞
+2205078,태전1동,Taejeon 1(il)-dong,太田1洞
+2205074,태전2동,Taejeon 2(i)-dong,太田2洞
+2205079,구암동,Guam-dong,鳩岩洞
+2205077,관음동,Gwaneum-dong,觀音洞
+2205076,읍내동,Eupnae-dong,邑內洞
+2205081,노원동,Nowon-dong,魯院洞
+2205082,동천동,Dongcheon-dong,東川洞
+2205083,국우동,Guku-dong,國優洞
+22060,수성구,Suseong-gu,壽城區
+2206051,범어1동,Beomeo 1(il)-dong,泛魚1洞
+2206052,범어2동,Beomeo 2(i)-dong,泛魚2洞
+2206053,범어3동,Beomeo 3(sam)-dong,泛魚3洞
+2206054,범어4동,Beomeo 4(sa)-dong,泛魚4洞
+2206055,만촌1동,Manchon 1(il)-dong,晩村1洞
+2206056,만촌2동,Manchon 2(i)-dong,晩村2洞
+2206057,만촌3동,Manchon 3(sam)-dong,晩村3洞
+2206058,수성1가동,Suseong 1(il)-ga-dong,壽城1街洞
+2206059,수성2·3가동,Suseong 2·3(isam)-ga-dong,壽城2·3街洞
+2206060,수성4가동,Suseong 4(sa)-ga-dong,壽城4街洞
+2206061,황금1동,Hwanggeum 1(il)-dong,黃金1洞
+2206062,황금2동,Hwanggeum 2(i)-dong,黃金2洞
+2206063,중동,Jung-dong,中洞
+2206064,상동,Sang-dong,上洞
+2206065,파동,Pa-dong,巴洞
+2206066,두산동,Dusan-dong,斗山洞
+2206067,지산1동,Jisan 1(il)-dong,池山1洞
+2206068,지산2동,Jisan 2(i)-dong,池山2洞
+2206069,범물1동,Beommul 1(il)-dong,凡勿1洞
+2206070,범물2동,Beommul 2(i)-dong,凡勿2洞
+2206071,고산1동,Gosan 1(il)-dong,孤山1洞
+2206072,고산2동,Gosan 2(i)-dong,孤山2洞
+2206073,고산3동,Gosan 3(sam)-dong,孤山3洞
+22070,달서구,Dalseo-gu,達西區
+2207051,성당1동,Seongdang 1(il)-dong,聖堂1洞
+2207052,성당2동,Seongdang 2(i)-dong,聖堂2洞
+2207053,두류1동,Duryu 1(il)-dong,杜柳1洞
+2207054,두류2동,Duryu 2(i)-dong,杜柳2洞
+2207055,두류3동,Duryu 3(sam)-dong,杜柳3洞
+2207056,본리동,Bolli-dong,本里洞
+2207057,감삼동,Gamsam-dong,甘三洞
+2207058,죽전동,Jukjeon-dong,竹田洞
+2207059,장기동,Janggi-dong,長基洞
+2207072,용산1동,Yongsan 1(il)-dong,龍山1洞
+2207073,용산2동,Yongsan 2(i)-dong,龍山2洞
+2207060,이곡1동,Igok 1(il)-dong,梨谷1洞
+2207074,이곡2동,Igok 2(i)-dong,梨谷2洞
+2207061,신당동,Sindang-dong,新塘洞
+2207062,월성1동,Wolseong 1(il)-dong,月城1洞
+2207063,월성2동,Wolseong 2(i)-dong,月城2洞
+2207064,진천동,Jincheon-dong,辰泉洞
+2207065,상인1동,Sangin 1(il)-dong,上仁1洞
+2207066,상인2동,Sangin 2(i)-dong,上仁2洞
+2207067,상인3동,Sangin 3(sam)-dong,上仁3洞
+2207068,도원동,Dowon-dong,桃原洞
+2207069,송현1동,Songhyeon 1(il)-dong,松峴1洞
+2207070,송현2동,Songhyeon 2(i)-dong,松峴2洞
+2207071,본동,Bon-dong,本洞
+22310,달성군,Dalseong-gun,達城郡
+2231011,화원읍,Hwawon-eup,花園邑
+2231012,논공읍,Nongong-eup,論工邑
+2231013,다사읍,Dasa-eup,多斯邑
+2231031,가창면,Gachang-myeon,嘉昌面
+2231032,하빈면,Habin-myeon,河濱面
+2231033,옥포면,Okpo-myeon,玉浦面
+2231034,현풍면,Hyeonpung-myeon,玄風面
+2231035,유가면,Yuga-myeon,瑜伽面
+2231036,구지면,Guji-myeon,求智面
+23,인천광역시,Incheon,仁川廣域市
+23010,중구,Jung-gu,中區
+2301052,연안동,Yeonan-dong,沿岸洞
+2301053,신포동,Sinpo-dong,新浦洞
+2301054,신흥동,Sinheung-dong,新興洞
+2301056,도원동,Dowon-dong,桃源洞
+2301057,율목동,Yulmok-dong,栗木洞
+2301058,동인천동,Dongincheon-dong,東仁川洞
+2301060,북성동,Bukseong-dong,北城洞
+2301061,송월동,Songwol-dong,松月洞
+2301062,영종동,Yeongjong-dong,永宗洞
+2301063,용유동,Yongyu-dong,龍游洞
+23020,동구,Dong-gu,東區
+2302051,만석동,Manseok-dong,萬石洞
+2302052,화수1·화평동,Hwasu 1(il)hwapyeong-dong,花水1·花平洞
+2302053,화수2동,Hwasu 2(i)-dong,花水2洞
+2302055,송현1·2동,Songhyeon 1·2(ili)-dong,松峴1·2洞
+2302057,송현3동,Songhyeon 3(sam)-dong,松峴3洞
+2302058,송림1동,Songnim 1(il)-dong,松林1洞
+2302059,송림2동,Songnim 2(i)-dong,松林2洞
+2302060,송림3·5동,Songnim 3·5(samo)-dong,松林3·5洞
+2302061,송림4동,Songnim 4(sa)-dong,松林4洞
+2302063,송림6동,Songnim 6(yuk)-dong,松林6洞
+2302064,금창동,Geumchang-dong,金昌洞
+23030,남구,Nam-gu,南區
+2303052,숭의2동,Sungui 2(i)-dong,崇義2洞
+2303054,숭의4동,Sungui 4(sa)-dong,崇義4洞
+2303056,용현2동,Yonghyeon 2(i)-dong,龍峴2洞
+2303057,용현3동,Yonghyeon 3(sam)-dong,龍峴3洞
+2303059,용현5동,Yonghyeon 5(o)-dong,龍峴5洞
+2303060,학익1동,Hagik 1(il)-dong,鶴翼1洞
+2303061,학익2동,Hagik 2(i)-dong,鶴翼2洞
+2303062,도화1동,Dohwa 1(il)-dong,道禾1洞
+2303065,주안1동,Juan 1(il)-dong,朱安1洞
+2303066,주안2동,Juan 2(i)-dong,朱安2洞
+2303067,주안3동,Juan 3(sam)-dong,朱安3洞
+2303068,주안4동,Juan 4(sa)-dong,朱安4洞
+2303069,주안5동,Juan 5(o)-dong,朱安5洞
+2303070,주안6동,Juan 6(yuk)-dong,朱安6洞
+2303071,주안7동,Juan 7(chil)-dong,朱安7洞
+2303072,주안8동,Juan 8(pal)-dong,朱安8洞
+2303073,관교동,Gwangyo-dong,官校洞
+2303074,문학동,Munhak-dong,文鶴洞
+2303075,숭의1·3동,Sungui 1·3(il·sam)-dong,崇義1·3洞
+2303076,용현1·4동,Yonghyeon 1·4(il·sa)-dong,龍峴1·4洞
+2303077,도화2·3동,Dohwa 2·3(i·sam)-dong,道禾2·3洞
+23040,연수구,Yeonsu-gu,延壽區
+2304051,옥련1동,Ongnyeon 1(il)-dong,玉蓮1洞
+2304060,옥련2동,Ongnyeon 2(i)-dong,玉蓮2洞
+2304052,선학동,Seonhak-dong,仙鶴洞
+2304053,연수1동,Yeonsu 1(il)-dong,延壽1洞
+2304054,연수2동,Yeonsu 2(i)-dong,延壽2洞
+2304055,연수3동,Yeonsu 3(sam)-dong,延壽3洞
+2304056,청학동,Cheonghak-dong,靑鶴洞
+2304057,동춘1동,Dongchun 1(il)-dong,東春1洞
+2304058,동춘2동,Dongchun 2(i)-dong,東春2洞
+2304059,동춘3동,Dongchun 3(sam)-dong,東春3洞
+2304061,송도동,Songdo-dong,松島洞
+23050,남동구,Namdong-gu,南洞區
+2305051,구월1동,Guwol 1(il)-dong,九月1洞
+2305052,구월2동,Guwol 2(i)-dong,九月2洞
+2305053,구월3동,Guwol 3(sam)-dong,九月3洞
+2305054,구월4동,Guwol 4(sa)-dong,九月4洞
+2305055,간석1동,Ganseok 1(il)-dong,間石1洞
+2305056,간석2동,Ganseok 2(i)-dong,間石2洞
+2305057,간석3동,Ganseok 3(sam)-dong,間石3洞
+2305058,간석4동,Ganseok 4(sa)-dong,間石4洞
+2305059,만수1동,Mansu 1(il)-dong,萬壽1洞
+2305060,만수2동,Mansu 2(i)-dong,萬壽2洞
+2305061,만수3동,Mansu 3(sam)-dong,萬壽3洞
+2305062,만수4동,Mansu 4(sa)-dong,萬壽4洞
+2305063,만수5동,Mansu 5(o)-dong,萬壽5洞
+2305064,만수6동,Mansu 6(yuk)-dong,萬壽6洞
+2305065,장수서창동,Jangsuseochang-dong,長壽西昌洞
+2305067,남촌도림동,Namchondorim-dong,南村桃林洞
+2305070,논현고잔동,Nonhyeongojan-dong,論峴古棧洞
+2305071,논현동,Nonhyeon-dong,論峴洞
+23060,부평구,Bupyeong-gu,富平區
+2306051,부평1동,Bupyeong 1(il)-dong,富平1洞
+2306052,부평2동,Bupyeong 2(i)-dong,富平2洞
+2306053,부평3동,Bupyeong 3(sam)-dong,富平3洞
+2306054,부평4동,Bupyeong 4(sa)-dong,富平4洞
+2306055,부평5동,Bupyeong 5(o)-dong,富平5洞
+2306056,부평6동,Bupyeong 6(yuk)-dong,富平6洞
+2306057,산곡1동,Sangok 1(il)-dong,山谷1洞
+2306058,산곡2동,Sangok 2(i)-dong,山谷2洞
+2306059,산곡3동,Sangok 3(sam)-dong,山谷3洞
+2306060,산곡4동,Sangok 4(sa)-dong,山谷4洞
+2306061,청천1동,Cheongcheon 1(il)-dong,淸川1洞
+2306062,청천2동,Cheongcheon 2(i)-dong,淸川2洞
+2306063,갈산1동,Galsan 1(il)-dong,葛山1洞
+2306064,갈산2동,Galsan 2(i)-dong,葛山2洞
+2306065,삼산1동,Samsan 1(il)-dong,三山1洞
+2306066,부개1동,Bugae 1(il)-dong,富開1洞
+2306067,부개2동,Bugae 2(i)-dong,富開2洞
+2306068,부개3동,Bugae 3(sam)-dong,富開3洞
+2306069,일신동,Ilsin-dong,日新洞
+2306070,십정1동,Sipjeong 1(il)-dong,十井1洞
+2306071,십정2동,Sipjeong 2(i)-dong,十井2洞
+2306072,삼산2동,Samsan 2(i)-dong,三山2洞
+23070,계양구,Gyeyang-gu,桂陽區
+2307051,효성1동,Hyoseong 1(il)-dong,曉星1洞
+2307052,효성2동,Hyoseong 2(i)-dong,曉星2洞
+2307053,계산1동,Gyesan 1(il)-dong,桂山1洞
+2307054,계산2동,Gyesan 2(i)-dong,桂山2洞
+2307055,계산3동,Gyesan 3(sam)-dong,桂山3洞
+2307062,계산4동,Gyesan 4(sa)-dong,桂山4洞
+2307056,작전1동,Jakjeon 1(il)-dong,鵲田1洞
+2307057,작전2동,Jakjeon 2(i)-dong,鵲田2洞
+2307058,작전서운동,Jakjeonseoun-dong,鵲田瑞雲洞
+2307060,계양1동,Gyeyang 1(il)-dong,桂陽1洞
+2307061,계양2동,Gyeyang 2(i)-dong,桂陽2洞
+23080,서구,Seo-gu,西區
+2308051,검암경서동,Geomamgyeongseo-dong,黔岩景西洞
+2308053,연희동,Yeonhui-dong,連喜洞
+2308054,가정1동,Gajeong 1(il)-dong,佳亭1洞
+2308055,가정2동,Gajeong 2(i)-dong,佳亭2洞
+2308056,가정3동,Gajeong 3(sam)-dong,佳亭3洞
+2308057,신현원창동,Sinhyeonwonchang-dong,新峴元倉洞
+2308058,석남1동,Seongnam 1(il)-dong,石南1洞
+2308059,석남2동,Seongnam 2(i)-dong,石南2洞
+2308060,석남3동,Seongnam 3(sam)-dong,石南3洞
+2308062,가좌1동,Gajwa 1(il)-dong,佳佐1洞
+2308063,가좌2동,Gajwa 2(i)-dong,佳佐2洞
+2308064,가좌3동,Gajwa 3(sam)-dong,佳佐3洞
+2308065,가좌4동,Gajwa 4(sa)-dong,佳佐4洞
+2308068,검단1동,Geomdan-1(il)dong,黔丹1洞
+2308069,검단2동,Geomdan-2(i)dong,黔丹2洞
+2308070,검단3동,Geomdan-3(sam)dong,黔丹3洞
+2308071,검단4동,Geomdan-4(sa)dong,黔丹4洞
+23310,강화군,Ganghwa-gun,江華郡
+2331011,강화읍,Ganghwa-eup,江華邑
+2331031,선원면,Seonwon-myeon,仙源面
+2331032,불은면,Bureun-myeon,佛恩面
+2331033,길상면,Gilsang-myeon,吉祥面
+2331034,화도면,Hwado-myeon,華道面
+2331035,양도면,Yangdo-myeon,良道面
+2331036,내가면,Naega-myeon,內可面
+2331037,하점면,Hajeom-myeon,河岾面
+2331038,양사면,Yangsa-myeon,兩寺面
+2331039,송해면,Songhae-myeon,松海面
+2331040,교동면,Gyodong-myeon,喬洞面
+2331041,삼산면,Samsan-myeon,三山面
+2331042,서도면,Seodo-myeon,西島面
+23320,옹진군,Ongjin-gun,甕津郡
+2332031,북도면,Bukdo-myeon,北島面
+2332032,연평면,Yeonpyeong-myeon,延坪面
+2332033,백령면,Baengnyeong-myeon,白翎面
+2332034,대청면,Daecheong-myeon,大靑面
+2332035,덕적면,Deokjeok-myeon,德積面
+2332036,자월면,Jawol-myeon,紫月面
+2332037,영흥면,Yeongheung-myeon,靈興面
+24,광주광역시,Gwangju,光州廣域市
+24010,동구,Dong-gu,東區
+2401051,충장동,Chungjang-dong,忠壯洞
+2401054,동명동,Dongmyeong-dong,東明洞
+2401056,계림1동,Gyerim 1(il)-dong,鷄林1洞
+2401058,계림2동,Gyerim 2(i)-dong,鷄林2洞
+2401059,산수1동,Sansu 1(il)-dong,山水1洞
+2401061,산수2동,Sansu 2(i)-dong,山水2洞
+2401062,지산1동,Jisan 1(il)-dong,芝山1洞
+2401063,지산2동,Jisan 2(i)-dong,芝山2洞
+2401064,서남동,Seonam-dong,瑞南洞
+2401068,학동,Hak-dong,鶴洞
+2401071,학운동,Hagun-dong,鶴雲洞
+2401072,지원1동,Jiwon 1(il)-dong,池元1洞
+2401073,지원2동,Jiwon 2(i)-dong,池元2洞
+24020,서구,Seo-gu,西區
+2402051,양동,Yang-dong,良洞
+2402053,양3동,Yang 3(sam)-dong,良3洞
+2402054,농성1동,Nongseong 1(il)-dong,農城1洞
+2402055,농성2동,Nongseong 2(i)-dong,農城2洞
+2402056,광천동,Gwangcheon-dong,光川洞
+2402057,유덕동,Yudeok-dong,柳德洞
+2402066,치평동,Chipyeong-dong,治平洞
+2402058,상무1동,Sangmu 1(il)-dong,尙武1洞
+2402059,상무2동,Sangmu 2(i)-dong,尙武2洞
+2402060,화정1동,Hwajeong 1(il)-dong,花亭1洞
+2402061,화정2동,Hwajeong 2(i)-dong,花亭2洞
+2402062,화정3동,Hwajeong 3(sam)-dong,花亭3洞
+2402063,화정4동,Hwajeong 4(sa)-dong,花亭4洞
+2402064,서창동,Seochang-dong,西倉洞
+2402068,금호1동,Geumho 1(il)-dong,金湖1洞
+2402069,금호2동,Geumho 2(i)-dong,金湖2洞
+2402067,풍암동,Pungam-dong,豊岩洞
+24030,남구,Nam-gu,南區
+2403051,양림동,Yangnim-dong,楊林洞
+2403052,방림1동,Bangnim 1(il)-dong,芳林1洞
+2403053,방림2동,Bangnim 2(i)-dong,芳林2洞
+2403054,사직동,Sajik-dong,社稷洞
+2403057,월산동,Wolsan-dong,月山洞
+2403060,월산4동,Wolsan 4(sa)-dong,月山4洞
+2403061,월산5동,Wolsan 5(o)-dong,月山5洞
+2403062,백운1동,Baegun 1(il)-dong,白雲1洞
+2403063,백운2동,Baegun 2(i)-dong,白雲2洞
+2403064,주월1동,Juwol 1(il)-dong,珠月1洞
+2403065,주월2동,Juwol 2(i)-dong,珠月2洞
+2403066,효덕동,Hyodeok-dong,孝德洞
+2403067,송암동,Songam-dong,松岩洞
+2403068,봉선1동,Bongseon 1(il)-dong,鳳仙1洞
+2403069,봉선2동,Bongseon 2(i)-dong,鳳仙2洞
+2403070,대촌동,Daechon-dong,大村洞
+24040,북구,Buk-gu,北區
+2404051,중흥1동,Jungheung 1(il)-dong,中興1洞
+2404052,중흥2동,Jungheung 2(i)-dong,中興2洞
+2404053,중흥3동,Jungheung 3(sam)-dong,中興3洞
+2404054,중앙동,Jungang-dong,中央洞
+2404055,임동,Im-dong,林洞
+2404056,신안동,Sinan-dong,新安洞
+2404057,용봉동,Yongbong-dong,龍鳳洞
+2404058,운암1동,Unam 1(il)-dong,雲岩1洞
+2404059,운암2동,Unam 2(i)-dong,雲岩2洞
+2404060,운암3동,Unam 3(sam)-dong,雲岩3洞
+2404061,동림동,Dongnim-dong,東林洞
+2404062,우산동,Usan-dong,牛山洞
+2404063,풍향동,Punghyang-dong,豊鄕洞
+2404064,문화동,Munhwa-dong,文化洞
+2404065,문흥1동,Munheung 1(il)-dong,文興1洞
+2404066,문흥2동,Munheung 2(i)-dong,文興2洞
+2404067,두암1동,Duam 1(il)-dong,斗岩1洞
+2404068,두암2동,Duam 2(i)-dong,斗岩2洞
+2404069,두암3동,Duam 3(sam)-dong,斗岩3洞
+2404070,삼각동,Samgak-dong,三角洞
+2404078,일곡동,Ilgok-dong,日谷洞
+2404071,매곡동,Maegok-dong,梅谷洞
+2404072,오치1동,Ochi 1(il)-dong,梧峙1洞
+2404073,오치2동,Ochi 2(i)-dong,梧峙2洞
+2404074,석곡동,Seokgok-dong,石谷洞
+2404077,건국동,Geonguk-dong,建國洞
+24050,광산구,Gwangsan-gu,光山區
+2405051,송정1동,Songjeong 1(il)-dong,松汀1洞
+2405052,송정2동,Songjeong 2(i)-dong,松汀2洞
+2405054,도산동,Dosan-dong,道山洞
+2405055,신흥동,Sinheung-dong,魚龍洞
+2405056,어룡동,Eoryong-dong,牛山洞
+2405058,우산동,Usan-dong,牛山洞
+2405059,월곡1동,Wolgok 1(il)-dong,月谷1洞
+2405060,월곡2동,Wolgok 2(i)-dong,月谷2洞
+2405061,비아동,Bia-dong,飛鴉洞
+2405069,첨단1동,Cheomdan 1(il)-dong,尖端1洞
+2405070,첨단2동,Cheomdan 2(i)-dong,尖端2洞
+2405072,신가동,Singa-dong,新佳洞
+2405073,신창동,Sinchang-dong,新昌洞
+2405071,운남동,Unnam-dong,雲南洞
+2405063,하남동,Hanam-dong,河南洞
+2405064,임곡동,Imgok-dong,林谷洞
+2405065,동곡동,Donggok-dong,東谷洞
+2405066,평동,Pyeong-dong,平洞
+2405067,삼도동,Samdo-dong,三道洞
+2405068,본량동,Bolyang-dong,本良洞
+25,대전광역시,Daejeon,大田廣域市
+25010,동구,Dong-gu,東區
+2501053,효동,Hyo-dong,孝洞
+2501055,판암1동,Panam 1(il)-dong,板岩1洞
+2501056,판암2동,Panam 2(i)-dong,板岩2洞
+2501057,용운동,Yongun-dong,龍雲洞
+2501060,자양동,Jayang-dong,紫陽洞
+2501063,가양1동,Gayang 1(il)-dong,佳陽1洞
+2501064,가양2동,Gayang 2(i)-dong,佳陽2洞
+2501065,용전동,Yongjeon-dong,龍田洞
+2501068,홍도동,Hongdo-dong,弘道洞
+2501073,대청동,Daecheong-dong,大淸洞
+2501075,산내동,Sannae-dong,山內洞
+2501076,중앙동,Jungang-dong,中央洞
+2501077,신인동,Sinin-dong,新仁洞
+2501078,대동,Dae-dong,大洞
+2501079,성남동,Seongnam-dong,城南洞
+2501080,삼성동,Samseong-dong,三省洞
+25020,중구,Jung-gu,中區
+2502051,은행선화동,Eunhaengseonhwa-dong,銀杏宣化洞
+2502053,목동,Mok-dong,牧洞
+2502054,중촌동,Jungchon-dong,中村洞
+2502055,대흥동,Daeheung-dong,大興洞
+2502056,문창동,Munchang-dong,文昌洞
+2502057,석교동,Seokgyo-dong,石橋洞
+2502058,대사동,Daesa-dong,大寺洞
+2502059,부사동,Busa-dong,芙沙洞
+2502060,용두동,Yongdu-dong,龍頭洞
+2502062,오류동,Oryu-dong,五柳洞
+2502063,태평1동,Taepyeong 1(il)-dong,太平1洞
+2502064,태평2동,Taepyeong 2(i)-dong,太平2洞
+2502065,유천1동,Yucheon 1(il)-dong,柳川1洞
+2502066,유천2동,Yucheon 2(i)-dong,柳川2洞
+2502067,문화1동,Munhwa 1(il)-dong,文化1洞
+2502068,문화2동,Munhwa 2(i)-dong,文化2洞
+2502069,산성동,Sanseong-dong,山城洞
+25030,서구,Seo-gu,西區
+2503051,복수동,Boksu-dong,福守洞
+2503052,도마1동,Doma 1(il)-dong,桃馬1洞
+2503053,도마2동,Doma 2(i)-dong,桃馬2洞
+2503054,정림동,Jeongnim-dong,正林洞
+2503055,변동,Byeon-dong,邊洞
+2503056,용문동,Yongmun-dong,龍汶洞
+2503057,탄방동,Tanbang-dong,炭坊洞
+2503059,둔산1동,Dunsan 1(il)-dong,屯山1洞
+2503060,둔산2동,Dunsan 2(i)-dong,屯山2洞
+2503061,괴정동,Goejeong-dong,槐亭洞
+2503062,가장동,Gajang-dong,佳狀洞
+2503063,내동,Nae-dong,內洞
+2503064,갈마1동,Galma 1(il)-dong,葛馬1洞
+2503065,갈마2동,Galma 2(i)-dong,葛馬2洞
+2503066,월평1동,Wolpyeong 1(il)-dong,月平1洞
+2503067,월평2동,Wolpyeong 2(i)-dong,月平2洞
+2503068,월평3동,Wolpyeong 3(sam)-dong,月平3洞
+2503069,만년동,Mannyeon-dong,萬年洞
+2503070,가수원동,Gasuwon-dong,佳水院洞
+2503072,관저1동,Gwanjeo 1(il)-dong,關雎1洞
+2503073,관저2동,Gwanjeo 2(i)-dong,關雎2洞
+2503071,기성동,Giseong-dong,杞城洞
+2503074,둔산3동,Dunsan 3(sam)-dong,屯山3洞
+25040,유성구,Yuseong-gu,儒城區
+2504051,진잠동,Jinjam-dong,鎭岑洞
+2504053,온천1동,Oncheon 1(il)-dong,溫泉1洞
+2504054,온천2동,Oncheon 2(i)-dong,溫泉2洞
+2504055,신성동,Sinseong-dong,新城洞
+2504057,전민동,Jeonmin-dong,田民洞
+2504058,구즉동,Gujeuk-dong,九則洞
+2504059,노은1동,Noeun 1(il)-dong,老隱1洞
+2504060,노은2동,Noeun 2(i)-dong,老隱2洞
+25050,대덕구,Daedeok-gu,大德區
+2505051,오정동,Ojeong-dong,梧井洞
+2505052,대화동,Daehwa-dong,大禾洞
+2505053,회덕동,Hoedeok-dong,懷德洞
+2505054,비래동,Birae-dong,比來洞
+2505062,송촌동,Songchon-dong,宋村洞
+2505055,중리동,Jungni-dong,中里洞
+2505056,법1동,Beop 1(il)-dong,法1洞
+2505057,법2동,Beop 2(i)-dong,法2洞
+2505058,신탄진동,Sintanjin-dong,新灘津洞
+2505059,석봉동,Seokbong-dong,石峰洞
+2505060,덕암동,Deogam-dong,德岩洞
+2505061,목상동,Moksang-dong,木上洞
+26,울산광역시,Ulsan,蔚山廣域市
+26010,중구,Jung-gu,中區
+2601051,학성동,Hakseong-dong,鶴城洞
+2601052,반구1동,Bangu 1(il)-dong,伴鷗1洞
+2601053,반구2동,Bangu 2(i)-dong,伴鷗2洞
+2601054,복산1동,Boksan 1(il)-dong,福山1洞
+2601055,복산2동,Boksan 2(i)-dong,福山2洞
+2601056,북정동,Bukjeong-dong,北亭洞
+2601059,우정동,Ujeong-dong,牛亭洞
+2601060,태화동,Taehwa-dong,太和洞
+2601061,다운동,Daun-dong,茶雲洞
+2601062,병영1동,Byeongyeong 1(il)-dong,兵營1洞
+2601063,병영2동,Byeongyeong 2(i)-dong,兵營2洞
+2601064,약사동,Yaksa-dong,藥泗洞
+2601065,중앙동,Jungang-dong,中央洞
+26020,남구,Nam-gu,南區
+2602051,신정1동,Sinjeong 1(il)-dong,新亭1洞
+2602052,신정2동,Sinjeong 2(i)-dong,新亭2洞
+2602053,신정3동,Sinjeong 3(sam)-dong,新亭3洞
+2602054,신정4동,Sinjeong 4(sa)-dong,新亭4洞
+2602055,신정5동,Sinjeong 5(o)-dong,新亭5洞
+2602056,달동,Dal-dong,達洞
+2602057,삼산동,Samsan-dong,三山洞
+2602058,삼호동,Samho-dong,三湖洞
+2602059,무거동,Mugeo-dong,無去洞
+2602060,옥동,Ok-dong,玉洞
+2602061,야음장생포동,Yaeumjangsaengpo-dong,也音長生浦洞
+2602062,대현동,Daehyeon-dong,大峴洞
+2602063,수암동,Suam-dong,秀岩洞
+2602064,선암동,Seonam-dong,仙岩洞
+26030,동구,Dong-gu,東區
+2603051,방어동,Bangeo-dong,方魚洞
+2603052,일산동,Ilsan-dong,日山洞
+2603053,화정동,Hwajeong-dong,華亭洞
+2603054,대송동,Daesong-dong,大松洞
+2603055,전하1동,Jeonha 1(il)-dong,田下1洞
+2603058,남목1동,Nammok 1(il)-dong,南牧1洞
+2603059,남목2동,Nammok 2(i)-dong,南牧2洞
+2603060,남목3동,Nammok 3(sam)-dong,南牧3洞
+2603061,전하2동,Jeonha 2(i)-dong,田下2洞
+26040,북구,Buk-gu,北區
+2604051,농소1동,Nongso 1(il)-dong,農所1洞
+2604052,농소2동,Nongso 2(i)-dong,農所2洞
+2604053,농소3동,Nongso 3(sam)-dong,農所3洞
+2604054,강동동,Gangdong-dong,江東洞
+2604056,효문동,Hyomun-dong,孝門洞
+2604057,송정동,Songjeong-dong,松亭洞
+2604058,양정동,Yangjeong-dong,楊亭洞
+2604059,염포동,Yeompo-dong,鹽浦洞
+26310,울주군,Ulju-gun,蔚州郡
+2631011,온산읍,Onsan-eup,溫山邑
+2631012,언양읍,Eonyang-eup,彦陽邑
+2631013,온양읍,Onyang-eup,溫陽邑
+2631014,범서읍,Beomseo-eup,凡西邑
+2631031,서생면,Seosaeng-myeon,西生面
+2631033,청량면,Cheongnyang-myeon,靑良面
+2631034,웅촌면,Ungchon-myeon,熊村面
+2631036,두동면,Dudong-myeon,斗東面
+2631037,두서면,Duseo-myeon,斗西面
+2631038,상북면,Sangbuk-myeon,上北面
+2631039,삼남면,Samnam-myeon,三南面
+2631040,삼동면,Samdong-myeon,三東面
+31,경기도,Gyeonggi-do,京畿道
+31010,수원시,Suwon-si,水原市
+31011,장안구,Jangan-gu,長安區
+3101154,파장동,Pajang-dong,芭長洞
+3101155,율천동,Yulcheon-dong,栗泉洞
+3101156,정자1동,Jeongja 1(il)-dong,亭子1洞
+3101157,정자2동,Jeongja 2(i)-dong,亭子2洞
+3101162,정자3동,Jeongja 3(sam)-dong,亭子3洞
+3101158,영화동,Yeonghwa-dong,迎華洞
+3101159,송죽동,Songjuk-dong,松竹洞
+3101160,조원1동,Jowon 1(il)-dong,棗園1洞
+3101163,조원2동,Jowon 2(i)-dong,棗園2洞
+3101161,연무동,Yeonmu-dong,鍊武洞
+31012,권선구,Gwonseon-gu,勸善區
+3101252,세류1동,Seryu 1(il)-dong,細柳1洞
+3101253,세류2동,Seryu 2(i)-dong,細柳2洞
+3101254,세류3동,Seryu 3(sam)-dong,細柳3洞
+3101255,평동,Pyeong-dong,坪洞
+3101256,서둔동,Seodun-dong,西屯洞
+3101257,구운동,Guun-dong,區雲洞
+3101263,금호동,Geumho-dong,金好洞
+3101260,권선1동,Gwonseon 1(il)-dong,勸善1洞
+3101264,권선2동,Gwonseon 2(i)-dong,勸善2洞
+3101261,곡선동,Gokseon-dong,谷善洞
+3101262,입북동,Ipbuk-dong,笠北洞
+31013,팔달구,Paldal-gu,八達區
+3101367,매교동,Maegyo-dong,梅校洞
+3101368,매산동,Maesan-dong,梅山洞
+3101369,고등동,Godeung-dong,高等洞
+3101370,화서1동,Hwaseo 1(il)-dong,華西1洞
+3101371,화서2동,Hwaseo 2(i)-dong,華西2洞
+3101372,행궁동,Haenggung-dong,行宮洞
+3101353,지동,Ji-dong,池洞
+3101354,우만1동,Uman 1(il)-dong,牛滿1洞
+3101355,우만2동,Uman 2(i)-dong,牛滿2洞
+3101356,인계동,Ingye-dong,仁溪東
+31014,영통구,Yeongtong-gu,靈通區
+3101451,매탄1동,Maetan 1(il)-dong,梅灘1洞
+3101452,매탄2동,Maetan 2(i)-dong,梅灘2洞
+3101453,매탄3동,Maetan 3(sam)-dong,梅灘3洞
+3101454,매탄4동,Maetan 4(sa)-dong,梅灘4洞
+3101455,원천동,Woncheon-dong,遠川洞
+3101457,영통1동,Yeongtong 1(il)-dong,靈通1洞
+3101458,영통2동,Yeongtong 2(i)-dong,靈通2洞
+3101459,태장동,Taejang-dong,台章洞
+31020,성남시,Seongnam-si,城南市
+31021,수정구,Sujeong-gu,壽井區
+3102151,신흥1동,Sinheung 1(il)-dong,新興1洞
+3102152,신흥2동,Sinheung 2(i)-dong,新興2洞
+3102153,신흥3동,Sinheung 3(sam)-dong,新興3洞
+3102154,태평1동,Taepyeong 1(il)-dong,太平1洞
+3102155,태평2동,Taepyeong 2(i)-dong,太平2洞
+3102156,태평3동,Taepyeong 3(sam)-dong,太平3洞
+3102157,태평4동,Taepyeong 4(sa)-dong,太平4洞
+3102158,수진1동,Sujin 1(il)-dong,壽進1洞
+3102159,수진2동,Sujin 2(i)-dong,壽進2洞
+3102160,단대동,Dandae-dong,丹垈洞
+3102161,산성동,Sanseong-dong,山城洞
+3102162,양지동,Yangji-dong,陽地洞
+3102163,복정동,Bokjeong-dong,福井洞
+3102164,신촌동,Sinchon-dong,新村洞
+3102165,고등동,Godeung-dong,高登洞
+3102166,시흥동,Siheung-dong,始興洞
+31022,중원구,Jungwon-gu,中院區
+3102251,성남동,Seongnam-dong,城南洞
+3102252,중동,Jung-dong,中洞
+3102253,금광1동,Geumgwang 1(il)-dong,金光1洞
+3102254,금광2동,Geumgwang 2(i)-dong,金光2洞
+3102255,은행1동,Eunhaeng 1(il)-dong,銀行1洞
+3102256,은행2동,Eunhaeng 2(i)-dong,銀行2洞
+3102257,상대원1동,Sangdaewon 1(il)-dong,上大院1洞
+3102258,상대원2동,Sangdaewon 2(i)-dong,上大院2洞
+3102259,상대원3동,Sangdaewon 3(sam)-dong,上大院3洞
+3102260,하대원동,Hadaewon-dong,下大院洞
+3102261,도촌동,Dochon-dong,島村洞
+31023,분당구,Bundang-gu,盆唐區
+3102351,분당동,Bundang-dong,盆塘洞
+3102352,수내3동,Sunae 3(sam)-dong,藪內3洞
+3102353,수내1동,Sunae 1(il)-dong,藪內1洞
+3102354,수내2동,Sunae 2(i)-dong,藪內2洞
+3102355,정자2동,Jeongja 2(i)-dong,亭子2洞
+3102356,정자3동,Jeongja 3(sam)-dong,亭子3洞
+3102357,정자1동,Jeongja 1(il)-dong,亭子1洞
+3102358,서현1동,Seohyeon 1(il)-dong,書峴1洞
+3102359,서현2동,Seohyeon 2(i)-dong,書峴2洞
+3102360,이매1동,Imae 1(il)-dong,二梅1洞
+3102361,이매2동,Imae 2(i)-dong,二梅2洞
+3102362,야탑1동,Yatap 1(il)-dong,野塔1洞
+3102363,야탑3동,Yatap 3(sam)-dong,野塔3洞
+3102364,야탑2동,Yatap 2(i)-dong,野塔2洞
+3102367,구미동,Gumi-dong,九美洞
+3102368,운중동,Unjung-dong,雲中洞
+3102371,금곡동,Geumgok-dong,金谷洞
+3102372,구미1동,Gumi 1(il)-dong,九美1洞
+3102374,삼평동,Sampyeong-dong,三坪洞
+3102375,판교동,Pangyo-dong,板橋洞
+3102376,백현동,Baekhyeon-dong ,柏峴洞
+31030,의정부시,Uijeongbu-si,議政府市
+3103051,의정부1동,Uijeongbu 1(il)-dong,議政府1洞
+3103052,의정부2동,Uijeongbu 2(i)-dong,議政府2洞
+3103053,의정부3동,Uijeongbu 3(sam)-dong,議政府3洞
+3103055,호원1동,Howon 1(il)-dong,虎院1洞
+3103065,호원2동,Howon 2(i)-dong,虎院2洞
+3103056,장암동,Jangam-dong,長岩洞
+3103057,신곡1동,Singok 1(il)-dong,新谷1洞
+3103058,신곡2동,Singok 2(i)-dong,新谷2洞
+3103059,송산1동,Songsan 1(il)-dong,松山1洞
+3103066,송산2동,Songsan 2(i)-dong,松山2洞
+3103060,자금동,Jageum-dong,自金洞
+3103061,가능1동,Ganeung 1(il)-dong,佳陵1洞
+3103062,가능2동,Ganeung 2(i)-dong,佳陵2洞
+3103063,가능3동,Ganeung 3(sam)-dong,佳陵3洞
+3103064,녹양동,Nogyang-dong,綠楊洞
+31040,안양시,Anyang-si,安養市
+31041,만안구,Manan-gu,萬安區
+3104151,안양1동,Anyang 1(il)-dong,安養1洞
+3104152,안양2동,Anyang 2(i)-dong,安養2洞
+3104153,안양3동,Anyang 3(sam)-dong,安養3洞
+3104154,안양4동,Anyang 4(sa)-dong,安養4洞
+3104155,안양5동,Anyang 5(o)-dong,安養5洞
+3104156,안양6동,Anyang 6(yuk)-dong,安養6洞
+3104157,안양7동,Anyang 7(chil)-dong,安養7洞
+3104158,안양8동,Anyang 8(pal)-dong,安養8洞
+3104159,안양9동,Anyang 9(gu)-dong,安養9洞
+3104160,석수1동,Seoksu 1(il)-dong,石水1洞
+3104161,석수2동,Seoksu 2(i)-dong,石水2洞
+3104162,석수3동,Seoksu 3(sam)-dong,石水3洞
+3104163,박달1동,Bakdal 1(il)-dong,博達1洞
+3104164,박달2동,Bakdal 2(i)-dong,博達2洞
+31042,동안구,Dongan-gu,東安區
+3104251,비산1동,Bisan 1(il)-dong,飛山1洞
+3104252,비산2동,Bisan 2(i)-dong,飛山2洞
+3104253,비산3동,Bisan 3(sam)-dong,飛山3洞
+3104254,부흥동,Buheung-dong,復興洞
+3104255,달안동,Daran-dong,達安洞
+3104256,관양1동,Gwanyang 1(il)-dong,冠陽1洞
+3104257,관양2동,Gwanyang 2(i)-dong,冠陽2洞
+3104258,부림동,Burim-dong,富林洞
+3104259,평촌동,Pyeongchon-dong,坪村洞
+3104260,평안동,Pyeongan-dong,坪安洞
+3104261,귀인동,Gwiin-dong,貴仁洞
+3104262,호계1동,Hogye 1(il)-dong,虎溪1洞
+3104263,호계2동,Hogye 2(i)-dong,虎溪2洞
+3104264,호계3동,Hogye 3(sam)-dong,虎溪3洞
+3104265,범계동,Beomgye-dong,범계洞
+3104266,신촌동,Sinchon-dong,新村洞
+3104267,갈산동,Galsan-dong,葛山洞
+31050,부천시,Bucheon-si,富川市
+31051,원미구,Wonmi-gu,遠美區
+3105151,심곡1동,Simgok 1(il)-dong,深谷1洞
+3105152,심곡2동,Simgok 2(i)-dong,深谷2洞
+3105153,심곡3동,Simgok 3(sam)-dong,深谷3洞
+3105154,원미1동,Wonmi 1(il)-dong,遠美1洞
+3105155,원미2동,Wonmi 2(i)-dong,遠美2洞
+3105156,소사동,Sosa-dong,素砂洞
+3105157,역곡1동,Yeokgok 1(il)-dong,驛谷1洞
+3105158,역곡2동,Yeokgok 2(i)-dong,驛谷2洞
+3105159,춘의동,Chunui-dong,春衣洞
+3105160,도당동,Dodang-dong,陶唐洞
+3105161,약대동,Yakdae-dong,若大洞
+3105162,중동,Jung-dong,中洞
+3105163,중1동,Jung 1(il)-dong,中1洞
+3105164,중2동,Jung 2(i)-dong,中2洞
+3105165,중3동,Jung 3(sam)-dong,中3洞
+3105166,중4동,Jung 4(sa)-dong,中4洞
+3105167,상동,Sang-dong,上洞
+3105168,상1동,Sang 1(il)-dong,上1洞
+3105169,상2동,Sang 2(il)-dong,上2洞
+3105170,상3동,Sang 3(sam)-dong,上3洞
+31052,소사구,Sosa-gu,素砂區
+3105251,심곡본1동,Simgokbon 1(il)-dong,深谷本1洞
+3105252,심곡본동,Simgokbon-dong,深谷本洞
+3105253,소사본1동,Sosabon 1(il)-dong,素砂本1洞
+3105254,소사본2동,Sosabon 2(i)-dong,素砂本2洞
+3105255,소사본3동,Sosabon 3(sam)-dong,素砂本3洞
+3105256,범박동,Beombak-dong,範朴洞
+3105257,괴안동,Goean-dong,槐安洞
+3105258,역곡3동,Yeokgok 3(sam)-dong,驛谷3洞
+3105259,송내1동,Songnae 1(il)-dong,松內1洞
+3105260,송내2동,Songnae 2(i)-dong,松內2洞
+31053,오정구,Ojeong-gu,梧亭區
+3105351,성곡동,Seonggok-dong,城谷洞
+3105352,원종1동,Wonjong 1(il)-dong,遠宗1洞
+3105353,원종2동,Wonjong 2(i)-dong,遠宗2洞
+3105354,고강본동,Gogangbon-dong,古康本洞
+3105355,고강1동,Gogang 1(il)-dong,古康1洞
+3105356,오정동,Ojeong-dong,梧亭洞
+3105357,신흥동,Sinheung-dong,新興洞
+31060,광명시,Gwangmyeong-si,光明市
+3106051,광명1동,Gwangmyeong 1(il)-dong,光明1洞
+3106052,광명2동,Gwangmyeong 2(i)-dong,光明2洞
+3106053,광명3동,Gwangmyeong 3(sam)-dong,光明3洞
+3106054,광명4동,Gwangmyeong 4(sa)-dong,光明4洞
+3106055,광명5동,Gwangmyeong 5(o)-dong,光明5洞
+3106056,광명6동,Gwangmyeong 6(yuk)-dong,光明6洞
+3106057,광명7동,Gwangmyeong 7(chil)-dong,光明7洞
+3106058,철산1동,Cheolsan 1(il)-dong,鐵山1洞
+3106059,철산2동,Cheolsan 2(i)-dong,鐵山2洞
+3106060,철산3동,Cheolsan 3(sam)-dong,鐵山3洞
+3106061,철산4동,Cheolsan 4(sa)-dong,鐵山4洞
+3106062,하안1동,Haan 1(il)-dong,下安1洞
+3106063,하안2동,Haan 2(i)-dong,下安2洞
+3106064,하안3동,Haan 3(sam)-dong,下安3洞
+3106065,하안4동,Haan 4(sa)-dong,下安4洞
+3106066,소하1동,Soha 1(il)-dong,所下1洞
+3106067,소하2동,Soha 2(i)-dong,所下2洞
+3106068,학온동,Hagon-dong,鶴溫洞
+31070,평택시,Pyeongtaek-si,平澤市
+3107011,팽성읍,Paengseong-eup,彭城邑
+3107012,안중읍,Anjung-eup,安仲邑
+3107013,포승읍,Poseung-eup,浦升邑
+3107031,진위면,Jinwi-myeon,振威面
+3107032,서탄면,Seotan-myeon,西炭面
+3107033,고덕면,Godeok-myeon,古德面
+3107034,오성면,Oseong-myeon,梧城面
+3107035,청북면,Cheongbuk-myeon,靑北面
+3107037,현덕면,Hyeondeok-myeon,玄德面
+3107051,중앙동,Jungang-dong,中央洞
+3107052,서정동,Seojeong-dong,西井洞
+3107053,송탄동,Songtan-dong,松炭洞
+3107055,지산동,Jisan-dong,芝山洞
+3107056,송북동,Songbuk-dong,松北洞
+3107057,신장1동,Sinjang 1(il)-dong,新場1洞
+3107058,신장2동,Sinjang 2(i)-dong,新場2洞
+3107059,신평동,Sinpyeong-dong,新平洞
+3107060,원평동,Wonpyeong-dong,原平洞
+3107061,통복동,Tongbok-dong,通伏洞
+3107062,비전1동,Bijeon 1(il)-dong,碑前1洞
+3107063,비전2동,Bijeon 2(i)-dong,碑前2洞
+3107064,세교동,Segyo-dong,細橋洞
+31080,동두천시,Dongducheon-si,東豆川市
+3108051,생연1동,Saengyeon 1(il)-dong,生淵1洞
+3108052,생연2동,Saengyeon 2(i)-dong,生淵2洞
+3108053,중앙동,Jungang-dong,中央洞
+3108055,보산동,Bosan-dong,保山洞
+3108056,불현동,Bulhyeon-dong,佛峴洞
+3108058,소요동,Soyo-dong,逍遙洞
+3108060,상패동,Sangpae-dong,上牌洞
+3108061,송내동,Songnae-dong,松內洞
+31090,안산시,Ansan-si,安山市
+31091,상록구,Sangnok-gu,常綠區
+3109151,일동,Il-dong,一洞
+3109174,이동,I-dong,二洞
+3109152,사1동,Sa 1(il)-dong,四1洞
+3109153,사2동,Sa 2(i)-dong,四2洞
+3109175,사3동,Sa 3(sam)-dong,四3洞
+3109154,본오1동,Bono 1(il)-dong,本五1洞
+3109155,본오2동,Bono 2(i)-dong,本五2洞
+3109156,본오3동,Bono 3(sam)-dong,本五3洞
+3109157,부곡동,Bugok-dong,釜谷洞
+3109158,월피동,Wolpi-dong,月陂洞
+3109162,성포동,Seongpo-dong,聲浦洞
+3109171,반월동,Banwol-dong,半月洞
+3109173,안산동,Ansan-dong,安山洞
+31092,단원구,Danwon-gu,檀園區
+3109259,와동,Wa-dong,瓦洞
+3109260,고잔1동,Gojan 1(il)-dong,古棧1洞
+3109261,고잔2동,Gojan 2(i)-dong,古棧2洞
+3109273,호수동,Hosu-dong,湖水洞
+3109263,원곡본동,Wongokbon-dong,元谷本洞
+3109264,원곡1동,Wongok 1(il)-dong,元谷1洞
+3109265,원곡2동,Wongok 2(i)-dong,元谷2洞
+3109266,초지동,Choji-dong,草芝洞
+3109268,선부1동,Seonbu 1(il)-dong,仙府1洞
+3109269,선부2동,Seonbu 2(i)-dong,仙府2洞
+3109270,선부3동,Seonbu 3(sam)-dong,仙府3洞
+3109272,대부동,Daebu-dong,大阜洞
+31100,고양시,Goyang-si,高陽市
+31101,덕양구,Deogyang-gu,德陽區
+3110151,주교동,Jugyo-dong,舟橋洞
+3110152,원신동,Wonsin-dong,元新洞
+3110153,흥도동,Heungdo-dong,興道洞
+3110154,성사1동,Seongsa 1(il)-dong,星沙1洞
+3110155,성사2동,Seongsa 2(i)-dong,星沙2洞
+3110156,효자동,Hyoja-dong,孝子洞
+3110157,신도동,Sindo-dong,神道洞
+3110158,창릉동,Changneung-dong,昌陵洞
+3110159,고양동,Goyang-dong,高陽洞
+3110160,관산동,Gwansan-dong,官山洞
+3110161,능곡동,Neunggok-dong,陵谷洞
+3110162,화정1동,Hwajeong 1(il)-dong,花井1洞
+3110163,화정2동,Hwajeong 2(i)-dong,花井2洞
+3110164,행주동,Haengju-dong,幸州洞
+3110165,행신1동,Haengsin 1(il)-dong,幸信1洞
+3110166,행신2동,Haengsin 2(i)-dong,幸信2洞
+3110169,행신3동,Haengsin 3(sam)-dong,幸信3洞
+3110167,화전동,Hwajeon-dong,花田洞
+3110168,대덕동,Daedeok-dong,大德洞
+31103,일산동구,Ilsandong-gu,一山東區
+3110351,식사동,Siksa-dong,食寺洞
+3110352,중산동,Jungsan-dong,中山洞
+3110353,정발산동,Jeongbalsan-dong,鼎鉢山洞
+3110354,풍산동,Pungsan-dong,楓山洞
+3110355,백석1동,Baekseok 1(il)-dong,白石1洞
+3110361,백석2동,Baekseok 2(i)-dong,白石2洞
+3110356,마두1동,Madu 1(il)-dong,馬頭1洞
+3110357,마두2동,Madu 2(i)-dong,馬頭2洞
+3110358,장항1동,Janghang 1(il)-dong,獐項1洞
+3110359,장항2동,Janghang 2(i)-dong,獐項2洞
+3110360,고봉동,Gobong-dong,高烽洞
+31104,일산서구,Ilsanseo-gu,一山西區
+3110451,일산1동,Ilsan 1(il)-dong,一山1洞
+3110452,일산2동,Ilsan 2(i)-dong,一山2洞
+3110453,일산3동,Ilsan 3(sam)-dong,一山3洞
+3110454,탄현동,Tanhyeon-dong,炭峴洞
+3110455,주엽1동,Juyeop 1(il)-dong,注葉1洞
+3110456,주엽2동,Juyeop 2(i)-dong,注葉2洞
+3110457,대화동,Daehwa-dong,大化洞
+3110458,송포동,Songpo-dong,松浦洞
+3110459,송산동,Songsan-dong,松山洞
+31110,과천시,Gwacheon-si,果川市
+3111051,중앙동,Jungang-dong,中央洞
+3111052,갈현동,Galhyeon-dong,葛峴洞
+3111053,별양동,Byeoryang-dong,別陽洞
+3111054,부림동,Burim-dong,富林洞
+3111055,과천동,Gwacheon-dong,果川洞
+3111056,문원동,Munwon-dong,文原洞
+31120,구리시,Guri-si,九里市
+3112051,갈매동,Galmae-dong,葛梅洞
+3112052,동구동,Donggu-dong,東九洞
+3112053,인창동,Inchang-dong,仁昌洞
+3112054,교문1동,Gyomun 1(il)-dong,校門1洞
+3112055,교문2동,Gyomun 2(i)-dong,校門2洞
+3112056,수택1동,Sutaek 1(il)-dong,水澤1洞
+3112057,수택2동,Sutaek 2(i)-dong,水澤2洞
+3112058,수택3동,Sutaek 3(sam)-dong,水澤3洞
+31130,남양주시,Namyangju-si,南楊州市
+3113011,와부읍,Wabu-eup,瓦阜邑
+3113012,진접읍,Jinjeop-eup,榛接邑
+3113013,화도읍,Hwado-eup,和道邑
+3113014,진건읍,Jingeon-eup,眞乾邑
+3113015,오남읍,Onam-eup,梧南邑
+3113031,별내면,Byeolnae-myeon,別內面
+3113032,퇴계원면,Toegyewon-myeon,退溪院面
+3113034,수동면,Sudong-myeon,水洞面
+3113035,조안면,Joan-myeon,鳥安面
+3113051,호평동,Hopyeong-dong,好坪洞
+3113052,평내동,Pyeongnae-dong,坪內洞
+3113053,금곡동,Geumgok-dong,金谷洞
+3113054,양정동,Yangjeong-dong,養正洞
+3113055,지금동,Jigeum-dong,芝錦洞
+3113056,도농동,Donong-dong,陶農洞
+31140,오산시,Osan-si,烏山市
+3114051,중앙동,Jungang-dong,中央洞
+3114052,대원동,Daewon-dong,大園洞
+3114053,남촌동,Namchon-dong,南村洞
+3114054,신장동,Sinjang-dong,新場洞
+3114055,세마동,Sema-dong,洗馬洞
+3114056,초평동,Chopyeong-dong,楚坪洞
+31150,시흥시,Siheung-si,始興市
+3115051,대야동,Daeya-dong,大也洞
+3115052,신천동,Sincheon-dong,新川洞
+3115053,신현동,Sinhyeon-dong,新峴洞
+3115054,은행동,Eunhaeng-dong,銀杏洞
+3115055,매화동,Maehwa-dong,梅花洞
+3115056,목감동,Mokgam-dong,牧甘洞
+3115057,군자동,Gunja-dong,君子洞
+3115064,정왕본동,Jeongwangbon-dong,正往本洞
+3115065,정왕1동,Jeongwang 1(il)-dong,正往1洞
+3115061,정왕2동,Jeongwang 2(i)-dong,正往2洞
+3115062,정왕3동,Jeongwang 3(sam)-dong,正往3洞
+3115063,정왕4동,Jeongwang 4(sa)-dong,正往4洞
+3115059,과림동,Gwarim-dong,果林洞
+3115060,연성동,Yeonseong-dong,蓮城洞
+31160,군포시,Gunpo-si,軍浦市
+3116051,군포1동,Gunpo 1(il)-dong,軍浦1洞
+3116052,군포2동,Gunpo 2(i)-dong,軍浦2洞
+3116054,산본1동,Sanbon 1(il)-dong,山本1洞
+3116055,산본2동,Sanbon 2(i)-dong,山本2洞
+3116056,금정동,Geumjeong-dong,衿井洞
+3116057,재궁동,Jaegung-dong,齋宮洞
+3116058,오금동,Ogeum-dong,五禁洞
+3116059,수리동,Suri-dong,修理洞
+3116060,궁내동,Gungnae-dong,宮內洞
+3116061,광정동,Gwangjeong-dong,光亭洞
+3116062,대야동,Daeya-dong,大夜洞
+31170,의왕시,Uiwang-si,義王市
+3117051,고천동,Gocheon-dong,古川洞
+3117052,부곡동,Bugok-dong,富谷洞
+3117053,오전동,Ojeon-dong,五全洞
+3117054,내손1동,Naeson 1(il)-dong,內蓀1洞
+3117055,내손2동,Naeson 2(i)-dong,內蓀2洞
+3117056,청계동,Cheonggye-dong,淸溪洞
+31180,하남시,Hanam-si,河南市
+3118051,천현동,Cheonhyeon-dong,泉峴洞
+3118052,신장1동,Sinjang 1(il)-dong,新長1洞
+3118053,신장2동,Sinjang 2(i)-dong,新長2洞
+3118054,덕풍1동,Deokpung 1(il)-dong,德豊1洞
+3118055,덕풍2동,Deokpung 2(i)-dong,德豊2洞
+3118056,덕풍3동,Deokpung 3(sam)-dong,德豊3洞
+3118057,풍산동,Pungsan-dong,豊山洞
+3118058,감북동,Gambuk-dong,甘北洞
+3118059,춘궁동,Chungung-dong,春宮洞
+3118060,초이동,Choi-dong,草二洞
+31190,용인시,Yongin-si,龍仁市
+31191,처인구,Cheoin-gu,處仁區
+3119111,포곡읍,Pogok-eup,蒲谷邑
+3119131,모현면,Mohyeon-myeon,慕賢面
+3119132,남사면,Namsa-myeon,南四面
+3119133,이동면,Idong-myeon,二東面
+3119134,원삼면,Wonsam-myeon,遠三面
+3119135,백암면,Baegam-myeon,白岩面
+3119136,양지면,Yangji-myeon,陽智面
+3119151,중앙동,Jungang-dong,中央洞
+3119152,역삼동,Yeoksam-dong,驛三洞
+3119153,유림동,Yurim-dong,柳林洞
+3119154,동부동,Dongbu-dong,東部洞
+31192,기흥구,Giheung-gu,器興區
+3119251,신갈동,Singal-dong,新葛洞
+3119252,구갈동,Gugal-dong,舊葛洞
+3119253,상갈동,Sanggal-dong,上葛洞
+3119254,기흥동,Giheung-dong,器興洞
+3119255,서농동,Seonong-dong,書農洞
+3119256,구성동,Guseong-dong,駒城洞
+3119257,마북동,Mabuk-dong,麻北洞
+3119258,동백동,Dongbaek-dong,東栢洞
+3119259,보정동,Bojeong-dong,寶亭洞
+3119260,상하동,Sangha-dong,上下洞
+31193,수지구,Suji-gu,水枝區
+3119351,풍덕천1동,Pungdoekcheon 1(il)-dong,豊德川1洞
+3119352,풍덕천2동,Pungdoekcheon 2(i)-dong,豊德川2洞
+3119353,신봉동,Sinbong-dong,新鳳洞
+3119354,죽전1동,Jukjeon 1(il)-dong,竹田1洞
+3119355,죽전2동,Jukjeon 2(i)-dong,竹田2洞
+3119356,동천동,Dongcheon-dong,東川洞
+3119357,상현1동,Sanghyeon 1(il)-dong,上峴1洞
+3119358,상현2동,Sanghyeon 2(i)-dong,上峴2洞
+3119359,성복동,Seongbok-dong,星福洞
+31200,파주시,Paju-si,坡州市
+3120011,문산읍,Munsan-eup,汶山邑
+3120012,파주읍,Paju-eup,坡州邑
+3120013,법원읍,Beobwon-eup,法院邑
+3120014,교하읍,Gyoha-eup,交河邑
+3120015,조리읍,Jori-eup,條里邑
+3120021,진동면,Jindong-myeon,津東面
+3120026,장단면,Jangdan-myeon,長湍面
+3120027,진서면,Jinseo-myeon,津西面
+3120031,월롱면,Wollong-myeon,月籠面
+3120032,탄현면,Tanhyeon-myeon,炭縣面
+3120035,광탄면,Gwangtan-myeon,廣灘面
+3120036,파평면,Papyeong-myeon,坡平面
+3120037,적성면,Jeokseong-myeon,積城面
+3120038,군내면,Gunnae-myeon,郡內面
+3120051,금촌1동,Geumchon 1(il)-dong,金村1洞
+3120052,금촌2동,Geumchon 2(i)-dong,金村2洞
+31210,이천시,Icheon-si,利川市
+3121011,장호원읍,Janghowon-eup,長湖院邑
+3121012,부발읍,Bubal-eup,夫鉢邑
+3121031,신둔면,Sindun-myeon,新屯面
+3121032,백사면,Baeksa-myeon,栢沙面
+3121033,호법면,Hobeop-myeon,戶法面
+3121034,마장면,Majang-myeon,麻長面
+3121035,대월면,Daewol-myeon,大月面
+3121036,모가면,Moga-myeon,慕加面
+3121037,설성면,Seolseong-myeon,雪星面
+3121038,율면,Yul-myeon,栗面
+3121051,창전동,Changjeon-dong,倉前洞
+3121054,증포동,jeungpo-dong,增浦洞
+3121052,중리동,Jungni-dong,中里洞
+3121053,관고동,Gwango-dong,官庫洞
+31220,안성시,Anseong-si,安城市
+3122011,공도읍,Gongdo-eup,孔道邑
+3122031,보개면,Bogae-myeon,寶蓋面
+3122032,금광면,Geumgwang-myeon,金光面
+3122033,서운면,Seoun-myeon,瑞雲面
+3122034,미양면,Miyang-myeon,薇陽面
+3122035,대덕면,Daedeok-myeon,大德面
+3122036,양성면,Yangseong-myeon,陽城面
+3122038,원곡면,Wongok-myeon,元谷面
+3122039,일죽면,Iljuk-myeon,一竹面
+3122040,죽산면,Juksan-myeon,竹山面
+3122041,삼죽면,Samjuk-myeon,三竹面
+3122042,고삼면,Gosam-myeon,古三面
+3122051,안성1동,Anseong 1(il)-dong,安城1洞
+3122052,안성2동,Anseong 2(i)-dong,安城2洞
+3122053,안성3동,Anseong 3(sam)-dong,安城3洞
+31230,김포시,Gimpo-si,金浦市
+3123011,통진읍,Tongjin-eup,通津邑
+3123012,고촌읍,Gochon-eup,高村邑
+3123032,양촌면,Yangchon-myeon,陽村面
+3123034,대곶면,Daegot-myeon,大串面
+3123035,월곶면,Wolgot-myeon,月串面
+3123036,하성면,Haseong-myeon,霞城面
+3123051,김포1동,Gimpo 1(il)-dong,金浦1洞
+3123052,김포2동,Gimpo 2(i)-dong,金浦2洞
+3123053,사우동,Sau-dong,沙隅洞
+3123054,풍무동,Pungmu-dong,豊舞洞
+31240,화성시,Hwaseong-si,華城市
+3124012,봉담읍,Bongdam-eup,峰潭邑
+3124013,우정읍,Ujeong-eup,雨汀邑
+3124014,향남읍,Hyangnam-eup,鄕南邑
+3124031,매송면,Maesong-myeon,梅松面
+3124033,비봉면,Bibong-myeon,飛鳳面
+3124035,마도면,Mado-myeon,麻道面
+3124036,송산면,Songsan-myeon,松山面
+3124037,서신면,Seosin-myeon,西新面
+3124038,팔탄면,Paltan-myeon,八灘面
+3124039,장안면,Jangan-myeon,長安面
+3124042,양감면,Yanggam-myeon,楊甘面
+3124043,정남면,Jeongnam-myeon,正南面
+3124044,동탄면,Dongtan-myeon,東灘面
+3124051,남양동,Namyang-dong,南陽洞
+3124052,진안동,Jinan-dong,陣雁洞
+3124053,병점1동,Beyngjeom 1(il)-dong,餠店1洞
+3124054,병점2동,Beyngjeom 2(i)-dong,餠店2洞
+3124055,반월동,Banwol-dong,半月洞
+3124056,기배동,Gibae-dong,旗培洞
+3124057,화산동,Hwasan-dong,花山洞
+3124060,동탄2동,Dongtan 2(i)-dong,東灘2洞
+3124061,동탄1동,Dongtan 1(il)-dong,東灘1洞
+3124062,동탄3동,Dongtan 3(sam)-dong,東灘3洞
+31250,광주시,Gwangju-si,廣州市
+3125011,오포읍,Opo-eup,五浦邑
+3125012,초월읍,Chowol-eup,草月邑
+3125013,실촌읍,Silchon-eup,實村邑
+3125034,도척면,Docheok-myeon,都尺面
+3125035,퇴촌면,Toechon-myeon,退村面
+3125036,남종면,Namjong-myeon,南終面
+3125037,중부면,Jungbu-myeon,中部面
+3125051,경안동,Gyeongan-dong,京安洞
+3125052,송정동,Songjeong-dong,松亭洞
+3125053,광남동,Gwangnam-dong,廣南洞
+31260,양주시,Yangju-si,楊州市
+3126011,백석읍,Baekseok-eup,白石邑
+3126031,은현면,Eunhyeon-myeon,隱縣面
+3126032,남면,Nam-myeon,南面
+3126033,광적면,Gwangjeok-myeon,廣積面
+3126034,장흥면,Jangheung-myeon,長興面
+3126051,양주1동,Yangju 1(il)-dong,楊州1洞
+3126052,양주2동,Yangju 2(i)-dong,楊州2洞
+3126053,회천1동,Hoecheon 1(il)-dong,檜泉1洞
+3126054,회천2동,Hoecheon 2(i)-dong,檜泉2洞
+3126055,회천3동,Hoecheon 3(sam)-dong,檜泉3洞
+3126056,회천4동,Hoecheon 4(sa)-dong,檜泉4洞
+31270,포천시,Pocheon-si,抱川市
+3127011,소흘읍,Sohol-eup,蘇屹邑
+3127031,군내면,Gunnae-myeon,郡內面
+3127032,내촌면,Naechon-myeon,內村面
+3127033,가산면,Gasan-myeon,加山面
+3127034,신북면,Sinbuk-myeon,新北面
+3127035,창수면,Changsu-myeon,蒼水面
+3127036,영중면,Yeongjung-myeon,永中面
+3127037,일동면,Ildong-myeon,一東面
+3127038,이동면,Idong-myeon,二東面
+3127039,영북면,Yeongbuk-myeon,永北面
+3127040,관인면,Gwanin-myeon,官仁面
+3127041,화현면,Hwahyeon-myeon,花峴面
+3127051,포천동,Pocheon-dong,抱川洞
+3127052,선단동,Seondan-dong,仙壇洞
+31320,여주군,Yeoju-gun,驪州郡
+3132011,여주읍,Yeoju-eup,驪州邑
+3132031,점동면,Jeomdong-myeon,占東面
+3132032,가남면,Ganam-myeon,加南面
+3132033,능서면,Neungseo-myeon,陵西面
+3132034,흥천면,Heungcheon-myeon,興川面
+3132035,금사면,Geumsa-myeon,金沙面
+3132036,산북면,Sanbuk-myeon,山北面
+3132037,대신면,Daesin-myeon,大神面
+3132038,북내면,Bungnae-myeon,北內面
+3132039,강천면,Gangcheon-myeon,康川面
+31350,연천군,Yeoncheon-gun,漣川郡
+3135011,연천읍,Yeoncheon-eup,漣川邑
+3135012,전곡읍,Jeongok-eup,全谷邑
+3135031,군남면,Gunnam-myeon,郡南面
+3135032,청산면,Cheongsan-myeon,靑山面
+3135033,백학면,Baekhak-myeon,百鶴面
+3135034,미산면,Misan-myeon,嵋山面
+3135035,왕징면,Wangjing-myeon,旺澄面
+3135036,신서면,Sinseo-myeon,新西面
+3135037,중면,Jung-myeon,中面
+3135038,장남면,Jangnam-myeon,長南面
+31370,가평군,Gapyeong-gun,加平郡
+3137011,가평읍,Gapyeong-eup,加平邑
+3137031,설악면,Seorak-myeon,雪岳面
+3137032,청평면,Cheongpyeong-myeon,淸平面
+3137033,상면,Sang-myeon,上面
+3137034,하면,Ha-myeon,下面
+3137035,북면,Buk-myeon,北面
+31380,양평군,Yangpyeong-gun,楊平郡
+3138011,양평읍,Yangpyeong-eup,楊平邑
+3138031,강상면,Gangsang-myeon,江上面
+3138032,강하면,Gangha-myeon,江下面
+3138033,양서면,Yangseo-myeon,楊西面
+3138034,옥천면,Okcheon-myeon,玉泉面
+3138035,서종면,Seojong-myeon,西宗面
+3138036,단월면,Danwol-myeon,丹月面
+3138037,청운면,Cheongun-myeon,靑雲面
+3138038,양동면,Yangdong-myeon,楊東面
+3138039,지평면,Jipyeong-myeon,砥平面
+3138040,용문면,Yongmun-myeon,龍門面
+3138041,개군면,Gaegun-myeon,介軍面
+32,강원도,Gangwon-do,江原道
+32010,춘천시,Chuncheon-si,春川市
+3201011,신북읍,Sinbuk-eup,新北邑
+3201031,동면,Dong-myeon,東面
+3201032,동산면,Dongsan-myeon,東山面
+3201033,신동면,Sindong-myeon,新東面
+3201034,동내면,Dongnae-myeon,東內面
+3201035,남면,Nam-myeon,南面
+3201036,남산면,Namsan-myeon,南山面
+3201037,서면,Seo-myeon,西面
+3201038,사북면,Sabuk-myeon,史北面
+3201039,북산면,Buksan-myeon,北山面
+3201052,교동,Gyo-dong,校洞
+3201053,조운동,Jowun-dong,朝雲洞
+3201054,약사명동,Yaksamyeong-dong,藥司明洞
+3201057,근화동,Geunhwa-dong,槿花洞
+3201058,소양동,Soyang-dong,昭陽洞
+3201060,후평1동,Hupyeong 1(il)-dong,後坪1洞
+3201061,후평2동,Hupyeong 2(i)-dong,後坪2洞
+3201062,후평3동,Hupyeong 3(sam)-dong,後坪3洞
+3201063,효자1동,Hyoja 1(il)-dong,孝子1洞
+3201064,효자2동,Hyoja 2(i)-dong,孝子2洞
+3201065,효자3동,Hyoja 3(sam)-dong,孝子3洞
+3201066,석사동,Seoksa-dong,碩士洞
+3201067,퇴계동,Toegye-dong,退溪洞
+3201068,강남동,Gangnam-dong,江南洞
+3201071,신사우동,Sinsau-dong,新司牛洞
+32020,원주시,Wonju-si,原州市
+3202011,문막읍,Munmak-eup,文幕邑
+3202031,소초면,Socho-myeon,所草面
+3202032,호저면,Hojeo-myeon,好楮面
+3202033,지정면,Jijeong-myeon,地正面
+3202034,부론면,Buron-myeon,富論面
+3202035,귀래면,Gwirae-myeon,貴來面
+3202036,흥업면,Heungeop-myeon,興業面
+3202037,판부면,Panbu-myeon,板富面
+3202038,신림면,Sillim-myeon,神林面
+3202051,중앙동,Jungang-dong,中央洞
+3202052,원인동,Wonin-dong,園仁洞
+3202053,개운동,Gaeun-dong,開雲洞
+3202054,명륜1동,Myeongnyun 1(il)-dong,明倫1洞
+3202055,명륜2동,Myeongnyun 2(i)-dong,明倫2洞
+3202056,단구동,Dangu-dong,丹邱洞
+3202057,일산동,Ilsan-dong,一山洞
+3202058,학성동,Hakseong-dong,鶴城洞
+3202060,단계동,Dangye-dong,丹溪洞
+3202061,우산동,Usan-dong,牛山洞
+3202062,태장1동,Taejang 1(il)-dong,台壯1洞
+3202063,태장2동,Taejang 2(i)-dong,台壯2洞
+3202064,봉산동,Bongsan-dong,鳳山洞
+3202066,행구동,Haenggu-dong,杏邱洞
+3202067,무실동,Musil-dong,茂實洞
+3202068,반곡관설동,Bangokgwanseol-dong,盤谷觀雪洞
+32030,강릉시,Gangneung-si,江陵市
+3203011,주문진읍,Jumunjin-eup,注文津邑
+3203031,성산면,Seongsan-myeon,城山面
+3203032,왕산면,Wangsan-myeon,旺山面
+3203033,구정면,Gujeong-myeon,邱井面
+3203034,강동면,Gangdong-myeon,江東面
+3203035,옥계면,Okgye-myeon,玉溪面
+3203036,사천면,Sacheon-myeon,沙川面
+3203037,연곡면,Yeongok-myeon,連谷面
+3203051,홍제동,Hongje-dong,弘濟洞
+3203052,중앙동,Jungang-dong,中央洞
+3203054,옥천동,Okcheon-dong,玉泉洞
+3203055,교1동,Gyo 1(il)-dong,校1洞
+3203056,교2동,Gyo 2(i)-dong,校2洞
+3203057,포남1동,Ponam 1(il)-dong,浦南1洞
+3203058,포남2동,Ponam 2(i)-dong,浦南2洞
+3203059,초당동,Chodang-dong,草堂洞
+3203060,송정동,Songjeong-dong,松亭洞
+3203061,내곡동,Naegok-dong,內谷洞
+3203062,강남동,Gangnam-dong,江南洞
+3203065,성덕동,Seongdeok-dong,城德洞
+3203067,경포동,Gyeongpo-dong,鏡浦洞
+32040,동해시,Donghae-si,東海市
+3204051,천곡동,Cheongok-dong,泉谷洞
+3204052,송정동,Songjeong-dong,松亭洞
+3204053,북삼동,Buksam-dong,北三洞
+3204054,부곡동,Bugok-dong,釜谷洞
+3204055,동호동,Dongho-dong,東湖洞
+3204057,발한동,Balhan-dong,發翰洞
+3204059,묵호동,Mukho-dong,墨湖洞
+3204060,북평동,Bukpyeong-dong,北坪洞
+3204063,망상동,Mangsang-dong,望祥洞
+3204065,삼화동,Samhwa-dong,三和洞
+32050,태백시,Taebaek-si,太白市
+3205051,황지동,Hwangji-dong,黃池洞
+3205052,황연동,Hwangyeon-dong,黃蓮洞
+3205053,삼수동,Samsu-dong,三水洞
+3205054,상장동,Sangjang-dong,上長洞
+3205055,구문소동,Gumunso-dong,求文沼洞
+3205056,장성동,Jangseong-dong,長省洞
+3205058,철암동,Cheoram-dong,鐵岩洞
+3205062,문곡소도동,Mungoksodo-dong,文曲所道洞
+32060,속초시,Sokcho-si,束草市
+3206051,영랑동,Yeongnang-dong,永郞洞
+3206052,동명동,Dongmyeong-dong,東明洞
+3206054,금호동,Geumho-dong,琴湖洞
+3206056,교동,Gyo-dong,校洞
+3206057,노학동,Nohak-dong,蘆鶴洞
+3206058,조양동,Joyang-dong,朝陽洞
+3206059,청호동,Cheongho-dong,靑湖洞
+3206060,대포동,Daepo-dong,大浦洞
+32070,삼척시,Samcheok-si,三陟市
+3207011,도계읍,Dogye-eup,道溪邑
+3207012,원덕읍,Wondeok-eup,遠德邑
+3207031,근덕면,Geundeok-myeon,近德面
+3207032,하장면,Hajang-myeon,下長面
+3207033,노곡면,Nogok-myeon,蘆谷面
+3207034,미로면,Miro-myeon,未老面
+3207035,가곡면,Gagok-myeon,佳谷面
+3207036,신기면,Singi-myeon,新基面
+3207051,남양동,Namyang-dong,南陽洞
+3207052,성내동,Seongnae-dong,城內洞
+3207053,교동,Gyo-dong,校洞
+3207054,정라동,Jeongna-dong,汀羅洞
+32310,홍천군,Hongcheon-gun,洪川郡
+3231011,홍천읍,Hongcheon-eup,洪川邑
+3231031,화촌면,Hwachon-myeon,化村面
+3231032,두촌면,Duchon-myeon,斗村面
+3231033,내촌면,Naechon-myeon,乃村面
+3231034,서석면,Seoseok-myeon,瑞石面
+3231035,동면,Dong-myeon,東面
+3231036,남면,Nam-myeon,南面
+3231037,서면,Seo-myeon,西面
+3231038,북방면,Bukbang-myeon,北方面
+3231039,내면,Nae-myeon,內面
+32320,횡성군,Hoengseong-gun,橫城郡
+3232011,횡성읍,Hoengseong-eup,橫城邑
+3232031,우천면,Ucheon-myeon,隅川面
+3232032,안흥면,Anheung-myeon,安興面
+3232033,둔내면,Dunnae-myeon,屯內面
+3232034,갑천면,Gapcheon-myeon,甲川面
+3232035,청일면,Cheongil-myeon,晴日面
+3232036,공근면,Gonggeun-myeon,公根面
+3232037,서원면,Seowon-myeon,書院面
+3232038,강림면,Gangnim-myeon,講林面
+32330,영월군,Yeongwol-gun,寧越郡
+3233011,영월읍,Yeongwol-eup,寧越邑
+3233012,상동읍,Sangdong-eup,上東邑
+3233031,중동면,Jungdong-myeon,中東面
+3233033,북면,Buk-myeon,北面
+3233034,남면,Nam-myeon,南面
+3233036,주천면,Jucheon-myeon,酒泉面
+3233037,수주면,Suju-myeon,水周面
+3233038,김삿갓면,Gimsatgat-myeon,金─面
+3233039,한반도면,Hanbando-myeon,韓半島面
+32340,평창군,Pyeongchang-gun,平昌郡
+3234011,평창읍,Pyeongchang-eup,平昌邑
+3234031,미탄면,Mitan-myeon,美灘面
+3234032,방림면,Bangnim-myeon,芳林面
+3234033,대화면,Daehwa-myeon,大和面
+3234034,봉평면,Bongpyeong-myeon,蓬坪面
+3234035,용평면,Yongpyeong-myeon,龍坪面
+3234036,진부면,Jinbu-myeon,珍富面
+3234037,대관령면,Daegwallyeong-myeon,大關嶺面
+32350,정선군,Jeongseon-gun,旌善郡
+3235011,정선읍,Jeongseon-eup,旌善邑
+3235012,고한읍,Gohan-eup,古汗邑
+3235013,사북읍,Sabuk-eup,舍北邑
+3235014,신동읍,Sindong-eup,新東邑
+3235032,남면,Nam-myeon,南面
+3235034,북평면,Bukpyeong-myeon,北坪面
+3235035,임계면,Imgye-myeon,臨溪面
+3235036,화암면,Hwaam-myeon,畵岩面
+3235037,여량면,Yeoryang-myeon,餘糧面
+32360,철원군,Cheorwon-gun,鐵原郡
+3236011,철원읍,Cheorwon-eup,鐵原邑
+3236012,김화읍,Gimhwa-eup,金化邑
+3236013,갈말읍,Galmal-eup,葛末邑
+3236014,동송읍,Dongsong-eup,東松邑
+3236021,근북면,Geunbuk-myeon,近北面
+3236026,근동면,Geundong-myeon,近東面
+3236027,원동면,Wondong-myeon,遠東面
+3236028,원남면,Wonnam-myeon,遠南面
+3236029,임남면,Imnam-myeon,任南面
+3236031,서면,Seo-myeon,西面
+3236032,근남면,Geunnam-myeon,近南面
+32370,화천군,Hwacheon-gun,華川郡
+3237011,화천읍,Hwacheon-eup,華川邑
+3237031,간동면,Gandong-myeon,看東面
+3237032,하남면,Hanam-myeon,下南面
+3237033,상서면,Sangseo-myeon,上西面
+3237034,사내면,Sanae-myeon,史內面
+32380,양구군,Yanggu-gun,楊口郡
+3238011,양구읍,Yanggu-eup,楊口邑
+3238031,남면,Nam-myeon,南面
+3238032,동면,Dong-myeon,東面
+3238033,방산면,Bangsan-myeon,方山面
+3238034,해안면,Haean-myeon,海岸面
+32390,인제군,Inje-gun,麟蹄郡
+3239011,인제읍,Inje-eup,麟蹄邑
+3239031,남면,Nam-myeon,南面
+3239032,북면,Buk-myeon,北面
+3239033,기린면,Girin-myeon,麒麟面
+3239034,서화면,Seohwa-myeon,瑞和面
+3239035,상남면,Sangnam-myeon,上南面
+32400,고성군,Goseong-gun,高城郡
+3240011,간성읍,Ganseong-eup,杆城邑
+3240012,거진읍,Geojin-eup,巨津邑
+3240026,수동면,Sudong-myeon,水洞面
+3240031,현내면,Hyeonnae-myeon,縣內面
+3240032,죽왕면,Jugwang-myeon,竹旺面
+3240033,토성면,Toseong-myeon,土城面
+32410,양양군,Yangyang-gun,襄陽郡
+3241011,양양읍,Yangyang-eup,襄陽邑
+3241031,서면,Seo-myeon,西面
+3241032,손양면,Sonyang-myeon,巽陽面
+3241033,현북면,Hyeonbuk-myeon,縣北面
+3241034,현남면,Hyeonnam-myeon,縣南面
+3241035,강현면,Ganghyeon-myeon,降峴面
+33,충청북도,Chungcheongbuk-do,忠淸北道
+33010,청주시,Cheongju-si,淸州市
+33011,상당구,Sangdang-gu,上黨區
+3301151,중앙동,Jungang-dong,中央洞
+3301152,성안동,Seongan-dong,성안洞
+3301158,우암동,Uam-dong,牛岩洞
+3301159,내덕1동,Naedeok 1(il)-dong,內德1洞
+3301160,내덕2동,Naedeok 2(i)-dong,內德2洞
+3301161,율량·사천동,Yullyangsacheon-dong,栗陽·斜川洞
+3301162,탑·대성동,Tapdaeseong-dong,塔·大成洞
+3301163,영운동,Yeongun-dong,永雲洞
+3301164,금천동,Geumcheon-dong,金川洞
+3301165,용담·명암·산성동,Yongdammyeongamsanseong-dong,龍潭·明岩·山城洞
+3301166,용암1동,Yongam 1(il)-dong,龍岩1洞
+3301168,용암2동,Yongam 2(I)-dong,龍岩2洞
+3301167,오근장동,Ogeunjang-dong,梧根場洞
+33012,흥덕구,Heungdeok-gu,興德區
+3301251,사직1동,Sajik 1(il)-dong,社稷1洞
+3301252,사직2동,Sajik 2(i)-dong,社稷2洞
+3301253,사창동,Sachang-dong,司倉洞
+3301254,모충동,Mochung-dong,慕忠洞
+3301255,운천·신봉동,Uncheonsinbong-dong,雲泉·新鳳洞
+3301257,수곡1동,Sugok 1(il)-dong,秀谷1洞
+3301258,수곡2동,Sugok 2(i)-dong,秀谷2洞
+3301259,성화·개신·죽림동,Seonghwagaesinjungnim-dong,聖化·開新·竹林洞
+3301260,복대1동,Bokdae 1(il)-dong,福臺1洞
+3301261,복대2동,Bokdae 2(i)-dong,福臺2洞
+3301262,가경동,Gagyeong-dong,佳景洞
+3301263,봉명1동,Bongmyeong 1(il)-dong,鳳鳴1洞
+3301264,봉명2·송정동,Bongmyeong 2(i)·songjeong-dong,鳳鳴2·松亭洞
+3301265,강서1동,Gangseo 1(il)-dong,江西1洞
+3301266,강서2동,Gangseo 2(i)-dong,江西2洞
+3301267,산남동,Sannam-dong,山南洞
+3301268,분평동,Bunpyeong-dong,粉坪洞
+33020,충주시,Chungju-si,忠州市
+3302011,주덕읍,Judeok-eup,周德邑
+3302031,살미면,Salmi-myeon,乷味面
+3302032,수안보면,Suanbo-myeon,水安保面
+3302033,이류면,Iryu-myeon,利柳面
+3302034,신니면,Sinni-myeon,新尼面
+3302035,노은면,Noeun-myeon,老隱面
+3302036,앙성면,Angseong-myeon,仰城面
+3302037,가금면,Gageum-myeon,可金面
+3302038,금가면,Geumga-myeon,金加面
+3302039,동량면,Dongnyang-myeon,東良面
+3302040,산척면,Sancheok-myeon,山尺面
+3302041,엄정면,Eomjeong-myeon,嚴政面
+3302042,소태면,Sotae-myeon,蘇台面
+3302051,성내·충인동,Seongnaechungin-dong,城內·忠仁洞
+3302053,교현·안림동,Gyohyeonalim-dong,校峴·安林洞
+3302054,교현2동,Gyohyeon 2(i)-dong,校峴2洞
+3302055,용산동,Yongsan-dong,龍山洞
+3302056,지현동,Jihyeon-dong,之峴洞
+3302057,문화동,Munhwa-dong,文化洞
+3302058,호암·직동,Hoamjik-dong,虎岩·直洞
+3302060,달천동,Dalcheon-dong,達川洞
+3302061,봉방동,Bongbang-dong,鳳方洞
+3302062,칠금·금릉동,Chilgeumgeumneung-dong,漆琴·金陵洞
+3302063,연수동,Yeonsu-dong,連守洞
+3302064,목행·용탄동,Mokhaengyongtan-dong,牧杏·龍灘洞
+33030,제천시,Jecheon-si,堤川市
+3303011,봉양읍,Bongyang-eup,鳳陽邑
+3303031,금성면,Geumseong-myeon,錦城面
+3303032,청풍면,Cheongpung-myeon,淸風面
+3303033,수산면,Susan-myeon,水山面
+3303034,덕산면,Deoksan-myeon,德山面
+3303035,한수면,Hansu-myeon,寒水面
+3303036,백운면,Baegun-myeon,白雲面
+3303037,송학면,Songhak-myeon,松鶴面
+3303051,교동,Gyo-dong,校洞
+3303063,고암·모산동,Goammosan-dong,古岩·茅山洞
+3303064,중앙·의림·명동,Junganguirimmyeong-dong,中央·義林·明洞
+3303065,남천·동현동,Namcheondonghyeon-dong,南泉·東峴洞
+3303066,서부·영천동,Seobuyeongcheon-dong,西部·榮川洞
+3303056,용두동,Yongdu-dong,龍頭洞
+3303067,신백·두학동,Sinbaekduhak-dong,新百·頭鶴洞
+3303059,청전동,Cheongjeon-dong,靑田洞
+3303060,화산동,Hwasan-dong,花山洞
+33310,청원군,Cheongwon-gun,淸原郡
+3331011,내수읍,Naesu-eup,內秀邑
+3331012,오창읍,Ochang-eup,梧倉邑
+3331031,낭성면,Nangseong-myeon,琅城面
+3331032,미원면,Miwon-myeon,米院面
+3331033,가덕면,Gadeok-myeon,加德面
+3331034,남일면,Namil-myeon,南一面
+3331035,남이면,Nami-myeon,南二面
+3331036,문의면,Munui-myeon,文義面
+3331037,현도면,Hyeondo-myeon,賢都面
+3331038,부용면,Buyong-myeon,芙蓉面
+3331039,강내면,Gangnae-myeon,江內面
+3331040,강외면,Gangoe-myeon,江外面
+3331041,옥산면,Oksan-myeon,玉山面
+3331043,북이면,Bugi-myeon,北二面
+33320,보은군,Boeun-gun,報恩郡
+3332011,보은읍,Boeun-eup,報恩邑
+3332031,속리산면,Songnisan-myeon,俗離山面
+3332032,장안면,Jangan-myeon,長安面
+3332033,마로면,Maro-myeon,馬老面
+3332034,탄부면,Tanbu-myeon,炭釜面
+3332035,삼승면,Samseung-myeon,三升面
+3332036,수한면,Suhan-myeon,水汗面
+3332037,회남면,Hoenam-myeon,懷南面
+3332038,회인면,Hoein-myeon,懷仁面
+3332039,내북면,Naebuk-myeon,內北面
+3332040,산외면,Sanoe-myeon,山外面
+33330,옥천군,Okcheon-gun,沃川郡
+3333011,옥천읍,Okcheon-eup,沃川邑
+3333031,동이면,Dongi-myeon,東二面
+3333032,안남면,Annam-myeon,安南面
+3333033,안내면,Annae-myeon,安內面
+3333034,청성면,Cheongseong-myeon,靑城面
+3333035,청산면,Cheongsan-myeon,靑山面
+3333036,이원면,Iwon-myeon,伊院面
+3333037,군서면,Gunseo-myeon,郡西面
+3333038,군북면,Gunbuk-myeon,郡北面
+33340,영동군,Yeongdong-gun,永同郡
+3334011,영동읍,Yeongdong-eup,永同邑
+3334031,용산면,Yongsan-myeon,龍山面
+3334032,황간면,Hwanggan-myeon,黃澗面
+3334033,추풍령면,Chupungnyeong-myeon,秋風嶺面
+3334034,매곡면,Maegok-myeon,梅谷面
+3334035,상촌면,Sangchon-myeon,上村面
+3334036,양강면,Yanggang-myeon,陽江面
+3334037,용화면,Yonghwa-myeon,龍化面
+3334038,학산면,Haksan-myeon,鶴山面
+3334039,양산면,Yangsan-myeon,陽山面
+3334040,심천면,Simcheon-myeon,深川面
+33390,증평군,Jeungpyeong-gun,曾坪郡
+3339014,증평읍,Jeungpyeong-eup,曾坪邑
+3339031,도안면,Doan-myeon,道安面
+33350,진천군,Jincheon-gun,鎭川郡
+3335011,진천읍,Jincheon-eup,鎭川邑
+3335031,덕산면,Deoksan-myeon,德山面
+3335032,초평면,Chopyeong-myeon,草坪面
+3335033,문백면,Munbaek-myeon,文白面
+3335034,백곡면,Baekgok-myeon,栢谷面
+3335035,이월면,Iwol-myeon,梨月面
+3335036,광혜원면,Gwanghyewon-myeon,廣惠院面
+33360,괴산군,Goesan-gun,槐山郡
+3336011,괴산읍,Goesan-eup,槐山邑
+3336031,감물면,Gammul-myeon,甘勿面
+3336032,장연면,Jangyeon-myeon,長延面
+3336033,연풍면,Yeonpung-myeon,延豊面
+3336034,칠성면,Chilseong-myeon,七星面
+3336035,문광면,Mungwang-myeon,文光面
+3336036,청천면,Cheongcheon-myeon,靑川面
+3336037,청안면,Cheongan-myeon,靑安面
+3336038,사리면,Sari-myeon,沙梨面
+3336039,소수면,Sosu-myeon,沼壽面
+3336040,불정면,Buljeong-myeon,佛頂面
+33370,음성군,Eumseong-gun,陰城郡
+3337011,음성읍,Eumseong-eup,陰城邑
+3337012,금왕읍,Geumwang-eup,金旺邑
+3337031,소이면,Soi-myeon,蘇伊面
+3337032,원남면,Wonnam-myeon,遠南面
+3337033,맹동면,Maengdong-myeon,孟洞面
+3337034,대소면,Daeso-myeon,大所面
+3337035,삼성면,Samseong-myeon,三成面
+3337036,생극면,Saenggeuk-myeon,笙極面
+3337037,감곡면,Gamgok-myeon,甘谷面
+33380,단양군,Danyang-gun,丹陽郡
+3338011,단양읍,Danyang-eup,丹陽邑
+3338012,매포읍,Maepo-eup,梅浦邑
+3338031,단성면,Danseong-myeon,丹城面
+3338032,대강면,Daegang-myeon,大崗面
+3338033,가곡면,Gagok-myeon,佳谷面
+3338034,영춘면,Yeongchun-myeon,永春面
+3338035,어상천면,Eosangcheon-myeon,魚上川面
+3338036,적성면,Jeokseong-myeon,赤城面
+34,충청남도,Chungcheongnam-do,忠淸南道
+34010,천안시,Cheonan-si,天安市
+34011,동남구,Dongnam-gu,東南區
+3401111,목천읍,Mokcheon-eup,木川邑
+3401131,풍세면,Pungse-myeon,豊歲面
+3401132,광덕면,Gwangdeok-myeon,廣德面
+3401133,북면,Buk-myeon,北面
+3401134,성남면,Seongnam-myeon,城南面
+3401135,수신면,Susin-myeon,修身面
+3401136,병천면,Byeongcheon-myeon,竝川面
+3401137,동면,Dong-myeon,東面
+3401151,중앙동,Jungang-dong,中央洞
+3401152,문성동,Munseong-dong,文城洞
+3401153,원성1동,Wonseong 1(il)-dong,院城1洞
+3401154,원성2동,Wonseong 2(i)-dong,院城2洞
+3401155,봉명동,Bongmyeong-dong,鳳鳴洞
+3401156,일봉동,Ilbong-dong,日峰洞
+3401157,신방동,Sinbang-dong,新方洞
+3401158,청룡동,Cheongnyong-dong,靑龍洞
+3401159,신안동,Sinan-dong,新安洞
+34012,서북구,Sebuk-gu,西北區
+3401211,성환읍,Seonghwan-eup,成歡邑
+3401212,성거읍,Seonggeo-eup,聖居邑
+3401213,직산읍,Jiksan-eup,稷山邑
+3401231,입장면,Ipjang-myeon,笠場面
+3401251,성정1동,Seongjeong 1(il)-dong,星井1洞
+3401252,성정2동,Seongjeong 2(i)-dong,星井2洞
+3401253,쌍용1동,Ssangyong 1(il)-dong,雙龍1洞
+3401254,쌍용2동,Ssangyong 2(i)-dong,雙龍2洞
+3401255,쌍용3동,Ssangyong 3(sam)-dong,雙龍3洞
+3401256,백석동,Baekseok-dong,白石洞
+3401257,부성동,Buseong-dong,富城洞
+34020,공주시,Gongju-si,公州市
+3402011,유구읍,Yugu-eup,維鳩邑
+3402031,이인면,Iin-myeon,利仁面
+3402032,탄천면,Tancheon-myeon,灘川面
+3402033,계룡면,Gyeryong-myeon,鷄龍面
+3402034,반포면,Banpo-myeon,反浦面
+3402035,장기면,Janggi-myeon,長岐面
+3402036,의당면,Uidang-myeon,儀堂面
+3402037,정안면,Jeongan-myeon,正安面
+3402038,우성면,Useong-myeon,牛城面
+3402039,사곡면,Sagok-myeon,寺谷面
+3402040,신풍면,Sinpung-myeon,新豊面
+3402051,중학동,Junghak-dong,中學洞
+3402055,금학동,Geumhak-dong,金鶴洞
+3402056,옥룡동,Ongnyong-dong,玉龍洞
+3402057,신관동,Singwan-dong,新官洞
+3402058,웅진동,Ungjin-dong,熊津洞
+34030,보령시,Boryeong-si,保寧市
+3403011,웅천읍,Ungcheon-eup,熊川邑
+3403031,주포면,Jupo-myeon,周浦面
+3403032,주교면,Jugyo-myeon,舟橋面
+3403033,오천면,Ocheon-myeon,鰲川面
+3403034,천북면,Cheonbuk-myeon,川北面
+3403035,청소면,Cheongso-myeon,靑所面
+3403036,청라면,Cheongna-myeon,靑蘿面
+3403037,남포면,Nampo-myeon,藍浦面
+3403038,주산면,Jusan-myeon,珠山面
+3403039,미산면,Misan-myeon,嵋山面
+3403040,성주면,Seongju-myeon,聖住面
+3403051,대천1동,Daecheon 1(il)-dong,大川1洞
+3403052,대천2동,Daecheon 2(i)-dong,大川2洞
+3403053,대천3동,Daecheon 3(sam)-dong,大川3洞
+3403054,대천4동,Daecheon4(sa)-dong,大川4洞
+3403056,대천5동,Daecheon 5(o)-dong,大川5洞
+34040,아산시,Asan-si,牙山市
+3404011,염치읍,Yeomchi-eup,鹽峙邑
+3404012,배방읍,Baebang-eup,排芳邑
+3404031,송악면 ,Songak-myeon,松岳面
+3404033,탕정면,Tangjeong-myeon,湯井面
+3404034,음봉면,Eumbong-myeon,陰峰面
+3404035,둔포면,Dunpo-myeon,屯浦面
+3404036,영인면,Yeongin-myeon,靈仁面
+3404037,인주면,Inju-myeon,仁州面
+3404038,선장면,Seonjang-myeon,仙掌面
+3404039,도고면,Dogo-myeon,道高面
+3404040,신창면,Sinchang-myeon,新昌面
+3404051,온양1동,Onyang 1(il)-dong,溫陽1洞
+3404052,온양2동,Onyang 2(i)-dong,溫陽2洞
+3404053,온양3동,Onyang 3(sam)-dong,溫陽3洞
+3404054,온양4동,Onyang 4(sa)-dong,溫陽4洞
+3404055,온양5동,Onyang 5(o)-dong,溫陽5洞
+3404056,온양6동,Onyang 6(yuk)-dong,溫陽6洞
+34050,서산시,Seosan-si,瑞山市
+3405011,대산읍,Daesan-eup,大山邑
+3405031,인지면,Inji-myeon,仁旨面
+3405032,부석면,Buseok-myeon,浮石面
+3405033,팔봉면,Palbong-myeon,八峰面
+3405034,지곡면,Jigok-myeon,地谷面
+3405035,성연면,Seongyeon-myeon,聖淵面
+3405036,음암면,Eumam-myeon,音岩面
+3405037,운산면,Unsan-myeon,雲山面
+3405038,해미면,Haemi-myeon,海美面
+3405039,고북면,Gobuk-myeon,高北面
+3405051,부춘동,Buchun-dong,富春洞
+3405052,동문1동,Dongmun 1(il)-dong,東門1洞
+3405053,동문2동,Dongmun 2(i)-dong,東門2洞
+3405054,수석동,Suseok-dong,壽石洞
+3405055,석남동 ,Seongnam-dong,石南洞
+34060,논산시,Nonsan-si,論山市
+3406011,강경읍,Ganggyeong-eup,江景邑
+3406012,연무읍,Yeonmu-eup,鍊武邑
+3406031,성동면,Seongdong-myeon,城東面
+3406032,광석면,Gwangseok-myeon,光石面
+3406033,노성면,Noseong-myeon,魯城面
+3406034,상월면,Sangwol-myeon,上月面
+3406035,부적면,Bujeok-myeon,夫赤面
+3406036,연산면,Yeonsan-myeon,連山面
+3406037,벌곡면,Beolgok-myeon,伐谷面
+3406038,양촌면,Yangchon-myeon,陽村面
+3406039,가야곡면,Gayagok-myeon,可也谷面
+3406040,은진면,Eunjin-myeon,恩津面
+3406041,채운면,Chaeun-myeon,彩雲面
+3406051,취암동,Chwiam-dong,鷲岩洞
+3406052,부창동,Buchang-dong,富倉洞
+34070,계룡시,Gyeryong-si,鷄龍市
+3407031,두마면,Duma-myeon,豆磨面
+3407033,엄사면,Eomsa-myeon,奄寺面
+3407034,신도안면,Sindoan_myeon,新都案面
+3407051,금암동,Geumam-dong,金岩洞
+34310,금산군,Geumsan-gun,錦山郡
+3431011,금산읍,Geumsan-eup,錦山邑
+3431031,금성면,Geumseong-myeon,錦城面
+3431032,제원면,Jewon-myeon,濟原面
+3431033,부리면,Buri-myeon,富利面
+3431034,군북면,Gunbuk-myeon,郡北面
+3431035,남일면,Namil-myeon,南一面
+3431036,남이면,Nami-myeon,南二面
+3431037,진산면,Jinsan-myeon,珍山面
+3431038,복수면,Boksu-myeon,福壽面
+3431039,추부면,Chubu-myeon,秋富面
+34320,연기군,Yeongi-gun,燕岐郡
+3432011,조치원읍,Jochiwon-eup,鳥致院邑
+3432031,동면,Dong-myeon,東面
+3432032,서면,Seo-myeon,西面
+3432033,남면,Nam-myeon,南面
+3432034,금남면,Geumnam-myeon,錦南面
+3432035,전의면,Jeonui-myeon,全義面
+3432036,전동면,Jeondong-myeon,全東面
+3432037,소정면,Sojeong-myeon,小井面
+34330,부여군,Buyeo-gun,扶餘郡
+3433011,부여읍,Buyeo-eup,扶餘邑
+3433031,규암면,Gyuam-myeon,窺岩面
+3433032,은산면,Eunsan-myeon,恩山面
+3433033,외산면,Oesan-myeon,外山面
+3433034,내산면,Naesan-myeon,內山面
+3433035,구룡면,Guryong-myeon,九龍面
+3433036,홍산면,Hongsan-myeon,鴻山面
+3433037,옥산면,Oksan-myeon,玉山面
+3433038,남면,Nam-myeon,南面
+3433039,충화면,Chunghwa-myeon,忠化面
+3433040,양화면,Yanghwa-myeon,良花面
+3433041,임천면,Imcheon-myeon,林川面
+3433042,장암면,Jangam-myeon,場岩面
+3433043,세도면,Sedo-myeon,世道面
+3433044,석성면,Seokseong-myeon,石城面
+3433045,초촌면,Chochon-myeon,草村面
+34340,서천군,Seocheon-gun,舒川郡
+3434011,장항읍,Janghang-eup,長項邑
+3434012,서천읍,Seocheon-eup,舒川邑
+3434031,마서면,Maseo-myeon,馬西面
+3434032,화양면,Hwayang-myeon,華陽面
+3434033,기산면,Gisan-myeon,麒山面
+3434034,한산면,Hansan-myeon,韓山面
+3434035,마산면,Masan-myeon,馬山面
+3434036,시초면,Sicho-myeon,時草面
+3434037,문산면,Munsan-myeon,文山面
+3434038,판교면,Pangyo-myeon,板橋面
+3434039,종천면,Jongcheon-myeon,鍾川面
+3434040,비인면,Biin-myeon,庇仁面
+3434041,서면,Seo-myeon,西面
+34350,청양군,Cheongyang-gun,靑陽郡
+3435011,청양읍,Cheongyang-eup,靑陽邑
+3435031,운곡면,Ungok-myeon,雲谷面
+3435032,대치면,Daechi-myeon,大峙面
+3435033,정산면,Jeongsan-myeon,定山面
+3435034,목면,Mok-myeon,木面
+3435035,청남면,Cheongnam-myeon,靑南面
+3435036,장평면,Jangpyeong-myeon,長坪面
+3435037,남양면,Namyang-myeon,南陽面
+3435038,화성면,Hwaseong-myeon,化城面
+3435039,비봉면,Bibong-myeon,飛鳳面
+34360,홍성군,Hongseong-gun,洪城郡
+3436011,홍성읍,Hongseong-eup,洪城邑
+3436012,광천읍,Gwangcheon-eup,廣川邑
+3436031,홍북면,Hongbuk-myeon,洪北面
+3436032,금마면,Geumma-myeon,金馬面
+3436033,홍동면,Hongdong-myeon,洪東面
+3436034,장곡면,Janggok-myeon,長谷面
+3436035,은하면,Eunha-myeon,銀河面
+3436036,결성면,Gyeolseong-myeon,結成面
+3436037,서부면,Seobu-myeon,西部面
+3436038,갈산면,Galsan-myeon,葛山面
+3436039,구항면,Guhang-myeon,龜項面
+34370,예산군,Yesan-gun,禮山郡
+3437011,예산읍,Yesan-eup,禮山邑
+3437012,삽교읍,Sapgyo-eup,揷橋邑
+3437031,대술면,Daesul-myeon,大述面
+3437032,신양면,Sinyang-myeon,新陽面
+3437033,광시면,Gwangsi-myeon,光時面
+3437034,대흥면,Daeheung-myeon,大興面
+3437035,응봉면,Eungbong-myeon,鷹峰面
+3437036,덕산면,Deoksan-myeon,德山面
+3437037,봉산면,Bongsan-myeon,鳳山面
+3437038,고덕면,Godeok-myeon,古德面
+3437039,신암면,Sinam-myeon,新岩面
+3437040,오가면,Oga-myeon,吾可面
+34380,태안군,Taean-gun,泰安郡
+3438011,태안읍,Taean-eup,泰安邑
+3438012,안면읍,Anmyeon-eup,安眠邑
+3438031,고남면,Gonam-myeon,高南面
+3438032,남면,Nam-myeon,南面
+3438033,근흥면,Geunheung-myeon,近興面
+3438034,소원면,Sowon-myeon,所遠面
+3438035,원북면,Wonbuk-myeon,遠北面
+3438036,이원면,Iwon-myeon,梨原面
+34390,당진군,Dangjin-gun,唐津郡
+3439011,당진읍,Dangjin-eup,唐津邑
+3439012,합덕읍,Hapdeok-eup,合德邑
+3439013,송악읍,Songak-eup,松岳邑
+3439031,고대면,Godae-myeon,高大面
+3439032,석문면,Seongmun-myeon,石門面
+3439033,대호지면,Daehoji-myeon,大湖芝面
+3439034,정미면,Jeongmi-myeon,貞美面
+3439035,면천면,Myeoncheon-myeon,沔川面
+3439036,순성면,Sunseong-myeon,順城面
+3439037,우강면,Ugang-myeon,牛江面
+3439038,신평면,Sinpyeong-myeon,新平面
+3439040,송산면,Songsan-myeon,松山面
+35,전라북도,Jeollabuk-do,全羅北道
+35010,전주시,Jeonju-si,全州市
+35011,완산구,Wansan-gu,完山區
+3501174,중앙동,Jungang-dong,中央洞
+3501175,풍남동,Pungnam-dong,豊南洞
+3501176,노송동,Nosong-dong,老松洞
+3501177,완산동,Wansan-dong,完山洞
+3501160,동서학동,Dongseohak-dong,東棲鶴洞
+3501161,서서학동,Seoseohak-dong,西棲鶴洞
+3501162,중화산1동,Junghwasan 1(il)-dong,中華山1洞
+3501163,중화산2동,Junghwasan 2(i)-dong,中華山2洞
+3501164,평화1동,Pyeonghwa 1(il)-dong,平和1洞
+3501165,평화2동,Pyeonghwa 2(i)-dong,平和2洞
+3501166,서신동,Seosin-dong,西新洞
+3501167,삼천1동,Samcheon 1(il)-dong,三川1洞
+3501168,삼천2동,Samcheon 2(i)-dong,三川2洞
+3501169,삼천3동,Samcheon 3(sam)-dong,三川3洞
+3501170,효자1동,Hyoja 1(il)-dong,孝子1洞
+3501171,효자2동,Hyoja 2(i)-dong,孝子2洞
+3501172,효자3동,Hyoja 3(sam)-dong,孝子3洞
+3501173,효자4동,Hyoja 4(sa)-dong,孝子4洞
+35012,덕진구,Deokjin-gu,德津區
+3501269,진북동,Jinbuk-dong,鎭北洞
+3501254,인후1동,Inhu 1(il)-dong,麟後1洞
+3501255,인후2동,Inhu 2(i)-dong,麟後2洞
+3501256,인후3동,Inhu 3(sam)-dong,麟後3洞
+3501257,덕진동,Deokjin-dong,德津洞
+3501258,금암1동,Geumam 1(il)-dong,金岩1洞
+3501259,금암2동,Geumam 2(i)-dong,金岩2洞
+3501260,팔복동,Palbok-dong,八福洞
+3501261,우아1동,Ua 1(il)-dong,牛牙1洞
+3501262,우아2동,Ua 2(i)-dong,牛牙2洞
+3501263,호성동,Hoseong-dong,湖城洞
+3501265,송천1동,Songcheon 1(il)-dong,松川1洞
+3501266,송천2동,Songcheon 2(i)-dong,松川2洞
+3501267,조촌동,Jochon-dong,助村洞
+3501268,동산동,Dongsan-dong,東山洞
+35020,군산시,Gunsan-si,群山市
+3502011,옥구읍,Okgu-eup,沃溝邑
+3502031,옥산면,Oksan-myeon,玉山面
+3502032,회현면,Hoehyeon-myeon,澮縣面
+3502033,임피면,Impi-myeon,臨陂面
+3502034,서수면,Seosu-myeon,瑞穗面
+3502035,대야면,Daeya-myeon,大野面
+3502036,개정면,Gaejeong-myeon,開井面
+3502037,성산면,Seongsan-myeon,聖山面
+3502038,나포면,Napo-myeon,羅浦面
+3502039,옥도면,Okdo-myeon,沃島面
+3502040,옥서면,Okseo-myeon,沃西面
+3502051,해신동,Haesin-dong,海新洞
+3502053,월명동,Wolmyeong-dong,月明洞
+3502055,신풍동,Sinpung-dong,新豊洞
+3502056,삼학동,Samhak-dong,三鶴洞
+3502060,중앙동,Jungang-dong,中央洞
+3502064,흥남동,Heungnam-dong,興南洞
+3502065,조촌동,Jochon-dong,助村洞
+3502066,경암동,Gyeongam-dong,京岩洞
+3502067,구암동,Guam-dong,龜岩洞
+3502068,개정동,Gaejeong-dong,開井洞
+3502069,수송동,Susong-dong,秀松洞
+3502070,나운1동,Naun 1(il)-dong,羅雲1洞
+3502071,나운2동,Naun 2(i)-dong,羅雲2洞
+3502074,나운3동,Naun 3(sam)-dong,羅雲3洞
+3502072,소룡동,Soryong-dong,小龍洞
+3502073,미성동,Miseong-dong,米星洞
+35030,익산시,Iksan-si,益山市
+3503011,함열읍,Hamyeol-eup,咸悅邑
+3503031,오산면,Osan-myeon,五山面
+3503032,황등면,Hwangdeung-myeon,黃登面
+3503033,함라면,Hamna-myeon,咸羅面
+3503034,웅포면,Ungpo-myeon,熊浦面
+3503035,성당면,Seongdang-myeon,聖堂面
+3503036,용안면,Yongan-myeon,龍安面
+3503037,낭산면,Nangsan-myeon,郎山面
+3503038,망성면,Mangseong-myeon,望城面
+3503039,여산면,Yeosan-myeon,礪山面
+3503040,금마면,Geumma-myeon,金馬面
+3503041,왕궁면,Wanggung-myeon,王宮面
+3503042,춘포면,Chunpo-myeon,春浦面
+3503043,삼기면,Samgi-myeon,三箕面
+3503044,용동면,Yongdong-myeon,龍東面
+3503051,중앙동,Jungang-dong,中央洞
+3503053,평화동,Pyeonghwa-dong,平和洞
+3503055,인화동,Inhwa-dong,仁和洞
+3503057,동산동,Dongsan-dong,銅山洞
+3503058,마동,Ma-dong,馬洞
+3503059,남중동,Namjung-dong,南中洞
+3503061,모현동,Mohyeon-dong,慕縣洞
+3503062,송학동,Songhak-dong,松鶴洞
+3503065,신동,Sin-dong,新洞
+3503066,영등1동,Yeongdeung 1(il)-dong,永登1洞
+3503071,영등2동,Yeongdeung 2(i)-dong,永登2洞
+3503072,어양동,Eoyang-dong,於陽洞
+3503069,팔봉동,Palbong-dong,八峰洞
+3503070,삼성동,Samseong-dong,三星洞
+35040,정읍시,Jeongeup-si,井邑市
+3504011,신태인읍,Sintaein-eup,新泰仁邑
+3504031,북면,Buk-myeon,北面
+3504032,입암면,Ibam-myeon,笠岩面
+3504033,소성면,Soseong-myeon,所聲面
+3504034,고부면,Gobu-myeon,古阜面
+3504035,영원면,Yeongwon-myeon,永元面
+3504036,덕천면,Deokcheon-myeon,德川面
+3504037,이평면,Ipyeong-myeon,梨坪面
+3504038,정우면,Jeongu-myeon,淨雨面
+3504039,태인면,Taein-myeon,泰仁面
+3504040,감곡면,Gamgok-myeon,甘谷面
+3504041,옹동면,Ongdong-myeon,瓮東面
+3504042,칠보면,Chilbo-myeon,七寶面
+3504043,산내면,Sannae-myeon,山內面
+3504044,산외면,Sanoe-myeon,山外面
+3504051,수성동,Suseong-dong,水城洞
+3504052,장명동,Jangmyeong-dong,長明洞
+3504053,내장상동,Naejangsang-dong,內藏上洞
+3504054,시기동,Sigi-dong,市其洞
+3504056,시기3동,Sigi 3(sam)-dong,市其3洞
+3504057,연지동,Yeonji-dong,蓮池洞
+3504058,농소동,Nongso-dong,農所洞
+3504059,상교동,Sanggyo-dong,上橋洞
+35050,남원시,Namwon-si,南原市
+3505011,운봉읍,Unbong-eup,雲峯邑
+3505031,주천면,Jucheon-myeon,朱川面
+3505032,수지면,Suji-myeon,水旨面
+3505033,송동면,Songdong-myeon,松洞面
+3505034,주생면,Jusaeng-myeon,周生面
+3505035,금지면,Geumji-myeon,金池面
+3505036,대강면,Daegang-myeon,帶江面
+3505037,대산면,Daesan-myeon,大山面
+3505038,사매면,Samae-myeon,巳梅面
+3505039,덕과면,Deokgwa-myeon,德果面
+3505040,보절면,Bojeol-myeon,寶節面
+3505041,산동면,Sandong-myeon,山東面
+3505042,이백면,Ibaek-myeon,二百面
+3505043,인월면,Inwol-myeon,引月面
+3505044,아영면,Ayeong-myeon,阿英面
+3505045,산내면,Sannae-myeon,山內面
+3505051,동충동,Dongchung-dong,東忠洞
+3505052,죽항동,Jukhang-dong,竹巷洞
+3505054,노암동,Noam-dong,鷺岩洞
+3505055,금동,Geum-dong,錦洞
+3505056,왕정동,Wangjeong-dong,王亭洞
+3505057,향교동,Hyanggyo-dong,鄕校洞
+3505059,도통동,Dotong-dong,道通洞
+35060,김제시,Gimje-si,金堤市
+3506011,만경읍,Mangyeong-eup,萬頃邑
+3506031,죽산면,Juksan-myeon,竹山面
+3506032,백산면,Baeksan-myeon,白山面
+3506033,용지면,Yongji-myeon,龍池面
+3506034,백구면,Baekgu-myeon,白鷗面
+3506035,부량면,Buryang-myeon,扶梁面
+3506036,공덕면,Gongdeok-myeon,孔德面
+3506037,청하면,Cheongha-myeon,靑蝦面
+3506038,성덕면,Seongdeok-myeon,聖德面
+3506039,진봉면,Jinbong-myeon,進鳳面
+3506040,금구면,Geumgu-myeon,金溝面
+3506041,봉남면,Bongnam-myeon,鳳南面
+3506042,황산면,Hwangsan-myeon,凰山面
+3506043,금산면,Geumsan-myeon,金山面
+3506044,광활면,Gwanghwal-myeon,廣活面
+3506051,요촌동,Yochon-dong,堯村洞
+3506052,신풍동,Sinpung-dong,新豊洞
+3506054,검산동,Geomsan-dong,劒山洞
+3506057,교동월촌동,Gyodongwolchon-dong,校洞月村洞
+35310,완주군,Wanju-gun,完州郡
+3531011,삼례읍,Samnye-eup,參禮邑
+3531012,봉동읍,Bongdong-eup,鳳東邑
+3531031,용진면,Yongjin-myeon,龍進面
+3531032,상관면,Sanggwan-myeon,上關面
+3531033,이서면,Iseo-myeon,伊西面
+3531034,소양면,Soyang-myeon,所陽面
+3531035,구이면,Gui-myeon,九耳面
+3531036,고산면,Gosan-myeon,高山面
+3531037,비봉면,Bibong-myeon,飛鳳面
+3531038,운주면,Unju-myeon,雲州面
+3531039,화산면,Hwasan-myeon,華山面
+3531040,동상면,Dongsang-myeon,東上面
+3531041,경천면,Gyeongcheon-myeon,庚川面
+35320,진안군,Jinan-gun,鎭安郡
+3532011,진안읍,Jinan-eup,鎭安邑
+3532031,용담면,Yongdam-myeon,龍潭面
+3532032,안천면,Ancheon-myeon,顔川面
+3532033,동향면,Donghyang-myeon,銅鄕面
+3532034,상전면,Sangjeon-myeon,上田面
+3532035,백운면,Baegun-myeon,白雲面
+3532036,성수면,Seongsu-myeon,聖壽面
+3532037,마령면,Maryeong-myeon,馬靈面
+3532038,부귀면,Bugwi-myeon,富貴面
+3532039,정천면,Jeongcheon-myeon,程川面
+3532040,주천면,Jucheon-myeon,朱川面
+35330,무주군,Muju-gun,茂朱郡
+3533011,무주읍,Muju-eup,茂朱邑
+3533031,무풍면,Mupung-myeon,茂豊面
+3533032,설천면,Seolcheon-myeon,雪川面
+3533033,적상면,Jeoksang-myeon,赤裳面
+3533034,안성면,Anseong-myeon,安城面
+3533035,부남면,Bunam-myeon,富南面
+35340,장수군,Jangsu-gun,長水郡
+3534011,장수읍,Jangsu-eup,長水邑
+3534031,산서면,Sanseo-myeon,山西面
+3534032,번암면,Beonam-myeon,番岩面
+3534033,장계면,Janggye-myeon,長溪面
+3534034,천천면,Cheoncheon-myeon,天川面
+3534035,계남면,Gyenam-myeon,溪南面
+3534036,계북면,Gyebuk-myeon,溪北面
+35350,임실군,Imsil-gun,任實郡
+3535011,임실읍,Imsil-eup,任實邑
+3535031,청웅면,Cheongung-myeon,靑雄面
+3535032,운암면,Unam-myeon,雲岩面
+3535033,신평면,Sinpyeong-myeon,新平面
+3535034,성수면,Seongsu-myeon,聖壽面
+3535035,오수면,Osu-myeon,獒樹面
+3535036,신덕면,Sindeok-myeon,新德面
+3535037,삼계면,Samgye-myeon,三溪面
+3535038,관촌면,Gwanchon-myeon,館村面
+3535039,강진면,Gangjin-myeon,江津面
+3535040,덕치면,Deokchi-myeon,德峙面
+3535041,지사면,Jisa-myeon,只沙面
+35360,순창군,Sunchang-gun,淳昌郡
+3536011,순창읍,Sunchang-eup,淳昌邑
+3536031,인계면,Ingye-myeon,仁溪面
+3536032,동계면,Donggye-myeon,東界面
+3536033,적성면,Jeokseong-myeon,赤城面
+3536034,유등면,Yudeung-myeon,柳等面
+3536035,풍산면,Pungsan-myeon,豊山面
+3536036,금과면,Geumgwa-myeon,金果面
+3536037,팔덕면,Paldeok-myeon,八德面
+3536038,복흥면,Bokheung-myeon,福興面
+3536039,쌍치면,Ssangchi-myeon,雙置面
+3536040,구림면,Gurim-myeon,龜林面
+35370,고창군,Gochang-gun,高敞郡
+3537011,고창읍,Gochang-eup,高敞邑
+3537031,고수면,Gosu-myeon,古水面
+3537032,아산면,Asan-myeon,雅山面
+3537033,무장면,Mujang-myeon,茂長面
+3537034,공음면,Gongeum-myeon,孔音面
+3537035,상하면,Sangha-myeon,上下面
+3537036,해리면,Haeri-myeon,海里面
+3537037,성송면,Seongsong-myeon,星松面
+3537038,대산면,Daesan-myeon,大山面
+3537039,심원면,Simwon-myeon,心元面
+3537040,흥덕면,Heungdeok-myeon,興德面
+3537041,성내면,Seongnae-myeon,星內面
+3537042,신림면,Sillim-myeon,新林面
+3537043,부안면,Buan-myeon,富安面
+35380,부안군,Buan-gun,扶安郡
+3538011,부안읍,Buan-eup,扶安邑
+3538031,주산면,Jusan-myeon,舟山面
+3538032,동진면,Dongjin-myeon,東津面
+3538033,행안면,Haengan-myeon,幸安面
+3538034,계화면,Gyehwa-myeon,界火面
+3538035,보안면,Boan-myeon,保安面
+3538036,변산면,Byeonsan-myeon,邊山面
+3538037,진서면,Jinseo-myeon,鎭西面
+3538038,백산면,Baeksan-myeon,白山面
+3538039,상서면,Sangseo-myeon,上西面
+3538040,하서면,Haseo-myeon,下西面
+3538041,줄포면,Julpo-myeon,茁浦面
+3538042,위도면,Wido-myeon,蝟島面
+36,전라남도,Jeollanam-do,全羅南道
+36010,목포시,Mokpo-si,木浦市
+3601051,용당1동,Yongdang 1(il)-dong,龍塘1洞
+3601052,용당2동,Yongdang 2(i)-dong,龍塘2洞
+3601053,연동,Yeon-dong,蓮洞
+3601055,산정동,Sanjeong-dong,山亭洞
+3601056,연산동,Yeonsan-dong,連山洞
+3601057,원산동,Wonsan-dong,元山洞
+3601058,대성동,Daeseong-dong,大成洞
+3601060,목원동,Mokwon-dong,木元洞
+3601062,동명동,Dongmyeong-dong,東明洞
+3601063,삼학동,Samhak-dong,三鶴洞
+3601064,만호동,Manho-dong,萬戶洞
+3601065,유달동,Yudal-dong,儒達洞
+3601067,죽교동,Jukgyo-dong,竹橋洞
+3601068,북항동,Bukhang-dong,北港洞
+3601069,용해동,Yonghae-dong,龍海洞
+3601070,이로동,Iro-dong,二老洞
+3601071,상동,Sang-dong,上洞
+3601072,하당동,Hadang-dong,下塘洞
+3601073,신흥동,Sinheung-dong,新興洞
+3601074,삼향동,Samhyang-dong,玉岩洞
+3601075,옥암동,Ogam-dong,玉岩洞
+3601076,부흥동,Buheung-dong,復興洞
+36020,여수시,Yeosu-si,麗水市
+3602011,돌산읍,Dolsan-eup,突山邑
+3602031,소라면,Sora-myeon,召羅面
+3602032,율촌면,Yulchon-myeon,栗村面
+3602033,화양면,Hwayang-myeon,華陽面
+3602034,남면,Nam-myeon,南面
+3602035,화정면,Hwajeong-myeon,華井面
+3602036,삼산면,Samsan-myeon,三山面
+3602051,동문동,Dongmun-dong,東門洞
+3602052,한려동,Hallyeo-dong,閑麗洞
+3602053,중앙동,Jungang-dong,中央洞
+3602054,충무동,Chungmu-dong,忠武洞
+3602055,광림동,Gwangnim-dong,光林洞
+3602056,서강동,Seogang-dong,西崗洞
+3602057,대교동,Daegyo-dong,大橋洞
+3602058,국동,Guk-dong,菊洞
+3602059,월호동,Wolho-dong,月湖洞
+3602060,여서동,Yeoseo-dong,麗西洞
+3602061,문수동,Munsu-dong,文水洞
+3602062,미평동,Mipyeong-dong,美坪洞
+3602063,둔덕동,Dundeok-dong,屯德洞
+3602064,만덕동,Mandeok-dong,萬德洞
+3602065,쌍봉동,Ssangbong-dong,雙鳳洞
+3602066,시전동,Sijeon-dong,枾田洞
+3602067,여천동,Yeocheon-dong,麗川洞
+3602068,주삼동,Jusam-dong,珠三洞
+3602069,삼일동,Samil-dong,三日洞
+3602070,묘도동,Myodo-dong,猫島洞
+36030,순천시,Suncheon-si,順天市
+3603011,승주읍,Seungju-eup,昇州邑
+3603031,주암면,Juam-myeon,住巖面
+3603032,송광면,Songgwang-myeon,松光面
+3603033,외서면,Oeseo-myeon,外西面
+3603034,낙안면,Nagan-myeon,樂安面
+3603035,별량면,Byeollyang-myeon,別良面
+3603036,상사면,Sangsa-myeon,上沙面
+3603037,해룡면,Haeryong-myeon,海龍面
+3603038,서면,Seo-myeon,西面
+3603039,황전면,Hwangjeon-myeon,黃田面
+3603040,월등면,Woldeung-myeon,月燈面
+3603051,향동,Hyang-dong,鄕洞
+3603054,매곡동,Maegok-dong,梅谷洞
+3603055,삼산동,Samsan-dong,三山洞
+3603056,조곡동,Jogok-dong,稠谷洞
+3603057,덕연동,Deogyeon-dong,德蓮洞
+3603058,풍덕동,Pungdeok-dong,豊德洞
+3603059,남제동,Namje-dong,南蹄洞
+3603060,저전동,Jeojeon-dong,楮田洞
+3603061,장천동,Jangcheon-dong,長泉洞
+3603062,중앙동,Jungang-dong,中央洞
+3603063,도사동,Dosa-dong,道沙洞
+3603066,왕조1동,Wangjo 1(il)dong,旺照1洞
+3603067,왕조2동,Wangjo 2(i)dong,旺照2洞
+36040,나주시,Naju-si,羅州市
+3604011,남평읍,Nampyeong-eup,南平邑
+3604031,세지면,Seji-myeon,細枝面
+3604032,왕곡면,Wanggok-myeon,旺谷面
+3604033,반남면,Bannam-myeon,潘南面
+3604034,공산면,Gongsan-myeon,公山面
+3604035,동강면,Donggang-myeon,洞江面
+3604036,다시면,Dasi-myeon,多侍面
+3604037,문평면,Munpyeong-myeon,文平面
+3604038,노안면,Noan-myeon,老安面
+3604039,금천면,Geumcheon-myeon,金川面
+3604040,산포면,Sanpo-myeon,山浦面
+3604041,다도면,Dado-myeon,茶道面
+3604042,봉황면,Bonghwang-myeon,鳳凰面
+3604051,송월동,Songwol-dong,松月洞
+3604052,영강동,Yeonggang-dong,榮江洞
+3604054,금남동,Geumnam-dong,錦南洞
+3604055,성북동,Seongbuk-dong,城北洞
+3604058,영산동,Yeongsan-dong,榮山洞
+3604060,이창동,Ichang-dong,二倉洞
+36060,광양시,Gwangyang-si,光陽市
+3606011,광양읍,Gwangyang-eup,光陽邑
+3606031,봉강면,Bonggang-myeon,鳳崗面
+3606032,옥룡면,Ongnyong-myeon,玉龍面
+3606033,옥곡면,Okgok-myeon,玉谷面
+3606034,진상면,Jinsang-myeon,津上面
+3606035,진월면,Jinwol-myeon,津月面
+3606036,다압면,Daap-myeon,多鴨面
+3606051,골약동,Golyak-dong,骨若洞
+3606053,중마동,Jungma-dong,中馬洞
+3606054,광영동,Gwangyeong-dong,廣英洞
+3606055,태인동,Taein-dong,太仁洞
+3606056,금호동,Geumho-dong,金湖洞
+36310,담양군,Damyang-gun,潭陽郡
+3631011,담양읍,Damyang-eup,潭陽邑
+3631031,봉산면,Bongsan-myeon,鳳山面
+3631032,고서면,Goseo-myeon,古西面
+3631033,남면,Nam-myeon,南面
+3631034,창평면,Changpyeong-myeon,昌平面
+3631035,대덕면,Daedeok-myeon,大德面
+3631036,무정면,Mujeong-myeon,武貞面
+3631037,금성면,Geumseong-myeon,金城面
+3631038,용면,Yong-myeon,龍面
+3631039,월산면,Wolsan-myeon,月山面
+3631040,수북면,Subuk-myeon,水北面
+3631041,대전면,Daejeon-myeon,大田面
+36320,곡성군,Gokseong-gun,谷成郡
+3632011,곡성읍,Gokseong-eup,谷成邑
+3632031,오곡면,Ogok-myeon,梧谷面
+3632032,삼기면,Samgi-myeon,三岐面
+3632033,석곡면,Seokgok-myeon,石谷面
+3632034,목사동면,Moksadong-myeon,木寺洞面
+3632035,죽곡면,Jukgok-myeon,竹谷面
+3632036,고달면,Godal-myeon,古達面
+3632037,옥과면,Okgwa-myeon,玉果面
+3632038,입면,Ip-myeon,立面
+3632039,겸면,Gyeom-myeon,兼面
+3632040,오산면,Osan-myeon,梧山面
+36330,구례군,Gurye-gun,求禮郡
+3633011,구례읍,Gurye-eup,求禮邑
+3633031,문척면,Muncheok-myeon,文尺面
+3633032,간전면,Ganjeon-myeon,艮田面
+3633033,토지면,Toji-myeon,土旨面
+3633034,마산면,Masan-myeon,馬山面
+3633035,광의면,Gwangui-myeon,光義面
+3633036,용방면,Yongbang-myeon,龍方面
+3633037,산동면,Sandong-myeon,山東面
+36350,고흥군,Goheung-gun,高興郡
+3635011,고흥읍,Goheung-eup,高興邑
+3635012,도양읍,Doyang-eup,道陽邑
+3635031,풍양면,Pungyang-myeon,豊陽面
+3635032,도덕면,Dodeok-myeon,道德面
+3635033,금산면,Geumsan-myeon,錦山面
+3635034,도화면,Dohwa-myeon,道化面
+3635035,포두면,Podu-myeon,浦頭面
+3635036,봉래면,Bongnae-myeon,蓬萊面
+3635037,동일면,Dongil-myeon,東日面
+3635038,점암면,Jeomam-myeon,占岩面
+3635039,영남면,Yeongnam-myeon,永南面
+3635040,과역면,Gwayeok-myeon,過驛面
+3635041,남양면,Namyang-myeon,南陽面
+3635042,동강면,Donggang-myeon,東江面
+3635043,대서면,Daeseo-myeon,大西面
+3635044,두원면,Duwon-myeon,豆原面
+36360,보성군,Boseong-gun,寶城郡
+3636011,보성읍,Boseong-eup,寶城邑
+3636012,벌교읍,Beolgyo-eup,筏橋邑
+3636031,노동면,Nodong-myeon,蘆東面
+3636032,미력면,Miryeok-myeon,彌力面
+3636033,겸백면,Gyeombaek-myeon,兼白面
+3636034,율어면,Yureo-myeon,栗於面
+3636035,복내면,Bongnae-myeon,福內面
+3636036,문덕면,Mundeok-myeon,文德面
+3636037,조성면,Joseong-myeon,鳥城面
+3636038,득량면,Deungnyang-myeon,得粮面
+3636039,회천면,Hoecheon-myeon,會泉面
+3636040,웅치면,Ungchi-myeon,熊峙面
+36370,화순군,Hwasun-gun,和順郡
+3637011,화순읍,Hwasun-eup,和順邑
+3637031,한천면,Hancheon-myeon,寒泉面
+3637032,춘양면,Chunyang-myeon,春陽面
+3637033,청풍면,Cheongpung-myeon,淸豊面
+3637034,이양면,Iyang-myeon,梨陽面
+3637035,능주면,Neungju-myeon,綾州面
+3637036,도곡면,Dogok-myeon,道谷面
+3637037,도암면,Doam-myeon,道岩面
+3637038,이서면,Iseo-myeon,二西面
+3637039,북면,Buk-myeon,北面
+3637040,동복면,Dongbok-myeon,同福面
+3637041,남면,Nam-myeon,南面
+3637042,동면,Dong-myeon,東面
+36380,장흥군,Jangheung-gun,長興郡
+3638011,장흥읍,Jangheung-eup,長興邑
+3638012,관산읍,Gwansan-eup,冠山邑
+3638013,대덕읍,Daedeok-eup,大德邑
+3638031,용산면,Yongsan-myeon,蓉山面
+3638032,안양면,Anyang-myeon,安良面
+3638033,장동면,Jangdong-myeon,長東面
+3638034,장평면,Jangpyeong-myeon,長平面
+3638035,유치면,Yuchi-myeon,有治面
+3638036,부산면,Busan-myeon,夫山面
+3638037,회진면,Hoejin-myeon,會鎭面
+36390,강진군,Gangjin-gun,康津郡
+3639011,강진읍,Gangjin-eup,康津邑
+3639031,군동면,Gundong-myeon,郡東面
+3639032,칠량면,Chillyang-myeon,七良面
+3639033,대구면,Daegu-myeon,大口面
+3639034,마량면,Maryang-myeon,馬良面
+3639035,도암면,Doam-myeon,道岩面
+3639036,신전면,Sinjeon-myeon,薪田面
+3639037,성전면,Seongjeon-myeon,城田面
+3639038,작천면,Jakcheon-myeon,鵲川面
+3639039,병영면,Byeongyeong-myeon,兵營面
+3639040,옴천면,Omcheon-myeon,唵川面
+36400,해남군,Haenam-gun,海南郡
+3640011,해남읍,Haenam-eup,海南邑
+3640031,삼산면,Samsan-myeon,三山面
+3640032,화산면,Hwasan-myeon,花山面
+3640033,현산면,Hyeonsan-myeon,縣山面
+3640034,송지면,Songji-myeon,松旨面
+3640035,북평면,Bukpyeong-myeon,北平面
+3640036,북일면,Bugil-myeon,北日面
+3640037,옥천면,Okcheon-myeon,玉泉面
+3640038,계곡면,Gyegok-myeon,溪谷面
+3640039,마산면,Masan-myeon,馬山面
+3640040,황산면,Hwangsan-myeon,黃山面
+3640041,산이면,Sani-myeon,山二面
+3640042,문내면,Munnae-myeon,門內面
+3640043,화원면,Hwawon-myeon,花源面
+36410,영암군,Yeongam-gun,靈岩郡
+3641011,영암읍,Yeongam-eup,靈岩邑
+3641012,삼호읍,Samho-eup,三湖邑
+3641031,덕진면,Deokjin-myeon,德津面
+3641032,금정면,Geumjeong-myeon,金井面
+3641033,신북면,Sinbuk-myeon,新北面
+3641034,시종면,Sijong-myeon,始終面
+3641035,도포면,Dopo-myeon,都浦面
+3641036,군서면,Gunseo-myeon,郡西面
+3641037,서호면,Seoho-myeon,西湖面
+3641038,학산면,Haksan-myeon,鶴山面
+3641039,미암면,Miam-myeon,美岩面
+36420,무안군,Muan-gun,務安郡
+3642011,무안읍,Muan-eup,務安邑
+3642012,일로읍,Illo-eup,一老邑
+3642031,삼향면,Samhyang-myeon,三鄕面
+3642032,몽탄면,Mongtan-myeon,夢灘面
+3642033,청계면,Cheonggye-myeon,靑溪面
+3642034,현경면,Hyeongyeong-myeon,玄慶面
+3642035,망운면,Mangun-myeon,望雲面
+3642036,해제면,Haeje-myeon,海際面
+3642037,운남면,Unnam-myeon,雲南面
+36430,함평군,Hampyeong-gun,咸平郡
+3643011,함평읍,Hampyeong-eup,咸平邑
+3643031,손불면,Sonbul-myeon,孫佛面
+3643032,신광면,Singwang-myeon,新光面
+3643033,학교면,Hakgyo-myeon,鶴橋面
+3643034,엄다면,Eomda-myeon,嚴多面
+3643035,대동면,Daedong-myeon,大洞面
+3643036,나산면,Nasan-myeon,羅山面
+3643037,해보면,Haebo-myeon,海保面
+3643038,월야면,Worya-myeon,月也面
+36440,영광군,Yeonggwang-gun,靈光郡
+3644011,영광읍,Yeonggwang-eup,靈光邑
+3644012,백수읍,Baeksu-eup,白岫邑
+3644013,홍농읍,Hongnong-eup,弘農邑
+3644031,대마면,Daema-myeon,大馬面
+3644032,묘량면,Myoryang-myeon,畝良面
+3644033,불갑면,Bulgap-myeon,佛甲面
+3644034,군서면,Gunseo-myeon,郡西面
+3644035,군남면,Gunnam-myeon,郡南面
+3644036,염산면,Yeomsan-myeon,鹽山面
+3644037,법성면,Beopseong-myeon,法聖面
+3644038,낙월면,Nagwol-myeon,落月面
+36450,장성군,Jangseong-gun,長城郡
+3645011,장성읍,Jangseong-eup,長城邑
+3645031,진원면,Jinwon-myeon,珍原面
+3645032,남면,Nam-myeon,南面
+3645033,동화면,Donghwa-myeon,東化面
+3645034,삼서면,Samseo-myeon,森西面
+3645035,삼계면,Samgye-myeon,森溪面
+3645036,황룡면,Hwangnyong-myeon,黃龍面
+3645037,서삼면,Seosam-myeon,西三面
+3645038,북일면,Bugil-myeon,北一面
+3645039,북이면,Bugi-myeon,北二面
+3645040,북하면,Bukha-myeon,北下面
+36460,완도군,Wando-gun,莞島郡
+3646011,완도읍,Wando-eup,莞島邑
+3646012,금일읍,Geumil-eup,金日邑
+3646013,노화읍,Nohwa-eup,盧花邑
+3646031,군외면,Gunoe-myeon,郡外面
+3646032,신지면,Sinji-myeon,薪智面
+3646033,고금면,Gogeum-myeon,古今面
+3646034,약산면,Yaksan-myeon,藥山面
+3646035,청산면,Cheongsan-myeon,靑山面
+3646036,소안면,Soan-myeon,所安面
+3646037,금당면,Geumdang-myeon,金塘面
+3646038,보길면,Bogil-myeon,甫吉面
+3646039,생일면,Saengil-myeon,生日面
+36470,진도군,Jindo-gun,珍島郡
+3647011,진도읍,Jindo-eup,珍島邑
+3647031,군내면,Gunnae-myeon,郡內面
+3647032,고군면,Gogun-myeon,古郡面
+3647033,의신면,Uisin-myeon,義新面
+3647034,임회면,Imhoe-myeon,臨淮面
+3647035,지산면,Jisan-myeon,智山面
+3647036,조도면,Jodo-myeon,鳥島面
+36480,신안군,Sinan-gun,新安郡
+3648011,지도읍,Jido-eup,智島邑
+3648031,증도면,Jeungdo-myeon,曾島面
+3648032,임자면,Imja-myeon,荏子面
+3648033,자은면,Jaeun-myeon,慈恩面
+3648034,비금면,Bigeum-myeon,飛禽面
+3648035,도초면,Docho-myeon,都草面
+3648036,흑산면,Heuksan-myeon,黑山面
+3648037,하의면,Haui-myeon,荷衣面
+3648038,신의면,Sinui-myeon,新衣面
+3648039,장산면,Jangsan-myeon,長山面
+3648040,안좌면,Anjwa-myeon,安佐面
+3648041,팔금면,Palgeum-myeon,八禽面
+3648042,암태면,Amtae-myeon,岩泰面
+3648043,압해면,Aphae-myeon,押海面
+37,경상북도,Gyeongsangbuk-do,慶尙北道
+37010,포항시,Pohang-si,浦項市
+37011,남구,Nam-gu,南區
+3701111,구룡포읍,Guryongpo-eup,九龍浦邑
+3701112,연일읍,Yeonil-eup,延日邑
+3701113,오천읍,Ocheon-eup,烏川邑
+3701131,대송면,Daesong-myeon,大松面
+3701132,동해면,Donghae-myeon,東海面
+3701133,장기면,Janggi-myeon,長鬐面
+3701135,호미곶면,Homigot-myeon,虎尾串面
+3701155,송도동,Songdo-dong,松島洞
+3701156,청림동,Cheongnim-dong,靑林洞
+3701157,제철동,Jecheol-dong,製鐵洞
+3701158,효곡동,Hyogok-dong,孝谷洞
+3701159,대이동,Daei-dong,大梨洞
+3701160,상대동,Sangdae-dong,上大洞
+3701161,해도동,Haedo-dong,海島洞
+37012,북구,Buk-gu,北區
+3701211,흥해읍,Heunghae-eup,興海邑
+3701231,신광면,Singwang-myeon,新光面
+3701232,청하면,Cheongha-myeon,淸河面
+3701233,송라면,Songna-myeon,松羅面
+3701234,기계면,Gigye-myeon,杞溪面
+3701235,죽장면,Jukjang-myeon,竹長面
+3701236,기북면,Gibuk-myeon,杞北面
+3701258,양학동,Yanghak-dong,良鶴洞
+3701261,용흥동,Yongheung-dong,龍興洞
+3701263,우창동,Uchang-dong,牛昌洞
+3701264,두호동,Duho-dong,斗湖洞
+3701265,장량동,Jangnyang-dong,長良洞
+3701266,환여동,Hwanyeo-dong,環汝洞
+3701267,중앙동,Jungang-dong,中央洞
+3701268,죽도동,Jukdo-dong,竹島洞
+37020,경주시,Gyeongju-si,慶州市
+3702011,감포읍,Gampo-eup,甘浦邑
+3702012,안강읍,Angang-eup,安康邑
+3702013,건천읍,Geoncheon-eup,乾川邑
+3702014,외동읍,Oedong-eup,外東邑
+3702031,양북면,Yangbuk-myeon,陽北面
+3702032,양남면,Yangnam-myeon,陽南面
+3702033,내남면,Naenam-myeon,內南面
+3702034,산내면,Sannae-myeon,山內面
+3702035,서면,Seo-myeon,西面
+3702036,현곡면,Hyeongok-myeon,見谷面
+3702037,강동면,Gangdong-myeon,江東面
+3702038,천북면,Cheonbuk-myeon,川北面
+3702051,중부동,Jungbu-dong,中部洞
+3702055,성건동,Seonggeon-dong,城乾洞
+3702058,월성동,Wolseong-dong,月城洞
+3702059,선도동,Seondo-dong,仙桃洞
+3702062,용강동,Yonggang-dong,龍江洞
+3702063,황성동,Hwangseong-dong,皇城洞
+3702064,동천동,Dongcheon-dong,東川洞
+3702066,불국동,Bulguk-dong,佛國洞
+3702067,보덕동,Bodeok-dong,普德洞
+3702068,황오동,Hwango-dong,皇吾洞
+3702069,황남동,Hwangnam-dong,皇南洞
+37030,김천시,Gimcheon-si,金泉市
+3703011,아포읍,Apo-eup,牙浦邑
+3703031,농소면,Nongso-myeon,農所面
+3703032,남면,Nam-myeon,南面
+3703033,개령면,Gaeryeong-myeon,開寧面
+3703034,감문면,Gammun-myeon,甘文面
+3703035,어모면,Eomo-myeon,禦侮面
+3703036,봉산면,Bongsan-myeon,鳳山面
+3703037,대항면,Daehang-myeon,代項面
+3703038,감천면,Gamcheon-myeon,甘川面
+3703039,조마면,Joma-myeon,助馬面
+3703040,구성면,Guseong-myeon,龜城面
+3703041,지례면,Jirye-myeon,知禮面
+3703042,부항면,Buhang-myeon,釜項面
+3703043,대덕면,Daedeok-myeon,大德面
+3703044,증산면,Jeungsan-myeon,甑山面
+3703055,양금동,Yanggeum-dong,陽金洞
+3703056,대신동,Daesin-dong,大新洞
+3703058,대곡동,Daegok-dong,大谷洞
+3703059,지좌동,Jijwa-dong,智佐洞
+3703060,자산동,Jasan-dong,紫山洞
+3703061,평화남산동,Pyeonghwanamsan-dong,平和南山洞
+37040,안동시,Andong-si,安東市
+3704011,풍산읍,Pungsan-eup,豊山邑
+3704031,와룡면,Waryong-myeon,臥龍面
+3704032,북후면,Bukhu-myeon,北後面
+3704033,서후면,Seohu-myeon,西後面
+3704034,풍천면,Pungcheon-myeon,豊川面
+3704035,일직면,Iljik-myeon,一直面
+3704036,남후면,Namhu-myeon,南後面
+3704037,남선면,Namseon-myeon,南先面
+3704038,임하면,Imha-myeon,臨河面
+3704039,길안면,Giran-myeon,吉安面
+3704040,임동면,Imdong-myeon,臨東面
+3704041,예안면,Yean-myeon,禮安面
+3704042,도산면,Dosan-myeon,陶山面
+3704043,녹전면,Nokjeon-myeon,綠轉面
+3704051,중구동,Junggu-dong,中區洞
+3704052,명륜동,Myeongnyun-dong,明倫洞
+3704054,용상동,Yongsang-dong,龍上洞
+3704062,서구동,Seogu-dong,西區洞
+3704056,태화동,Taehwa-dong,太華洞
+3704058,평화동,Pyeonghwa-dong,平和洞
+3704059,안기동,Angi-dong,安奇洞
+3704060,옥동,Ok-dong,玉洞
+3704061,송하동,Songha-dong,松下洞
+3704063,강남동,Gangnam-dong,江南洞
+37050,구미시,Gumi-si,龜尾市
+3705011,선산읍,Seonsan-eup,善山邑
+3705012,고아읍,Goa-eup,高牙邑
+3705031,무을면,Mueul-myeon,無乙面
+3705032,옥성면,Okseong-myeon,玉城面
+3705033,도개면,Dogae-myeon,桃開面
+3705034,해평면,Haepyeong-myeon,海平面
+3705035,산동면,Sandong-myeon,山東面
+3705036,장천면,Jangcheon-myeon,長川面
+3705051,송정동,Songjeong-dong,松亭洞
+3705052,원평1동,Wonpyeong 1(il)-dong,元坪1洞
+3705053,원평2동,Wonpyeong 2(i)-dong,元坪2洞
+3705055,도량동,Doryang-dong,道良洞
+3705056,지산동,Jisan-dong,芝山洞
+3705057,선주원남동,Seonjuwonnam-dong,善州元南洞
+3705059,형곡1동,Hyeonggok 1(il)-dong,荊谷1洞
+3705060,형곡2동,Hyeonggok 2(i)-dong,荊谷2洞
+3705061,신평1동,Sinpyeong 1(il)-dong,新平1洞
+3705062,신평2동,Sinpyeong 2(i)-dong,新平2洞
+3705063,비산동,Bisan-dong,飛山洞
+3705064,공단1동,Gongdan 1(il)-dong,工團1洞
+3705065,공단2동,Gongdan 2(i)-dong,工團2洞
+3705066,광평동,Gwangpyeong-dong,廣坪洞
+3705067,상모사곡동,Sangmosagok-dong,上毛沙谷洞
+3705069,임오동,Imo-dong,林吳洞
+3705070,인동동,Indong-dong,仁同洞
+3705071,진미동,Jinmi-dong,眞美洞
+3705072,양포동,Yangpo-dong,陽浦洞
+37060,영주시,Yeongju-si,榮州市
+3706011,풍기읍,Punggi-eup,豊基邑
+3706031,이산면,Isan-myeon,伊山面
+3706032,평은면,Pyeongeun-myeon,平恩面
+3706033,문수면,Munsu-myeon,文殊面
+3706034,장수면,Jangsu-myeon,長壽面
+3706035,안정면,Anjeong-myeon,安定面
+3706036,봉현면,Bonghyeon-myeon,鳳峴面
+3706037,순흥면,Sunheung-myeon,順興面
+3706038,단산면,Dansan-myeon,丹山面
+3706039,부석면,Buseok-myeon,浮石面
+3706051,상망동,Sangmang-dong,上望洞
+3706053,하망동,Hamang-dong,下望洞
+3706055,영주1동,Yeongju 1(il)-dong,榮州1洞
+3706058,영주2동,Yeongju 2(i)-dong,榮州2洞
+3706059,휴천1동,Hyucheon 1(il)-dong,休川1洞
+3706060,휴천2동,Hyucheon 2(i)-dong,休川2洞
+3706061,휴천3동,Hyucheon 3(sam)-dong,休川3洞
+3706062,가흥1동,Gaheung 1(il)-dong,可興1洞
+3706063,가흥2동,Gaheung 2(i)-dong,可興2洞
+37070,영천시,Yeongcheon-si,永川市
+3707011,금호읍,Geumho-eup,琴湖邑
+3707031,청통면,Cheongtong-myeon,淸通面
+3707032,신녕면,Sinnyeong-myeon,新寧面
+3707033,화산면,Hwasan-myeon,花山面
+3707034,화북면,Hwabuk-myeon,華北面
+3707035,화남면,Hwanam-myeon,華南面
+3707036,자양면,Jayang-myeon,紫陽面
+3707037,임고면,Imgo-myeon,臨皐面
+3707038,고경면,Gogyeong-myeon,古鏡面
+3707039,북안면,Bugan-myeon,北安面
+3707040,대창면,Daechang-myeon,大昌面
+3707051,동부동,Dongbu-dong,東部洞
+3707052,중앙동,Jungang-dong,中央洞
+3707053,서부동,Seobu-dong,西部洞
+3707054,완산동,Wansan-dong,完山洞
+3707055,남부동,Nambu-dong,南部洞
+37080,상주시,Sangju-si,尙州市
+3708011,함창읍,Hamchang-eup,咸昌邑
+3708031,사벌면,Sabeol-myeon,沙伐面
+3708032,중동면,Jungdong-myeon,中東面
+3708033,낙동면,Nakdong-myeon,洛東面
+3708034,청리면,Cheongni-myeon,靑里面
+3708035,공성면,Gongseong-myeon,功城面
+3708036,외남면,Oenam-myeon,外南面
+3708037,내서면,Naeseo-myeon,內西面
+3708038,모동면,Modong-myeon,牟東面
+3708039,모서면,Moseo-myeon,牟西面
+3708040,화동면,Hwadong-myeon,化東面
+3708041,화서면,Hwaseo-myeon,化西面
+3708042,화북면,Hwabuk-myeon,化北面
+3708043,외서면,Oeseo-myeon,外西面
+3708044,은척면,Euncheok-myeon,銀尺面
+3708045,공검면,Gonggeom-myeon,恭儉面
+3708046,이안면,Ian-myeon,利安面
+3708047,화남면,Hwanam-myeon,化南面
+3708052,남원동,Namwon-dong,南院洞
+3708053,북문동,Bungmun-dong,北門洞
+3708054,계림동,Gyerim-dong,溪林洞
+3708055,동문동,Dongmun-dong,東門洞
+3708056,동성동,Dongseong-dong,東城洞
+3708057,신흥동,Sinheung-dong,新興洞
+37090,문경시,Mungyeong-si,聞慶市
+3709011,문경읍,Mungyeong-eup,聞慶邑
+3709012,가은읍,Gaeun-eup,加恩邑
+3709031,영순면,Yeongsun-myeon,永順面
+3709032,산양면,Sanyang-myeon,山陽面
+3709033,호계면,Hogye-myeon,虎溪面
+3709034,산북면,Sanbuk-myeon,山北面
+3709035,동로면,Dongno-myeon,東魯面
+3709036,마성면,Maseong-myeon,麻城面
+3709037,농암면,Nongam-myeon,籠岩面
+3709057,점촌1동,Jeomchon 1(il)-dong,店村1洞
+3709058,점촌2동,Jeomchon 2(i)-dong,店村2洞
+3709059,점촌3동,Jeomchon 3(sam)-dong,店村3洞
+3709060,점촌4동,Jeomchon 4(sa)-dong,店村4洞
+3709061,점촌5동,Jeomchon 5(o)-dong,店村5洞
+37100,경산시,Gyeongsan-si,慶山市
+3710011,하양읍,Hayang-eup,河陽邑
+3710012,진량읍,Jillyang-eup,珍良邑
+3710031,와촌면,Wachon-myeon,瓦村面
+3710032,자인면,Jain-myeon,慈仁面
+3710033,용성면,Yongseong-myeon,龍城面
+3710034,남산면,Namsan-myeon,南山面
+3710035,압량면,Amnyang-myeon,押梁面
+3710036,남천면,Namcheon-myeon,南川面
+3710051,중앙동,Jungang-dong,中央洞
+3710052,동부동,Dongbu-dong,東部洞
+3710053,서부1동,Seobu 1(il)-dong,西部1洞
+3710057,서부2동,Seobu 2(i)-dong,西部2洞
+3710054,남부동,Nambu-dong,南部洞
+3710055,북부동,Bukbu-dong,北部洞
+3710056,중방동,Jungbang-dong,中方洞
+37310,군위군,Gunwi-gun,軍威郡
+3731011,군위읍,Gunwi-eup,軍威邑
+3731031,소보면,Sobo-myeon,召保面
+3731032,효령면,Hyoryeong-myeon,孝令面
+3731033,부계면,Bugye-myeon,缶溪面
+3731034,우보면,Ubo-myeon,友保面
+3731035,의흥면,Uiheung-myeon,義興面
+3731036,산성면,Sanseong-myeon,山城面
+3731037,고로면,Goro-myeon,古老面
+37320,의성군,Uiseong-gun,義城郡
+3732011,의성읍,Uiseong-eup,義城邑
+3732031,단촌면,Danchon-myeon,丹村面
+3732032,점곡면,Jeomgok-myeon,點谷面
+3732033,옥산면,Oksan-myeon,玉山面
+3732034,사곡면,Sagok-myeon,舍谷面
+3732035,춘산면,Chunsan-myeon,春山面
+3732036,가음면,Gaeum-myeon,佳音面
+3732037,금성면,Geumseong-myeon,金城面
+3732038,봉양면,Bongyang-myeon,鳳陽面
+3732039,비안면,Bian-myeon,比安面
+3732040,구천면,Gucheon-myeon,龜川面
+3732041,단밀면,Danmil-myeon,丹密面
+3732042,단북면,Danbuk-myeon,丹北面
+3732043,안계면,Angye-myeon,安溪面
+3732044,다인면,Dain-myeon,多仁面
+3732045,신평면,Sinpyeong-myeon,新平面
+3732046,안평면,Anpyeong-myeon,安平面
+3732047,안사면,Ansa-myeon,安寺面
+37330,청송군,Cheongsong-gun,靑松郡
+3733011,청송읍,Cheongsong-eup,靑松邑
+3733031,부동면,Budong-myeon,府東面
+3733032,부남면,Bunam-myeon,府南面
+3733033,현동면,Hyeondong-myeon,縣東面
+3733034,현서면,Hyeonseo-myeon,縣西面
+3733035,안덕면,Andeok-myeon,安德面
+3733036,파천면,Pacheon-myeon,巴川面
+3733037,진보면,Jinbo-myeon,珍寶面
+37340,영양군,Yeongyang-gun,英陽郡
+3734011,영양읍,Yeongyang-eup,英陽邑
+3734031,입암면,Ibam-myeon,立岩面
+3734032,청기면,Cheonggi-myeon,靑杞面
+3734033,일월면,Irwol-myeon,日月面
+3734034,수비면,Subi-myeon,首比面
+3734035,석보면,Seokbo-myeon,石保面
+37350,영덕군,Yeongdeok-gun,盈德郡
+3735011,영덕읍,Yeongdeok-eup,盈德邑
+3735031,강구면,Ganggu-myeon,江口面
+3735032,남정면,Namjeong-myeon,南亭面
+3735033,달산면,Dalsan-myeon,達山面
+3735034,지품면,Jipum-myeon,知品面
+3735035,축산면,Chuksan-myeon,丑山面
+3735036,영해면,Yeonghae-myeon,寧海面
+3735037,병곡면,Byeonggok-myeon,柄谷面
+3735038,창수면,Changsu-myeon,蒼水面
+37360,청도군,Cheongdo-gun,淸道郡
+3736011,화양읍,Hwayang-eup,華陽邑
+3736012,청도읍,Cheongdo-eup,淸道邑
+3736031,각남면,Gangnam-myeon,角南面
+3736032,풍각면,Punggak-myeon,豊角面
+3736033,각북면,Gakbuk-myeon,角北面
+3736034,이서면,Iseo-myeon,伊西面
+3736035,운문면,Unmun-myeon,雲門面
+3736036,금천면,Geumcheon-myeon,錦川面
+3736037,매전면,Maejeon-myeon,梅田面
+37370,고령군,Goryeong-gun,高靈郡
+3737011,고령읍,Goryeong-eup,高靈邑
+3737031,덕곡면,Deokgok-myeon,德谷面
+3737032,운수면,Unsu-myeon,雲水面
+3737033,성산면,Seongsan-myeon,星山面
+3737034,다산면,Dasan-myeon,茶山面
+3737035,개진면,Gaejin-myeon,開津面
+3737036,우곡면,Ugok-myeon,牛谷面
+3737037,쌍림면,Ssangnim-myeon,雙林面
+37380,성주군,Seongju-gun,星州郡
+3738011,성주읍,Seongju-eup,星州邑
+3738031,선남면,Seonnam-myeon,船南面
+3738032,용암면,Yongam-myeon,龍岩面
+3738033,수륜면,Suryun-myeon,修倫面
+3738034,가천면,Gacheon-myeon,伽泉面
+3738035,금수면,Geumsu-myeon,金水面
+3738036,대가면,Daega-myeon,大家面
+3738037,벽진면,Byeokjin-myeon,碧珍面
+3738038,초전면,Chojeon-myeon,草田面
+3738039,월항면,Wolhang-myeon,月恒面
+37390,칠곡군,Chilgok-gun,漆谷郡
+3739011,왜관읍,Waegwan-eup,倭館邑
+3739012,북삼읍,Buksam-eup,北三邑
+3739013,석적읍,Seokjeok-eup,石積邑
+3739031,지천면,Jicheon-myeon,枝川面
+3739032,동명면,Dongmyeong-myeon,東明面
+3739033,가산면,Gasan-myeon,架山面
+3739036,약목면,Yangmok-myeon,若木面
+3739037,기산면,Gisan-myeon,基山面
+37400,예천군,Yecheon-gun,醴泉郡
+3740011,예천읍,Yecheon-eup,醴泉邑
+3740031,용문면,Yongmun-myeon,龍門面
+3740032,상리면,Sangni-myeon,上里面
+3740033,하리면,Hari-myeon,下里面
+3740034,감천면,Gamcheon-myeon,甘泉面
+3740035,보문면,Bomun-myeon,普門面
+3740036,호명면,Homyeong-myeon,虎鳴面
+3740037,유천면,Yucheon-myeon,柳川面
+3740038,용궁면,Yonggung-myeon,龍宮面
+3740039,개포면,Gaepo-myeon,開浦面
+3740040,지보면,Jibo-myeon,知保面
+3740041,풍양면,Pungyang-myeon,豊壤面
+37410,봉화군,Bonghwa-gun,奉化郡
+3741011,봉화읍,Bonghwa-eup,奉化邑
+3741031,물야면,Murya-myeon,物野面
+3741032,봉성면,Bongseong-myeon,鳳城面
+3741033,법전면,Beopjeon-myeon,法田面
+3741034,춘양면,Chunyang-myeon,春陽面
+3741035,소천면,Socheon-myeon,小川面
+3741036,석포면,Seokpo-myeon,石浦面
+3741037,재산면,Jaesan-myeon,才山面
+3741038,명호면,Myeongho-myeon,明湖面
+3741039,상운면,Sangun-myeon,詳雲面
+37420,울진군,Uljin-gun,蔚珍郡
+3742011,울진읍,Uljin-eup,蔚珍邑
+3742012,평해읍,Pyeonghae-eup,平海邑
+3742031,북면,Buk-myeon,北面
+3742032,서면,Seo-myeon,西面
+3742033,근남면,Geunnam-myeon,近南面
+3742034,원남면,Wonnam-myeon,遠南面
+3742035,기성면,Giseong-myeon,箕城面
+3742036,온정면,Onjeong-myeon,溫井面
+3742037,죽변면,Jukbyeon-myeon,竹邊面
+3742038,후포면,Hupo-myeon,厚浦面
+37430,울릉군,Ulleung-gun,鬱陵郡
+3743011,울릉읍,Ulleung-eup,鬱陵邑
+3743031,서면,Seo-myeon,西面
+3743032,북면,Buk-myeon,北面
+38,경상남도,Gyeongsangnam-do,慶尙南道
+38010,창원시,Changwon-si,昌原市
+3801011,동읍,Dong-eup,東邑
+3801031,북면,Buk-myeon,北面
+3801032,대산면,Daesan-myeon,大山面
+3801051,의창동,Uichang-dong,義昌洞
+3801052,팔룡동,Pallyong-dong,八龍洞
+3801053,명곡동,Myeonggok-dong,明谷洞
+3801054,봉림동,Bongnim-dong,鳳林洞
+3801055,반송동,Bansong-dong,盤松洞
+3801056,중앙동,Jungang-dong,中央洞
+3801057,용지동,Yongji-dong,龍池洞
+3801058,상남동,Sangnam-dong,上南洞
+3801059,사파동,Sapa-dong,沙巴洞
+3801060,가음정동,Gaeumjeong-dong,加音丁洞
+3801061,성주동,Seongju-dong,聖住洞
+3801062,웅남동,Ungnam-dong,熊南洞
+38020,마산시,Masan-si,馬山市
+3802011,내서읍,Naeseo-eup,內西邑
+3802031,구산면,Gusan-myeon,龜山面
+3802032,진동면,Jindong-myeon,鎭東面
+3802033,진북면,Jinbuk-myeon,鎭北面
+3802034,진전면,Jinjeon-myeon,鎭田面
+3802051,현동,Hyeon-dong,縣洞
+3802052,가포동,Gapo-dong,架浦洞
+3802053,월영동,Woryeong-dong,月影洞
+3802054,문화동,Munhwa-dong,文化洞
+3802055,반월동,Banwol-dong,半月洞
+3802056,중앙동,Jungang-dong,中央洞
+3802057,완월동,Wanwol-dong,玩月洞
+3802058,자산동,Jasan-dong,玆山洞
+3802059,동서동,Dongseo-dong,東西洞
+3802060,성호동,Seongho-dong,城湖洞
+3802061,교방동,Gyobang-dong,校坊洞
+3802062,노산동,Nosan-dong,鷺山洞
+3802063,오동동,Odong-dong,午東洞
+3802064,합포동,Happo-dong,合浦洞
+3802065,산호동,Sanho-dong,山湖洞
+3802066,회원1동,Hoewon 1(il)-dong,檜原1洞
+3802067,회원2동,Hoewon 2(i)-dong,檜原2洞
+3802068,석전1동,Seokjeon 1(il)-dong,石田1洞
+3802069,석전2동,Seokjeon 2(i)-dong,石田2洞
+3802070,회성동,Hoeseong-dong,檜城洞
+3802071,양덕1동,Yangdeok 1(il)-dong,陽德1洞
+3802072,양덕2동,Yangdeok 2(i)-dong,陽德2洞
+3802073,합성1동,Hapseong 1(il)-dong,合城1洞
+3802074,합성2동,Hapseong 2(i)-dong,合城2洞
+3802075,구암1동,Guam 1(il)-dong,龜岩1洞
+3802076,구암2동,Guam 2(i)-dong,龜岩2洞
+3802077,봉암동,Bongam-dong,鳳岩洞
+38030,진주시,Jinju-si,晉州市
+3803011,문산읍,Munsan-eup,文山邑
+3803031,내동면,Naedong-myeon,奈洞面
+3803032,정촌면,Jeongchon-myeon,井村面
+3803033,금곡면,Geumgok-myeon,金谷面
+3803034,진성면,Jinseong-myeon,晉城面
+3803035,일반성면,Ilbanseong-myeon,一班城面
+3803036,이반성면,Ibanseong-myeon,二班城面
+3803037,사봉면,Sabong-myeon,寺奉面
+3803038,지수면,Jisu-myeon,智水面
+3803039,대곡면,Daegok-myeon,大谷面
+3803040,금산면,Geumsan-myeon,琴山面
+3803041,집현면,Jiphyeon-myeon,集賢面
+3803042,미천면,Micheon-myeon,美川面
+3803043,명석면,Myeongseok-myeon,鳴石面
+3803044,대평면,Daepyeong-myeon,大坪面
+3803045,수곡면,Sugok-myeon,水谷面
+3803051,망경동,Manggyeong-dong,望京洞
+3803052,강남동,Gangnam-dong,江南洞
+3803053,칠암동,Chiram-dong,七岩洞
+3803054,성지동,Seongji-dong,城址洞
+3803055,중앙동,Jungang-dong,中央洞
+3803056,봉안동,Bongan-dong,鳳安洞
+3803057,상봉동동,Sangbongdong-dong,上鳳東洞
+3803058,상봉서동,Sangbongseo-dong,上鳳西洞
+3803059,봉수동,Bongsu-dong,蓬水洞
+3803060,옥봉동,Okbong-dong,玉峰洞
+3803061,상대1동,Sangdae 1(il)-dong,上大1洞
+3803062,상대2동,Sangdae 2(i)-dong,上大2洞
+3803063,하대1동,Hadae 1(il)-dong,下大1洞
+3803064,하대2동,Hadae 2(i)-dong,下大2洞
+3803065,상평동,Sangpyeong-dong,上平洞
+3803066,초장동,Chojang-dong,草長洞
+3803067,평거동,Pyeonggeo-dong,平居洞
+3803068,신안동,Sinan-dong,新安洞
+3803069,이현동,Ihyeon-dong,二峴洞
+3803070,판문동,Panmun-dong,板門洞
+3803071,가호동,Gahoe-dong,加虎洞
+38040,진해시,Jinhae-si,鎭海市
+3804051,중앙동,Jungang-dong,中央洞
+3804052,태평동,Taepyeong-dong,太平洞
+3804053,충무동,Chungmu-dong,忠武洞
+3804054,여좌동,Yeojwa-dong,餘佐洞
+3804055,태백동,Taebaek-dong,太白洞
+3804056,경화동,Gyeonghwa-dong,慶和洞
+3804057,병암동,Byeongam-dong,屛岩洞
+3804058,석동,Seok-dong,石洞
+3804059,이동,I-dong,泥洞
+3804060,자은동,Jaeun-dong,自隱洞
+3804061,덕산동,Deoksan-dong,德山洞
+3804062,풍호동,Pungho-dong,豊湖洞
+3804064,웅천동,Ungcheon-dong,熊川洞
+3804065,웅동1동,Ungdong 1(il)-dong,熊東1洞
+3804066,웅동2동,Ungdong 2(i)-dong,熊東2洞
+38050,통영시,Tongyeong-si,統營市
+3805011,산양읍,Sanyang-eup,山陽邑
+3805031,용남면,Yongnam-myeon,龍南面
+3805032,도산면,Dosan-myeon,道山面
+3805033,광도면,Gwangdo-myeon,光道面
+3805034,욕지면,Yokji-myeon,欲知面
+3805035,한산면,Hansan-myeon,閑山面
+3805036,사량면,Saryang-myeon,蛇梁面
+3805051,도천동,Docheon-dong,道泉洞
+3805052,명정동,Myeongjeong-dong,明井洞
+3805053,중앙동,Jungang-dong,中央洞
+3805054,정량동,Jeongnyang-dong,貞梁洞
+3805055,북신동,Buksin-dong,北新洞
+3805056,무전동,Mujeon-dong,霧田洞
+3805057,인평동,Inpyeong-dong,仁平洞
+3805058,미수1동,Misu 1(il)-dong,美修1洞
+3805059,미수2동,Misu 2(i)-dong,美修2洞
+3805060,봉평동,Bongpyeong-dong,鳳平洞
+3805061,도남동,Donam-dong,道南洞
+38060,사천시,Sacheon-si,泗川市
+3806011,사천읍,Sacheon-eup,泗川邑
+3806031,정동면,Jeongdong-myeon,正東面
+3806032,사남면,Sanam-myeon,泗南面
+3806033,용현면,Yonghyeon-myeon,龍見面
+3806034,축동면,Chukdong-myeon,杻東面
+3806035,곤양면,Gonyang-myeon,昆陽面
+3806036,곤명면,Gonmyeong-myeon,昆明面
+3806037,서포면,Seopo-myeon,西浦面
+3806051,동서동,Dongseo-dong,東西洞
+3806052,선구동,Seongu-dong,仙龜洞
+3806053,동서금동,Dongseogeum-dong,東西錦洞
+3806055,벌룡동,Beollyong-dong,閥龍洞
+3806057,향촌동,Hyangchon-dong,香村洞
+3806059,남양동,Namyang-dong,南陽洞
+38070,김해시,Gimhae-si,金海市
+3807011,진영읍,Jinyeong-eup,進永邑
+3807031,장유면,Jangyu-myeon,長有面
+3807032,주촌면,Juchon-myeon,酒村面
+3807033,진례면,Jillye-myeon,進禮面
+3807034,한림면,Hallim-myeon,翰林面
+3807035,생림면,Saengnim-myeon,生林面
+3807036,상동면,Sangdong-myeon,上東面
+3807037,대동면,Daedong-myeon,大東面
+3807051,동상동,Dongsang-dong,東上洞
+3807052,회현동,Hoehyeon-dong,會峴洞
+3807053,부원동,Buwon-dong,府院洞
+3807054,내외동,Naeoe-dong,府院洞
+3807055,북부동,Bukbu-dong,北部洞
+3807056,칠산서부동,Chilsanseobu-dong,七山西部洞
+3807058,활천동,Hwalcheon-dong,活川洞
+3807059,삼안동,Saman-dong,三安洞
+3807060,불암동,Buram-dong,佛岩洞
+38080,밀양시,Miryang-si,密陽市
+3808011,삼랑진읍,Samnangjin-eup,三浪津邑
+3808012,하남읍,Hanam-eup,下南邑
+3808031,부북면,Bubuk-myeon,府北面
+3808032,상동면,Sangdong-myeon,上東面
+3808033,산외면,Sanoe-myeon,山外面
+3808034,산내면,Sannae-myeon,山內面
+3808035,단장면,Danjang-myeon,丹場面
+3808036,상남면,Sangnam-myeon,上南面
+3808037,초동면,Chodong-myeon,初同面
+3808038,무안면,Muan-myeon,武安面
+3808039,청도면,Cheongdo-myeon,淸道面
+3808051,내일동,Naeil-dong,內一洞
+3808052,내이동,Naei-dong,內二洞
+3808053,교동,Gyo-dong,校洞
+3808054,삼문동,Sammun-dong,三門洞
+3808055,가곡동,Gagok-dong,駕谷洞
+38090,거제시,Geoje-si,巨濟市
+3809031,일운면,Irun-myeon,一運面
+3809032,동부면,Dongbu-myeon,東部面
+3809033,남부면,Nambu-myeon,南部面
+3809034,거제면,Geoje-myeon,巨濟面
+3809035,둔덕면,Dundeok-myeon,屯德面
+3809036,사등면,Sadeung-myeon,沙等面
+3809037,연초면,Yeoncho-myeon,延草面
+3809038,하청면,Hacheong-myeon,河淸面
+3809039,장목면,Jangmok-myeon,長木面
+3809051,장승포동,Jangseungpo-dong,長承浦洞
+3809052,마전동,Majeon-dong,麻田洞
+3809053,능포동,Neungpo-dong,菱浦洞
+3809054,아주동,Aju-dong,鵝州洞
+3809055,옥포1동,Okpo 1(il)-dong,玉浦1洞
+3809056,옥포2동,Okpo 2(i)-dong,玉浦2洞
+3809057,장평동,Jangpyeong-dong,長坪洞
+3809058,고현동,Gohyeon-dong,古縣洞
+3809059,상문동,Sangmun-dong,上門洞
+3809060,수양동,Suyang-dong,水良洞
+38100,양산시,Yangsan-si,梁山市
+3810012,물금읍,Mulgeum-eup,勿禁邑
+3810031,동면,Dong-myeon,東面
+3810032,원동면,Wondong-myeon,院東面
+3810033,상북면,Sangbuk-myeon,上北面
+3810034,하북면,Habuk-myeon,下北面
+3810052,삼성동,Samseong-dong,三城洞
+3810053,강서동,Gangseo-dong,江西洞
+3810054,서창동,Seochang-dong,西倉洞
+3810055,소주동,Soju-dong,召周洞
+3810056,평산동,Pyeongsan-dong,平山洞
+3810057,덕계동,Deokgye-dong,德溪洞
+3810058,중앙동,Jungang-dong,中央洞
+3810059,양주동,Yangju-dong,
+38310,의령군,Uiryeong-gun,宜寧郡
+3831011,의령읍,Uiryeong-eup,宜寧邑
+3831031,가례면,Garye-myeon,嘉禮面
+3831032,칠곡면,Chilgok-myeon,七谷面
+3831033,대의면,Daeui-myeon,大義面
+3831034,화정면,Hwajeong-myeon,華正面
+3831035,용덕면,Yongdeok-myeon,龍德面
+3831036,정곡면,Jeonggok-myeon,正谷面
+3831037,지정면,Jijeong-myeon,芝正面
+3831038,낙서면,Nakseo-myeon,洛西面
+3831039,부림면,Burim-myeon,富林面
+3831040,봉수면,Bongsu-myeon,鳳樹面
+3831041,궁류면,Gungnyu-myeon,宮柳面
+3831042,유곡면,Yugok-myeon,柳谷面
+38320,함안군,Haman-gun,咸安郡
+3832011,가야읍,Gaya-eup,伽倻邑
+3832031,함안면,Haman-myeon,咸安面
+3832032,군북면,Gunbuk-myeon,郡北面
+3832033,법수면,Beopsu-myeon,法守面
+3832034,대산면,Daesan-myeon,代山面
+3832035,칠서면,Chilseo-myeon,漆西面
+3832036,칠북면,Chilbuk-myeon,漆北面
+3832037,칠원면,Chirwon-myeon,漆原面
+3832038,산인면,Sanin-myeon,山仁面
+3832039,여항면,Yeohang-myeon,艅航面
+38330,창녕군,Changnyeong-gun,昌寧郡
+3833011,창녕읍,Changnyeong-eup,昌寧邑
+3833012,남지읍,Namji-eup,南旨邑
+3833031,고암면,Goam-myeon,高岩面
+3833032,성산면,Seongsan-myeon,城山面
+3833033,대합면,Daehap-myeon,大合面
+3833034,이방면,Ibang-myeon,梨房面
+3833035,유어면,Yueo-myeon,遊漁面
+3833036,대지면,Daeji-myeon,大池面
+3833037,계성면,Gyeseong-myeon,桂城面
+3833038,영산면,Yeongsan-myeon,靈山面
+3833039,장마면,Jangma-myeon,丈麻面
+3833040,도천면,Docheon-myeon,都泉面
+3833041,길곡면,Gilgok-myeon,吉谷面
+3833042,부곡면,Bugok-myeon,釜谷面
+38340,고성군,Goseong-gun,固城郡
+3834011,고성읍,Goseong-eup,固城邑
+3834031,삼산면,Samsan-myeon,三山面
+3834032,하일면,Hail-myeon,下一面
+3834033,하이면,Hai-myeon,下二面
+3834034,상리면,Sangni-myeon,上里面
+3834035,대가면,Daega-myeon,大可面
+3834036,영현면,Yeonghyeon-myeon,永縣面
+3834037,영오면,Yeongo-myeon,永吾面
+3834038,개천면,Gaecheon-myeon,介川面
+3834039,구만면,Guman-myeon,九萬面
+3834040,회화면,Hoehwa-myeon,會華面
+3834041,마암면,Maam-myeon,馬岩面
+3834042,동해면,Donghae-myeon,東海面
+3834043,거류면,Georyu-myeon,巨流面
+38350,남해군,Namhae-gun,南海郡
+3835011,남해읍,Namhae-eup,南海邑
+3835031,이동면,Idong-myeon,二東面
+3835032,상주면,Sangju-myeon,尙州面
+3835033,삼동면,Samdong-myeon,三東面
+3835034,미조면,Mijo-myeon,彌助面
+3835035,남면,Nam-myeon,南面
+3835036,서면,Seo-myeon,西面
+3835037,고현면,Gohyeon-myeon,古縣面
+3835038,설천면,Seolcheon-myeon,雪川面
+3835039,창선면,Changseon-myeon,昌善面
+38360,하동군,Hadong-gun,河東郡
+3836011,하동읍,Hadong-eup,河東邑
+3836031,화개면,Hwagae-myeon,花開面
+3836032,악양면,Agyang-myeon,岳陽面
+3836033,적량면,Jeongnyang-myeon,赤良面
+3836034,횡천면,Hoengcheon-myeon,橫川面
+3836035,고전면,Gojeon-myeon,古田面
+3836036,금남면,Geumnam-myeon,金南面
+3836037,금성면,Geumseong-myeon,金星面
+3836038,진교면,Jingyo-myeon,辰橋面
+3836039,양보면,Yangbo-myeon,良甫面
+3836040,북천면,Bukcheon-myeon,北川面
+3836041,청암면,Cheongam-myeon,靑岩面
+3836042,옥종면,Okjong-myeon,玉宗面
+38370,산청군,Sancheong-gun,山淸郡
+3837011,산청읍,Sancheong-eup,山淸邑
+3837031,차황면,Chahwang-myeon,車黃面
+3837032,오부면,Obu-myeon,梧釜面
+3837033,생초면,Saengcho-myeon,生草面
+3837034,금서면,Geumseo-myeon,今西面
+3837035,삼장면,Samjang-myeon,三壯面
+3837036,시천면,Sicheon-myeon,矢川面
+3837037,단성면,Danseong-myeon,丹城面
+3837038,신안면,Sinan-myeon,新安面
+3837039,생비량면,Saengbiryang-myeon,生比良面
+3837040,신등면,Sindeung-myeon,新等面
+38380,함양군,Hamyang-gun,咸陽郡
+3838011,함양읍,Hamyang-eup,咸陽邑
+3838031,마천면,Macheon-myeon,馬川面
+3838032,휴천면,Hyucheon-myeon,休川面
+3838033,유림면,Yurim-myeon,柳林面
+3838034,수동면,Sudong-myeon,水東面
+3838035,지곡면,Jigok-myeon,池谷面
+3838036,안의면,Anui-myeon,安義面
+3838037,서하면,Seoha-myeon,西下面
+3838038,서상면,Seosang-myeon,西上面
+3838039,백전면,Baekjeon-myeon,栢田面
+3838040,병곡면,Byeonggok-myeon,甁谷面
+38390,거창군,Geochang-gun,居昌郡
+3839011,거창읍,Geochang-eup,居昌邑
+3839031,주상면,Jusang-myeon,主尙面
+3839032,웅양면,Ungyang-myeon,熊陽面
+3839033,고제면,Goje-myeon,高梯面
+3839034,북상면,Buksang-myeon,北上面
+3839035,위천면,Wicheon-myeon,渭川面
+3839036,마리면,Mari-myeon,馬利面
+3839037,남상면,Namsang-myeon,南上面
+3839038,남하면,Namha-myeon,南下面
+3839039,신원면,Sinwon-myeon,神院面
+3839040,가조면,Gajo-myeon,加祚面
+3839041,가북면,Gabuk-myeon,加北面
+38400,합천군,Hapcheon-gun,陜川郡
+3840011,합천읍,Hapcheon-eup,陜川邑
+3840031,봉산면,Bongsan-myeon,鳳山面
+3840032,묘산면,Myosan-myeon,妙山面
+3840033,가야면,Gaya-myeon,伽倻面
+3840034,야로면,Yaro-myeon,冶爐面
+3840035,율곡면,Yulgok-myeon,栗谷面
+3840036,초계면,Chogye-myeon,草溪面
+3840037,쌍책면,Ssangchaek-myeon,雙冊面
+3840038,덕곡면,Deokgok-myeon,德谷面
+3840039,청덕면,Cheongdeok-myeon,靑德面
+3840040,적중면,Jeokjung-myeon,赤中面
+3840041,대양면,Daeyang-myeon,大陽面
+3840042,쌍백면,Ssangbaek-myeon,雙栢面
+3840043,삼가면,Samga-myeon,三嘉面
+3840044,가회면,Gahoe-myeon,佳會面
+3840045,대병면,Daebyeong-myeon,大幷面
+3840046,용주면,Yongju-myeon,龍洲面
+39,제주특별자치도,Jeju,濟州特別自治道
+39010,제주시,Jeju-si,濟州市
+3901011,한림읍,Hallim-eup,翰林邑
+3901012,애월읍,Aewol-eup,涯月邑
+3901013,구좌읍,Gujwa-eup,舊左邑
+3901014,조천읍,Jocheon-eup,朝天邑
+3901031,한경면,Hangyeong-myeon,翰京面
+3901032,추자면,Chuja-myeon,楸子面
+3901033,우도면,Udo-myeon,牛島面
+3901051,일도1동,Ildo 1(il)-dong,一徒1洞
+3901052,일도2동,Ildo 2(i)-dong,一徒2洞
+3901053,이도1동,Ido 1(il)-dong,二徒1洞
+3901054,이도2동,Ido 2(i)-dong,二徒2洞
+3901055,삼도1동,Samdo 1(il)-dong,三徒1洞
+3901056,삼도2동,Samdo 2(i)-dong,三徒2洞
+3901057,용담1동,Yongdam 1(il)-dong,龍潭1洞
+3901058,용담2동,Yongdam 2(i)-dong,龍潭2洞
+3901059,건입동,Geonip-dong,健入洞
+3901060,화북동,Hwabuk-dong,禾北洞
+3901061,삼양동,Samyang-dong,三陽洞
+3901062,봉개동,Bonggae-dong,奉蓋洞
+3901063,아라동,Ara-dong,我羅洞
+3901064,오라동,Ora-dong,吾羅洞
+3901065,연동,Yeon-dong,蓮洞
+3901066,노형동,Nohyeong-dong,老衡洞
+3901067,외도동,Oedo-dong,外都洞
+3901068,이호동,Iho-dong,梨湖洞
+3901069,도두동,Dodu-dong,道頭洞
+39020,서귀포시,Seogwipo-si,西歸浦市
+3902011,대정읍,Daejeong-eup,大靜邑
+3902012,남원읍,Namwon-eup,南元邑
+3902013,성산읍,Seongsan-eup,城山邑
+3902031,안덕면,Andeok-myeon,安德面
+3902032,표선면,Pyoseon-myeon,表善面
+3902051,송산동,Songsan-dong,松山洞
+3902052,정방동,Jeongbang-dong,正方洞
+3902053,중앙동,Jungang-dong,中央洞
+3902054,천지동,Cheonji-dong,天池洞
+3902055,효돈동,Hyodon-dong,孝敦洞
+3902056,영천동,Yeongcheon-dong,靈泉洞
+3902057,동홍동,Donghong-dong,東烘洞
+3902058,서홍동,Seohong-dong,西烘洞
+3902059,대륜동,Daeryun-dong,大倫洞
+3902060,대천동,Daecheon-dong,大川洞
+3902061,중문동,Jungmun-dong,中文洞
+3902062,예래동,Yerae-dong,猊來洞
