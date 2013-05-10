@@ -8,7 +8,7 @@
 {% block extra_headers %}
 {{ super() }}
 {% assets filters='less', output='build/person.%(version)s.css',
-	depends=['**/*.less'], 'less/person.less' %}
+    depends=['**/*.less'], 'less/person.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
@@ -116,20 +116,20 @@ window.currentPage = 'person';
                     <th>{{ gettext('in the same constituency') }}</th>
                     <td>{{widgets.relation(person)|safe}}</td>
                 </tr>
-				<tr>
-					<th>{{gettext('pledges')}}</th>
-					<td>
-						{% for age, pledges in person.pledges.items() %}
-						<h4>{{gettext('%(age)dth', age=age)}} {{macro.btn_show('#pledges-%d' % age)}}</h4>
-						<div id="pledges-{{age}}" class="hide">
-							{% for pledge in pledges %}
-								<strong>{{pledge.pledge}}</strong>
-								<pre>{{pledge.description}}</pre>
-							{% endfor %}
-						</div>
-						{% endfor %}
-					</td>
-				</tr>
+                <tr>
+                    <th>{{gettext('pledges')}}</th>
+                    <td>
+                        {% for age, pledges in person.pledges.items() %}
+                        <h4>{{gettext('%(age)dth', age=age)}} {{macro.btn_show('#pledges-%d' % age)}}</h4>
+                        <div id="pledges-{{age}}" class="hide">
+                            {% for pledge in pledges %}
+                                <strong>{{pledge.pledge}}</strong>
+                                <pre>{{pledge.description}}</pre>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </td>
+                </tr>
             </table>
         </div>
     </div>
