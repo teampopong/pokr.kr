@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-09 02:54+0900\n"
+"POT-Creation-Date: 2013-05-10 17:48+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr "보이기"
 msgid "hide"
 msgstr "감추기"
 
-#: templates/macros.html:20
+#: templates/macros.html:26
 msgid "prev"
 msgstr "이전"
 
-#: templates/macros.html:23
+#: templates/macros.html:29
 msgid "next"
 msgstr "다음"
 
@@ -147,18 +147,18 @@ msgstr "타임라인"
 msgid "election district"
 msgstr "선거구"
 
-#: templates/person.html:116 widgets/relation.py:22
-msgid "in the same constituency"
-msgstr "동일 선거구 출마"
-
-#: templates/person.html:120
+#: templates/person.html:117
 msgid "pledges"
 msgstr "공약"
 
-#: templates/person.html:123
+#: templates/person.html:120
 #, python-format
 msgid "%(age)dth"
 msgstr "%(age)d대"
+
+#: templates/person.html:133 widgets/relation.py:22
+msgid "in the same constituency"
+msgstr "동일 선거구 출마"
 
 #: templates/schools.html:9
 msgid "schools"
@@ -179,6 +179,18 @@ msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
 msgstr "질문이나 오류, 건의사항이 있는 경우 상단의 'Feedback' 버튼을 클릭해주세요."
+
+#: templates/includes/footer.html:6
+msgid "code"
+msgstr "코드"
+
+#: templates/includes/footer.html:7
+msgid "data"
+msgstr "데이터"
+
+#: templates/includes/footer.html:8
+msgid "sources"
+msgstr "소스"
 
 #: templates/includes/leftnav.html:4
 msgid "search"
@@ -209,4 +221,12 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
+
+#~ msgid ""
+#~ "View\n"
+#~ "            <a "
+#~ "href=\"http://github.com/teampopong/polidic\">code</a>, \n"
+#~ "            <a href=\"http://popong.com/sources\">data</a>\n"
+#~ "            sources"
+#~ msgstr ""
 

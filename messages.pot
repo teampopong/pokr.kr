@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-09 02:54+0900\n"
+"POT-Creation-Date: 2013-05-10 17:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
-#: templates/macros.html:20
+#: templates/macros.html:26
 msgid "prev"
 msgstr ""
 
-#: templates/macros.html:23
+#: templates/macros.html:29
 msgid "next"
 msgstr ""
 
@@ -147,17 +147,17 @@ msgstr ""
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:116 widgets/relation.py:22
-msgid "in the same constituency"
-msgstr ""
-
-#: templates/person.html:120
+#: templates/person.html:117
 msgid "pledges"
 msgstr ""
 
-#: templates/person.html:123
+#: templates/person.html:120
 #, python-format
 msgid "%(age)dth"
+msgstr ""
+
+#: templates/person.html:133 widgets/relation.py:22
+msgid "in the same constituency"
 msgstr ""
 
 #: templates/schools.html:9
@@ -178,6 +178,18 @@ msgstr ""
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
+msgstr ""
+
+#: templates/includes/footer.html:6
+msgid "code"
+msgstr ""
+
+#: templates/includes/footer.html:7
+msgid "data"
+msgstr ""
+
+#: templates/includes/footer.html:8
+msgid "sources"
 msgstr ""
 
 #: templates/includes/leftnav.html:4
