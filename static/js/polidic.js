@@ -19,7 +19,7 @@ function onLoad() {
     $('.tooltipped:not(.tooltipped-delay)').tooltip();
     $('.tooltipped-delay').tooltip({
         delay: {
-            show: 1000,
+            show: 3000,
             hide: 0
         }
     });
