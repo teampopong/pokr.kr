@@ -4,6 +4,7 @@
 @hover_color    : #005580;
 @spec_color     : #888;
 @spec_size      : 12px;
+@border_color   : #ddd;
 
 .border-radius (@radius: 5px) {
     border-radius: @radius;
@@ -27,6 +28,9 @@
         margin-bottom: 20px;
     }
     #person-sections{
+        .header-name {
+            color: @text_color;
+        }
         .text-show,
         .text-hide {
             font-size: 70%;
@@ -44,6 +48,21 @@
             font-size: @spec_size;
             padding: 0 0 0 10px;
         }
+        #elections {
+            tr:first-child th,
+            tr:first-child td {
+                border-top: 1px solid @border_color;
+            }
+            #district {
+                width: 30%;
+            }
+            #competitors {
+                width: 55%;
+            }
+        }
+    }
+    #timeline {
+        margin: 10px 0 50px;
     }
 }
 
