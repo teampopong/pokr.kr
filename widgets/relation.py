@@ -39,6 +39,9 @@ def _rivals(person, age):
     if not my_candidacy:
         return []
 
+    if not my_candidacy.district or my_candidacy.district[0] == u'비례대표':
+        return []
+
     candidacies = Candidacy.query.filter_by(election_id=my_candidacy.election_id)\
                                  .filter(and_(cast(Candidacy.district, ARRAY(Text))\
                                                   == my_candidacy.district,
