@@ -51,6 +51,7 @@ class Person(Base):
             order_by=party_affiliation.columns['start_date'].desc(),
             backref='person')
     candidacies = relationship('Candidacy',
+            order_by='desc(Candidacy.age)',
             backref='person')
     experiences = relationship('Experience',
             order_by='Experience.end_date',
