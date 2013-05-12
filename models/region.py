@@ -19,3 +19,7 @@ class Region(Base):
                      .filter(Candidacy.person_id == Person.id)\
                      .filter(Candidacy.district_id.any(self.id))
 
+    @property
+    def residents(self):
+        return Person.query\
+                     .filter(Person.address_id.any(self.id))

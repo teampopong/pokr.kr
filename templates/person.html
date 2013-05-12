@@ -64,10 +64,14 @@ window.currentPage = 'person';
                         </td>
                     </tr>
                     {% endif %}
-                    {% if person_extra_vars.address %}
+                    {% if person.address_id %}
                     <tr>
-                        <th>{{ gettext("address") }}</th>
-                        <td>{{person_extra_vars.address|translit}}</td>
+                        <th>{{gettext('address')}}</th>
+                        <td>
+                        {% for region, region_id in zip(person.address, person.address_id) %}
+                            {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                        {% endfor %}
+                        </td>
                     </tr>
                     {% endif %}
                     {% if person_extra_vars.job or person_extra_vars.experience %}
@@ -117,11 +121,11 @@ window.currentPage = 'person';
                     {% for candidacy in person.candidacies %}
                     <tr id="assembly-election-{{candidacy.age}}">
                         <th>
-                            <a class="header-name" href="#assembly-election-{{candidacy.age}}">{{ gettext('%(age)dth', age=candidacy.age) }} {{ gettext('국회의원선거') }}</a>
+                            <a class="header-name" href="#assembly-election-{{candidacy.age}}">{{ gettext('%(age)dth', age=candidacy.age) }} {{ gettext('National Assembly Election') }}</a>
                             <div class="pledges">
                             {% set pledges = person.pledges %}
                             {% if pledges and pledges[candidacy.age] %}
-                            <small><a class="inline-box" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('공약보기')}}]</a></small>
+                            <small><a class="inline-box" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('Pledges')}}]</a></small>
                             <div style="display:none">
                                 <ul id="assembly-pledges-{{candidacy.age}}">
                                     {% for pledge in pledges[candidacy.age] %}

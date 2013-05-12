@@ -10,5 +10,16 @@
 {% endblock %}
 
 {% block content %}
-{{macro.people_list(region.candidates.all())}}
+<table class="table table-condensed">
+    <tbody>
+        <tr>
+            <th>{{ gettext('Candidates') }}</th>
+            <td>{{ macro.people_list(region.candidates) }}</td>
+        </tr>
+        <tr>
+            <th>{{ gettext('Residents') }}</th>
+            <td>{{ macro.people_list(region.residents) }}</td>
+        </tr>
+    </tbody>
+</table>
 {% endblock %}

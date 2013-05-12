@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-12 15:49+0900\n"
+"POT-Creation-Date: 2013-05-12 16:23+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,78 +93,78 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:24
+#: templates/person.html:27
 msgid "add to cart"
 msgstr ""
 
-#: templates/person.html:28 templates/person.html:37
+#: templates/person.html:31 templates/person.html:40
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:29 templates/person.html:107
+#: templates/person.html:32 templates/person.html:110
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:42
+#: templates/person.html:45
 msgid "birthday"
 msgstr ""
 
-#: templates/person.html:48
+#: templates/person.html:51
 msgid "party"
 msgstr ""
 
-#: templates/person.html:54
+#: templates/person.html:57
 msgid "education"
 msgstr ""
 
-#: templates/person.html:56
+#: templates/person.html:59
 msgid "original"
 msgstr ""
 
-#: templates/person.html:66
+#: templates/person.html:69
 msgid "address"
 msgstr ""
 
-#: templates/person.html:76
+#: templates/person.html:79
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:95
+#: templates/person.html:98
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:95
+#: templates/person.html:98
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
-#: templates/person.html:110
-msgid "timeline"
+#: templates/person.html:116
+msgid "election district"
 msgstr ""
 
-#: templates/person.html:116
+#: templates/person.html:117
+msgid "competitors"
+msgstr ""
+
+#: templates/person.html:124
 #, python-format
 msgid "%(age)dth"
 msgstr ""
 
-#: templates/person.html:120
-msgid "election district"
+#: templates/person.html:124
+msgid "National Assembly Election"
 msgstr ""
 
-#: templates/person.html:131
-msgid "pledges"
+#: templates/person.html:128
+msgid "Pledges"
 msgstr ""
 
-#: templates/person.html:132
-msgid "expand"
+#: templates/region.html:16
+msgid "Candidates"
 msgstr ""
 
-#: templates/person.html:132
-msgid "collapse"
-msgstr ""
-
-#: templates/person.html:148 widgets/relation.py:23
-msgid "in the same constituency"
+#: templates/region.html:20
+msgid "Residents"
 msgstr ""
 
 #: templates/regions.html:9
@@ -190,19 +189,19 @@ msgstr ""
 msgid "People"
 msgstr ""
 
-#: templates/search-results.html:34
+#: templates/search-results.html:35
 msgid "Party"
 msgstr ""
 
-#: templates/search-results.html:42
+#: templates/search-results.html:45
 msgid "School"
 msgstr ""
 
-#: templates/search-results.html:50
+#: templates/search-results.html:55
 msgid "Region"
 msgstr ""
 
-#: templates/search-results.html:58
+#: templates/search-results.html:65
 msgid "Bill"
 msgstr ""
 
@@ -234,6 +233,10 @@ msgstr ""
 
 #: templates/includes/leftnav.html:14
 msgid "Sorted by frecency"
+msgstr ""
+
+#: widgets/relation.py:23
+msgid "in the same constituency"
 msgstr ""
 
 #: widgets/timeline.py:51

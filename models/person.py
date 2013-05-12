@@ -34,9 +34,8 @@ class Person(Base):
     education = Column(ARRAY(Unicode(60)))
     education_id = Column(ARRAY(String(20)))
 
-    addr_city = Column(Unicode(20), index=True)
-    addr_county = Column(Unicode(20), index=True)
-    addr_detail = Column(Unicode(80))
+    address = Column(ARRAY(Unicode(20)))
+    address_id = Column(ARRAY(String(16)))
 
     image = Column(String(1024))
     twitter = Column(String(20))
