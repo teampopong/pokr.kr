@@ -1,8 +1,5 @@
 {% if related_people %}
-    {% for description, related_person in related_people|batch(size)|first %}
+    {% for description, related_person in related_people %}
         {{widgets.card(related_person, small=True)|safe}}
     {% endfor %}
-    {% if related_people|count > size %}
-    <a href="#" onclick="alert(&quot;{{gettext("not implemented")}}&quot;);">...</a>
-    {% endif %}
 {% endif %}
