@@ -5,11 +5,71 @@
 {{ super() }} - {{ gettext("Search by %(query)s", query=query) }}
 {% endblock %}
 
+{% block extra_headers %}
+<style>
+#card-container {
+    display: non;
+}
+
+#spec-container {
+    left: 0;
+}
+</style>
+{% endblock %}
+
 {% block content %}
 {% if query %}
 	<div class="alert alert-info">
-		{{ gettext("%(num_results)d people found by the query '%(query)s'.", query=query, num_results=results|count) }}
+		{{ gettext("Search results by the query '%(query)s'.", query=query) }}
 	</div>
 {% endif %}
-{{macro.people_list(results)}}
+
+<table class="table table-condensed">
+    <tbody>
+        <tr>
+            <th>{{ gettext('People') }}</th>
+            <td>{{ macro.people_list(people) }}</td>
+        </tr>
+        {% if parties %}
+        <tr>
+            <th>{{ gettext('Party') }}</th>
+            <td><ul>
+            {% for party in parties %}
+                <li><a href="{{ url_for('party', name=party.name) }}">{{ party.name }}</a></li>
+            {% endfor %}
+            </ul></td>
+        </tr>
+        {% endif %}
+        {% if schools %}
+        <tr>
+            <th>{{ gettext('School') }}</th>
+            <td><ul>
+            {% for school in schools %}
+                <li><a href="{{ url_for('school', education_id=school.id) }}">{{ school.name }}</a></li>
+            {% endfor %}
+            </ul></td>
+        </tr>
+        {% endif %}
+        {% if regions %}
+        <tr>
+            <th>{{ gettext('Region') }}</th>
+            <td><ul>
+            {% for region in regions %}
+                <li><a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a></li>
+            {% endfor %}
+            </ul></td>
+        </tr>
+        {% endif %}
+        {% if bills %}
+        <tr>
+            <th>{{ gettext('Bill') }}</th>
+            <td><ul>
+            {% for bill in bills %}
+                <li><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></li>
+            {% endfor %}
+            </ul></td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
 {% endblock %}

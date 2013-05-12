@@ -21,7 +21,7 @@ def register(app):
     # 루트
     @app.route('/person/', methods=['GET'])
     def person_main():
-        query = request.args.get('q', None)
+        query = request.args.get('q')
 
         if query is not None:
             return redirect(url_for('search', query=query))
@@ -32,23 +32,6 @@ def register(app):
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():
         return person_names_json
-
-    # 이름으로 검색
-    @app.route('/person/q/<query>', methods=['GET'])
-    def search(query):
-        # TODO: validation & sanitization
-        # TODO: 처음엔 몇 개만 받아오고, '더 보기'를 누르면 나머지를 가져옴
-        results = Person.query.filter(or_(
-                    Person.name.like(u'%{0}%'.format(query)),
-                    Person.name_en.ilike(u'%{0}%'.format(query))
-                )).all()
-
-        if len(results) == 1:
-            person = results[0]
-            return redirect(url_for('person', id=person.id))
-
-        return render_template('search-results.html', results=results,
-                query=query)
 
     # 사람
     @app.route('/person/<int:id>', methods=['GET'])

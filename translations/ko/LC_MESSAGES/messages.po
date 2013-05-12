@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-11 02:50+0900\n"
+"POT-Creation-Date: 2013-05-12 15:49+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -102,7 +102,7 @@ msgstr "카트에 추가"
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:29 templates/person.html:103
+#: templates/person.html:29 templates/person.html:107
 msgid "elections"
 msgstr "선거활동"
 
@@ -126,45 +126,45 @@ msgstr "원본"
 msgid "address"
 msgstr "주소"
 
-#: templates/person.html:72
+#: templates/person.html:76
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:91
+#: templates/person.html:95
 msgid "trends"
 msgstr "검색추이"
 
-#: templates/person.html:91
+#: templates/person.html:95
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 
-#: templates/person.html:106
+#: templates/person.html:110
 msgid "timeline"
 msgstr "타임라인"
 
-#: templates/person.html:112
+#: templates/person.html:116
 #, python-format
 msgid "%(age)dth"
 msgstr "%(age)d대"
 
-#: templates/person.html:116
+#: templates/person.html:120
 msgid "election district"
 msgstr "선거구"
 
-#: templates/person.html:127
+#: templates/person.html:131
 msgid "pledges"
 msgstr "공약"
 
-#: templates/person.html:128
+#: templates/person.html:132
 msgid "expand"
 msgstr "상세보기"
 
-#: templates/person.html:128
+#: templates/person.html:132
 msgid "collapse"
 msgstr "요약보기"
 
-#: templates/person.html:144 widgets/relation.py:23
+#: templates/person.html:148 widgets/relation.py:23
 msgid "in the same constituency"
 msgstr "동일 선거구 출마"
 
@@ -181,10 +181,30 @@ msgstr "교육기관"
 msgid "Search by %(query)s"
 msgstr "%(query)s(으)로 검색"
 
-#: templates/search-results.html:11
+#: templates/search-results.html:23
 #, python-format
-msgid "%(num_results)d people found by the query '%(query)s'."
-msgstr "검색 결과: %(query)s (%(num_results)d 명)"
+msgid "Search results by the query '%(query)s'."
+msgstr "'%(query)s'로 검색한 결과"
+
+#: templates/search-results.html:30
+msgid "People"
+msgstr "정치인"
+
+#: templates/search-results.html:34
+msgid "Party"
+msgstr "정당"
+
+#: templates/search-results.html:42
+msgid "School"
+msgstr "교육기관"
+
+#: templates/search-results.html:50
+msgid "Region"
+msgstr "지역"
+
+#: templates/search-results.html:58
+msgid "Bill"
+msgstr "의안"
 
 #: templates/includes/footer.html:2
 msgid ""
@@ -215,10 +235,6 @@ msgstr "정당으로 검색:"
 #: templates/includes/leftnav.html:14
 msgid "Sorted by frecency"
 msgstr "빈도와 시간 순으로 정렬됨"
-
-#: templates/widgets/relation.html:6
-msgid "not implemented"
-msgstr "미구현"
 
 #: widgets/timeline.py:51
 msgid "birth"
