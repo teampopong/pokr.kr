@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.colorbox.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/popong-colorbox.js')}}"></script>
+<link rel="stylesheet" href="{{url_for('static', filename='css/colorbox.css')}}">
 <script>
 window.currentPage = 'person';
 </script>
@@ -100,51 +103,52 @@ window.currentPage = 'person';
             </table>
         </div>
         <div class="section" id="elections">
-            <h3>{{ gettext('elections') }}</h3>
+            <h3>{{gettext('elections')}}</h3>
+            <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
             <table class="table table-condensed">
-                <tr>
-                    <th>{{ gettext('timeline') }}</th>
-                    <td>{{widgets.timeline(person.id)|safe}}</td>
-                </tr>
-                {% set pledges = person.pledges %}
-                {% for candidacy in person.candidacies %}
-                <tr class="bg-gray">
-                    <th colspan="2">{{gettext('%(age)dth', age=candidacy.age)}}</th>
-                </tr>
-                {% if candidacy.district_id %}
-                <tr>
-                    <th>{{gettext('election district')}}</th>
-                    <td>
-                    {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
-                        {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th id="district">{{gettext('election district')}}</th>
+                        <th id="competitors">{{gettext('competitors')}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candidacy in person.candidacies %}
+                    <tr id="election-{{candidacy.age}}">
+                        <th>
+                            <!-- FIX -->
+                            {{gettext('%(age)dth', age=candidacy.age)}} 국회의원선거
+                            <div class="pledges">
+                            {% set pledges = person.pledges %}
+                            {% if pledges and pledges[candidacy.age] %}
+                            <small><a class="inline-box" href="#pledges-{{candidacy.age}}">[{{gettext('공약보기')}}]</a></small>
+                            <div style="display:none">
+                                <ul id="pledges-{{candidacy.age}}">
+                                    {% for pledge in pledges[candidacy.age] %}
+                                        <li class="pledge">
+                                            {{pledge.pledge}}
+                                            <pre class="pledge-description hide">{{pledge.description}}</pre>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            {% endif %}
+                            </div>
+                        </th>
+                        <td>
+                        {% if candidacy.district_id %}
+                        {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
+                            {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        </td>
+                        <!-- FIXME: 동일 선거구 출마자가 없을 때, 안보여주기 -->
+                        <td>{{widgets.rivals(person, age=candidacy.age)|safe}}</td>
+                    </tr>
                     {% endfor %}
-                    </td>
-                </tr>
-                {% endif %}
-                {% if pledges and pledges[candidacy.age] %}
-                <tr>
-                    <th>
-                        {{gettext('pledges')}}
-                        {{macro.btn_show('.pledge-description', '[%s]' % gettext('expand'), '[%s]' % gettext('collapse'))}}
-                    </th>
-                    <td>
-                        <ul id="pledges-{{candidacy.age}}">
-                            {% for pledge in pledges[candidacy.age] %}
-                                <li class="pledge">
-                                    {{pledge.pledge}}
-                                    <pre class="pledge-description hide">{{pledge.description}}</pre>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                </tr>
-                {% endif %}
-                <!-- FIXME: 동일 선거구 출마자가 없을 때, 안보여주기 -->
-                <tr>
-                    <th>{{ gettext('in the same constituency') }}</th>
-                    <td>{{widgets.rivals(person, age=candidacy.age)|safe}}</td>
-                </tr>
-                {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>
