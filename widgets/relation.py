@@ -39,15 +39,9 @@ def _rivals(person, age):
     if not my_candidacy:
         return []
 
-    district_ids = [id for id in my_candidacy.district_id if id]
-    if not district_ids:
-        return []
-
-    district_id = district_ids[-1]
-
     candidacies = Candidacy.query.filter_by(election_id=my_candidacy.election_id)\
-                                 .filter(and_(cast(Candidacy.district_id, ARRAY(Text))\
-                                                  .contains([district_id]),
+                                 .filter(and_(cast(Candidacy.district, ARRAY(Text))\
+                                                  == my_candidacy.district,
                                               Candidacy.person_id != person.id))
 
     rivals = [candidacy.person for candidacy in candidacies]
