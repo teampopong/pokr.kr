@@ -115,16 +115,15 @@ window.currentPage = 'person';
                 </thead>
                 <tbody>
                     {% for candidacy in person.candidacies %}
-                    <tr id="election-{{candidacy.age}}">
+                    <tr id="assembly-election-{{candidacy.age}}">
                         <th>
-                            <!-- FIX -->
-                            {{gettext('%(age)dth', age=candidacy.age)}} 국회의원선거
+                            <a class="header-name" href="#assembly-election-{{candidacy.age}}">{{ gettext('%(age)dth', age=candidacy.age) }} {{ gettext('국회의원선거') }}</a>
                             <div class="pledges">
                             {% set pledges = person.pledges %}
                             {% if pledges and pledges[candidacy.age] %}
-                            <small><a class="inline-box" href="#pledges-{{candidacy.age}}">[{{gettext('공약보기')}}]</a></small>
+                            <small><a class="inline-box" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('공약보기')}}]</a></small>
                             <div style="display:none">
-                                <ul id="pledges-{{candidacy.age}}">
+                                <ul id="assembly-pledges-{{candidacy.age}}">
                                     {% for pledge in pledges[candidacy.age] %}
                                         <li class="pledge">
                                             {{pledge.pledge}}
@@ -144,7 +143,6 @@ window.currentPage = 'person';
                         {% endfor %}
                         {% endif %}
                         </td>
-                        <!-- FIXME: 동일 선거구 출마자가 없을 때, 안보여주기 -->
                         <td>{{widgets.rivals(person, age=candidacy.age)|safe}}</td>
                     </tr>
                     {% endfor %}
