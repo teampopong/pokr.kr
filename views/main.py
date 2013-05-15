@@ -55,7 +55,7 @@ def register(app):
             regions = Region.query.filter(Region.name.like(u'%{0}%'.format(query)))
 
         if year:
-            if not people:
+            if 'people' not in locals():
                 people = Person.query
             people = people.filter_by(birthday_year=year)
 
