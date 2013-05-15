@@ -54,7 +54,9 @@ def register(app):
             bills = Bill.query.filter(Bill.name.like(u'%{0}%'.format(query)))
             regions = Region.query.filter(Region.name.like(u'%{0}%'.format(query)))
 
-        elif year:
-            people = Person.query.filter_by(birthday_year=year)
+        if year:
+            if not people:
+                people = Person.query
+            people = people.filter_by(birthday_year=year)
 
         return render_template('search-results.html', **locals())
