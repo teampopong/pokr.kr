@@ -42,6 +42,7 @@ def register(app):
     @app.route('/search', methods=['GET'])
     def search(query=''):
         year = request.args.get('year')
+        query = query or request.args.get('query')
 
         if query:
             people = Person.query.filter(or_(

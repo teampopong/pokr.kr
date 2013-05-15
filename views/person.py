@@ -21,11 +21,6 @@ def register(app):
     # 루트
     @app.route('/person/', methods=['GET'])
     def person_main():
-        query = request.args.get('q')
-
-        if query is not None:
-            return redirect(url_for('search', query=query))
-
         people = Person.query.order_by(desc(Person.id))
         return render_template('people.html', people=people)
 
