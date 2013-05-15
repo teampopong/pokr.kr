@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-12 16:23+0900\n"
+"POT-Creation-Date: 2013-05-15 23:01+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -182,27 +182,30 @@ msgid "Search by %(query)s"
 msgstr "%(query)s(으)로 검색"
 
 #: templates/search-results.html:23
-#, python-format
-msgid "Search results by the query '%(query)s'."
-msgstr "'%(query)s'로 검색한 결과"
+msgid "birthyear"
+msgstr "출생연도"
 
-#: templates/search-results.html:30
+#: templates/search-results.html:26
+msgid "query"
+msgstr "검색어"
+
+#: templates/search-results.html:35
 msgid "People"
 msgstr "정치인"
 
-#: templates/search-results.html:35
+#: templates/search-results.html:40
 msgid "Party"
 msgstr "정당"
 
-#: templates/search-results.html:45
+#: templates/search-results.html:50
 msgid "School"
 msgstr "교육기관"
 
-#: templates/search-results.html:55
+#: templates/search-results.html:60
 msgid "Region"
 msgstr "지역"
 
-#: templates/search-results.html:65
+#: templates/search-results.html:70
 msgid "Bill"
 msgstr "의안"
 
@@ -224,7 +227,7 @@ msgstr "데이터"
 msgid "sources"
 msgstr "소스"
 
-#: templates/includes/leftnav.html:4
+#: templates/includes/leftnav.html:4 templates/includes/logo.html:4
 msgid "search"
 msgstr "검색"
 
@@ -253,3 +256,4 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
+

@@ -19,6 +19,10 @@
         <div id="container">
             <div id="leftnav">
                 {% include 'includes/leftnav.html' %}
+                <div id="applied-options">
+                    {% block applied_options %}
+                    {% endblock %}
+                </div>
             </div>
             <div id="content">
                 <div id="card-container">

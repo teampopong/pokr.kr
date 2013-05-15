@@ -8,7 +8,7 @@
 {% block extra_headers %}
 <style>
 #card-container {
-    display: non;
+    display: none;
 }
 
 #spec-container {
@@ -17,13 +17,18 @@
 </style>
 {% endblock %}
 
-{% block content %}
-{% if query %}
-	<div class="alert alert-info">
-		{{ gettext("Search results by the query '%(query)s'.", query=query) }}
-	</div>
-{% endif %}
+{% block applied_options %}
+<table class="table table-condensed table-bordered">
+    {% if year %}
+    <tr><th class="no-min-width nowrap">{{ gettext('birthyear') }}</th><td>{{ year }}</td><td><a href="{{ url_for_query(year=None) }}">x</a></td></tr>
+    {% endif %}
+    {% if query %}
+    <tr><th class="no-min-width nowrap">{{ gettext('query') }}</th><td>{{ query }}</td><td><a href="{{ url_for_query(query=None) }}">x</a></td></tr>
+    {% endif %}
+</table>
+{% endblock %}
 
+{% block content %}
 <table class="table table-condensed">
     <tbody>
         <tr>

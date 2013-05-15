@@ -17,8 +17,8 @@
 {% macro list(query, page=None, pagesize=20, prev_url=None, next_url=None) -%}
 
 	{% set page = int(request.args.get('page', 1)) %}
-	{% set prev_url = prev_url or Href(request.base_url)('', page=max(1, page - 1)) %}
-	{% set next_url = next_url or Href(request.base_url)('', page=page + 1) %}
+	{% set prev_url = prev_url or url_for_query(page=max(1, page - 1)) %}
+	{% set next_url = next_url or url_for_query(page=page + 1) %}
 	{% set offset = (page - 1) * pagesize %}
     {% set items = query.offset(offset).limit(pagesize+1).all() %}
 

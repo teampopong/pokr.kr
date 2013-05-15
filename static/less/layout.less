@@ -12,6 +12,9 @@ th:first-child {
     min-width: 60px;
 }
 
+th.no-min-width {
+    min-width: 0;
+}
 
 ///// user-defined stylesheets /////
 body {
@@ -84,12 +87,9 @@ body {
 #search-options {
     position: absolute;
     top: 115px;
-    bottom: 0;
     left: 0;
     right: 0;
     padding: 0 10px;
-    overflow-x: hidden;
-    overflow-y: auto;
 
     .accordion-toggle {
         color: #333;
@@ -104,6 +104,18 @@ body {
     .accordion-inner {
         padding: 0 0 0 3px;
     }
+}
+
+#applied-options {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+}
+
+a#barometer_tab {
+    top: 60%;
 }
 
 #search-party {
@@ -243,4 +255,8 @@ a.btn-show {
         top: 0;
         right: 0;
     }
+}
+
+.nowrap {
+    white-space: nowrap;
 }

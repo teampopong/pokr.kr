@@ -3,14 +3,15 @@
 import json
 import uuid
 
-from werkzeug.urls import Href
+from flask import request
 from sqlalchemy.ext.declarative import DeclarativeMeta
+from werkzeug.urls import Href
 
 
 def init_app(app):
     app.jinja_env.filters['jsonify'] = jsonify
     app.jinja_env.globals.update(zip=zip, max=max, int=int)
-    app.jinja_env.globals.update(Href=Href)
+    app.jinja_env.globals.update(url_for_query=url_for_query)
 
 
 class MyJSONEncoder(json.JSONEncoder):
@@ -30,8 +31,10 @@ class MyJSONEncoder(json.JSONEncoder):
 
         return json.JSONEncoder.default(self, obj, **kwargs)
 
+
 def jsonify(s):
     return json.dumps(s, indent=2, encoding='utf-8', cls=MyJSONEncoder)
+
 
 def guid_factory():
     guids = {}
@@ -44,3 +47,9 @@ def guid_factory():
         return val
 
     return factory
+
+
+def url_for_query(**kwargs):
+    h = Href(request.base_url)
+    args = dict(request.args, **kwargs)
+    return h(**args)
