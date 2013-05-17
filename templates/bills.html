@@ -14,12 +14,12 @@
 {% endblock %}
 
 {% block content %}
-<ul>
+<div class="itemlist">
 {% call(bill) macro.list(bills) %}
-    <li><a href="{{ url_for('bill', id=bill.id) }}">
+    <a href="{{ url_for('bill', id=bill.id) }}">
         {{ bill.proposed_date }}
         {{ bill.name|translit(type='bill') }}
-    </a></li>
+    </a>
 {% endcall %}
-</ul>
+</div>
 {% endblock %}

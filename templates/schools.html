@@ -14,9 +14,9 @@
 {% endblock %}
 
 {% block content %}
-<ul>
+<div class="itemlist">
 {% call(school) macro.list(schools) %}
-    <li><a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='name') }}</a></li>
+    <a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='name') }}</a>
 {% endcall %}
-</ul>
+</div>
 {% endblock %}

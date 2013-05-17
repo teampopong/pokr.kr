@@ -14,10 +14,10 @@
 {% endblock %}
 
 {% block content %}
-<ul>
+<div class="itemlist">
 {% call(region) macro.list(regions) %}
-    <li><a href="{{ url_for('region', region_id=region.id) }}">{{ region.name if locale == 'ko' else region.name_en }}</a></li>
+    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.name if locale == 'ko' else region.name_en }}</a>
 {% endcall %}
-</ul>
+</div>
 {% endblock %}
 

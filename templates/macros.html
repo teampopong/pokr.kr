@@ -22,9 +22,11 @@
 	{% set offset = (page - 1) * pagesize %}
     {% set items = query.offset(offset).limit(pagesize+1).all() %}
 
+    <ul>
     {% for item in items|batch(pagesize)|first %}
-        {{caller(item)}}
+        <li>{{caller(item)}}</li>
     {% endfor %}
+    </ul>
     <div class="pagenav">
         {% if offset %}
             <a class="btn btn-pagenav btn-prev" href="{{prev_url}}"><i class="icon-angle-left"></i> {{gettext('prev')}}</a>

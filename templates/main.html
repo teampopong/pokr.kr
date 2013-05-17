@@ -4,6 +4,17 @@
 {{ super() }}
 {% endblock %}
 
-{% block card %}
-Welcome.
+{% block content %}
+<h1><a href="{{ url_for('main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
+{% if mobile %}
+<div class="itemlist">
+    <ul>
+        {% for name, endpoint in app.views.items() if name != 'home' %}
+        <li><a href="{{ url_for(endpoint) }}">{{ gettext(name) }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+    <p>Welcome.</p>
+{% endif %}
 {% endblock %}

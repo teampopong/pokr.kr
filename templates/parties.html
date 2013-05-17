@@ -14,9 +14,9 @@
 {% endblock %}
 
 {% block content %}
-<ul>
+<div class="itemlist">
 {% call(party) macro.list(parties) %}
-    <li><a href="{{ url_for('party', name=party.name) }}">{{ party.name|translit(type='party') }}</a></li>
+    <a href="{{ url_for('party', name=party.name) }}">{{ party.name|translit(type='party') }}</a>
 {% endcall %}
-</ul>
+</div>
 {% endblock %}
