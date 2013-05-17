@@ -21,6 +21,7 @@ class PopongBabel(Babel):
 
         # jinja filters
         app.jinja_env.filters['translit'] = filter_translit
+        app.jinja_env.globals.update(translit=filter_translit)
 
         # context processor
         app.context_processor(inject_locales)

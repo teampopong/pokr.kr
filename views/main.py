@@ -12,6 +12,7 @@ from models.party import Party
 from models.person import Person
 from models.region import Region
 from models.school import School
+from utils.jinja import breadcrumb
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 party_list = db_session.query(Party.name, Party.size).order_by(Party.order).filter(Party.name != u'무소속')
@@ -40,6 +41,7 @@ def register(app):
 
     @app.route('/search/<query>', methods=['GET'])
     @app.route('/search', methods=['GET'])
+    @breadcrumb(app)
     def search(query=''):
         year = request.args.get('year')
         query = query or request.args.get('query')

@@ -25,6 +25,14 @@
                 </div>
             </div>
             <div id="content">
+                {% if breadcrumbs %}
+                <ul class="breadcrumb">
+                    {% for name, endpoint, args in breadcrumbs %}
+                    <li><a href="{{ url_for(endpoint, **(args or {})) }}">{{ gettext(name) }}</a> <span class="divider">&gt;</span></li>
+                    {% endfor %}
+                    <li class="active">{% block breadcrumb_current %}{% endblock %}</li>
+                </ul>
+                {% endif %}
                 <div id="card-container">
                     {% block card %}
                     {% endblock %}

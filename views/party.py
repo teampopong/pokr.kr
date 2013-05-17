@@ -2,16 +2,19 @@
 # -*- encoding: utf-8 -*-
 
 from flask import redirect, render_template, request, url_for
+from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
 from models.party import Party
+from utils.jinja import breadcrumb
 
 
 def register(app):
 
     # 루트
     @app.route('/party/', methods=['GET'])
+    @breadcrumb(app)
     def party_main():
         query = request.args.get('q', None)
 
@@ -23,6 +26,7 @@ def register(app):
 
     # 이름으로 검색
     @app.route('/party/q/<name>', methods=['GET'])
+    @breadcrumb(app, (gettext('party'), 'party_main', None))
     def party(name):
         try:
             party = Party.query.filter_by(name=name).one()

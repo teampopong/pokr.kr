@@ -5,6 +5,10 @@
 {{ super() }} - {{ region.name }}
 {% endblock %}
 
+{% block breadcrumb_current %}
+{{ region.name|translit }}
+{% endblock %}
+
 {% block card %}
 <strong>{{ region.name }}</strong>
 {% endblock %}

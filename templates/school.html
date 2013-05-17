@@ -1,13 +1,19 @@
 {% extends "layout.html" %}
 {% import 'macros.html' as macro with context %}
 
+{% set school_name = translit(type='school')(school.name) %}
+
 {% block title %}
-{{ super() }} - {{ school.name }}
+{{ super() }} - {{ school_name }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ school_name }}
 {% endblock %}
 
 {% block card %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_school.jpg') }}">
-<h2 class="instance-name">{{ school.name }}</h2>
+<h2 class="instance-name">{{ school_name }}</h2>
 {% endblock %}
 
 {% block content %}

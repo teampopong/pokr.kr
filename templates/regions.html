@@ -5,6 +5,10 @@
 {{ super() }}
 {% endblock %}
 
+{% block breadcrumb_current %}
+{{ gettext('regions') }}
+{% endblock %}
+
 {% block card %}
 <h2 class="class-name">{{ gettext('regions') }}</h2>
 {% endblock %}

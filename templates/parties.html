@@ -9,6 +9,10 @@
 <h2 class="class-name">{{ gettext('parties') }}</h2>
 {% endblock %}
 
+{% block breadcrumb_current %}
+{{ gettext('parties') }}
+{% endblock %}
+
 {% block content %}
 <ul>
 {% call(party) macro.list(parties) %}

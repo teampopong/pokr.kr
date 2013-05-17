@@ -5,6 +5,10 @@
 {{person.name|translit(type='name')}}{% if person.cur_party.name %} ({{person.cur_party.name|translit(type='party')}}){% endif %}{% if person.last_elected_no %}, {{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} :: {{super()}} {{gettext('Politician Dictionary')}}
 {% endblock %}
 
+{% block breadcrumb_current %}
+{{ person.name|translit(type='name') }}
+{% endblock %}
+
 {% block extra_headers %}
 {{ super() }}
 {% assets filters='less', output='build/person.%(version)s.css',

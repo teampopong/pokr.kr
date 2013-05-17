@@ -12,6 +12,10 @@
 </style>
 {% endblock %}
 
+{% block breadcrumb_current %}
+{{ bill.name }}
+{% endblock %}
+
 {% block card %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
 <h2 class="instance-name">{{ bill.id }}</h2>

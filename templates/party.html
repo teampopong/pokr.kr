@@ -5,6 +5,10 @@
 {{ super() }} - {{ party.name|translit(type='party') }}
 {% endblock %}
 
+{% block breadcrumb_current %}
+{{ party.name|translit(type='party') }}
+{% endblock %}
+
 {% block card %}
 <img class="instance-img" src="{{ party.logo|default(url_for('static', filename='images/default_party.jpg'), True) }}" title="{{ party.name }}">
 {% if not party.logo %}
