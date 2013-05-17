@@ -68,9 +68,10 @@ window.currentPage = 'person';
                     <tr>
                         <th>{{gettext('address')}}</th>
                         <td>
-                        {% for region, region_id in zip(person.address, person.address_id) %}
-                            {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
-                        {% endfor %}
+                            <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.address}}">
+                            {% for region, region_id in zip(person.address, person.address_id) %}
+                                {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                            {% endfor %}
                         </td>
                     </tr>
                     {% endif %}
