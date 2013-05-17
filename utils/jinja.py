@@ -9,12 +9,12 @@ from sqlalchemy.ext.declarative import DeclarativeMeta
 from werkzeug.urls import Href
 
 
-breadcrumb_home = [(gettext('home'), 'main', None)]
+breadcrumb_home = ['home']
 
 
 def init_app(app):
     app.jinja_env.filters['jsonify'] = jsonify
-    app.jinja_env.globals.update(zip=zip, max=max, int=int)
+    app.jinja_env.globals.update(zip=zip, max=max, int=int, app=app)
     app.jinja_env.globals.update(url_for_query=url_for_query)
 
     app.breadcrumbed_views = {}

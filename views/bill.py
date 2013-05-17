@@ -12,6 +12,9 @@ from utils.jinja import breadcrumb
 
 def register(app):
 
+    app.views['bill'] = 'bill_main'
+    gettext('bill') # for babel extraction
+
     @app.route('/bill/', methods=['GET'])
     @breadcrumb(app)
     def bill_main():
@@ -19,7 +22,7 @@ def register(app):
         return render_template('bills.html', bills=bills)
 
     @app.route('/bill/<id>', methods=['GET'])
-    @breadcrumb(app, (gettext('bill'), 'bill_main', None))
+    @breadcrumb(app, 'bill')
     def bill(id):
         try:
             bill = Bill.query.filter_by(id=id).one()

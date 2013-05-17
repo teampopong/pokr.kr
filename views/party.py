@@ -12,6 +12,9 @@ from utils.jinja import breadcrumb
 
 def register(app):
 
+    app.views['party'] = 'party_main'
+    gettext('party') # for babel extraction
+
     # 루트
     @app.route('/party/', methods=['GET'])
     @breadcrumb(app)
@@ -26,7 +29,7 @@ def register(app):
 
     # 이름으로 검색
     @app.route('/party/q/<name>', methods=['GET'])
-    @breadcrumb(app, (gettext('party'), 'party_main', None))
+    @breadcrumb(app, 'party')
     def party(name):
         try:
             party = Party.query.filter_by(name=name).one()

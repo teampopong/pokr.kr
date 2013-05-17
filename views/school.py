@@ -12,6 +12,9 @@ from utils.jinja import breadcrumb
 
 def register(app): # 루트
 
+    app.views['school'] = 'school_main'
+    gettext('school') # for babel extraction
+
     @app.route('/school/', methods=['GET'])
     @breadcrumb(app)
     def school_main():
@@ -21,7 +24,7 @@ def register(app): # 루트
     # 학교로 검색
     # FIXME: 별도의 함수로 빼지 말고 통합 검색
     @app.route('/school/<education_id>', methods=['GET'])
-    @breadcrumb(app, (gettext('school'), 'school_main', None))
+    @breadcrumb(app, 'school')
     def school(education_id):
         try:
             school = School.query.filter_by(id=education_id).one()

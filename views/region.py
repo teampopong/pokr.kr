@@ -11,6 +11,9 @@ from utils.jinja import breadcrumb
 
 def register(app):
 
+    app.views['region'] = 'region_main'
+    gettext('region') # for babel extraction
+
     @app.route('/region/', methods=['GET'])
     @breadcrumb(app)
     def region_main():
@@ -18,7 +21,7 @@ def register(app):
         return render_template('regions.html', regions=regions)
 
     @app.route('/region/<region_id>', methods=['GET'])
-    @breadcrumb(app, (gettext('region'), 'region_main', None))
+    @breadcrumb(app, 'region')
     def region(region_id):
         try:
             region = Region.query.filter_by(id=region_id).one()

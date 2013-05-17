@@ -18,6 +18,9 @@ from utils.jinja import breadcrumb
 
 def register(app):
 
+    app.views['person'] = 'person_main'
+    gettext('person') # for babel extraction
+
     person_names_json = json.dumps(all_person_names())
 
     # 루트
@@ -33,7 +36,7 @@ def register(app):
 
     # 사람
     @app.route('/person/<int:id>', methods=['GET'])
-    @breadcrumb(app, (gettext('person'), 'person_main', None))
+    @breadcrumb(app, 'person')
     def person(id):
         try:
             person = Person.query.filter_by(id=id).one()
