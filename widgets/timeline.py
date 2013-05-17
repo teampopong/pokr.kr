@@ -6,7 +6,7 @@ from flask import render_template
 from flask.ext.babel import gettext
 
 from models.person import Person
-from utils.filters import guid_factory
+from utils.jinja import guid_factory
 
 ASSEMBLY_TERMS = [
     (),

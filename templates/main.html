@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<h1><a href="{{ url_for('main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
 {% if mobile %}
+<h1><a href="{{ url_for('main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
 <div class="itemlist">
     <ul>
         {% for name, endpoint in app.views.items() if name != 'home' %}
