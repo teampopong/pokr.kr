@@ -18,7 +18,7 @@
 {% call(bill) macro.list(bills) %}
     <a href="{{ url_for('bill', id=bill.id) }}">
         {{ bill.proposed_date }}
-        {{ bill.name|translit(type='bill') }}
+        {{ bill.name }}
     </a>
 {% endcall %}
 </div>

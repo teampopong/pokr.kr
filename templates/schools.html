@@ -16,7 +16,7 @@
 {% block content %}
 <div class="itemlist">
 {% call(school) macro.list(schools) %}
-    <a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='name') }}</a>
+    <a href="{{ url_for('school', education_id=school.id) }}">{{ school.name|translit(type='school') }}</a>
 {% endcall %}
 </div>
 {% endblock %}
