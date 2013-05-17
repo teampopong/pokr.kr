@@ -17,13 +17,15 @@
     </head>
     <body>
         <div id="container">
-            <div id="leftnav">
-                {% include 'includes/leftnav.html' %}
-                <div id="applied-options">
-                    {% block applied_options %}
-                    {% endblock %}
+            {% if not mobile %}
+                <div id="leftnav">
+                    {% include 'includes/leftnav.html' %}
+                    <div id="applied-options">
+                        {% block applied_options %}
+                        {% endblock %}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
             <div id="content">
                 {% if breadcrumbs %}
                 <ul class="breadcrumb">
@@ -42,10 +44,14 @@
                     {% endblock %}
                 </div>
             </div>
-            <div id="rightnav">
-                {% include 'includes/cart.html' %}
-            </div>
+            {% if not mobile %}
+                <div id="rightnav">
+                    {% include 'includes/cart.html' %}
+                </div>
+            {% endif %}
         </div>
-        {% include 'includes/footer.html' %}
+        {% if not mobile %}
+            {% include 'includes/footer.html' %}
+        {% endif %}
     </body>
 </html>

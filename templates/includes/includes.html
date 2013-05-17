@@ -1,17 +1,25 @@
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='css/barometer.css')}}">
-{% assets filters='less', output='build/custom.%(version)s.css',
-	depends=['**/*.less'], 'less/polidic.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
+{% if mobile %}
+    {% assets filters='less', output='build/polidic.mobile.%(version)s.css',
+        depends=['**/*.mobile.less'], 'less/polidic.mobile.less' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+    {% endassets %}
 
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<script src="{{url_for('static', filename='js/json2.js')}}"></script>
-<script src="{{url_for('static', filename='js/localstorageshim.min.js')}}"></script>
-<![endif]-->
+{% else %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/barometer.css')}}">
+    {% assets filters='less', output='build/polidic.%(version)s.css',
+        depends=['**/*.less'], 'less/polidic.less' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+    {% endassets %}
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="{{url_for('static', filename='js/json2.js')}}"></script>
+    <script src="{{url_for('static', filename='js/localstorageshim.min.js')}}"></script>
+    <![endif]-->
+{% endif %}
 
 <script src="{{url_for('static', filename='js/jquery-1.8.3.js')}}"></script>
 <script src="{{asset('js/mustache.js')}}"></script>

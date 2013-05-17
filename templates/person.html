@@ -11,14 +11,24 @@
 
 {% block extra_headers %}
 {{ super() }}
-{% assets filters='less', output='build/person.%(version)s.css',
-    depends=['**/*.less'], 'less/person.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
-<script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='js/jquery.colorbox.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='js/popong-colorbox.js')}}"></script>
-<link rel="stylesheet" href="{{url_for('static', filename='css/colorbox.css')}}">
+
+{% if mobile %}
+    {% assets filters='less', output='build/person.mobile.%(version)s.css',
+        depends=['**/*.mobile.less'], 'less/person.mobile.less' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+    {% endassets %}
+
+{% else %}
+    {% assets filters='less', output='build/person.%(version)s.css',
+        depends=['**/*.less'], 'less/person.less' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+    {% endassets %}
+    <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.colorbox.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/popong-colorbox.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/colorbox.css')}}">
+{% endif %}
+
 <script>
 window.currentPage = 'person';
 </script>
@@ -26,15 +36,18 @@ window.currentPage = 'person';
 
 {% block card %}
 {{widgets.card(person, detailed=True)|safe}}
-<div id="to-cart">
-    <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()">
-        {{ gettext('add to cart') }}
-    </a>
-</div>
-<ul id="person-section-tabs" class="nav">
-    <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
-    <li><a href="#elections">{{gettext("elections")}}</a></li>
-</ul>
+
+{% if not mobile %}
+    <div id="to-cart">
+        <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()">
+            {{ gettext('add to cart') }}
+        </a>
+    </div>
+    <ul id="person-section-tabs" class="nav">
+        <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
+        <li><a href="#elections">{{gettext("elections")}}</a></li>
+    </ul>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -98,7 +111,7 @@ window.currentPage = 'person';
                         </td>
                     </tr>
                     {% endif %}
-                    {% if not config['DEBUG'] %}
+                    {% if not config['DEBUG'] and not mobile %}
                     <tr>
                         <th>{{ gettext("trends") }} <i class="icon-exclamation-sign tooltipped" data-placement="bottom" data-title="{{ gettext('Results from Google Trends searched by query %(name)s', name=person.name) }}"></i></th>
                         <td>
@@ -113,7 +126,9 @@ window.currentPage = 'person';
         </div>
         <div class="section" id="elections">
             <h3>{{gettext('elections')}}</h3>
-            <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
+            {% if not mobile %}
+                <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
+            {% endif %}
             <table class="table table-condensed">
                 <thead>
                     <tr>
@@ -130,7 +145,7 @@ window.currentPage = 'person';
                             <div class="pledges">
                             {% set pledges = person.pledges %}
                             {% if pledges and pledges[candidacy.age] %}
-                            <small><a class="inline-box" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('Pledges')}}]</a></small>
+                            <small><a class="inline-box btn-show-pledge" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('Pledges')}}]</a></small>
                             <div style="display:none">
                                 <ul id="assembly-pledges-{{candidacy.age}}">
                                     {% for pledge in pledges[candidacy.age] %}
@@ -160,5 +175,7 @@ window.currentPage = 'person';
         </div>
     </div>
 </div>
-<script src="{{url_for('static', filename="js/person.js")}}"></script>
+{% if not mobile %}
+    <script src="{{url_for('static', filename="js/person.js")}}"></script>
+{% endif %}
 {% endblock %}
