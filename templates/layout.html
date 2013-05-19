@@ -11,6 +11,10 @@
 
         {% include 'includes/includes.html' %}
 
+        <script>
+        window.isMobile = {{ 'true' if mobile else 'false' }};
+        </script>
+
         {% block extra_headers %}{% endblock %}
 
         {% include 'includes/google-analytics.html' %}
