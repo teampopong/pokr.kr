@@ -43,34 +43,29 @@
             <td>{{ bill.decision_date }}</td>
         </tr>
         {% endif %}
-        {% if bill.proposer_representative %}
-        <tr>
-            <th>{{ gettext("representative proposer") }}</th>
-            <td>{{ bill.proposer_representative }}</td>
-        </tr>
-        {% endif %}
-        {% if bill.proposers %}
-        <tr>
-            <th>{{ gettext("proposers") }}</th>
-            <td>{% for proposer in bill.proposers %}{{proposer}}{% endfor %}</td>
-        </tr>
-        {% endif %}
-        {% if bill.committee %}
-        <tr>
-            <th>{{ gettext("committee") }}</th>
-            <td>{{ bill.committee }}</td>
-        </tr>
-        {% endif %}
-        {% if bill.status_detail %}
         <tr>
             <th>{{ gettext("status") }}</th>
-            <td>{{ bill.status_detail }}</td>
+            <td>
+            {% for status in bill.statuses %}
+                {% if status.name == bill.status %}
+                    <strong>{{ status.name }}</strong>
+                {% else %}
+                    {{ status.name }}
+                {% endif %}
+                &nbsp;
+            {% endfor %}
+            </td>
+        </tr>
+        {% if bill.sponsor %}
+        <tr>
+            <th>{{ gettext("sponsor") }}</th>
+            <td>{{ bill.sponsor }}</td>
         </tr>
         {% endif %}
-        {% if bill.attachments %}
+        {% if bill.cosponsors %}
         <tr>
-            <th>{{ gettext("attachments") }}</th>
-            <td><ol>{% for attachment in bill.attachments %}<li><a href="{{attachment}}">{{attachment.rsplit('.', 1)[-1].upper()}}</a></li>{% endfor %}</ol></td>
+            <th>{{ gettext("cosponsors") }}</th>
+            <td>{% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}</td>
         </tr>
         {% endif %}
     </tbody>

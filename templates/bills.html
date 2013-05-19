@@ -17,7 +17,7 @@
 <div class="itemlist">
 {% call(bill) macro.list(bills) %}
     <a href="{{ url_for('bill', id=bill.id) }}">
-        {{ bill.proposed_date }}
+        [{{ bill.proposed_date }}]
         {{ bill.name }}
     </a>
 {% endcall %}

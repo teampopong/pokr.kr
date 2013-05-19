@@ -46,6 +46,7 @@ window.currentPage = 'person';
     <ul id="person-section-tabs" class="nav">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
         <li><a href="#elections">{{gettext("elections")}}</a></li>
+        <li><a href="#bills">{{gettext("bills")}}</a></li>
     </ul>
 {% endif %}
 {% endblock %}
@@ -176,6 +177,14 @@ window.currentPage = 'person';
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
+        <div class="section" id="bills">
+            <h3>{{ gettext('Bills') }}</h3>
+            <ul>
+                {% for bill in person.bills %}
+                <li><a href="{{ url_for('bill', id=bill.id) }}">[{{ bill.proposed_date }}] {{ bill.name }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </div>

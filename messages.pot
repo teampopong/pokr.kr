@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-17 16:36+0900\n"
+"POT-Creation-Date: 2013-05-20 02:07+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,27 +29,19 @@ msgstr ""
 msgid "decision date"
 msgstr ""
 
-#: templates/bill.html:48
-msgid "representative proposer"
-msgstr ""
-
-#: templates/bill.html:54
-msgid "proposers"
-msgstr ""
-
-#: templates/bill.html:60
-msgid "committee"
-msgstr ""
-
-#: templates/bill.html:66
+#: templates/bill.html:47
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:72
-msgid "attachments"
+#: templates/bill.html:59
+msgid "sponsor"
 msgstr ""
 
-#: templates/bills.html:9 templates/bills.html:13
+#: templates/bill.html:65
+msgid "cosponsors"
+msgstr ""
+
+#: templates/bills.html:9 templates/bills.html:13 templates/person.html:49
 msgid "bills"
 msgstr ""
 
@@ -61,11 +53,11 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
-#: templates/macros.html:30
+#: templates/macros.html:32
 msgid "prev"
 msgstr ""
 
-#: templates/macros.html:33
+#: templates/macros.html:35
 msgid "next"
 msgstr ""
 
@@ -94,70 +86,74 @@ msgstr ""
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:31
+#: templates/person.html:43
 msgid "add to cart"
 msgstr ""
 
-#: templates/person.html:35 templates/person.html:44
+#: templates/person.html:47 templates/person.html:58
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:36 templates/person.html:115
+#: templates/person.html:48 templates/person.html:129
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:49
+#: templates/person.html:63
 msgid "birthday"
 msgstr ""
 
-#: templates/person.html:55 views/party.py:29
+#: templates/person.html:69 views/party.py:16
 msgid "party"
 msgstr ""
 
-#: templates/person.html:61
+#: templates/person.html:75
 msgid "education"
 msgstr ""
 
-#: templates/person.html:63 templates/person.html:75
+#: templates/person.html:77 templates/person.html:89
 msgid "original"
 msgstr ""
 
-#: templates/person.html:73
+#: templates/person.html:87
 msgid "address"
 msgstr ""
 
-#: templates/person.html:84
+#: templates/person.html:98
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:103
+#: templates/person.html:117
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:103
+#: templates/person.html:117
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
-#: templates/person.html:121
+#: templates/person.html:137
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:122
+#: templates/person.html:138
 msgid "competitors"
 msgstr ""
 
-#: templates/person.html:129
+#: templates/person.html:145
 #, python-format
 msgid "%(age)dth"
 msgstr ""
 
-#: templates/person.html:129
+#: templates/person.html:145
 msgid "National Assembly Election"
 msgstr ""
 
-#: templates/person.html:133
+#: templates/person.html:150
 msgid "Pledges"
+msgstr ""
+
+#: templates/person.html:182
+msgid "Bills"
 msgstr ""
 
 #: templates/region.html:20
@@ -239,27 +235,27 @@ msgstr ""
 msgid "Sorted by frecency"
 msgstr ""
 
-#: utils/jinja.py:12
+#: views/__init__.py:4
 msgid "home"
 msgstr ""
 
-#: views/bill.py:22
+#: views/bill.py:16
 msgid "bill"
 msgstr ""
 
-#: views/person.py:36
+#: views/person.py:22
 msgid "person"
 msgstr ""
 
-#: views/region.py:21
+#: views/region.py:15
 msgid "region"
 msgstr ""
 
-#: views/school.py:24
+#: views/school.py:17
 msgid "school"
 msgstr ""
 
-#: widgets/relation.py:23
+#: widgets/relation.py:24
 msgid "in the same constituency"
 msgstr ""
 

@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 def init_app(app):
+    gettext('home') # for babel extraction
     app.views = getattr(app, 'views', dict(home='main'))
     from views.bill import register; register(app)
     from views.main import register; register(app)

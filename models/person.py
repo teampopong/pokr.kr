@@ -55,6 +55,7 @@ class Person(Base):
             backref='person')
     bills = relationship('Bill',
             secondary=cosponsorship,
+            order_by='desc(Bill.proposed_date)',
             backref='cosponsors')
 
     def __init__(self, name, **kwargs):
