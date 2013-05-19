@@ -21,6 +21,7 @@ class Bill(Base):
     is_processed = Column(Boolean, index=True)
     link_id = Column(String(40), index=True)
 
+    sponsor = Column(Unicode(40), index=True)
     status_id = Column(Integer, nullable=False)
     status_ids = Column(ARRAY(Integer))
     reviews = relationship('BillReview', backref='bill')
