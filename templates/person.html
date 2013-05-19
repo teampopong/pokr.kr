@@ -141,7 +141,8 @@ window.currentPage = 'person';
                     {% for candidacy in person.candidacies %}
                     <tr id="assembly-election-{{candidacy.age}}">
                         <th>
-                            <a class="header-name" href="#assembly-election-{{candidacy.age}}">{{ gettext('%(age)dth', age=candidacy.age) }} {{ gettext('National Assembly Election') }}</a>
+                            <strong class="header-name">{{ gettext('%(age)dth', age=candidacy.age) }} {{ gettext('National Assembly Election') }}</strong>
+                            <a class="muted" href="#assembly-election-{{candidacy.age}}"><small>#</small></a>
                             <div class="pledges">
                             {% set pledges = person.pledges %}
                             {% if pledges and pledges[candidacy.age] %}
