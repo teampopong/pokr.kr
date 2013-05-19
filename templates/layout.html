@@ -9,11 +9,11 @@
         <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
         {% endfor %}
 
-        {% include 'includes/includes.html' %}
-
         <script>
         window.isMobile = {{ 'true' if mobile else 'false' }};
         </script>
+
+        {% include 'includes/includes.html' %}
 
         {% block extra_headers %}{% endblock %}
 
