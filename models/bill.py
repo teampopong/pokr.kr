@@ -9,7 +9,7 @@ class Bill(Base):
     __tablename__ = 'bill'
 
     id = Column(String(20), primary_key=True)
-    name = Column(Unicode(150), nullable=False)
+    name = Column(Unicode(150), index=True, nullable=False)
 
     age = Column(Integer, index=True, nullable=False)
     proposed_date = Column(Date, index=True)

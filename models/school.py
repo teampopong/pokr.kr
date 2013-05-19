@@ -7,7 +7,7 @@ class School(Base):
     __tablename__ = 'school'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    name = Column(Unicode(40))
+    name = Column(Unicode(40), index=True)
 
     @property
     def alumni(self):

@@ -8,7 +8,7 @@ class Region(Base):
     __tablename__ = 'region'
 
     id = Column(String(16), primary_key=True)
-    name = Column(Unicode(20), nullable=False)
+    name = Column(Unicode(20), index=True, nullable=False)
     name_cn = Column(Unicode(20))
     name_en = Column(String(80))
 
