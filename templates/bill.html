@@ -47,7 +47,7 @@
             <th>{{ gettext("status") }}</th>
             <td>
             {% for status in bill.statuses %}
-                {% if status.name == bill.status %}
+                {% if status.id == bill.status_id %}
                     <strong>{{ status.name }}</strong>
                 {% else %}
                     {{ status.name }}

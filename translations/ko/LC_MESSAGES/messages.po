@@ -35,11 +35,11 @@ msgstr "상태"
 
 #: templates/bill.html:59
 msgid "sponsor"
-msgstr ""
+msgstr "대표발의자"
 
 #: templates/bill.html:65
 msgid "cosponsors"
-msgstr "제안자"
+msgstr "발의자"
 
 #: templates/bills.html:9 templates/bills.html:13 templates/person.html:49
 msgid "bills"

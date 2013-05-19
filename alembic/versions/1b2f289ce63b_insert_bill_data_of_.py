@@ -96,7 +96,7 @@ def upgrade():
         while isinstance(sponsor, list):
             sponsor = sponsor[0]
         status_ids = [bill_status_id(status) for status in bill_raw['statuses']]
-        status_id = bill_status_id(bill_raw['status'])
+        status_id = bill_status_id(bill_raw['status_detail'])
 
         op.execute(bill_t.insert().values({
             'id': bill_id,
