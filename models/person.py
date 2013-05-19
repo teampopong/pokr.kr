@@ -52,9 +52,6 @@ class Person(Base):
     candidacies = relationship('Candidacy',
             order_by='desc(Candidacy.age)',
             backref='person')
-    experiences = relationship('Experience',
-            order_by='Experience.end_date',
-            backref=backref('person'))
 
     def __init__(self, name, **kwargs):
         self.name = name
