@@ -1,5 +1,8 @@
 # -*- encoding: utf-8 -*-
 
+from flask.ext.babel import gettext
+
+
 def init_app(app):
     gettext('home') # for babel extraction
     app.views = getattr(app, 'views', dict(home='main'))
