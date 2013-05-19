@@ -4,8 +4,9 @@
 from flask import redirect, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql import exists
 
+from models.person import Person
 from models.school import School
 from utils.jinja import breadcrumb
 
@@ -18,7 +19,11 @@ def register(app): # 루트
     @app.route('/school/', methods=['GET'])
     @breadcrumb(app)
     def school_main():
-        schools = School.query.order_by(desc(School.id))
+        schools = School.query\
+                .order_by(School.name)\
+                .join(School.alumni)\
+                .group_by(School.id)\
+                .having(exists([Person.id]))
         return render_template('schools.html', schools=schools)
 
     # 학교로 검색
