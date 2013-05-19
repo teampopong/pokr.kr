@@ -14,12 +14,19 @@
             {% endif %}
         </small>
     </h2>
+    {% if person.u_candidacy and person.u_candidacy.is_elected %}
+    <img class="logo-elected" src="{{ url_for('static', filename='images/assembly_logo.gif') }}">
+    {% endif %}
 </div>
+
 {% else %}
 <div class="card{% if small %} card-small{% endif %}">
     <a class="person-link" href="{{url_for('person', id=person.id)}}">
         <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
         <div class="person-name">{{person.name|translit(type='name')}}</div>
     </a>
+    {% if person.u_candidacy and person.u_candidacy.is_elected %}
+    <img class="logo-elected" src="{{ url_for('static', filename='images/assembly_logo.gif') }}">
+    {% endif %}
 </div>
 {% endif %}

@@ -163,9 +163,12 @@ window.currentPage = 'person';
                         </th>
                         <td>
                         {% if candidacy.district_id %}
-                        {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
-                            {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
-                        {% endfor %}
+                            {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
+                                {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                            {% endfor %}
+                            {% if candidacy.is_elected %}
+                                <img class="logo-elected" src="{{ url_for('static', filename='images/assembly_logo.gif') }}">
+                            {% endif %}
                         {% endif %}
                         </td>
                         <td>{{widgets.rivals(person, age=candidacy.age)|safe}}</td>

@@ -1,12 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 from __future__ import unicode_literals
+from itertools import izip
 
 from flask import render_template
 from flask.ext.babel import gettext
 from sqlalchemy import Text
 from sqlalchemy.dialects.postgresql import ARRAY
-from sqlalchemy.sql.expression import and_, cast
+from sqlalchemy.sql.expression import and_, cast, desc
 
 from models.candidacy import Candidacy
 from models.election import Election
@@ -45,7 +46,10 @@ def _rivals(person, age):
     candidacies = Candidacy.query.filter_by(election_id=my_candidacy.election_id)\
                                  .filter(and_(cast(Candidacy.district, ARRAY(Text))\
                                                   == my_candidacy.district,
-                                              Candidacy.person_id != person.id))
+                                              Candidacy.person_id != person.id))\
+                                 .order_by(desc(Candidacy.vote_score)).all()
 
     rivals = [candidacy.person for candidacy in candidacies]
+    for rival, candidacy in izip(rivals, candidacies):
+        rival.u_candidacy = candidacy
     return rivals
