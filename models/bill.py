@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, Date, Integer, String, Unicode
+from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
+from sqlalchemy.orm import relationship
+
 from database import Base
+from models.bill_status import BillStatus
 
 
 class Bill(Base):
@@ -15,12 +18,21 @@ class Bill(Base):
     proposed_date = Column(Date, index=True)
     decision_date = Column(Date, index=True)
 
-    proposers = Column(ARRAY(Unicode(100)))
-    proposer_representative = Column(Unicode(100))
-    committee = Column(Unicode(100), index=True)
-    proposer_type = Column(Integer, index=True)
-
-    status = Column(Integer, index=True)
-    status_detail = Column(Unicode(10))
+    is_processed = Column(Boolean, index=True)
     link_id = Column(String(40), index=True)
-    attachments = Column(ARRAY(String(1024)))
+
+    status_id = Column(Integer, nullable=False)
+    status_ids = Column(ARRAY(Integer))
+    reviews = relationship('BillReview', backref='bill')
+
+
+bill_and_status = select([func.unnest(Bill.status_ids).label('bill_status_id'),
+                        Bill.id.label('bill_id')]).alias()
+
+
+Bill.statuses = relationship("BillStatus",
+            secondary=bill_and_status,
+            primaryjoin=Bill.id == bill_and_status.c.bill_id,
+            secondaryjoin=bill_and_status.c.bill_status_id == BillStatus.id,
+            viewonly=True,
+            backref='bills')

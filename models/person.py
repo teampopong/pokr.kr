@@ -12,6 +12,7 @@ from sqlalchemy.orm import backref, relationship
 from database import Base
 from models.candidacy import Candidacy
 from models.party_affiliation import party_affiliation
+from models.cosponsorship import cosponsorship
 from models.pledge import Pledge
 
 class Person(Base):
@@ -52,6 +53,9 @@ class Person(Base):
     candidacies = relationship('Candidacy',
             order_by='desc(Candidacy.age)',
             backref='person')
+    bills = relationship('Bill',
+            secondary=cosponsorship,
+            backref='cosponsors')
 
     def __init__(self, name, **kwargs):
         self.name = name
