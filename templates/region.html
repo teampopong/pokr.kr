@@ -1,17 +1,19 @@
 {% extends "layout.html" %}
 {% import 'macros.html' as macro with context %}
 
+{% set fullname = region.fullname %}
+
 {% block title %}
-{{ super() }} - {{ region.name }}
+{{ super() }} - {{ fullname }}
 {% endblock %}
 
 {% block breadcrumb_current %}
-{{ region.name|translit }}
+{{ fullname|translit }}
 {% endblock %}
 
 {% block card %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
-<h2 class="instance-name">{{ region.name }}</h2>
+<h2 class="instance-name">{{ fullname }}</h2>
 {% endblock %}
 
 {% block content %}
