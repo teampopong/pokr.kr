@@ -180,11 +180,26 @@ window.currentPage = 'person';
         </div>
         <div class="section" id="bills">
             <h3>{{ gettext('Bills') }}</h3>
-            <ul>
-                {% for bill in person.bills %}
-                <li><a href="{{ url_for('bill', id=bill.id) }}">[{{ bill.proposed_date }}] {{ bill.name }}</a></li>
-                {% endfor %}
-            </ul>
+            <table id="person-bills" class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th id="bill_title">{{gettext('title')}}</th>
+                        <th id="proposed_date">{{gettext('proposed date')}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th rowspan="16">19{{ gettext('th assembly') }}</td>
+                    </tr>
+                    {% for bill in person.bills[:15] %}
+                    <tr>
+                        <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+                        <td>{{ bill.proposed_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
