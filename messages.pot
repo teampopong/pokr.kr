@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-20 02:07+0900\n"
+"POT-Creation-Date: 2013-05-20 19:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:36
+#: templates/bill.html:36 templates/person.html:188
 msgid "proposed date"
 msgstr ""
 
@@ -33,11 +33,11 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:59
+#: templates/bill.html:61
 msgid "sponsor"
 msgstr ""
 
-#: templates/bill.html:65
+#: templates/bill.html:67
 msgid "cosponsors"
 msgstr ""
 
@@ -156,11 +156,19 @@ msgstr ""
 msgid "Bills"
 msgstr ""
 
-#: templates/region.html:20
+#: templates/person.html:187
+msgid "title"
+msgstr ""
+
+#: templates/person.html:193
+msgid "th assembly"
+msgstr ""
+
+#: templates/region.html:23
 msgid "Candidates"
 msgstr ""
 
-#: templates/region.html:24
+#: templates/region.html:27
 msgid "Residents"
 msgstr ""
 
@@ -235,7 +243,7 @@ msgstr ""
 msgid "Sorted by frecency"
 msgstr ""
 
-#: views/__init__.py:4
+#: views/__init__.py:7
 msgid "home"
 msgstr ""
 
