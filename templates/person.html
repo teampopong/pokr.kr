@@ -46,7 +46,9 @@ window.currentPage = 'person';
     <ul id="person-section-tabs" class="nav">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
         <li><a href="#elections">{{gettext("elections")}}</a></li>
+        {% if person.bills %}
         <li><a href="#bills">{{gettext("bills")}}</a></li>
+        {% endif %}
     </ul>
 {% endif %}
 {% endblock %}
@@ -178,6 +180,7 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
+        {% if person.bills %}
         <div class="section" id="bills">
             <h3>{{ gettext('Bills') }}</h3>
             <table id="person-bills" class="table table-condensed">
@@ -201,6 +204,7 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
+        {% endif %}
     </div>
 </div>
 {% if not mobile %}
