@@ -12,7 +12,8 @@
 {% endblock %}
 
 {% block card %}
-<h2 class="instance-name" style="margin-top: 0;">{{ fullname }}</h2>
+<img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
+<h2 class="instance-name">{{ fullname }}</h2>
 {% endblock %}
 
 {% block content %}
