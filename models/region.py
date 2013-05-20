@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Unicode
+from sqlalchemy.sql.expression import bindparam
 from database import Base
 
 from models.person import Person
@@ -23,3 +24,20 @@ class Region(Base):
     def residents(self):
         return Person.query\
                      .filter(Person.address_id.any(self.id))
+
+    @property
+    def fullname(self):
+        fullname = ' '.join(region.name for region in self.parents)
+        return fullname
+
+    @property
+    def fullname_en(self):
+        regions = self.parents()
+        fullname = ' '.join(region.name_en for region in self.parents)
+        return fullname
+
+    @property
+    def parents(self):
+        return Region.query\
+                     .filter(bindparam('prefix', self.id).startswith(Region.id))\
+                     .order_by(Region.id)
