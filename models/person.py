@@ -10,6 +10,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
 
 from database import Base
+from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy
 from models.party_affiliation import party_affiliation
 from models.cosponsorship import cosponsorship
@@ -57,6 +58,9 @@ class Person(Base):
             secondary=cosponsorship,
             order_by='desc(Bill.proposed_date)',
             backref='cosponsors')
+    withdrawed_bills = relationship('Bill',
+            secondary=bill_withdrawal,
+            backref='withdrawers')
 
     def __init__(self, name, **kwargs):
         self.name = name
