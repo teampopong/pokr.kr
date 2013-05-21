@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Unicode
+from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import relationship
 
@@ -13,6 +13,7 @@ class Bill(Base):
 
     id = Column(String(20), primary_key=True)
     name = Column(Unicode(150), index=True, nullable=False)
+    summary = Column(Text)
 
     age = Column(Integer, index=True, nullable=False)
     proposed_date = Column(Date, index=True)

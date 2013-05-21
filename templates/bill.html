@@ -9,6 +9,13 @@
 #bill-name {
     margin-bottom: 30px;
 }
+
+#bill-summary {
+    position: relative;
+    background: white;
+    padding: 0;
+    border: 0;
+}
 </style>
 {% endblock %}
 
@@ -66,6 +73,12 @@
         <tr>
             <th>{{ gettext("cosponsors") }}</th>
             <td>{% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}</td>
+        </tr>
+        {% endif %}
+        {% if bill.summary %}
+        <tr>
+            <th>{{ gettext('summary') }}</th>
+            <td><pre id="bill-summary">{{ bill.summary }}</pre></td>
         </tr>
         {% endif %}
     </tbody>
