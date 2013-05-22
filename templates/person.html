@@ -192,14 +192,21 @@ window.currentPage = 'person';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th rowspan="16">19{{ gettext('th assembly') }}</td>
-                    </tr>
-                    {% for bill in person.bills[:15] %}
-                    <tr>
-                        <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
-                        <td>{{ bill.proposed_date }}</td>
-                    </tr>
+                    {% for candidacy in person.candidacies %}
+                        {% if candidacy.is_elected %}
+                            {% set bills = person.bills(candidacy.age).limit(15).all() %}
+                            {% if bills %}
+                                <tr>
+                                    <th rowspan="{{ bills|length + 1 }}">{{ candidacy.age }}{{ gettext('th assembly') }}</th>
+                                </tr>
+                                {% for bill in bills %}
+                                <tr>
+                                    <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+                                    <td>{{ bill.proposed_date }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% endif %}
+                        {% endif %}
                     {% endfor %}
                 </tbody>
             </table>

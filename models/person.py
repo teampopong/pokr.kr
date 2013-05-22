@@ -8,10 +8,13 @@ from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
+from sqlalchemy.sql.expression import desc
 
 from database import Base
+from models.bill import Bill
 from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy
+from models.cosponsorship import cosponsorship
 from models.party_affiliation import party_affiliation
 from models.cosponsorship import cosponsorship
 from models.pledge import Pledge
@@ -54,7 +57,7 @@ class Person(Base):
     candidacies = relationship('Candidacy',
             order_by='desc(Candidacy.age)',
             backref='person')
-    bills = relationship('Bill',
+    bills_ = relationship('Bill',
             secondary=cosponsorship,
             order_by='desc(Bill.proposed_date)',
             backref='cosponsors')
@@ -113,4 +116,16 @@ class Person(Base):
             result[pledge.candidacy.age].append(pledge)
 
         return result
+
+    def bills(self, age=None):
+        query = Bill.query.join(cosponsorship,
+                                Bill.id == cosponsorship.c.bill_id)\
+                          .join(Person,
+                                Person.id == cosponsorship.c.person_id)\
+                          .filter_by(id=self.id)\
+                          .order_by(desc(Bill.proposed_date))
+        if age:
+            query = query.filter(Bill.age == age)
+
+        return query
 
