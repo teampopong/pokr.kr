@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% import 'macros.html' as macro with context %}
 
+{% set has_bills = person.bills().limit(1).all() %}
+
 {% block title %}
 {{person.name|translit(type='name')}}{% if person.cur_party.name %} ({{person.cur_party.name|translit(type='party')}}){% endif %}{% if person.last_elected_no %}, {{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} :: {{super()}} {{gettext('Politician Dictionary')}}
 {% endblock %}
@@ -46,7 +48,7 @@ window.currentPage = 'person';
     <ul id="person-section-tabs" class="nav">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
         <li><a href="#elections">{{gettext("elections")}}</a></li>
-        {% if person.bills %}
+        {% if has_bills %}
         <li><a href="#bills">{{gettext("bills")}}</a></li>
         {% endif %}
     </ul>
@@ -180,7 +182,7 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
-        {% if person.bills %}
+        {% if has_bills %}
         <div class="section" id="bills">
             <h3>{{ gettext('Bills') }}</h3>
             <table id="person-bills" class="table table-condensed">
