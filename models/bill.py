@@ -12,7 +12,7 @@ class Bill(Base):
     __tablename__ = 'bill'
 
     id = Column(String(20), primary_key=True)
-    name = Column(Unicode(150), index=True, nullable=False)
+    name = Column(Unicode(256), index=True, nullable=False)
     summary = Column(Text)
 
     age = Column(Integer, index=True, nullable=False)
@@ -22,7 +22,7 @@ class Bill(Base):
     is_processed = Column(Boolean, index=True)
     link_id = Column(String(40), index=True)
 
-    sponsor = Column(Unicode(40), index=True)
+    sponsor = Column(Unicode(80), index=True)
     status_id = Column(Integer, nullable=False)
     status_ids = Column(ARRAY(Integer))
     reviews = relationship('BillReview', backref='bill')
