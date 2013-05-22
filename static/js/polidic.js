@@ -27,6 +27,12 @@ function onLoad() {
             }
         });
     }
+
+    $('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id], .anchor').each(function () {
+        var $this = $(this),
+            target = $this.data('target-id') || $this.attr('id');
+        $('<a class="permalink" href="#'+target+'"><i class="icon-link"></i></a>').appendTo($this);
+    });
 };
 
 }());

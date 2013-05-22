@@ -59,8 +59,8 @@ window.currentPage = 'person';
 {% block content %}
 <div id="person-view">
     <div id="person-sections">
-        <div class="section" id="profile">
-            <h3>{{ gettext('profile') }}</h3>
+        <div class="section" id="section-profile">
+            <h3 id="profile">{{ gettext('profile') }}</h3>
             <table id="person-profile" class="table table-condensed">
                 <tbody>
                     {% if person.birthday %}
@@ -130,8 +130,8 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
-        <div class="section" id="elections">
-            <h3>{{gettext('elections')}}</h3>
+        <div class="section" id="section-elections">
+            <h3 id="elections">{{gettext('elections')}}</h3>
             {% if not mobile %}
                 <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
             {% endif %}
@@ -146,9 +146,8 @@ window.currentPage = 'person';
                 <tbody>
                     {% for candidacy in person.candidacies %}
                     <tr id="assembly-election-{{candidacy.age}}">
-                        <th>
+                        <th class="anchor" data-target-id="assembly-election-{{candidacy.age}}">
                             <strong class="header-name">{{ gettext('%(age)dth', age=candidacy.age) }} {{ gettext('National Assembly Election') }}</strong>
-                            <a class="muted" href="#assembly-election-{{candidacy.age}}"><small>#</small></a>
                             <div class="pledges">
                             {% set pledges = person.pledges %}
                             {% if pledges and pledges[candidacy.age] %}
@@ -184,8 +183,8 @@ window.currentPage = 'person';
             </table>
         </div>
         {% if has_bills %}
-        <div class="section" id="bills">
-            <h3>{{ gettext('Bills') }}</h3>
+        <div class="section" id="section-bills">
+            <h3 id="bills">{{ gettext('Bills') }}</h3>
             <table id="person-bills" class="table table-condensed">
                 <thead>
                     <tr>
