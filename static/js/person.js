@@ -1,5 +1,7 @@
 (function () {
 
+var $specContainer = $('#spec-container');
+
 if (!isMobile) {
     $('#person-section-tabs a').click(function () {
         var href = $(this).attr('href');
@@ -7,7 +9,7 @@ if (!isMobile) {
         return false;
     });
 
-    $('#spec-container').scrollspy({
+    $specContainer.scrollspy({
             'data-spy': 'scroll',
             'data-target': '#person-section-tabs',
             'offset': 100
@@ -21,8 +23,9 @@ if (!isMobile) {
         selectTab(target);
 
         var $elem = $(target);
-        $('#spec-container').animate({
-            scrollTop: $elem.position().top
+
+        $specContainer.animate({
+            scrollTop: $specContainer.scrollTop() + $elem.position().top
         }, 300);
     }
 
