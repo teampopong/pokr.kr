@@ -2,6 +2,7 @@
 {% import 'macros.html' as macro with context %}
 
 {% set has_bills = person.bills().limit(1).all() %}
+{% set NUM_BILLS_SHOWN = 10 %}
 
 {% block title %}
 {{person.name|translit(type='name')}}{% if person.cur_party.name %} ({{person.cur_party.name|translit(type='party')}}){% endif %}{% if person.last_elected_no %}, {{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} :: {{super()}} {{gettext('Politician Dictionary')}}
@@ -196,17 +197,22 @@ window.currentPage = 'person';
                 <tbody>
                     {% for candidacy in person.candidacies %}
                         {% if candidacy.is_elected %}
-                            {% set bills = person.bills(candidacy.age).limit(15).all() %}
+                            {% set bills = person.bills(candidacy.age).limit(NUM_BILLS_SHOWN + 1).all() %}
                             {% if bills %}
                                 <tr>
                                     <th rowspan="{{ bills|length + 1 }}">{{ candidacy.age }}{{ gettext('th assembly') }}</th>
                                 </tr>
-                                {% for bill in bills %}
+                                {% for bill in bills[:NUM_BILLS_SHOWN] %}
                                 <tr>
                                     <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
                                     <td>{{ bill.proposed_date }}</td>
                                 </tr>
                                 {% endfor %}
+                                {% if bills|length > NUM_BILLS_SHOWN %}
+                                <tr>
+                                    <td colspan="2" class="btn-more"><a href="{{ url_for('search', target='bill', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td>
+                                </tr>
+                                {% endif %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}

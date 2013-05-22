@@ -11,4 +11,5 @@ def init_app(app):
     from views.party import register; register(app)
     from views.person import register; register(app)
     from views.region import register; register(app)
+    from views.search import register; register(app)
     from views.school import register; register(app)
