@@ -1,6 +1,8 @@
 import os.path
 
 from alembic.config import Config as AlembicConfig
+from alembic.migration import MigrationContext
+from alembic.script import ScriptDirectory
 from alembic import command
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -9,8 +11,6 @@ from sqlalchemy.ext.declarative import declarative_base
 import settings
 
 
-alembic_cfg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                'alembic.ini')
 engine = create_engine(settings.sqlalchemy_uri)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
@@ -26,9 +26,20 @@ def init_db(app):
     import models
     Base.metadata.create_all(bind=engine)
 
-    alembic_cfg = AlembicConfig(alembic_cfg_path)
-    command.upgrade(alembic_cfg, 'head')
+    if not is_alembic_head():
+        raise Exception('alembic is not on the head')
 
     @app.teardown_request
     def shutdown_session(exception=None):
         db_session.remove()
+
+
+def is_alembic_head():
+    alembic_cfg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                    'alembic.ini')
+    alembic_cfg = AlembicConfig(alembic_cfg_path)
+    context = MigrationContext.configure(db_session.connection())
+    script = ScriptDirectory.from_config(alembic_cfg)
+    current_revision = context.get_current_revision()
+    head_revision = script.get_current_head()
+    return current_revision == head_revision
