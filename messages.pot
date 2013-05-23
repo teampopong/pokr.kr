@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-23 11:49+0900\n"
+"POT-Creation-Date: 2013-05-23 12:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:69
+#: templates/bill.html:69 templates/person.html:202
 msgid "sponsor"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "legislations"
 msgstr ""
 
-#: templates/person.html:54 templates/person.html:215
+#: templates/person.html:54 templates/person.html:223
 msgid "trends"
 msgstr ""
 
@@ -163,15 +163,23 @@ msgstr ""
 msgid "title"
 msgstr ""
 
-#: templates/person.html:193
+#: templates/person.html:185
+msgid "role"
+msgstr ""
+
+#: templates/person.html:194
 msgid "th assembly"
 msgstr ""
 
-#: templates/person.html:203
+#: templates/person.html:204
+msgid "cosponsor"
+msgstr ""
+
+#: templates/person.html:211
 msgid "more"
 msgstr ""
 
-#: templates/person.html:217
+#: templates/person.html:225
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""

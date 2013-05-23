@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-23 11:49+0900\n"
+"POT-Creation-Date: 2013-05-23 12:00+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr "의결일자"
 msgid "status"
 msgstr "상태"
 
-#: templates/bill.html:69
+#: templates/bill.html:69 templates/person.html:202
 msgid "sponsor"
 msgstr "대표발의자"
 
@@ -110,7 +110,7 @@ msgstr "선거활동"
 msgid "legislations"
 msgstr "입법활동"
 
-#: templates/person.html:54 templates/person.html:215
+#: templates/person.html:54 templates/person.html:223
 msgid "trends"
 msgstr "검색추이"
 
@@ -163,15 +163,23 @@ msgstr "공약"
 msgid "title"
 msgstr "제목"
 
-#: templates/person.html:193
+#: templates/person.html:185
+msgid "role"
+msgstr "역할"
+
+#: templates/person.html:194
 msgid "th assembly"
 msgstr "대 국회"
 
-#: templates/person.html:203
+#: templates/person.html:204
+msgid "cosponsor"
+msgstr "발의자"
+
+#: templates/person.html:211
 msgid "more"
 msgstr "더보기"
 
-#: templates/person.html:217
+#: templates/person.html:225
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
@@ -292,7 +300,4 @@ msgstr "%(age)d대 당선"
 #, python-format
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
-
-#~ msgid "Bills"
-#~ msgstr "의안"
 

@@ -181,7 +181,8 @@ window.currentPage = 'person';
                     <tr>
                         <th></th>
                         <th id="bill_title">{{gettext('title')}}</th>
-                        <th id="proposed_date">{{gettext('proposed date')}}</th>
+                        <th id="bill_proposed_date">{{gettext('proposed date')}}</th>
+                        <th id="bill_role">{{gettext('role')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -196,6 +197,13 @@ window.currentPage = 'person';
                                 <tr>
                                     <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
                                     <td>{{ bill.proposed_date }}</td>
+                                    <td>
+                                        {% if bill.sponsor==person.name %}
+                                        {{ gettext("sponsor") }}
+                                        {% else %}
+                                        {{ gettext("cosponsor") }}
+                                        {% endif %}
+                                    </td>
                                 </tr>
                                 {% endfor %}
                                 {% if bills|length > NUM_BILLS_SHOWN %}
