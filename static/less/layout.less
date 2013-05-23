@@ -34,6 +34,7 @@ th.no-min-width {
 }
 
 ///// user-defined stylesheets /////
+// layout
 body {
     position: fixed;
     top: 0;
@@ -49,44 +50,34 @@ body {
     bottom: 40px;
     left: 20px;
     right: 20px;
-}
 
-#leftnav,
-#rightnav,
-#content {
-    .border-box;
-}
+    #leftnav,
+    #content,
+    #rightnav {
+        .border-box;
+        background: white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        padding: 10px;
+    }
 
-#leftnav {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 180px;
-    padding: 10px;
-    background: white;
-    border: 1px solid #999;
-}
+    #leftnav {
+        left: 0;
+        width: 180px;
+        border: 1px solid #999;
+    }
 
-#content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 190px;
-    right: 190px;
-    padding: 10px;
-    border: 1px solid #999;
-    background: white;
-}
+    #content {
+        left: 190px;
+        right: 190px;
+        border: 1px solid #999;
+    }
 
-#rightnav {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 180px;
-    padding: 10px;
-    background: white;
+    #rightnav {
+        right: 0;
+        width: 180px;
+    }
 }
 
 #footer {
@@ -101,81 +92,13 @@ body {
     }
 }
 
-#search-view {
-    ul {
-        list-style: none;
-        margin-left: 0;
-    }
-    li {
-        .inline-block;
-    }
-}
-
-#search-options {
-    position: absolute;
-    top: 115px;
-    left: 0;
-    right: 0;
-    padding: 0 10px;
-
-    .accordion-toggle {
-        color: #333;
-        font-weight: bold;
-        padding: 3px 0 3px 3px;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    .accordion-inner {
-        padding: 0 0 0 3px;
-    }
-}
-
-#applied-options {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 5px;
-}
-
 a#barometer_tab {
     top: 60%;
 }
 
-#search-party {
-    position: relative;
-    width: 100%;
-    .border-box;
-    border: 1px solid #999;
 
-    ul {
-        display: block;
-        height: 150px;
-        margin: 0;
-        list-style: none;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
 
-	.select-party {
-		position: relative;
-		line-height: 22px;
-	}
-
-	.party-size {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		color: #999;
-		font-size: 9pt;
-		text-align: right;
-	}
-}
-
+// content
 #card-container {
     position: absolute;
     top: 28px;
@@ -185,19 +108,19 @@ a#barometer_tab {
     .border-box;
     padding: 20px 10px 10px;
 
-	.instance-img {
-		width: 150px;
-		height: 100px;
-		display: block;
-		margin: 0 auto;
-	}
+    .instance-img {
+        width: 150px;
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+    }
 
         .class-name,
-	.instance-name {
-		font-size: 15pt;
-		line-height: 30px;
-		text-align: center;
-	}
+    .instance-name {
+        font-size: 15pt;
+        line-height: 30px;
+        text-align: center;
+    }
 
     .instance-name {
         margin-top: -90px;
@@ -218,6 +141,7 @@ a#barometer_tab {
     overflow-y: auto;
 }
 
+// rightnav
 #cards-cart-container {
     position: absolute;
     top: 0;
@@ -234,33 +158,34 @@ a#barometer_tab {
         line-height: 1em;
     }
 
-	.btn-clear-cart {
-		position: absolute;
-		bottom: 10px;
-		right: 5px;
-	}
+    .btn-clear-cart {
+        position: absolute;
+        bottom: 10px;
+        right: 5px;
+    }
 }
 
+// others
 a.btn-show {
-	text-decoration: none;
+    text-decoration: none;
 
-	.text-show {
-		display: inline;
-	}
+    .text-show {
+        display: inline;
+    }
 
-	.text-hide {
-		display: none;
-	}
+    .text-hide {
+        display: none;
+    }
 
-	&.active {
-		.text-show {
-			display: none;
-		}
+    &.active {
+        .text-show {
+            display: none;
+        }
 
-		.text-hide {
-			display: inline;
-		}
-	}
+        .text-hide {
+            display: inline;
+        }
+    }
 }
 
 .pagenav {
