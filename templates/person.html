@@ -198,7 +198,7 @@ window.currentPage = 'person';
                                     <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
                                     <td>{{ bill.proposed_date }}</td>
                                     <td>
-                                        {% if bill.sponsor==person.name %}
+                                        {% if bill.sponsor.startswith(person.name) %}
                                         {{ gettext("sponsor") }}
                                         {% else %}
                                         {{ gettext("cosponsor") }}
