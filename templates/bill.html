@@ -25,8 +25,8 @@
 
 {% block card %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
-<div class="original-link"><a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('original link') }}</a></div>
 <h2 class="instance-name">#{{ bill.id }}</h2>
+<div class="original-link"><a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('original link') }}</a></div>
 {% endblock %}
 
 {% block content %}
