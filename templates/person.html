@@ -208,7 +208,7 @@ window.currentPage = 'person';
                                 {% endfor %}
                                 {% if bills|length > NUM_BILLS_SHOWN %}
                                 <tr>
-                                    <td colspan="2" class="btn-more"><a href="{{ url_for('search', target='bill', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td>
+                                    <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='bill', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td>
                                 </tr>
                                 {% endif %}
                             {% endif %}
