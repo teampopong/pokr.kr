@@ -42,6 +42,12 @@ def run():
     app.run(**SERVER_SETTINGS)
 
 
+@manager.command
+def insert_bills(files):
+    from scripts.insert_bills import insert_bills as f
+    f(files)
+
+
 # standalone mode
 if __name__ == '__main__':
     manager.run()

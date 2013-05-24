@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 import os.path
 
 from alembic.config import Config as AlembicConfig
@@ -32,6 +33,18 @@ def init_db(app):
     @app.teardown_request
     def shutdown_session(exception=None):
         db_session.remove()
+
+
+@contextmanager
+def transaction(**kwargs):
+    Session = sessionmaker(bind=engine, **kwargs)
+    session = Session()
+    try:
+        yield session
+        session.commit()
+    except:
+        session.rollback()
+        raise
 
 
 def is_alembic_head():
