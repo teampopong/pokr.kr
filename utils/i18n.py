@@ -69,7 +69,7 @@ def host(locale=None):
 
 @babel_context
 def localeselector():
-    locale, _ = request.host.split('.', 1)
+    locale = request.host.split('.', 1)[0]
     if not is_valid_locale(locale):
         locale = cur_app.babel.default_locale
     return locale
