@@ -6,6 +6,7 @@ import re
 
 from database import db_session
 from models.party import Party
+from utils.jinja import breadcrumb
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 party_list = db_session.query(Party.name, Party.size).order_by(Party.order).filter(Party.name != u'무소속')
@@ -17,6 +18,7 @@ def register(app):
         return dict(party_list=party_list)
 
     @app.route('/')
+    @breadcrumb(app)
     def main():
         return render_template('main.html')
 
