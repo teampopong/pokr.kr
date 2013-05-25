@@ -4,17 +4,22 @@
 {{ super() }}
 {% endblock %}
 
+{% block extra_headers %}
+{% assets filters='less', output='build/main.%(version)s.css',
+    depends=['**/*.less'], 'less/main.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+
 {% block content %}
 {% if mobile %}
 <h1><a href="{{ url_for('main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
-<div class="itemlist">
-    <ul>
-        {% for name, endpoint in app.views.items() if name != 'home' %}
-        <li><a href="{{ url_for(endpoint) }}">{{ gettext(name) }}</a></li>
-        {% endfor %}
-    </ul>
-</div>
-{% else %}
-    <p>Welcome.</p>
 {% endif %}
+<div id="class-list">
+    <a href="{{ url_for('bill_main') }}"><div id="class-bill" class="class-item">{{ gettext('bills') }}</div></a>
+    <a href="{{ url_for('party_main') }}"><div id="class-party" class="class-item">{{ gettext('parties') }}</div></a>
+    <a href="{{ url_for('person_main') }}"><div id="class-person" class="class-item">{{ gettext('people') }}</div></a>
+    <a href="{{ url_for('region_main') }}"><div id="class-region" class="class-item">{{ gettext('regions') }}</div></a>
+    <a href="{{ url_for('school_main') }}"><div id="class-school" class="class-item">{{ gettext('schools') }}</div></a>
+</div>
 {% endblock %}
