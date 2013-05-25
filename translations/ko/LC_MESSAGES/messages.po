@@ -249,7 +249,7 @@ msgstr "의안"
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
-msgstr "질문이나 오류, 건의사항이 있는 경우 상단의 'Feedback' 버튼을 클릭해주세요."
+msgstr "질문이나 오류, 건의사항이 있는 경우 좌측의 'Feedback' 버튼을 클릭해주세요."
 
 #: templates/includes/footer.html:4
 msgid "code"
