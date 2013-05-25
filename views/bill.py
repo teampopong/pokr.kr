@@ -18,8 +18,11 @@ def register(app):
     @app.route('/bill/', methods=['GET'])
     @breadcrumb(app)
     def bill_main():
-        bills = Bill.query.order_by(desc(Bill.id))
-        return render_template('bills.html', bills=bills)
+        # FIXME: 19
+        assembly_id = int(request.args.get('assembly_id', 19))
+        bills = Bill.query.filter(Bill.age==assembly_id).order_by(desc(Bill.id))
+        return render_template('bills.html',\
+                assembly_id=assembly_id, bills=bills)
 
     @app.route('/bill/<id>', methods=['GET'])
     @breadcrumb(app, 'bill')

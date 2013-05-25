@@ -9,6 +9,13 @@
 {{ gettext('bills') }}
 {% endblock %}
 
+{% block extra_headers %}
+{% assets filters='less', output='build/search.%(version)s.css',
+    depends=['**/*.mobile.less'], 'less/search.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+
 {% block card %}
 <div id="class-bills" class="class-card">
     <h2 class="class-name">{{ gettext('bills') }}</h2>
@@ -16,12 +23,18 @@
 {% endblock %}
 
 {% block content %}
+<div id="search-tabs">
+    <ul class="nav nav-tiles">
+         <!-- FIXME: range -->
+         {% for assembly_id_ in range(1, 20) %}
+         <li {% if assembly_id_ == assembly_id %}class="active"{% endif %}><a href="{{ url_for('bill_main', assembly_id=assembly_id_) }}">{{ assembly_id_ }}{{ gettext('th') }}</a></li>
+         {% endfor %}
+     </ul>
+</div>
 <div class="itemlist">
-{% call(bill) macro.list(bills) %}
-    <a href="{{ url_for('bill', id=bill.id) }}">
-        [{{ bill.proposed_date }}]
-        {{ bill.name }}
-    </a>
-{% endcall %}
+    {% call(bill) macro.list(bills, layout='table') %}
+        <td>{{ bill.proposed_date }}</td>
+        <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+    {% endcall %}
 </div>
 {% endblock %}
