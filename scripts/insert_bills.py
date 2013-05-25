@@ -74,7 +74,6 @@ def insert_bills(files):
 
 
 def insert_bill(session, record):
-    # replace it w/ session.query
     if session.query(Bill).filter_by(id=record['bill_id']).first():
         return
 
@@ -92,8 +91,9 @@ def extract_bill(record):
     assembly_id = record['assembly_id']
     bill_id = record['bill_id']
     name = record['title']
-    proposed_date = record['proposed_date']
-    decision_date = record['decision_date']
+
+    proposed_date = parse_date(record['proposed_date'])
+    decision_date = parse_date(record['decision_date'])
     is_processed = record['status'] == '처리'
     link_id = record['link_id']
     sponsor = record['status_dict']['접수']['의안접수정보'][0]['제안자']
@@ -123,22 +123,23 @@ def extract_bill(record):
 def insert_cosponsorships(session, bill, cosponsors_raw):
     cosponsorships = []
     for proposer in cosponsors_raw:
-        if proposer not in person_ids:
+        key = (proposer, bill.age)
+        if key not in person_ids:
             try:
-                person = guess_person(session, proposer, assembly_id)
+                person = guess_person(session, proposer, bill.age)
 
             except Exception, e:
                 person = None
-                print proposer, e
+                print proposer.encode('utf-8'), e
 
-            person_ids[proposer] = person.id if person else None
+            person_ids[key] = person.id if person else None
 
-        person_id = person_ids[proposer]
+        person_id = person_ids[key]
 
         if person_id:
             cosponsorships.append({
                 'person_id': person_id,
-                'bill_id': bill_id,
+                'bill_id': bill.id,
             })
 
     if cosponsorships:
@@ -203,3 +204,11 @@ def guess_person(session, name, assembly_id):
                                      Candidacy.is_elected == True))\
                         .one()
     return person
+
+
+def parse_date(date_):
+    try:
+        date_ = datetime.strptime(date_, '%Y-%m-%d').date()
+    except:
+        date_ = None
+    return date_
