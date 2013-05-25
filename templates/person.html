@@ -163,7 +163,7 @@ window.currentPage = 'person';
                                 {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
                             {% endfor %}
                             {% if candidacy.is_elected %}
-                                <img class="logo-elected" src="{{ url_for('static', filename='images/assembly_logo.gif') }}">
+                            <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
                             {% endif %}
                         {% endif %}
                         </td>

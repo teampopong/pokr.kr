@@ -15,7 +15,9 @@
         </small>
     </h2>
     {% if person.u_candidacy and person.u_candidacy.is_elected %}
-    <img class="logo-elected" src="{{ url_for('static', filename='images/assembly_logo.gif') }}">
+    <div class="badges"
+        <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
+    </div>
     {% endif %}
 </div>
 
@@ -26,7 +28,9 @@
         <div class="person-name">{{person.name|translit(type='name')}}</div>
     </a>
     {% if person.u_candidacy and person.u_candidacy.is_elected %}
-    <img class="logo-elected" src="{{ url_for('static', filename='images/assembly_logo.gif') }}">
+    <div class="badges">
+        <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
+    </div>
     {% endif %}
 </div>
 {% endif %}
