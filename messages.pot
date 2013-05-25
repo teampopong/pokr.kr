@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-23 12:00+0900\n"
+"POT-Creation-Date: 2013-05-25 17:46+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:28
+#: templates/bill.html:29
 msgid "original link"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "summary"
 msgstr ""
 
-#: templates/bills.html:9 templates/bills.html:13
+#: templates/bills.html:9 templates/bills.html:14 templates/main.html:19
 msgid "bills"
 msgstr ""
 
@@ -69,6 +69,22 @@ msgstr ""
 msgid "next"
 msgstr ""
 
+#: templates/main.html:20 templates/parties.html:10 templates/parties.html:15
+msgid "parties"
+msgstr ""
+
+#: templates/main.html:21 templates/people.html:9 templates/people.html:21
+msgid "people"
+msgstr ""
+
+#: templates/main.html:22 templates/regions.html:9 templates/regions.html:14
+msgid "regions"
+msgstr ""
+
+#: templates/main.html:23 templates/schools.html:9 templates/schools.html:14
+msgid "schools"
+msgstr ""
+
 #: templates/mobile.html:9
 msgid "Sorry, mobile browsers are not supported. Please use a desktop browser."
 msgstr ""
@@ -77,12 +93,8 @@ msgstr ""
 msgid "Result not found"
 msgstr ""
 
-#: templates/parties.html:9 templates/parties.html:13
-msgid "parties"
-msgstr ""
-
-#: templates/people.html:9 templates/people.html:13
-msgid "people"
+#: templates/people.html:30 templates/people.html:32
+msgid "th"
 msgstr ""
 
 #: templates/person.html:8
@@ -110,7 +122,7 @@ msgstr ""
 msgid "legislations"
 msgstr ""
 
-#: templates/person.html:54 templates/person.html:223
+#: templates/person.html:55 templates/person.html:223
 msgid "trends"
 msgstr ""
 
@@ -190,14 +202,6 @@ msgstr ""
 
 #: templates/region.html:27
 msgid "Residents"
-msgstr ""
-
-#: templates/regions.html:9 templates/regions.html:13
-msgid "regions"
-msgstr ""
-
-#: templates/schools.html:9 templates/schools.html:13
-msgid "schools"
 msgstr ""
 
 #: templates/search-results.html:5

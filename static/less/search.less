@@ -1,5 +1,37 @@
 @import "includes.less";
 
+@active_tile_bgr_color: #0088cc;
+@active_tile_text_color: white;
+
+.nav-tiles {
+    li {
+        display: inline-block;
+        vertical-align: middle;
+        width: 50px;
+        text-align: center;
+        margin-right: -6px;
+        margin-bottom: -2px;
+        a {
+            line-height: 30px;
+            border: 2px solid #EEE;
+            transition: .5s linear;
+            &:hover {
+                transition: 0;
+            }
+        }
+    }
+    li.active {
+        background: @active_tile_bgr_color;
+        a {
+            border-color: @active_tile_bgr_color;
+            color: @active_tile_text_color;
+            &:hover {
+                background: @active_tile_bgr_color;
+            }
+        }
+    }
+}
+
 #search-view {
     ul {
         list-style: none;
