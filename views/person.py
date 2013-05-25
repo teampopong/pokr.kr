@@ -30,14 +30,16 @@ def register(app):
     def person_main():
         # FIXME: 19
         assembly_id = int(request.args.get('assembly_id', 19))
-        people = Person.query.order_by(desc(Person.id))
+        candidates = Person.query.order_by(desc(Person.id))\
+                             .join(Candidacy)\
+                             .filter(Candidacy.age == assembly_id)
 
-        if assembly_id:
-            people = people.join(Candidacy)\
-                           .filter(Candidacy.age == assembly_id)
+        officials = candidates.filter(Candidacy.is_elected == True)
 
-        return render_template('people.html', people=people,
-                               assembly_id=assembly_id)
+        return render_template('people.html',
+                                officials=officials,
+                                candidates=candidates,
+                                assembly_id=assembly_id)
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():

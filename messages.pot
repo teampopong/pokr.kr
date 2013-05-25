@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-25 17:46+0900\n"
+"POT-Creation-Date: 2013-05-25 18:39+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
-#: templates/macros.html:32
+#: templates/macros.html:33
 msgid "prev"
 msgstr ""
 
-#: templates/macros.html:35
+#: templates/macros.html:36
 msgid "next"
 msgstr ""
 
@@ -93,8 +93,16 @@ msgstr ""
 msgid "Result not found"
 msgstr ""
 
-#: templates/people.html:30 templates/people.html:32
+#: templates/people.html:30
 msgid "th"
+msgstr ""
+
+#: templates/people.html:37
+msgid "officials"
+msgstr ""
+
+#: templates/people.html:45
+msgid "candidates"
 msgstr ""
 
 #: templates/person.html:8
@@ -275,7 +283,7 @@ msgstr ""
 msgid "bill"
 msgstr ""
 
-#: views/person.py:22
+#: views/person.py:23
 msgid "person"
 msgstr ""
 

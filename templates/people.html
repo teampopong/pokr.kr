@@ -32,8 +32,24 @@
      </ul>
 </div>
 <div id="search-view">
-{% call(person) macro.list(people, pagesize=40) %}
-{{widgets.card(person)|safe}}
-{% endcall %}
+    <table class="table table-condensed">
+        <tr>
+            <th>{{ gettext('officials') }} </th>
+            <td>
+                {% call(person) macro.list(officials, show_btn=False) %}
+                {{widgets.card(person)|safe}}
+                {% endcall %}
+            </td>
+        </tr>
+        <tr>
+            <th>{{ gettext('candidates') }} </th>
+            <td>
+                {% call(person) macro.list(candidates) %}
+                {{widgets.card(person)|safe}}
+                {% endcall %}
+            </td>
+        </tr>
+
+    </table>
 </div>
 {% endblock %}

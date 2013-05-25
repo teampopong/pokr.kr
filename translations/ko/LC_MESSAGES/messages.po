@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-25 17:46+0900\n"
+"POT-Creation-Date: 2013-05-25 18:39+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr "보이기"
 msgid "hide"
 msgstr "숨기기"
 
-#: templates/macros.html:32
+#: templates/macros.html:33
 msgid "prev"
 msgstr "이전"
 
-#: templates/macros.html:35
+#: templates/macros.html:36
 msgid "next"
 msgstr "다음"
 
@@ -93,9 +93,17 @@ msgstr "죄송합니다, 모바일 브라우저는 현재 지원되지 않습니
 msgid "Result not found"
 msgstr "검색 결과가 없습니다"
 
-#: templates/people.html:30 templates/people.html:32
+#: templates/people.html:30
 msgid "th"
 msgstr "대"
+
+#: templates/people.html:37
+msgid "officials"
+msgstr "당선자"
+
+#: templates/people.html:45
+msgid "candidates"
+msgstr "출마자"
 
 #: templates/person.html:8
 #, python-format
@@ -275,7 +283,7 @@ msgstr "홈"
 msgid "bill"
 msgstr "의안"
 
-#: views/person.py:22
+#: views/person.py:23
 msgid "person"
 msgstr "인물"
 
