@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-26 13:05+0900\n"
+"POT-Creation-Date: 2013-05-26 13:47+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,9 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:30 templates/bill.html:31
-msgid "original link"
-msgstr "원문 보기"
+#: templates/bill.html:30
+msgid "see official page"
+msgstr "국회에서 보기"
 
 #: templates/bill.html:41
 msgid "assembly #"
@@ -313,6 +313,6 @@ msgstr "%(age)d대 당선"
 msgid "lost the %(age)dth election"
 msgstr "%(age)d대 낙선"
 
-#~ msgid "add to cart"
-#~ msgstr "카트에 추가"
+#~ msgid "original link"
+#~ msgstr "원문 보기"
 

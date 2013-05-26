@@ -5,18 +5,10 @@
 {% endblock %}
 
 {% block extra_headers %}
-<style>
-#bill-name {
-    margin-bottom: 30px;
-}
-
-#bill-summary {
-    position: relative;
-    background: white;
-    padding: 0;
-    border: 0;
-}
-</style>
+    {% assets filters='less', output='build/bill.%(version)s.css',
+        depends=['**/*.less'], 'less/bill.less' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+    {% endassets %}
 {% endblock %}
 
 {% block breadcrumb_current %}
@@ -26,7 +18,10 @@
 {% block card %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
 <h2 class="instance-name">#{{ bill.id }}</h2>
-<div class="original-link"><a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('original link') }}</a></div>
+<div class="original-link">
+    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
+    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}"><i class="icon-external-link"></i></a>
+</div>
 {% endblock %}
 
 {% block content %}
