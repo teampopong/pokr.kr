@@ -1,5 +1,7 @@
 @import "includes.less";
 
+@star_color: #FFAE00;
+
 .card {
     // common
     position: relative;
@@ -81,7 +83,7 @@
 .card.card-large {
     display: block;
     width: 90px;
-    margin: 7px auto;
+    margin: 20px auto;
 
     .person-img {
         width: 90px;
@@ -97,3 +99,21 @@
 
 }
 
+#to-favorites {
+    position: absolute;
+    top: 0;
+    right: 0;
+    i {
+        color: @star_color;
+    }
+
+    .btn-save-card {
+        font-weight: bold;
+        padding: 3px;
+        .border-radius;
+        &:hover {
+            text-decoration: none;
+            background: @hover_color;
+        }
+    }
+}

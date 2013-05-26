@@ -41,11 +41,6 @@ window.currentPage = 'person';
 {{widgets.card(person, detailed=True)|safe}}
 
 {% if not mobile %}
-    <div id="to-cart">
-        <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()">
-            {{ gettext('add to cart') }}
-        </a>
-    </div>
     <ul id="person-section-tabs" class="nav">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
         <li><a href="#elections">{{gettext("elections")}}</a></li>

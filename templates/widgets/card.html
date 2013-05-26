@@ -19,6 +19,11 @@
         <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
     </div>
     {% endif %}
+    <div id="to-favorites">
+        <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()">
+            <i class="icon-star"></i>
+        </a>
+    </div>
 </div>
 
 {% else %}
