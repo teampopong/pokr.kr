@@ -2,8 +2,7 @@
 
 var namespace = 'cards-cart',
     items = [],
-    $cart = $('#'+namespace),
-    $currentCard = $('#card-container .card');
+    $cart = $('#'+namespace);
 
 // TODO: Load the template from the server dynamically
 var TMPL_CARD = '\
@@ -59,8 +58,9 @@ CART.clearCart = function () {
     clearCards();
 };
 
-CART.saveCurrentCard = function () {
-    var data = {
+CART.saveCurrentCard = function (this_) {
+    var $currentCard = $(this_).parents('.card'),
+        data = {
             id: $currentCard.data('id'),
             image: $currentCard.find('.person-img').attr('src'),
             name: $currentCard.find('.person-name').text(),
