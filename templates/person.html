@@ -186,7 +186,7 @@ window.currentPage = 'person';
                             {% set bills = person.bills(candidacy.age).limit(NUM_BILLS_SHOWN + 1).all() %}
                             {% if bills %}
                                 <tr>
-                                    <th rowspan="{{ bills|length + 1 }}">{{ candidacy.age }}{{ gettext('th assembly') }}</th>
+                                    <th id="legislations-{{ candidacy.age }}" class="anchor" rowspan="{{ bills|length + 1 }}">{{ candidacy.age }}{{ gettext('th assembly') }}</th>
                                 </tr>
                                 {% for bill in bills[:NUM_BILLS_SHOWN] %}
                                 <tr>
