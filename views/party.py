@@ -6,6 +6,7 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
+from models.candidacy import Candidacy
 from models.party import Party
 from utils.jinja import breadcrumb
 
@@ -19,13 +20,20 @@ def register(app):
     @app.route('/party/', methods=['GET'])
     @breadcrumb(app)
     def party_main():
+        # FIXME: 19
+        assembly_id = int(request.args.get('assembly_id', 19))
         query = request.args.get('q', None)
 
         if query is not None:
             return redirect(url_for('party', name=query))
 
-        parties = Party.query.order_by(desc(Party.id))
-        return render_template('parties.html', parties=parties)
+        parties = Party.query.distinct(Party.id)\
+                        .join(Candidacy)\
+                        .filter(Candidacy.age==assembly_id)
+
+        return render_template('parties.html',\
+                                assembly_id=assembly_id,\
+                                parties=parties)
 
     # 이름으로 검색
     @app.route('/party/q/<name>', methods=['GET'])
