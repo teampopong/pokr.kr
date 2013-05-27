@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-26 13:47+0900\n"
+"POT-Creation-Date: 2013-05-27 16:19+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,36 +17,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:30
+#: templates/bill.html:22
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:41
+#: templates/bill.html:30 templates/bill.html:82
+msgid "summary"
+msgstr ""
+
+#: templates/bill.html:31
+msgid "original text"
+msgstr ""
+
+#: templates/bill.html:39
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:47 templates/person.html:179
+#: templates/bill.html:45 templates/person.html:179
 msgid "proposed date"
 msgstr ""
 
-#: templates/bill.html:53
+#: templates/bill.html:51
 msgid "decision date"
 msgstr ""
 
-#: templates/bill.html:58
+#: templates/bill.html:56
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:72 templates/person.html:197
+#: templates/bill.html:70 templates/person.html:197
 msgid "sponsor"
 msgstr ""
 
-#: templates/bill.html:78
+#: templates/bill.html:76
 msgid "cosponsors"
-msgstr ""
-
-#: templates/bill.html:84
-msgid "summary"
 msgstr ""
 
 #: templates/bills.html:9 templates/bills.html:21 templates/main.html:19
