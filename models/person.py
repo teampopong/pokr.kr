@@ -11,7 +11,6 @@ from sqlalchemy.orm import backref, relationship
 from sqlalchemy.sql.expression import desc
 
 from database import Base
-from models.bill import Bill
 from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy
 from models.cosponsorship import cosponsorship
@@ -118,6 +117,8 @@ class Person(Base):
         return result
 
     def bills(self, age=None):
+        if 'Bill' not in dir():
+            from models.bill import Bill
         query = Bill.query.join(cosponsorship,
                                 Bill.id == cosponsorship.c.bill_id)\
                           .join(Person,

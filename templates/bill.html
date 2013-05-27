@@ -74,7 +74,14 @@
                 {% if bill.cosponsors %}
                 <tr>
                     <th>{{ gettext("cosponsors") }}</th>
-                    <td>{% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}</td>
+                    <td>
+                        <div class="row-fluid">
+                        <div id="cosponsor-cards" class="span7">
+                        {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
+                        </div>
+                        <div id="cosponsor-parties" class="span5"></div>
+                        </div>
+                    </td>
                 </tr>
                 {% endif %}
                 {% if bill.summary %}
@@ -92,6 +99,7 @@
     </div>
 </div>
 
+
 <script>
 $(function () {
 $('#bill-contents a[href="#bill-doc"]').on('show', function (e) {
@@ -101,5 +109,25 @@ $('#bill-contents a[href="#bill-doc"]').on('show', function (e) {
     }
 });
 });
+</script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['party', 'count'],
+      {% for party_name, size in bill.party_counts %}
+      ['{{ party_name }}', {{ size }}],
+      {% endfor %}
+    ]);
+
+    var options = {
+      title: ''
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('cosponsor-parties'));
+    chart.draw(data, options);
+  }
 </script>
 {% endblock %}

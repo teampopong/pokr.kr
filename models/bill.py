@@ -3,9 +3,15 @@
 from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql.expression import distinct
 
-from database import Base
+from database import Base, db_session
 from models.bill_status import BillStatus
+from models.candidacy import Candidacy
+from models.cosponsorship import cosponsorship
+from models.election import Election
+from models.party import Party
+from models.person import Person
 
 
 class Bill(Base):
@@ -26,6 +32,20 @@ class Bill(Base):
     status_id = Column(Integer, nullable=False)
     status_ids = Column(ARRAY(Integer))
     reviews = relationship('BillReview', backref='bill')
+
+    @property
+    def party_counts(self):
+        party_counts = db_session.query(Party.name,
+                                        func.count(distinct(Person.id)))\
+                                 .join(Candidacy)\
+                                 .join(Election)\
+                                 .filter(Election.age == self.age)\
+                                 .join(Person)\
+                                 .join(cosponsorship)\
+                                 .join(Bill)\
+                                 .filter(Bill.id == self.id)\
+                                 .group_by(Party.id)
+        return [(party, int(count)) for party, count in party_counts]
 
 
 bill_and_status = select([func.unnest(Bill.status_ids).label('bill_status_id'),
