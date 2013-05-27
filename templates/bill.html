@@ -26,57 +26,77 @@
 
 {% block content %}
 <h2 id="bill-name">{{ bill.name }}</h2>
-<table class="table table-condensed">
-    <tbody>
-        {% if bill.age %}
-        <tr>
-            <th>{{ gettext("assembly #") }}</th>
-            <td>{{ bill.age }}</td>
-        </tr>
-        {% endif %}
-        {% if bill.proposed_date %}
-        <tr>
-            <th>{{ gettext("proposed date") }}</th>
-            <td>{{ bill.proposed_date }}</td>
-        </tr>
-        {% endif %}
-        {% if bill.decision_date %}
-        <tr>
-            <th>{{ gettext("decision date") }}</th>
-            <td>{{ bill.decision_date }}</td>
-        </tr>
-        {% endif %}
-        <tr>
-            <th>{{ gettext("status") }}</th>
-            <td>
-            {% for status in bill.statuses %}
-                {% if status.id == bill.status_id %}
-                    <strong>{{ status.name }}</strong>
-                {% else %}
-                    {{ status.name }}
+<ul id="bill-contents" class="nav nav-tabs">
+    <li class="active"><a href="#bill-summary" data-toggle="tab">{{ gettext('summary') }}</a></li>
+    <li><a href="#bill-doc" data-toggle="tab">{{ gettext('original text') }}</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="bill-summary">
+        <table class="table table-condensed">
+            <tbody>
+                {% if bill.age %}
+                <tr>
+                    <th>{{ gettext("assembly #") }}</th>
+                    <td>{{ bill.age }}</td>
+                </tr>
                 {% endif %}
-                &nbsp;
-            {% endfor %}
-            </td>
-        </tr>
-        {% if bill.sponsor %}
-        <tr>
-            <th>{{ gettext("sponsor") }}</th>
-            <td>{{ bill.sponsor }}</td>
-        </tr>
-        {% endif %}
-        {% if bill.cosponsors %}
-        <tr>
-            <th>{{ gettext("cosponsors") }}</th>
-            <td>{% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}</td>
-        </tr>
-        {% endif %}
-        {% if bill.summary %}
-        <tr>
-            <th>{{ gettext('summary') }}</th>
-            <td><pre id="bill-summary">{{ bill.summary }}</pre></td>
-        </tr>
-        {% endif %}
-    </tbody>
-</table>
+                {% if bill.proposed_date %}
+                <tr>
+                    <th>{{ gettext("proposed date") }}</th>
+                    <td>{{ bill.proposed_date }}</td>
+                </tr>
+                {% endif %}
+                {% if bill.decision_date %}
+                <tr>
+                    <th>{{ gettext("decision date") }}</th>
+                    <td>{{ bill.decision_date }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th>{{ gettext("status") }}</th>
+                    <td>
+                    {% for status in bill.statuses %}
+                        {% if status.id == bill.status_id %}
+                            <strong>{{ status.name }}</strong>
+                        {% else %}
+                            {{ status.name }}
+                        {% endif %}
+                        &nbsp;
+                    {% endfor %}
+                    </td>
+                </tr>
+                {% if bill.sponsor %}
+                <tr>
+                    <th>{{ gettext("sponsor") }}</th>
+                    <td>{{ bill.sponsor }}</td>
+                </tr>
+                {% endif %}
+                {% if bill.cosponsors %}
+                <tr>
+                    <th>{{ gettext("cosponsors") }}</th>
+                    <td>{% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}</td>
+                </tr>
+                {% endif %}
+                {% if bill.summary %}
+                <tr>
+                    <th>{{ gettext('summary') }}</th>
+                    <td><pre id="bill-summary">{{ bill.summary }}</pre></td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="tab-pane" id="bill-doc">
+        <iframe src="http://docs.google.com/viewer?url=http%3A%2F%2Fdata.popong.com%2Fbills%2F{{ bill.age }}%2F{{ bill.id }}.pdf&embedded=true" width="100%" height="780" style="border: none;"></iframe>
+    </div>
+</div>
+
+<script type="javascript">
+$('#bill-contents a').click(function(e) {
+    e.preventDefault();
+    $(this).tab('show');
+})
+$('#bill-contents a:last').tab('show');
+</script>
 {% endblock %}
