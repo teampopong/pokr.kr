@@ -109,19 +109,20 @@
 
 .to-favorites {
     position: absolute;
-    top: 0;
-    right: 0;
-    i {
+    top: -5px;
+    right: -3px;
+    i,
+    i:hover {
         color: @star_color;
     }
 
     .btn-save-card {
+        color: @star_color;
         font-weight: bold;
-        padding: 3px;
+        padding: 1px;
         .border-radius;
         &:hover {
             text-decoration: none;
-            background: @hover_color;
         }
     }
 }
