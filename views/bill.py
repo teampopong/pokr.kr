@@ -20,7 +20,7 @@ def register(app):
     def bill_main():
         # FIXME: 19
         assembly_id = int(request.args.get('assembly_id', 19))
-        bills = Bill.query.filter(Bill.age==assembly_id).order_by(desc(Bill.id))
+        bills = Bill.query.filter(Bill.age==assembly_id).order_by(desc(Bill.proposed_date))
         return render_template('bills.html',\
                 assembly_id=assembly_id, bills=bills)
 
