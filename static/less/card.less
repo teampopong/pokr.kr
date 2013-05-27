@@ -48,6 +48,14 @@
         background: rgba(127, 127, 127, 0.3);
     }
 
+    .to-favorites .icon-star-or-empty:before {
+        content:"\f006";
+    }
+
+    &.favorited .to-favorites .icon-star-or-empty:before {
+        content:"\f005";
+    }
+
     &:hover .btn-remove-card {
         display: block;
     }
@@ -99,7 +107,7 @@
 
 }
 
-#to-favorites {
+.to-favorites {
     position: absolute;
     top: 0;
     right: 0;

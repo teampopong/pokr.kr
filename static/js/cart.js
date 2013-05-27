@@ -1,13 +1,12 @@
 (function () {
 
-var namespace = 'cards-cart',
+var namespace = 'cards-cart-v0.1',
     items = [],
-    $cart = $('#'+namespace),
-    $currentCard = $('#card-container .card');
+    $cart = $('#cards-cart');
 
 // TODO: Load the template from the server dynamically
 var TMPL_CARD = '\
-<div class="card card-small">\
+<div class="card card-small" data-id="{{id}}" data-url="{{url}}">\
     <a class="person-link" href="{{url}}">\
         <img class="person-img" src="{{image}}">\
         <div class="person-name">{{name}}</div>\
@@ -29,7 +28,7 @@ function clearCards() {
 function loadCards() {
     clearCards();
 
-    items = localStorage.getItem(namespace) || '[]';
+    items = localStorage.getItem(namespace) || '{}';
 
     try {
         items = JSON.parse(items);
@@ -39,51 +38,69 @@ function loadCards() {
         }
     }
 
-    $.each(items, function (i, item) {
+    $.each(items, function (id, item) {
         prependCard(item);
     });
 }
 
-function prependCard(item) {
-    var $item = $(item).appendTo($cart);
-    $item.find('.person-img').clipImage();
+function prependCard(data) {
+    var html = card(data),
+        $card = $(html).appendTo($cart);
+    $card.find('.person-img').clipImage();
+    CART.updateStatus($card);
 }
 
 function saveCards() {
     localStorage.setItem(namespace, JSON.stringify(items));
 }
 
+function isExists(id) {
+    return typeof items[id] != 'undefined';
+}
+
+function card(data) {
+    return Mustache.render(TMPL_CARD, data);
+}
+
 CART.clearCart = function () {
-    items = [];
+    items = {};
     saveCards();
     clearCards();
 };
 
-CART.saveCurrentCard = function () {
-    var data = {
+CART.saveCurrentCard = function (that) {
+    var $currentCard = $(that).parents('.card'),
+        data = {
             id: $currentCard.data('id'),
             image: $currentCard.find('.person-img').attr('src'),
             name: $currentCard.find('.person-name').text(),
             url: $currentCard.data('url')
-        },
-        html = Mustache.render(TMPL_CARD, data);
+        };
 
-    // FIXME: existance check를 좀 더 엄밀하게
-    if (items.indexOf(html) != -1) {
+    if (isExists(data.id)) {
         alert('already exists');
         return;
     }
 
-    prependCard(html);
-    items.push(html);
+    items[data.id] = data;
+    prependCard(data);
     saveCards();
 };
 
 CART.removeCard = function (that) {
     var $this = $(that).parents('.card');
-    items.splice(items.indexOf($this.html()), 1);
+    delete items[$this.data('id')];
     saveCards();
     $this.remove();
+    CART.updateStatus();
+};
+
+CART.updateStatus = function () {
+    var $cards = $('.card');
+    $cards.each(function () {
+        var $this = $(this);
+        $this.toggleClass('favorited', isExists($this.data('id')));
+    });
 };
 
 }());

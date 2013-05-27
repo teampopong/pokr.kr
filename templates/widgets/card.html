@@ -19,15 +19,15 @@
         <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
     </div>
     {% endif %}
-    <div id="to-favorites">
-        <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard()">
-            <i class="icon-star"></i>
+    <div class="to-favorites">
+        <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard(this)">
+            <i class="icon-star-or-empty"></i>
         </a>
     </div>
 </div>
 
 {% else %}
-<div class="card{% if small %} card-small{% endif %}">
+<div class="card{% if small %} card-small{% endif %}" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
     <a class="person-link" href="{{url_for('person', id=person.id)}}">
         <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
         <div class="person-name">{{person.name|translit(type='name')}}</div>
@@ -37,5 +37,10 @@
         <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
     </div>
     {% endif %}
+    <div class="to-favorites">
+        <a class="btn-save-card" href="#" onclick="CART.saveCurrentCard(this)">
+            <i class="icon-star-or-empty"></i>
+        </a>
+    </div>
 </div>
 {% endif %}
