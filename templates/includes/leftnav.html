@@ -7,19 +7,3 @@
 		</button>
 	</div>
 </form>
-<div id="search-options" class="accordion">
-	<div id="search-party" class="accordion-group">
-		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-options" href="#parties">
-				{{gettext("search by party")}} <i class="icon-info-sign tooltipped nolink" data-placement="bottom" data-title="{{ gettext('Sorted by frecency') }}"></i>
-			</a>
-		</div>
-		<div id="parties" class="accordion-body collapse in">
-			<ul class="accordion-inner">
-				{% for party in party_list %}
-				<li class="select-party"><a href="{{url_for('party', id=party.id)}}">{{party.name|translit(type='party')}}</a><span class="party-size">({{party.size or 0}})</span></li>
-				{% endfor %}
-			</ul>
-		</div>
-	</div>
-</div>
