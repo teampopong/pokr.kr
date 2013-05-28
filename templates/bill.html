@@ -75,12 +75,10 @@
                 <tr>
                     <th>{{ gettext("cosponsors") }}</th>
                     <td>
-                        <div class="row-fluid">
-                        <div id="cosponsor-cards" class="span7">
+                        <div id="cosponsor-cards">
                         {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
                         </div>
-                        <div id="cosponsor-parties" class="span5"></div>
-                        </div>
+                        <div id="cosponsor-parties"></div>
                     </td>
                 </tr>
                 {% endif %}

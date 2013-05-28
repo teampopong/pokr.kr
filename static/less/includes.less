@@ -25,6 +25,13 @@
     -webkit-border-radius: @arguments;
 }
 
+.width-calc (@exp, @fallback) {
+    width: @fallback;
+    width: -webkit-calc(@exp);
+    width: -moz-calc(@exp);
+    width: calc(@exp);
+}
+
 .box-shadow {
     box-shadow: 1px 1px rgba(128, 128, 128, 0.3);
 }
