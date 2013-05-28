@@ -48,14 +48,6 @@
         background: rgba(127, 127, 127, 0.3);
     }
 
-    .to-favorites .icon-star-or-empty:before {
-        content:"\f006";
-    }
-
-    &.favorited .to-favorites .icon-star-or-empty:before {
-        content:"\f005";
-    }
-
     &:hover .btn-remove-card {
         display: block;
     }
@@ -105,23 +97,4 @@
         line-height: 1.1em;
     }
 
-}
-
-.to-favorites {
-    position: absolute;
-    top: 0;
-    right: 0;
-    i {
-        color: @star_color;
-    }
-
-    .btn-save-card {
-        font-weight: bold;
-        padding: 3px;
-        .border-radius;
-        &:hover {
-            text-decoration: none;
-            background: @hover_color;
-        }
-    }
 }

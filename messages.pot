@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-27 16:19+0900\n"
+"POT-Creation-Date: 2013-05-29 00:36+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +20,7 @@ msgstr ""
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:30 templates/bill.html:82
+#: templates/bill.html:30 templates/bill.html:89
 msgid "summary"
 msgstr ""
 
@@ -243,10 +242,6 @@ msgstr ""
 
 #: templates/search-results.html:70
 msgid "Bill"
-msgstr ""
-
-#: templates/includes/cart.html:3
-msgid "Add a person or bill by clicking on a star"
 msgstr ""
 
 #: templates/includes/footer.html:2
