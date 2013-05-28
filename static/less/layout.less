@@ -51,28 +51,37 @@ body {
     bottom: 40px;
     left: 20px;
     right: 20px;
+    background: white;
+    border: 1px solid @border_color;
+    .border-box;
 
-    #leftnav,
+    header {
+        position: relative;
+        text-align: center;
+
+        h1 {
+            .inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        form {
+            .inline-block;
+        }
+    }
+
     #content {
-        .border-box;
-        background: white;
         position: absolute;
-        top: 0;
+        top: 60px;
+        left: 0;
+        right: 0;
         bottom: 0;
         padding: 10px;
     }
+}
 
-    #leftnav {
-        left: 0;
-        width: 180px;
-        border: 1px solid @border_color;
-    }
-
-    #content {
-        left: 190px;
-        right: 0;
-        border: 1px solid @border_color;
-    }
+.logo {
+    height: 40px;
 }
 
 #footer {
