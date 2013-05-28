@@ -22,10 +22,6 @@ def register(app):
     def party_main():
         # FIXME: 19
         assembly_id = int(request.args.get('assembly_id', 19))
-        query = request.args.get('q', None)
-
-        if query is not None:
-            return redirect(url_for('party', name=query))
 
         parties = Party.query.distinct(Party.id)\
                         .join(Candidacy)\
@@ -36,11 +32,11 @@ def register(app):
                                 parties=parties)
 
     # 이름으로 검색
-    @app.route('/party/q/<name>', methods=['GET'])
+    @app.route('/party/<id>', methods=['GET'])
     @breadcrumb(app, 'party')
-    def party(name):
+    def party(id):
         try:
-            party = Party.query.filter_by(name=name).one()
+            party = Party.query.filter_by(id=id).one()
 
         except NoResultFound, e:
             return render_template('not-found.html'), 404

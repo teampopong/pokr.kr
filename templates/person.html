@@ -68,7 +68,7 @@ window.currentPage = 'person';
                     {% if person.cur_party %}
                     <tr>
                         <th>{{ gettext("party") }}</th>
-                        <td><a href="{{ url_for('party', name=person.cur_party.name) }}">{{ person.cur_party.name|translit(type='party') }}</a></td>
+                        <td><a href="{{ url_for('party', id=person.cur_party.id) }}">{{ person.cur_party.name|translit(type='party') }}</a></td>
                     </tr>
                     {% endif %}
                     {% if person.education %}

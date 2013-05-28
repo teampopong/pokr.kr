@@ -33,7 +33,7 @@
 </div>
 <div class="itemlist">
 {% call(party) macro.list(parties, pagesize=50) %}
-    <a href="{{ url_for('party', name=party.name) }}">{{ party.name|translit(type='party') }}</a>
+    <a href="{{ url_for('party', id=party.id) }}">{{ party.name|translit(type='party') }}</a>
 {% endcall %}
 </div>
 {% endblock %}
