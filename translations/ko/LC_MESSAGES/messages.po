@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-27 16:19+0900\n"
+"POT-Creation-Date: 2013-05-29 11:43+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: templates/bill.html:30 templates/bill.html:82
+#: templates/bill.html:30 templates/bill.html:87
 msgid "summary"
 msgstr "요약"
 
@@ -245,10 +245,6 @@ msgstr "지역"
 msgid "Bill"
 msgstr "의안"
 
-#: templates/includes/cart.html:3
-msgid "Add a person or bill by clicking on a star"
-msgstr "별을 눌러서 인물이나 의안을 추가하세요"
-
 #: templates/includes/footer.html:2
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
@@ -270,14 +266,6 @@ msgstr "소스"
 #: templates/includes/leftnav.html:4
 msgid "name,party,region,bill"
 msgstr "이름,정당,지역,의안"
-
-#: templates/includes/leftnav.html:14
-msgid "search by party"
-msgstr "정당으로 검색:"
-
-#: templates/includes/leftnav.html:14
-msgid "Sorted by frecency"
-msgstr "빈도와 시간 순으로 정렬됨"
 
 #: views/__init__.py:7
 msgid "home"
@@ -309,11 +297,11 @@ msgstr "출생"
 
 #: widgets/timeline.py:67
 #, python-format
-msgid "won the %(age)dth election"
-msgstr "%(age)d대 당선"
+msgid "won<br>%(age)dth"
+msgstr "%(age)d대<br>당선"
 
 #: widgets/timeline.py:70
 #, python-format
-msgid "lost the %(age)dth election"
-msgstr "%(age)d대 낙선"
+msgid "lost<br>%(age)dth"
+msgstr "%(age)d대<br>낙선"
 

@@ -6,7 +6,7 @@
     // common
     position: relative;
     overflow: hidden;
-    border: 1px solid #999;
+    border: 1px solid @border_color;
     background: #fafafa;
 
     .inline-block;
@@ -46,14 +46,6 @@
         width: 100%;
         text-align: right;
         background: rgba(127, 127, 127, 0.3);
-    }
-
-    .to-favorites .icon-star-or-empty:before {
-        content:"\f006";
-    }
-
-    &.favorited .to-favorites .icon-star-or-empty:before {
-        content:"\f005";
     }
 
     &:hover .btn-remove-card {
@@ -105,24 +97,4 @@
         line-height: 1.1em;
     }
 
-}
-
-.to-favorites {
-    position: absolute;
-    top: -5px;
-    right: -3px;
-    i,
-    i:hover {
-        color: @star_color;
-    }
-
-    .btn-save-card {
-        color: @star_color;
-        font-weight: bold;
-        padding: 1px;
-        .border-radius;
-        &:hover {
-            text-decoration: none;
-        }
-    }
 }

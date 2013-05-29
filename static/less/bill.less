@@ -1,3 +1,5 @@
+@import "includes.less";
+
 #bill-name {
     margin-bottom: 30px;
 }
@@ -13,6 +15,27 @@
     color: #08c;
 }
 
+#cosponsor-cards {
+    position: relative;
+    width: 100%;
+}
+
 #cosponsor-parties {
+    position: relative;
+    width: 240px;
     height: 180px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+    #cosponsor-cards {
+        float: left;
+        .width-calc(~"100% - 241px", 100%);
+    }
+
+    #cosponsor-parties {
+        float: left;
+        margin: 0;
+    }
 }

@@ -64,9 +64,9 @@ def candidacy_event(candidacy):
     age = int(candidacy.age)
     term = ASSEMBLY_TERMS[age]
     if candidacy.is_elected:
-        e = event(gettext('won the %(age)dth election', age=age),
+        e = event(gettext('won<br>%(age)dth', age=age),
                   term[0], term[1])
     else:
-        e = event(gettext('lost the %(age)dth election', age=age),
+        e = event(gettext('lost<br>%(age)dth', age=age),
                   term[0])
     return e

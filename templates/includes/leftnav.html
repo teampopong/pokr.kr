@@ -1,5 +1,5 @@
 <h1><a href="{{ url_for('main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
-<form action="{{ url_for("search") }}" style="margin-bottom: 10px;">
+<form action="{{ url_for("search") }}">
 	<div class="input-append">
 		<input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext("name,party,region,bill") }}">
 		<button class="btn add-on">
@@ -7,19 +7,3 @@
 		</button>
 	</div>
 </form>
-<div id="search-options" class="accordion">
-	<div id="search-party" class="accordion-group">
-		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#search-options" href="#parties">
-				{{gettext("search by party")}} <i class="icon-info-sign tooltipped nolink" data-placement="bottom" data-title="{{ gettext('Sorted by frecency') }}"></i>
-			</a>
-		</div>
-		<div id="parties" class="accordion-body collapse in">
-			<ul class="accordion-inner">
-				{% for party in party_list %}
-				<li class="select-party"><a href="{{url_for('party', name=party.name)}}">{{party.name|translit(type='party')}}</a><span class="party-size">({{party.size or 0}})</span></li>
-				{% endfor %}
-			</ul>
-		</div>
-	</div>
-</div>

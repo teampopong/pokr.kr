@@ -51,34 +51,37 @@ body {
     bottom: 40px;
     left: 20px;
     right: 20px;
+    background: white;
+    border: 1px solid @border_color;
+    .border-box;
 
-    #leftnav,
-    #content,
-    #rightnav {
-        .border-box;
-        background: white;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        padding: 10px;
-    }
+    header {
+        position: relative;
+        text-align: center;
 
-    #leftnav {
-        left: 0;
-        width: 180px;
-        border: 1px solid #999;
+        h1 {
+            .inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        form {
+            .inline-block;
+        }
     }
 
     #content {
-        left: 190px;
-        right: 190px;
-        border: 1px solid #999;
-    }
-
-    #rightnav {
+        position: absolute;
+        top: 60px;
+        left: 0;
         right: 0;
-        width: 180px;
+        bottom: 0;
+        padding: 10px;
     }
+}
+
+.logo {
+    height: 40px;
 }
 
 #footer {
@@ -105,7 +108,7 @@ a#barometer_tab {
     top: 28px;
     bottom: 0;
     left: 0;
-    width: 15%;
+    width: 180px;
     .border-box;
     padding: 20px 10px 10px;
 
@@ -162,35 +165,11 @@ a#barometer_tab {
     position: absolute;
     top: 33px;
     bottom: 0;
-    left: 15%;
+    left: 180px;
     right: 0;
     .border-box;
     padding: 10px;
     overflow-y: auto;
-}
-
-// rightnav
-#cards-cart-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: 1px solid #999;
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    h3 {
-        font-size: 12pt;
-        margin: 10px 0 5px 5px;
-        line-height: 1em;
-    }
-
-    .btn-clear-cart {
-        position: absolute;
-        bottom: 10px;
-        right: 5px;
-    }
 }
 
 // others

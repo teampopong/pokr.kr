@@ -40,7 +40,7 @@
             <th>{{ gettext('Party') }}</th>
             <td><ul>
             {% for party in parties %}
-                <li><a href="{{ url_for('party', name=party.name) }}">{{ party.name }}</a></li>
+                <li><a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a></li>
             {% endfor %}
             </ul></td>
         </tr>

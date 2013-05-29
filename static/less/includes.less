@@ -4,6 +4,7 @@
 @bg_color       : #f1efeb;
 @icon_color     : silver;
 @text_color     : #333;
+@border_color   : #ddd;
 
 ///// mixins /////
 .border-box {
@@ -25,8 +26,15 @@
     -webkit-border-radius: @arguments;
 }
 
+.width-calc (@exp, @fallback) {
+    width: @fallback;
+    width: -webkit-calc(@exp);
+    width: -moz-calc(@exp);
+    width: calc(@exp);
+}
+
 .box-shadow {
-    box-shadow: 1px 1px rgba(128, 128, 128, 0.3);
+    box-shadow: 1px 1px rgba(192, 192, 192, 0.08);
 }
 
 .inline-block {
