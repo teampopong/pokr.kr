@@ -3,7 +3,7 @@
 var $specContainer = $('#spec-container');
 
 if (!isMobile) {
-    $('#person-section-tabs a').click(function () {
+    $('.section-tabs a').click(function () {
         var href = $(this).attr('href');
         gotoTab(href);
         return false;
@@ -11,11 +11,11 @@ if (!isMobile) {
 
     $specContainer.scrollspy({
             'data-spy': 'scroll',
-            'data-target': '#person-section-tabs',
+            'data-target': '.section-tabs',
             'offset': 100
         })
         .on('activate.changehash', function () {
-            var target = $('#person-section-tabs li.active a').attr('href');
+            var target = $('.section-tabs li.active a').attr('href');
             selectTab(target);
         });
 
@@ -30,7 +30,7 @@ if (!isMobile) {
     }
 
     function selectTab(target) {
-        var $list = $('#person-section-tabs li');
+        var $list = $('.section-tabs li');
         $list.removeClass('active');
         $list.children('[href="'+target+'"]').parent('li').addClass('active');
 
