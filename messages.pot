@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-30 00:07+0900\n"
+"POT-Creation-Date: 2013-05-30 00:57+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,15 +65,20 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
-#: templates/macros.html:42
+#: templates/macros.html:25
+#, python-format
+msgid "%(count)d results"
+msgstr ""
+
+#: templates/macros.html:44
 msgid "prev"
 msgstr ""
 
-#: templates/macros.html:45
+#: templates/macros.html:47
 msgid "next"
 msgstr ""
 
-#: templates/macros.html:49
+#: templates/macros.html:51
 msgid ""
 "There are more items not shown for the current search options. Please "
 "narrow them down by giving more strict options."

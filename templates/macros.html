@@ -22,6 +22,8 @@
     {% set offset = (page - 1) * pagesize %}
     {% set items = query.offset(offset).limit(pagesize+1).all() %}
 
+    <span>{{ gettext('%(count)d results', count=query.count()) }}</span>
+
     {% if layout=='list' %}
         <ul>
         {% for item in items[:pagesize] %}
