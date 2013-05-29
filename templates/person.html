@@ -21,7 +21,11 @@
     {% endassets %}
 
 {% else %}
-   {% assets filters='less', output='build/person.%(version)s.css',
+    {% assets filters='less', output='build/entity.%(version)s.css',
+        depends=['**/*.less'], 'less/entity.less' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+    {% endassets %}
+    {% assets filters='less', output='build/person.%(version)s.css',
         depends=['**/*.less'], 'less/person.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
     {% endassets %}
@@ -52,9 +56,9 @@ window.currentPage = 'person';
 {% endblock %}
 
 {% block content %}
-<div id="person-view">
-    <div id="person-sections">
-        <div class="section" id="section-profile">
+<div id="person-view" class="view">
+    <div id="person-sections" class="sections">
+        <div id="section-profile" class="section">
             <h3 id="profile">{{ gettext('profile') }}</h3>
             <table id="person-profile" class="table table-condensed">
                 <tbody>
@@ -115,7 +119,7 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
-        <div class="section" id="section-elections">
+        <div id="section-elections" class="section">
             <h3 id="elections">{{gettext('elections')}}</h3>
             {% if not mobile %}
                 <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
@@ -168,7 +172,7 @@ window.currentPage = 'person';
             </table>
         </div>
         {% if has_bills %}
-        <div class="section" id="section-legislations">
+        <div id="section-legislations" class="section">
             <h3 id="legislations">{{ gettext('legislations') }}</h3>
             <table id="person-legislations" class="table table-condensed">
                 <thead>
@@ -212,7 +216,7 @@ window.currentPage = 'person';
             </table>
         </div>
         {% endif %}
-        <div class="section" id="section-trends">
+        <div id="section-trends" class="section">
             <h3 id="trends">
                 {{ gettext('trends') }}
             </h3>
