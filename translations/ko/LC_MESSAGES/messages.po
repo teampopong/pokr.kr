@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-30 00:07+0900\n"
+"POT-Creation-Date: 2013-05-30 00:57+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -65,15 +65,20 @@ msgstr "보이기"
 msgid "hide"
 msgstr "숨기기"
 
-#: templates/macros.html:42
+#: templates/macros.html:25
+#, python-format
+msgid "%(count)d results"
+msgstr "검색 결과 %(count)d 개"
+
+#: templates/macros.html:44
 msgid "prev"
 msgstr "이전"
 
-#: templates/macros.html:45
+#: templates/macros.html:47
 msgid "next"
 msgstr "다음"
 
-#: templates/macros.html:49
+#: templates/macros.html:51
 msgid ""
 "There are more items not shown for the current search options. Please "
 "narrow them down by giving more strict options."
