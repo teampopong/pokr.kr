@@ -21,7 +21,7 @@
     {% endassets %}
 
 {% else %}
-    {% assets filters='less', output='build/person.%(version)s.css',
+   {% assets filters='less', output='build/person.%(version)s.css',
         depends=['**/*.less'], 'less/person.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
     {% endassets %}
@@ -40,7 +40,7 @@ window.currentPage = 'person';
 {{widgets.card(person, detailed=True)|safe}}
 
 {% if not mobile %}
-    <ul id="person-section-tabs" class="nav">
+    <ul id="person-section-tabs" class="nav section-tabs">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
         <li><a href="#elections">{{gettext("elections")}}</a></li>
         {% if has_bills %}
@@ -226,6 +226,6 @@ window.currentPage = 'person';
     </div>
 </div>
 {% if not mobile %}
-    <script src="{{url_for('static', filename="js/person.js")}}"></script>
+    <script src="{{url_for('static', filename="js/entity.js")}}"></script>
 {% endif %}
 {% endblock %}
