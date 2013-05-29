@@ -38,8 +38,8 @@ def register(app):
         candidacy_region_id = request.args.get('candidacy_region_id')
         residence_region_id = request.args.get('residence_region_id')
         if school_id:
-            school = School.query.filter_by(id=school_id).one()
-            people = school.alumni
+            people = Person.query.join(School.alumni)\
+                                 .filter(School.id == school_id)
         elif candidacy_region_id:
             region = Region.query.filter_by(id=candidacy_region_id).one()
             people = region.candidates
