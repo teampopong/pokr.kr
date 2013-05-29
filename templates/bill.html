@@ -103,7 +103,14 @@
     ]);
 
     var options = {
-      title: ''
+        chartArea: {
+            width: 280
+        },
+        legend: {
+            textStyle: {
+                fontSize: 11
+            }
+        }
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('cosponsor-parties'));
