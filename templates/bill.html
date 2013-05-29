@@ -26,10 +26,6 @@
 
 {% block content %}
 <h2 id="bill-name">{{ bill.name }}</h2>
-<ul id="bill-contents" class="nav nav-tabs">
-    <li class="active"><a href="#bill-summary" data-toggle="tab">{{ gettext('summary') }}</a></li>
-    <li><a href="#bill-doc" data-toggle="tab">{{ gettext('original text') }}</a></li>
-</ul>
 <div class="tab-content">
     <div class="tab-pane active" id="bill-summary">
         <table class="table table-condensed">
@@ -94,22 +90,8 @@
         </table>
 
     </div>
-    <div class="tab-pane" id="bill-doc">
-        <iframe data-src="http://docs.google.com/viewer?url=http%3A%2F%2Fdata.popong.com%2Fbills%2F{{ bill.age }}%2F{{ bill.id }}.pdf&embedded=true" width="100%" height="780" style="border: none;"></iframe>
-    </div>
 </div>
 
-
-<script>
-$(function () {
-$('#bill-contents a[href="#bill-doc"]').on('show', function (e) {
-    var $target = $('#bill-doc iframe');
-    if (!$target.attr('src')) {
-        $target.attr('src', $target.data('src'));
-    }
-});
-});
-</script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});
