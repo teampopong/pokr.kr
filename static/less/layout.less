@@ -1,4 +1,4 @@
-@import "includes.less";
+@import "includes";
 
 ///// override DOM styles /////
 tr:first-child th,
@@ -50,8 +50,7 @@ body {
     left: 20px;
     right: 20px;
     background: white;
-    border: 1px solid @border_color;
-    .border-box;
+    .framed;
 
     header {
         position: relative;
@@ -111,10 +110,12 @@ a#barometer_tab {
     padding: 20px 10px 10px;
 
     .instance-img {
-        width: 150px;
+        width: 85%;
+        max-width: 150px;
         height: 100px;
         display: block;
         margin: 0 auto;
+        .framed;
     }
 
     .class-name,
@@ -131,7 +132,8 @@ a#barometer_tab {
         height: 100px;
         width: 85%;
         max-width: 150px;
-        position: absolute;
+        margin: 0 auto;
+        .framed;
     }
 
     #class-bills {

@@ -4,7 +4,7 @@
 @bg_color       : #f1efeb;
 @icon_color     : silver;
 @text_color     : #333;
-@border_color   : #ddd;
+@border_color   : rgba(0,0,0,0.2);
 
 ///// mixins /////
 .border-box {
@@ -35,6 +35,17 @@
 
 .box-shadow {
     box-shadow: 1px 1px rgba(192, 192, 192, 0.08);
+}
+
+.inner-shadow {
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,0.05);
+}
+
+.framed {
+    border: 1px solid @border_color;
+    .border-radius(3px);
+    .border-box;
+    .inner-shadow;
 }
 
 .inline-block {
