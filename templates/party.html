@@ -9,13 +9,47 @@
 {{ party.name|translit(type='party') }}
 {% endblock %}
 
+{% block extra_headers %}
+{% assets filters='less', output='build/entity.%(version)s.css',
+    depends=['**/*.less'], 'less/entity.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+<script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
+{% endblock %}
+
 {% block card %}
 <img class="instance-img" src="{{ party.logo|default(url_for('static', filename='images/default_party.jpg'), True) }}" title="{{ party.name }}">
 {% if not party.logo %}
 <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
 {% endif %}
+{% if not mobile %}
+<ul id="party-section-tabs" class="nav section-tabs">
+    <li class="active"><a href="#summary">{{gettext("summary")}}</a></li>
+    <li><a href="#people">{{gettext("people")}}</a></li>
+</ul>
+{% endif %}
+
 {% endblock %}
 
 {% block content %}
-{{macro.people_list(party.current_members)}}
+<div id="party-view" class="view">
+    <div id="party-sections" class="sections">
+        <div id="section-summary" class="section">
+            <h3 id="summary">{{ gettext('summary') }}</h3>
+            <table class="table table-condensed">
+                <tr>
+                    <th>{{ gettext('size') }}</th>
+                    <td>{{ party.size }}{{ gettext('person(s)') }}</td>
+                </tr>
+            </table>
+        </div>
+        <div id="section-people" class="section">
+            <h3 id="people">{{ gettext('people') }}</h3>
+            {{macro.people_list(party.current_members)}}
+        </div>
+    </div>
+</div>
+{% if not mobile %}
+    <script src="{{url_for('static', filename="js/entity.js")}}"></script>
+{% endif %}
 {% endblock %}

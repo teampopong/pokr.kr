@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-30 00:57+0900\n"
+"POT-Creation-Date: 2013-05-30 01:47+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr "국회에서 보기"
 msgid "assembly #"
 msgstr "국회 대수"
 
-#: templates/bill.html:41 templates/person.html:178
+#: templates/bill.html:41 templates/person.html:182
 msgid "proposed date"
 msgstr "제안일자"
 
@@ -37,7 +37,7 @@ msgstr "의결일자"
 msgid "status"
 msgstr "상태"
 
-#: templates/bill.html:66 templates/person.html:196
+#: templates/bill.html:66 templates/person.html:200
 msgid "sponsor"
 msgstr "대표발의자"
 
@@ -45,7 +45,7 @@ msgstr "대표발의자"
 msgid "cosponsors"
 msgstr "발의자"
 
-#: templates/bill.html:83
+#: templates/bill.html:83 templates/party.html:27 templates/party.html:38
 msgid "summary"
 msgstr "요약"
 
@@ -88,7 +88,8 @@ msgstr "검색 결과가 너무 많아 전부 표시되지 않았습니다. 원�
 msgid "parties"
 msgstr "정당"
 
-#: templates/main.html:21 templates/people.html:9 templates/people.html:21
+#: templates/main.html:21 templates/party.html:28 templates/party.html:47
+#: templates/people.html:9 templates/people.html:21
 msgid "people"
 msgstr "인물"
 
@@ -99,6 +100,14 @@ msgstr "죄송합니다, 모바일 브라우저는 현재 지원되지 않습니
 #: templates/not-found.html:4 templates/not-found.html:9
 msgid "Result not found"
 msgstr "검색 결과가 없습니다"
+
+#: templates/party.html:41
+msgid "size"
+msgstr "규모"
+
+#: templates/party.html:42
+msgid "person(s)"
+msgstr "명"
 
 #: templates/people.html:37
 msgid "officials"
@@ -113,88 +122,88 @@ msgstr "%(last_elected_no)d대 국회의원"
 msgid "Politician Dictionary"
 msgstr "정치인명사전"
 
-#: templates/person.html:44 templates/person.html:58
+#: templates/person.html:48 templates/person.html:62
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:45 templates/person.html:119
+#: templates/person.html:49 templates/person.html:123
 msgid "elections"
 msgstr "선거활동"
 
-#: templates/person.html:47 templates/person.html:172
+#: templates/person.html:51 templates/person.html:176
 msgid "legislations"
 msgstr "입법활동"
 
-#: templates/person.html:49 templates/person.html:217
+#: templates/person.html:53 templates/person.html:221
 msgid "trends"
 msgstr "검색추이"
 
-#: templates/person.html:63
+#: templates/person.html:67
 msgid "birthday"
 msgstr "출생"
 
-#: templates/person.html:69 views/party.py:17
+#: templates/person.html:73 views/party.py:17
 msgid "party"
 msgstr "정당"
 
-#: templates/person.html:75
+#: templates/person.html:79
 msgid "education"
 msgstr "최종학력"
 
-#: templates/person.html:77 templates/person.html:89
+#: templates/person.html:81 templates/person.html:93
 msgid "original"
 msgstr "원본"
 
-#: templates/person.html:87
+#: templates/person.html:91
 msgid "address"
 msgstr "주소"
 
-#: templates/person.html:98
+#: templates/person.html:102
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:127
+#: templates/person.html:131
 msgid "election district"
 msgstr "선거구"
 
-#: templates/person.html:128
+#: templates/person.html:132
 msgid "competitors"
 msgstr "동일 선거구 출마자"
 
-#: templates/person.html:135
+#: templates/person.html:139
 #, python-format
 msgid "%(age)dth"
 msgstr "%(age)d대"
 
-#: templates/person.html:135
+#: templates/person.html:139
 msgid "National Assembly Election"
 msgstr "국회의원 선거"
 
-#: templates/person.html:139
+#: templates/person.html:143
 msgid "Pledges"
 msgstr "공약"
 
-#: templates/person.html:177
+#: templates/person.html:181
 msgid "title"
 msgstr "제목"
 
-#: templates/person.html:179
+#: templates/person.html:183
 msgid "role"
 msgstr "역할"
 
-#: templates/person.html:188
+#: templates/person.html:192
 msgid "th assembly"
 msgstr "대 국회"
 
-#: templates/person.html:198
+#: templates/person.html:202
 msgid "cosponsor"
 msgstr "발의자"
 
-#: templates/person.html:205
+#: templates/person.html:209
 msgid "more"
 msgstr "더보기"
 
-#: templates/person.html:219
+#: templates/person.html:223
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
