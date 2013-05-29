@@ -5,10 +5,14 @@
 {% endblock %}
 
 {% block extra_headers %}
-    {% assets filters='less', output='build/bill.%(version)s.css',
-        depends=['**/*.less'], 'less/bill.less' %}
-    <link rel="stylesheet" href="{{ASSET_URL}}">
-    {% endassets %}
+{% assets filters='less', output='build/entity.%(version)s.css',
+    depends=['**/*.less'], 'less/entity.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% assets filters='less', output='build/bill.%(version)s.css',
+    depends=['**/*.less'], 'less/bill.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
 {% endblock %}
 
 {% block breadcrumb_current %}
@@ -22,74 +26,85 @@
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
 </div>
+{% if not mobile %}
+<ul id="bill-section-tabs" class="nav section-tabs">
+</ul>
+{% endif %}
+
+
 {% endblock %}
 
 {% block content %}
-<h2 id="bill-name">{{ bill.name }}</h2>
-<div class="tab-content">
-    <div class="tab-pane active" id="bill-summary">
-        <table class="table table-condensed">
-            <tbody>
-                {% if bill.age %}
-                <tr>
-                    <th>{{ gettext("assembly #") }}</th>
-                    <td>{{ bill.age }}</td>
-                </tr>
-                {% endif %}
-                {% if bill.proposed_date %}
-                <tr>
-                    <th>{{ gettext("proposed date") }}</th>
-                    <td>{{ bill.proposed_date }}</td>
-                </tr>
-                {% endif %}
-                {% if bill.decision_date %}
-                <tr>
-                    <th>{{ gettext("decision date") }}</th>
-                    <td>{{ bill.decision_date }}</td>
-                </tr>
-                {% endif %}
-                <tr>
-                    <th>{{ gettext("status") }}</th>
-                    <td>
-                    {% for status in bill.statuses %}
-                        {% if status.id == bill.status_id %}
-                            <strong>{{ status.name }}</strong>
-                        {% else %}
-                            {{ status.name }}
-                        {% endif %}
-                        &nbsp;
-                    {% endfor %}
-                    </td>
-                </tr>
-                {% if bill.sponsor %}
-                <tr>
-                    <th>{{ gettext("sponsor") }}</th>
-                    <td>{{ bill.sponsor }}</td>
-                </tr>
-                {% endif %}
-                {% if bill.cosponsors %}
-                <tr>
-                    <th>{{ gettext("cosponsors") }}</th>
-                    <td>
-                        <div id="cosponsor-cards">
-                        {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
-                        </div>
-                        <div id="cosponsor-parties"></div>
-                    </td>
-                </tr>
-                {% endif %}
-                {% if bill.summary %}
-                <tr>
-                    <th>{{ gettext('summary') }}</th>
-                    <td><pre id="bill-summary">{{ bill.summary }}</pre></td>
-                </tr>
-                {% endif %}
-            </tbody>
-        </table>
+<div id="bill-view" class="view">
+    <h2 id="bill-name">{{ bill.name }}</h2>
+    <div id="bill-sections" class="sections">
+        <div id="section-summary" class="section">
+            <div class="tab-content">
+                <div class="tab-pane active" id="bill-summary">
+                    <table class="table table-condensed">
+                        <tbody>
+                            {% if bill.age %}
+                            <tr>
+                                <th>{{ gettext("assembly #") }}</th>
+                                <td>{{ bill.age }}</td>
+                            </tr>
+                            {% endif %}
+                            {% if bill.proposed_date %}
+                            <tr>
+                                <th>{{ gettext("proposed date") }}</th>
+                                <td>{{ bill.proposed_date }}</td>
+                            </tr>
+                            {% endif %}
+                            {% if bill.decision_date %}
+                            <tr>
+                                <th>{{ gettext("decision date") }}</th>
+                                <td>{{ bill.decision_date }}</td>
+                            </tr>
+                            {% endif %}
+                            <tr>
+                                <th>{{ gettext("status") }}</th>
+                                <td>
+                                {% for status in bill.statuses %}
+                                    {% if status.id == bill.status_id %}
+                                        <strong>{{ status.name }}</strong>
+                                    {% else %}
+                                        {{ status.name }}
+                                    {% endif %}
+                                    &nbsp;
+                                {% endfor %}
+                                </td>
+                            </tr>
+                            {% if bill.sponsor %}
+                            <tr>
+                                <th>{{ gettext("sponsor") }}</th>
+                                <td>{{ bill.sponsor }}</td>
+                            </tr>
+                            {% endif %}
+                            {% if bill.cosponsors %}
+                            <tr>
+                                <th>{{ gettext("cosponsors") }}</th>
+                                <td>
+                                    <div id="cosponsor-cards">
+                                    {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
+                                    </div>
+                                    <div id="cosponsor-parties"></div>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if bill.summary %}
+                            <tr>
+                                <th>{{ gettext('summary') }}</th>
+                                <td><pre id="bill-summary">{{ bill.summary }}</pre></td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
 
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});
