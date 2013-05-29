@@ -20,6 +20,11 @@
     depends=['**/*.mobile.less'], 'less/search.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
+{% assets filters='less', output='build/submain.%(version)s.css',
+    depends=['**/*.less'], 'less/submain.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+
 {% endblock %}
 
 {% block content %}
@@ -33,7 +38,17 @@
 </div>
 <div class="itemlist">
 {% call(party) macro.list(parties, pagesize=50) %}
-    <a href="{{ url_for('party', id=party.id) }}">{{ party.name|translit(type='party') }}</a>
+    <a href="{{ url_for('party', name=party.name) }}">
+        <div class="party-card">
+            {% if party.logo %}
+            <img class="party-logo" src="{{ party.logo }}" title="{{ party.name }}">
+            {% else %}
+            <div class="default-logo">
+                <span class="party-name">{{ party.name|translit(type='party') }}</span>
+            </div>
+        {% endif %}
+        </div>
+    </a>
 {% endcall %}
 </div>
 {% endblock %}
