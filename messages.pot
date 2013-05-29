@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-29 11:43+0900\n"
+"POT-Creation-Date: 2013-05-29 11:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,7 +263,7 @@ msgid "sources"
 msgstr ""
 
 #: templates/includes/leftnav.html:4
-msgid "name,party,region,bill"
+msgid "name, party, region, bill"
 msgstr ""
 
 #: views/__init__.py:7

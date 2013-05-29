@@ -17,7 +17,7 @@
 
 {% if mobile %}
     {% assets filters='less', output='build/person.mobile.%(version)s.css',
-        depends=['**/*.mobile.less'], 'less/person.mobile.less' %}
+        depends=['**/*.less'], 'less/person.mobile.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
     {% endassets %}
 
@@ -100,13 +100,13 @@ window.currentPage = 'person';
                         <td>
                             {% if person_extra_vars.job %}
                             <span id="currentjob">
-                                {{person_extra_vars.job|translit}}
+                                {{person_extra_vars.job}}
                             </span>
                             {% endif %}
                             {% if person_extra_vars.experience %}
                             <span id="experiences">
                                 {% for exp in person_extra_vars.experience %}
-                                {{exp|translit}}<br>
+                                {{exp}}<br>
                                 {% endfor %}
                             </span>
                             {% endif %}
