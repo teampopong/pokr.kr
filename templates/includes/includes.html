@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 {% if mobile %}
     {% assets filters='less', output='build/polidic.mobile.%(version)s.css',
-        depends=['**/*.mobile.less'], 'less/polidic.mobile.less' %}
+        depends=['**/*.less'], 'less/polidic.mobile.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
     {% endassets %}
 

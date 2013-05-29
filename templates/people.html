@@ -11,7 +11,7 @@
 
 {% block extra_headers %}
 {% assets filters='less', output='build/search.%(version)s.css',
-    depends=['**/*.mobile.less'], 'less/search.less' %}
+    depends=['**/*.less'], 'less/search.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 {% endblock %}
