@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-29 00:36+0900\n"
+"POT-Creation-Date: 2013-05-29 11:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:30 templates/bill.html:89
+#: templates/bill.html:30 templates/bill.html:87
 msgid "summary"
 msgstr ""
 
@@ -266,14 +266,6 @@ msgstr ""
 msgid "name,party,region,bill"
 msgstr ""
 
-#: templates/includes/leftnav.html:14
-msgid "search by party"
-msgstr ""
-
-#: templates/includes/leftnav.html:14
-msgid "Sorted by frecency"
-msgstr ""
-
 #: views/__init__.py:7
 msgid "home"
 msgstr ""
@@ -304,11 +296,11 @@ msgstr ""
 
 #: widgets/timeline.py:67
 #, python-format
-msgid "won the %(age)dth election"
+msgid "won<br>%(age)dth"
 msgstr ""
 
 #: widgets/timeline.py:70
 #, python-format
-msgid "lost the %(age)dth election"
+msgid "lost<br>%(age)dth"
 msgstr ""
 
