@@ -38,41 +38,37 @@
         {% if parties %}
         <tr>
             <th>{{ gettext('Party') }}</th>
-            <td><ul>
-            {% for party in parties %}
-                <li><a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a></li>
-            {% endfor %}
-            </ul></td>
+            <td>{% call(party) macro.list(parties, show_pagenav=False) %}
+                <a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a>
+                {% endcall %}
+            </td>
         </tr>
         {% endif %}
         {% if schools %}
         <tr>
             <th>{{ gettext('School') }}</th>
-            <td><ul>
-            {% for school in schools %}
-                <li><a href="{{ url_for('school', education_id=school.id) }}">{{ school.name }}</a></li>
-            {% endfor %}
-            </ul></td>
+            <td>{% call(school) macro.list(schools, show_pagenav=False) %}
+                <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
+                {% endcall %}
+            </td>
         </tr>
         {% endif %}
         {% if regions %}
         <tr>
             <th>{{ gettext('Region') }}</th>
-            <td><ul>
-            {% for region in regions %}
-                <li><a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a></li>
-            {% endfor %}
-            </ul></td>
+            <td>{% call(region) macro.list(regions, show_pagenav=False) %}
+                <span>{{ region.name }}</span>&nbsp;&nbsp;<small><a href="{{ url_for('search', target='people', candidacy_region_id=region.id) }}">{{ gettext('Candidates') }}</a>&nbsp;<a href="{{ url_for('search', target='people', residence_region_id=region.id) }}">{{ gettext('Residents') }}</a></small>
+                {% endcall %}
+            </td>
         </tr>
         {% endif %}
         {% if bills %}
         <tr>
             <th>{{ gettext('Bill') }}</th>
-            <td><ul>
-            {% for bill in bills %}
-                <li><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></li>
-            {% endfor %}
-            </ul></td>
+            <td>{% call(bill) macro.list(bills, show_pagenav=False) %}
+                <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+                {% endcall %}
+            </td>
         </tr>
         {% endif %}
     </tbody>

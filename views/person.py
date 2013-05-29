@@ -7,7 +7,7 @@ import time
 
 from flask import redirect, render_template, request, url_for
 from flask.ext.babel import gettext
-from sqlalchemy import or_
+from sqlalchemy import and_
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
@@ -30,15 +30,13 @@ def register(app):
     def person_main():
         # FIXME: 19
         assembly_id = int(request.args.get('assembly_id', 19))
-        candidates = Person.query.order_by(desc(Person.id))\
-                             .join(Candidacy)\
-                             .filter(Candidacy.age == assembly_id)
-
-        officials = candidates.filter(Candidacy.is_elected == True)
+        officials = Person.query.order_by(desc(Person.id))\
+                                .join(Candidacy)\
+                                .filter(and_(Candidacy.age == assembly_id,
+                                             Candidacy.is_elected == True))
 
         return render_template('people.html',
                                 officials=officials,
-                                candidates=candidates,
                                 assembly_id=assembly_id)
 
     @app.route('/person/all-names.json', methods=['GET'])

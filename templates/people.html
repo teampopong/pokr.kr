@@ -36,20 +36,11 @@
         <tr>
             <th>{{ gettext('officials') }} </th>
             <td>
-                {% call(person) macro.list(officials, show_btn=False) %}
+                {% call(person) macro.list(officials) %}
                 {{widgets.card(person)|safe}}
                 {% endcall %}
             </td>
         </tr>
-        <tr>
-            <th>{{ gettext('candidates') }} </th>
-            <td>
-                {% call(person) macro.list(candidates) %}
-                {{widgets.card(person)|safe}}
-                {% endcall %}
-            </td>
-        </tr>
-
     </table>
 </div>
 {% endblock %}
