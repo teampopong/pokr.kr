@@ -31,16 +31,14 @@
          {% endfor %}
      </ul>
 </div>
-<div id="search-view">
-    <table class="table table-condensed">
-        <tr>
-            <th>{{ gettext('officials') }} </th>
-            <td>
-                {% call(person) macro.list(officials) %}
-                {{widgets.card(person)|safe}}
-                {% endcall %}
-            </td>
-        </tr>
-    </table>
-</div>
+<table class="table table-condensed">
+    <tr>
+        <th>{{ gettext('officials') }} </th>
+        <td class="float-list">
+            {% call(person) macro.list(officials) %}
+            {{widgets.card(person)|safe}}
+            {% endcall %}
+        </td>
+    </tr>
+</table>
 {% endblock %}

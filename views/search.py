@@ -2,7 +2,7 @@ from functools import wraps
 
 from flask import request, render_template
 from sqlalchemy import or_
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql.expression import desc, false
 from werkzeug.local import LocalProxy
 
 from models.cosponsorship import cosponsorship
@@ -108,7 +108,7 @@ def if_target(target_):
         @wraps(f)
         def decorated(*args, **kwargs):
             if target and target != target_:
-                return []
+                return Party.query.filter(false())
             return f(*args, **kwargs)
         return decorated
     return deco

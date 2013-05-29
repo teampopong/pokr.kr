@@ -1,8 +1,8 @@
-{% macro people_list(people) -%}
-    <div id="search-view">
-        {% for person in people %}
+{% macro people_list(people, pagesize=20, show_pagenav=True) -%}
+    <div class="float-list">
+        {% call(person) list(people, pagesize=pagesize, show_pagenav=show_pagenav) %}
             {{widgets.card(person)|safe}}
-        {% endfor %}
+        {% endcall %}
     </div>
 {%- endmacro %}
 
