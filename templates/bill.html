@@ -22,6 +22,7 @@
 {% block card %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
 <h2 class="instance-name">#{{ bill.id }}</h2>
+{% include 'social.html' %}
 <div class="original-link">
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
@@ -30,8 +31,6 @@
 <ul id="bill-section-tabs" class="nav section-tabs">
 </ul>
 {% endif %}
-
-
 {% endblock %}
 
 {% block content %}

@@ -42,7 +42,6 @@ window.currentPage = 'person';
 
 {% block card %}
 {{widgets.card(person, detailed=True)|safe}}
-
 {% if not mobile %}
     <ul id="person-section-tabs" class="nav section-tabs">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
@@ -53,6 +52,7 @@ window.currentPage = 'person';
         <li><a href="#trends">{{gettext("trends")}}</a></li>
     </ul>
 {% endif %}
+{% include 'social.html' %}
 {% endblock %}
 
 {% block content %}
