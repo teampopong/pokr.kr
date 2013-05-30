@@ -22,6 +22,15 @@
 {% if not party.logo %}
 <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
 {% endif %}
+{% if is_duplicate %}
+<div class="warning warning-card">
+    <i class="icon-exclamation-sign"></i>
+    {{ gettext('This page may contain information for more than one party.') }} 
+    <!-- TODO:
+    (<a href="#">{{ gettext('details') }}</a>)
+    -->
+</div>
+{% endif %}
 {% if not mobile %}
 <ul id="party-section-tabs" class="nav section-tabs">
     <li class="active"><a href="#summary">{{gettext("summary")}}</a></li>

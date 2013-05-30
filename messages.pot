@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-30 02:34+0900\n"
+"POT-Creation-Date: 2013-05-30 16:26+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "cosponsors"
 msgstr ""
 
-#: templates/bill.html:96 templates/party.html:27 templates/party.html:38
+#: templates/bill.html:96 templates/party.html:33 templates/party.html:43
 msgid "summary"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "parties"
 msgstr ""
 
-#: templates/main.html:21 templates/party.html:28 templates/party.html:47
+#: templates/main.html:21 templates/party.html:34 templates/party.html:52
 #: templates/people.html:9 templates/people.html:21
 msgid "people"
 msgstr ""
@@ -101,15 +101,23 @@ msgstr ""
 msgid "Result not found"
 msgstr ""
 
-#: templates/party.html:38 templates/person.html:73 views/party.py:17
+#: templates/party.html:28
+msgid "This page may contain information for more than one party."
+msgstr ""
+
+#: templates/party.html:28
+msgid "details"
+msgstr ""
+
+#: templates/party.html:43 templates/person.html:73 views/party.py:17
 msgid "party"
 msgstr ""
 
-#: templates/party.html:41
+#: templates/party.html:46
 msgid "#candidates"
 msgstr ""
 
-#: templates/party.html:42
+#: templates/party.html:47
 msgid "person(s)"
 msgstr ""
 
