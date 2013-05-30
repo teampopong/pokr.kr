@@ -12,9 +12,6 @@
 {% endblock %}
 
 {% block content %}
-{% if mobile %}
-<h1><a href="{{ url_for('main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
-{% endif %}
 <div id="class-list">
     <a href="{{ url_for('bill_main') }}"><div id="class-bill" class="class-item">{{ gettext('bills') }}</div></a>
     <a href="{{ url_for('party_main') }}"><div id="class-party" class="class-item">{{ gettext('parties') }}</div></a>
