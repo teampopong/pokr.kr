@@ -28,7 +28,6 @@
     <li><a href="#people">{{gettext("people")}}</a></li>
 </ul>
 {% endif %}
-
 {% endblock %}
 
 {% block content %}
@@ -38,7 +37,7 @@
             <h3 id="summary">{{ gettext('party') }} {{ gettext('summary') }}</h3>
             <table class="table table-condensed">
                 <tr>
-                    <th>{{ gettext('size') }}</th>
+                    <th>{{ gettext('#candidates') }}</th>
                     <td>{{ party.size }}{{ gettext('person(s)') }}</td>
                 </tr>
             </table>

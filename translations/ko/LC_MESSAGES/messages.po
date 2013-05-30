@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-30 01:53+0900\n"
+"POT-Creation-Date: 2013-05-30 02:34+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,35 +17,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:22
+#: templates/bill.html:26
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: templates/bill.html:35 templates/search-results.html:16
+#: templates/bill.html:48 templates/search-results.html:16
 msgid "assembly #"
 msgstr "국회 대수"
 
-#: templates/bill.html:41 templates/person.html:182
+#: templates/bill.html:54 templates/person.html:182
 msgid "proposed date"
 msgstr "제안일자"
 
-#: templates/bill.html:47
+#: templates/bill.html:60
 msgid "decision date"
 msgstr "의결일자"
 
-#: templates/bill.html:52
+#: templates/bill.html:65
 msgid "status"
 msgstr "상태"
 
-#: templates/bill.html:66 templates/person.html:200
+#: templates/bill.html:79 templates/person.html:200
 msgid "sponsor"
 msgstr "대표발의자"
 
-#: templates/bill.html:72
+#: templates/bill.html:85
 msgid "cosponsors"
 msgstr "발의자"
 
-#: templates/bill.html:83 templates/party.html:27 templates/party.html:38
+#: templates/bill.html:96 templates/party.html:27 templates/party.html:38
 msgid "summary"
 msgstr "요약"
 
@@ -101,9 +101,13 @@ msgstr "죄송합니다, 모바일 브라우저는 현재 지원되지 않습니
 msgid "Result not found"
 msgstr "검색 결과가 없습니다"
 
+#: templates/party.html:38 templates/person.html:73 views/party.py:17
+msgid "party"
+msgstr "정당"
+
 #: templates/party.html:41
-msgid "size"
-msgstr "규모"
+msgid "#candidates"
+msgstr "총 출마자 수"
 
 #: templates/party.html:42
 msgid "person(s)"
@@ -141,10 +145,6 @@ msgstr "검색추이"
 #: templates/person.html:67
 msgid "birthday"
 msgstr "출생"
-
-#: templates/person.html:73 views/party.py:17
-msgid "party"
-msgstr "정당"
 
 #: templates/person.html:79
 msgid "education"
@@ -307,3 +307,7 @@ msgstr "%(age)d대<br>당선"
 #, python-format
 msgid "lost<br>%(age)dth"
 msgstr "%(age)d대<br>낙선"
+
+#~ msgid "size"
+#~ msgstr "규모"
+
