@@ -1,10 +1,14 @@
 <h1><a href="{{ url_for('main') }}"><img class="logo" src="{{ url_for('static', filename='images/logo-polidic-alpha-%s-300.png' % locale) }}"></a></h1>
 <form action="{{ url_for("search") }}">
 	<div class="input-append">
+            {% if mobile %}
+            <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }}">
+            {% else %}
             <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }} (ex: {{ gettext('Seon-Mi Jin') }}, 청년, 무소속, 관악구)">
-		<button class="btn add-on">
-			<i class="icon-search"></i>
-		</button>
+            {% endif %}
+            <button class="btn add-on">
+                    <i class="icon-search"></i>
+            </button>
 	</div>
 </form>
 {% if not mobile %}
