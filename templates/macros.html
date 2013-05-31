@@ -14,6 +14,17 @@
 </a>
 {%- endmacro %}
 
+{% macro list_count(query, type=None) -%}
+    {% set cnt = query|count if hasattr(query, 'append') else query.count() %}
+    <span class="search-count">
+    {% if type=='people' %}
+        {{ gettext('%(count)d people', count=cnt) }}
+    {% else %}
+        {{ gettext('%(count)d results', count=cnt) }}
+    {% endif %}
+    </span>
+{%- endmacro %}
+
 {% macro list(query, page=None, pagesize=20, show_pagenav=True, layout='list') -%}
 
     {% set page = int(request.args.get('page', 1)) %}
@@ -21,8 +32,6 @@
     {% set next_url = url_for_query(page=page + 1) %}
     {% set offset = (page - 1) * pagesize %}
     {% set items = query.offset(offset).limit(pagesize+1).all() %}
-
-    <span>{{ gettext('%(count)d results', count=query.count()) }}</span>
 
     {% if layout=='list' %}
         <ul>

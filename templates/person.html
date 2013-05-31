@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% import 'macros.html' as macro with context %}
 
 {% set has_bills = person.bills().limit(1).all() %}
 {% set NUM_BILLS_SHOWN = 10 %}
@@ -186,10 +187,14 @@ window.currentPage = 'person';
                 <tbody>
                     {% for candidacy in person.candidacies %}
                         {% if candidacy.is_elected %}
-                            {% set bills = person.bills(candidacy.age).limit(NUM_BILLS_SHOWN + 1).all() %}
+                            {% set all_bills = person.bills(candidacy.age) %}
+                            {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
                             {% if bills %}
                                 <tr>
-                                    <th id="legislations-{{ candidacy.age }}" class="anchor" rowspan="{{ bills|length + 1 }}">{{ candidacy.age }}{{ gettext('th assembly') }}</th>
+                                    <th id="legislations-{{ candidacy.age }}" class="anchor" rowspan="{{ bills|length + 1 }}">
+                                        {{ candidacy.age }}{{ gettext('th assembly') }}
+                                        <br>{{ macro.list_count(all_bills) }}
+                                    </th>
                                 </tr>
                                 {% for bill in bills[:NUM_BILLS_SHOWN] %}
                                 <tr>

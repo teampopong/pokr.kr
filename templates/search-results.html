@@ -5,6 +5,14 @@
 {{ super() }} - {{ gettext("Search") }}
 {% endblock %}
 
+{% block extra_headers %}
+{% assets filters='less', output='build/search.%(version)s.css',
+    depends=['**/*.less'], 'less/search.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+
+
 {% block card %}
 <table class="table table-condensed table-bordered">
     {% set options = [('year', gettext('birthyear')),
@@ -27,12 +35,18 @@
 <table class="table table-condensed">
     <tbody>
         <tr>
-            <th>{{ gettext('People') }}</th>
+            <th>
+                {{ gettext('People') }}
+                <br>{{ macro.list_count(people) }}
+            </th>
             <td>{{ macro.people_list(people, show_pagenav=False) }}</td>
         </tr>
         {% if parties %}
         <tr>
-            <th>{{ gettext('Party') }}</th>
+            <th>
+                {{ gettext('Party') }}
+                <br>{{ macro.list_count(parties) }}
+            </th>
             <td>{% call(party) macro.list(parties, show_pagenav=False) %}
                 <a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a>
                 {% endcall %}
@@ -41,7 +55,10 @@
         {% endif %}
         {% if schools %}
         <tr>
-            <th>{{ gettext('School') }}</th>
+            <th>
+                {{ gettext('School') }}
+                <br>{{ macro.list_count(schools) }}
+            </th>
             <td>{% call(school) macro.list(schools, show_pagenav=False) %}
                 <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
                 {% endcall %}
@@ -50,7 +67,10 @@
         {% endif %}
         {% if regions %}
         <tr>
-            <th>{{ gettext('Region') }}</th>
+            <th>
+                {{ gettext('Region') }}
+                <br>{{ macro.list_count(regions) }}
+            </th>
             <td>{% call(region) macro.list(regions, show_pagenav=False) %}
                 <span>{{ region.name }}</span>&nbsp;&nbsp;<small><a href="{{ url_for('search', target='people', candidacy_region_id=region.id) }}">{{ gettext('Candidates') }}</a>&nbsp;<a href="{{ url_for('search', target='people', residence_region_id=region.id) }}">{{ gettext('Residents') }}</a></small>
                 {% endcall %}
@@ -59,7 +79,10 @@
         {% endif %}
         {% if bills %}
         <tr>
-            <th>{{ gettext('Bill') }}</th>
+            <th>
+                {{ gettext('Bill') }}
+                <br>{{ macro.list_count(bills) }}
+            </th>
             <td>{% call(bill) macro.list(bills, show_pagenav=False) %}
                 <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
                 {% endcall %}
