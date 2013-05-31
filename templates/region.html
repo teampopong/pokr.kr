@@ -20,12 +20,14 @@
 <table class="table table-condensed">
     <tbody>
         <tr>
-            <th>{{ gettext('Candidates') }}</th>
-            <td>{{ macro.people_list(region.candidates) }}</td>
+            <th>{{ gettext('Candidates') }}
+                <br>{{ macro.list_count(region.candidates) }}</th>
+            <td>{{ macro.people_list(region.candidates, show_pagenav=False) }}</td>
         </tr>
         <tr>
-            <th>{{ gettext('Residents') }}</th>
-            <td>{{ macro.people_list(region.residents) }}</td>
+            <th>{{ gettext('Residents') }}
+                <br>{{ macro.list_count(region.residents) }}</th>
+            <td>{{ macro.people_list(region.residents, show_pagenav=False) }}</td>
         </tr>
     </tbody>
 </table>
