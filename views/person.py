@@ -53,7 +53,7 @@ def register(app):
             return render_template('not-found.html'), 404
 
         try:
-            person_extra_vars = json.loads(person.extra_vars)
+            person_extra_vars = json.loads(person.extra_vars or '{}')
             if type(person_extra_vars.get('experience', None)) in [str, unicode]:
                 person_extra_vars['experience'] = [person_extra_vars['experience']]
         except ValueError, e:
