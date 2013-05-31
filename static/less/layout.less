@@ -27,12 +27,17 @@ body {
     left: 0;
     right: 0;
     background: @bg_color;
+    div#header,
+    div#container,
+    div#footer {
+        max-width: @container_width;
+        margin: 0 20px;
+    }
 }
 
 #header {
     position: relative;
     text-align: center;
-    max-width: @container_width;
     margin: 0 auto;
 
     h1 {
@@ -74,11 +79,10 @@ body {
     position: fixed;
     top: 90px;
     bottom: 30px;
-    left: 20px;
-    right: 20px;
+    left: 0;
+    right: 0;
     background: white;
     .framed;
-    max-width: @container_width;
     margin: 0 auto;
 }
 
@@ -89,8 +93,8 @@ body {
 #footer {
     position: fixed;
     bottom: 5px;
-    left: 20px;
-    right: 20px;
+    left: 0;
+    right: 0;
     color: #777;
     font-size: 85%;
     text-align: right;
@@ -98,7 +102,6 @@ body {
     p {
         display: inline-block;
     }
-    max-width: @container_width;
     margin: 0 auto;
 }
 
