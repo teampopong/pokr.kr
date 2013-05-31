@@ -220,7 +220,7 @@ msgstr "선거구"
 
 #: templates/person.html:152 templates/person.html:164
 msgid "competitors"
-msgstr "동시 출마자"
+msgstr "동시출마"
 
 #: templates/person.html:182
 msgid "Pledges"
