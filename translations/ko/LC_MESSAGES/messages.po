@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 17:00+0900\n"
+"POT-Creation-Date: 2013-05-31 17:46+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: templates/bill.html:48 templates/search-results.html:24
+#: templates/bill.html:48 templates/search-results.html:27
 msgid "assembly #"
 msgstr "국회 대수"
 
@@ -179,7 +179,7 @@ msgstr "주소"
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:132 templates/search-results.html:21
+#: templates/person.html:132 templates/search-results.html:24
 msgid "election district"
 msgstr "선거구"
 
@@ -233,51 +233,55 @@ msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 msgid "Search"
 msgstr "검색"
 
-#: templates/search-results.html:18
+#: templates/search-results.html:16
+msgid "search"
+msgstr "검색"
+
+#: templates/search-results.html:21
 msgid "birthyear"
 msgstr "출생연도"
 
-#: templates/search-results.html:19
+#: templates/search-results.html:22
 msgid "query"
 msgstr "검색어"
 
-#: templates/search-results.html:20
+#: templates/search-results.html:23
 msgid "school"
 msgstr "교육기관"
 
-#: templates/search-results.html:22
+#: templates/search-results.html:25
 msgid "residential district"
 msgstr "거주지"
 
-#: templates/search-results.html:23 views/person.py:23
+#: templates/search-results.html:26 views/person.py:23
 msgid "person"
 msgstr "인물"
 
-#: templates/search-results.html:39
+#: templates/search-results.html:42
 msgid "People"
 msgstr "인물"
 
-#: templates/search-results.html:47
+#: templates/search-results.html:50
 msgid "Party"
 msgstr "정당"
 
-#: templates/search-results.html:59
+#: templates/search-results.html:62
 msgid "School"
 msgstr "교육기관"
 
-#: templates/search-results.html:71
+#: templates/search-results.html:74
 msgid "Region"
 msgstr "지역"
 
-#: templates/search-results.html:75
+#: templates/search-results.html:78
 msgid "Candidates"
 msgstr "출마자"
 
-#: templates/search-results.html:75
+#: templates/search-results.html:78
 msgid "Residents"
 msgstr "거주자"
 
-#: templates/search-results.html:83
+#: templates/search-results.html:86
 msgid "Bill"
 msgstr "의안"
 
@@ -328,3 +332,4 @@ msgstr "%(age)d대<br>당선"
 #, python-format
 msgid "lost<br>%(age)dth"
 msgstr "%(age)d대<br>낙선"
+

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 17:00+0900\n"
+"POT-Creation-Date: 2013-05-31 17:46+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:48 templates/search-results.html:24
+#: templates/bill.html:48 templates/search-results.html:27
 msgid "assembly #"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:132 templates/search-results.html:21
+#: templates/person.html:132 templates/search-results.html:24
 msgid "election district"
 msgstr ""
 
@@ -233,51 +233,55 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: templates/search-results.html:18
+#: templates/search-results.html:16
+msgid "search"
+msgstr ""
+
+#: templates/search-results.html:21
 msgid "birthyear"
 msgstr ""
 
-#: templates/search-results.html:19
+#: templates/search-results.html:22
 msgid "query"
 msgstr ""
 
-#: templates/search-results.html:20
+#: templates/search-results.html:23
 msgid "school"
 msgstr ""
 
-#: templates/search-results.html:22
+#: templates/search-results.html:25
 msgid "residential district"
 msgstr ""
 
-#: templates/search-results.html:23 views/person.py:23
+#: templates/search-results.html:26 views/person.py:23
 msgid "person"
 msgstr ""
 
-#: templates/search-results.html:39
+#: templates/search-results.html:42
 msgid "People"
 msgstr ""
 
-#: templates/search-results.html:47
+#: templates/search-results.html:50
 msgid "Party"
 msgstr ""
 
-#: templates/search-results.html:59
+#: templates/search-results.html:62
 msgid "School"
 msgstr ""
 
-#: templates/search-results.html:71
+#: templates/search-results.html:74
 msgid "Region"
 msgstr ""
 
-#: templates/search-results.html:75
+#: templates/search-results.html:78
 msgid "Candidates"
 msgstr ""
 
-#: templates/search-results.html:75
+#: templates/search-results.html:78
 msgid "Residents"
 msgstr ""
 
-#: templates/search-results.html:83
+#: templates/search-results.html:86
 msgid "Bill"
 msgstr ""
 
