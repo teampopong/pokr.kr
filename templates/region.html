@@ -12,11 +12,26 @@
 {% endblock %}
 
 {% block card %}
+{% if not mobile %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
+{% endif %}
 <h2 class="instance-name">{{ fullname }}</h2>
+{% include 'social.html' %}
 {% endblock %}
 
 {% block content %}
+{% if mobile %}
+<h4 class="subsection-title">
+    {{ gettext('Candidates') }}
+    <small>{{ macro.list_count(region.candidates) }}</small>
+</h4>
+{{ macro.people_list(region.candidates, show_pagenav=False) }}
+<h4 class="subsection-title">
+    {{ gettext('Residents') }}
+    <small>{{ macro.list_count(region.residents) }}</small>
+</h4>
+{{ macro.people_list(region.residents, show_pagenav=False) }}
+{% else %}
 <table class="table table-condensed">
     <tbody>
         <tr>
@@ -31,5 +46,6 @@
         </tr>
     </tbody>
 </table>
+{% endif %}
 {% endblock %}
 

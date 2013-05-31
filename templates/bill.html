@@ -21,8 +21,12 @@
 {% endblock %}
 
 {% block card %}
+{% if mobile %}
+<h2 id="bill-name">{{ bill.name }}</h2>
+{% else %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
 <h2 class="instance-name">#{{ bill.id }}</h2>
+{% endif %}
 {% include 'social.html' %}
 <div class="original-link">
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
@@ -39,7 +43,9 @@
 
 {% block content %}
 <div id="bill-view" class="view">
+    {% if not mobile %}
     <h2 id="bill-name">{{ bill.name }}</h2>
+    {% endif %}
     <div id="bill-sections" class="sections">
         <div id="section-outline" class="section">
             <h3 id="outline">{{ gettext('outline') }}</h3>
