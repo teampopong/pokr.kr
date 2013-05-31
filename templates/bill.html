@@ -64,14 +64,21 @@
                             <tr>
                                 <th>{{ gettext("status") }}</th>
                                 <td>
+                                    <table id="bill-status" class="table">
+                                <tr>
+                                {% set before_current = True %}
                                 {% for status in bill.statuses %}
                                     {% if status.id == bill.status_id %}
-                                        <strong>{{ status.name }}</strong>
+                                    <td class="present">{{ status.name }}</td>
+                                    {% set before_current = False %}
+                                    {% elif before_current %}
+                                    <td class="past">{{ status.name }}</td>
                                     {% else %}
-                                        {{ status.name }}
+                                    <td class="future">{{ status.name }}</td>
                                     {% endif %}
-                                    &nbsp;
                                 {% endfor %}
+</tr>
+</table>
                                 </td>
                             </tr>
                             {% if bill.sponsor %}
