@@ -50,6 +50,11 @@
                     <th>{{ gettext('#candidates') }}</th>
                     <td>{{ party.size }}{{ gettext('person(s)') }}</td>
                 </tr>
+                <tr>
+                    <th>{{ gettext('assemblies') }}</th>
+                    <td>{{ assemblies|join(', ') }}{{ gettext('th assembly election') }}</td>
+                </tr>
+
             </table>
         </div>
         <div id="section-people" class="section">

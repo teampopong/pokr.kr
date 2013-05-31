@@ -33,7 +33,10 @@
 </div>
 <table class="table table-condensed">
     <tr>
-        <th>{{ gettext('officials') }} </th>
+        <th>
+            {{ gettext('officials') }}
+            <br>{{ macro.list_count(officials, type='people') }}
+        </th>
         <td class="float-list">
             {% call(person) macro.list(officials) %}
             {{widgets.card(person)|safe}}

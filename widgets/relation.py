@@ -14,13 +14,13 @@ from models.election import Election
 from models.person import Person
 
 
-def rivals(person_or_id, age, size=4):
+def rivals(person_or_id, election_id, size=4):
     if isinstance(person_or_id, Person):
         person = person_or_id
     else:
         person = Person.query.filter_by(id=person_or_id).first()
 
-    rivals = _rivals(person, age)
+    rivals = _rivals(person, election_id)
     label = gettext('in the same constituency')
 
     return render_template('widgets/relation.html',
@@ -29,13 +29,13 @@ def rivals(person_or_id, age, size=4):
             size=size)
 
 
-def _rivals(person, age):
+def _rivals(person, election_id):
     if not person:
         return []
 
     my_candidacy = Candidacy.query.filter_by(person_id=person.id)\
                                   .join(Election)\
-                                  .filter(Election.age == age).one()
+                                  .filter(Election.id == election_id).one()
 
     if not my_candidacy:
         return []
