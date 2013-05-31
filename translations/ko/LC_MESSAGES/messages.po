@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 18:47+0900\n"
+"POT-Creation-Date: 2013-05-31 18:58+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgstr "공동발의자"
 msgid "summary"
 msgstr "요약"
 
-#: templates/bills.html:9 templates/bills.html:21 templates/main.html:16
+#: templates/bills.html:9 templates/bills.html:21 templates/main.html:17
 #: templates/includes/header.html:12
 msgid "bills"
 msgstr "의안"
@@ -104,16 +104,20 @@ msgid ""
 "narrow them down by giving more strict options."
 msgstr "검색 결과가 너무 많아 전부 표시되지 않았습니다. 원하는 결과가 없다면 검색 조건을 추가해 주세요"
 
-#: templates/main.html:17 templates/parties.html:10 templates/parties.html:15
-#: templates/includes/header.html:13
-msgid "parties"
-msgstr "정당"
-
-#: templates/main.html:18 templates/party.html:38 templates/party.html:61
+#: templates/main.html:16 templates/party.html:38 templates/party.html:61
 #: templates/people.html:9 templates/people.html:21
 #: templates/includes/header.html:11
 msgid "people"
 msgstr "인물"
+
+#: templates/main.html:18 templates/parties.html:10 templates/parties.html:15
+#: templates/includes/header.html:13
+msgid "parties"
+msgstr "정당"
+
+#: templates/main.html:19 templates/regions.html:9 templates/regions.html:14
+msgid "regions"
+msgstr "지역"
 
 #: templates/not-found.html:4 templates/not-found.html:9
 msgid "Result not found"
@@ -128,7 +132,8 @@ msgid "details"
 msgstr "자세히 보기"
 
 #: templates/party.html:47 templates/person.html:74
-#: templates/mobile/person.html:73 views/party.py:19
+#: templates/includes/header.html:4 templates/mobile/person.html:73
+#: views/party.py:19
 msgid "party"
 msgstr "정당"
 
@@ -260,10 +265,6 @@ msgstr "출마자"
 msgid "Residents"
 msgstr "거주자"
 
-#: templates/regions.html:9 templates/regions.html:14
-msgid "regions"
-msgstr "지역"
-
 #: templates/search-results.html:5
 msgid "Search"
 msgstr "검색"
@@ -284,7 +285,8 @@ msgstr "검색어"
 msgid "school"
 msgstr "교육기관"
 
-#: templates/search-results.html:24 views/person.py:23
+#: templates/search-results.html:24 templates/includes/header.html:4
+#: views/person.py:23
 msgid "person"
 msgstr "인물"
 
@@ -326,21 +328,21 @@ msgstr "데이터"
 msgid "sources"
 msgstr "소스"
 
+#: templates/includes/header.html:4 views/bill.py:16
+msgid "bill"
+msgstr "의안"
+
+#: templates/includes/header.html:4 views/region.py:15
+msgid "region"
+msgstr "지역"
+
 #: templates/includes/header.html:4
-msgid "name, bill, party (ex: 홍길동, 미래, 무소속)"
-msgstr "인물, 의안, 정당 (예: 홍길동, 미래, 무소속)"
+msgid "Seon-Mi Jin"
+msgstr "진선미"
 
 #: views/__init__.py:7
 msgid "home"
 msgstr "홈"
-
-#: views/bill.py:16
-msgid "bill"
-msgstr "의안"
-
-#: views/region.py:15
-msgid "region"
-msgstr "지역"
 
 #: widgets/relation.py:24
 msgid "in the same constituency"
@@ -359,4 +361,7 @@ msgstr "%(age)d대<br>당선"
 #, python-format
 msgid "lost<br>%(age)dth"
 msgstr "%(age)d대<br>낙선"
+
+#~ msgid "Gil-dong Hong"
+#~ msgstr "홍길동"
 

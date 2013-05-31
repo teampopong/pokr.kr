@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 18:47+0900\n"
+"POT-Creation-Date: 2013-05-31 18:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgstr ""
 msgid "summary"
 msgstr ""
 
-#: templates/bills.html:9 templates/bills.html:21 templates/main.html:16
+#: templates/bills.html:9 templates/bills.html:21 templates/main.html:17
 #: templates/includes/header.html:12
 msgid "bills"
 msgstr ""
@@ -104,15 +104,19 @@ msgid ""
 "narrow them down by giving more strict options."
 msgstr ""
 
-#: templates/main.html:17 templates/parties.html:10 templates/parties.html:15
+#: templates/main.html:16 templates/party.html:38 templates/party.html:61
+#: templates/people.html:9 templates/people.html:21
+#: templates/includes/header.html:11
+msgid "people"
+msgstr ""
+
+#: templates/main.html:18 templates/parties.html:10 templates/parties.html:15
 #: templates/includes/header.html:13
 msgid "parties"
 msgstr ""
 
-#: templates/main.html:18 templates/party.html:38 templates/party.html:61
-#: templates/people.html:9 templates/people.html:21
-#: templates/includes/header.html:11
-msgid "people"
+#: templates/main.html:19 templates/regions.html:9 templates/regions.html:14
+msgid "regions"
 msgstr ""
 
 #: templates/not-found.html:4 templates/not-found.html:9
@@ -128,7 +132,8 @@ msgid "details"
 msgstr ""
 
 #: templates/party.html:47 templates/person.html:74
-#: templates/mobile/person.html:73 views/party.py:19
+#: templates/includes/header.html:4 templates/mobile/person.html:73
+#: views/party.py:19
 msgid "party"
 msgstr ""
 
@@ -260,10 +265,6 @@ msgstr ""
 msgid "Residents"
 msgstr ""
 
-#: templates/regions.html:9 templates/regions.html:14
-msgid "regions"
-msgstr ""
-
 #: templates/search-results.html:5
 msgid "Search"
 msgstr ""
@@ -284,7 +285,8 @@ msgstr ""
 msgid "school"
 msgstr ""
 
-#: templates/search-results.html:24 views/person.py:23
+#: templates/search-results.html:24 templates/includes/header.html:4
+#: views/person.py:23
 msgid "person"
 msgstr ""
 
@@ -326,20 +328,20 @@ msgstr ""
 msgid "sources"
 msgstr ""
 
+#: templates/includes/header.html:4 views/bill.py:16
+msgid "bill"
+msgstr ""
+
+#: templates/includes/header.html:4 views/region.py:15
+msgid "region"
+msgstr ""
+
 #: templates/includes/header.html:4
-msgid "name, bill, party (ex: 홍길동, 미래, 무소속)"
+msgid "Seon-Mi Jin"
 msgstr ""
 
 #: views/__init__.py:7
 msgid "home"
-msgstr ""
-
-#: views/bill.py:16
-msgid "bill"
-msgstr ""
-
-#: views/region.py:15
-msgid "region"
 msgstr ""
 
 #: widgets/relation.py:24
