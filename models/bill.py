@@ -47,6 +47,13 @@ class Bill(Base):
                                  .group_by(Party.id)
         return [(party, int(count)) for party, count in party_counts]
 
+    @property
+    def representative_person(self):
+        for cosponsor in self.cosponsors:
+            if cosponsor.name in self.sponsor:
+                return cosponsor
+        return None
+
 
 bill_and_status = select([func.unnest(Bill.status_ids).label('bill_status_id'),
                         Bill.id.label('bill_id')]).alias()
@@ -58,3 +65,4 @@ Bill.statuses = relationship("BillStatus",
             secondaryjoin=bill_and_status.c.bill_status_id == BillStatus.id,
             viewonly=True,
             backref='bills')
+

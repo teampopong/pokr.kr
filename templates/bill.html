@@ -77,7 +77,12 @@
                             {% if bill.sponsor %}
                             <tr>
                                 <th>{{ gettext("sponsor") }}</th>
-                                <td>{{ bill.sponsor }}</td>
+                                <td>{% if bill.representative_person %}
+                                        {{ widgets.card(bill.representative_person)|safe }}
+                                    {% else %}
+                                        {{ bill.sponsor }}
+                                    {% endif %}
+                                </td>
                             </tr>
                             {% endif %}
                             {% if bill.cosponsors %}
