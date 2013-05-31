@@ -16,22 +16,7 @@ th.no-min-width {
     min-width: 0;
 }
 
-.breadcrumb {
-    background: white;
-    padding: 0 0 3px 0;
-    border-radius: 0;
-    border-bottom: 1px solid #ddd;
-    margin: 0 5px 5px;
-    font-size: 85%;
 
-    a {
-        color: #777;
-
-        &:hover {
-            color: #777;
-        }
-    }
-}
 
 ///// user-defined stylesheets /////
 // layout
@@ -44,9 +29,41 @@ body {
     background: @bg_color;
 }
 
+#header {
+    position: relative;
+    text-align: center;
+    max-width: @container_width;
+    margin: 0 auto;
+
+    h1 {
+        .inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    form {
+        .inline-block;
+        margin-bottom: 10px;
+    }
+    .breadcrumb {
+        padding: 0 0 3px 0;
+        margin: 0 5px 5px;
+        font-size: 85%;
+        text-align: left;
+
+        a {
+            color: #777;
+
+            &:hover {
+                color: #777;
+            }
+        }
+    }
+}
+
 #container {
     position: fixed;
-    top: 20px;
+    top: 90px;
     bottom: 40px;
     left: 20px;
     right: 20px;
@@ -54,30 +71,6 @@ body {
     .framed;
     max-width: @container_width;
     margin: 0 auto;
-
-    header {
-        position: relative;
-        text-align: center;
-
-        h1 {
-            .inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-
-        form {
-            .inline-block;
-        }
-    }
-
-    #content {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 10px;
-    }
 }
 
 .logo {
@@ -107,7 +100,7 @@ a#barometer_tab {
 // content
 #card-container {
     position: absolute;
-    top: 28px;
+    top: 0px;
     bottom: 0;
     left: 0;
     width: 180px;
@@ -167,7 +160,7 @@ a#barometer_tab {
 
 #spec-container {
     position: absolute;
-    top: 33px;
+    top: 0;
     bottom: 0;
     left: 180px;
     right: 0;
