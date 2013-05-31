@@ -136,7 +136,14 @@ window.currentPage = 'person';
                     {% for candidacy in person.candidacies %}
                     <tr id="assembly-election-{{candidacy.age}}">
                         <th class="anchor" data-target-id="assembly-election-{{candidacy.age}}">
-                            <strong class="header-name">{{ gettext('%(age)dth', age=candidacy.age) }} {{ gettext('National Assembly Election') }}</strong>
+                            <strong class="header-name">
+                                {{ gettext('%(age)dth', age=candidacy.age) }}
+                                {% if candidacy.election.is_regular %}
+                                {{ gettext('National Assembly Election') }}
+                                {% else %}
+                                {{ gettext('National Assembly By-election') }}
+                                {% endif %}
+                            </strong>
                             <div class="pledges">
                             {% set pledges = person.pledges %}
                             {% if pledges and pledges[candidacy.age] %}
