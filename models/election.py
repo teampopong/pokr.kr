@@ -18,8 +18,8 @@ class Election(Base):
     def __init__(self, _type, age, date=None, is_regular=None):
         self.type = _type
         self.age = age
-        if date:
+        if date is not None:
             self.date = date
-        if is_regular:
+        if is_regular is not None:
             self.is_regular = is_regular
 

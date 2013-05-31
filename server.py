@@ -48,6 +48,12 @@ def insert_bills(files):
     f(files)
 
 
+@manager.command
+def insert_candidacies(files, age, date):
+    from scripts.insert_candidacies import insert_candidacies as f
+    f(files, age, date)
+
+
 # standalone mode
 if __name__ == '__main__':
     manager.run()
