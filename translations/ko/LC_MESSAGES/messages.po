@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 22:32+0900\n"
+"POT-Creation-Date: 2013-06-01 01:57+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,52 +17,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:28
+#: templates/bill.html:32
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: templates/bill.html:33 templates/bill.html:45
+#: templates/bill.html:37 templates/bill.html:51
 msgid "outline"
 msgstr "기본정보"
 
-#: templates/bill.html:34 templates/bill.html:89
+#: templates/bill.html:38 templates/bill.html:95
 msgid "sponsors"
 msgstr "발의자"
 
-#: templates/bill.html:35 templates/bill.html:120
+#: templates/bill.html:39 templates/bill.html:126
 msgid "contents"
 msgstr "내용"
 
-#: templates/bill.html:50 templates/search-results.html:10
+#: templates/bill.html:56 templates/search-results.html:10
 msgid "assembly #"
 msgstr "국회 대수"
 
-#: templates/bill.html:56 templates/person.html:198
+#: templates/bill.html:62 templates/person.html:233 templates/person.html:255
 msgid "proposed date"
 msgstr "제안일자"
 
-#: templates/bill.html:62
+#: templates/bill.html:68
 msgid "decision date"
 msgstr "의결일자"
 
-#: templates/bill.html:67
+#: templates/bill.html:73
 msgid "status"
 msgstr "상태"
 
-#: templates/bill.html:93 templates/person.html:220
+#: templates/bill.html:99 templates/person.html:277
 msgid "sponsor"
 msgstr "대표발의자"
 
-#: templates/bill.html:105
+#: templates/bill.html:111
 msgid "cosponsors"
 msgstr "공동발의자"
 
-#: templates/bill.html:123 templates/party.html:37 templates/party.html:47
+#: templates/bill.html:129 templates/party.html:41 templates/party.html:51
 msgid "summary"
 msgstr "요약"
 
 #: templates/bills.html:9 templates/bills.html:14 templates/main.html:17
-#: templates/includes/header.html:12
+#: templates/includes/header.html:17
 msgid "bills"
 msgstr "의안"
 
@@ -102,19 +102,19 @@ msgid ""
 "narrow them down by giving more strict options."
 msgstr "검색 결과가 너무 많아 전부 표시되지 않았습니다. 원하는 결과가 없다면 검색 조건을 추가해 주세요"
 
-#: templates/main.html:16 templates/party.html:38 templates/party.html:61
+#: templates/main.html:16 templates/party.html:42 templates/party.html:65
 #: templates/people.html:9 templates/people.html:14
-#: templates/includes/header.html:11
+#: templates/includes/header.html:16
 msgid "people"
 msgstr "인물"
 
 #: templates/main.html:18 templates/parties.html:10 templates/parties.html:15
-#: templates/includes/header.html:13
+#: templates/includes/header.html:18
 msgid "parties"
 msgstr "정당"
 
 #: templates/main.html:19 templates/regions.html:9 templates/regions.html:14
-#: templates/includes/header.html:14
+#: templates/includes/header.html:19
 msgid "regions"
 msgstr "지역"
 
@@ -122,36 +122,37 @@ msgstr "지역"
 msgid "Result not found"
 msgstr "검색 결과가 없습니다"
 
-#: templates/party.html:29
+#: templates/party.html:33
 msgid "This page may contain information for more than one party."
 msgstr "이 페이지는 두 개 이상의 정당에 대한 정보일 수 있습니다."
 
-#: templates/party.html:31
+#: templates/party.html:35
 msgid "details"
 msgstr "자세히 보기"
 
-#: templates/party.html:47 templates/person.html:74
-#: templates/includes/header.html:4 views/party.py:19
+#: templates/party.html:51 templates/person.html:68
+#: templates/includes/header.html:5 templates/includes/header.html:7
+#: views/party.py:19
 msgid "party"
 msgstr "정당"
 
-#: templates/party.html:50
+#: templates/party.html:54
 msgid "#candidates"
 msgstr "출마자 수"
 
-#: templates/party.html:51
+#: templates/party.html:55
 msgid "person(s)"
 msgstr "명"
 
-#: templates/party.html:54
+#: templates/party.html:58
 msgid "assemblies"
 msgstr "출마 대수"
 
-#: templates/party.html:55
+#: templates/party.html:59
 msgid "th assembly election"
 msgstr "대 국회의원 선거"
 
-#: templates/people.html:30
+#: templates/people.html:38
 msgid "officials"
 msgstr "당선자"
 
@@ -164,97 +165,97 @@ msgstr "%(last_elected_no)d대 국회의원"
 msgid "Politician Dictionary"
 msgstr "정치인명사전"
 
-#: templates/person.html:48 templates/person.html:63
+#: templates/person.html:42 templates/person.html:57
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:49 templates/person.html:128
+#: templates/person.html:43 templates/person.html:122
 msgid "elections"
 msgstr "선거활동"
 
-#: templates/person.html:51 templates/person.html:192
+#: templates/person.html:45 templates/person.html:220
 msgid "legislations"
 msgstr "입법활동"
 
-#: templates/person.html:53 templates/person.html:241
+#: templates/person.html:47 templates/person.html:300
 msgid "trends"
 msgstr "검색추이"
 
-#: templates/person.html:68
+#: templates/person.html:62
 msgid "birthday"
 msgstr "출생"
 
-#: templates/person.html:80
+#: templates/person.html:74
 msgid "education"
 msgstr "최종학력"
 
-#: templates/person.html:82 templates/person.html:94
+#: templates/person.html:76 templates/person.html:88
 msgid "original"
 msgstr "원본"
 
-#: templates/person.html:92
+#: templates/person.html:86
 msgid "address"
 msgstr "주소"
 
-#: templates/person.html:107
+#: templates/person.html:101
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:136
-msgid "election district"
-msgstr "선거구"
-
-#: templates/person.html:137
-msgid "competitors"
-msgstr "동일 선거구 출마자"
-
-#: templates/person.html:145
+#: templates/person.html:126 templates/person.html:172
 #, python-format
 msgid "%(age)dth"
 msgstr "%(age)d대"
 
-#: templates/person.html:147
+#: templates/person.html:128 templates/person.html:174
 msgid "National Assembly Election"
 msgstr "국회의원 선거"
 
-#: templates/person.html:149
+#: templates/person.html:130 templates/person.html:176
 msgid "National Assembly By-election"
 msgstr "국회의원 보궐선거"
 
-#: templates/person.html:155
+#: templates/person.html:135 templates/person.html:163
+msgid "election district"
+msgstr "선거구"
+
+#: templates/person.html:152 templates/person.html:164
+msgid "competitors"
+msgstr "동시 출마자"
+
+#: templates/person.html:182
 msgid "Pledges"
 msgstr "공약"
 
-#: templates/person.html:197
-msgid "title"
-msgstr "제목"
-
-#: templates/person.html:199
-msgid "role"
-msgstr "역할"
-
-#: templates/person.html:210
+#: templates/person.html:228 templates/person.html:267
 msgid "th assembly"
 msgstr "대 국회"
 
-#: templates/person.html:222
-msgid "cosponsor"
-msgstr "공동발의자"
+#: templates/person.html:234 templates/person.html:254
+msgid "title"
+msgstr "제목"
 
-#: templates/person.html:229
+#: templates/person.html:243 templates/person.html:286
 msgid "more"
 msgstr "더보기"
 
-#: templates/person.html:243
+#: templates/person.html:256
+msgid "role"
+msgstr "역할"
+
+#: templates/person.html:279
+msgid "cosponsor"
+msgstr "공동발의자"
+
+#: templates/person.html:302
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 
-#: templates/region.html:23
+#: templates/region.html:25 templates/region.html:38
 msgid "Candidates"
 msgstr "출마자"
 
-#: templates/region.html:28
+#: templates/region.html:30 templates/region.html:43
 msgid "Residents"
 msgstr "거주자"
 
@@ -270,8 +271,8 @@ msgstr "검색어"
 msgid "school"
 msgstr "교육기관"
 
-#: templates/search-results.html:9 templates/includes/header.html:4
-#: views/person.py:23
+#: templates/search-results.html:9 templates/includes/header.html:5
+#: templates/includes/header.html:7 views/person.py:23
 msgid "person"
 msgstr "인물"
 
@@ -326,15 +327,17 @@ msgstr "데이터"
 msgid "sources"
 msgstr "소스"
 
-#: templates/includes/header.html:4 views/bill.py:16
+#: templates/includes/header.html:5 templates/includes/header.html:7
+#: views/bill.py:16
 msgid "bill"
 msgstr "의안"
 
-#: templates/includes/header.html:4 views/region.py:15
+#: templates/includes/header.html:5 templates/includes/header.html:7
+#: views/region.py:15
 msgid "region"
 msgstr "지역"
 
-#: templates/includes/header.html:4
+#: templates/includes/header.html:7
 msgid "Seon-Mi Jin"
 msgstr "진선미"
 
