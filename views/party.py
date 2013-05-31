@@ -7,7 +7,6 @@ from sqlalchemy import distinct
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from database import db_session
 from models.candidacy import Candidacy
 from models.party import Party
 from utils.jinja import breadcrumb
@@ -57,10 +56,11 @@ def register(app):
             return render_template('not-found.html'), 404
 
         is_duplicate = party.name in duplicates
-        candidacies = db_session.query(Candidacy)\
-                                 .join(Party)\
-                                 .filter(Party.id == party.id)
-        assemblies = sorted(set((candidacy.age for candidacy in candidacies)))
+        candidacies = Candidacy.query\
+                               .join(Party)\
+                               .filter(Party.id == party.id)\
+                               .distinct(Candidacy.age)
+        assemblies = [candidacy.age for candidacy in candidacies]
         return render_template('party.html',\
                                 party=party,\
                                 is_duplicate=is_duplicate,\
