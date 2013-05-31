@@ -93,7 +93,11 @@ window.currentPage = 'person';
                         <td>
                             <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.address}}">
                             {% for region, region_id in zip(person.address, person.address_id) %}
-                                {% if region_id %}<a href="{{url_for('search', target='people', residence_region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                                {% if region_id %}
+                                    <a href="{{url_for('region', region_id=region_id)}}">{{region}}</a>
+                                {% else %}
+                                    {{region}}
+                                {% endif %}
                             {% endfor %}
                         </td>
                     </tr>
@@ -166,7 +170,11 @@ window.currentPage = 'person';
                         <td>
                         {% if candidacy.district_id %}
                             {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
-                                {% if region_id %}<a href="{{url_for('search', target='people', candidacy_region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                                {% if region_id %}
+                                    <a href="{{url_for('region', region_id=region_id)}}">{{region}}</a>
+                                {% else %}
+                                    {{region}}
+                                {% endif %}
                             {% endfor %}
                             {% if candidacy.is_elected %}
                             <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">

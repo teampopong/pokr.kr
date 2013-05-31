@@ -12,14 +12,15 @@
 {% endassets %}
 {% endblock %}
 
+{% block breadcrumb_current %}
+{{ gettext('search') }}
+{% endblock %}
 
 {% block card %}
 <table class="table table-condensed table-bordered">
     {% set options = [('year', gettext('birthyear')),
                       ('query', gettext('query')),
                       ('school_id', gettext('school')),
-                      ('candidacy_region_id', gettext('election district')),
-                      ('residence_region_id', gettext('residential district')),
                       ('person_id', gettext('person')),
                       ('assembly_id', gettext('assembly #'))] %}
 
@@ -72,7 +73,7 @@
                 <br>{{ macro.list_count(regions) }}
             </th>
             <td>{% call(region) macro.list(regions, show_pagenav=False) %}
-                <span>{{ region.name }}</span>&nbsp;&nbsp;<small><a href="{{ url_for('search', target='people', candidacy_region_id=region.id) }}">{{ gettext('Candidates') }}</a>&nbsp;<a href="{{ url_for('search', target='people', residence_region_id=region.id) }}">{{ gettext('Residents') }}</a></small>
+                <a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a>
                 {% endcall %}
             </td>
         </tr>
