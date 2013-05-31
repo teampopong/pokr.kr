@@ -1,6 +1,8 @@
 {% extends 'layout.html' %}
 {% import 'macros.html' as macro with context %}
 
+{% set target = request.args.get('target') %}
+
 {% block title %}
 {{ super() }} - {{ gettext("Search") }}
 {% endblock %}
@@ -35,6 +37,7 @@
 {% block content %}
 <table class="table table-condensed">
     <tbody>
+        {% if not target or target == 'people' %}
         <tr>
             <th>
                 {{ gettext('People') }}
@@ -42,7 +45,8 @@
             </th>
             <td>{{ macro.people_list(people, show_pagenav=False) }}</td>
         </tr>
-        {% if parties %}
+        {% endif %}
+        {% if not target or target == 'parties' %}
         <tr>
             <th>
                 {{ gettext('Party') }}
@@ -54,7 +58,7 @@
             </td>
         </tr>
         {% endif %}
-        {% if schools %}
+        {% if not target or target == 'schools' %}
         <tr>
             <th>
                 {{ gettext('School') }}
@@ -66,7 +70,7 @@
             </td>
         </tr>
         {% endif %}
-        {% if regions %}
+        {% if not target or target == 'regions' %}
         <tr>
             <th>
                 {{ gettext('Region') }}
@@ -78,7 +82,7 @@
             </td>
         </tr>
         {% endif %}
-        {% if bills %}
+        {% if not target or target == 'bills' %}
         <tr>
             <th>
                 {{ gettext('Bill') }}
