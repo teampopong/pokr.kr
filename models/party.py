@@ -32,4 +32,5 @@ class Party(Base):
                            .filter(party_affiliation.c.is_current_member == True)\
                            .join(Party,
                                  Party.id == party_affiliation.c.party_id)\
-                           .filter(Party.id == self.id)
+                           .filter(Party.id == self.id)\
+                           .group_by(Person.id)

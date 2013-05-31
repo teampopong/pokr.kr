@@ -18,12 +18,14 @@ class Region(Base):
         return Person.query\
                      .join(Candidacy)\
                      .filter(Candidacy.person_id == Person.id)\
-                     .filter(Candidacy.district_id.any(self.id))
+                     .filter(Candidacy.district_id.any(self.id))\
+                     .group_by(Person.id)
 
     @property
     def residents(self):
         return Person.query\
-                     .filter(Person.address_id.any(self.id))
+                     .filter(Person.address_id.any(self.id))\
+                     .group_by(Person.id)
 
     @property
     def fullname(self):
