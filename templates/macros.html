@@ -16,13 +16,7 @@
 
 {% macro list_count(query, type=None) -%}
     {% set cnt = query|count if hasattr(query, 'append') else query.count() %}
-    <span class="search-count">
-    {% if type=='people' %}
-        {{ gettext('%(count)d people', count=cnt) }}
-    {% else %}
-        {{ gettext('%(count)d results', count=cnt) }}
-    {% endif %}
-    </span>
+    <span class="search-count">{% if type=='people' %}{{ gettext('%(count)d people', count=cnt) }}{% else %}{{ gettext('%(count)d results', count=cnt) }}{% endif %}</span>
 {%- endmacro %}
 
 {% macro list(query, page=None, pagesize=20, show_pagenav=True, layout='list') -%}
