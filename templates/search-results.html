@@ -2,6 +2,21 @@
 {% import 'macros.html' as macro with context %}
 
 {% set target = request.args.get('target') %}
+{% macro search_options() -%}
+    {% set options = [('year', gettext('birthyear')),
+                      ('query', gettext('query')),
+                      ('school_id', gettext('school')),
+                      ('person_id', gettext('person')),
+                      ('assembly_id', gettext('assembly #'))] %}
+    {% set is_first = True %}
+    {% for var, label in options %}
+        {% if request.args.get(var) %}
+        {% if not is_first %},{% endif %}
+        {{ label }}&nbsp;<strong>{{ request.args.get(var) }}</strong>
+        {% set is_first = False %}
+        {% endif %}
+    {% endfor %}
+{%- endmacro %}
 
 {% block title %}
 {{ super() }} - {{ gettext("Search") }}
@@ -11,23 +26,22 @@
 {{ gettext('search') }}
 {% endblock %}
 
-{% block card %}
-<table class="table table-condensed table-bordered">
-    {% set options = [('year', gettext('birthyear')),
-                      ('query', gettext('query')),
-                      ('school_id', gettext('school')),
-                      ('person_id', gettext('person')),
-                      ('assembly_id', gettext('assembly #'))] %}
+{% block extra_headers %}
+<style>
+#card-container {
+    width: 0;
+}
 
-    {% for var, label in options %}
-        {% if request.args.get(var) %}
-            <tr><th class="no-min-width">{{ label }}</th><td>{{ request.args.get(var) }}</td><td><a href="{{ url_for_query(**{ var: None }) }}">x</a></td></tr>
-        {% endif %}
-    {% endfor %}
-</table>
+#spec-container {
+    left: 0;
+}
+</style>
 {% endblock %}
 
 {% block content %}
+<div class="alert alert-info">
+    {{ gettext('Search results by %(options)s', options=search_options()) }}
+</div>
 <table class="table table-condensed">
     <tbody>
         {% if not target or target == 'people' %}
