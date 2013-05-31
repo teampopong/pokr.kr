@@ -165,7 +165,7 @@ window.currentPage = 'person';
                             {% endif %}
                         {% endif %}
                         </td>
-                        <td>{{widgets.rivals(person, age=candidacy.age)|safe}}</td>
+                        <td>{{widgets.rivals(person, election_id=candidacy.election_id)|safe}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
