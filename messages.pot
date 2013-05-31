@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 15:11+0900\n"
+"POT-Creation-Date: 2013-05-31 16:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,37 +17,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: templates/bill.html:27
+#: templates/bill.html:28
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:47 templates/search-results.html:24
+#: templates/bill.html:48 templates/search-results.html:24
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:53 templates/person.html:182
+#: templates/bill.html:54 templates/person.html:183
 #: templates/mobile/person.html:182
 msgid "proposed date"
 msgstr ""
 
-#: templates/bill.html:59
+#: templates/bill.html:60
 msgid "decision date"
 msgstr ""
 
-#: templates/bill.html:64
+#: templates/bill.html:65
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:78 templates/person.html:200
+#: templates/bill.html:79 templates/person.html:205
 #: templates/mobile/person.html:200
 msgid "sponsor"
 msgstr ""
 
-#: templates/bill.html:84
+#: templates/bill.html:86
 msgid "cosponsors"
 msgstr ""
 
-#: templates/bill.html:95 templates/party.html:37 templates/party.html:47
+#: templates/bill.html:99 templates/party.html:37 templates/party.html:47
 msgid "summary"
 msgstr ""
 
@@ -67,25 +67,25 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
-#: templates/macros.html:20
+#: templates/macros.html:21
 #, python-format
 msgid "%(count)d people"
 msgstr ""
 
-#: templates/macros.html:22
+#: templates/macros.html:23
 #, python-format
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:52
+#: templates/macros.html:53
 msgid "prev"
 msgstr ""
 
-#: templates/macros.html:55
+#: templates/macros.html:56
 msgid "next"
 msgstr ""
 
-#: templates/macros.html:59
+#: templates/macros.html:60
 msgid ""
 "There are more items not shown for the current search options. Please "
 "narrow them down by giving more strict options."
@@ -95,7 +95,7 @@ msgstr ""
 msgid "parties"
 msgstr ""
 
-#: templates/main.html:18 templates/party.html:38 templates/party.html:56
+#: templates/main.html:18 templates/party.html:38 templates/party.html:61
 #: templates/people.html:9 templates/people.html:21
 msgid "people"
 msgstr ""
@@ -112,8 +112,8 @@ msgstr ""
 msgid "details"
 msgstr ""
 
-#: templates/party.html:47 templates/person.html:73
-#: templates/mobile/person.html:73 views/party.py:17
+#: templates/party.html:47 templates/person.html:74
+#: templates/mobile/person.html:73 views/party.py:19
 msgid "party"
 msgstr ""
 
@@ -125,103 +125,111 @@ msgstr ""
 msgid "person(s)"
 msgstr ""
 
-#: templates/people.html:36
+#: templates/party.html:54
+msgid "assemblies"
+msgstr ""
+
+#: templates/party.html:55
+msgid "th assembly election"
+msgstr ""
+
+#: templates/people.html:37
 msgid "officials"
 msgstr ""
 
-#: templates/person.html:7 templates/mobile/person.html:7
+#: templates/person.html:8 templates/mobile/person.html:7
 #, python-format
 msgid "Member of %(last_elected_no)dth National Assembly,"
 msgstr ""
 
-#: templates/person.html:7 templates/mobile/person.html:7
+#: templates/person.html:8 templates/mobile/person.html:7
 msgid "Politician Dictionary"
 msgstr ""
 
-#: templates/person.html:47 templates/person.html:62
+#: templates/person.html:48 templates/person.html:63
 #: templates/mobile/person.html:47 templates/mobile/person.html:62
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:48 templates/person.html:123
+#: templates/person.html:49 templates/person.html:124
 #: templates/mobile/person.html:48 templates/mobile/person.html:123
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:50 templates/person.html:176
+#: templates/person.html:51 templates/person.html:177
 #: templates/mobile/person.html:50 templates/mobile/person.html:176
 msgid "legislations"
 msgstr ""
 
-#: templates/person.html:52 templates/person.html:221
+#: templates/person.html:53 templates/person.html:226
 #: templates/mobile/person.html:52 templates/mobile/person.html:221
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:67 templates/mobile/person.html:67
+#: templates/person.html:68 templates/mobile/person.html:67
 msgid "birthday"
 msgstr ""
 
-#: templates/person.html:79 templates/mobile/person.html:79
+#: templates/person.html:80 templates/mobile/person.html:79
 msgid "education"
 msgstr ""
 
-#: templates/person.html:81 templates/person.html:93
+#: templates/person.html:82 templates/person.html:94
 #: templates/mobile/person.html:81 templates/mobile/person.html:93
 msgid "original"
 msgstr ""
 
-#: templates/person.html:91 templates/mobile/person.html:91
+#: templates/person.html:92 templates/mobile/person.html:91
 msgid "address"
 msgstr ""
 
-#: templates/person.html:102 templates/mobile/person.html:102
+#: templates/person.html:103 templates/mobile/person.html:102
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:131 templates/search-results.html:21
+#: templates/person.html:132 templates/search-results.html:21
 #: templates/mobile/person.html:131
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:132 templates/mobile/person.html:132
+#: templates/person.html:133 templates/mobile/person.html:132
 msgid "competitors"
 msgstr ""
 
-#: templates/person.html:139 templates/mobile/person.html:139
+#: templates/person.html:140 templates/mobile/person.html:139
 #, python-format
 msgid "%(age)dth"
 msgstr ""
 
-#: templates/person.html:139 templates/mobile/person.html:139
+#: templates/person.html:140 templates/mobile/person.html:139
 msgid "National Assembly Election"
 msgstr ""
 
-#: templates/person.html:143 templates/mobile/person.html:143
+#: templates/person.html:144 templates/mobile/person.html:143
 msgid "Pledges"
 msgstr ""
 
-#: templates/person.html:181 templates/mobile/person.html:181
+#: templates/person.html:182 templates/mobile/person.html:181
 msgid "title"
 msgstr ""
 
-#: templates/person.html:183 templates/mobile/person.html:183
+#: templates/person.html:184 templates/mobile/person.html:183
 msgid "role"
 msgstr ""
 
-#: templates/person.html:192 templates/mobile/person.html:192
+#: templates/person.html:195 templates/mobile/person.html:192
 msgid "th assembly"
 msgstr ""
 
-#: templates/person.html:202 templates/mobile/person.html:202
+#: templates/person.html:207 templates/mobile/person.html:202
 msgid "cosponsor"
 msgstr ""
 
-#: templates/person.html:209 templates/mobile/person.html:209
+#: templates/person.html:214 templates/mobile/person.html:209
 msgid "more"
 msgstr ""
 
-#: templates/person.html:223 templates/mobile/person.html:223
+#: templates/person.html:228 templates/mobile/person.html:223
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
