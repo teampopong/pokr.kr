@@ -21,17 +21,12 @@ th.no-min-width {
 ///// user-defined stylesheets /////
 // layout
 body {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    padding: 0 20px;
     background: @bg_color;
     div#header,
     div#container,
     div#footer {
         max-width: @container_width;
-        margin: 0 20px;
     }
 }
 
@@ -65,7 +60,9 @@ body {
     }
     #submain-links {
         font-size: 85%;
-        margin: 70px 5px 0 0;
+        position: absolute;
+        right: 0;
+        bottom: 4px;
         a {
             background-color: #AAA;
             color: white;
@@ -79,11 +76,16 @@ body {
     position: fixed;
     top: 90px;
     bottom: 30px;
-    left: 0;
-    right: 0;
+    left: 20px;
+    right: 20px;
     background: white;
     .framed;
     margin: 0 auto;
+}
+@media (max-width: 600px) {
+    #container {
+        top: 133px;
+    }
 }
 
 .logo {
@@ -93,8 +95,8 @@ body {
 #footer {
     position: fixed;
     bottom: 5px;
-    left: 0;
-    right: 0;
+    left: 20px;
+    right: 20px;
     color: #777;
     font-size: 85%;
     text-align: right;
