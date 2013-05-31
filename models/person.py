@@ -32,9 +32,6 @@ class Person(Base):
 
     birthday = Column(CHAR(8), index=True)
 
-    birth_city = Column(Unicode(20), index=True)
-    birth_county = Column(Unicode(20), index=True)
-
     education = Column(ARRAY(Unicode(60)))
     education_id = Column(ARRAY(String(20)))
 
