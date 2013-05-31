@@ -50,7 +50,6 @@ body {
         margin: 0 5px 5px;
         font-size: 85%;
         text-align: left;
-
         a {
             color: #777;
 
@@ -59,12 +58,22 @@ body {
             }
         }
     }
+    #submain-links {
+        font-size: 85%;
+        margin: 70px 5px 0 0;
+        a {
+            background-color: #AAA;
+            color: white;
+            margin-left: 2px;
+            padding: 0 3px;
+        }
+    }
 }
 
 #container {
     position: fixed;
     top: 90px;
-    bottom: 40px;
+    bottom: 30px;
     left: 20px;
     right: 20px;
     background: white;
@@ -84,8 +93,10 @@ body {
     right: 20px;
     color: #777;
     font-size: 85%;
-    #sources {
-        padding-left: 5px;
+    text-align: right;
+    height: 20px;
+    p {
+        display: inline-block;
     }
     max-width: @container_width;
     margin: 0 auto;
