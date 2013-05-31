@@ -129,6 +129,9 @@ window.currentPage = 'person';
                     {% else %}
                     {{ gettext('National Assembly By-election') }}
                     {% endif %}
+                    {% if candidacy.is_elected %}
+                    <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
+                    {% endif %}
                 </h4>
                 <table class="table table-condensed">
                     <tr>
@@ -142,9 +145,6 @@ window.currentPage = 'person';
                                     {{region}}
                                 {% endif %}
                             {% endfor %}
-                            {% if candidacy.is_elected %}
-                            <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
-                            {% endif %}
                         {% endif %}
                         </td>
                     </tr>
