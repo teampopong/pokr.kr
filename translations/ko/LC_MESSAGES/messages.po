@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 16:31+0900\n"
+"POT-Creation-Date: 2013-05-31 17:00+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -190,7 +190,7 @@ msgstr "동일 선거구 출마자"
 #: templates/person.html:141
 #, python-format
 msgid "%(age)dth"
-msgstr "%(age)d대 국회의원 선거"
+msgstr "%(age)d대"
 
 #: templates/person.html:143
 msgid "National Assembly Election"
@@ -300,8 +300,8 @@ msgid "sources"
 msgstr "소스"
 
 #: templates/includes/header.html:4
-msgid "name, party, region, bill"
-msgstr "이름, 정당, 지역, 의안"
+msgid "name, bill, party (ex: 홍길동, 미래, 무소속)"
+msgstr "인물, 의안, 정당 (예: 홍길동, 미래, 무소속)"
 
 #: views/__init__.py:7
 msgid "home"
@@ -328,4 +328,3 @@ msgstr "%(age)d대<br>당선"
 #, python-format
 msgid "lost<br>%(age)dth"
 msgstr "%(age)d대<br>낙선"
-
