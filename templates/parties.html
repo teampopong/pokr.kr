@@ -34,7 +34,7 @@
 </div>
 <div class="itemlist">
 {{ macro.list_count(parties) }}
-{% call(party) macro.list(parties, pagesize=50) %}
+{% call(party) macro.list_pagenav(parties, pagesize=50) %}
     <a href="{{ url_for('party', id=party.id) }}">
         <div class="party-card">
             {% if party.logo %}

@@ -35,6 +35,7 @@ def register(app):
     @if_target('people')
     def search_people():
         school_id = request.args.get('school_id')
+        party_id = request.args.get('party_id')
         candidacy_region_id = request.args.get('candidacy_region_id')
         residence_region_id = request.args.get('residence_region_id')
         if school_id:
@@ -46,6 +47,9 @@ def register(app):
         elif residence_region_id:
             region = Region.query.filter_by(id=residence_region_id).one()
             people = region.residents
+        elif party_id:
+            party = Party.query.filter_by(id=party_id).one()
+            people = party.current_members
         else:
             people = Person.query
 
@@ -58,7 +62,6 @@ def register(app):
         year = request.args.get('year')
         if year:
             people = people.filter_by(birthday_year=year)
-
 
         return people
 

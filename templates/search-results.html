@@ -6,7 +6,10 @@
     {% set options = [('year', gettext('birthyear')),
                       ('query', gettext('query')),
                       ('school_id', gettext('school')),
+                      ('party_id', gettext('party')),
                       ('person_id', gettext('person')),
+                      ('candidacy_region_id', gettext('election district')),
+                      ('district_region_id', gettext('residential region')),
                       ('assembly_id', gettext('assembly #'))] %}
     {% set is_first = True %}
     {% for var, label in options %}
@@ -50,7 +53,12 @@
                 {{ gettext('People') }}
                 <br>{{ macro.list_count(people) }}
             </th>
-            <td>{{ macro.people_list(people, show_pagenav=False) }}</td>
+            <td>{% if target %}
+                    {{ macro.people_list_pagenav(people) }}
+                {% else %}
+                    {{ macro.people_list_more(people, url_for_query(target='people')) }}
+                {% endif %}
+            </td>
         </tr>
         {% endif %}
         {% if not target or target == 'parties' %}
@@ -59,9 +67,15 @@
                 {{ gettext('Party') }}
                 <br>{{ macro.list_count(parties) }}
             </th>
-            <td>{% call(party) macro.list(parties, show_pagenav=False) %}
-                <a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a>
-                {% endcall %}
+            <td>{% if target %}
+                    {% call(party) macro.list_pagenav(parties) %}
+                    <a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a>
+                    {% endcall %}
+                {% else %}
+                    {% call(party) macro.list_more(parties, url_for_query(target='people')) %}
+                    <a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a>
+                    {% endcall %}
+                {% endif %}
             </td>
         </tr>
         {% endif %}
@@ -71,9 +85,15 @@
                 {{ gettext('School') }}
                 <br>{{ macro.list_count(schools) }}
             </th>
-            <td>{% call(school) macro.list(schools, show_pagenav=False) %}
-                <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
-                {% endcall %}
+            <td>{% if target %}
+                    {% call(school) macro.list_pagenav(schools) %}
+                    <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
+                    {% endcall %}
+                {% else %}
+                    {% call(school) macro.list_more(schools, url_for_query(target='schools')) %}
+                    <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
+                    {% endcall %}
+                {% endif %}
             </td>
         </tr>
         {% endif %}
@@ -83,9 +103,15 @@
                 {{ gettext('Region') }}
                 <br>{{ macro.list_count(regions) }}
             </th>
-            <td>{% call(region) macro.list(regions, show_pagenav=False) %}
-                <a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a>
-                {% endcall %}
+            <td>{% if target %}
+                    {% call(region) macro.list_pagenav(regions) %}
+                    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a>
+                    {% endcall %}
+                {% else %}
+                    {% call(region) macro.list_more(regions, url_for_query(target='regions')) %}
+                    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a>
+                    {% endcall %}
+                {% endif %}
             </td>
         </tr>
         {% endif %}
@@ -95,9 +121,15 @@
                 {{ gettext('Bill') }}
                 <br>{{ macro.list_count(bills) }}
             </th>
-            <td>{% call(bill) macro.list(bills, show_pagenav=False) %}
-                <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
-                {% endcall %}
+            <td>{% if target %}
+                    {% call(bill) macro.list_pagenav(bills) %}
+                    <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+                    {% endcall %}
+                {% else %}
+                    {% call(bill) macro.list_more(bills, url_for_query(target='bills')) %}
+                    <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+                    {% endcall %}
+                {% endif %}
             </td>
         </tr>
         {% endif %}

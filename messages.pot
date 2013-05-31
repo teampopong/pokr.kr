@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 22:32+0900\n"
+"POT-Creation-Date: 2013-06-01 02:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "contents"
 msgstr ""
 
-#: templates/bill.html:50 templates/search-results.html:10
+#: templates/bill.html:50 templates/search-results.html:13
 msgid "assembly #"
 msgstr ""
 
@@ -70,36 +70,39 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: templates/macros.html:10
+#: templates/macros.html:18
 msgid "show"
 msgstr ""
 
-#: templates/macros.html:11
+#: templates/macros.html:19
 msgid "hide"
 msgstr ""
 
-#: templates/macros.html:19
+#: templates/macros.html:27
 #, python-format
 msgid "%(count)d people"
 msgstr ""
 
-#: templates/macros.html:19
+#: templates/macros.html:27
 #, python-format
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:47
+#: templates/macros.html:54
 msgid "prev"
 msgstr ""
 
-#: templates/macros.html:50
+#: templates/macros.html:56
+#, python-format
+msgid "page %(page)d"
+msgstr ""
+
+#: templates/macros.html:58
 msgid "next"
 msgstr ""
 
-#: templates/macros.html:54
-msgid ""
-"There are more items not shown for the current search options. Please "
-"narrow them down by giving more strict options."
+#: templates/macros.html:82 templates/person.html:229
+msgid "more"
 msgstr ""
 
 #: templates/main.html:16 templates/party.html:38 templates/party.html:61
@@ -131,7 +134,8 @@ msgid "details"
 msgstr ""
 
 #: templates/party.html:47 templates/person.html:74
-#: templates/includes/header.html:4 views/party.py:19
+#: templates/search-results.html:9 templates/includes/header.html:4
+#: views/party.py:18
 msgid "party"
 msgstr ""
 
@@ -200,7 +204,7 @@ msgstr ""
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:136
+#: templates/person.html:136 templates/search-results.html:11
 msgid "election district"
 msgstr ""
 
@@ -241,10 +245,6 @@ msgstr ""
 msgid "cosponsor"
 msgstr ""
 
-#: templates/person.html:229
-msgid "more"
-msgstr ""
-
 #: templates/person.html:243
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
@@ -270,41 +270,45 @@ msgstr ""
 msgid "school"
 msgstr ""
 
-#: templates/search-results.html:9 templates/includes/header.html:4
+#: templates/search-results.html:10 templates/includes/header.html:4
 #: views/person.py:23
 msgid "person"
 msgstr ""
 
-#: templates/search-results.html:22
+#: templates/search-results.html:12
+msgid "residential region"
+msgstr ""
+
+#: templates/search-results.html:25
 msgid "Search"
 msgstr ""
 
-#: templates/search-results.html:26
+#: templates/search-results.html:29
 msgid "search"
 msgstr ""
 
-#: templates/search-results.html:43
+#: templates/search-results.html:46
 #, python-format
 msgid "Search results by %(options)s"
 msgstr ""
 
-#: templates/search-results.html:50
+#: templates/search-results.html:53
 msgid "People"
 msgstr ""
 
-#: templates/search-results.html:59
+#: templates/search-results.html:67
 msgid "Party"
 msgstr ""
 
-#: templates/search-results.html:71
+#: templates/search-results.html:85
 msgid "School"
 msgstr ""
 
-#: templates/search-results.html:83
+#: templates/search-results.html:103
 msgid "Region"
 msgstr ""
 
-#: templates/search-results.html:95
+#: templates/search-results.html:121
 msgid "Bill"
 msgstr ""
 

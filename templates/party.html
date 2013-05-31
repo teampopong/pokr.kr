@@ -59,7 +59,7 @@
         </div>
         <div id="section-people" class="section">
             <h3 id="people">{{ gettext('people') }}</h3>
-            {{macro.people_list(party.current_members, pagesize=9999)}}
+            {{ macro.people_list_more(party.current_members, url_for('search', target='people', party_id=party.id)) }}
         </div>
     </div>
 </div>

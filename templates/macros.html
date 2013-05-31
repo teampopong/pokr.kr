@@ -1,6 +1,14 @@
-{% macro people_list(people, pagesize=20, show_pagenav=True) -%}
+{% macro people_list_pagenav(people, page=None, pagesize=None) -%}
     <div class="float-list">
-        {% call(person) list(people, pagesize=pagesize, show_pagenav=show_pagenav) %}
+        {% call(person) list_pagenav(people, page=page, pagesize=pagesize) %}
+            {{widgets.card(person)|safe}}
+        {% endcall %}
+    </div>
+{%- endmacro %}
+
+{% macro people_list_more(people, url, pagesize=None) -%}
+    <div class="float-list">
+        {% call(person) list_more(people, url, pagesize=pagesize) %}
             {{widgets.card(person)|safe}}
         {% endcall %}
     </div>
@@ -19,9 +27,9 @@
     <span class="search-count">{% if type=='people' %}{{ gettext('%(count)d people', count=cnt) }}{% else %}{{ gettext('%(count)d results', count=cnt) }}{% endif %}</span>
 {%- endmacro %}
 
-{% macro list(query, page=None, pagesize=20, show_pagenav=True, layout='list') -%}
-
+{% macro list_pagenav(query, page=None, pagesize=None, layout='list') -%}
     {% set page = int(request.args.get('page', 1)) %}
+    {% set pagesize = pagesize or 20 %}
     {% set prev_url = url_for_query(page=max(1, page - 1)) %}
     {% set next_url = url_for_query(page=page + 1) %}
     {% set offset = (page - 1) * pagesize %}
@@ -41,16 +49,36 @@
         </table>
     {% endif %}
 
-    {% if show_pagenav %}
     <div class="pagenav">
         {% if offset %}
             <a class="btn btn-pagenav btn-prev" href="{{prev_url}}"><i class="icon-angle-left"></i> {{gettext('prev')}}</a>
         {% endif %}
+        <div style="text-align: center;">{{ gettext('page %(page)d', page=page) }}</div>
         {% if items|count > pagesize %}
             <a class="btn btn-pagenav btn-next" href="{{next_url}}">{{gettext('next')}} <i class="icon-angle-right"></i></a>
         {% endif %}
     </div>
-    {% elif offset or items|count > pagesize %}
-    <div class="alert alert-info">{{ gettext("There are more items not shown for the current search options. Please narrow them down by giving more strict options.") }}</div>
+{%- endmacro %}
+
+{% macro list_more(query, url, pagesize=None, layout='list') -%}
+    {% set pagesize = pagesize or 20 %}
+    {% set items = query.limit(pagesize+1).all() %}
+
+    {% if layout=='list' %}
+        <ul>
+        {% for item in items[:pagesize] %}
+            <li>{{caller(item)}}</li>
+        {% endfor %}
+        </ul>
+    {% elif layout=='table' %}
+        <table class="table table-condensed">
+        {% for item in items[:pagesize] %}
+            <tr>{{caller(item)}}</tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+    {% if items|count > pagesize %}
+    <a class="btn-more" href="{{ url }}">{{ gettext('more') }}</a>
     {% endif %}
 {%- endmacro %}

@@ -22,12 +22,12 @@
         <tr>
             <th>{{ gettext('Candidates') }}
                 <br>{{ macro.list_count(region.candidates) }}</th>
-            <td>{{ macro.people_list(region.candidates, show_pagenav=False) }}</td>
+            <td>{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
         </tr>
         <tr>
             <th>{{ gettext('Residents') }}
                 <br>{{ macro.list_count(region.residents) }}</th>
-            <td>{{ macro.people_list(region.residents, show_pagenav=False) }}</td>
+            <td>{{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}</td>
         </tr>
     </tbody>
 </table>

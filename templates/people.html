@@ -31,9 +31,7 @@
             <br>{{ macro.list_count(officials, type='people') }}
         </th>
         <td class="float-list">
-            {% call(person) macro.list(officials) %}
-            {{widgets.card(person)|safe}}
-            {% endcall %}
+            {{ macro.people_list_pagenav(officials) }}
         </td>
     </tr>
 </table>

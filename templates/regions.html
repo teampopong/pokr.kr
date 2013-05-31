@@ -17,7 +17,7 @@
 
 {% block content %}
 <div class="itemlist">
-{% call(region) macro.list(regions) %}
+{% call(region) macro.list_pagenav(regions) %}
     <a href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname if locale == 'ko' else region.fullname_en }}</a>
 {% endcall %}
 </div>
