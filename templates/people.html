@@ -9,13 +9,6 @@
 {{ gettext('people') }}
 {% endblock %}
 
-{% block extra_headers %}
-{% assets filters='less', output='build/search.%(version)s.css',
-    depends=['**/*.less'], 'less/search.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
-{% endblock %}
-
 {% block card %}
 <div id="class-people" class="class-card">
     <h2 class="class-name">{{ gettext('people') }}</h2>

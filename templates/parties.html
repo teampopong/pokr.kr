@@ -16,10 +16,6 @@
 {% endblock %}
 
 {% block extra_headers %}
-{% assets filters='less', output='build/search.%(version)s.css',
-    depends=['**/*.less'], 'less/search.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
 {% assets filters='less', output='build/submain.%(version)s.css',
     depends=['**/*.less'], 'less/submain.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
