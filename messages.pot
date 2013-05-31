@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-31 17:46+0900\n"
+"POT-Creation-Date: 2013-05-31 18:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:48 templates/search-results.html:27
+#: templates/bill.html:48 templates/search-results.html:25
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:54 templates/person.html:190
+#: templates/bill.html:54 templates/person.html:198
 msgid "proposed date"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:79 templates/person.html:212
+#: templates/bill.html:79 templates/person.html:220
 msgid "sponsor"
 msgstr ""
 
@@ -147,15 +147,15 @@ msgstr ""
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:49 templates/person.html:124
+#: templates/person.html:49 templates/person.html:128
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:51 templates/person.html:184
+#: templates/person.html:51 templates/person.html:192
 msgid "legislations"
 msgstr ""
 
-#: templates/person.html:53 templates/person.html:233
+#: templates/person.html:53 templates/person.html:241
 msgid "trends"
 msgstr ""
 
@@ -175,58 +175,70 @@ msgstr ""
 msgid "address"
 msgstr ""
 
-#: templates/person.html:103
+#: templates/person.html:107
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:132 templates/search-results.html:24
+#: templates/person.html:136
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:133
+#: templates/person.html:137
 msgid "competitors"
 msgstr ""
 
-#: templates/person.html:141
+#: templates/person.html:145
 #, python-format
 msgid "%(age)dth"
 msgstr ""
 
-#: templates/person.html:143
+#: templates/person.html:147
 msgid "National Assembly Election"
 msgstr ""
 
-#: templates/person.html:145
+#: templates/person.html:149
 msgid "National Assembly By-election"
 msgstr ""
 
-#: templates/person.html:151
+#: templates/person.html:155
 msgid "Pledges"
 msgstr ""
 
-#: templates/person.html:189
+#: templates/person.html:197
 msgid "title"
 msgstr ""
 
-#: templates/person.html:191
+#: templates/person.html:199
 msgid "role"
 msgstr ""
 
-#: templates/person.html:202
+#: templates/person.html:210
 msgid "th assembly"
 msgstr ""
 
-#: templates/person.html:214
+#: templates/person.html:222
 msgid "cosponsor"
 msgstr ""
 
-#: templates/person.html:221
+#: templates/person.html:229
 msgid "more"
 msgstr ""
 
-#: templates/person.html:235
+#: templates/person.html:243
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
+msgstr ""
+
+#: templates/region.html:23
+msgid "Candidates"
+msgstr ""
+
+#: templates/region.html:27
+msgid "Residents"
+msgstr ""
+
+#: templates/regions.html:9 templates/regions.html:14
+msgid "regions"
 msgstr ""
 
 #: templates/search-results.html:5
@@ -249,39 +261,27 @@ msgstr ""
 msgid "school"
 msgstr ""
 
-#: templates/search-results.html:25
-msgid "residential district"
-msgstr ""
-
-#: templates/search-results.html:26 views/person.py:23
+#: templates/search-results.html:24 views/person.py:23
 msgid "person"
 msgstr ""
 
-#: templates/search-results.html:42
+#: templates/search-results.html:40
 msgid "People"
 msgstr ""
 
-#: templates/search-results.html:50
+#: templates/search-results.html:48
 msgid "Party"
 msgstr ""
 
-#: templates/search-results.html:62
+#: templates/search-results.html:60
 msgid "School"
 msgstr ""
 
-#: templates/search-results.html:74
+#: templates/search-results.html:72
 msgid "Region"
 msgstr ""
 
-#: templates/search-results.html:78
-msgid "Candidates"
-msgstr ""
-
-#: templates/search-results.html:78
-msgid "Residents"
-msgstr ""
-
-#: templates/search-results.html:86
+#: templates/search-results.html:84
 msgid "Bill"
 msgstr ""
 
@@ -313,6 +313,10 @@ msgstr ""
 
 #: views/bill.py:16
 msgid "bill"
+msgstr ""
+
+#: views/region.py:15
+msgid "region"
 msgstr ""
 
 #: widgets/relation.py:24

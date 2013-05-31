@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ gettext('regions') }}
+{% endblock %}
+
+{% block card %}
+<div id="class-regions" class="class-card">
+    <h2 class="class-name">{{ gettext('regions') }}</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="itemlist">
+{% call(region) macro.list(regions) %}
+    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname if locale == 'ko' else region.fullname_en }}</a>
+{% endcall %}
+</div>
+{% endblock %}
+

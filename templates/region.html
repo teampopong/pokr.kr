@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% import 'macros.html' as macro with context %}
+
+{% set fullname = region.fullname %}
+
+{% block title %}
+{{ super() }} - {{ fullname }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ fullname|translit }}
+{% endblock %}
+
+{% block card %}
+<img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
+<h2 class="instance-name">{{ fullname }}</h2>
+{% endblock %}
+
+{% block content %}
+<table class="table table-condensed">
+    <tbody>
+        <tr>
+            <th>{{ gettext('Candidates') }}</th>
+            <td>{{ macro.people_list(region.candidates) }}</td>
+        </tr>
+        <tr>
+            <th>{{ gettext('Residents') }}</th>
+            <td>{{ macro.people_list(region.residents) }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
+
