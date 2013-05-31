@@ -15,13 +15,7 @@
 {% block extra_headers %}
 {{ super() }}
 
-{% if mobile %}
-    {% assets filters='less', output='build/person.mobile.%(version)s.css',
-        depends=['**/*.less'], 'less/person.mobile.less' %}
-    <link rel="stylesheet" href="{{ASSET_URL}}">
-    {% endassets %}
-
-{% else %}
+{% if not mobile %}
     {% assets filters='less', output='build/entity.%(version)s.css',
         depends=['**/*.less'], 'less/entity.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
@@ -126,9 +120,42 @@ window.currentPage = 'person';
         </div>
         <div id="section-elections" class="section">
             <h3 id="elections">{{gettext('elections')}}</h3>
-            {% if not mobile %}
-                <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
-            {% endif %}
+            {% if mobile %}
+                {% for candidacy in person.candidacies %}
+                <h4 class="subsection-title">
+                    {{ gettext('%(age)dth', age=candidacy.age) }}
+                    {% if candidacy.election.is_regular %}
+                    {{ gettext('National Assembly Election') }}
+                    {% else %}
+                    {{ gettext('National Assembly By-election') }}
+                    {% endif %}
+                </h4>
+                <table class="table table-condensed">
+                    <tr>
+                        <th>{{ gettext('election district') }}</th>
+                        <td>
+                        {% if candidacy.district_id %}
+                            {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
+                                {% if region_id %}
+                                    <a href="{{url_for('region', region_id=region_id)}}">{{region}}</a>
+                                {% else %}
+                                    {{region}}
+                                {% endif %}
+                            {% endfor %}
+                            {% if candidacy.is_elected %}
+                            <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
+                            {% endif %}
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>{{ gettext('competitors')}}</th>
+                        <td>{{widgets.rivals(person, election_id=candidacy.election_id)|safe}}</td>
+                    </tr>
+                </table>
+                {% endfor %}
+            {% else %}
+            <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
             <table class="table table-condensed">
                 <thead>
                     <tr>
@@ -186,10 +213,40 @@ window.currentPage = 'person';
                     {% endfor %}
                 </tbody>
             </table>
+            {% endif %}
         </div>
         {% if has_bills %}
         <div id="section-legislations" class="section">
             <h3 id="legislations">{{ gettext('legislations') }}</h3>
+            {% if mobile %}
+                {% for candidacy in person.candidacies %}
+                    {% if candidacy.is_elected %}
+                        {% set all_bills = person.bills(candidacy.age) %}
+                        {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
+                        {% if bills %}
+                        <h4 class="subsection-title">
+                            {{ candidacy.age }}{{ gettext('th assembly') }}
+                            <small>{{ macro.list_count(all_bills) }}</small>
+                        </h4>
+                        <table class="table table-condensed">
+                            <tr>
+                                <th>{{ gettext('proposed date') }}</th>
+                                <th>{{ gettext('title') }}</th>
+                            </tr>
+                            {% for bill in bills[:NUM_BILLS_SHOWN] %}
+                            <tr>
+                                <td>{{ bill.proposed_date }}</td>
+                                <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+                            </tr>
+                            {% endfor %}
+                            {% if bills|length > NUM_BILLS_SHOWN %}
+                            <tr><td colspan="2" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td></tr>
+                        </table>
+                        {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
             <table id="person-legislations" class="table table-condensed">
                 <thead>
                     <tr>
@@ -234,6 +291,7 @@ window.currentPage = 'person';
                     {% endfor %}
                 </tbody>
             </table>
+            {% endif %}
         </div>
         {% endif %}
         <div id="section-trends" class="section">

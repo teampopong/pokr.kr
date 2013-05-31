@@ -24,6 +24,14 @@
          {% endfor %}
      </ul>
 </div>
+{% if mobile %}
+<div class="float-list">
+    {{ macro.list_count(officials, type='people') }}
+    {% call(person) macro.list(officials) %}
+    {{widgets.card(person)|safe}}
+    {% endcall %}
+</div>
+{% else %}
 <table class="table table-condensed">
     <tr>
         <th>
@@ -37,4 +45,5 @@
         </td>
     </tr>
 </table>
+{% endif %}
 {% endblock %}

@@ -3,15 +3,32 @@
 @import "bootstrap-custom";
 @import "search";
 
-body {
-    background: #f1efeb;
-} 
-.instance-img,
-.instance-name {
-    display: none;
+///// general
+tr:first-child th,
+tr:first-child td {
+    border-top: 0;
 }
 
-header {
+th:first-child {
+    width: 15%;
+}
+
+.has-border {
+    tr:first-child th,
+    tr:first-child td {
+        border-top: 1px solid #ddd;
+    }
+}
+
+h4.subsection-title {
+    background: whitesmoke;
+    font-weight: normal;
+    text-align: center;
+}
+
+///// layout
+#header {
+    background-color: #f1efeb;
     text-align: center;
 
     h1 {
@@ -25,7 +42,24 @@ header {
 
     form {
         width: 80%;
-        margin: 0 13% 15px 7%;
+        margin: 0 auto 15px;
+    }
+
+    .breadcrumb {
+        text-align: left;
+    }
+}
+
+#container {
+    padding: 5px;
+    .view {
+        min-width: auto;
+        h3 {
+            color: olivedrab;
+        }
+    }
+    #card-container {
+        text-align: center;
     }
 }
 
@@ -100,4 +134,37 @@ header {
 
 .permalink {
     display: none;
+}
+
+.social-sends {
+    text-align: center;
+    div {
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+    }
+}
+
+///// bill.html
+.original-link {
+    text-align: center;
+}
+
+///// parties.html
+#party-list {
+    ul,
+    li {
+        border: none;
+    }
+}
+
+///// person.html
+#person-view {
+    .btn-show-pledge {
+        display: none;
+    }
+
+    #proposed_date {
+        width: 15%;
+    }
 }
