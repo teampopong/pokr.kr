@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% import 'macros.html' as macro with context %}
 
 {% set has_bills = person.bills().limit(1).all() %}
 {% set NUM_BILLS_SHOWN = 10 %}
@@ -22,6 +21,10 @@
     {% endassets %}
 
 {% else %}
+    {% assets filters='less', output='build/entity.%(version)s.css',
+        depends=['**/*.less'], 'less/entity.less' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+    {% endassets %}
     {% assets filters='less', output='build/person.%(version)s.css',
         depends=['**/*.less'], 'less/person.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
@@ -39,9 +42,8 @@ window.currentPage = 'person';
 
 {% block card %}
 {{widgets.card(person, detailed=True)|safe}}
-
 {% if not mobile %}
-    <ul id="person-section-tabs" class="nav">
+    <ul id="person-section-tabs" class="nav section-tabs">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
         <li><a href="#elections">{{gettext("elections")}}</a></li>
         {% if has_bills %}
@@ -50,12 +52,13 @@ window.currentPage = 'person';
         <li><a href="#trends">{{gettext("trends")}}</a></li>
     </ul>
 {% endif %}
+{% include 'social.html' %}
 {% endblock %}
 
 {% block content %}
-<div id="person-view">
-    <div id="person-sections">
-        <div class="section" id="section-profile">
+<div id="person-view" class="view">
+    <div id="person-sections" class="sections">
+        <div id="section-profile" class="section">
             <h3 id="profile">{{ gettext('profile') }}</h3>
             <table id="person-profile" class="table table-condensed">
                 <tbody>
@@ -76,8 +79,8 @@ window.currentPage = 'person';
                         <th>{{ gettext("education") }}</th>
                         <td>
                             <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.education}}">
-                            {% for term, education_id in zip(person.education, person.education_id) %}
-                            {% if education_id %}<a href="{{url_for('school', education_id=education_id)}}">{% endif %}{{term}}{% if education_id %}</a>{% endif %}
+                            {% for term, school_id in zip(person.education, person.education_id) %}
+                            {% if school_id %}<a href="{{url_for('search', target='people', school_id=school_id)}}">{% endif %}{{term}}{% if school_id %}</a>{% endif %}
                             {% endfor %}
                             </span>
                         </td>
@@ -89,7 +92,7 @@ window.currentPage = 'person';
                         <td>
                             <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.address}}">
                             {% for region, region_id in zip(person.address, person.address_id) %}
-                                {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                                {% if region_id %}<a href="{{url_for('search', target='people', residence_region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
                             {% endfor %}
                         </td>
                     </tr>
@@ -116,7 +119,7 @@ window.currentPage = 'person';
                 </tbody>
             </table>
         </div>
-        <div class="section" id="section-elections">
+        <div id="section-elections" class="section">
             <h3 id="elections">{{gettext('elections')}}</h3>
             {% if not mobile %}
                 <div id="timeline">{{widgets.timeline(person.id)|safe}}</div>
@@ -155,7 +158,7 @@ window.currentPage = 'person';
                         <td>
                         {% if candidacy.district_id %}
                             {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
-                                {% if region_id %}<a href="{{url_for('region', region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
+                                {% if region_id %}<a href="{{url_for('search', target='people', candidacy_region_id=region_id)}}">{% endif %}{{region}}{% if region_id %}</a>{% endif %}
                             {% endfor %}
                             {% if candidacy.is_elected %}
                             <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
@@ -169,15 +172,15 @@ window.currentPage = 'person';
             </table>
         </div>
         {% if has_bills %}
-        <div class="section" id="section-legislations">
+        <div id="section-legislations" class="section">
             <h3 id="legislations">{{ gettext('legislations') }}</h3>
             <table id="person-legislations" class="table table-condensed">
                 <thead>
                     <tr>
                         <th></th>
-                        <th id="bill_title">{{gettext('title')}}</th>
-                        <th id="bill_proposed_date">{{gettext('proposed date')}}</th>
-                        <th id="bill_role">{{gettext('role')}}</th>
+                        <th id="bill-title">{{gettext('title')}}</th>
+                        <th id="bill-proposed-date">{{gettext('proposed date')}}</th>
+                        <th id="bill-role">{{gettext('role')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -203,7 +206,7 @@ window.currentPage = 'person';
                                 {% endfor %}
                                 {% if bills|length > NUM_BILLS_SHOWN %}
                                 <tr>
-                                    <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='bill', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td>
+                                    <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td>
                                 </tr>
                                 {% endif %}
                             {% endif %}
@@ -213,7 +216,7 @@ window.currentPage = 'person';
             </table>
         </div>
         {% endif %}
-        <div class="section" id="section-trends">
+        <div id="section-trends" class="section">
             <h3 id="trends">
                 {{ gettext('trends') }}
             </h3>
@@ -227,6 +230,6 @@ window.currentPage = 'person';
     </div>
 </div>
 {% if not mobile %}
-    <script src="{{url_for('static', filename="js/person.js")}}"></script>
+    <script src="{{url_for('static', filename="js/entity.js")}}"></script>
 {% endif %}
 {% endblock %}

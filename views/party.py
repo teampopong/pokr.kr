@@ -35,10 +35,26 @@ def register(app):
     @app.route('/party/<id>', methods=['GET'])
     @breadcrumb(app, 'party')
     def party(id):
+        #TODO: 외부에서 입력받기
+        duplicates = [
+            u'한국독립당',
+            u'민중당',
+            u'청년당',
+            u'민주국민당',
+            u'사회당',
+            u'민주당',
+            u'통일당',
+            u'국민당',
+            u'한국사회당',
+            u'민주통일당',
+            u'통합민주당']
         try:
             party = Party.query.filter_by(id=id).one()
 
         except NoResultFound, e:
             return render_template('not-found.html'), 404
 
-        return render_template('party.html', party=party)
+        is_duplicate = party.name in duplicates
+        return render_template('party.html',\
+                                party=party,\
+                                is_duplicate=is_duplicate)

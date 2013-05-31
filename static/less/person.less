@@ -6,45 +6,23 @@
 @spec_size      : 12px;
 @border_color   : #ddd;
 
-.tab-pane {
-    margin-bottom: 30px;
-}
-
-#spec-container {
-    padding: 0 2%;
-}
-
 #person-view {
-    overflow-x: auto;
-    min-width: 760px;
-    h3 {
-        color: olivedrab;
-        border-bottom: 1px solid #DDD;
-        margin-top: 0;
-        margin-bottom: 20px;
-        padding-top: 15px;
-    }
-    #person-sections{
-        .header-name {
-            color: @text_color;
-        }
-        .text-show,
-        .text-hide {
-            font-size: 70%;
-        }
-        th {
-            a {
-                color: @link_color;
-                .inline-block;
+   #person-sections{
+
+        #section-profile {
+            #currentjob {
+                display: block;
+                line-height: 23px;
+            }
+            #experiences {
+                color: @spec_color;
+                display: block;
+                font-size: @spec_size;
+                line-height: 17px;
+                padding-left: 10px;
             }
         }
-        pre {
-            background-color: inherit;
-            border: none;
-            color: @spec_color;
-            font-size: @spec_size;
-            padding: 0 0 0 10px;
-        }
+
         #section-elections {
             tr:first-child th,
             tr:first-child td {
@@ -56,7 +34,14 @@
             #competitors {
                 width: 55%;
             }
+            #timeline {
+                margin: 10px 0 50px;
+            }
+            .pledges {
+                display: inline-block;
+            }
         }
+
         #section-legislations {
             thead tr th {
                 border-bottom: 1px solid @border_color;
@@ -66,134 +51,41 @@
                     width: 15%;
                 }
             }
-        }
-    }
-    #timeline {
-        margin: 10px 0 50px;
-    }
-}
-
-#bill_title {
-    width: 60%;
-}
-
-#bill_proposed_date {
-    width: 15%;
-}
-
-#bill_role {
-    width: 10%;
-}
-
-#person-section-tabs {
-    position: absolute;
-    top: 260px;
-    bottom: -2px;
-    left: -2px;
-    right: 0;
-
-    margin-bottom: 0;
-    padding-top: 20px;
-
-    background: @bg_color;
-    border-right: 1px solid @border_color;
-    border-left: 2px solid @bg_color;
-    border-top: 1px solid @border_color;
-    border-bottom: 2px solid @bg_color;
-
-    text-align: right;
-    font-size: 11pt;
-
-    li {
-        line-height: 30px;
-        margin-top: -1px;
-        margin-right: -1px;
-        padding: 5px 0 5px 20%;
-
-        &.active a {
-            background: @hover_color;
+            th:first-child {
+                width: 15%;
+            }
+            th#bill-title{
+                width: 60%;
+            }
+            th#bill-proposed-date {
+                width: 13%;
+            }
+            th#bill-role {
+                width: 13%;
+            }
         }
 
-        a {
-            background: @link_color;
-            color: white;
-            font-weight: bold;
-            padding-right: 5px;
-
-            &:hover {
-                background: @hover_color;
+        #section-trends {
+            #google-trends {
+                width: 650px;
+                height: 330px;
+                table {
+                    tr:first-child,
+                    tr:nth-child(2),
+                    tr:last-child {
+                        display: none;
+                    }
+                    td {
+                        border: none;
+                        div {
+                            background: transparent !important;
+                            border: 0 !important;
+                        }
+                    }
+                }
             }
         }
     }
-}
-
-
-#currentjob {
-    display: block;
-    line-height: 23px;
-}
-
-#experiences {
-    color: @spec_color;
-    display: block;
-    font-size: @spec_size;
-    line-height: 17px;
-    padding-left: 10px;
-}
-
-#google-trends {
-    width: 650px;
-    height: 330px;
-    table {
-        tr:first-child,
-        tr:nth-child(2),
-        tr:last-child {
-            display: none;
-        }
-        td {
-            border: none;
-            div {
-                background: transparent !important;
-                border: 0 !important;
-            }
-        }
-    }
-}
-
-td.btn-more {
-    text-align: center;
-    line-height: 3em;
-
-    a {
-        display: block;
-        color: #aaa;
-        font-weight: bold;
-
-        &:hover {
-            background: whitesmoke;
-        }
-    }
-}
-
-.pledges {
-    display: inline-block;
-}
-
-.section {
-    h4 {
-        margin-top: 5px;
-        margin-bottom: 10px;
-        font-size: 11pt;
-        line-height: 14px;
-
-        a.btn-show {
-            font-size: 10pt;
-        }
-    }
-}
-
-.bg-gray {
-    background: #c0c0c0;
 }
 
 ///// media queries /////

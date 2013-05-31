@@ -24,7 +24,7 @@ def register(app):
     @app.endpoint('entity_page')
     def entity_page(keyword):
         if year_re.match(keyword):
-            return redirect(url_for('search', year=keyword))
+            return redirect(url_for('search', target='people', year=keyword))
 
         return keyword + u'의 페이지입니다'
 
