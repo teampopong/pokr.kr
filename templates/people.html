@@ -27,21 +27,14 @@
 {% if mobile %}
 <div class="float-list">
     {{ macro.list_count(officials, type='people') }}
-    {% call(person) macro.list(officials) %}
+    {% call(person) macro.list_pagenav(officials) %}
     {{widgets.card(person)|safe}}
     {% endcall %}
 </div>
 {% else %}
-<table class="table table-condensed">
-    <tr>
-        <th>
-            {{ gettext('officials') }}
-            <br>{{ macro.list_count(officials, type='people') }}
-        </th>
-        <td class="float-list">
-            {{ macro.people_list_pagenav(officials) }}
-        </td>
-    </tr>
-</table>
+    {{ macro.list_count(officials, type='people') }}
+    <td class="float-list">
+        {{ macro.people_list_pagenav(officials, pagesize=40) }}
+    </td>
 {% endif %}
 {% endblock %}
