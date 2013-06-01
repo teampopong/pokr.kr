@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-01 02:40+0900\n"
+"POT-Creation-Date: 2013-06-01 11:10+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -21,7 +21,8 @@ msgstr ""
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: templates/bill.html:37 templates/bill.html:51
+#: templates/bill.html:37 templates/bill.html:51 templates/region.html:30
+#: templates/region.html:40
 msgid "outline"
 msgstr "기본정보"
 
@@ -106,8 +107,8 @@ msgid "more"
 msgstr "더보기"
 
 #: templates/main.html:16 templates/party.html:42 templates/party.html:65
-#: templates/people.html:9 templates/people.html:14
-#: templates/includes/header.html:16
+#: templates/people.html:9 templates/people.html:14 templates/region.html:31
+#: templates/region.html:51 templates/includes/header.html:16
 msgid "people"
 msgstr "인물"
 
@@ -154,10 +155,6 @@ msgstr "출마 대수"
 #: templates/party.html:59
 msgid "th assembly election"
 msgstr "대 국회의원 선거"
-
-#: templates/people.html:38
-msgid "officials"
-msgstr "당선자"
 
 #: templates/person.html:8
 #, python-format
@@ -251,11 +248,24 @@ msgstr "공동발의자"
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 
-#: templates/region.html:25 templates/region.html:38
+#: templates/region.html:40 templates/includes/header.html:5
+#: templates/includes/header.html:7 views/region.py:15
+msgid "region"
+msgstr "지역"
+
+#: templates/region.html:43
+msgid "Chinese"
+msgstr "한문"
+
+#: templates/region.html:47
+msgid "English"
+msgstr "영문"
+
+#: templates/region.html:54 templates/region.html:67
 msgid "Candidates"
 msgstr "출마자"
 
-#: templates/region.html:30 templates/region.html:43
+#: templates/region.html:59 templates/region.html:72
 msgid "Residents"
 msgstr "거주자"
 
@@ -336,11 +346,6 @@ msgstr "소스"
 msgid "bill"
 msgstr "의안"
 
-#: templates/includes/header.html:5 templates/includes/header.html:7
-#: views/region.py:15
-msgid "region"
-msgstr "지역"
-
 #: templates/includes/header.html:7
 msgid "Seon-Mi Jin"
 msgstr "진선미"
@@ -366,4 +371,7 @@ msgstr "%(age)d대<br>당선"
 #, python-format
 msgid "lost<br>%(age)dth"
 msgstr "%(age)d대<br>낙선"
+
+#~ msgid "officials"
+#~ msgstr "당선자"
 

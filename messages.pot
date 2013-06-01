@@ -3,11 +3,12 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-01 02:40+0900\n"
+"POT-Creation-Date: 2013-06-01 11:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +21,8 @@ msgstr ""
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:37 templates/bill.html:51
+#: templates/bill.html:37 templates/bill.html:51 templates/region.html:30
+#: templates/region.html:40
 msgid "outline"
 msgstr ""
 
@@ -105,8 +107,8 @@ msgid "more"
 msgstr ""
 
 #: templates/main.html:16 templates/party.html:42 templates/party.html:65
-#: templates/people.html:9 templates/people.html:14
-#: templates/includes/header.html:16
+#: templates/people.html:9 templates/people.html:14 templates/region.html:31
+#: templates/region.html:51 templates/includes/header.html:16
 msgid "people"
 msgstr ""
 
@@ -152,10 +154,6 @@ msgstr ""
 
 #: templates/party.html:59
 msgid "th assembly election"
-msgstr ""
-
-#: templates/people.html:38
-msgid "officials"
 msgstr ""
 
 #: templates/person.html:8
@@ -250,11 +248,24 @@ msgstr ""
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
-#: templates/region.html:25 templates/region.html:38
+#: templates/region.html:40 templates/includes/header.html:5
+#: templates/includes/header.html:7 views/region.py:15
+msgid "region"
+msgstr ""
+
+#: templates/region.html:43
+msgid "Chinese"
+msgstr ""
+
+#: templates/region.html:47
+msgid "English"
+msgstr ""
+
+#: templates/region.html:54 templates/region.html:67
 msgid "Candidates"
 msgstr ""
 
-#: templates/region.html:30 templates/region.html:43
+#: templates/region.html:59 templates/region.html:72
 msgid "Residents"
 msgstr ""
 
@@ -333,11 +344,6 @@ msgstr ""
 #: templates/includes/header.html:5 templates/includes/header.html:7
 #: views/bill.py:16
 msgid "bill"
-msgstr ""
-
-#: templates/includes/header.html:5 templates/includes/header.html:7
-#: views/region.py:15
-msgid "region"
 msgstr ""
 
 #: templates/includes/header.html:7
