@@ -54,12 +54,12 @@
                 {{ gettext('Candidates') }}
                 <small>{{ macro.list_count(region.candidates) }}</small>
             </h4>
-            {{ macro.people_list(region.candidates, show_pagenav=False) }}
+            {{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}
             <h4 class="subsection-title">
                 {{ gettext('Residents') }}
                 <small>{{ macro.list_count(region.residents) }}</small>
             </h4>
-            {{ macro.people_list(region.residents, show_pagenav=False) }}
+            {{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}
             {% else %}
             <table class="table table-condensed">
                 <tbody>
