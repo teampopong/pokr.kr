@@ -11,41 +11,75 @@
 {{ fullname|translit }}
 {% endblock %}
 
+{% block extra_headers %}
+{% assets filters='less', output='build/entity.%(version)s.css',
+    depends=['**/*.less'], 'less/entity.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+<script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
+{% endblock %}
+
 {% block card %}
 {% if not mobile %}
 <img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
 {% endif %}
 <h2 class="instance-name">{{ fullname }}</h2>
 {% include 'social.html' %}
-{% endblock %}
-
-{% block content %}
-{% if mobile %}
-<h4 class="subsection-title">
-    {{ gettext('Candidates') }}
-    <small>{{ macro.list_count(region.candidates) }}</small>
-</h4>
-{{ macro.people_list(region.candidates, show_pagenav=False) }}
-<h4 class="subsection-title">
-    {{ gettext('Residents') }}
-    <small>{{ macro.list_count(region.residents) }}</small>
-</h4>
-{{ macro.people_list(region.residents, show_pagenav=False) }}
-{% else %}
-<table class="table table-condensed">
-    <tbody>
-        <tr>
-            <th>{{ gettext('Candidates') }}
-                <br>{{ macro.list_count(region.candidates) }}</th>
-            <td>{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
-        </tr>
-        <tr>
-            <th>{{ gettext('Residents') }}
-                <br>{{ macro.list_count(region.residents) }}</th>
-            <td>{{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}</td>
-        </tr>
-    </tbody>
-</table>
+{% if not mobile %}
+<ul id="region-section-tabs" class="nav section-tabs">
+    <li class="active"><a href="#outline">{{gettext('outline')}}</a></li>
+    <li><a href="#people">{{gettext('people')}}</a></li>
+</ul>
 {% endif %}
 {% endblock %}
 
+{% block content %}
+<div id="region-view" class="view">
+    <div id="region-sections" class="sections">
+        <div id="section-outline" class="section">
+            <h3 id="outline">{{ gettext('region') }} {{ gettext('outline') }}</h3>
+            <table class="table table-condensed">
+                <tr>
+                    <th>{{ gettext('Chinese') }}</th>
+                    <td>{{ region.name_cn }}</td>
+                </tr>
+                <tr>
+                    <th>{{ gettext('English') }}</th>
+                    <td>{{ region.name_en }}</td>
+                </tr>
+            </table>
+            <h3 id="people">{{ gettext('people') }}</h3>
+            {% if mobile %}
+            <h4 class="subsection-title">
+                {{ gettext('Candidates') }}
+                <small>{{ macro.list_count(region.candidates) }}</small>
+            </h4>
+            {{ macro.people_list(region.candidates, show_pagenav=False) }}
+            <h4 class="subsection-title">
+                {{ gettext('Residents') }}
+                <small>{{ macro.list_count(region.residents) }}</small>
+            </h4>
+            {{ macro.people_list(region.residents, show_pagenav=False) }}
+            {% else %}
+            <table class="table table-condensed">
+                <tbody>
+                    <tr>
+                        <th>{{ gettext('Candidates') }}
+                            <br>{{ macro.list_count(region.candidates) }}</th>
+                        <td>{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ gettext('Residents') }}
+                            <br>{{ macro.list_count(region.residents) }}</th>
+                        <td>{{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% if not mobile %}
+    <script src="{{url_for('static', filename="js/entity.js")}}"></script>
+{% endif %}
+{% endblock %}
