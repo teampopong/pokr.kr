@@ -51,7 +51,7 @@
         <tr>
             <th>
                 {{ gettext('People') }}
-                <br>{{ macro.list_count(people) }}
+                <br>{{ macro.list_count(people, type='people') }}
             </th>
             <td>{% if target %}
                     {{ macro.people_list_pagenav(people) }}
