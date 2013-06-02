@@ -58,11 +58,11 @@ def assert_valid_locale(locale):
 def host(locale=None):
     assert_valid_locale(locale)
 
-    bottom_level_domain, rest = request.host.split('.', 1)
-    if not is_valid_locale(bottom_level_domain):
+    t = request.host.split('.', 1)
+    if len(t) < 2 or not is_valid_locale(t[0]):
         host = request.host
     else:
-        host = rest
+        host = t[1]
 
     return '{locale}.{host}'.format(locale=locale, host=host)
 
