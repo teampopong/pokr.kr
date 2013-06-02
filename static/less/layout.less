@@ -1,4 +1,5 @@
 @import "includes";
+
 @container_width: 1300px;
 
 ///// override DOM styles /////
@@ -43,6 +44,7 @@ body {
 
     form {
         .inline-block;
+        line-height: 35px;
         margin-bottom: 10px;
     }
 
@@ -91,7 +93,7 @@ body {
 }
 @media (max-width: 600px) {
     #container {
-        top: 133px;
+        top: 140;
     }
 }
 
@@ -147,35 +149,14 @@ a#barometer_tab {
     .instance-name {
         font-size: 15pt;
         line-height: 30px;
-        margin: 30px 0 50px;
-        padding: 0 20px;
         text-align: center;
     }
 
     .class-card {
-        background-size: 147px 100px;
         background-position: center;
-        height: 100px;
         width: 85%;
         max-width: 150px;
         margin: 0 auto;
-        .framed;
-    }
-
-    #class-bills {
-            background-image: url('../images/default_bill.jpg');
-    }
-    #class-parties {
-            background-image: url('../images/default_party.jpg');
-    }
-    #class-people {
-            background-image: url('../images/default_people.png');
-    }
-    #class-regions {
-            background-image: url('../images/default_region.png');
-    }
-    #class-schools {
-            background-image: url('../images/default_school.jpg');
     }
 
     .instance-name {
