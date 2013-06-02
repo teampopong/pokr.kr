@@ -11,11 +11,3 @@
             </button>
 	</div>
 </form>
-{% if not mobile %}
-<div id="submain-links" class="pull-right">
-    <a href="{{ url_for('person_main') }}">{{ gettext('people') }}</a>
-    <a href="{{ url_for('bill_main') }}">{{ gettext('bills') }}</a>
-    <a href="{{ url_for('party_main') }}">{{ gettext('parties') }}</a>
-    <a href="{{ url_for('region_main') }}">{{ gettext('regions') }}</a>
-</div>
-{% endif %}
