@@ -21,9 +21,11 @@
 
 {% block card %}
 {% if not mobile %}
-<img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
+<div class="instance-card">
+    <h2 class="instance-name">{{ fullname }}</h2>
+    <img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
+</div>
 {% endif %}
-<h2 class="instance-name">{{ fullname }}</h2>
 {% include 'social.html' %}
 {% if not mobile %}
 <ul id="region-section-tabs" class="nav section-tabs">

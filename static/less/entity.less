@@ -16,7 +16,7 @@
 .view {
     overflow-x: auto;
     h3 {
-        color: olivedrab;
+        color: @bg_color;
         border-bottom: 1px solid #DDD;
         margin-top: 0;
         margin-bottom: 20px;
@@ -32,15 +32,15 @@
         }
         th {
             a {
-                color: @link_color;
+                color: @icon_color;
                 .inline-block;
             }
         }
         pre {
             background-color: inherit;
             border: none;
-            color: @spec_color;
-            font-size: @spec_size;
+            color: #888;
+            font-size: 12px;
             padding: 0 0 0 10px;
         }
     }
@@ -68,23 +68,22 @@
     li {
         line-height: 30px;
         margin-top: -1px;
-        margin-right: -1px;
         padding: 5px 0 5px 20%;
 
         &.active a {
             background: @hover_color;
-            color: rgba(40, 41, 46, 0.8)
+            color: rgba(7, 12, 37, 0.8);
         }
 
         a {
             background: @link_color;
-            color: rgba(44, 44, 44, 0.8);
+            color: rgba(30, 32, 39, 0.8);
             font-weight: bold;
             padding-right: 5px;
 
             &:hover {
                 background: @hover_color;
-                color: rgba(40, 41, 46, 0.8)
+                color: rgba(7, 12, 37, 0.8);
             }
         }
     }

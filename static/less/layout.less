@@ -106,7 +106,7 @@ body {
     bottom: 5px;
     left: 20px;
     right: 20px;
-    color: #999;
+    color: @bottom_color;
     font-size: 85%;
     text-align: center;
     height: 20px;
@@ -114,7 +114,7 @@ body {
         display: inline-block;
     }
     a {
-        color: #CCC;
+        color: @bottom_link_color;
         font-weight: bold;
     }
     margin: 0 auto;
@@ -135,6 +135,10 @@ a#barometer_tab {
     width: 180px;
     .border-box;
     padding: 20px 10px 10px;
+
+    .instance-card {
+        position: relative;
+    }
 
     .instance-img {
         width: 85%;
@@ -160,7 +164,12 @@ a#barometer_tab {
     }
 
     .instance-name {
-        margin-top: -70px;
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        word-break: keep-all;
+        .border-box;
+        padding: 0 10px;
     }
     .original-link {
         text-align: center;

@@ -21,10 +21,12 @@
 {% if mobile %}
     <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
 {% else %}
-    <img class="instance-img" src="{{ party.logo|default(url_for('static', filename='images/default_party.jpg'), True) }}" title="{{ party.name }}">
+<div class="instance-card">
     {% if not party.logo %}
     <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
     {% endif %}
+    <img class="instance-img" src="{{ party.logo|default(url_for('static', filename='images/default_party.jpg'), True) }}" title="{{ party.name }}">
+    </div>
 {% endif %}
 {% include 'social.html' %}
 {% if is_duplicate %}
