@@ -2,7 +2,9 @@ from sqlalchemy import Column, String, Unicode
 from sqlalchemy.sql.expression import bindparam
 from database import Base
 
+from database import db_session
 from models.person import Person
+from models.election import Election
 from models.candidacy import Candidacy
 
 class Region(Base):
@@ -12,6 +14,15 @@ class Region(Base):
     name = Column(Unicode(20), index=True, nullable=False)
     name_cn = Column(Unicode(20))
     name_en = Column(String(80))
+
+    @property
+    def officials(self):
+        officials_ = db_session.query(Person.id, Candidacy.age)\
+                     .filter(Candidacy.person_id == Person.id)\
+                     .filter(Candidacy.district_id.any(self.id))\
+                     .filter(Candidacy.is_elected == True)\
+                     .group_by(Person.id, Candidacy.election_id)
+        return { o[1]: o[0] for o in officials_ }
 
     @property
     def candidates(self):

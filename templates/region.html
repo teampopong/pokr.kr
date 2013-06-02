@@ -64,6 +64,23 @@
             <table class="table table-condensed">
                 <tbody>
                     <tr>
+                        <th>{{ gettext('Officials') }}</th>
+                        <td>
+                            <ul class="float-list">
+                                {% for age in range(19, 0, -1) %}
+                                <li>
+                                    <div id="official-by-assembly-container">
+                                        <div id="official-by-assembly-label">
+                                        {{ age }}{{ gettext('th') }}
+                                        </div>
+                                        {{ widgets.card(region.officials.get(age))|safe }}
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>{{ gettext('Candidates') }}
                             <br>{{ macro.list_count(region.candidates, type='people') }}</th>
                         <td>{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
