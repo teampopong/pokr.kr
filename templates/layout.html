@@ -24,7 +24,9 @@
         <img id="banner" class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
         {% endif %}
         <div id="header">
+            <div id="header-top">
             {% include 'includes/header.html' %}
+            </div>
             {% if breadcrumbs %}
             <ul class="breadcrumb">
                 {% for name in breadcrumbs %}
