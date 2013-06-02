@@ -67,15 +67,19 @@
                         <th rowspan="20">{{ gettext('Officials') }}</th>
                     </tr>
                     <!-- FIXME: 19 -->
+                    {% set officials_grouped_by_age = region.officials_grouped_by_age %}
                     {% for age in range(19, 0, -1) %}
                     <tr>
                         <th class="assembly-id">{{ age }}{{ gettext('th') }}</th>
                         <td>
-                            {% if region.officials.get(age) %}
+                            {% set officials = officials_grouped_by_age.get(age) %}
+                            {% if officials %}
                             <ul class="float-list">
+                                {% for official in officials %}
                                 <li>
-                                    {{ widgets.card(region.officials.get(age))|safe }}
+                                    {{ widgets.card(official)|safe }}
                                 </li>
+                                {% endfor %}
                             </ul>
                             {% else %}
                             {{ gettext('None') }}

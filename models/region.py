@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from sqlalchemy import Column, String, Unicode
 from sqlalchemy.sql.expression import bindparam
 from database import Base
@@ -16,13 +18,18 @@ class Region(Base):
     name_en = Column(String(80))
 
     @property
-    def officials(self):
+    def officials_grouped_by_age(self):
         officials_ = db_session.query(Person.id, Candidacy.age)\
                      .filter(Candidacy.person_id == Person.id)\
                      .filter(Candidacy.district_id.any(self.id))\
                      .filter(Candidacy.is_elected == True)\
                      .group_by(Person.id, Candidacy.election_id)
-        return { o[1]: o[0] for o in officials_ }
+
+        res = defaultdict(list)
+        for person_id, age in officials_:
+            res[age].append(person_id)
+        return res
+
 
     @property
     def candidates(self):
