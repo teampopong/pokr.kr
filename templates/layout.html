@@ -20,12 +20,10 @@
         {% include 'includes/google-analytics.html' %}
     </head>
     <body>
-        {% if not mobile %}
-        <img id="banner" class="absolute-top-right" src="{{ url_for('static', filename="images/banner-alpha-right-90.png") }}">
-        {% endif %}
         <div id="header">
             <div id="header-top">
             {% include 'includes/header.html' %}
+            <img class="banner" src="{{ url_for('static', filename="images/beta2.png") }}">
             </div>
             {% if breadcrumbs %}
             <ul class="breadcrumb">
