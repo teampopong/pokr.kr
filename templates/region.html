@@ -71,11 +71,15 @@
                     <tr>
                         <th class="assembly-id">{{ age }}{{ gettext('th') }}</th>
                         <td>
+                            {% if region.officials.get(age) %}
                             <ul class="float-list">
                                 <li>
                                     {{ widgets.card(region.officials.get(age))|safe }}
                                 </li>
                             </ul>
+                            {% else %}
+                            {{ gettext('None') }}
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
