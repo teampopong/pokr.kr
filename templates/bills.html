@@ -24,7 +24,7 @@
 </div>
 <div class="itemlist">
     {{ macro.list_count(bills) }}
-    {% call(bill) macro.list_pagenav(bills, layout='table') %}
+    {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=15) %}
         <td>{{ bill.proposed_date }}</td>
         <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
     {% endcall %}
