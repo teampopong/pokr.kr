@@ -24,8 +24,10 @@
 {% if mobile %}
 <h2 id="bill-name">{{ bill.name }}</h2>
 {% else %}
-<img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
-<h2 class="instance-name">#{{ bill.id }}</h2>
+<div class="instance-card">
+    <h2 class="instance-name">#{{ bill.id }}</h2>
+    <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
+</div>
 {% endif %}
 {% include 'social.html' %}
 <div class="original-link">
