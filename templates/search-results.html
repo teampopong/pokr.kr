@@ -15,7 +15,7 @@
     {% for var, label in options %}
         {% if request.args.get(var) %}
         {% if not is_first %},{% endif %}
-        {{ label }}&nbsp;<strong>{{ request.args.get(var) }}</strong>
+        {{ label }}&nbsp;<strong>{{ option_texts.get(var, request.args.get(var)) }}</strong>
         {% set is_first = False %}
         {% endif %}
     {% endfor %}
