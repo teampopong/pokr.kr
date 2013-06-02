@@ -1,9 +1,4 @@
 @import "includes";
-@link_color     : silver;
-@hover_color    : #005580;
-@spec_color     : #888;
-@spec_size      : 12px;
-@border_color   : #ddd;
 
 .tab-pane {
     margin-bottom: 30px;
@@ -16,7 +11,7 @@
 .view {
     overflow-x: auto;
     h3 {
-        color: olivedrab;
+        color: @bg_color;
         border-bottom: 1px solid #DDD;
         margin-top: 0;
         margin-bottom: 20px;
@@ -32,15 +27,15 @@
         }
         th {
             a {
-                color: @link_color;
+                color: @icon_color;
                 .inline-block;
             }
         }
         pre {
             background-color: inherit;
             border: none;
-            color: @spec_color;
-            font-size: @spec_size;
+            color: #888;
+            font-size: 12px;
             padding: 0 0 0 10px;
         }
     }
@@ -68,21 +63,21 @@
     li {
         line-height: 30px;
         margin-top: -1px;
-        margin-right: -1px;
         padding: 5px 0 5px 20%;
 
         &.active a {
-            background: @hover_color;
+            background: @party_color;
+            color: @bg_color;
         }
 
         a {
-            background: @link_color;
-            color: #999;
+            background: darken(@party_color, 50%);
+            color: lighten(@bg_color, 10%);
             font-weight: bold;
             padding-right: 5px;
 
             &:hover {
-                background: @hover_color;
+                background: darken(@party_color, 5%);
             }
         }
     }
