@@ -64,3 +64,34 @@ a i.nolink:hover {
 h1, h2, h3, h4, h5, h6 {
     text-rendering: auto;
 }
+
+@media (max-width: 840px) {
+    .input-append {
+        input {
+            width: 250px;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    #header {
+        h1 {
+            display: block !important;
+        }
+
+        form {
+            position: relative;
+            width: 100%;
+        }
+
+        .twitter-typeahead {
+            width: 90%;
+        }
+
+        .input-append {
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
