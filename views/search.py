@@ -96,7 +96,7 @@ def register(app):
         person_id = request.args.get('person_id')
         assembly_id = request.args.get('assembly_id')
 
-        bills = Bill.query.order_by(desc(Bill.proposed_date))
+        bills = Bill.query.order_by(desc(Bill.proposed_date).nullslast())
 
         if query:
             bills = bills.filter(Bill.name.like(u'%{0}%'.format(query)))

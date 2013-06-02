@@ -52,7 +52,7 @@ class Region(Base):
 
     @property
     def fullname_en(self):
-        regions = self.parents()
+        regions = self.parents
         fullname = ' '.join(region.name_en for region in self.parents)
         return fullname
 

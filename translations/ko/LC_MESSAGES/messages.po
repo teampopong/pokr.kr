@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-02 18:11+0900\n"
+"POT-Creation-Date: 2013-06-02 18:20+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -106,6 +106,10 @@ msgstr "다음"
 #: templates/macros.html:82 templates/person.html:243 templates/person.html:286
 msgid "more"
 msgstr "더보기"
+
+#: templates/macros.html:87
+msgid "date unknown"
+msgstr "날짜 미상"
 
 #: templates/main.html:16 templates/party.html:42 templates/party.html:65
 #: templates/people.html:9 templates/people.html:14 templates/region.html:31
