@@ -21,7 +21,7 @@
 <div class="inline-block">
     <h3 id="province"></h3>
     {% for region in regions %}
-    <a class="hide-desktop region-link region-{{ region.id }} region-sub-{{ region.id[:2] }}" data-text="{{ region.name }}" href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname if locale == 'ko' else region.fullname_en }}</a>
+    <a class="hide-desktop region-link{% if region.id|length == 2 %} hide{% endif %} region-{{ region.id }} region-sub-{{ region.id[:2] }}" data-text="{{ region.name }}" href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname if locale == 'ko' else region.fullname_en }}</a>
     {% endfor %}
 </div>
 

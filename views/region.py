@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import redirect, render_template, render_template_string, request, url_for
+from flask import redirect, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy import func
 from sqlalchemy.orm.exc import NoResultFound
@@ -17,7 +17,6 @@ def register(app):
 
     with app.open_resource('static/images/korea_130_v3.1.svg') as f:
         korean_map = f.read().decode('utf-8')
-        korean_map = render_template_string(korean_map, width=250)
 
     top_regions = Region.query\
                         .filter(func.length(Region.id) < 6)\
