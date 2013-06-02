@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-02 14:30+0900\n"
+"POT-Creation-Date: 2013-06-02 17:02+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "bills"
 msgstr "의안"
 
 #: templates/bills.html:23 templates/parties.html:31 templates/people.html:23
-#: templates/region.html:74
+#: templates/region.html:72
 msgid "th"
 msgstr "대"
 
@@ -106,6 +106,10 @@ msgstr "다음"
 #: templates/macros.html:82 templates/person.html:243 templates/person.html:286
 msgid "more"
 msgstr "더보기"
+
+#: templates/macros.html:87
+msgid "date unknown"
+msgstr "날짜 미상"
 
 #: templates/main.html:16 templates/party.html:42 templates/party.html:65
 #: templates/people.html:9 templates/people.html:14 templates/region.html:31
@@ -258,7 +262,7 @@ msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 
 #: templates/region.html:40 templates/includes/header.html:5
-#: templates/includes/header.html:7 views/region.py:15
+#: templates/includes/header.html:7 views/region.py:16
 msgid "region"
 msgstr "지역"
 
@@ -270,17 +274,21 @@ msgstr "한문"
 msgid "English"
 msgstr "영문"
 
-#: templates/region.html:54 templates/region.html:84
+#: templates/region.html:54 templates/region.html:87
 msgid "Candidates"
 msgstr "출마자"
 
-#: templates/region.html:59 templates/region.html:89
+#: templates/region.html:59 templates/region.html:92
 msgid "Residents"
 msgstr "거주자"
 
 #: templates/region.html:67
 msgid "Officials"
 msgstr "당선자"
+
+#: templates/region.html:81 templates/widgets/card.html:41
+msgid "None"
+msgstr "없음"
 
 #: templates/regions.html:5
 msgid "Regions"
@@ -362,10 +370,6 @@ msgstr "의안"
 #: templates/includes/header.html:7
 msgid "Seon-Mi Jin"
 msgstr "진선미"
-
-#: templates/widgets/card.html:41
-msgid "None"
-msgstr "없음"
 
 #: views/__init__.py:7
 msgid "home"

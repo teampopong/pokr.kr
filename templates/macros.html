@@ -82,3 +82,7 @@
     <a class="btn-more" href="{{ url }}">{{ gettext('more') }}</a>
     {% endif %}
 {%- endmacro %}
+
+{% macro bill_with_fallback_date(bill) -%}
+    {{ bill.proposed_date or (bill.decision_date and '%d-00-00' % bill.decision_date.year) or gettext("date unknown") }} <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+{%- endmacro %}

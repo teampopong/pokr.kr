@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-02 14:30+0900\n"
+"POT-Creation-Date: 2013-06-02 17:02+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "bills"
 msgstr ""
 
 #: templates/bills.html:23 templates/parties.html:31 templates/people.html:23
-#: templates/region.html:74
+#: templates/region.html:72
 msgid "th"
 msgstr ""
 
@@ -105,6 +105,10 @@ msgstr ""
 
 #: templates/macros.html:82 templates/person.html:243 templates/person.html:286
 msgid "more"
+msgstr ""
+
+#: templates/macros.html:87
+msgid "date unknown"
 msgstr ""
 
 #: templates/main.html:16 templates/party.html:42 templates/party.html:65
@@ -258,7 +262,7 @@ msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
 #: templates/region.html:40 templates/includes/header.html:5
-#: templates/includes/header.html:7 views/region.py:15
+#: templates/includes/header.html:7 views/region.py:16
 msgid "region"
 msgstr ""
 
@@ -270,16 +274,20 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: templates/region.html:54 templates/region.html:84
+#: templates/region.html:54 templates/region.html:87
 msgid "Candidates"
 msgstr ""
 
-#: templates/region.html:59 templates/region.html:89
+#: templates/region.html:59 templates/region.html:92
 msgid "Residents"
 msgstr ""
 
 #: templates/region.html:67
 msgid "Officials"
+msgstr ""
+
+#: templates/region.html:81 templates/widgets/card.html:41
+msgid "None"
 msgstr ""
 
 #: templates/regions.html:5
@@ -361,10 +369,6 @@ msgstr ""
 
 #: templates/includes/header.html:7
 msgid "Seon-Mi Jin"
-msgstr ""
-
-#: templates/widgets/card.html:41
-msgid "None"
 msgstr ""
 
 #: views/__init__.py:7
