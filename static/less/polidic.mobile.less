@@ -33,11 +33,11 @@ h4.subsection-title {
 
 ///// layout
 body {
-    background-color: #f1efeb;
+    background-color: @bg_color;
 }
 
 #header {
-    background-color: #f1efeb;
+    background-color: @bg_color;
     text-align: center;
 
     h1 {
@@ -46,15 +46,23 @@ body {
     }
 
     .logo {
-        width: 50%;
+        margin-top: 5px;
     }
 
     form {
         width: 80%;
-        margin: 0 auto 15px;
+        margin: 0 auto 7px;
+    }
+
+    #header-top {
+        background-color: @top_color;
+        .border-radius;
+        margin: 5px 0;
+        padding-bottom: 5px;
     }
 
     .breadcrumb {
+        background-color: @container_color;
         text-align: left;
     }
 }

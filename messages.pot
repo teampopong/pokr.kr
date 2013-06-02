@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-02 18:20+0900\n"
+"POT-Creation-Date: 2013-06-02 18:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,8 +21,7 @@ msgstr ""
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:37 templates/bill.html:53 templates/region.html:30
-#: templates/region.html:40
+#: templates/bill.html:37 templates/bill.html:53
 msgid "outline"
 msgstr ""
 
@@ -68,7 +67,7 @@ msgid "bills"
 msgstr ""
 
 #: templates/bills.html:23 templates/parties.html:31 templates/people.html:23
-#: templates/region.html:73
+#: templates/region.html:47 templates/region.html:81
 msgid "th"
 msgstr ""
 
@@ -112,8 +111,8 @@ msgid "date unknown"
 msgstr ""
 
 #: templates/main.html:16 templates/party.html:42 templates/party.html:65
-#: templates/people.html:9 templates/people.html:14 templates/region.html:31
-#: templates/region.html:51 templates/includes/header.html:16
+#: templates/people.html:9 templates/people.html:14
+#: templates/includes/header.html:16
 msgid "people"
 msgstr ""
 
@@ -261,33 +260,28 @@ msgstr ""
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
-#: templates/region.html:40 templates/includes/header.html:5
-#: templates/includes/header.html:7 views/region.py:16
-msgid "region"
+#: templates/region.html:30 templates/region.html:40
+msgid "chronicles"
 msgstr ""
 
-#: templates/region.html:43
-msgid "Chinese"
+#: templates/region.html:31 templates/region.html:63 templates/region.html:100
+msgid "related people"
 msgstr ""
 
-#: templates/region.html:47
-msgid "English"
+#: templates/region.html:56 templates/widgets/card.html:41
+msgid "None"
 msgstr ""
 
-#: templates/region.html:54 templates/region.html:91
+#: templates/region.html:65 templates/region.html:104
 msgid "Candidates"
 msgstr ""
 
-#: templates/region.html:59 templates/region.html:96
+#: templates/region.html:70 templates/region.html:109
 msgid "Residents"
 msgstr ""
 
-#: templates/region.html:67
-msgid "Officials"
-msgstr ""
-
-#: templates/region.html:85 templates/widgets/card.html:41
-msgid "None"
+#: templates/region.html:93
+msgid "No officials"
 msgstr ""
 
 #: templates/regions.html:5
@@ -365,6 +359,11 @@ msgstr ""
 #: templates/includes/header.html:5 templates/includes/header.html:7
 #: views/bill.py:16
 msgid "bill"
+msgstr ""
+
+#: templates/includes/header.html:5 templates/includes/header.html:7
+#: views/region.py:16
+msgid "region"
 msgstr ""
 
 #: templates/includes/header.html:7

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-02 18:20+0900\n"
+"POT-Creation-Date: 2013-06-02 18:58+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -21,8 +21,7 @@ msgstr ""
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: templates/bill.html:37 templates/bill.html:53 templates/region.html:30
-#: templates/region.html:40
+#: templates/bill.html:37 templates/bill.html:53
 msgid "outline"
 msgstr "기본정보"
 
@@ -68,7 +67,7 @@ msgid "bills"
 msgstr "의안"
 
 #: templates/bills.html:23 templates/parties.html:31 templates/people.html:23
-#: templates/region.html:73
+#: templates/region.html:47 templates/region.html:81
 msgid "th"
 msgstr "대"
 
@@ -112,8 +111,8 @@ msgid "date unknown"
 msgstr "날짜 미상"
 
 #: templates/main.html:16 templates/party.html:42 templates/party.html:65
-#: templates/people.html:9 templates/people.html:14 templates/region.html:31
-#: templates/region.html:51 templates/includes/header.html:16
+#: templates/people.html:9 templates/people.html:14
+#: templates/includes/header.html:16
 msgid "people"
 msgstr "인물"
 
@@ -261,34 +260,29 @@ msgstr "공동발의자"
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 
-#: templates/region.html:40 templates/includes/header.html:5
-#: templates/includes/header.html:7 views/region.py:16
-msgid "region"
-msgstr "지역"
+#: templates/region.html:30 templates/region.html:40
+msgid "chronicles"
+msgstr "역대 당선자"
 
-#: templates/region.html:43
-msgid "Chinese"
-msgstr "한문"
+#: templates/region.html:31 templates/region.html:63 templates/region.html:100
+msgid "related people"
+msgstr "관련 인물"
 
-#: templates/region.html:47
-msgid "English"
-msgstr "영문"
+#: templates/region.html:56 templates/widgets/card.html:41
+msgid "None"
+msgstr "없음"
 
-#: templates/region.html:54 templates/region.html:91
+#: templates/region.html:65 templates/region.html:104
 msgid "Candidates"
 msgstr "출마자"
 
-#: templates/region.html:59 templates/region.html:96
+#: templates/region.html:70 templates/region.html:109
 msgid "Residents"
 msgstr "거주자"
 
-#: templates/region.html:67
-msgid "Officials"
-msgstr "당선자"
-
-#: templates/region.html:85 templates/widgets/card.html:41
-msgid "None"
-msgstr "없음"
+#: templates/region.html:93
+msgid "No officials"
+msgstr "당선자 없음"
 
 #: templates/regions.html:5
 msgid "Regions"
@@ -366,6 +360,11 @@ msgstr "소스"
 #: views/bill.py:16
 msgid "bill"
 msgstr "의안"
+
+#: templates/includes/header.html:5 templates/includes/header.html:7
+#: views/region.py:16
+msgid "region"
+msgstr "지역"
 
 #: templates/includes/header.html:7
 msgid "Seon-Mi Jin"

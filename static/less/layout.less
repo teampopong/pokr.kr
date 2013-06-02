@@ -45,14 +45,21 @@ body {
         .inline-block;
         margin-bottom: 10px;
     }
+
+    #header-top {
+        background-color: @top_color;
+        .border-radius;
+        margin: 5px 0;
+    }
+
     .breadcrumb {
-        padding: 0 0 3px 0;
-        margin: 0 5px 5px;
+        background-color: @container_color;
+        border: none;
+        padding: 0 5px 8px 5px;
         font-size: 85%;
         text-align: left;
         a {
             color: #777;
-
             &:hover {
                 color: #777;
             }
@@ -74,12 +81,12 @@ body {
 
 #container {
     position: fixed;
-    top: 90px;
+    top: 100px;
     bottom: 30px;
     left: 20px;
     right: 20px;
-    background: white;
-    .framed;
+    background: @container_color;
+    .border-radius;
     margin: 0 auto;
 }
 @media (max-width: 600px) {
@@ -97,12 +104,16 @@ body {
     bottom: 5px;
     left: 20px;
     right: 20px;
-    color: #777;
+    color: #999;
     font-size: 85%;
-    text-align: right;
+    text-align: center;
     height: 20px;
     p {
         display: inline-block;
+    }
+    a {
+        color: #CCC;
+        font-weight: bold;
     }
     margin: 0 auto;
 }
