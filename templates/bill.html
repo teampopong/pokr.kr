@@ -2,7 +2,7 @@
 {% import 'macros.html' as macro with context %}
 
 {% block title %}
-{{ super() }} - {{ bill.name }}
+{{ bill.name }} - {{ super() }}
 {% endblock %}
 
 {% block extra_headers %}
@@ -36,7 +36,9 @@
 <ul id="bill-section-tabs" class="nav section-tabs">
     <li class="active"><a href="#outline">{{gettext("outline")}}</a></li>
     <li><a href="#sponsors">{{gettext("sponsors")}}</a></li>
+    {% if bill.summary %}
     <li><a href="#contents">{{gettext("contents")}}</a></li>
+    {% endif %}
 </ul>
 {% endif %}
 {% endblock %}
