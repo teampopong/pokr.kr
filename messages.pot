@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-01 11:10+0900\n"
+"POT-Creation-Date: 2013-06-02 12:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr ""
 msgid "sponsors"
 msgstr ""
 
-#: templates/bill.html:39 templates/bill.html:126
+#: templates/bill.html:39 templates/bill.html:147
 msgid "contents"
 msgstr ""
 
@@ -50,20 +50,20 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:99 templates/person.html:277
+#: templates/bill.html:98 templates/bill.html:119 templates/person.html:277
 msgid "sponsor"
 msgstr ""
 
-#: templates/bill.html:111
+#: templates/bill.html:107 templates/bill.html:131
 msgid "cosponsors"
 msgstr ""
 
-#: templates/bill.html:129 templates/party.html:41 templates/party.html:51
+#: templates/bill.html:150 templates/party.html:41 templates/party.html:51
 msgid "summary"
 msgstr ""
 
-#: templates/bills.html:9 templates/bills.html:14 templates/main.html:17
-#: templates/includes/header.html:17
+#: templates/bills.html:5 templates/bills.html:9 templates/bills.html:14
+#: templates/main.html:17 templates/includes/header.html:17
 msgid "bills"
 msgstr ""
 
@@ -122,8 +122,16 @@ msgstr ""
 msgid "regions"
 msgstr ""
 
-#: templates/not-found.html:4 templates/not-found.html:9
+#: templates/not-found.html:4
+msgid "Oops"
+msgstr ""
+
+#: templates/not-found.html:9
 msgid "Result not found"
+msgstr ""
+
+#: templates/parties.html:5
+msgid "Parties"
 msgstr ""
 
 #: templates/party.html:33
@@ -156,13 +164,13 @@ msgstr ""
 msgid "th assembly election"
 msgstr ""
 
-#: templates/person.html:8
-#, python-format
-msgid "Member of %(last_elected_no)dth National Assembly,"
+#: templates/people.html:5 templates/search-results.html:53
+msgid "People"
 msgstr ""
 
 #: templates/person.html:8
-msgid "Politician Dictionary"
+#, python-format
+msgid "Member of %(last_elected_no)dth National Assembly,"
 msgstr ""
 
 #: templates/person.html:42 templates/person.html:57
@@ -269,6 +277,10 @@ msgstr ""
 msgid "Residents"
 msgstr ""
 
+#: templates/regions.html:5
+msgid "Regions"
+msgstr ""
+
 #: templates/search-results.html:6
 msgid "birthyear"
 msgstr ""
@@ -291,7 +303,7 @@ msgid "residential region"
 msgstr ""
 
 #: templates/search-results.html:25
-msgid "Search"
+msgid "Searched results"
 msgstr ""
 
 #: templates/search-results.html:29
@@ -301,10 +313,6 @@ msgstr ""
 #: templates/search-results.html:46
 #, python-format
 msgid "Search results by %(options)s"
-msgstr ""
-
-#: templates/search-results.html:53
-msgid "People"
 msgstr ""
 
 #: templates/search-results.html:67
