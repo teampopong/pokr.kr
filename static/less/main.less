@@ -1,69 +1,9 @@
 @import "includes";
 
-@button_height: 100px;
-@button_width: 150px;
-
 #card-container {
     width: 0;
 }
 
 #spec-container {
     left: 0;
-}
-
-#class-list {
-    text-align: center;
-
-    .class-item,
-    .class-item:hover {
-        .border-radius(20px);
-        background-size: @button_width 100%;
-        background-repeat: no-repeat;
-        border: 7px solid #F3F3F3;
-        display: inline-block;
-        font-size: 15pt;
-        font-weight: bold;
-        line-height: @button_height;
-        margin: 10px;
-        text-align: center;
-        vertical-align: middle;
-        width: @button_width;
-        height: @button_height;
-    }
-    .class-item {
-        color: #555;
-        transition: .3s linear;
-    }
-
-    #class-bill {
-        background-image: url('../images/default_bill.jpg');
-        &:hover{
-            background-image: url('../images/default_bill_green.jpg');
-        }
-    }
-    #class-party {
-        background-image: url('../images/default_party.jpg');
-        &:hover{
-            background-image: url('../images/default_party_pink.jpg');
-        }
-    }
-    #class-person {
-        background-image: url('../images/default_people.png');
-        &:hover{
-            background-image: url('../images/default_people_tangerine.jpg');
-        }
-    }
-    #class-region {
-        background-image: url('../images/default_region.png ');
-        &:hover{
-            background-image: url('../images/default_region.jpg');
-        }
-    }
-    #class-school {
-        background-image: url('../images/default_school.jpg');
-        &:hover{
-            background-image: url('../images/default_school.png');
-            color: #FFF;
-        }
-    }
 }
