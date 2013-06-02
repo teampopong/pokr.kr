@@ -1,3 +1,4 @@
+import assembly
 import bill
 import bill_review
 import bill_status
