@@ -16,10 +16,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="itemlist">
-{% call(region) macro.list_pagenav(regions) %}
-    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname if locale == 'ko' else region.fullname_en }}</a>
-{% endcall %}
+{% if not mobile %}
+    {{ korean_map|safe }}
+{% endif %}
+
+<div class="inline-block">
+    <h3 id="province"></h3>
+    {% for region in regions %}
+    <a class="hide-desktop region-link region-{{ region.id }} region-sub-{{ region.id[:2] }}" data-text="{{ region.name }}" href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname if locale == 'ko' else region.fullname_en }}</a>
+    {% endfor %}
 </div>
+
+{% if not mobile %}
+    <script src="{{ url_for('static', filename='js/regions.js') }}"></script>
+{% endif %}
 {% endblock %}
 

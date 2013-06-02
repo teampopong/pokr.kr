@@ -1,0 +1,28 @@
+@region_hover_color: rgb(176,198,185);
+@region_color: lighten(@region_hover_color, 22%);
+
+.map {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+
+    text {
+        font-family: NanumGothic;
+        font-size: 6px;
+        pointer-events: none;
+    }
+
+    path {
+        fill: @region_color;
+        stroke: #c9c9c9;
+
+        &.region {
+            cursor: pointer;
+
+            &:hover {
+                fill: @region_hover_color;
+                fill: rgb(176,198,185);
+            }
+        }
+    }
+}
