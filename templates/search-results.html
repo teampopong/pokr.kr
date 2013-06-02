@@ -61,6 +61,24 @@
             </td>
         </tr>
         {% endif %}
+        {% if not target or target == 'bills' %}
+        <tr>
+            <th>
+                {{ gettext('Bill') }}
+                <br>{{ macro.list_count(bills) }}
+            </th>
+            <td>{% if target %}
+                    {% call(bill) macro.list_pagenav(bills) %}
+                    {{ macro.bill_with_fallback_date(bill) }}
+                    {% endcall %}
+                {% else %}
+                    {% call(bill) macro.list_more(bills, url_for_query(target='bills')) %}
+                    {{ macro.bill_with_fallback_date(bill) }}
+                    {% endcall %}
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
         {% if not target or target == 'parties' %}
         <tr>
             <th>
@@ -79,24 +97,7 @@
             </td>
         </tr>
         {% endif %}
-        {% if not target or target == 'schools' %}
-        <tr>
-            <th>
-                {{ gettext('School') }}
-                <br>{{ macro.list_count(schools) }}
-            </th>
-            <td>{% if target %}
-                    {% call(school) macro.list_pagenav(schools) %}
-                    <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
-                    {% endcall %}
-                {% else %}
-                    {% call(school) macro.list_more(schools, url_for_query(target='schools')) %}
-                    <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
-                    {% endcall %}
-                {% endif %}
-            </td>
-        </tr>
-        {% endif %}
+        
         {% if not target or target == 'regions' %}
         <tr>
             <th>
@@ -115,19 +116,20 @@
             </td>
         </tr>
         {% endif %}
-        {% if not target or target == 'bills' %}
+        
+        {% if not target or target == 'schools' %}
         <tr>
             <th>
-                {{ gettext('Bill') }}
-                <br>{{ macro.list_count(bills) }}
+                {{ gettext('School') }}
+                <br>{{ macro.list_count(schools) }}
             </th>
             <td>{% if target %}
-                    {% call(bill) macro.list_pagenav(bills) %}
-                    {{ macro.bill_with_fallback_date(bill) }}
+                    {% call(school) macro.list_pagenav(schools) %}
+                    <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
                     {% endcall %}
                 {% else %}
-                    {% call(bill) macro.list_more(bills, url_for_query(target='bills')) %}
-                    {{ macro.bill_with_fallback_date(bill) }}
+                    {% call(school) macro.list_more(schools, url_for_query(target='schools')) %}
+                    <a href="{{ url_for('search', target='people', school_id=school.id) }}">{{ school.name }}</a>
                     {% endcall %}
                 {% endif %}
             </td>
