@@ -61,34 +61,33 @@
             </h4>
             {{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}
             {% else %}
-            <table class="table table-condensed">
+            <table id="region-people" class="table table-condensed">
                 <tbody>
                     <tr>
-                        <th>{{ gettext('Officials') }}</th>
+                        <th rowspan="20">{{ gettext('Officials') }}</th>
+                    </tr>
+                    <!-- FIXME: 19 -->
+                    {% for age in range(19, 0, -1) %}
+                    <tr>
+                        <th class="assembly-id">{{ age }}{{ gettext('th') }}</th>
                         <td>
                             <ul class="float-list">
-                                {% for age in range(19, 0, -1) %}
                                 <li>
-                                    <div id="official-by-assembly-container">
-                                        <div id="official-by-assembly-label">
-                                        {{ age }}{{ gettext('th') }}
-                                        </div>
-                                        {{ widgets.card(region.officials.get(age))|safe }}
-                                    </div>
+                                    {{ widgets.card(region.officials.get(age))|safe }}
                                 </li>
-                                {% endfor %}
                             </ul>
                         </td>
                     </tr>
+                    {% endfor %}
                     <tr>
                         <th>{{ gettext('Candidates') }}
                             <br>{{ macro.list_count(region.candidates, type='people') }}</th>
-                        <td>{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
+                        <td colspan="2">{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
                     </tr>
                     <tr>
                         <th>{{ gettext('Residents') }}
                             <br>{{ macro.list_count(region.residents, type='people') }}</th>
-                        <td>{{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}</td>
+                        <td colspan="2">{{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}</td>
                     </tr>
                 </tbody>
             </table>
