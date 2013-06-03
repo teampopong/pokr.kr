@@ -2,4 +2,6 @@
     {% for description, related_person in related_people %}
         {{widgets.card(related_person, small=True)|safe}}
     {% endfor %}
+{% else %}
+{{ gettext('None') }}
 {% endif %}
