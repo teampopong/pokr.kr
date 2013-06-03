@@ -54,7 +54,10 @@ window.currentPage = 'person';
 <div id="person-view" class="view">
     <div id="person-sections" class="sections">
         <div id="section-profile" class="section">
-            <h3 id="profile">{{ gettext('profile') }}</h3>
+            <h3 id="profile">
+                {{ gettext('profile') }}
+                <i class="icon-exclamation-sign tooltipped pull-right" data-placement="bottom" data-title="{{ gettext('Data in this section is based on latest election records, and therefore can be outdated.') }}"></i>
+            </h3>
             <table id="person-profile" class="table table-condensed">
                 <tbody>
                     {% if person.birthday %}
