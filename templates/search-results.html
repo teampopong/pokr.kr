@@ -30,15 +30,10 @@
 {% endblock %}
 
 {% block extra_headers %}
-<style>
-#card-container {
-    width: 0;
-}
-
-#spec-container {
-    left: 0;
-}
-</style>
+{% assets filters='less', output='build/main.%(version)s.css',
+    depends=['**/*.less'], 'less/main.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
 {% endblock %}
 
 {% block content %}
