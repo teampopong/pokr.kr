@@ -19,6 +19,14 @@ if (!isMobile) {
             selectTab(target);
         });
 
+    setTimeout(function () {
+        $('.section-tabs-nav').affix({
+            offset: {
+                top: 360
+            }
+        });
+    }, 100);
+
     function gotoTab(target) {
         selectTab(target);
 
