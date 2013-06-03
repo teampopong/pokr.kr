@@ -24,18 +24,17 @@ th.no-min-width {
 body {
     padding: 0 20px;
     background: @bg_color;
+    div#header,
+    div#container,
+    div#footer {
+        max-width: @container_width;
+    }
 }
 
-div#header,
-div#container,
-div#footer {
+#header {
     position: relative;
-    max-width: @container_width;
-    margin: 0 auto;
-}
-
-div#header {
     text-align: center;
+    margin: 0 auto;
 
     h1 {
         .inline-block;
@@ -83,21 +82,35 @@ div#header {
     }
 }
 
-div#container {
+#container {
+    position: fixed;
+    top: 100px;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
     background: @container_color;
     .border-radius;
-    margin-top: -27px;
+    margin: 0 auto;
+}
+@media (max-width: 600px) {
+    #container {
+        top: 140;
+    }
 }
 
 .logo {
     height: 40px;
 }
 
-div#footer {
+#footer {
+    position: fixed;
+    bottom: 5px;
+    left: 20px;
+    right: 20px;
     color: @bottom_color;
     font-size: 85%;
     text-align: center;
-    margin-top: 6px;
+    height: 20px;
     p {
         display: inline-block;
     }
@@ -105,6 +118,7 @@ div#footer {
         color: @bottom_link_color;
         font-weight: bold;
     }
+    margin: 0 auto;
 }
 
 a#barometer_tab {
@@ -115,11 +129,13 @@ a#barometer_tab {
 
 // content
 #card-container {
-    display: inline-block;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
     width: 180px;
     .border-box;
     padding: 20px 10px 10px;
-    vertical-align: top;
 
     .instance-card {
         position: relative;
@@ -162,14 +178,14 @@ a#barometer_tab {
 }
 
 #spec-container {
-    display: inline-block;
-    .width-calc(~"100% - 200px", 80%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 180px;
+    right: 0;
     .border-box;
     padding: 10px;
-}
-
-#content {
-    padding-bottom: 15px;
+    overflow-y: auto;
 }
 
 // others

@@ -24,6 +24,7 @@
         depends=['**/*.less'], 'less/person.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
     {% endassets %}
+    <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery.colorbox.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/popong-colorbox.js')}}"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='css/colorbox.css')}}">
@@ -37,8 +38,7 @@ window.currentPage = 'person';
 {% block card %}
 {{widgets.card(person, detailed=True)|safe}}
 {% if not mobile %}
-<div id="person-section-tabs" class="section-tabs">
-    <ul class="nav section-tabs-nav">
+    <ul id="person-section-tabs" class="nav section-tabs">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
         <li><a href="#elections">{{gettext("elections")}}</a></li>
         {% if has_bills %}
@@ -46,7 +46,6 @@ window.currentPage = 'person';
         {% endif %}
         <li><a href="#trends">{{gettext("trends")}}</a></li>
     </ul>
-</div>
 {% endif %}
 {% include 'social.html' %}
 {% endblock %}

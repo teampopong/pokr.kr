@@ -14,6 +14,7 @@
     depends=['**/*.less'], 'less/entity.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
+<script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
 {% endblock %}
 
 {% block card %}
@@ -38,12 +39,10 @@
 </div>
 {% endif %}
 {% if not mobile %}
-<div id="party-section-tabs" class="section-tabs">
-    <ul class="nav section-tabs-nav">
-        <li class="active"><a href="#summary">{{gettext("summary")}}</a></li>
-        <li><a href="#people">{{gettext("people")}}</a></li>
-    </ul>
-</div>
+<ul id="party-section-tabs" class="nav section-tabs">
+    <li class="active"><a href="#summary">{{gettext("summary")}}</a></li>
+    <li><a href="#people">{{gettext("people")}}</a></li>
+</ul>
 {% endif %}
 {% endblock %}
 

@@ -1,6 +1,6 @@
 (function () {
 
-var $body = $('body');
+var $specContainer = $('#spec-container');
 
 if (!isMobile) {
     $('.section-tabs a').click(function () {
@@ -9,7 +9,7 @@ if (!isMobile) {
         return false;
     });
 
-    $body.scrollspy({
+    $specContainer.scrollspy({
             'data-spy': 'scroll',
             'data-target': '.section-tabs',
             'offset': 100
@@ -19,21 +19,13 @@ if (!isMobile) {
             selectTab(target);
         });
 
-    setTimeout(function () {
-        $('.section-tabs-nav').affix({
-            offset: {
-                top: 360
-            }
-        });
-    }, 100);
-
     function gotoTab(target) {
         selectTab(target);
 
         var $elem = $(target);
 
-        $body.animate({
-            scrollTop: $elem.offset().top
+        $specContainer.animate({
+            scrollTop: $specContainer.scrollTop() + $elem.position().top
         }, 300);
     }
 
