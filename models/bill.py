@@ -2,7 +2,7 @@
 
 from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
 from database import Base, db_session
@@ -32,6 +32,9 @@ class Bill(Base):
     status_id = Column(Integer, nullable=False)
     status_ids = Column(ARRAY(Integer))
     reviews = relationship('BillReview', backref='bill')
+
+    status = column_property(select([BillStatus.name])\
+                             .where(BillStatus.id==status_id), deferred=True)
 
     @property
     def party_counts(self):
