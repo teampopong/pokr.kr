@@ -9,6 +9,13 @@
 {{ gettext('bills') }}
 {% endblock %}
 
+{% block extra_headers %}
+{% assets filters='less', output='build/submain.%(version)s.css',
+    depends=['**/*.less'], 'less/submain.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+
 {% block card %}
 <div id="class-bills" class="class-item {{ locale }}"></div>
 {% endblock %}
@@ -22,11 +29,19 @@
          {% endfor %}
      </ul>
 </div>
-<div class="itemlist">
+<div id="bill-list" class="itemlist">
     {{ macro.list_count(bills) }}
     {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=15) %}
         <td>{{ bill.proposed_date }}</td>
         <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+        <td>
+            {% if bill.status_id in [1,2,4,5,6,9,11,12,22,24,25,26] %}
+            <i class="icon-circle" style="color: green;"></i>
+            {% else %}
+            <i class="icon-circle" style="color: red;"></i>
+            {% endif %}
+            {{ bill.status_id }}
+        </td>
     {% endcall %}
 </div>
 {% endblock %}
