@@ -33,7 +33,7 @@
     {{ macro.list_count(bills) }}
     {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=15) %}
     {% if mobile %}
-        <td>
+        <td style="padding: 5px 0 10px;">
             <span style="background-color: #EEE; color: #555; font-weight: bold; padding: 1px 5px;">{{ bill.proposed_date }}</span>
             {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
             <i class="icon-circle" style="color: green;"></i>
