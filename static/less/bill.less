@@ -37,6 +37,12 @@
         text-align: center;
         width: 2%;
     }
+    td:hover {
+        filter: alpha(opacity=80);      /* internet explorer */
+        -khtml-opacity: 0.8;            /* khtml, old safari */
+        -moz-opacity: 0.8;              /* mozilla, netscape */
+        opacity: 0.8;                   /* fx, safari, opera */
+    }
     .past {
         background-color: #eee;
     }
