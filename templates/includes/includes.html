@@ -29,3 +29,7 @@
 <script src="{{url_for('static', filename='js/typeahead.min.js')}}"></script>
 <script src="{{url_for('static', filename='js/popong.js')}}"></script>
 <script src="{{url_for('static', filename='js/polidic.js')}}"></script>
+
+{% if not mobile %}
+<script src="{{url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
+{% endif %}

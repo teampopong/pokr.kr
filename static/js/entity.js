@@ -24,9 +24,9 @@ if (!isMobile) {
 
         var $elem = $(target);
 
-        $specContainer.animate({
+        $specContainer.stop().animate({
             scrollTop: $specContainer.scrollTop() + $elem.position().top
-        }, 300);
+        }, 700, 'easeInOutQuart');
     }
 
     function selectTab(target) {
