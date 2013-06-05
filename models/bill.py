@@ -58,7 +58,8 @@ class Bill(Base):
         return None
 
 
-bill_and_status = select([func.unnest(Bill.status_ids).label('bill_status_id'),
+bill_and_status = select([func.row_number().over().label('status_order'),
+                        func.unnest(Bill.status_ids).label('bill_status_id'),
                         Bill.id.label('bill_id')]).alias()
 
 
@@ -66,6 +67,7 @@ Bill.statuses = relationship("BillStatus",
             secondary=bill_and_status,
             primaryjoin=Bill.id == bill_and_status.c.bill_id,
             secondaryjoin=bill_and_status.c.bill_status_id == BillStatus.id,
+            order_by=bill_and_status.c.status_order,
             viewonly=True,
             backref='bills')
 
