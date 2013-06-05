@@ -173,7 +173,7 @@
     var data = google.visualization.arrayToDataTable([
       ['party', 'count'],
       {% for party_name, size in bill.party_counts %}
-      ['{{ party_name }}', {{ size }}],
+      ['{{ party_name }}', {{ size }}]{% if not loop.last %},{% endif %}
       {% endfor %}
     ]);
 
