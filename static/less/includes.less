@@ -42,6 +42,14 @@
     width: calc(@exp);
 }
 
+.opacity (@alpha) {
+    @alpha100: @alpha * 100;
+    filter: ~"alpha(opacity=@{alpha100})";  /* internet explorer */
+    -khtml-opacity: @alpha;               /* khtml, old safari */
+    -moz-opacity: @alpha;                 /* mozilla, netscape */
+    opacity: @alpha;                      /* fx, safari, opera */
+}
+
 .box-shadow {
     box-shadow: 2px 2px rgba(192, 192, 192, 0.3);
 }
