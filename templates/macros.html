@@ -60,7 +60,7 @@
     </div>
 {%- endmacro %}
 
-{% macro list_more(query, url, pagesize=None, layout='list') -%}
+{% macro list_more(query, url, pagesize=None, layout='list', more=True) -%}
     {% set pagesize = pagesize or 20 %}
     {% set items = query.limit(pagesize+1).all() %}
 
@@ -78,7 +78,7 @@
         </table>
     {% endif %}
 
-    {% if items|count > pagesize %}
+    {% if more and items|count > pagesize %}
     <a class="btn-more" href="{{ url }}">{{ gettext('more') }}</a>
     {% endif %}
 {%- endmacro %}
