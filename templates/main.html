@@ -13,12 +13,9 @@
 
 {% block content %}
 <div id="class-list">
-    {% for class in ['person', 'bill', 'party', 'region'] %}
-    <a id="class-{{ class }}" class="class-item" href="{{ url_for('%s_main' % class) }}">
-        <img src="{{ url_for('static', filename='images/default_%s_%s_empty.png' % (class, locale)) }}">
-    </a>
-    {% endfor %}
+    <a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a>
+    <a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a>
+    <a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a>
+    <a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a>
 </div>
-<script type="text/javascript">
-</script>
 {% endblock %}
