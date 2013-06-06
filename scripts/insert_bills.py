@@ -74,11 +74,15 @@ def insert_bills(files):
 
 
 def insert_bill(session, record):
-    if session.query(Bill).filter_by(id=record['bill_id']).first():
-        return
-
-    bill = Bill(**extract_bill(record))
-    session.add(bill)
+    bill = session.query(Bill).filter_by(id=record['bill_id']).first()
+    bill_data = extract_bill(record)
+    if bill:
+        for key, val in bill_data.items():
+            if key != 'id':
+                setattr(bill, key, val)
+    else:
+        bill = Bill(**bill_data)
+        session.add(bill)
     session.flush()
     insert_cosponsorships(session, bill, record['proposers'])
     insert_reviews(session, bill, record['status_dict'])
@@ -121,6 +125,7 @@ def extract_bill(record):
 
 
 def insert_cosponsorships(session, bill, cosponsors_raw):
+    existing_cosponsor_ids = [c.id for c in bill.cosponsors]
     cosponsorships = []
     for proposer in cosponsors_raw:
         key = (proposer, bill.age)
@@ -136,7 +141,7 @@ def insert_cosponsorships(session, bill, cosponsors_raw):
 
         person_id = person_ids[key]
 
-        if person_id:
+        if person_id and person_id not in existing_cosponsor_ids:
             cosponsorships.append({
                 'person_id': person_id,
                 'bill_id': bill.id,
@@ -148,7 +153,11 @@ def insert_cosponsorships(session, bill, cosponsors_raw):
 
 def insert_reviews(session, bill, reviews_raw):
     reviews = []
+    existing_review_names = [r.name for r in bill.reviews]
     for review_name, review_data in reviews_raw.items():
+        if review_name in existing_review_names:
+            continue
+
         dates = any_value_with_re(review_data, date_re)
         dates = [datetime.strptime(date_, '%Y-%m-%d').date() for date_ in dates]
         start_date = min(dates) if dates else None
