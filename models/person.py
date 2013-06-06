@@ -15,7 +15,6 @@ from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy
 from models.cosponsorship import cosponsorship
 from models.party_affiliation import party_affiliation
-from models.cosponsorship import cosponsorship
 from models.pledge import Pledge
 
 class Person(Base):
