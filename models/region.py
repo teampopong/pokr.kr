@@ -32,6 +32,11 @@ class Region(Base):
 
 
     @property
+    def is_province(self):
+        return len(self.id) == 2
+
+
+    @property
     def candidates(self):
         return Person.query\
                      .join(Candidacy)\

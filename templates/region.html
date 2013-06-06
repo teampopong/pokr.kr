@@ -20,7 +20,9 @@
 {% endblock %}
 
 {% block card %}
-{% if not mobile %}
+{% if mobile %}
+<h2 class="instance-name">{{ fullname }}</h2>
+{% else %}
 <div class="instance-card">
     <h2 class="instance-name">{{ fullname }}</h2>
     <img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
@@ -29,8 +31,10 @@
 {% include 'social.html' %}
 {% if not mobile %}
 <ul id="region-section-tabs" class="nav section-tabs">
+    {% if not region.is_province %}
     <li class="active"><a href="#chronicles">{{gettext('chronicles')}}</a></li>
     <li><a href="#people">{{gettext('related people')}}</a></li>
+    {% endif %}
 </ul>
 {% endif %}
 {% endblock %}
@@ -39,15 +43,15 @@
 <div id="region-view" class="view">
     <div id="region-sections" class="sections">
         <div id="section-outline" class="section">
-            <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
-            {% if mobile %}
+        {% if mobile %}
             <!-- FIXME: 19 -->
+            {% if not region.is_province %}
+            <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
             <table id="region-people" class="table table-condensed">
                 <tbody>
                     {% set officials_grouped_by_age = region.officials_grouped_by_age %}
                     {% for age in range(19, 0, -1) %}
                     <tr>
-
                         <th>{{ age }}{{ gettext('th') }}</th>
                         <td>
                            {% set officials = officials_grouped_by_age.get(age) %}
@@ -67,6 +71,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            {% endif %}
             <h3 id="people">{{ gettext('related people') }}</h3>
             <h4 class="subsection-title">
                 {{ gettext('Candidates') }}
@@ -78,7 +83,9 @@
                 <small>{{ macro.list_count(region.residents, type='people') }}</small>
             </h4>
             {{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}
-            {% else %}
+        {% else %}
+            {% if not region.is_province %}
+            <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
             <table id="region-chronicles" class="table table-condensed">
                 <tbody>
                     <!-- FIXME: 19 -->
@@ -104,6 +111,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            {% endif %}
             <h3 id="people">{{ gettext('related people') }}</h3>
             <table id="region-people" class="table table-condensed">
                 <tbody>
@@ -119,7 +127,7 @@
                     </tr>
                 </tbody>
             </table>
-            {% endif %}
+        {% endif %}
         </div>
     </div>
 </div>
