@@ -35,6 +35,10 @@
     -webkit-border-radius: @arguments;
 }
 
+.bgsize {
+    -ms-behavior: url('static/backgroundsize.min.htc');
+}
+
 .width-calc (@exp, @fallback) {
     width: @fallback;
     width: -webkit-calc(@exp);
