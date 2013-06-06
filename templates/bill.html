@@ -100,7 +100,7 @@
                 <h3 id="sponsors">{{ gettext('sponsors') }}</h3>
                 {% if mobile %}
                     {% if bill.sponsor %}
-                        <h4 class="subsection-title">{{ gettext("sponsor") }}</h4>
+                        <h4 class="subsection-title">{{ gettext("representative sponsor") }}</h4>
                         {% if bill.representative_person %}
                         {{ widgets.card(bill.representative_person)|safe }}
                         {% else %}
@@ -121,7 +121,7 @@
                 <table class="table table-condensed">
                     {% if bill.sponsor %}
                     <tr>
-                        <th>{{ gettext("sponsor") }}</th>
+                        <th>{{ gettext("representative sponsor") }}</th>
                         <td>{% if bill.representative_person %}
                                 {{ widgets.card(bill.representative_person)|safe }}
                             {% else %}

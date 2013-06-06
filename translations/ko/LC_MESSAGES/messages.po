@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-06 18:22+0900\n"
+"POT-Creation-Date: 2013-06-06 22:32+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "status"
 msgstr "상태"
 
 #: templates/bill.html:103 templates/bill.html:124 templates/person.html:280
-msgid "sponsor"
+msgid "representative sponsor"
 msgstr "대표발의자"
 
 #: templates/bill.html:112 templates/bill.html:136
@@ -257,8 +257,8 @@ msgid "role"
 msgstr "역할"
 
 #: templates/person.html:282
-msgid "cosponsor"
-msgstr "공동발의자"
+msgid "sponsor"
+msgstr "발의자"
 
 #: templates/person.html:305
 #, python-format

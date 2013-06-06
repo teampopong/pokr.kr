@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-06 18:22+0900\n"
+"POT-Creation-Date: 2013-06-06 22:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "status"
 msgstr ""
 
 #: templates/bill.html:103 templates/bill.html:124 templates/person.html:280
-msgid "sponsor"
+msgid "representative sponsor"
 msgstr ""
 
 #: templates/bill.html:112 templates/bill.html:136
@@ -257,7 +257,7 @@ msgid "role"
 msgstr ""
 
 #: templates/person.html:282
-msgid "cosponsor"
+msgid "sponsor"
 msgstr ""
 
 #: templates/person.html:305

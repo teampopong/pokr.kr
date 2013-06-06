@@ -277,9 +277,9 @@ window.currentPage = 'person';
                                     <td>{{ bill.proposed_date }}</td>
                                     <td>
                                         {% if bill.sponsor.startswith(person.name) %}
-                                        {{ gettext("sponsor") }}
+                                        {{ gettext("representative sponsor") }}
                                         {% else %}
-                                        {{ gettext("cosponsor") }}
+                                        {{ gettext("sponsor") }}
                                         {% endif %}
                                     </td>
                                 </tr>
