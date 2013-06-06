@@ -31,10 +31,12 @@
 {% include 'social.html' %}
 {% if not mobile %}
 <ul id="region-section-tabs" class="nav section-tabs">
-    {% if not region.is_province %}
+    {% if region.is_province %}
+    <li class="active"><a href="#subregions">{{gettext('subregions')}}</a></li>
+    {% else %}
     <li class="active"><a href="#chronicles">{{gettext('chronicles')}}</a></li>
-    <li><a href="#people">{{gettext('related people')}}</a></li>
     {% endif %}
+    <li><a href="#people">{{gettext('related people')}}</a></li>
 </ul>
 {% endif %}
 {% endblock %}
@@ -84,6 +86,13 @@
             </h4>
             {{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}
         {% else %}
+            {% if not region.is_submunicipality %}
+                <h3 id="subregions">{{ gettext('subregions') }}</h3>
+                {% for child in region.children %}
+                <a href="{{ child.url }}">{{ child.name }}</a>
+                {% endfor %}
+            {% endif %}
+
             {% if not region.is_province %}
             <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
             <table id="region-chronicles" class="table table-condensed">
