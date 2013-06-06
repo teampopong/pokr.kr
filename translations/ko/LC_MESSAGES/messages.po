@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-06 15:08+0900\n"
+"POT-Creation-Date: 2013-06-06 18:22+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgid "bills"
 msgstr "의안"
 
 #: templates/bills.html:28 templates/parties.html:29 templates/people.html:21
-#: templates/region.html:51 templates/region.html:88
+#: templates/region.html:57 templates/region.html:100
 msgid "th"
 msgstr "대"
 
@@ -109,11 +109,11 @@ msgstr "더보기"
 msgid "date unknown"
 msgstr "날짜 미상"
 
-#: templates/main.html:18 templates/regions.html:5
+#: templates/main.html:29 templates/regions.html:5
 msgid "Regions"
 msgstr "지역"
 
-#: templates/main.html:24
+#: templates/main.html:33
 msgid "Recent bills"
 msgstr "최근 발의된 의안"
 
@@ -265,23 +265,27 @@ msgstr "공동발의자"
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 
-#: templates/region.html:32 templates/region.html:42
+#: templates/region.html:35 templates/region.html:90
+msgid "subregions"
+msgstr "하위 지역"
+
+#: templates/region.html:37 templates/region.html:51 templates/region.html:93
 msgid "chronicles"
 msgstr "역대 당선자"
 
-#: templates/region.html:33 templates/region.html:70 templates/region.html:107
+#: templates/region.html:39 templates/region.html:77 templates/region.html:120
 msgid "related people"
 msgstr "관련 인물"
 
-#: templates/region.html:63 templates/region.html:100
+#: templates/region.html:69 templates/region.html:112
 msgid "No officials"
 msgstr "당선자 없음"
 
-#: templates/region.html:72 templates/region.html:111
+#: templates/region.html:79 templates/region.html:124
 msgid "Candidates"
 msgstr "출마자"
 
-#: templates/region.html:77 templates/region.html:116
+#: templates/region.html:84 templates/region.html:129
 msgid "Residents"
 msgstr "거주자"
 
