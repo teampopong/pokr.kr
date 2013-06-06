@@ -1,11 +1,66 @@
+@button_height: 100px;
+@button_width: 150px;
+
 #class-list {
     text-align: center;
 }
-
 .class-item,
 .class-item:hover {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     display: inline-block;
+    font-size: 15pt;
+    font-weight: bold;
+    line-height: @button_height;
     margin: 10px;
-    width: 200px;
+    width: @button_width;
+    height: @button_height;
+    text-align: left;
+    .bgsize;
+}
+.class-item {
+    color: #555;
     transition: .3s linear;
 }
+
+.logo(@name, @locale) {
+    background-image: url('../images/default_@{name}_@{locale}_empty.png');
+    &:hover {
+        background-image: url('../images/default_@{name}_@{locale}_grey.png');
+    }
+}
+
+#class-parties {
+    &.ko {
+        .logo("party", "ko");
+    }
+    &.en {
+        .logo("party", "en");
+    }
+}
+#class-bills {
+    &.ko {
+        .logo("bill", "ko");
+    }
+    &.en {
+        .logo("bill", "en");
+    }
+}
+#class-people {
+    &.ko {
+        .logo("person", "ko");
+    }
+    &.en {
+        .logo("person", "en");
+    }
+}
+#class-regions {
+    &.ko {
+        .logo("region", "ko");
+    }
+    &.en {
+        .logo("region", "en");
+    }
+}
+
+
