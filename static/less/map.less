@@ -1,5 +1,4 @@
-@region_hover_color: rgb(176,198,185);
-@region_color: lighten(@region_hover_color, 22%);
+@import "includes";
 
 .map {
     display: inline-block;
@@ -13,15 +12,14 @@
     }
 
     path {
-        fill: @region_color;
-        stroke: #c9c9c9;
+        fill: @top_color;
+        stroke: @icon_color;
 
         &.region {
             cursor: pointer;
 
             &:hover {
-                fill: @region_hover_color;
-                fill: rgb(176,198,185);
+                fill: @region_color;
             }
         }
     }
