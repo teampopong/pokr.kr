@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block card %}
-<div id="class-bills" class="class-item {{ locale }}"></div>
+<img class="class-item" src="{{ url_for('static', filename='images/default_bill_%s_grey.png' % locale) }}"></div>
 {% endblock %}
 
 {% block content %}
