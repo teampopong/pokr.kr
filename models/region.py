@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+from flask import url_for
 from sqlalchemy import Column, String, Unicode
 from sqlalchemy.sql.expression import bindparam
 from database import Base
@@ -32,6 +33,14 @@ class Region(Base):
 
 
     @property
+    def is_province(self):
+        return len(self.id) == 2
+
+    @property
+    def is_submunicipality(self):
+        return len(self.id) == 7
+
+    @property
     def candidates(self):
         return Person.query\
                      .join(Candidacy)\
@@ -61,3 +70,16 @@ class Region(Base):
         return Region.query\
                      .filter(bindparam('prefix', self.id).startswith(Region.id))\
                      .order_by(Region.id)
+
+    @property
+    def children(self):
+        descendants = Region.query.filter(Region.id.startswith(self.id)).order_by(Region.id).all()
+        try:
+            smallest_len = min(len(region.id) for region in descendants if region.id != self.id)
+        except:
+            smallest_len = 7
+        return (child for child in descendants if len(child.id) == smallest_len)
+
+    @property
+    def url(self):
+        return url_for('region', region_id=self.id)
