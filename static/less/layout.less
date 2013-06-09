@@ -57,7 +57,7 @@ body {
 
     .breadcrumb {
         background-color: @container_color;
-        border: none;
+        border: 1px solid @layout_border_color;
         padding: 0 5px 8px 5px;
         font-size: 85%;
         text-align: left;
@@ -84,11 +84,13 @@ body {
 
 #container {
     position: fixed;
-    top: 94px;
+    top: 114px;
     bottom: 30px;
     left: 20px;
     right: 20px;
+    background: white;
     border: 1px solid @layout_border_color;
+    border-top: none;
     margin: 0 auto;
 }
 
@@ -129,7 +131,7 @@ a#barometer_tab {
     left: 0;
     width: 180px;
     .border-box;
-    padding: 20px 10px 10px;
+    padding: 10px;
 
     .instance-card {
         position: relative;
