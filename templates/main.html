@@ -21,41 +21,4 @@
     <a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a>
     <a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a>
 </div>
-
-{% if not mobile %}
-<div id="dashboard">
-    <div class="row-fluid">
-        <div class="mainlist span4">
-            <h2>{{ gettext('Regions') }}</h2>
-            {{ korean_map|safe }}
-        </div>
-        <div class="mainlist span8">
-            <h2>{{ gettext('Recent bills') }}</h2>
-            <div id="bill-list">
-            {% call(bill) macro.list_more(bills, url_for('bill_main'), layout='table', pagesize=11, more=False) %}
-            <td>{{ bill.proposed_date }}</td>
-                <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
-                <td>
-                    {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
-                    <i class="icon-circle" style="color: green;"></i>
-                    {% else %}
-                    <i class="icon-circle" style="color: red;"></i>
-                    {% endif %}
-                    {{ bill.status }}
-                </td>
-            {% endcall %}
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-(function () {
-    window.baseurl = "{{ url_for('main', _external=True) }}";
-    $('.map .region').click(function () {
-        var id = $(this).data('region_id');
-        location.href = baseurl + 'region/' + id;
-    });
-}());
-</script>
-{% endif %}
 {% endblock %}

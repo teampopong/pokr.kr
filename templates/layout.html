@@ -24,15 +24,15 @@
             <div id="header-top">
             {% include 'includes/header.html' %}
             </div>
-            {% if breadcrumbs %}
             <ul class="breadcrumb">
+            {% if breadcrumbs %}
                 {% for name in breadcrumbs %}
                     {% set endpoint = app.views[name] %}
                     <li><a href="{{ url_for(endpoint) }}">{{ gettext(name) }}</a> <span class="divider">&gt;</span></li>
                 {% endfor %}
                 <li class="active">{% block breadcrumb_current %}{% endblock %}</li>
-            </ul>
             {% endif %}
+            </ul>
         </div>
 
         <div id="container">
