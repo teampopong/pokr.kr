@@ -23,7 +23,6 @@ th.no-min-width {
 // layout
 body {
     padding: 0 20px;
-    background: @bg_color;
     div#header,
     div#container,
     div#footer {
@@ -38,21 +37,22 @@ body {
 
     h1 {
         .inline-block;
-        vertical-align: middle;
+        margin-top: 18px;
         margin-right: 10px;
     }
 
     form {
         .inline-block;
-        margin-top: 20px;
+        margin-top: 5px;
         vertical-align: middle;
         margin-bottom: 10px;
     }
 
     #header-top {
-        background-color: @top_color;
-        .border-radius;
-        margin: 5px 0;
+        background: url("../images/mainBG_5px.png") transparent repeat-x top left;
+        border: 1px solid @layout_border_color;
+        margin: 7px 0;
+        height: 78px;
     }
 
     .breadcrumb {
@@ -84,12 +84,11 @@ body {
 
 #container {
     position: fixed;
-    top: 98px;
+    top: 94px;
     bottom: 30px;
     left: 20px;
     right: 20px;
-    background: @container_color;
-    .border-radius;
+    border: 1px solid @layout_border_color;
     margin: 0 auto;
 }
 
