@@ -25,7 +25,7 @@
         <ul class="nav nav-tiles">
              <!-- FIXME: range -->
              {% for assembly_id_ in range(1, 20) %}
-             <li {% if assembly_id_ == assembly_id %}class="active"{% endif %}><a href="{{ url_for('person_main', assembly_id=assembly_id_) }}">{{ assembly_id_ }}{{ gettext('th') }}</a></li>
+             <li {% if assembly_id_ == assembly_id %}class="active"{% endif %}><a href="{{ url_for('party_main', assembly_id=assembly_id_) }}">{{ assembly_id_ }}{{ gettext('th') }}</a></li>
              {% endfor %}
          </ul>
      </div>
