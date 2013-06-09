@@ -1,3 +1,4 @@
+from babel import Locale
 from flask import current_app as cur_app, request
 from flask.ext.babel import Babel, get_locale
 from functools import wraps
@@ -17,7 +18,7 @@ class PopongBabel(Babel):
 
         # shortcuts
         app.babel = self
-        app.LOCALES = self.list_translations() + ['en']
+        app.LOCALES = self.list_translations() + [Locale('en')]
 
         # jinja filters
         app.jinja_env.filters['translit'] = filter_translit
