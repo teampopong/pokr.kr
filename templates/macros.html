@@ -23,17 +23,19 @@
 {%- endmacro %}
 
 {% macro list_count(query, type=None) -%}
-    {% set cnt = query|count if hasattr(query, 'append') else query.count() %}
+    {% set cnt = query.count() if hasattr(query, 'append') else query.count() %}
     <span class="search-count">{% if type=='people' %}{{ gettext('%(count)d people', count=cnt) }}{% else %}{{ gettext('%(count)d results', count=cnt) }}{% endif %}</span>
 {%- endmacro %}
 
-{% macro list_pagenav(query, page=None, pagesize=None, layout='list') -%}
+{% macro list_pagenav(query, page=None, pagesize=None, l=2, layout='list') -%}
     {% set page = int(request.args.get('page', 1)) %}
     {% set pagesize = pagesize or 20 %}
     {% set prev_url = url_for_query(page=max(1, page - 1)) %}
     {% set next_url = url_for_query(page=page + 1) %}
     {% set offset = (page - 1) * pagesize %}
     {% set items = query.offset(offset).limit(pagesize+1).all() %}
+    {% set num_items_left = max(query.offset(offset).count() - pagesize, 0) %}
+    {% set num_pages_left = int((num_items_left + pagesize - 1) / pagesize) %}
 
     {% if layout=='list' %}
         <ul>
@@ -50,12 +52,16 @@
     {% endif %}
 
     <div class="pagenav">
-        {% if offset %}
-            <a class="btn btn-pagenav btn-prev" href="{{prev_url}}"><i class="icon-angle-left"></i> {{gettext('prev')}}</a>
+        {% if 1 <= page-l-1 %}
+            <a class="btn-pagenav btn-prev" href="{{ url_for_query(page=1) }}"><i class="icon-double-angle-left"></i></a>
+            <a class="btn-pagenav btn-prev" href="{{ url_for_query(page=page-l-1) }}"><i class="icon-angle-left"></i></a>
         {% endif %}
-        <div style="text-align: center;">{{ gettext('page %(page)d', page=page) }}</div>
-        {% if items|count > pagesize %}
-            <a class="btn btn-pagenav btn-next" href="{{next_url}}">{{gettext('next')}} <i class="icon-angle-right"></i></a>
+        {% for p in range(max(page-l, 1), page+min(num_pages_left, l)+1) %}
+            <a class="btn-pagenav{% if p == page %} active{% endif %}" href="{{ url_for_query(page=p) }}">{{ p }}</a>
+        {% endfor %}
+        {% if l < num_pages_left %}
+            <a class="btn-pagenav btn-next" href="{{ url_for_query(page=page+l+1) }}"><i class="icon-angle-right"></i></a>
+            <a class="btn-pagenav btn-next" href="{{ url_for_query(page=page+num_pages_left) }}"><i class="icon-double-angle-right"></i></a>
         {% endif %}
     </div>
 {%- endmacro %}

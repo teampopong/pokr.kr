@@ -61,7 +61,7 @@ body {
         padding: 0 5px 8px 5px;
         font-size: 85%;
         text-align: left;
-        .border-radius(0);
+        .border-radius(0, 0, 0, 0);
         a {
             color: #777;
             &:hover {
@@ -209,26 +209,30 @@ a.btn-show {
 }
 
 .pagenav {
-    position: relative;
-    margin-top: 10px;
+    text-align: center;
 }
 
 .btn-pagenav {
+    .inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid @layout_border_color;
+    color: @text_color;
+
+    &.active,
+    &.btn-prev,
+    &.btn-next {
+        background: #f3f3f3;
+    }
+
+    &:hover {
+        background: whitesmoke;
+        text-decoration: none;
+    }
+
     [class^="icon-"] {
         color: #333;
         .inline-block;
-    }
-
-    &.btn-prev {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    &.btn-next {
-        position: absolute;
-        top: 0;
-        right: 0;
     }
 }
 
