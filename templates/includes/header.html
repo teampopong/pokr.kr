@@ -13,7 +13,7 @@
 </form>
 <span class="langselect">
     {% for lang, url in locale_links.items() %}
-    <a href="{{ url }}">{{ lang.get_display_name(locale) }}</a>&nbsp;{% if not loop.last %}/{% endif %}
+    <a href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
 </span>
 <img class="banner" src="{{ url_for('static', filename="images/beta3.png") }}">

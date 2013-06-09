@@ -15,10 +15,17 @@
 {% endif %}
 
 {% block content %}
+<img class="all-about-pokr" src="{{ url_for('static', filename='images/all_about_pokr.png') }}">
 <div id="class-list">
-    <a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a>
-    <a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a>
-    <a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a>
-    <a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a>
+    <div style="display: inline-block;"><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a><br><img src="{{ url_for('static', filename='images/about_people.png') }}" style="margin-top: -30px;"></div>
+    <div style="display: inline-block;"><a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a><br><img src="{{ url_for('static', filename='images/about_bills.png') }}" style="margin-top: -30px;"></div>
+    <div style="display: inline-block;"><a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a><br><img src="{{ url_for('static', filename='images/about_parties.png') }}" style="margin-top: -30px;"></div>
+    <div style="display: inline-block;"><a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a><br><img src="{{ url_for('static', filename='images/about_regions.png') }}" style="margin-top: -30px;"></div>
+</div>
+
+<div style="text-align: center; color: #555;">
+    {% for lang, url in locale_links.items() %}
+    <a href="{{ url }}" style="color: #555;">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
+    {% endfor %}
 </div>
 {% endblock %}
