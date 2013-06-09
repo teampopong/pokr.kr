@@ -3,6 +3,14 @@
 @card_width: 100px;
 @card_height: 70px;
 
+#card-container {
+    width: 0;
+}
+
+#spec-container {
+    left: 0;
+}
+
 .itemlist {
     ul {
         margin: inherit;
@@ -13,12 +21,22 @@
     }
 }
 
+.submain-img {
+    float:left;
+    margin-right: 20px;
+}
+
+.submain-nav {
+    margin-top: 40px;
+}
+
 ///// bills.html
 div#bill-list table {
     td:last-child {
         width: 15%;
     }
 }
+
 ///// parties.html
 div.party-card {
     width: @card_width;
@@ -52,4 +70,11 @@ div.party-card {
             line-height: 20px;
         }
     }
+}
+
+#search-tabs {
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-bottom: 1px solid @layout_border_color;
 }

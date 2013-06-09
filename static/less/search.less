@@ -1,25 +1,26 @@
 @import "includes";
 
-@active_tile_bgr_color: #0088cc;
+@active_tile_bgr_color: rgba(0, 136, 204, 0.78);
 @active_tile_text_color: white;
 
 .nav-tiles {
+    padding-top: 11px;
+    padding-left: 5px;
+    font-size: 9pt;
+
     li {
-        display: inline-block;
-        vertical-align: middle;
-        width: 55px;
+        float: left;
         text-align: center;
-        margin-right: -6px;
-        margin-bottom: -2px;
+        margin-right: 5px;
+        margin-top: -3px;
+        line-height: 17px;
+
         a {
-            line-height: 30px;
-            border: 2px solid #EEE;
-            transition: .5s linear;
-            &:hover {
-                transition: 0;
-            }
+            padding: 1px 5px;
+            color: @text_color;
         }
     }
+
     li.active {
         background: @active_tile_bgr_color;
         a {

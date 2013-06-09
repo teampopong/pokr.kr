@@ -9,14 +9,22 @@
 {{ gettext('regions') }}
 {% endblock %}
 
-{% block card %}
-<div id="class-regions" class="class-item {{ locale }}"></div>
+{% block extra_headers %}
+{% assets filters='less', output='build/submain.%(version)s.css',
+    depends=['**/*.less'], 'less/submain.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
 {% endblock %}
 
 {% block content %}
-{% if not mobile %}
-    {{ korean_map|safe }}
-{% endif %}
+<div id="search-tabs">
+    <img class="submain-img" src="{{ url_for('static', filename='images/regions_image.png') }}">
+    <div class="submain-nav">
+        <img class="submain-title" src="{{ url_for('static', filename='images/regions_text_%s.png'%locale) }}">
+     </div>
+</div>
+
+{{ korean_map|safe }}
 
 <div class="inline-block">
     <h3 id="province"></h3>
