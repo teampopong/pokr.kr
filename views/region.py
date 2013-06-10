@@ -18,15 +18,10 @@ def register(app):
     with app.open_resource('static/images/korea_130_v3.1.svg') as f:
         korean_map = f.read().decode('utf-8')
 
-    top_regions = Region.query\
-                        .filter(func.length(Region.id) < 6)\
-                        .order_by(Region.id).all()
-
     @app.route('/region/', methods=['GET'])
     @breadcrumb(app)
     def region_main():
-        return render_template('regions.html', regions=top_regions,
-                korean_map=korean_map)
+        return render_template('regions.html', korean_map=korean_map)
 
     @app.route('/region/<region_id>', methods=['GET'])
     @breadcrumb(app, 'region')

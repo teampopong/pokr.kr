@@ -25,16 +25,14 @@
 </div>
 
 {{ korean_map|safe }}
-
-<div class="inline-block">
-    <h3 id="province"></h3>
-    {% for region in regions %}
-    <a class="hide-desktop region-link{% if region.id|length == 2 %} hide{% endif %} region-{{ region.id }} region-sub-{{ region.id[:2] }}" data-text="{{ region.name }}" href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname if locale == 'ko' else region.fullname_en }}</a>
-    {% endfor %}
-</div>
-
-{% if not mobile %}
-    <script src="{{ url_for('static', filename='js/regions.js') }}"></script>
-{% endif %}
+<script>
+(function () {
+var url_region = "{{ url_for('region', region_id='__region_id__') }}";
+$('.map .region').click(function () {
+    var id = $(this).data('region_id');
+    location.href = url_region.replace('__region_id__', id);
+});
+}());
+</script>
 {% endblock %}
 
