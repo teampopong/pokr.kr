@@ -7,7 +7,6 @@ import candidacy
 import cosponsorship
 import election
 import party
-import party_affiliation
 import person
 import pledge
 import region

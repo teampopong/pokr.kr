@@ -57,7 +57,7 @@ def register(app):
         elif party_id:
             party = Party.query.filter_by(id=party_id).one()
             options['party_id'] = party.name
-            people = party.current_members
+            people = party.members
         else:
             people = Person.query
 

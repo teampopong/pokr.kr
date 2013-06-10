@@ -1,8 +1,8 @@
 from sqlalchemy import CHAR, Column, Integer, String, Unicode
 from sqlalchemy.orm import backref, relationship
+
 from database import Base
-from models.person import Person
-from models.party_affiliation import party_affiliation
+from models.candidacy import Candidacy
 
 class Party(Base):
     __tablename__ = 'party'
@@ -16,21 +16,18 @@ class Party(Base):
     order = Column(Integer)
     size = Column(Integer)
 
-    members = relationship('Person',
-            secondary=party_affiliation,
-            backref='party')
-
     def __init__(self, name, color=None):
         self.name = name
         if color:
             self.color = color
 
     @property
-    def current_members(self):
-        return Person.query.join(party_affiliation,
-                                 Person.id == party_affiliation.c.person_id)\
-                           .filter(party_affiliation.c.is_current_member == True)\
+    def members(self):
+        if 'Person' not in dir():
+            from models.person import Person
+        return Person.query.join(Candidacy,
+                                 Person.id == Candidacy.person_id)\
                            .join(Party,
-                                 Party.id == party_affiliation.c.party_id)\
+                                 Party.id == Candidacy.party_id)\
                            .filter(Party.id == self.id)\
                            .group_by(Person.id)

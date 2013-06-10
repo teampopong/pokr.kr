@@ -41,7 +41,6 @@ def insert_candidacies(files, age, date):
                 insert_party(session, record)
                 insert_election(session, age, date)
                 insert_candidacy(session, record, person_id, date)
-                insert_party_affiliation(session, record, person_id)
 
             # TODO: recalc order, size of party table
             # TODO: put cosponsorship
@@ -128,14 +127,6 @@ def insert_candidacy(session, r, person_id, date):
             district_id=[term[1] for term in district],
             )
     session.add(candidacy)
-
-
-def insert_party_affiliation(session, record, person_id):
-
-    # 같은 정당에 여러 번 들어갈 수 있음
-    person = get_person(session, person_id)
-    party = get_party(session, record['party'])
-    person.parties.append(party)
 
 
 def to_int(num):

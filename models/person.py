@@ -14,7 +14,7 @@ from database import Base
 from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy
 from models.cosponsorship import cosponsorship
-from models.party_affiliation import party_affiliation
+from models.party import Party
 from models.pledge import Pledge
 
 class Person(Base):
@@ -45,10 +45,6 @@ class Person(Base):
     extra_vars = Column(Text)
 
     ### Relations ###
-    parties = relationship('Party',
-            secondary=party_affiliation,
-            order_by=party_affiliation.columns['start_date'].desc(),
-            backref='person')
     candidacies = relationship('Candidacy',
             order_by='desc(Candidacy.age)',
             backref='person')
@@ -95,7 +91,13 @@ class Person(Base):
 
     @property
     def cur_party(self):
-        return self.parties[0] if self.parties else None
+        party = Party.query.join(Candidacy,
+                                  Candidacy.party_id == Party.id)\
+                            .join(Person,
+                                  Person.id == Candidacy.person_id)\
+                            .filter(Person.id == self.id)\
+                            .order_by(desc(Candidacy.age)).first()
+        return party
 
     @property
     def pledges(self):
