@@ -2,8 +2,8 @@ from functools import wraps
 from itertools import chain
 
 from flask import request, render_template
-from sqlalchemy import or_
-from sqlalchemy.sql.expression import desc, false
+from sqlalchemy import func, or_
+from sqlalchemy.sql.expression import and_, desc, false
 from werkzeug.local import LocalProxy
 
 from models.cosponsorship import cosponsorship
@@ -115,7 +115,10 @@ def register(app):
     @if_target('regions')
     def search_regions():
         options = {}
-        regions = Region.query.filter(Region.name.like(u'%{0}%'.format(query)))
+        regions = Region.query\
+                        .filter(and_(
+                                Region.name.like(u'%{0}%'.format(query)),
+                                func.length(Region.id) < 7))
         return (regions, options)
 
 

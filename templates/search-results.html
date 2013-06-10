@@ -106,11 +106,11 @@
             </th>
             <td>{% if target %}
                     {% call(region) macro.list_pagenav(regions) %}
-                    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a>
+                    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname }}</a>
                     {% endcall %}
                 {% else %}
                     {% call(region) macro.list_more(regions, url_for_query(target='regions')) %}
-                    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.name }}</a>
+                    <a href="{{ url_for('region', region_id=region.id) }}">{{ region.fullname }}</a>
                     {% endcall %}
                 {% endif %}
             </td>
