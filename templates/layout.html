@@ -4,10 +4,12 @@
         <title>{% block title %}Pokr{% endblock %}</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta property="og:image" content="{{ url_for('static', filename="images/logo-pokr-300x300.png") }}"/>
 
         {% for lang, url in locale_links.items() %}
         <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
         {% endfor %}
+        <link rel="image_src" type="image/png" href="{{ url_for('static', filename="images/logo-pokr-300x300.png") }}">
 
         <script>
         window.isMobile = {{ 'true' if mobile else 'false' }};
