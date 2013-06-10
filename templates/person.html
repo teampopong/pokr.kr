@@ -159,8 +159,8 @@ window.currentPage = 'person';
                 {% endfor %}
             {% else %}
             <div id="timeline">
+                <span class="shrink pull-right"><i class="icon-exclamation-sign"></i>{{ gettext("By-election results are coming soon!") }}</span>
                 {{widgets.timeline(person.id)|safe}}
-                <br><span class="shrink">{{ gettext("By-election results are coming soon!") }}</span>
             </div>
             <table class="table table-condensed">
                 <thead>
