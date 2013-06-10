@@ -65,8 +65,8 @@ def insert_person(session, r):
                 int(r.get('birthmonth', 0)),
                 int(r.get('birthday', 0))
                 )
-        education = markup(r['education'], 'education')
-        address = markup(r['address'], 'district')
+        education = markup(r['education'], 'education') if 'education' in r else []
+        address = markup(r['address'], 'district') if 'address' in r else []
         extra_vars = r.copy()
         extra_vars['assembly'] = {}
         extra_vars['assembly']['19'] = r
