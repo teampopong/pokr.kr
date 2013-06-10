@@ -37,9 +37,10 @@
 {% include 'social.html' %}
 {% if not mobile %}
 <ul id="region-section-tabs" class="nav section-tabs">
+    {% if region.is_province %}
     <li class="active"><a href="#subregions">{{gettext('subregions')}}</a></li>
-    {% if not region.is_province %}
-    <li><a href="#chronicles">{{gettext('chronicles')}}</a></li>
+    {% else %}
+    <li class="active"><a href="#chronicles">{{gettext('chronicles')}}</a></li>
     {% endif %}
     <li><a href="#people">{{gettext('related people')}}</a></li>
 </ul>
