@@ -47,6 +47,13 @@
     width: calc(@exp);
 }
 
+.top-calc (@exp, @fallback) {
+    top: @fallback;
+    top: -webkit-calc(@exp);
+    top: -moz-calc(@exp);
+    top: calc(@exp);
+}
+
 .opacity (@alpha) {
     @alpha100: @alpha * 100;
     filter: ~"alpha(opacity=@{alpha100})";  /* internet explorer */
