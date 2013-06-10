@@ -1,8 +1,8 @@
 from collections import defaultdict
 
 from flask import url_for
-from sqlalchemy import Column, String, Unicode
-from sqlalchemy.sql.expression import bindparam
+from sqlalchemy import Column, func, String, Unicode
+from sqlalchemy.sql.expression import and_, bindparam
 from database import Base
 
 from database import db_session
@@ -37,6 +37,10 @@ class Region(Base):
         return len(self.id) == 2
 
     @property
+    def is_municipality(self):
+        return len(self.id) == 5
+
+    @property
     def is_submunicipality(self):
         return len(self.id) == 7
 
@@ -56,26 +60,33 @@ class Region(Base):
 
     @property
     def fullname(self):
-        fullname = ' '.join(region.name for region in self.parents)
+        l_ = list(self.parents) + [self]
+        fullname = ' '.join(region.name for region in l_)
         return fullname
 
     @property
     def fullname_en(self):
-        regions = self.parents
-        fullname = ' '.join(region.name_en for region in self.parents)
+        l_ = list(self.parents) + [self]
+        fullname = ' '.join(region.name_en for region in l_)
         return fullname
 
     @property
     def parents(self):
         return Region.query\
-                     .filter(bindparam('prefix', self.id).startswith(Region.id))\
-                     .order_by(Region.id)
+                     .filter(and_(
+                         bindparam('prefix', self.id).startswith(Region.id),
+                         self.id != Region.id))\
+                     .order_by(func.length(Region.id))
 
     @property
     def children(self):
-        descendants = Region.query.filter(Region.id.startswith(self.id)).order_by(Region.id).all()
+        descendants = Region.query\
+                            .filter(and_(
+                                Region.id.startswith(self.id),
+                                self.id != Region.id))\
+                            .order_by(func.length(Region.id)).all()
         try:
-            smallest_len = min(len(region.id) for region in descendants if region.id != self.id)
+            smallest_len = min(len(region.id) for region in descendants)
         except:
             smallest_len = 7
         return (child for child in descendants if len(child.id) == smallest_len)

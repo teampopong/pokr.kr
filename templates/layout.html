@@ -30,6 +30,8 @@
                     {% set endpoint = app.views[name] %}
                     <li><a href="{{ url_for(endpoint) }}">{{ gettext(name) }}</a> <span class="divider">&gt;</span></li>
                 {% endfor %}
+                {% block breadcrumb_extra %}
+                {% endblock %}
                 <li class="active">{% block breadcrumb_current %}{% endblock %}</li>
             {% endif %}
             </ul>

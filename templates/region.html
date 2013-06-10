@@ -7,6 +7,12 @@
 {{ fullname }} - {{ super() }}
 {% endblock %}
 
+{% block breadcrumb_extra %}
+{% for parent in region.parents %}
+    <li><a href="{{ url_for('region', region_id=parent.id) }}">{{ gettext(parent.name) }}</a> <span class="divider">&gt;</span></li>
+{% endfor %}
+{% endblock %}
+
 {% block breadcrumb_current %}
 {{ fullname|translit }}
 {% endblock %}
@@ -92,13 +98,12 @@
             </h4>
             {{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}
         {% else %}
-            {% if not region.is_submunicipality %}
+            {% if region.is_province %}
                 <h3 id="subregions">{{ gettext('subregions') }}</h3>
                 {% for child in region.children %}
                 <a href="{{ child.url }}">{{ child.name }}</a>
                 {% endfor %}
-            {% endif %}
-            {% if not region.is_province %}
+            {% else %}
             <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
             <table id="region-chronicles" class="table table-condensed">
                 <tbody>
