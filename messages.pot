@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-10 14:12+0900\n"
+"POT-Creation-Date: 2013-06-10 22:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgid "bills"
 msgstr ""
 
 #: templates/bills.html:27 templates/parties.html:28 templates/people.html:27
-#: templates/region.html:69 templates/region.html:114
+#: templates/region.html:70 templates/region.html:115
 msgid "th"
 msgstr ""
 
@@ -94,6 +94,10 @@ msgstr ""
 
 #: templates/macros.html:93
 msgid "date unknown"
+msgstr ""
+
+#: templates/main.html:33
+msgid "Your feedback<br>makes us better!"
 msgstr ""
 
 #: templates/not-found.html:4
@@ -219,7 +223,7 @@ msgstr ""
 msgid "competitors"
 msgstr ""
 
-#: templates/person.html:163
+#: templates/person.html:162
 msgid "By-election results are coming soon!"
 msgstr ""
 
@@ -248,27 +252,27 @@ msgstr ""
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
-#: templates/region.html:40 templates/region.html:55 templates/region.html:102
+#: templates/region.html:41 templates/region.html:56 templates/region.html:103
 msgid "subregions"
 msgstr ""
 
-#: templates/region.html:42 templates/region.html:63 templates/region.html:107
+#: templates/region.html:43 templates/region.html:64 templates/region.html:108
 msgid "chronicles"
 msgstr ""
 
-#: templates/region.html:44 templates/region.html:89 templates/region.html:134
+#: templates/region.html:45 templates/region.html:90 templates/region.html:135
 msgid "related people"
 msgstr ""
 
-#: templates/region.html:81 templates/region.html:126
+#: templates/region.html:82 templates/region.html:127
 msgid "No officials"
 msgstr ""
 
-#: templates/region.html:91 templates/region.html:138
+#: templates/region.html:92 templates/region.html:139
 msgid "Candidates"
 msgstr ""
 
-#: templates/region.html:96 templates/region.html:143
+#: templates/region.html:97 templates/region.html:144
 msgid "Residents"
 msgstr ""
 

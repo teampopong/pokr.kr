@@ -28,4 +28,10 @@
     <a href="{{ url }}" style="color: #555;">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
 </div>
+{% if not mobile %}
+<div id="feedback-guide">
+    <img src="{{ url_for('static', filename='images/guide_arrow.png') }}"><br>
+    <span>{{ gettext("Your feedback<br>makes us better!") }}</span>
+</div>
+{% endif %}
 {% endblock %}
