@@ -34,4 +34,11 @@
     <span>{{ gettext("Your feedback<br>makes us better!") }}</span>
 </div>
 {% endif %}
+
+{# To preload images #}
+<div style="display: none;">
+{% for name in ('bills', 'parties', 'people', 'regions') %}
+<img src="{{ url_for('static', filename='default_%s_%s_grey'%(name, locale)) }}">
+{% endfor %}
+</div>
 {% endblock %}
