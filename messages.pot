@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-10 22:25+0900\n"
+"POT-Creation-Date: 2013-06-11 15:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,6 +70,16 @@ msgstr ""
 msgid "th"
 msgstr ""
 
+#: templates/error.html:4 templates/not-found.html:4
+msgid "Oops"
+msgstr ""
+
+#: templates/error.html:9
+msgid ""
+"An unexpected error seems to have occured. Please contact us if the "
+"problem persists."
+msgstr ""
+
 #: templates/macros.html:18
 msgid "show"
 msgstr ""
@@ -96,16 +106,12 @@ msgstr ""
 msgid "date unknown"
 msgstr ""
 
-#: templates/main.html:33
+#: templates/main.html:34
 msgid "Your feedback<br>makes us better!"
 msgstr ""
 
-#: templates/not-found.html:4
-msgid "Oops"
-msgstr ""
-
 #: templates/not-found.html:9
-msgid "Result not found"
+msgid "This is not the web page you are looking for."
 msgstr ""
 
 #: templates/parties.html:5

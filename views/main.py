@@ -28,3 +28,11 @@ def register(app):
 
         return keyword + u'의 페이지입니다'
 
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template('not-found.html'), 404
+
+    @app.errorhandler(500)
+    def internal_error(e):
+        return render_template('error.html'), 500
+

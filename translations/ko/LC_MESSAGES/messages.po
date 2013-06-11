@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-10 22:25+0900\n"
+"POT-Creation-Date: 2013-06-11 15:01+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -70,6 +70,16 @@ msgstr "의안"
 msgid "th"
 msgstr "대"
 
+#: templates/error.html:4 templates/not-found.html:4
+msgid "Oops"
+msgstr "아이쿠"
+
+#: templates/error.html:9
+msgid ""
+"An unexpected error seems to have occured. Please contact us if the "
+"problem persists."
+msgstr "에러가 발생했습니다. 문제가 계속 발생한다면 저희에게 알려주세요."
+
 #: templates/macros.html:18
 msgid "show"
 msgstr "보이기"
@@ -96,17 +106,13 @@ msgstr "더보기"
 msgid "date unknown"
 msgstr "날짜 미상"
 
-#: templates/main.html:33
+#: templates/main.html:34
 msgid "Your feedback<br>makes us better!"
 msgstr "당신의 피드백이<br>포커를 만듭니다!"
 
-#: templates/not-found.html:4
-msgid "Oops"
-msgstr "아이쿠"
-
 #: templates/not-found.html:9
-msgid "Result not found"
-msgstr "검색 결과가 없습니다"
+msgid "This is not the web page you are looking for."
+msgstr "어라? 여기가 어디지... 존재하지 않는 페이지입니다."
 
 #: templates/parties.html:5
 msgid "Parties"
