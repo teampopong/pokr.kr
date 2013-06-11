@@ -24,6 +24,7 @@
 </div>
 
 <div style="text-align: center; color: #555;">
+    {% include 'social.html' %}
     {% for lang, url in locale_links.items() %}
     <a href="{{ url }}" style="color: #555;">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
