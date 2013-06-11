@@ -38,8 +38,8 @@
 
 {# To preload images #}
 <div style="display: none;">
-{% for name in ('bills', 'parties', 'people', 'regions') %}
-<img src="{{ url_for('static', filename='default_%s_%s_grey'%(name, locale)) }}">
+{% for name in ('bill', 'party', 'person', 'region') %}
+<img src="{{ url_for('static', filename='images/default_%s_%s_grey.png'%(name, locale)) }}">
 {% endfor %}
 </div>
 {% endblock %}
