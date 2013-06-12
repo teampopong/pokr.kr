@@ -8,7 +8,7 @@
 {% if not mobile %}
 {% block extra_headers %}
 {% assets filters='less', output='build/main.%(version)s.css',
-    depends=['**/*.less'], 'less/main.less' %}
+depends=['**/*.less'], 'less/main.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 {% endblock %}
@@ -24,6 +24,7 @@
 </div>
 
 <div style="text-align: center; color: #555;">
+    {% include 'social.html' %}
     {% for lang, url in locale_links.items() %}
     <a href="{{ url }}" style="color: #555;">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
@@ -37,8 +38,8 @@
 
 {# To preload images #}
 <div style="display: none;">
-{% for name in ('bills', 'parties', 'people', 'regions') %}
-<img src="{{ url_for('static', filename='default_%s_%s_grey'%(name, locale)) }}">
+{% for name in ('bill', 'party', 'person', 'region') %}
+<img src="{{ url_for('static', filename='images/default_%s_%s_grey.png'%(name, locale)) }}">
 {% endfor %}
 </div>
 {% endblock %}
