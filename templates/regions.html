@@ -24,6 +24,7 @@
      </div>
 </div>
 
+<!--[if gte IE 9]><!-->
 {{ korean_map|safe }}
 <script>
 (function () {
@@ -34,5 +35,12 @@ $('.map .region').click(function () {
 });
 }());
 </script>
+<!--<![endif]-->
+
+<!--[if lt IE 9]>
+{% call(province) macro.list_more(provinces, '', more=False) %}
+<a href="{{ url_for('region', region_id=province.id) }}">{{ province.name|translit }}</a>
+{% endcall %}
+<![endif]-->
 {% endblock %}
 

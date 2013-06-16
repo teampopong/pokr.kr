@@ -21,7 +21,9 @@ def register(app):
     @app.route('/region/', methods=['GET'])
     @breadcrumb(app)
     def region_main():
-        return render_template('regions.html', korean_map=korean_map)
+        provinces = Region.query.filter(func.length(Region.id) == 2)
+        return render_template('regions.html', korean_map=korean_map,
+                provinces=provinces)
 
     @app.route('/region/<region_id>', methods=['GET'])
     @breadcrumb(app, 'region')
