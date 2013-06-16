@@ -27,6 +27,7 @@ class Bill(Base):
 
     is_processed = Column(Boolean, index=True)
     link_id = Column(String(40), index=True)
+    document_url = Column(Text)
 
     sponsor = Column(Unicode(80), index=True)
     status_id = Column(Integer, nullable=False)

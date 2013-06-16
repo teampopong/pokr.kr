@@ -103,6 +103,10 @@ def extract_bill(record):
     sponsor = record['status_dict']['접수']['의안접수정보'][0]['제안자']
     while isinstance(sponsor, list):
         sponsor = sponsor[0]
+    try:
+        document_url = record['status_dict']['접수']['의안접수정보'][0]['의안원문'][0][1][1]
+    except:
+        document_url = None
     summary = record.get('summaries')
     summary = '\n'.join(summary) if summary else None
     status_ids = [bill_statuses.id(status) for status in record['statuses']]
@@ -116,6 +120,7 @@ def extract_bill(record):
         'decision_date': decision_date,
         'is_processed': is_processed,
         'link_id': link_id,
+        'document_url': document_url,
         'sponsor': sponsor,
         'summary': summary,
         'status_ids': status_ids,

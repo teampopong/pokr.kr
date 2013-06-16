@@ -34,6 +34,7 @@
 <div class="original-link">
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
+    {% if bill.document_url %}<br><a href="{{ bill.document_url }}">{{ gettext('see original document') }}</a>{% endif %}
 </div>
 {% if not mobile %}
 <ul id="bill-section-tabs" class="nav section-tabs">
