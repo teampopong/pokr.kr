@@ -104,8 +104,7 @@ def extract_bill(record):
     while isinstance(sponsor, list):
         sponsor = sponsor[0]
     summary = record.get('summaries')
-    if summary:
-        summary = '\n'.join(summary)
+    summary = '\n'.join(summary) if summary else None
     status_ids = [bill_statuses.id(status) for status in record['statuses']]
     status_id = bill_statuses.id(record['status_detail'])
 
