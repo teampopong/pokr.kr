@@ -83,12 +83,12 @@
                                 {% set before_current = True %}
                                 {% for status in bill.statuses %}
                                     {% if status.id == bill.status_id %}
-                                    <td class="present">{{ status.name }}</td>
+                                    <td class="present"><a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td>
                                     {% set before_current = False %}
                                     {% elif before_current %}
-                                    <td class="past">{{ status.name }}</td>
+                                    <td class="past"><a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td>
                                     {% else %}
-                                    <td class="future">{{ status.name }}</td>
+                                    <td class="future"><a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td>
                                     {% endif %}
                                 {% endfor %}
                                 </tr>
