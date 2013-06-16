@@ -11,3 +11,4 @@ import person
 import pledge
 import region
 import school
+import query_log
