@@ -105,10 +105,10 @@ def extract_bill(record):
         sponsor = sponsor[0]
     try:
         document_url = record['status_dict']['접수']['의안접수정보'][0]['문서'][0][1][1]
-    except KeyError:
+    except:
         try:
             document_url = record['status_dict']['접수']['의안접수정보'][0]['의안원문'][0][1][1]
-        except KeyError:
+        except:
             document_url = None
     summary = record.get('summaries')
     summary = '\n'.join(summary) if summary else None
