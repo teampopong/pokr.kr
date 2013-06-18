@@ -47,6 +47,11 @@ def insert_bills(files):
     from scripts.insert_bills import insert_bills as f
     f(files)
 
+@manager.command
+def insert_bill_keywords(files):
+    from scripts.insert_bill_keywords import insert_bill_keywords as f
+    f(files)
+
 
 @manager.command
 def insert_candidacies(files, age, date):

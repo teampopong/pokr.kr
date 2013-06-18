@@ -11,3 +11,6 @@ class Keyword(Base):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(UnicodeText, index=True, nullable=False)
 
+    def __init__(self, name):
+        self.name = name
+
