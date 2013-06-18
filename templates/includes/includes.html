@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/animate-shake.css')}}">
 {% if mobile %}
     {% assets filters='less', output='build/polidic.mobile.%(version)s.css',
         depends=['**/*.less'], 'less/polidic.mobile.less' %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-11 15:01+0900\n"
+"POT-Creation-Date: 2013-06-18 17:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,43 +21,47 @@ msgstr ""
 msgid "see official page"
 msgstr ""
 
-#: templates/bill.html:40 templates/bill.html:56
+#: templates/bill.html:37
+msgid "see original document"
+msgstr ""
+
+#: templates/bill.html:41 templates/bill.html:57
 msgid "outline"
 msgstr ""
 
-#: templates/bill.html:41 templates/bill.html:100
+#: templates/bill.html:42 templates/bill.html:101
 msgid "sponsors"
 msgstr ""
 
-#: templates/bill.html:43 templates/bill.html:152
+#: templates/bill.html:44 templates/bill.html:153
 msgid "contents"
 msgstr ""
 
-#: templates/bill.html:61 templates/search-results.html:13
+#: templates/bill.html:62 templates/search-results.html:14
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:67 templates/person.html:239 templates/person.html:261
+#: templates/bill.html:68 templates/person.html:239 templates/person.html:261
 msgid "proposed date"
 msgstr ""
 
-#: templates/bill.html:73
+#: templates/bill.html:74
 msgid "decision date"
 msgstr ""
 
-#: templates/bill.html:78
+#: templates/bill.html:79 templates/search-results.html:13
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:103 templates/bill.html:124 templates/person.html:283
+#: templates/bill.html:104 templates/bill.html:125 templates/person.html:283
 msgid "representative sponsor"
 msgstr ""
 
-#: templates/bill.html:112 templates/bill.html:136
+#: templates/bill.html:113 templates/bill.html:137
 msgid "cosponsors"
 msgstr ""
 
-#: templates/bill.html:155 templates/party.html:43 templates/party.html:53
+#: templates/bill.html:156 templates/party.html:43 templates/party.html:53
 msgid "summary"
 msgstr ""
 
@@ -74,7 +78,7 @@ msgstr ""
 msgid "Oops"
 msgstr ""
 
-#: templates/error.html:9
+#: templates/error.html:18
 msgid ""
 "An unexpected error seems to have occured. Please contact us if the "
 "problem persists."
@@ -106,11 +110,11 @@ msgstr ""
 msgid "date unknown"
 msgstr ""
 
-#: templates/main.html:34
+#: templates/main.html:35
 msgid "Your feedback<br>makes us better!"
 msgstr ""
 
-#: templates/not-found.html:9
+#: templates/not-found.html:18
 msgid "This is not the web page you are looking for."
 msgstr ""
 
@@ -156,7 +160,7 @@ msgstr ""
 msgid "th assembly election"
 msgstr ""
 
-#: templates/people.html:5 templates/search-results.html:53
+#: templates/people.html:5 templates/search-results.html:54
 msgid "People"
 msgstr ""
 
@@ -311,32 +315,32 @@ msgstr ""
 msgid "residential region"
 msgstr ""
 
-#: templates/search-results.html:25
+#: templates/search-results.html:26
 msgid "Searched results"
 msgstr ""
 
-#: templates/search-results.html:29
+#: templates/search-results.html:30
 msgid "search"
 msgstr ""
 
-#: templates/search-results.html:46
+#: templates/search-results.html:47
 #, python-format
 msgid "Search results by %(options)s"
 msgstr ""
 
-#: templates/search-results.html:67
+#: templates/search-results.html:68
 msgid "Bill"
 msgstr ""
 
-#: templates/search-results.html:85
+#: templates/search-results.html:86
 msgid "Party"
 msgstr ""
 
-#: templates/search-results.html:104
+#: templates/search-results.html:105
 msgid "Region"
 msgstr ""
 
-#: templates/search-results.html:123
+#: templates/search-results.html:124
 msgid "School"
 msgstr ""
 

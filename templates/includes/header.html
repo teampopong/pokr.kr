@@ -16,4 +16,9 @@
     <a href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
 </span>
-<img class="banner" src="{{ url_for('static', filename="images/beta3.png") }}">
+<img id="banner" src="{{ url_for('static', filename="images/beta3.png") }}">
+<script type="text/javascript">
+$("#banner").click(function() {
+    $(this).addClass("animated shake");
+});
+</script>
