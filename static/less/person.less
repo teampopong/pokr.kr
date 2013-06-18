@@ -28,6 +28,15 @@
             .map {
                 margin: 0;
                 float: right;
+
+                path {
+                    fill: white;
+                    stroke: #ddd;
+
+                    &.selected {
+                        fill: @region_color;
+                    }
+                }
             }
         }
 
