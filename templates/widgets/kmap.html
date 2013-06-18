@@ -1,0 +1,8 @@
+<!--[if gte IE 9]><!-->
+{% include 'includes/korea.svg' with context %}
+
+<script>
+window.tmpl_region_url = "{{ url_for_noencode('region', region_id='{{ region_id }}', _external=True) }}";
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/kmap.js') }}"></script>
+<!--<![endif]-->

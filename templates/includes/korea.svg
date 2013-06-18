@@ -1,5 +1,11 @@
-<svg class="map" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200" height="314" viewBox="0 0 130 204" enable-background="new 0 0 130 204" xml:space="preserve">
-<g id="layer_2">
+{% if not width %}
+    {% set width = height * 200.0/314 if height else 200 %}
+{% endif %}
+{% if not height %}
+    {% set height = width * 314.0/200 if width else 314 %}
+{% endif %}
+<svg{% if region_id %} data-default_region_id="{{ region_id }}"{% endif %} class="map{% if clickable %} clickable{% endif %}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="{{ width }}" height="{{ height }}" viewBox="0 0 130 204" enable-background="new 0 0 130 204" xml:space="preserve">
+<g>
 	<path d="M31.1,51c0.3-3.5-1.3-5.5-3.8-5.6
 		c-2.5-0.2-2.2,5.2-6.6,0c-4.4-5.2-0.8-4.9-1.5-6.2c-0.7-1.3-3.7-0.7-4.6-1.3c-0.8-0.7-2-1.5-0.7-3c1.4-1.5,1.7-2.5,3-3.9
 		c1.4-1.3,2.4,0.6,4-0.7c0.6-0.5,1-3,2.7-2.2s2.6,2.4,3.2,3.2c0,0,0.7,1.4,3,0.9l0,0l0.2-0.1c4.2-2,4.5-3.7,2.9-5.5
@@ -27,7 +33,7 @@
 		c-3.9,0.6-2.5,5.8-0.3,7.2c2.2,1.4,3,3.7,6.1,1.6c1.6-1.1,4.8,0.1,8.8-0.3c1.6-0.1,11.5-4.8,10.8-8.9c-0.8-4.1-2.7-6.6-7-5.3
 		c-4.3,1.3-7.5,1.1-8.7,1.1C23.8,188.6,22.8,188.3,21.5,189.2z"/>
 </g>
-<g id="layer_1">
+<g>
 	<path class="region" data-region_id="39" d="M21.5,188.9c0,0-2.2,3.3-6.1,3.9c-3.9,0.6-2.5,5.8-0.3,7.2
 		c2.2,1.4,3,3.7,6.1,1.6c1.6-1.1,4.8,0.1,8.8-0.3c1.6-0.1,11.5-4.8,10.8-8.9c-0.8-4.1-2.7-6.6-7-5.3c-4.3,1.3-7.5,1.1-8.7,1.1
 		C23.8,188.4,22.8,188.1,21.5,188.9z"/>
@@ -119,22 +125,22 @@
 		c-1-0.1-0.4-1.1-0.1-2.2c0.3-1-0.6-1.9-0.9-3.3c-0.3-1.4,1.7-2.4,2.3-1.1c0.8,1.8,3.4,1.9,3.4,1.9S52.5,75.8,52.4,75.8z"/>
 	<path class="region" data-region_id="24" d="M31.5,136.6c0.2-0.5,0.7,0.2,2-0.1c1.3-0.3,2.9-1.1,4.9-0.7c2,0.4,4.6,2.8,4,6.8
 		c-0.7,4-5.9,3.4-7.3,2.4c-1.1-0.8-0.1-1.3-2.8-2.2c-2.7-0.9-2-2.6-1.1-4C31.2,138.8,31.2,137.4,31.5,136.6z"/>
-	<text transform="matrix(1 0 0 1 73.75 37)">강원도</text>
-	<text transform="matrix(1 0 0 1 93.25 91.75)">경북</text>
-	<text transform="matrix(1 0 0 1 76.75 137.5)">경남</text>
-	<text transform="matrix(1 0 0 1 40.75 118)">전북</text>
-	<text transform="matrix(1 0 0 1 24.25 163.75)">전남</text>
-	<text transform="matrix(1 0 0 1 20.5835 197.416)">제주</text>
-	<text transform="matrix(1 0 0 1 28.75 85.5)">충남</text>
-	<text transform="matrix(1 0 0 1 62 72.75)">충북</text>
-	<text transform="matrix(1 0 0 1 39 57.25)">경기도</text>
-	<text transform="matrix(1 0 0 1 41 43)">서울</text>
-	<text transform="matrix(1 0 0 1 88.75 113)">대구</text>
+	<text data-region_id="32" transform="matrix(1 0 0 1 73.75 37)">강원도</text>
+	<text data-region_id="37" transform="matrix(1 0 0 1 93.25 91.75)">경북</text>
+	<text data-region_id="38" transform="matrix(1 0 0 1 76.75 137.5)">경남</text>
+	<text data-region_id="35" transform="matrix(1 0 0 1 40.75 118)">전북</text>
+	<text data-region_id="36" transform="matrix(1 0 0 1 24.25 163.75)">전남</text>
+	<text data-region_id="39" transform="matrix(1 0 0 1 20.5835 197.416)">제주</text>
+	<text data-region_id="34" transform="matrix(1 0 0 1 28.75 85.5)">충남</text>
+	<text data-region_id="35" transform="matrix(1 0 0 1 62 72.75)">충북</text>
+	<text data-region_id="31" transform="matrix(1 0 0 1 39 57.25)">경기도</text>
+	<text data-region_id="11" transform="matrix(1 0 0 1 41 43)">서울</text>
+	<text data-region_id="22" transform="matrix(1 0 0 1 88.75 113)">대구</text>
+	<text data-region_id="24" transform="matrix(1 0 0 1 31.1606 143.1113)">광주</text>
+	<text data-region_id="26" transform="matrix(1 0 0 1 111.5 125.75)">울산</text>
+	<text data-region_id="21" transform="matrix(1 0 0 1 105.5 140.5)">부산</text>
+	<text data-region_id="25" transform="matrix(1 0 0 1 48.5 93.75)">대전</text>
+	<text data-region_id="23" transform="matrix(1 0 0 1 13.4165 42.9165)">인천</text>
 	<!--text transform="matrix(1 0 0 1 45.5 82.5)">세종</text-->
-	<text transform="matrix(1 0 0 1 31.1606 143.1113)">광주</text>
-	<text transform="matrix(1 0 0 1 111.5 125.75)">울산</text>
-	<text transform="matrix(1 0 0 1 105.5 140.5)">부산</text>
-	<text transform="matrix(1 0 0 1 48.5 93.75)">대전</text>
-	<text transform="matrix(1 0 0 1 13.4165 42.9165)">인천</text>
 </g>
 </svg>

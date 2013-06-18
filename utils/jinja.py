@@ -6,7 +6,7 @@ import uuid
 from flask import request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy.ext.declarative import DeclarativeMeta
-from werkzeug.urls import Href
+from werkzeug.urls import Href, url_unquote
 
 from models.assembly import term as assembly_term
 
@@ -20,6 +20,7 @@ def init_app(app):
     app.jinja_env.globals.update(assembly_term=assembly_term)
     app.jinja_env.globals.update(hasattr=hasattr)
     app.jinja_env.globals.update(url_for_query=url_for_query)
+    app.jinja_env.globals.update(url_for_noencode=url_for_noencode)
 
     app.breadcrumbed_views = {}
     @app.context_processor
@@ -70,6 +71,10 @@ def url_for_query(**kwargs):
     h = Href(request.base_url)
     args = dict(request.args, **kwargs)
     return h(**args)
+
+
+def url_for_noencode(endpoint, **kwargs):
+    return url_unquote(url_for(endpoint, **kwargs))
 
 
 def breadcrumb(app, *hierarchy):

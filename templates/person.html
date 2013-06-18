@@ -120,6 +120,9 @@ window.currentPage = 'person';
                     {% endif %}
                 </tbody>
             </table>
+            {% if person.address_id %}
+            {{ widgets.kmap(person.address_id[0], width=120)|safe }}
+            {% endif %}
         </div>
         <div id="section-elections" class="section">
             <h3 id="elections">{{gettext('elections')}}</h3>

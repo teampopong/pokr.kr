@@ -70,6 +70,26 @@ $.fn.clipImage = (function() {
 	};
 })();
 
+$.fn.addSvgClass = function (className) {
+    var $this = $(this),
+        oldclass = $this.attr('class'),
+        classes = oldclass.split(/\s/g);
+    if ($.inArray(className, classes) === -1) {
+        $this.attr('class', oldclass + ' ' + className);
+    }
+};
+
+$.fn.removeSvgClass = function (className) {
+    var $this = $(this),
+        oldclass = $this.attr('class'),
+        classes = oldclass.split(/\s/g),
+        idx;
+    if ((idx = $.inArray(className, classes)) !== -1) {
+        classes.splice(idx, 1);
+        $this.attr('class', classes.join(' '));
+    }
+};
+
 $('.btn-show').live('click.show', function () {
     var $this = $(this),
         target = $this.data('target'),

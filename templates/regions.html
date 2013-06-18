@@ -24,19 +24,9 @@
      </div>
 </div>
 
-<!--[if gte IE 9]><!-->
-{{ korean_map|safe }}
-<script>
-(function () {
-var url_region = "{{ url_for('region', region_id='__region_id__') }}";
-$('.map .region').click(function () {
-    var id = $(this).data('region_id');
-    location.href = url_region.replace('__region_id__', id);
-});
-}());
-</script>
-<!--<![endif]-->
+{{ widgets.kmap(clickable=True)|safe }}
 
+{# fallback #}
 <!--[if lt IE 9]>
 {% call(province) macro.list_more(provinces, '', more=False) %}
 <a href="{{ url_for('region', region_id=province.id) }}">{{ province.name|translit }}</a>

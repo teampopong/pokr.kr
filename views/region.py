@@ -15,15 +15,11 @@ def register(app):
     app.views['region'] = 'region_main'
     gettext('region') # for babel extraction
 
-    with app.open_resource('static/images/korea_130_v3.1.svg') as f:
-        korean_map = f.read().decode('utf-8')
-
     @app.route('/region/', methods=['GET'])
     @breadcrumb(app)
     def region_main():
         provinces = Region.query.filter(func.length(Region.id) == 2)
-        return render_template('regions.html', korean_map=korean_map,
-                provinces=provinces)
+        return render_template('regions.html', provinces=provinces)
 
     @app.route('/region/<region_id>', methods=['GET'])
     @breadcrumb(app, 'region')
