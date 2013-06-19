@@ -95,6 +95,12 @@
                             </table>
                         </td>
                     </tr>
+                    {% if bill.keywords %}
+                    <tr>
+                        <th>{{ gettext("related keywords") }}</th>
+                        <td>{% for keyword in bill.keywords %}{{ keyword.name }}&nbsp;{% endfor %}</td>
+                    </tr>
+                    {% endif %}
                 </table>
             </div>
             <div id="section-sponsors" class="section">

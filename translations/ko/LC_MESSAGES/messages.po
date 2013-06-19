@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-18 17:27+0900\n"
+"POT-Creation-Date: 2013-06-19 19:28+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -29,11 +29,11 @@ msgstr "원문 PDF 보기"
 msgid "outline"
 msgstr "기본정보"
 
-#: templates/bill.html:42 templates/bill.html:101
+#: templates/bill.html:42 templates/bill.html:107
 msgid "sponsors"
 msgstr "발의자"
 
-#: templates/bill.html:44 templates/bill.html:153
+#: templates/bill.html:44 templates/bill.html:159
 msgid "contents"
 msgstr "내용"
 
@@ -41,7 +41,7 @@ msgstr "내용"
 msgid "assembly #"
 msgstr "국회 대수"
 
-#: templates/bill.html:68 templates/person.html:239 templates/person.html:261
+#: templates/bill.html:68 templates/person.html:242 templates/person.html:264
 msgid "proposed date"
 msgstr "제안일자"
 
@@ -53,15 +53,19 @@ msgstr "의결일자"
 msgid "status"
 msgstr "상태"
 
-#: templates/bill.html:104 templates/bill.html:125 templates/person.html:283
+#: templates/bill.html:100
+msgid "related keywords"
+msgstr "연관 키워드"
+
+#: templates/bill.html:110 templates/bill.html:131 templates/person.html:286
 msgid "representative sponsor"
 msgstr "대표발의자"
 
-#: templates/bill.html:113 templates/bill.html:137
+#: templates/bill.html:119 templates/bill.html:143
 msgid "cosponsors"
 msgstr "공동발의자"
 
-#: templates/bill.html:156 templates/party.html:43 templates/party.html:53
+#: templates/bill.html:162 templates/party.html:43 templates/party.html:53
 msgid "summary"
 msgstr "요약"
 
@@ -102,7 +106,7 @@ msgstr "%(count)d 명"
 msgid "%(count)d results"
 msgstr "%(count)d 개"
 
-#: templates/macros.html:88 templates/person.html:249 templates/person.html:292
+#: templates/macros.html:88 templates/person.html:252 templates/person.html:295
 msgid "more"
 msgstr "더보기"
 
@@ -173,15 +177,15 @@ msgstr "%(last_elected_no)d대 국회의원"
 msgid "profile"
 msgstr "기본정보"
 
-#: templates/person.html:43 templates/person.html:125
+#: templates/person.html:43 templates/person.html:128
 msgid "elections"
 msgstr "선거활동"
 
-#: templates/person.html:45 templates/person.html:226
+#: templates/person.html:45 templates/person.html:229
 msgid "legislations"
 msgstr "입법활동"
 
-#: templates/person.html:47 templates/person.html:306
+#: templates/person.html:47 templates/person.html:309
 msgid "trends"
 msgstr "검색추이"
 
@@ -211,53 +215,53 @@ msgstr "주소"
 msgid "work experiences"
 msgstr "경력"
 
-#: templates/person.html:129 templates/person.html:178
+#: templates/person.html:132 templates/person.html:181
 #, python-format
 msgid "%(age)dth"
 msgstr "%(age)d대"
 
-#: templates/person.html:131 templates/person.html:180
+#: templates/person.html:134 templates/person.html:183
 msgid "National Assembly Election"
 msgstr "국회의원 선거"
 
-#: templates/person.html:133 templates/person.html:182
+#: templates/person.html:136 templates/person.html:185
 msgid "National Assembly By-election"
 msgstr "국회의원 보궐선거"
 
-#: templates/person.html:141 templates/person.html:169
+#: templates/person.html:144 templates/person.html:172
 #: templates/search-results.html:11
 msgid "election district"
 msgstr "선거구"
 
-#: templates/person.html:155 templates/person.html:170
+#: templates/person.html:158 templates/person.html:173
 msgid "competitors"
 msgstr "동시 출마"
 
-#: templates/person.html:162
+#: templates/person.html:165
 msgid "By-election results are coming soon!"
 msgstr "보궐선거 데이터는 곧 추가될 예정입니다!"
 
-#: templates/person.html:188
+#: templates/person.html:191
 msgid "Pledges"
 msgstr "공약"
 
-#: templates/person.html:234 templates/person.html:273
+#: templates/person.html:237 templates/person.html:276
 msgid "th assembly"
 msgstr "대 국회"
 
-#: templates/person.html:240 templates/person.html:260
+#: templates/person.html:243 templates/person.html:263
 msgid "title"
 msgstr "제목"
 
-#: templates/person.html:262
+#: templates/person.html:265
 msgid "role"
 msgstr "역할"
 
-#: templates/person.html:285
+#: templates/person.html:288
 msgid "sponsor"
 msgstr "발의자"
 
-#: templates/person.html:308
+#: templates/person.html:311
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."

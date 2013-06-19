@@ -6,6 +6,7 @@ from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
 from database import Base, db_session
+from models.bill_keyword import bill_keyword
 from models.bill_status import BillStatus
 from models.candidacy import Candidacy
 from models.cosponsorship import cosponsorship
@@ -36,6 +37,9 @@ class Bill(Base):
 
     status = column_property(select([BillStatus.name])\
                              .where(BillStatus.id==status_id), deferred=True)
+    keywords = relationship('Keyword',
+            secondary=bill_keyword,
+            order_by='desc(bill_keyword.c.weight)')
 
     @property
     def party_counts(self):
