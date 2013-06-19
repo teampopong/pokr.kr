@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-19 19:28+0900\n"
+"POT-Creation-Date: 2013-06-19 19:36+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "contents"
 msgstr ""
 
-#: templates/bill.html:62 templates/search-results.html:14
+#: templates/bill.html:62 templates/search-results.html:15
 msgid "assembly #"
 msgstr ""
 
@@ -164,7 +164,7 @@ msgstr ""
 msgid "th assembly election"
 msgstr ""
 
-#: templates/people.html:5 templates/search-results.html:54
+#: templates/people.html:5 templates/search-results.html:55
 msgid "People"
 msgstr ""
 
@@ -319,32 +319,36 @@ msgstr ""
 msgid "residential region"
 msgstr ""
 
-#: templates/search-results.html:26
+#: templates/search-results.html:14
+msgid "related keyword"
+msgstr ""
+
+#: templates/search-results.html:27
 msgid "Searched results"
 msgstr ""
 
-#: templates/search-results.html:30
+#: templates/search-results.html:31
 msgid "search"
 msgstr ""
 
-#: templates/search-results.html:47
+#: templates/search-results.html:48
 #, python-format
 msgid "Search results by %(options)s"
 msgstr ""
 
-#: templates/search-results.html:68
+#: templates/search-results.html:69
 msgid "Bill"
 msgstr ""
 
-#: templates/search-results.html:86
+#: templates/search-results.html:87
 msgid "Party"
 msgstr ""
 
-#: templates/search-results.html:105
+#: templates/search-results.html:106
 msgid "Region"
 msgstr ""
 
-#: templates/search-results.html:124
+#: templates/search-results.html:125
 msgid "School"
 msgstr ""
 

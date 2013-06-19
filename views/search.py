@@ -9,6 +9,7 @@ from werkzeug.local import LocalProxy
 from models.cosponsorship import cosponsorship
 from models.bill import Bill
 from models.bill_status import BillStatus
+from models.keyword import Keyword
 from models.party import Party
 from models.person import Person
 from models.region import Region
@@ -99,6 +100,7 @@ def register(app):
         person_id = request.args.get('person_id')
         assembly_id = request.args.get('assembly_id')
         status_id = request.args.get('status_id')
+        keyword_id = request.args.get('keyword_id')
 
         bills = Bill.query.order_by(desc(Bill.proposed_date).nullslast())
 
@@ -117,6 +119,11 @@ def register(app):
         if status_id:
             bills = bills.filter(Bill.status_id == status_id)
             options['status_id'] = BillStatus.query.filter_by(id=status_id).one().name
+
+        if keyword_id:
+            bills = bills.join(Bill.keywords)\
+                         .filter(Keyword.id == keyword_id)
+            options['keyword_id'] = Keyword.query.filter_by(id=keyword_id).one().name
 
         return (bills, options)
 

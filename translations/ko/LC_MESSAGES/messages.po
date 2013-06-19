@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-19 19:28+0900\n"
+"POT-Creation-Date: 2013-06-19 19:36+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr "발의자"
 msgid "contents"
 msgstr "내용"
 
-#: templates/bill.html:62 templates/search-results.html:14
+#: templates/bill.html:62 templates/search-results.html:15
 msgid "assembly #"
 msgstr "국회 대수"
 
@@ -164,7 +164,7 @@ msgstr "출마 대수"
 msgid "th assembly election"
 msgstr "대 국회의원 선거"
 
-#: templates/people.html:5 templates/search-results.html:54
+#: templates/people.html:5 templates/search-results.html:55
 msgid "People"
 msgstr "인물"
 
@@ -319,32 +319,36 @@ msgstr "인물"
 msgid "residential region"
 msgstr "거주지"
 
-#: templates/search-results.html:26
+#: templates/search-results.html:14
+msgid "related keyword"
+msgstr "연관 키워드"
+
+#: templates/search-results.html:27
 msgid "Searched results"
 msgstr "검색 결과"
 
-#: templates/search-results.html:30
+#: templates/search-results.html:31
 msgid "search"
 msgstr "검색"
 
-#: templates/search-results.html:47
+#: templates/search-results.html:48
 #, python-format
 msgid "Search results by %(options)s"
 msgstr "%(options)s(으)로 검색된 결과"
 
-#: templates/search-results.html:68
+#: templates/search-results.html:69
 msgid "Bill"
 msgstr "의안"
 
-#: templates/search-results.html:86
+#: templates/search-results.html:87
 msgid "Party"
 msgstr "정당"
 
-#: templates/search-results.html:105
+#: templates/search-results.html:106
 msgid "Region"
 msgstr "지역"
 
-#: templates/search-results.html:124
+#: templates/search-results.html:125
 msgid "School"
 msgstr "교육기관"
 
