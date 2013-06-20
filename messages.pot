@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-19 19:36+0900\n"
+"POT-Creation-Date: 2013-06-20 20:51+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,6 +112,22 @@ msgstr ""
 
 #: templates/macros.html:93
 msgid "date unknown"
+msgstr ""
+
+#: templates/main.html:20
+msgid "Search for any official or<br>candidate in Korea"
+msgstr ""
+
+#: templates/main.html:21
+msgid "Search for any bill<br>proposed in Korea"
+msgstr ""
+
+#: templates/main.html:22
+msgid "Search for any party in<br>Korea"
+msgstr ""
+
+#: templates/main.html:23
+msgid "Search for any administrative<br>region in Korea"
 msgstr ""
 
 #: templates/main.html:35
