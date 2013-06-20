@@ -17,7 +17,7 @@ depends=['**/*.less'], 'less/main.less' %}
 {% block content %}
 <img class="all-about-pokr" src="{{ url_for('static', filename='images/all_about_pokr.png') }}">
 <div id="class-list">
-    <div style="display: inline-block;"><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a><br><span class="menu-description">1대부터 19대까지 모든<br>국회의원을 검색할 수 있습니다</span class="menu-description"></div>
+    <div style="display: inline-block;"><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a><br><span class="menu-description">역대 국회의원 선거에 출마한<br>모든 정치인을 검색할 수 있습니다</span class="menu-description"></div>
     <div style="display: inline-block;"><a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a><br><span class="menu-description">1대부터 19대까지 발의된 모든<br>의안을 검색할 수 있습니다</span class="menu-description"></div>
     <div style="display: inline-block;"><a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a><br><span class="menu-description">1대부터 19대까지 모든 정당을<br>검색할 수 있습니다</span class="menu-description"></div>
     <div style="display: inline-block;"><a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a><br><span class="menu-description">대한민국의 모든 지역의 정보를<br>검색할 수 있습니다</span class="menu-description"></div>
