@@ -98,7 +98,7 @@
                     {% if bill.keywords %}
                     <tr>
                         <th>{{ gettext("related keywords") }}</th>
-                        <td>{% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', keyword_id=keyword.id) }}">{{ keyword.name }}</a>&nbsp;{% endfor %}</td>
+                        <td>{% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', keyword_id=keyword.id) }}">{{ keyword.name }}</a>{% if not loop.last %},&nbsp;{% endif %}{% endfor %}</td>
                     </tr>
                     {% endif %}
                 </table>
