@@ -36,9 +36,11 @@ depends=['**/*.less'], 'less/main.less' %}
 </div>
 {% endif %}
 
+{% if locale=='ko' %}
 <div id="notice">
     <i class="icon-twitter"></i>지금 <a href="http://twitter.com/pokrbot">@pokrbot</a>으로 의안을 구독해 보세요!
 </div>
+{% endif %}
 
 {# To preload images #}
 <div style="display: none;">
