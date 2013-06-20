@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-20 20:51+0900\n"
+"POT-Creation-Date: 2013-06-21 00:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,7 +131,9 @@ msgid "Search for any administrative<br>region in Korea"
 msgstr ""
 
 #: templates/main.html:35
-msgid "Your feedback<br>makes us better!"
+msgid ""
+"Your feedback<br>makes us better!<br><small>(We feed on "
+"compliments)</small>"
 msgstr ""
 
 #: templates/not-found.html:18

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-20 20:51+0900\n"
+"POT-Creation-Date: 2013-06-21 00:00+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -131,8 +131,10 @@ msgid "Search for any administrative<br>region in Korea"
 msgstr "대한민국의 모든 지역의 정보를<br>검색할 수 있습니다"
 
 #: templates/main.html:35
-msgid "Your feedback<br>makes us better!"
-msgstr "당신의 피드백이<br>포커를 만듭니다!"
+msgid ""
+"Your feedback<br>makes us better!<br><small>(We feed on "
+"compliments)</small>"
+msgstr "당신의 피드백이<br>포커를 만듭니다!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
 
 #: templates/not-found.html:18
 msgid "This is not the web page you are looking for."

@@ -32,7 +32,7 @@ depends=['**/*.less'], 'less/main.less' %}
 {% if not mobile %}
 <div id="feedback-guide">
     <img src="{{ url_for('static', filename='images/guide_arrow.png') }}"><br>
-    <span>{{ gettext("Your feedback<br>makes us better!") }}</span>
+    <span>{{ gettext("Your feedback<br>makes us better!<br><small>(We feed on compliments)</small>") }}</span>
 </div>
 {% endif %}
 
