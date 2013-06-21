@@ -79,21 +79,36 @@
                         <th>{{ gettext("status") }}</th>
                         <td>
                             <table id="bill-status" class="table">
-                                <tr>
                                 {% set before_current = True %}
-                                {% for status in bill.statuses %}
-                                    {% if status.id == bill.status_id %}
-                                    <td class="present">
-                                    {% set before_current = False %}
-                                    {% elif before_current %}
-                                    <td class="past">
-                                    {% else %}
-                                    <td class="future">
-                                    {% endif %}
-                                    <!-- TODO: status explanation -->
-                                    <a href="{{ url_for('search', target='bills', status_id=status.id) }}"><div class="tooltipped" data-placement="bottom" data-title="">{{ status.name }}</div></a></td>
-                                {% endfor %}
-                                </tr>
+                                {% if mobile %}
+                                    {% for status in bill.statuses %}
+                                        <tr>
+                                        {% if status.id == bill.status_id %}
+                                        <td class="present">
+                                        {% set before_current = False %}
+                                        {% elif before_current %}
+                                        <td class="past">
+                                        {% else %}
+                                        <td class="future">
+                                        {% endif %}
+                                        <a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td></tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                    {% for status in bill.statuses %}
+                                        {% if status.id == bill.status_id %}
+                                        <td class="present">
+                                        {% set before_current = False %}
+                                        {% elif before_current %}
+                                        <td class="past">
+                                        {% else %}
+                                        <td class="future">
+                                        {% endif %}
+                                        <!-- TODO: status explanation -->
+                                        <a href="{{ url_for('search', target='bills', status_id=status.id) }}"><div class="tooltipped" data-placement="bottom" data-title="{{ status.description }}">{{ status.name }}</div></a></td>
+                                    {% endfor %}
+                                    </tr>
+                                {% endif %}
                             </table>
                         </td>
                     </tr>
