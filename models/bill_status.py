@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, Integer, Unicode
+from sqlalchemy import Column, Integer, Unicode, UnicodeText
 
 from database import Base
 
@@ -10,3 +10,4 @@ class BillStatus(Base):
 
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(Unicode(150), index=True, nullable=False)
+    description = Column(UnicodeText)
