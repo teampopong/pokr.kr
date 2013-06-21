@@ -1,0 +1,29 @@
+{% if locale=='ko' %}
+<!-- UserVoice JavaScript SDK (only needed once on a page) -->
+<script>(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/uZEOuEbbvUd2gqxOrued8w.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()</script>
+<!-- A tab to launch the Classic Widget -->
+<script>
+UserVoice = window.UserVoice || [];
+UserVoice.push(['showTab', 'classic_widget', {
+  mode: 'full',
+  primary_color: '#cfcbc7',
+  link_color: '#007dbf',
+  default_mode: 'support',
+  forum_id: 211529,
+  tab_label: 'Feedback & Support',
+  tab_color: '#333332',
+  tab_position: 'middle-left',
+  tab_inverted: false
+}]);
+</script>
+<!-- uservoice end -->
+{% else %}
+    {% if not mobile %}
+    <!-- barometer start -->
+    <script src='http://getbarometer.s3.amazonaws.com/assets/barometer/javascripts/barometer.js' type='text/javascript'></script>
+    <script type="text/javascript" charset="utf-8">
+            BAROMETER.load('zh9X6XtA1xrp6zLRRzXpB');
+    </script>
+    <!-- barometer end -->
+    {% endif %}
+{% endif %}
