@@ -51,6 +51,12 @@
 <div id="bill-view" class="view">
     {% if not mobile %}
     <h2 id="bill-name">{{ bill.name }}</h2>
+    {% if bill.name.endswith("(대안)") %}
+    <div class="info" style="margin-top: -30px;">
+        <i class="icon-exclamation-sign"></i>
+        <span>'대안'은 원안과 취지는 같으나 내용을 전면 수정하거나 체계를 전혀 다르게 하여 작성된 안이며, 이 때 원안은 '대안폐기'됩니다</span>
+    </div>
+    {% endif %}
     {% endif %}
     <div id="bill-sections" class="sections">
         <div id="section-outline" class="section">
@@ -79,21 +85,36 @@
                         <th>{{ gettext("status") }}</th>
                         <td>
                             <table id="bill-status" class="table">
-                                <tr>
                                 {% set before_current = True %}
-                                {% for status in bill.statuses %}
-                                    {% if status.id == bill.status_id %}
-                                    <td class="present">
-                                    {% set before_current = False %}
-                                    {% elif before_current %}
-                                    <td class="past">
-                                    {% else %}
-                                    <td class="future">
-                                    {% endif %}
-                                    <!-- TODO: status explanation -->
-                                    <a href="{{ url_for('search', target='bills', status_id=status.id) }}"><div class="tooltipped" data-placement="bottom" data-title="">{{ status.name }}</div></a></td>
-                                {% endfor %}
-                                </tr>
+                                {% if mobile %}
+                                    {% for status in bill.statuses %}
+                                        <tr>
+                                        {% if status.id == bill.status_id %}
+                                        <td class="present">
+                                        {% set before_current = False %}
+                                        {% elif before_current %}
+                                        <td class="past">
+                                        {% else %}
+                                        <td class="future">
+                                        {% endif %}
+                                        <a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td></tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                    {% for status in bill.statuses %}
+                                        {% if status.id == bill.status_id %}
+                                        <td class="present">
+                                        {% set before_current = False %}
+                                        {% elif before_current %}
+                                        <td class="past">
+                                        {% else %}
+                                        <td class="future">
+                                        {% endif %}
+                                        <!-- TODO: status explanation -->
+                                        <a href="{{ url_for('search', target='bills', status_id=status.id) }}"><div class="tooltipped" data-placement="bottom" data-title="{{ status.description }}">{{ status.name }}</div></a></td>
+                                    {% endfor %}
+                                    </tr>
+                                {% endif %}
                             </table>
                         </td>
                     </tr>
