@@ -2,6 +2,7 @@
 {% import 'macros.html' as macro with context %}
 
 {% set has_bills = person.bills().limit(1).all() %}
+{% set party_history = person.party_history %}
 {% set NUM_BILLS_SHOWN = 10 %}
 
 {% block title %}
@@ -66,10 +67,22 @@ window.currentPage = 'person';
                         <td>{{ person.birthday_formatted|linkall|safe }}</td>
                     </tr>
                     {% endif %}
-                    {% if person.cur_party %}
+                    {% if party_history %}
                     <tr>
                         <th>{{ gettext("party") }}</th>
-                        <td><a href="{{ url_for('party', id=person.cur_party.id) }}">{{ person.cur_party.name|translit(type='party') }}</a></td>
+                        <td>
+                            <ul class="unstyled nomargin">
+                            {% for party, min_age, max_age in party_history %}
+                                {% if loop.first %}
+                                <li>
+                                {% else %}
+                                <li class="extra"><span class="search-count">{{ gettext('%(age)dth', age=min_age) }}{% if min_age != max_age %} - {{ gettext('%(age)dth', age=max_age) }}{% endif %}</span>
+                                {% endif %}
+                                    <a href="{{ url_for('party', id=party.id) }}">{{ party.name|translit(type='party') }}</a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </td>
                     </tr>
                     {% endif %}
                     {% if person.education %}
@@ -109,11 +122,11 @@ window.currentPage = 'person';
                             </span>
                             {% endif %}
                             {% if person_extra_vars.experience %}
-                            <span id="experiences" class="shrink">
+                            <div id="experiences" class="extra">
                                 {% for exp in person_extra_vars.experience %}
                                 {{exp}}<br>
                                 {% endfor %}
-                            </span>
+                            </div>
                             {% endif %}
                         </td>
                     </tr>

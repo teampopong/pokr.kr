@@ -90,14 +90,31 @@ class Person(Base):
         return format_date(self.birthday_date)
 
     @property
-    def cur_party(self):
-        party = Party.query.join(Candidacy,
+    def parties(self):
+        parties = Party.query.join(Candidacy,
                                   Candidacy.party_id == Party.id)\
                             .join(Person,
                                   Person.id == Candidacy.person_id)\
                             .filter(Person.id == self.id)\
-                            .order_by(desc(Candidacy.age)).first()
-        return party
+                            .order_by(desc(Candidacy.age))
+        return parties
+
+    @property
+    def cur_party(self):
+        return self.parties.first()
+
+    @property
+    def party_history(self):
+        parties_and_ages = self.parties.add_columns(Candidacy.age)
+        result = []
+        prev_party_id = None
+        for party, age in parties_and_ages:
+            if prev_party_id == party.id:
+                result[-1][0].append(age)
+            else:
+                result.append(([age], party))
+                prev_party_id = party.id
+        return [(party, min(ages), max(ages)) for ages, party in result]
 
     @property
     def pledges(self):
