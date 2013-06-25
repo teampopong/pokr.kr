@@ -133,7 +133,7 @@ window.currentPage = 'person';
                     {% endif %}
                 </tbody>
             </table>
-            {% if person.address_id %}
+            {% if not mobile and person.address_id %}
             {{ widgets.kmap(person.address_id[0], width=120)|safe }}
             {% endif %}
         </div>
