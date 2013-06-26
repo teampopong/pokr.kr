@@ -152,8 +152,10 @@
                     {% if bill.sponsor %}
                     <tr>
                         <th>{{ gettext("representative sponsor") }}</th>
-                        <td>{% if bill.representative_person %}
-                                {{ widgets.card(bill.representative_person)|safe }}
+                        <td>{% if bill.representative_people %}
+                                {% for sponsor in bill.representative_people %}
+                                {{ widgets.card(sponsor)|safe }}
+                                {% endfor %}
                             {% else %}
                                 {{ bill.sponsor }}
                             {% endif %}

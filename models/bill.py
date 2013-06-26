@@ -56,11 +56,10 @@ class Bill(Base):
         return [(party, int(count)) for party, count in party_counts]
 
     @property
-    def representative_person(self):
-        for cosponsor in self.cosponsors:
-            if cosponsor.name in self.sponsor:
-                return cosponsor
-        return None
+    def representative_people(self):
+        return [cosponsor
+                for cosponsor in self.cosponsors
+                if cosponsor.name in self.sponsor]
 
 
 bill_and_status = select([func.row_number().over().label('status_order'),
