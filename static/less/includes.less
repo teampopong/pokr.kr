@@ -8,7 +8,7 @@
 @bottom_link_color: #888;
 @icon_color     : silver;
 @text_color     : #333;
-@border_color   : rgba(0,0,0,0.2);
+@border_color   : #ddd;
 @layout_border_color: #e5e5e5;
 
 @person_color   : #ffbc8f;
@@ -60,6 +60,11 @@
     -khtml-opacity: @alpha;               /* khtml, old safari */
     -moz-opacity: @alpha;                 /* mozilla, netscape */
     opacity: @alpha;                      /* fx, safari, opera */
+}
+
+.bg_rgba (@r, @g, @b, @a) {
+    background: mix(rgb(@r,@g,@b), white, percentage(@a));
+    background: rgba(@r,@g,@b,@a);
 }
 
 .box-shadow {
