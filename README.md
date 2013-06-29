@@ -13,7 +13,7 @@ POPONG Korean Politician Dictionary
             Install Homebrew (http://mxcl.github.com/homebrew/)
             $ brew install python postgresql libevent
 
-1. Install **polidic**
+1. Install **pokr**
 
         $ sudo make install
 
@@ -25,6 +25,7 @@ POPONG Korean Politician Dictionary
 1. Load data
 
         $ make load_db
+        $ python server.py insert_bill_keywords some_bill_file.pdf
 
 ## Run
 
