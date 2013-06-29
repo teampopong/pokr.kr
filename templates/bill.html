@@ -131,10 +131,12 @@
                 {% if mobile %}
                     {% if bill.sponsor %}
                         <h4 class="subsection-title">{{ gettext("representative sponsor") }}</h4>
-                        {% if bill.representative_person %}
-                        {{ widgets.card(bill.representative_person)|safe }}
+                        {% if bill.representative_people %}
+                            {% for sponsor in bill.representative_people %}
+                            {{ widgets.card(sponsor)|safe }}
+                            {% endfor %}
                         {% else %}
-                        {{ bill.sponsor }}
+                            {{ bill.sponsor }}
                         {% endif %}
                     {% endif %}
                     {% if bill.cosponsors %}
