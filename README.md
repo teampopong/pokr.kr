@@ -1,5 +1,6 @@
 POPONG Korean Politician Dictionary
 ===================================
+[![Stories in Ready](http://badge.waffle.io/teampopong/pokr.png)](http://waffle.io/teampopong/pokr)  
 
 ## Installation
 
@@ -25,7 +26,8 @@ POPONG Korean Politician Dictionary
 1. Load data
 
         $ make load_db
-        $ python server.py insert_bill_keywords some_bill_file.pdf
+        $ python server.py insert_bills "some/where/*.json"
+        $ python server.py insert_bill_keywords "some/where/*.pdf"
 
 ## Run
 

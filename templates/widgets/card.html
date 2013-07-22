@@ -24,7 +24,7 @@
 {% else %}
 {% if person %}
     <div class="card{% if small %} card-small{% endif %}" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
-        <a class="person-link" href="{{url_for('person', id=person.id)}}">
+        <a class="person-link" href="{{url_for('person', id=person.id)}}" title="{{ person.cur_party.name|translit(type='party') }}">
             <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
             <div class="person-name">{{person.name|translit(type='name')}}</div>
         </a>
@@ -41,6 +41,5 @@
             <div class="person-name">{{ gettext('None') }}</div>
         </a>
     </div>
-
 {% endif %}
 {% endif %}

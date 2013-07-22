@@ -29,8 +29,8 @@ depends=['**/*.less'], 'less/main.less' %}
 
 <div style="text-align: center; color: #555;">
     <div class="social-sends">
-    {% include 'facebook.html' %}
-    {% include 'twitter-follow.html' %}
+    {% include 'pokr-like.html' %}
+    {% include 'pokr-follow.html' %}
     </div>
     {% for lang, url in locale_links.items() %}
     <a href="{{ url }}" style="color: #555;">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
