@@ -36,9 +36,11 @@ def init_modules():
     init_widgets(app)
 
 
-@manager.command
-def run():
+@manager.option('-l', '--locale', default='auto')
+def run(locale):
     init_modules()
+    if locale in app.LOCALES:
+        app.babel.force_locale(locale)
     app.run(**SERVER_SETTINGS)
 
 

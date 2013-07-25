@@ -27,6 +27,9 @@ class PopongBabel(Babel):
         # context processor
         app.context_processor(inject_locales)
 
+    def force_locale(self, locale):
+        self.locale_selector_func = lambda: locale
+
 
 class InvalidLocaleError(Exception):
     pass
