@@ -4,15 +4,16 @@
         <title>{% block title %}Pokr{% endblock %}</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta property="og:image" content="{{ url_for('static', filename="images/logo-pokr-140x140.png", _external=True) }}"/>
-        <meta property="og:type" content="website" />
+        <meta property="og:image" content="{{ url_for('static', filename="images/logo-pokr-200x200.png", _external=True) }}"/>
         <meta property="og:title" content="Pokr - Politics in Korea" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://pokr.kr/" />
         <meta property="fb:admins" content="1347665216" />
 
         {% for lang, url in locale_links.items() %}
         <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
         {% endfor %}
-        <link rel="image_src" type="image/png" href="{{ url_for('static', filename="images/logo-pokr-140x140.png") }}">
+        <link rel="image_src" type="image/png" href="{{ url_for('static', filename="images/logo-pokr-200x200.png") }}">
 
         <script>
         window.isMobile = {{ 'true' if mobile else 'false' }};
