@@ -90,5 +90,7 @@
 {%- endmacro %}
 
 {% macro bill_with_fallback_date(bill) -%}
-    {{ bill.proposed_date or (bill.decision_date and '%d-00-00' % bill.decision_date.year) or gettext("date unknown") }} <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+    {{ bill.proposed_date or (bill.decision_date and '%d-00-00' % bill.decision_date.year) or gettext("date unknown") }}
+    <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+    ({{ bill.sponsor }})
 {%- endmacro %}
