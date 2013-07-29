@@ -1,6 +1,6 @@
 POPONG Korean Politician Dictionary
 ===================================
-[![Stories in Ready](http://badge.waffle.io/teampopong/pokr.png)](http://waffle.io/teampopong/pokr)  
+[![Stories in Ready](http://badge.waffle.io/teampopong/pokr.png)](http://waffle.io/teampopong/pokr)
 
 ## Installation
 
@@ -31,4 +31,4 @@ POPONG Korean Politician Dictionary
 
 ## Run
 
-	$ python server.py
+    $ python server.py
