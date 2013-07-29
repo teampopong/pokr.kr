@@ -10,9 +10,10 @@ POPONG Korean Politician Dictionary
             $ sudo apt-get update
             $ sudo apt-get install python python-dev python2.7 libpq-dev libevent-dev
     - Mac OS X:
-	
+
             Install Homebrew (http://mxcl.github.com/homebrew/)
             $ brew install python postgresql libevent
+            $ initdb /usr/local/var/postgres -E utf8
 
 1. Install **pokr**
 
