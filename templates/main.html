@@ -32,9 +32,6 @@ depends=['**/*.less'], 'less/main.less' %}
     {% include 'pokr-like.html' %}
     {% include 'pokr-follow.html' %}
     </div>
-    {% for lang, url in locale_links.items() %}
-    <a href="{{ url }}" style="color: #555;">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
-    {% endfor %}
 </div>
 {% if not mobile %}
 <div id="feedback-guide">
