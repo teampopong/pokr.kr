@@ -2,12 +2,19 @@
 # -*- encoding: utf-8 -*-
 
 SCRIPT_NAME = '/'
+API_SCRIPT_NAME = '/'
 
 SERVER_SETTINGS = {
         'host': '0.0.0.0',
         'port': 50029,
         'debug': True,
         'use_reloader': False,
+        }
+
+API_SERVER_SETTINGS = {
+        'host': '0.0.0.0',
+        'port': 50031,
+        'debug': True,
         }
 
 BABEL_SETTINGS = {

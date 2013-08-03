@@ -2,6 +2,7 @@
 
 from collections import defaultdict
 from datetime import date
+import json
 
 from flaskext.babel import format_date
 from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
@@ -10,6 +11,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
 from sqlalchemy.sql.expression import desc
 
+from api.utils import ApiModel
 from database import Base
 from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy
@@ -17,8 +19,10 @@ from models.cosponsorship import cosponsorship
 from models.party import Party
 from models.pledge import Pledge
 
-class Person(Base):
+class Person(Base, ApiModel):
     __tablename__ = 'person'
+    __kind_single__ = 'person'
+    __kind_list__ = 'people'
 
     id = Column(Integer, primary_key=True)
 
@@ -145,3 +149,12 @@ class Person(Base):
 
         return query
 
+    def _to_dict_light(self):
+        d = self._columns_to_dict()
+        extra_vars = json.loads(self.extra_vars)
+
+        del d['extra_vars']
+        d['address'] = extra_vars['address']
+        d['education'] = extra_vars['education']
+        # TODO: add relation data
+        return d
