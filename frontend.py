@@ -1,18 +1,18 @@
-#!/usr/bin/env python
-# -*- encoding: utf-8 -*-
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
+import argparse
 
 from flask import Flask
-from flask.ext.script import Manager
 
 from settings import BABEL_SETTINGS, SCRIPT_NAME, SERVER_SETTINGS
 
 
 app = Flask(__name__)
 app.debug = SERVER_SETTINGS['debug']
-manager = Manager(app, with_default_commands=False)
 
 
-def init_modules():
+if not hasattr(app, '__loaded__'):
     from flask.ext.assets import Environment as Asset
     from database import init_db
     from utils.assets import init_app as init_asset
@@ -35,36 +35,19 @@ def init_modules():
     init_view(app)
     init_widgets(app)
 
+    setattr(app, '__loaded__', True)
 
-@manager.option('-l', '--locale', default='auto')
-def run(locale):
-    init_modules()
-    if locale in app.LOCALES:
-        app.babel.force_locale(locale)
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-l', dest='locale', default='auto',
+                        help='force locale (e.g. en, kr)')
+    return parser.parse_args()
+
+
+if __name__ == '__main__':
+    args = parse_args()
+    if args.locale in app.LOCALES:
+        app.babel.force_locale(args.locale)
     app.run(**SERVER_SETTINGS)
 
-
-@manager.command
-def insert_bills(files):
-    from scripts.insert_bills import insert_bills as f
-    f(files)
-
-@manager.command
-def insert_bill_keywords(files):
-    from scripts.insert_bill_keywords import insert_bill_keywords as f
-    f(files)
-
-
-@manager.command
-def insert_candidacies(files, age, date):
-    from scripts.insert_candidacies import insert_candidacies as f
-    f(files, age, date)
-
-
-# standalone mode
-if __name__ == '__main__':
-    manager.run()
-
-# w/ WSGI
-else:
-    init_modules()
