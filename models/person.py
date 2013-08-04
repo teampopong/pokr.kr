@@ -154,7 +154,7 @@ class Person(Base, ApiModel):
         extra_vars = json.loads(self.extra_vars)
 
         del d['extra_vars']
-        d['address'] = extra_vars['address']
-        d['education'] = extra_vars['education']
+        d['address'] = extra_vars.get('address')
+        d['education'] = extra_vars.get('education')
         # TODO: add relation data
         return d
