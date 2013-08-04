@@ -12,11 +12,11 @@ app.debug = API_SERVER_SETTINGS['debug']
 
 if not hasattr(app, '__loaded__'):
     from database import init_db
-    from api.person import init_view as init_person
+    from api import init_app
     from utils.reverse_proxy import init_app as init_reverse_proxy
 
-    init_person(app)
     init_db(app)
+    init_app(app)
     init_reverse_proxy(app, API_SCRIPT_NAME)
 
     setattr(app, '__loaded__', True)

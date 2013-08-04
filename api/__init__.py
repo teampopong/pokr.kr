@@ -7,6 +7,10 @@ from flask.views import MethodView
 from sqlalchemy.ext.declarative import DeclarativeMeta
 
 
+def init_app(app):
+    from api.v0_1 import init_app; init_app(app)
+
+
 class ApiModelView(MethodView):
     model = None
 
