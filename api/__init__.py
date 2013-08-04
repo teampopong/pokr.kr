@@ -3,7 +3,7 @@
 import json
 
 from datetime import date
-from flask import request
+from flask import abort, request
 from flask.views import MethodView
 from flask.ext.sqlalchemy import BaseQuery
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -13,17 +13,21 @@ def init_app(app):
     from api.v0_1 import init_app; init_app(app)
 
 
-class ApiModelView(MethodView):
+class ApiView(MethodView):
     model = None
 
-    def get(self, id):
+    @property
+    def _query(self):
         if not self.model:
             raise NotImplementedError()
 
-        if id is None:
-            return self.get_all()
+        return BaseQuery(self.model, self.model.query.session)
 
-        entity = self.model.query.filter_by(id=id).first()
+    def _to_dict(self, entity):
+        return entity.to_dict(projection=request.args.get('projection'))
+
+    def _jsonify_single(self, query):
+        entity = query.first()
         if not entity:
             abort(404)
 
@@ -31,8 +35,7 @@ class ApiModelView(MethodView):
         result['kind'] = self.model.kind('single')
         return jsonify(result)
 
-    def get_all(self):
-        query = BaseQuery(self.model, self.model.query.session)
+    def _jsonify_list(self, query):
         page = query.paginate(int(request.args.get('page', 1)),
                               int(request.args.get('maxResults', 20)))
 
@@ -46,8 +49,31 @@ class ApiModelView(MethodView):
 
         return jsonify(result)
 
-    def _to_dict(self, entity):
-        return entity.to_dict(projection=request.args.get('projection'))
+
+class ApiModelView(ApiView):
+    def get(self, id):
+        if id is None:
+            return self.get_all()
+
+        query = self._query.filter_by(id=id)
+        return self._jsonify_single(query)
+
+    def get_all(self):
+        return self._jsonify_list(self._query)
+
+
+class ApiSearchView(ApiView):
+    def get(self):
+        query = self.search()
+        return self._jsonify_list(query)
+
+    def search(self):
+        if not self.model or not hasattr(self.model, 'name'):
+            raise NotImplementedError()
+
+        q = request.args.get('q', '')
+        return self._query.filter(self.model.name.like(u'%{q}%'.format(q=q)))
+
 
 
 class ApiModel(object):
