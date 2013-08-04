@@ -156,5 +156,6 @@ class Person(Base, ApiModel):
         del d['extra_vars']
         d['address'] = extra_vars.get('address')
         d['education'] = extra_vars.get('education')
+        d['birthday'] = self.birthday_date.isoformat()
         # TODO: add relation data
         return d

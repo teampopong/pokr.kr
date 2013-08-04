@@ -5,6 +5,7 @@ from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
+from api import ApiModel
 from database import Base, db_session
 from models.bill_keyword import bill_keyword
 from models.bill_status import BillStatus
@@ -15,8 +16,10 @@ from models.party import Party
 from models.person import Person
 
 
-class Bill(Base):
+class Bill(Base, ApiModel):
     __tablename__ = 'bill'
+    __kind_single__ = 'bill'
+    __kind_list__ = 'bills'
 
     id = Column(String(20), primary_key=True)
     name = Column(Unicode(256), index=True, nullable=False)
@@ -61,6 +64,12 @@ class Bill(Base):
                 for cosponsor in self.cosponsors
                 if cosponsor.name in self.sponsor]
 
+    def _to_dict_light(self):
+        d = self._columns_to_dict()
+        d['status'] = self.status
+        # TODO: add relation data
+        return d
+
 
 bill_and_status = select([func.row_number().over().label('status_order'),
                         func.unnest(Bill.status_ids).label('bill_status_id'),
@@ -74,4 +83,3 @@ Bill.statuses = relationship("BillStatus",
             order_by=bill_and_status.c.status_order,
             viewonly=True,
             backref='bills')
-

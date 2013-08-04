@@ -2,6 +2,7 @@
 
 import json
 
+from datetime import date
 from flask import request
 from flask.views import MethodView
 from flask.ext.sqlalchemy import BaseQuery
@@ -79,7 +80,7 @@ class ApiModel(object):
         return self._columns_to_dict()
 
     def _to_dict_full(self):
-        return self._columns_to_dict()
+        return self._to_dict_light()
 
     def _columns_to_dict(self):
         d = {}
@@ -103,6 +104,9 @@ class MyJSONEncoder(json.JSONEncoder):
                     fields[field] = None
             # a json-encodable dict
             return fields
+
+        elif isinstance(obj, date):
+            return obj.isoformat()
 
         return json.JSONEncoder.default(self, obj, **kwargs)
 
