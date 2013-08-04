@@ -4,6 +4,7 @@ import json
 
 from flask import request
 from flask.views import MethodView
+from flask.ext.sqlalchemy import BaseQuery
 from sqlalchemy.ext.declarative import DeclarativeMeta
 
 
@@ -30,10 +31,18 @@ class ApiModelView(MethodView):
         return jsonify(result)
 
     def get_all(self):
+        query = BaseQuery(self.model, self.model.query.session)
+        page = query.paginate(int(request.args.get('page', 1)),
+                              int(request.args.get('maxResults', 20)))
+
         result = {}
         result['kind'] = self.model.kind('list')
-        # FIXME: pagenation
-        result['items'] = [self._to_dict(entity) for entity in model.query]
+        result['items'] = [self._to_dict(entity) for entity in page.items]
+        if page.has_prev:
+            result['prevPage'] = page.prev_num
+        if page.has_next:
+            result['nextPage'] = page.next_num
+
         return jsonify(result)
 
     def _to_dict(self, entity):
