@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from flask import abort
-
 from api import ApiModelView, ApiSearchView
 from models.party import Party
 
