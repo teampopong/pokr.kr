@@ -14,20 +14,34 @@ class ApiView(MethodView):
         if _type == 'single':
             return self.get_single(**kwargs)
         elif _type == 'search':
-            return self.search(**kwargs)
+            return self.get_list(self._search(), **kwargs)
         elif _type == 'list':
-            return self.get_list(**kwargs)
+            return self.get_list(self._query, **kwargs)
         raise Exception('unknown api request type: %s' % _type)
 
     def get_single(self, id, **kwargs):
         query = self._query.filter_by(id=id)
         return self._jsonify_single(query)
 
-    def get_list(self, **kwargs):
-        return self._jsonify_list(self._query)
+    def get_list(self, query, **kwargs):
+        if request.args.get('sort'):
+            key = request.args.get('sort')
+            order = request.args.get('order', 'desc')
+            query = self._sort(query, key, order)
 
-    def search(self, **kwargs):
-        return self._jsonify_list(self._search())
+        return self._jsonify_list(query)
+
+    def _sort(self, query, key, order):
+        if not hasattr(self.model, key):
+            raise Exception('unknown sorting criteria: %s' % key)
+        if order not in ['asc', 'desc']:
+            raise Exception('unknown sorting order: %s' % order)
+
+        key = getattr(self.model, key)
+        if order == 'desc':
+            key = key.desc()
+
+        return query.order_by(key)
 
     def _search(self):
         if not self.model or not hasattr(self.model, 'name'):
