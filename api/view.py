@@ -57,15 +57,15 @@ class ApiView(MethodView):
 
     def _jsonify_list(self, query):
         page = query.paginate(int(request.args.get('page', 1)),
-                              int(request.args.get('maxResults', 20)))
+                              int(request.args.get('per_page', 20)))
 
         result = {}
         result['kind'] = self.model.kind('list')
         result['items'] = [self._to_dict(entity) for entity in page.items]
         if page.has_prev:
-            result['prevPage'] = page.prev_num
+            result['prev_page'] = page.prev_num
         if page.has_next:
-            result['nextPage'] = page.next_num
+            result['next_page'] = page.next_num
 
         return jsonify(result)
 
