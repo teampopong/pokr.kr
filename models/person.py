@@ -11,7 +11,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
 from sqlalchemy.sql.expression import desc
 
-from api import ApiModel
+from api.model import ApiModel
 from database import Base
 from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy

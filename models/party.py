@@ -1,7 +1,7 @@
 from sqlalchemy import CHAR, Column, Integer, String, Unicode
 from sqlalchemy.orm import backref, relationship
 
-from api import ApiModel
+from api.model import ApiModel
 from database import Base
 from models.candidacy import Candidacy
 

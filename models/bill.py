@@ -5,7 +5,7 @@ from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
-from api import ApiModel
+from api.model import ApiModel
 from database import Base, db_session
 from models.bill_keyword import bill_keyword
 from models.bill_status import BillStatus
