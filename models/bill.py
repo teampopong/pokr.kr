@@ -2,7 +2,7 @@
 
 from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
-from sqlalchemy.orm import column_property, relationship
+from sqlalchemy.orm import column_property, deferred, relationship
 from sqlalchemy.sql.expression import distinct
 
 from api import ApiModel
@@ -14,6 +14,7 @@ from models.cosponsorship import cosponsorship
 from models.election import Election
 from models.party import Party
 from models.person import Person
+from utils.hstore import Hstore
 
 
 class Bill(Base, ApiModel):
@@ -23,7 +24,7 @@ class Bill(Base, ApiModel):
 
     id = Column(String(20), primary_key=True)
     name = Column(Unicode(256), index=True, nullable=False)
-    summary = Column(Text)
+    summary = deferred(Column(Text)) # TODO: undefer it at bill.html page
 
     age = Column(Integer, index=True, nullable=False)
     proposed_date = Column(Date, index=True)
@@ -36,8 +37,9 @@ class Bill(Base, ApiModel):
     sponsor = Column(Unicode(80), index=True)
     status_id = Column(Integer, nullable=False)
     status_ids = Column(ARRAY(Integer))
-    reviews = relationship('BillReview', backref='bill')
+    extra = deferred(Column(Hstore, nullable=False, default={}))
 
+    reviews = relationship('BillReview', backref='bill')
     status = column_property(select([BillStatus.name])\
                              .where(BillStatus.id==status_id), deferred=True)
     keywords = relationship('Keyword',
@@ -46,6 +48,7 @@ class Bill(Base, ApiModel):
 
     @property
     def party_counts(self):
+        # TODO: need to be refactored (maybe soft/hard caching)
         party_counts = db_session.query(Party.name,
                                         func.count(distinct(Person.id)))\
                                  .join(Candidacy)\

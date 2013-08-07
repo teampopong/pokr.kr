@@ -46,7 +46,7 @@ class Person(Base, ApiModel):
     facebook = Column(String(80))
     blog = Column(String(255))
     homepage = Column(String(255))
-    extra_vars = Column(Text)
+    extra_vars = deferred(Column(Text)) # TODO: undefer
 
     ### Relations ###
     candidacies = relationship('Candidacy',
