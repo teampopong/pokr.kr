@@ -105,7 +105,10 @@ def register(app):
         bills = Bill.query.order_by(desc(Bill.proposed_date).nullslast())
 
         if query:
-            bills = bills.filter(Bill.name.like(u'%{0}%'.format(query)))
+            bills = bills.filter(or_(
+                Bill.name.like(u'%{0}%'.format(query)),
+                Bill.keywords.any(Keyword.name==unicode(query))
+                ))
 
         if person_id:
             bills = bills.join(cosponsorship)\
