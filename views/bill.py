@@ -6,6 +6,7 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
+from cache import cache, CACHE_DEFAULT_TIMEOUT
 from models.bill import Bill
 from utils.jinja import breadcrumb
 
@@ -25,6 +26,7 @@ def register(app):
                 assembly_id=assembly_id, bills=bills)
 
     @app.route('/bill/<id>', methods=['GET'])
+    @cache.cached(60 * 60)
     @breadcrumb(app, 'bill')
     def bill(id):
         try:

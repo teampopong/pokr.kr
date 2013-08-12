@@ -6,6 +6,7 @@ from settings import CACHE_SETTINGS
 
 
 cache = Cache()
+CACHE_DEFAULT_TIMEOUT = 24 * 60 * 60
 
 
 def init_cache(app):
