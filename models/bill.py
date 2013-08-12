@@ -5,6 +5,7 @@ from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
+from cache import cache
 from database import Base, db_session
 from models.bill_keyword import bill_keyword
 from models.bill_status import BillStatus
@@ -42,6 +43,7 @@ class Bill(Base):
             order_by='desc(bill_keyword.c.weight)')
 
     @property
+    @cache.memoize(60 * 60)
     def party_counts(self):
         party_counts = db_session.query(Party.name,
                                         func.count(distinct(Person.id)))\
@@ -60,6 +62,9 @@ class Bill(Base):
         return [cosponsor
                 for cosponsor in self.cosponsors
                 if cosponsor.name in self.sponsor]
+
+    def __repr__(self):
+        return '%s(%s)' % (self.__class__.__name__, self.id)
 
 
 bill_and_status = select([func.row_number().over().label('status_order'),
