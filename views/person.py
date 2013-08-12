@@ -61,7 +61,6 @@ def register(app):
         except ValueError, e:
             pass
 
-        log_person(id)
         return render_template('person.html', person=person,
                 person_extra_vars=person_extra_vars)
 
@@ -74,11 +73,3 @@ def all_person_names():
     all_names = list(set(reduce(operator.add, name_tuples)))
     return all_names
 
-
-def log_person(id):
-    # FIXME: make this work w/ postgres
-    # db['log_person'].insert({
-    #     'id': id,
-    #     'date': time.time()
-    # })
-    pass
