@@ -5,7 +5,7 @@ import re
 from flask import redirect, render_template, url_for
 from sqlalchemy.sql.expression import desc
 
-from cache import cache, CACHE_DEFAULT_TIMEOUT
+from cache import view_cache
 from database import db_session
 from models.bill import Bill
 
@@ -14,7 +14,7 @@ year_re = re.compile(r'[1-9][0-9]{3}')
 def register(app):
 
     @app.route('/')
-    @cache.cached(CACHE_DEFAULT_TIMEOUT)
+    @view_cache()
     def main():
         return render_template('main.html')
 
@@ -24,7 +24,7 @@ def register(app):
 
     @app.route('/entity/<keyword>')
     @app.endpoint('entity_page')
-    @cache.cached(CACHE_DEFAULT_TIMEOUT)
+    @view_cache()
     def entity_page(keyword):
         if year_re.match(keyword):
             return redirect(url_for('search', target='people', year=keyword))

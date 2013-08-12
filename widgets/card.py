@@ -2,11 +2,9 @@
 
 from flask import render_template
 
-from cache import cache
 from models.person import Person
 
 
-@cache.memoize(24 * 60 * 60)
 def card(person_or_id, detailed=False, small=False):
 
     if isinstance(person_or_id, Person):

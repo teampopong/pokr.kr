@@ -7,7 +7,7 @@ from sqlalchemy import distinct
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from cache import cache, CACHE_DEFAULT_TIMEOUT
+from cache import view_cache
 from models.candidacy import Candidacy
 from models.party import Party
 from utils.jinja import breadcrumb
@@ -20,7 +20,7 @@ def register(app):
 
     # 루트
     @app.route('/party/', methods=['GET'])
-    @cache.cached(CACHE_DEFAULT_TIMEOUT)
+    @view_cache()
     @breadcrumb(app)
     def party_main():
         # FIXME: 19
@@ -36,7 +36,7 @@ def register(app):
 
     # 이름으로 검색
     @app.route('/party/<id>', methods=['GET'])
-    @cache.cached(CACHE_DEFAULT_TIMEOUT)
+    @view_cache()
     @breadcrumb(app, 'party')
     def party(id):
         #TODO: 외부에서 입력받기
