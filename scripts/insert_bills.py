@@ -158,10 +158,10 @@ def extract_bill(record):
     }
 
 
-def insert_cosponsorships(session, bill, cosponsors_raw):
+def insert_cosponsorships(session, bill, cosponsors):
     existing_cosponsor_ids = [c.id for c in bill.cosponsors]
-    cosponsorships = []
-    for proposer in cosponsors_raw:
+    cosponsor_ids = []
+    for proposer in cosponsors:
         key = (proposer, bill.age)
         if key not in person_ids:
             try:
@@ -174,15 +174,28 @@ def insert_cosponsorships(session, bill, cosponsors_raw):
             person_ids[key] = person.id if person else None
 
         person_id = person_ids[key]
+        if person_id:
+            cosponsor_ids.append(person_id)
 
-        if person_id and person_id not in existing_cosponsor_ids:
-            cosponsorships.append({
+    set_original, set_current = set(existing_cosponsor_ids), set(cosponsor_ids)
+    ids_to_insert = list(set_current - set_original)
+    ids_to_delete = list(set_original - set_current)
+
+    if ids_to_insert:
+        session.execute(cosponsorship.insert(), [
+            {
                 'person_id': person_id,
                 'bill_id': bill.id,
-            })
+            } for person_id in ids_to_insert
+        ])
 
-    if cosponsorships:
-        session.execute(cosponsorship.insert(), cosponsorships)
+    if ids_to_delete:
+        session.execute(
+            cosponsorship.delete().where(
+                and_(cosponsorship.c.person_id.in_(ids_to_delete),
+                     cosponsorship.c.bill_id == bill.id)
+            )
+        )
 
 
 def insert_reviews(session, bill, reviews_raw):
