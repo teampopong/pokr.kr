@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+
+# Storage
+BASEDIR = './data'
+DIRS = {
+    'data': BASEDIR + '/json',
+}
+
+
+# Namespaces
+REDIS_SETTINGS = {
+}
+REDIS_KEYS = {
+    'insert_bills_db': 'insert_bills_db'
+}

@@ -75,3 +75,7 @@ Bill.statuses = relationship("BillStatus",
             viewonly=True,
             backref='bills')
 
+
+def assembly_id_by_bill_id(bill_id):
+    return int(bill_id.lstrip('Z')[:2])
+

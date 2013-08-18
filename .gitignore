@@ -4,6 +4,7 @@
 /build
 /static/.webassets-cache
 /static/build
+/conf/*.py
 
 server.log
 settings.py

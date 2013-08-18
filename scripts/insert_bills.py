@@ -10,16 +10,19 @@ import sys
 from sqlalchemy.sql.expression import and_
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
+from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
 from database import transaction
-from models.bill import Bill
+from models.bill import assembly_id_by_bill_id, Bill
 from models.bill_status import BillStatus
 from models.bill_review import BillReview
+from models.election import Election
 from models.cosponsorship import cosponsorship
 from models.candidacy import Candidacy
 from models.person import Person
+from queue import RedisQueue
 
 
-__all__ = ['insert_bills']
+__all__ = ['insert_bills', 'update_bills']
 
 
 class BillStatusStore(object):
@@ -63,14 +66,38 @@ person_ids = {}
 bill_statuses = BillStatusStore()
 
 
-def insert_bills(files):
+def insert_bills():
+    queue = RedisQueue(REDIS_KEYS['insert_bills_db'], **REDIS_SETTINGS)
+    if queue.empty():
+        return
+
     with transaction() as session:
-        bill_statuses.init(session)
-        for file_ in glob(files):
-            with open(file_, 'r') as f:
-                record = json.load(f)
-            insert_bill(session, record)
-        bill_statuses.insert_all()
+        _update_bills(session, queue)
+
+
+def update_bills():
+    with transaction() as session:
+        assembly_id = session.query(Election)\
+                             .order_by(Election.age.desc())\
+                             .first()
+        # FIXME: filter finished bills out
+        bill_ids = (record[0] for record in session.query(Bill.id))
+        _update_bills(session, bill_ids)
+
+
+def _update_bills(session, bill_ids):
+    bill_statuses.init(session)
+    for bill_id in bill_ids:
+        filepath = bill_filepath(bill_id)
+        with open(filepath, 'r') as f:
+            record = json.load(f)
+        insert_bill(session, record)
+    bill_statuses.insert_all()
+
+
+def bill_filepath(bill_id):
+    assembly_id = assembly_id_by_bill_id(bill_id)
+    return '%s/%d/%s.json' % (DIRS['data'], assembly_id, bill_id)
 
 
 def insert_bill(session, record):
