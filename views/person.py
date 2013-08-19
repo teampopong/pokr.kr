@@ -8,6 +8,7 @@ import time
 from flask import redirect, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy import and_
+from sqlalchemy.orm import undefer_group
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
@@ -50,7 +51,11 @@ def register(app):
     @breadcrumb(app, 'person')
     def person(id):
         try:
-            person = Person.query.filter_by(id=id).one()
+            person = Person.query\
+                           .filter_by(id=id)\
+                           .options(undefer_group('extra'),
+                                    undefer_group('profile'))\
+                           .one()
         except NoResultFound, e:
             return render_template('not-found.html'), 404
 
