@@ -10,16 +10,19 @@ import sys
 from sqlalchemy.sql.expression import and_
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
+from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
 from database import transaction
-from models.bill import Bill
+from models.bill import assembly_id_by_bill_id, Bill
 from models.bill_status import BillStatus
 from models.bill_review import BillReview
+from models.election import Election
 from models.cosponsorship import cosponsorship
 from models.candidacy import Candidacy
 from models.person import Person
+from queue import RedisQueue
 
 
-__all__ = ['insert_bills']
+__all__ = ['insert_bills', 'update_bills']
 
 
 class BillStatusStore(object):
@@ -63,14 +66,38 @@ person_ids = {}
 bill_statuses = BillStatusStore()
 
 
-def insert_bills(files):
+def insert_bills():
+    queue = RedisQueue(REDIS_KEYS['insert_bills_db'], **REDIS_SETTINGS)
+    if queue.empty():
+        return
+
     with transaction() as session:
-        bill_statuses.init(session)
-        for file_ in glob(files):
-            with open(file_, 'r') as f:
-                record = json.load(f)
-            insert_bill(session, record)
-        bill_statuses.insert_all()
+        _update_bills(session, queue)
+
+
+def update_bills():
+    with transaction() as session:
+        assembly_id = session.query(Election)\
+                             .order_by(Election.age.desc())\
+                             .first()
+        # FIXME: filter finished bills out
+        bill_ids = (record[0] for record in session.query(Bill.id))
+        _update_bills(session, bill_ids)
+
+
+def _update_bills(session, bill_ids):
+    bill_statuses.init(session)
+    for bill_id in bill_ids:
+        filepath = bill_filepath(bill_id)
+        with open(filepath, 'r') as f:
+            record = json.load(f)
+        insert_bill(session, record)
+    bill_statuses.insert_all()
+
+
+def bill_filepath(bill_id):
+    assembly_id = assembly_id_by_bill_id(bill_id)
+    return '%s/%d/%s.json' % (DIRS['data'], assembly_id, bill_id)
 
 
 def insert_bill(session, record):
@@ -131,10 +158,10 @@ def extract_bill(record):
     }
 
 
-def insert_cosponsorships(session, bill, cosponsors_raw):
+def insert_cosponsorships(session, bill, cosponsors):
     existing_cosponsor_ids = [c.id for c in bill.cosponsors]
-    cosponsorships = []
-    for proposer in cosponsors_raw:
+    cosponsor_ids = []
+    for proposer in cosponsors:
         key = (proposer, bill.age)
         if key not in person_ids:
             try:
@@ -147,15 +174,28 @@ def insert_cosponsorships(session, bill, cosponsors_raw):
             person_ids[key] = person.id if person else None
 
         person_id = person_ids[key]
+        if person_id:
+            cosponsor_ids.append(person_id)
 
-        if person_id and person_id not in existing_cosponsor_ids:
-            cosponsorships.append({
+    set_original, set_current = set(existing_cosponsor_ids), set(cosponsor_ids)
+    ids_to_insert = list(set_current - set_original)
+    ids_to_delete = list(set_original - set_current)
+
+    if ids_to_insert:
+        session.execute(cosponsorship.insert(), [
+            {
                 'person_id': person_id,
                 'bill_id': bill.id,
-            })
+            } for person_id in ids_to_insert
+        ])
 
-    if cosponsorships:
-        session.execute(cosponsorship.insert(), cosponsorships)
+    if ids_to_delete:
+        session.execute(
+            cosponsorship.delete().where(
+                and_(cosponsorship.c.person_id.in_(ids_to_delete),
+                     cosponsorship.c.bill_id == bill.id)
+            )
+        )
 
 
 def insert_reviews(session, bill, reviews_raw):

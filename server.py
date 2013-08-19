@@ -14,7 +14,6 @@ manager = Manager(app, with_default_commands=False)
 
 def init_modules():
     from flask.ext.assets import Environment as Asset
-    from cache import init_cache
     from database import init_db
     from utils.assets import init_app as init_asset
     from utils.jinja import init_app as init_jinja
@@ -27,7 +26,6 @@ def init_modules():
 
     Asset(app)
     init_asset(app)
-    init_cache(app)
     init_db(app)
     init_jinja(app)
     PopongBabel(app, **BABEL_SETTINGS)
@@ -47,9 +45,16 @@ def run(locale):
 
 
 @manager.command
-def insert_bills(files):
+def update_bills():
+    from scripts.insert_bills import update_bills as f
+    f()
+
+
+@manager.command
+def insert_bills():
     from scripts.insert_bills import insert_bills as f
-    f(files)
+    f()
+
 
 @manager.command
 def insert_bill_keywords(files):
