@@ -38,6 +38,12 @@ window.currentPage = 'person';
 
 {% block card %}
 {{widgets.card(person, detailed=True)|safe}}
+{% if person.wiki %}
+<p class="original-link">
+    <a href="http://ko.wikipedia.org{{ person.wiki }}">{{ gettext('Wikipedia') }}</a>
+    <a href="http://ko.wikipedia.org{{ person.wiki }}" target="_blank"><i class="icon-external-link"></i></a>
+</p>
+{% endif %}
 {% if not mobile %}
     <ul id="person-section-tabs" class="nav section-tabs">
         <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>

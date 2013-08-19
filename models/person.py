@@ -42,6 +42,7 @@ class Person(Base):
     facebook = deferred(Column(String(80)), group='extra')
     blog = deferred(Column(String(255)), group='extra')
     homepage = deferred(Column(String(255)), group='extra')
+    wiki = deferred(Column(Text), group='extra')
     extra_vars = deferred(Column(Text), group='extra')
 
     ### Relations ###
