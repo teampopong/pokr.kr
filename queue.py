@@ -28,11 +28,11 @@ class RedisQueue(object):
         if necessary until an item is available."""
         if block:
             item = self.db.blpop(self.key, timeout=timeout)
+            if item:
+                item = item[1]
         else:
             item = self.db.lpop(self.key)
 
-        if item:
-            item = item[1]
         return item
 
     def get_nowait(self):
