@@ -12,7 +12,6 @@ from sqlalchemy.orm import undefer_group
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from cache import view_cache
 from database import db_session
 from models.candidacy import Candidacy
 from models.person import Person
@@ -47,7 +46,6 @@ def register(app):
 
     # 사람
     @app.route('/person/<int:id>', methods=['GET'])
-    @view_cache(60 * 60)
     @breadcrumb(app, 'person')
     def person(id):
         try:

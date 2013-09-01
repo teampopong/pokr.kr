@@ -6,7 +6,6 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from cache import view_cache
 from models.bill import Bill
 from utils.jinja import breadcrumb
 
@@ -26,7 +25,6 @@ def register(app):
                 assembly_id=assembly_id, bills=bills)
 
     @app.route('/bill/<id>', methods=['GET'])
-    @view_cache(60 * 60)
     @breadcrumb(app, 'bill')
     def bill(id):
         try:
