@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-06-25 18:34+0900\n"
+"POT-Creation-Date: 2013-08-19 17:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,47 +25,47 @@ msgstr ""
 msgid "see original document"
 msgstr ""
 
-#: templates/bill.html:41 templates/bill.html:57
+#: templates/bill.html:41 templates/bill.html:63
 msgid "outline"
 msgstr ""
 
-#: templates/bill.html:42 templates/bill.html:109
+#: templates/bill.html:42 templates/bill.html:130
 msgid "sponsors"
 msgstr ""
 
-#: templates/bill.html:44 templates/bill.html:161
+#: templates/bill.html:44 templates/bill.html:186
 msgid "contents"
 msgstr ""
 
-#: templates/bill.html:62 templates/search-results.html:15
+#: templates/bill.html:68 templates/search-results.html:15
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:68 templates/person.html:250 templates/person.html:272
+#: templates/bill.html:74 templates/person.html:261 templates/person.html:283
 msgid "proposed date"
 msgstr ""
 
-#: templates/bill.html:74
+#: templates/bill.html:80
 msgid "decision date"
 msgstr ""
 
-#: templates/bill.html:79 templates/search-results.html:13
+#: templates/bill.html:85 templates/search-results.html:13
 msgid "status"
 msgstr ""
 
-#: templates/bill.html:102
+#: templates/bill.html:123
 msgid "related keywords"
 msgstr ""
 
-#: templates/bill.html:112 templates/bill.html:133 templates/person.html:294
+#: templates/bill.html:133 templates/bill.html:156 templates/person.html:305
 msgid "representative sponsor"
 msgstr ""
 
-#: templates/bill.html:121 templates/bill.html:145
+#: templates/bill.html:144 templates/bill.html:170
 msgid "cosponsors"
 msgstr ""
 
-#: templates/bill.html:164 templates/party.html:43 templates/party.html:53
+#: templates/bill.html:189 templates/party.html:43 templates/party.html:53
 msgid "summary"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/person.html:260 templates/person.html:303
+#: templates/macros.html:88 templates/person.html:271 templates/person.html:314
 msgid "more"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Search for any administrative<br>region in Korea"
 msgstr ""
 
-#: templates/main.html:39
+#: templates/main.html:42
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
@@ -160,9 +160,9 @@ msgstr ""
 msgid "people"
 msgstr ""
 
-#: templates/party.html:53 templates/person.html:73
-#: templates/search-results.html:9 templates/includes/header.html:5
-#: templates/includes/header.html:7 views/party.py:18
+#: templates/party.html:53 templates/person.html:78
+#: templates/search-results.html:9 templates/includes/header.html:6
+#: templates/includes/header.html:8 views/party.py:19
 msgid "party"
 msgstr ""
 
@@ -186,100 +186,104 @@ msgstr ""
 msgid "People"
 msgstr ""
 
-#: templates/person.html:10
+#: templates/person.html:9
 #, python-format
 msgid "Member of %(last_elected_no)dth National Assembly,"
 msgstr ""
 
-#: templates/person.html:44 templates/person.html:60
+#: templates/person.html:43
+msgid "Wikipedia"
+msgstr ""
+
+#: templates/person.html:49 templates/person.html:65
 msgid "profile"
 msgstr ""
 
-#: templates/person.html:45 templates/person.html:136
+#: templates/person.html:50 templates/person.html:147
 msgid "elections"
 msgstr ""
 
-#: templates/person.html:47 templates/person.html:237
+#: templates/person.html:52 templates/person.html:248
 msgid "legislations"
 msgstr ""
 
-#: templates/person.html:49 templates/person.html:317
+#: templates/person.html:54 templates/person.html:328
 msgid "trends"
 msgstr ""
 
-#: templates/person.html:61
+#: templates/person.html:67
 msgid ""
 "Data in this section is based on latest election records, and therefore "
 "can be outdated."
 msgstr ""
 
-#: templates/person.html:67
+#: templates/person.html:72
 msgid "birthday"
 msgstr ""
 
-#: templates/person.html:77 templates/person.html:140 templates/person.html:189
+#: templates/person.html:85 templates/person.html:151 templates/person.html:200
 #, python-format
 msgid "%(age)dth"
 msgstr ""
 
-#: templates/person.html:85
+#: templates/person.html:96
 msgid "education"
 msgstr ""
 
-#: templates/person.html:87 templates/person.html:99
+#: templates/person.html:98 templates/person.html:110
 msgid "original"
 msgstr ""
 
-#: templates/person.html:97
+#: templates/person.html:108
 msgid "address"
 msgstr ""
 
-#: templates/person.html:112
+#: templates/person.html:123
 msgid "work experiences"
 msgstr ""
 
-#: templates/person.html:142 templates/person.html:191
+#: templates/person.html:153 templates/person.html:202
 msgid "National Assembly Election"
 msgstr ""
 
-#: templates/person.html:144 templates/person.html:193
+#: templates/person.html:155 templates/person.html:204
 msgid "National Assembly By-election"
 msgstr ""
 
-#: templates/person.html:152 templates/person.html:180
+#: templates/person.html:163 templates/person.html:191
 #: templates/search-results.html:11
 msgid "election district"
 msgstr ""
 
-#: templates/person.html:166 templates/person.html:181
+#: templates/person.html:177 templates/person.html:192
 msgid "competitors"
 msgstr ""
 
-#: templates/person.html:173
+#: templates/person.html:184
 msgid "By-election results are coming soon!"
 msgstr ""
 
-#: templates/person.html:199
+#: templates/person.html:210
 msgid "Pledges"
 msgstr ""
 
-#: templates/person.html:245 templates/person.html:284
+#: templates/person.html:256 templates/person.html:295
 msgid "th assembly"
 msgstr ""
 
-#: templates/person.html:251 templates/person.html:271
+#: templates/person.html:262 templates/person.html:282
 msgid "title"
 msgstr ""
 
-#: templates/person.html:273
+#: templates/person.html:284
 msgid "role"
 msgstr ""
 
-#: templates/person.html:296
+#: templates/person.html:307
 msgid "sponsor"
 msgstr ""
 
-#: templates/person.html:319
+#: templates/person.html:330
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
@@ -328,8 +332,8 @@ msgstr ""
 msgid "school"
 msgstr ""
 
-#: templates/search-results.html:10 templates/includes/header.html:5
-#: templates/includes/header.html:7 views/person.py:23
+#: templates/search-results.html:10 templates/includes/header.html:6
+#: templates/includes/header.html:8 views/person.py:25
 msgid "person"
 msgstr ""
 
@@ -370,35 +374,35 @@ msgstr ""
 msgid "School"
 msgstr ""
 
-#: templates/includes/footer.html:3
+#: templates/includes/footer.html:4
 msgid ""
 "For any questions, problems and suggestions, please click the 'Feedback' "
 "button above."
 msgstr ""
 
-#: templates/includes/footer.html:5
+#: templates/includes/footer.html:6
 msgid "code"
 msgstr ""
 
-#: templates/includes/footer.html:6
+#: templates/includes/footer.html:7
 msgid "data"
 msgstr ""
 
-#: templates/includes/footer.html:7
+#: templates/includes/footer.html:8
 msgid "sources"
 msgstr ""
 
-#: templates/includes/header.html:5 templates/includes/header.html:7
-#: views/bill.py:16
+#: templates/includes/header.html:6 templates/includes/header.html:8
+#: views/bill.py:17
 msgid "bill"
 msgstr ""
 
-#: templates/includes/header.html:5 templates/includes/header.html:7
-#: views/region.py:16
+#: templates/includes/header.html:6 templates/includes/header.html:8
+#: views/region.py:17
 msgid "region"
 msgstr ""
 
-#: templates/includes/header.html:7
+#: templates/includes/header.html:8
 msgid "Seon-Mi Jin"
 msgstr ""
 

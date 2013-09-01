@@ -7,7 +7,7 @@ from flaskext.babel import format_date
 from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.hybrid import hybrid_property
-from sqlalchemy.orm import backref, relationship
+from sqlalchemy.orm import backref, deferred, relationship
 from sqlalchemy.sql.expression import desc
 
 from database import Base
@@ -31,18 +31,19 @@ class Person(Base):
 
     birthday = Column(CHAR(8), index=True)
 
-    education = Column(ARRAY(Unicode(60)))
-    education_id = Column(ARRAY(String(20)))
+    education = deferred(Column(ARRAY(Unicode(60))), group='profile')
+    education_id = deferred(Column(ARRAY(String(20))), group='profile')
 
-    address = Column(ARRAY(Unicode(20)))
-    address_id = Column(ARRAY(String(16)))
+    address = deferred(Column(ARRAY(Unicode(20))), group='profile')
+    address_id = deferred(Column(ARRAY(String(16))), group='profile')
 
     image = Column(String(1024))
-    twitter = Column(String(20))
-    facebook = Column(String(80))
-    blog = Column(String(255))
-    homepage = Column(String(255))
-    extra_vars = Column(Text)
+    twitter = deferred(Column(String(20)), group='extra')
+    facebook = deferred(Column(String(80)), group='extra')
+    blog = deferred(Column(String(255)), group='extra')
+    homepage = deferred(Column(String(255)), group='extra')
+    wiki = deferred(Column(Text), group='extra')
+    extra_vars = deferred(Column(Text), group='extra')
 
     ### Relations ###
     candidacies = relationship('Candidacy',
@@ -144,4 +145,7 @@ class Person(Base):
             query = query.filter(Bill.age == age)
 
         return query
+
+    def __repr__(self):
+        return '%s(%s)' % (self.__class__.__name__, self.id)
 

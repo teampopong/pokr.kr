@@ -45,9 +45,16 @@ def run(locale):
 
 
 @manager.command
-def insert_bills(files):
+def update_bills():
+    from scripts.insert_bills import update_bills as f
+    f()
+
+
+@manager.command
+def insert_bills():
     from scripts.insert_bills import insert_bills as f
-    f(files)
+    f()
+
 
 @manager.command
 def insert_bill_keywords(files):

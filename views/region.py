@@ -6,6 +6,7 @@ from flask.ext.babel import gettext
 from sqlalchemy import func
 from sqlalchemy.orm.exc import NoResultFound
 
+from cache import view_cache
 from models.region import Region
 from utils.jinja import breadcrumb
 
@@ -16,12 +17,14 @@ def register(app):
     gettext('region') # for babel extraction
 
     @app.route('/region/', methods=['GET'])
+    @view_cache()
     @breadcrumb(app)
     def region_main():
         provinces = Region.query.filter(func.length(Region.id) == 2)
         return render_template('regions.html', provinces=provinces)
 
     @app.route('/region/<region_id>', methods=['GET'])
+    @view_cache()
     @breadcrumb(app, 'region')
     def region(region_id):
         try:

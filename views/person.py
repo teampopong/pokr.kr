@@ -8,9 +8,11 @@ import time
 from flask import redirect, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy import and_
+from sqlalchemy.orm import undefer_group
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
+from cache import view_cache
 from database import db_session
 from models.candidacy import Candidacy
 from models.person import Person
@@ -45,10 +47,15 @@ def register(app):
 
     # 사람
     @app.route('/person/<int:id>', methods=['GET'])
+    @view_cache(60 * 60)
     @breadcrumb(app, 'person')
     def person(id):
         try:
-            person = Person.query.filter_by(id=id).one()
+            person = Person.query\
+                           .filter_by(id=id)\
+                           .options(undefer_group('extra'),
+                                    undefer_group('profile'))\
+                           .one()
         except NoResultFound, e:
             return render_template('not-found.html'), 404
 
@@ -59,7 +66,6 @@ def register(app):
         except ValueError, e:
             pass
 
-        log_person(id)
         return render_template('person.html', person=person,
                 person_extra_vars=person_extra_vars)
 
@@ -72,11 +78,3 @@ def all_person_names():
     all_names = list(set(reduce(operator.add, name_tuples)))
     return all_names
 
-
-def log_person(id):
-    # FIXME: make this work w/ postgres
-    # db['log_person'].insert({
-    #     'id': id,
-    #     'date': time.time()
-    # })
-    pass
