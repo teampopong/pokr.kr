@@ -28,7 +28,7 @@ POPONG Korean Politician Dictionary
 
         $ make load_db
         $ python server.py insert_bills "some/where/*.json"
-        $ python server.py insert_bill_keywords "some/where/*.pdf"
+        $ python server.py insert_bill_keywords "some/where/*.txt"
 
 ## Run
 
