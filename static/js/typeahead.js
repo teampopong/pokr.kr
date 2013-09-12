@@ -458,7 +458,8 @@
                     var item = that._transformDatum(datum), id = utils.getUniqueId(item.value);
                     itemHash[id] = item;
                     utils.each(item.tokens, function(i, token) {
-                        var character = token.charAt(0), adjacency = adjacencyList[character] || (adjacencyList[character] = [ id ]);
+                        // XXX: var character = token.charAt(0), adjacency = adjacencyList[character] || (adjacencyList[character] = [ id ]);
+                        var character = HANGUL.toChosungs(token.charAt(0)), adjacency = adjacencyList[character] || (adjacencyList[character] = [ id ]);
                         !~utils.indexOf(adjacency, id) && adjacency.push(id);
 
                     });
@@ -479,7 +480,8 @@
             _getLocalSuggestions: function(terms) {
                 var that = this, firstChars = [], lists = [], shortestList, suggestions = [];
                 utils.each(terms, function(i, term) {
-                    var firstChar = term.charAt(0);
+                    // XXX: var firstChar = term.charAt(0);
+                    var firstChar = HANGUL.toChosungs(term.charAt(0));
                     !~utils.indexOf(firstChars, firstChar) && firstChars.push(firstChar);
                 });
                 utils.each(firstChars, function(i, firstChar) {
@@ -503,7 +505,8 @@
                     isMatch = isCandidate && utils.every(terms, function(term) {
                         return utils.some(item.tokens, function(token) {
                             // XXX: return token.indexOf(term) === 0;
-                            return HANGUL.startsWith(token, term);
+                            return HANGUL.startsWith(token, term) ||
+                                   HANGUL.startsWithByChosungs(token, term);
                         });
                     });
                     isMatch && suggestions.push(item);

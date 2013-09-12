@@ -33,6 +33,11 @@ var // 초성
         'ㅂㅅ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'
     ];
 
+function ParsingError(message) {
+    this.message = message;
+    this.name = 'ParsingError';
+}
+
 var HANGUL = global.HANGUL = global.HANGUL || {};
 
 HANGUL.toJamos = function (str) {
@@ -114,14 +119,46 @@ HANGUL.toJongsungs = function (str) {
     return consonants.join('');
 };
 
-HANGUL.indexOf = function (haystack, needle) {
-    var jamoHaystack = HANGUL.toJamos(haystack),
-        jamoNeedle = HANGUL.toJamos(needle);
-    return jamoHaystack.indexOf(jamoNeedle);
+HANGUL.splitToSingleConsonants = function (str) {
+    var consonants = [];
+
+    for (var i = 0, len = str.length; i < len; i++) {
+        var code = str.charCodeAt(i),
+            offset,
+            consonant;
+
+        if (0x3131 <= code && code < 0x314f) {
+            offset = parseInt(code - 0x3131);
+            consonant = SINGLE_CONSONANTS[offset];
+        } else {
+            throw new ParsingError('only a string of consonants is allowed');
+        }
+
+        consonants.push(consonant);
+    }
+
+    return consonants.join('');
 };
 
 HANGUL.startsWith = function (haystack, needle) {
-    return HANGUL.indexOf(haystack, needle) === 0;
+    var jamoHaystack = HANGUL.toJamos(haystack),
+        jamoNeedle = HANGUL.toJamos(needle);
+    return jamoHaystack.indexOf(jamoNeedle) === 0;
+};
+
+HANGUL.startsWithByChosungs = function (haystack, needle) {
+    var failed = false;
+    try {
+        var chosungHaystack = HANGUL.toChosungs(haystack),
+            chosungNeedle = HANGUL.splitToSingleConsonants(needle);
+    } catch (e) {
+        if (e instanceof ParsingError) {
+            failed = true;
+        } else {
+            throw e;
+        }
+    }
+    return !failed && chosungHaystack.indexOf(chosungNeedle) === 0;
 };
 
 }());
