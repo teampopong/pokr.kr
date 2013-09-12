@@ -12,7 +12,6 @@ POPONG Korean Politician Dictionary
             # apt-get update
             # apt-get install python python-dev python2.7 libpq-dev libevent-dev
             # npm install less uglify-js@1 -g
-
     - Mac OS X:
 
             Install Homebrew (http://mxcl.github.com/homebrew/)
