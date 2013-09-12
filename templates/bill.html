@@ -6,15 +6,11 @@
 {% endblock %}
 
 {% block extra_headers %}
-{% assets filters='less', output='build/entity.%(version)s.css',
-    depends=['**/*.less'], 'less/entity.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
+{# TODO: get rid of bill.less #}
 {% assets filters='less', output='build/bill.%(version)s.css',
     depends=['**/*.less'], 'less/bill.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
-<script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
 {% endblock %}
 
 {% block breadcrumb_current %}
@@ -196,9 +192,6 @@
         </div>
     </div>
 </div>
-{% if not mobile %}
-    <script src="{{url_for('static', filename="js/entity.js")}}"></script>
-{% endif %}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});
