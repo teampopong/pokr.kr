@@ -26,6 +26,7 @@ POPONG Korean Politician Dictionary
 
 1. Modify settings file
     - settings.py
+    - conf/storage.py
     - alembic.ini
 
 1. Load data
