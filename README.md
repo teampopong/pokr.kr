@@ -1,6 +1,7 @@
 POPONG Korean Politician Dictionary
 ===================================
-[![Stories in Ready](http://badge.waffle.io/teampopong/pokr.png)](http://waffle.io/teampopong/pokr)
+
+[![Stories in Ready](https://badge.waffle.io/teampopong/pokr.png)](http://waffle.io/teampopong/pokr)
 
 ## Installation
 
