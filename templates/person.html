@@ -17,23 +17,12 @@
 {{ super() }}
 
 {% if not mobile %}
-    {% assets filters='less', output='build/entity.%(version)s.css',
-        depends=['**/*.less'], 'less/entity.less' %}
-    <link rel="stylesheet" href="{{ASSET_URL}}">
-    {% endassets %}
+    {# TODO: get rid of person.less #}
     {% assets filters='less', output='build/person.%(version)s.css',
         depends=['**/*.less'], 'less/person.less' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
     {% endassets %}
-    <script type="text/javascript" src="{{asset('js/bootstrap-scrollspy.js')}}"></script>
-    <script type="text/javascript" src="{{url_for('static', filename='js/jquery.colorbox.js')}}"></script>
-    <script type="text/javascript" src="{{url_for('static', filename='js/popong-colorbox.js')}}"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/colorbox.css')}}">
 {% endif %}
-
-<script>
-window.currentPage = 'person';
-</script>
 {% endblock %}
 
 {% block card %}
@@ -337,7 +326,9 @@ window.currentPage = 'person';
         {% endif %}
     </div>
 </div>
-{% if not mobile %}
-    <script src="{{url_for('static', filename="js/entity.js")}}"></script>
-{% endif %}
+<script>
+$(document).ready(function(){
+    $(".inline-box").colorbox({inline:true, width:"50%"});
+});
+</script>
 {% endblock %}

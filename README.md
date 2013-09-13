@@ -1,15 +1,17 @@
 POPONG Korean Politician Dictionary
 ===================================
 
-[![Stories in Ready](https://badge.waffle.io/teampopong/pokr.png)](http://waffle.io/teampopong/pokr)
-
 ## Installation
+
+<span style="color: red">Caution: outdated. Need to be updated.</span>
 
 1. Install dependant packages
     - Ubuntu Linux:
 
-            $ sudo apt-get update
-            $ sudo apt-get install python python-dev python2.7 libpq-dev libevent-dev
+            Install nodejs to use npm (http://nodejs.org/download/)
+            # apt-get update
+            # apt-get install python python-dev python2.7 libpq-dev libevent-dev
+            # npm install less uglify-js@1 -g
     - Mac OS X:
 
             Install Homebrew (http://mxcl.github.com/homebrew/)
@@ -25,6 +27,7 @@ POPONG Korean Politician Dictionary
 1. Modify settings file
     - settings.py
     - alembic.ini
+
 1. Load data
 
         $ make load_db
