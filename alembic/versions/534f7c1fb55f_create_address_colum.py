@@ -1,14 +1,14 @@
 """Create address column in person table
 
 Revision ID: 534f7c1fb55f
-Revises: 13d42d50c79a
+Revises: 6d11a4b386e
 Create Date: 2013-05-12 14:33:19.490150
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '534f7c1fb55f'
-down_revision = '13d42d50c79a'
+down_revision = '6d11a4b386e'
 
 from alembic import op
 import sqlalchemy as sa

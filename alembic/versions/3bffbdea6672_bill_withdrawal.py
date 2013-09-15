@@ -1,14 +1,14 @@
 """bill withdrawal
 
 Revision ID: 3bffbdea6672
-Revises: 2f550117ee7f
+Revises: 80674dad104
 Create Date: 2013-05-21 12:29:13.072828
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '3bffbdea6672'
-down_revision = u'2f550117ee7f'
+down_revision = '80674dad104'
 
 from alembic import op
 import sqlalchemy as sa

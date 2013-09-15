@@ -1,14 +1,14 @@
 """Enlarge name, sponsor field of bill table
 
 Revision ID: 3d2e69b77518
-Revises: 55e2cf4ee0e5
+Revises: 1a6ea068e902
 Create Date: 2013-05-22 11:15:01.534721
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '3d2e69b77518'
-down_revision = u'55e2cf4ee0e5'
+down_revision = '1a6ea068e902'
 
 from alembic import op
 import sqlalchemy as sa

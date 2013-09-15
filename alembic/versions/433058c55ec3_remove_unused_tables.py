@@ -1,14 +1,14 @@
 """Remove unused tables
 
 Revision ID: 433058c55ec3
-Revises: 1437f047c045
+Revises: 4b053946ef00
 Create Date: 2013-05-19 13:46:15.413440
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '433058c55ec3'
-down_revision = u'1437f047c045'
+down_revision = '534f7c1fb55f'
 
 from alembic import op
 import sqlalchemy as sa

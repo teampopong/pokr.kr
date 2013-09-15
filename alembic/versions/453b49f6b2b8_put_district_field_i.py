@@ -1,14 +1,14 @@
 """Put district field in candidacy table
 
 Revision ID: 453b49f6b2b8
-Revises: 3b9fcc0d16b9
+Revises: 36c44957687f
 Create Date: 2013-05-10 17:17:12.342177
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '453b49f6b2b8'
-down_revision = '3b9fcc0d16b9'
+down_revision = '36c44957687f'
 
 from alembic import op
 import sqlalchemy as sa

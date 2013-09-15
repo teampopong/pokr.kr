@@ -1,14 +1,14 @@
 """Add pledge table
 
 Revision ID: 36c44957687f
-Revises: 13f089849099
+Revises: 3cea1b2cfa
 Create Date: 2013-05-07 17:12:20.111941
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '36c44957687f'
-down_revision = '13f089849099'
+down_revision = '3cea1b2cfa'
 
 from alembic import op
 import sqlalchemy as sa
