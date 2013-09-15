@@ -25,7 +25,8 @@ POPONG Korean Politician Dictionary
 ## Setup
 
 1. Modify settings file
-    - settings.py
+    - conf/frontend.py
+    - conf/storage.py
     - alembic.ini
 
 1. Load data
@@ -47,6 +48,6 @@ POPONG Korean Politician Dictionary
         $ ./shell.py candidacy update "some/where/*.json"
 
 
-## Run
+## Run Server
 
     $ ./run.py
