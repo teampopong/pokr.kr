@@ -31,9 +31,22 @@ POPONG Korean Politician Dictionary
 1. Load data
 
         $ make load_db
-        $ python server.py insert_bills "some/where/*.json"
-        $ python server.py insert_bill_keywords "some/where/*.pdf"
+
+1. Insert/update bills
+
+        $ ./shell.py bill update file1.json file2.json ...  # from files
+        $ ./shell.py bill update --source redis  # from Redis queue
+        $ ./shell.py bill update --source db  # existing bills of the current session
+
+1. Insert/update bill keywords
+
+        $ ./shell.py bill_keyword update "some/where/*.pdf"
+
+1. Insert/update candidacies
+
+        $ ./shell.py candidacy update "some/where/*.json"
+
 
 ## Run
 
-    $ python server.py
+    $ ./run.py
