@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+DEBUG = True
+
+BABEL_DEFAULT_LOCALE = 'ko'
+BABEL_DEFAULT_TIMEZONE = 'KST'
+
+SCRIPT_NAME = '/'
+

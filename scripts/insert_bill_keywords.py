@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+import argparse
 from glob import glob
 from itertools import izip
 from os.path import basename
@@ -9,7 +10,26 @@ import sys
 from database import transaction
 from models.bill_keyword import bill_keyword
 from models.keyword import Keyword
+from utils.command import Command
 from utils.nlp.extractor.extract import keywords as extract_keywords
+
+
+class BillKeywordCommand(Command):
+    __command__ = 'bill_keyword'
+
+
+class UpdateBillKeywordsCommand(Command):
+    __command__ = 'update'
+    __parent__ = BillKeywordCommand
+
+    @classmethod
+    def init_parser_options(cls):
+        cls.parser.add_argument('files')
+
+    @classmethod
+    def run(cls, files, **kwargs):
+        insert_bill_keywords(files)
+
 
 def insert_bill_keywords(files):
     with transaction() as session:
