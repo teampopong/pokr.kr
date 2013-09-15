@@ -37,9 +37,9 @@ class UpdateBillsCommand(Command):
 
     @classmethod
     def init_parser_options(cls):
+        cls.parser.add_argument('files')
         cls.parser.add_argument('--source', dest='source', nargs='?',
                 choices=['redis', 'db', 'files'], default='files')
-        cls.parser.add_argument('files', nargs='*', type=argparse.FileType('r'))
 
     @classmethod
     def run(cls, source, files, **kwargs):
@@ -101,6 +101,9 @@ def update_bills(source, files=None):
         # FIXME: filter finished bills out
         bill_ids = (record[0] for record in session.query(Bill.id))
         files = (bill_filepath(bill_id) for bill_id in bill_ids)
+
+    elif hasattr(files, 'startswith'): # is string
+        files = glob(files)
 
     update_bills_from_files(files)
 

@@ -41,7 +41,7 @@ POPONG Korean Politician Dictionary
 
 1. Bills
 
-        $ ./shell.py bill update file1.json file2.json ...  # from files
+        $ ./shell.py bill update "some/where/*.json" # from files
         $ ./shell.py bill update --source redis  # from Redis queue
         $ ./shell.py bill update --source db  # existing bills of the current session
 
