@@ -12,8 +12,9 @@ from sqlalchemy.ext.declarative import declarative_base
 try:
     from conf.storage import SQLALCHEMY_URI
 except ImportError as e:
-    print 'ERROR: Update conf/storage.py'
-    import sys; sys.exit(1)
+    import sys
+    sys.stderr.write('Error: Update conf/storage.py\n')
+    sys.exit(1)
 
 
 engine = create_engine(SQLALCHEMY_URI)

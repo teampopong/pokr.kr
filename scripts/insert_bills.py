@@ -14,8 +14,9 @@ from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 try:
     from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
 except ImportError as e:
-    print 'ERROR: Update conf/storage.py'
-    import sys; sys.exit(1)
+    import sys
+    sys.stderr.write('Error: Update conf/storage.py\n')
+    sys.exit(1)
 from database import transaction
 from models.bill import assembly_id_by_bill_id, Bill
 from models.bill_status import BillStatus
