@@ -7,7 +7,11 @@ from flask import Flask
 
 
 app = Flask(__name__)
-app.config.from_object('conf.frontend')
+try:
+    app.config.from_object('conf.frontend')
+except ImportError as e:
+    print 'ERROR: Update conf/frontend.py'
+    import sys; sys.exit(1)
 
 
 if not hasattr(app, '__loaded__'):

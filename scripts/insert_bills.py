@@ -11,7 +11,11 @@ import sys
 from sqlalchemy.sql.expression import and_
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
-from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
+try:
+    from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
+except ImportError as e:
+    print 'ERROR: Update conf/storage.py'
+    import sys; sys.exit(1)
 from database import transaction
 from models.bill import assembly_id_by_bill_id, Bill
 from models.bill_status import BillStatus

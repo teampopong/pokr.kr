@@ -9,7 +9,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-from conf.storage import SQLALCHEMY_URI
+try:
+    from conf.storage import SQLALCHEMY_URI
+except ImportError as e:
+    print 'ERROR: Update conf/storage.py'
+    import sys; sys.exit(1)
 
 
 engine = create_engine(SQLALCHEMY_URI)
