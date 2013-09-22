@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+import argparse
 from datetime import datetime
 import json
 from glob import glob
@@ -10,7 +11,12 @@ import sys
 from sqlalchemy.sql.expression import and_
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
-from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
+try:
+    from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
+except ImportError as e:
+    import sys
+    sys.stderr.write('Error: Update conf/storage.py\n')
+    sys.exit(1)
 from database import transaction
 from models.bill import assembly_id_by_bill_id, Bill
 from models.bill_status import BillStatus
@@ -20,9 +26,29 @@ from models.cosponsorship import cosponsorship
 from models.candidacy import Candidacy
 from models.person import Person
 from queue import RedisQueue
+from utils.command import Command
 
 
-__all__ = ['insert_bills', 'update_bills']
+__all__ = ['update_bills']
+
+
+class BillCommand(Command):
+    __command__ = 'bill'
+
+
+class UpdateBillsCommand(Command):
+    __command__ = 'update'
+    __parent__ = BillCommand
+
+    @classmethod
+    def init_parser_options(cls):
+        cls.parser.add_argument('files', nargs='*')
+        cls.parser.add_argument('--source', dest='source', nargs='?',
+                choices=['redis', 'db', 'files'], default='files')
+
+    @classmethod
+    def run(cls, source, files, **kwargs):
+        update_bills(source, files=files)
 
 
 class BillStatusStore(object):
@@ -66,33 +92,40 @@ person_ids = {}
 bill_statuses = BillStatusStore()
 
 
-def insert_bills():
-    queue = RedisQueue(REDIS_KEYS['insert_bills_db'], **REDIS_SETTINGS)
-    if queue.empty():
+def update_bills(source, files=None):
+    if source == 'redis':
+        queue = RedisQueue(REDIS_KEYS['insert_bills_db'], **REDIS_SETTINGS)
+        files = (bill_filepath(bill_id) for bill_id in queue)
+
+    elif source == 'db':
+        with transaction() as session:
+            assembly_id = session.query(Election)\
+                                 .order_by(Election.age.desc())\
+                                 .first()
+
+        # FIXME: filter finished bills out
+        bill_ids = (record[0] for record in session.query(Bill.id))
+        files = (bill_filepath(bill_id) for bill_id in bill_ids)
+
+    elif files:
+        files = [f for path in files for f in glob(path)]
+
+    update_bills_from_files(files)
+
+
+def update_bills_from_files(files):
+    if not files:
         return
 
     with transaction() as session:
-        _update_bills(session, queue)
-
-
-def update_bills():
-    with transaction() as session:
-        assembly_id = session.query(Election)\
-                             .order_by(Election.age.desc())\
-                             .first()
-        # FIXME: filter finished bills out
-        bill_ids = (record[0] for record in session.query(Bill.id))
-        _update_bills(session, bill_ids)
-
-
-def _update_bills(session, bill_ids):
-    bill_statuses.init(session)
-    for bill_id in bill_ids:
-        filepath = bill_filepath(bill_id)
-        with open(filepath, 'r') as f:
-            record = json.load(f)
-        insert_bill(session, record)
-    bill_statuses.insert_all()
+        bill_statuses.init(session)
+        for f in files:
+            if not isinstance(f, file):
+                f = open(f, 'r')
+            with f:
+                record = json.load(f)
+            insert_bill(session, record)
+        bill_statuses.insert_all()
 
 
 def bill_filepath(bill_id):

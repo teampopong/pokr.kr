@@ -9,10 +9,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-import settings
+try:
+    from conf.storage import SQLALCHEMY_URI
+except ImportError as e:
+    import sys
+    sys.stderr.write('Error: Update conf/storage.py\n')
+    sys.exit(1)
 
 
-engine = create_engine(settings.sqlalchemy_uri)
+engine = create_engine(SQLALCHEMY_URI)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))

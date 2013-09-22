@@ -64,18 +64,19 @@
         </tr>
         {% endif %}
         {% if not target or target == 'bills' %}
+        {% set person_name = option_texts.get('person_id') %}
         <tr>
             <th>
                 {{ gettext('Bill') }}
                 <br>{{ macro.list_count(bills) }}
             </th>
             <td>{% if target %}
-                    {% call(bill) macro.list_pagenav(bills) %}
-                    {{ macro.bill_with_fallback_date(bill) }}
+                    {% call(bill) macro.list_pagenav(bills, layout='table') %}
+                    {{ macro.bill_with_fallback_date(bill, person_name) }}
                     {% endcall %}
                 {% else %}
-                    {% call(bill) macro.list_more(bills, url_for_query(target='bills')) %}
-                    {{ macro.bill_with_fallback_date(bill) }}
+                    {% call(bill) macro.list_more(bills, url_for_query(target='bills'), layout='table') %}
+                    {{ macro.bill_with_fallback_date(bill, person_name) }}
                     {% endcall %}
                 {% endif %}
             </td>

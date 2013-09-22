@@ -1,0 +1,278 @@
+@import "includes";
+
+@container_width: 1300px;
+
+///// override DOM styles /////
+tr:first-child th,
+tr:first-child td {
+    border-top: 0;
+}
+
+th:first-child,
+td:first-child {
+    width: 15%;
+}
+
+th.no-min-width {
+    min-width: 0;
+}
+
+
+
+///// user-defined stylesheets /////
+// layout
+body {
+    padding: 0 20px;
+    div#header,
+    div#container,
+    div#footer {
+        max-width: @container_width;
+    }
+}
+
+#header {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+
+    h1 {
+        .inline-block;
+        margin-top: 18px;
+        margin-right: 10px;
+    }
+
+    form {
+        .inline-block;
+        margin-top: 5px;
+        vertical-align: middle;
+        margin-bottom: 10px;
+    }
+
+    #header-top {
+        border: 1px solid @layout_border_color;
+        margin: 7px 0;
+        height: 78px;
+    }
+
+    .breadcrumb {
+        background-color: @container_color;
+        border: 1px solid @layout_border_color;
+        padding: 0 5px 8px 5px;
+        font-size: 85%;
+        text-align: left;
+        .border-radius(0, 0, 0, 0);
+        height: 12px;
+
+        a {
+            color: #777;
+            &:hover {
+                color: #777;
+            }
+        }
+    }
+    #submain-links {
+        font-size: 85%;
+        position: absolute;
+        right: 0;
+        bottom: 4px;
+        a {
+            background-color: #AAA;
+            color: white;
+            margin-left: 2px;
+            padding: 0 3px;
+        }
+    }
+}
+
+#container {
+    position: fixed;
+    top: 114px;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    border: 1px solid @layout_border_color;
+    border-top: none;
+    margin: 0 auto;
+}
+
+#footer {
+    position: fixed;
+    bottom: 5px;
+    left: 20px;
+    right: 20px;
+    color: @bottom_color;
+    font-size: 85%;
+    text-align: center;
+    height: 20px;
+    p {
+        display: inline-block;
+    }
+    a {
+        color: @bottom_link_color;
+        font-weight: bold;
+    }
+    margin: 0 auto;
+}
+
+a#barometer_tab {
+    top: 50%;
+}
+
+
+
+// content
+#card-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    .border-box;
+    padding: 10px;
+
+    .instance-card {
+        position: relative;
+    }
+
+    .instance-img {
+        width: 85%;
+        max-width: 150px;
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+        .framed;
+    }
+
+    .class-name,
+    .instance-name {
+        font-size: 15pt;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .class-card {
+        background-position: center;
+        width: 85%;
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .instance-name {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        word-break: keep-all;
+        .border-box;
+        padding: 0 10px;
+    }
+    .original-link {
+        text-align: center;
+
+        a i {
+            color: #08c;
+        }
+    }
+}
+
+#spec-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 180px;
+    right: 0;
+    .border-box;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+// others
+a.btn-show {
+    text-decoration: none;
+
+    .text-show {
+        display: inline;
+    }
+
+    .text-hide {
+        display: none;
+    }
+
+    &.active {
+        .text-show {
+            display: none;
+        }
+
+        .text-hide {
+            display: inline;
+        }
+    }
+}
+
+.pagenav {
+    text-align: center;
+}
+
+.btn-pagenav {
+    .inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid @layout_border_color;
+    color: @text_color;
+
+    &.active,
+    &.btn-prev,
+    &.btn-next {
+        background: #f3f3f3;
+    }
+
+    &:hover {
+        background: whitesmoke;
+        text-decoration: none;
+    }
+
+    [class^="icon-"] {
+        color: #333;
+        .inline-block;
+    }
+}
+
+.badge-elected {
+    width: 20px;
+}
+
+
+.langselect {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    font-size: 8pt;
+    color: @bottom_color;
+    z-index: 99;
+
+    a {
+        color: @bottom_color;
+    }
+}
+
+#searchbox {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.permalink {
+    .inline-block;
+    vertical-align: middle;
+    visibility: hidden;
+    margin-left: 5px;
+    font-size: 10pt;
+}
+
+:hover > .permalink {
+    visibility: visible;
+}

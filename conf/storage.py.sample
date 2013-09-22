@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Storage
+# File Storage
 BASEDIR = './data'
 BILLDOC_DIR = './docs'
 DIRS = {
@@ -8,9 +8,21 @@ DIRS = {
 }
 
 
-# Namespaces
+# Redis
 REDIS_SETTINGS = {
 }
 REDIS_KEYS = {
     'insert_bills_db': 'insert_bills_db'
 }
+
+
+# Postgres
+POSTGRES_SETTINGS = {
+        'dialect': 'postgresql',
+        'driver': 'psycopg2',
+        'host': 'localhost',
+        'id': '', # fill this
+        'password': '', # fill this
+        'db': 'popongdb',
+        }
+SQLALCHEMY_URI = '{dialect}+{driver}://{id}:{password}@{host}/{db}'.format(**POSTGRES_SETTINGS)

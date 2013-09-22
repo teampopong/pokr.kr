@@ -1,47 +1,49 @@
 (function () {
 
-var $specContainer = $('#spec-container');
+$(function () {
+    var $specContainer = $('#spec-container');
 
-if (!isMobile) {
-    $('.section-tabs a').click(function () {
-        var href = $(this).attr('href');
-        gotoTab(href);
-        return false;
-    });
-
-    $specContainer.scrollspy({
-            'data-spy': 'scroll',
-            'data-target': '.section-tabs',
-            'offset': 100
-        })
-        .on('activate.changehash', function () {
-            var target = $('.section-tabs li.active a').attr('href');
-            selectTab(target);
+    if (!isMobile) {
+        $('.section-tabs a').click(function () {
+            var href = $(this).attr('href');
+            gotoTab(href);
+            return false;
         });
 
-    function gotoTab(target) {
-        selectTab(target);
+        $specContainer.scrollspy({
+                'data-spy': 'scroll',
+                'data-target': '.section-tabs',
+                'offset': 100
+            })
+            .on('activate.changehash', function () {
+                var target = $('.section-tabs li.active a').attr('href');
+                selectTab(target);
+            });
 
-        var $elem = $(target);
+        function gotoTab(target) {
+            selectTab(target);
 
-        $specContainer.stop().animate({
-            scrollTop: $specContainer.scrollTop() + $elem.position().top
-        }, 700, 'easeInOutQuart');
-    }
+            var $elem = $(target);
 
-    function selectTab(target) {
-        var $list = $('.section-tabs li');
-        $list.removeClass('active');
-        $list.children('[href="'+target+'"]').parent('li').addClass('active');
+            $specContainer.stop().animate({
+                scrollTop: $specContainer.scrollTop() + $elem.position().top
+            }, 700, 'easeInOutQuart');
+        }
 
-        if (location.hash != target) {
-            if (history.pushState) {
-                history.pushState({}, null, target);
-            } else {
-                location.hash = target;
+        function selectTab(target) {
+            var $list = $('.section-tabs li');
+            $list.removeClass('active');
+            $list.children('[href="'+target+'"]').parent('li').addClass('active');
+
+            if (location.hash != target) {
+                if (history.pushState) {
+                    history.pushState({}, null, target);
+                } else {
+                    location.hash = target;
+                }
             }
         }
     }
-}
+});
 
 }());

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+import argparse
 import json
 from glob import glob
 import sys
@@ -12,6 +13,7 @@ from models.candidacy import Candidacy
 from models.election import Election
 from models.party import Party
 from models.person import Person
+from utils.command import Command
 from utils.nlp.structurizer import markup
 from utils.nlp.utils.translit import translit
 
@@ -29,6 +31,25 @@ map_gender_int = {
         u'남': 1,
         u'여': 2,
         }
+
+
+class CandidacyCommand(Command):
+    __command__ = 'candidacy'
+
+
+class UpdateCandidaciesCommand(Command):
+    __command__ = 'update'
+    __parent__ = CandidacyCommand
+
+    @classmethod
+    def init_parser_options(cls):
+        cls.parser.add_argument('files')
+        cls.parser.add_argument('--age', type=int, required=True)
+        cls.parser.add_argument('--date', required=True)
+
+    @classmethod
+    def run(cls, files, age, date, **kwargs):
+        insert_candidacies(files, age, date)
 
 
 def insert_candidacies(files, age, date):

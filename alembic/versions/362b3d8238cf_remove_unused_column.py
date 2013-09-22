@@ -1,14 +1,14 @@
 """Remove unused columns of person table
 
 Revision ID: 362b3d8238cf
-Revises: 73e64848aa5
+Revises: 17b5e9dda9a0
 Create Date: 2013-05-31 09:35:58.137604
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '362b3d8238cf'
-down_revision = u'73e64848aa5'
+down_revision = '17b5e9dda9a0'
 
 from alembic import op
 import sqlalchemy as sa
