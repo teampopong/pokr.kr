@@ -1,0 +1,6 @@
+{% extends "bill-layout.html" %}
+{% block bill_content %}
+<pre class="text">
+{{ f.read().decode('utf-8')|safe }}
+</pre>
+{% endblock %}

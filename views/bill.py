@@ -47,3 +47,21 @@ def register(app):
             return send_file(filepath)
         else:
             return render_template('not-found.html'), 404
+
+    @app.route('/bill/<id>/text', methods=['GET'])
+    def bill_text(id):
+        assembly_id = assembly_id_by_bill_id(id)
+        filepath = '%s/txt/%d/%s.txt' % (BILLDOC_DIR, assembly_id, id)
+
+        try:
+            bill = Bill.query.filter_by(id=id).one()
+
+        except NoResultFound, e:
+            return render_template('not-found.html'), 404
+
+        if os.path.exists(filepath):
+            with open(filepath) as f:
+                response = render_template('bill-text.html', bill=bill, f=f)
+            return response
+        else:
+            return render_template('not-found.html'), 404
