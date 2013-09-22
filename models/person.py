@@ -8,7 +8,8 @@ from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, deferred, relationship
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
+from sqlalchemy.sql.expression import and_, desc
 
 from database import Base
 from models.bill_withdrawal import bill_withdrawal
@@ -146,3 +147,20 @@ class Person(Base):
 
         return query
 
+
+def guess_person(session, name, assembly_id):
+    try:
+        person = session.query(Person)\
+                        .filter_by(name=name)\
+                        .join(Person.candidacies)\
+                        .filter(and_(Candidacy.age == assembly_id))\
+                        .one()
+
+    except MultipleResultsFound, e:
+        person = session.query(Person)\
+                        .filter_by(name=name)\
+                        .join(Person.candidacies)\
+                        .filter(and_(Candidacy.age == assembly_id,
+                                     Candidacy.is_elected == True))\
+                        .one()
+    return person
