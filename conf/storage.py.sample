@@ -2,6 +2,7 @@
 
 # Storage
 BASEDIR = './data'
+BILLDOC_DIR = './docs'
 DIRS = {
     'data': BASEDIR + '/json',
 }
