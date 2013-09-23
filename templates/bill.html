@@ -1,4 +1,17 @@
 {% extends "bill-layout.html" %}
+
+{% block bill_menus %}
+{% if not mobile %}
+<ul id="bill-section-tabs" class="nav section-tabs">
+    <li class="active"><a href="#outline">{{gettext("outline")}}</a></li>
+    <li><a href="#sponsors">{{gettext("sponsors")}}</a></li>
+    {% if bill.summary %}
+    <li><a href="#contents">{{gettext("contents")}}</a></li>
+    {% endif %}
+</ul>
+{% endif %}
+{% endblock %}
+
 {% block bill_content %}
 <div id="section-outline" class="section">
     <h3 id="outline">{{ gettext('outline') }}</h3>

@@ -32,15 +32,8 @@
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
     {% if bill.document_url %}<br><a href="{{ bill.document_url }}">{{ gettext('see original document') }}</a>{% endif %}
 </div>
-{% if not mobile %}
-<ul id="bill-section-tabs" class="nav section-tabs">
-    <li class="active"><a href="#outline">{{gettext("outline")}}</a></li>
-    <li><a href="#sponsors">{{gettext("sponsors")}}</a></li>
-    {% if bill.summary %}
-    <li><a href="#contents">{{gettext("contents")}}</a></li>
-    {% endif %}
-</ul>
-{% endif %}
+{% block bill_menus %}
+{% endblock %}
 {% endblock %}
 
 {% block content %}
