@@ -8,7 +8,12 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from conf.storage import BILLDOC_DIR
+try:
+    from conf.storage import BILLDOC_DIR
+except ImportError as e:
+    import sys
+    sys.stderr.write('Error: Update conf/storage.py\n')
+    sys.exit(1)
 from models.bill import assembly_id_by_bill_id, Bill
 from utils.jinja import breadcrumb
 
