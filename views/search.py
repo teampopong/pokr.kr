@@ -38,12 +38,15 @@ def register(app):
             results['schools'], options['schools'] = search_schools()
             results['bills']  , options['bills']   = search_bills()
             results['regions'], options['regions'] = search_regions()
+
+            options = dict(chain(*(d.iteritems() for d in options.itervalues())))
+            response = render_template('search-results.html',
+                    option_texts=options, **results)
         except (DataError, NoResultFound) as e:
             # When such given *_id is invalid
-            return render_template('not-found.html'), 404
+            response = (render_template('not-found.html'), 404)
 
-        options = dict(chain(*(d.iteritems() for d in options.itervalues())))
-        return render_template('search-results.html', option_texts=options, **results)
+        return response
 
 
     @if_target('people')
