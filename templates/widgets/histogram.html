@@ -62,7 +62,7 @@ selectedBar.append("rect")
 
 selectedBar.append("text")
     .attr("dy", ".75em")
-    .attr("y", 10)
+    .attr("y", function(d) { return height - y(d.y) + 4; })
     .attr("x", x(data[0].dx) / 2)
     .attr("text-anchor", "middle")
     .text(function(d) { return formatCount(_value); });
