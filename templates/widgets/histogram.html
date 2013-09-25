@@ -7,6 +7,9 @@ var _width = {{ width or 150 }},
     _value = {{ value }};
  
 var values = [{{ ', '.join(values) }}];
+values.sort(function (a, b) { return a-b; });
+var rank = values.indexOf(_value),
+    rankInPercent = (values.length - rank) / values.length * 100;
 
 var formatCount = d3.format(",.0f");
  
@@ -71,5 +74,23 @@ svg.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
+
+function toFixed(value, precision) {
+    var power = Math.pow(10, precision || 0);
+    return String(Math.round(value * power) / power);
+}
+ 
+svg.append("text" )
+    .attr("y", 0)
+    .attr("x", width + margin.right / 2)
+    .attr("text-anchor", "end")
+    .text("{{ gettext('Top') }} " + toFixed(rankInPercent, 1) + '%');
+ 
+svg.append("text" )
+    .attr("y", 12)
+    .attr("x", width + margin.right / 2)
+    .attr("text-anchor", "end")
+    .text((values.length - rank) + "{{ gettext('th / ') }}" + values.length);
+
 }());
 </script>
