@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from card import card
+from histogram import histogram
 from kmap import kmap
 from relation import rivals
 from timeline import timeline
@@ -11,6 +12,7 @@ __all__ = ['init_app']
 
 widgets = {
     'card': card,
+    'histogram': histogram,
     'kmap': kmap,
     'rivals': rivals,
     'timeline': timeline,
