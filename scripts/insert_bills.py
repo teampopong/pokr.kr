@@ -11,7 +11,7 @@ import sys
 from sqlalchemy.sql.expression import and_
 
 try:
-    from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
+    from conf.storage import BILLJSON_DIR, REDIS_SETTINGS, REDIS_KEYS
 except ImportError as e:
     import sys
     sys.stderr.write('Error: Update conf/storage.py\n')
@@ -129,7 +129,7 @@ def update_bills_from_files(files):
 
 def bill_filepath(bill_id):
     assembly_id = assembly_id_by_bill_id(bill_id)
-    return '%s/%d/%s.json' % (DIRS['data'], assembly_id, bill_id)
+    return '%s/%d/%s.json' % (BILLJSON_DIR, assembly_id, bill_id)
 
 
 def insert_bill(session, record):
