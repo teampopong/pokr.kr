@@ -3,6 +3,7 @@ from itertools import chain
 
 from flask import request, render_template
 from sqlalchemy import func, or_
+from sqlalchemy.exc import DataError
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import and_, desc, false
 from werkzeug.local import LocalProxy
@@ -37,12 +38,15 @@ def register(app):
             results['schools'], options['schools'] = search_schools()
             results['bills']  , options['bills']   = search_bills()
             results['regions'], options['regions'] = search_regions()
-        except NoResultFound as e:
-            # When such given *_id is invalid
-            return render_template('not-found.html'), 404
 
-        options = dict(chain(*(d.iteritems() for d in options.itervalues())))
-        return render_template('search-results.html', option_texts=options, **results)
+            options = dict(chain(*(d.iteritems() for d in options.itervalues())))
+            response = render_template('search-results.html',
+                    option_texts=options, **results)
+        except (DataError, NoResultFound) as e:
+            # When such given *_id is invalid
+            response = (render_template('not-found.html'), 404)
+
+        return response
 
 
     @if_target('people')

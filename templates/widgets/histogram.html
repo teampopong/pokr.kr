@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="{{ url_for('static', filename="css/histogram.css") }}">
+<div class="histogram" id="{{ guids('canvas') }}"></div>
+<script>
+(function () {
+var _width = {{ width or 150 }},
+    _height = {{ height or 50 }},
+    _value = {{ value }};
+ 
+var values = [{{ ', '.join(values) }}];
+values.sort(function (a, b) { return a-b; });
+var rank = values.indexOf(_value),
+    rankInPercent = (values.length - rank) / values.length * 100;
+
+var formatCount = d3.format(",.0f");
+ 
+var margin = {top: 10, right: 30, bottom: 20, left: 10},
+    width = _width - margin.left - margin.right,
+    height = _height - margin.top - margin.bottom;
+ 
+var x = d3.scale.linear()
+    .domain([0, d3.max(values) + 1])
+    .range([0, width]);
+ 
+var data = d3.layout.histogram()
+    .bins(x.ticks(20))
+    (values);
+
+var y = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) { return d.y; })])
+    .range([height, 0]);
+ 
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickValues(x.domain())
+    .orient("bottom");
+
+var line = d3.svg.line()
+    .x(function(d,i) { return x(d.x); })
+    .y(function(d) { return y(d.y); });
+
+var svg = d3.select("#{{ guids('canvas') }}").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+svg.append('svg:path')
+    .attr('class', 'line')
+    .attr('d', line(data));
+
+var bar = svg.selectAll(".bar")
+    .data(data)
+  .enter().append("g")
+    .attr("class", "bar")
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+var selectedBar = bar.filter(function (d) {
+    return d.indexOf(_value) !== -1;
+});
+ 
+selectedBar.append("rect")
+    .attr("x", 1)
+    .attr("width", x(data[0].dx) - 1)
+    .attr("height", function(d) { return height - y(d.y); });
+
+selectedBar.append("text")
+    .attr("dy", ".75em")
+    .attr("y", function(d) { return height - y(d.y) + 4; })
+    .attr("x", x(data[0].dx) / 2)
+    .attr("text-anchor", "middle")
+    .text(function(d) { return formatCount(_value); });
+ 
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+function toFixed(value, precision) {
+    var power = Math.pow(10, precision || 0);
+    return String(Math.round(value * power) / power);
+}
+ 
+svg.append("text" )
+    .attr("y", 0)
+    .attr("x", width + margin.right / 2)
+    .attr("text-anchor", "end")
+    .text("{{ gettext('Top') }} " + toFixed(rankInPercent, 1) + '%');
+ 
+svg.append("text" )
+    .attr("y", 12)
+    .attr("x", width + margin.right / 2)
+    .attr("text-anchor", "end")
+    .text((values.length - rank) + "{{ gettext('th / ') }}" + values.length);
+
+}());
+</script>
