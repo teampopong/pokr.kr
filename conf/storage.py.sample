@@ -2,7 +2,8 @@
 
 # File Storage
 BASEDIR = './data'
-BILLDOC_DIR = './docs'
+BILLPDF_DIR = './bill-docs/pdf'
+BILLTXT_DIR = './bill-docs/txt'
 DIRS = {
     'data': BASEDIR + '/json',
 }

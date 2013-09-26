@@ -8,7 +8,7 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from conf.storage import BILLDOC_DIR
+from conf.storage import BILLPDF_DIR, BILLTXT_DIR
 from models.bill import assembly_id_by_bill_id, Bill
 from utils.jinja import breadcrumb
 
@@ -41,7 +41,7 @@ def register(app):
     @app.route('/bill/<id>/pdf', methods=['GET'])
     def bill_pdf(id):
         assembly_id = assembly_id_by_bill_id(id)
-        filepath = '%s/pdf/%d/%s.pdf' % (BILLDOC_DIR, assembly_id, id)
+        filepath = '%s/%d/%s.pdf' % (BILLPDF_DIR, assembly_id, id)
 
         if os.path.exists(filepath):
             return send_file(filepath)
@@ -51,7 +51,7 @@ def register(app):
     @app.route('/bill/<id>/text', methods=['GET'])
     def bill_text(id):
         assembly_id = assembly_id_by_bill_id(id)
-        filepath = '%s/txt/%d/%s.txt' % (BILLDOC_DIR, assembly_id, id)
+        filepath = '%s/%d/%s.txt' % (BILLTXT_DIR, assembly_id, id)
 
         try:
             bill = Bill.query.filter_by(id=id).one()
