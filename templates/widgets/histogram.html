@@ -5,10 +5,20 @@
 var _width = {{ width or 150 }},
     _height = {{ height or 50 }},
     _value = {{ value }};
+
+function _indexOf(list, item) {
+    var last = 0;
+    for (var i = 0, len = list.length; i < len; i++) {
+        if (list[i] >= item) {
+            return i;
+        }
+    }
+    return list.length;
+}
  
 var values = [{{ ', '.join(values) }}];
 values.sort(function (a, b) { return a-b; });
-var rank = values.indexOf(_value),
+var rank = _indexOf(values, _value),
     rankInPercent = (values.length - rank) / values.length * 100;
 
 var formatCount = d3.format(",.0f");
