@@ -16,6 +16,14 @@ REDIS_KEYS = {
 }
 
 
+# Cache
+CACHE_CONFIG = {
+    'CACHE_TYPE': 'memcached',
+    'CACHE_KEY_PREFIX': 'pokr',
+    'CACHE_MEMCACHED_SERVERS': ['127.0.0.1:11211'],
+}
+
+
 # Postgres
 POSTGRES_SETTINGS = {
         'dialect': 'postgresql',
