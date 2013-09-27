@@ -81,7 +81,7 @@ def all_person_names():
     return all_names
 
 
-@cache.cached(timeout=60*60*4, key_prefix='distribution_of_cosponsorships')
+@cache.memoize(timeout=60*60*4)
 def distribution_of_cosponsorships(age):
     bill_t = Bill.__table__
     stmt = select([func.count(cosponsorship.c.id)])\
