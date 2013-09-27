@@ -7,7 +7,9 @@ from sqlalchemy import distinct
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
+from models.assembly import Assembly
 from models.candidacy import Candidacy
+from models.election import Election
 from models.party import Party
 from utils.jinja import breadcrumb
 
@@ -25,8 +27,10 @@ def register(app):
         assembly_id = int(request.args.get('assembly_id', 19))
 
         parties = Party.query.distinct(Party.id)\
-                        .join(Candidacy)\
-                        .filter(Candidacy.age==assembly_id)
+                        .join(Party.candidacies)\
+                        .join(Candidacy.election)\
+                        .join(Election.organization.of_type(Assembly))\
+                        .filter(Assembly.session_id==assembly_id)
 
         return render_template('parties.html',\
                                 assembly_id=assembly_id,\

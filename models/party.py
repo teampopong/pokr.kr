@@ -1,33 +1,21 @@
-from sqlalchemy import CHAR, Column, Integer, String, Unicode
-from sqlalchemy.orm import backref, relationship
+# -*- coding: utf-8 -*-
+
+from sqlalchemy import CHAR, Column, Date, Integer, Text
+from sqlalchemy.orm import deferred
 
 from database import Base
-from models.candidacy import Candidacy
+from models import Table
 
-class Party(Base):
+
+class Party(Table, Base):
     __tablename__ = 'party'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    name = Column(Unicode(20), nullable=False, index=True)
-    color = Column(CHAR(6))
-    logo = Column(String(1024))
+    name = Column(Text, nullable=False, index=True)
 
-    # derived(duplicated) infos
-    order = Column(Integer)
-    size = Column(Integer)
+    start_date = Column(Date, index=True)
+    end_date = Column(Date, index=True)
+    logo = deferred(Column(Text), group='extra')
+    color = deferred(Column(CHAR(6)), group='extra')
+    homepage = deferred(Column(Text), group='extra')
 
-    def __init__(self, name, color=None):
-        self.name = name
-        if color:
-            self.color = color
-
-    @property
-    def members(self):
-        if 'Person' not in dir():
-            from models.person import Person
-        return Person.query.join(Candidacy,
-                                 Person.id == Candidacy.person_id)\
-                           .join(Party,
-                                 Party.id == Candidacy.party_id)\
-                           .filter(Party.id == self.id)\
-                           .group_by(Person.id)

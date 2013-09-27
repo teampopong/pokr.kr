@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, Integer, Unicode, UnicodeText
+from sqlalchemy import Column, Integer, Text
 
 from database import Base
+from models import Table
 
 
-class BillStatus(Base):
+class BillStatus(Table, Base):
     __tablename__ = 'bill_status'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    name = Column(Unicode(150), index=True, nullable=False)
-    description = Column(UnicodeText)
+    name = Column(Text, index=True, nullable=False)
+    description = Column(Text)
+

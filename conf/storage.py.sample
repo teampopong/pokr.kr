@@ -22,6 +22,6 @@ POSTGRES_SETTINGS = {
         'host': 'localhost',
         'id': '', # fill this
         'password': '', # fill this
-        'db': 'popongdb',
+        'db': 'pokr',
         }
 SQLALCHEMY_URI = '{dialect}+{driver}://{id}:{password}@{host}/{db}'.format(**POSTGRES_SETTINGS)

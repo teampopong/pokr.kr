@@ -6,7 +6,7 @@ from sqlalchemy import func, or_
 from sqlalchemy.sql.expression import and_, desc, false
 from werkzeug.local import LocalProxy
 
-from models.cosponsorship import cosponsorship
+from models.cosponsorship import Cosponsorship
 from models.bill import Bill
 from models.bill_status import BillStatus
 from models.keyword import Keyword
@@ -14,7 +14,6 @@ from models.party import Party
 from models.person import Person
 from models.region import Region
 from models.school import School
-from models.query_log import log_query
 from utils.jinja import breadcrumb
 
 
@@ -27,7 +26,6 @@ def register(app):
     @app.route('/search', methods=['GET'])
     @breadcrumb(app)
     def search():
-        log_query(query)
         results, options = {}, {}
         results['people'] , options['people']  = search_people()
         results['parties'], options['parties'] = search_parties()
@@ -111,7 +109,7 @@ def register(app):
                 ))
 
         if person_id:
-            bills = bills.join(cosponsorship)\
+            bills = bills.join(Cosponsorship)\
                          .join(Person)\
                          .filter(Person.id == person_id)
             options['person_id'] = Person.query.filter_by(id=person_id).one().name

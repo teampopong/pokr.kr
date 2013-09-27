@@ -6,6 +6,7 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
+from models.assembly import Assembly
 from models.bill import Bill
 from utils.jinja import breadcrumb
 
@@ -20,7 +21,10 @@ def register(app):
     def bill_main():
         # FIXME: 19
         assembly_id = int(request.args.get('assembly_id', 19))
-        bills = Bill.query.filter(Bill.age==assembly_id).order_by(desc(Bill.proposed_date).nullslast())
+        bills = Bill.query\
+                    .join(Bill.assembly)\
+                    .filter(Assembly.session_id==assembly_id)\
+                    .order_by(desc(Bill.proposed_date).nullslast())
         return render_template('bills.html',\
                 assembly_id=assembly_id, bills=bills)
 

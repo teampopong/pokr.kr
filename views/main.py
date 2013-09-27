@@ -10,7 +10,6 @@ from flask import redirect, render_template, url_for
 from sqlalchemy.sql.expression import desc
 
 from database import db_session
-from models.bill import Bill
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 
