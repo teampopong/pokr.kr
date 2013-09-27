@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
 # File Storage
-BASEDIR = './data'
-BILLDOC_DIR = './docs'
-DIRS = {
-    'data': BASEDIR + '/json',
-}
+BILLJSON_DIR = './bills/json'
+BILLPDF_DIR = './bill-docs/pdf'
+BILLTXT_DIR = './bill-docs/txt'
 
 
 # Redis
