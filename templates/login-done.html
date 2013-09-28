@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<p>You are logged in as {{ user.username }}!</p>
+
+<p>Associated:</p>
+<ul>
+  {% for assoc in backends.associated %}
+    <li>
+      {{ assoc.provider }} (<a href="{{ url_for("social.disconnect", backend=assoc.provider, association_id=assoc.id) }}" class="disconnect">Disconnect</a>)
+    </li>
+  {% endfor %}
+</ul>
+
+<p>Associate:</p>
+<ul>
+  {% for name in backends.not_associated %}
+    <li>
+      <a href="{{ url_for("social.auth", backend=name) }}">{{ name }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<script type="text/javascript">
+$(function () {
+    $(document).on('click', 'a.disconnect', function (e) {
+        e.preventDefault();
+        $('form#disconnect-form')
+            .attr('action', $(this).attr('href'))
+            .submit();
+    });
+});
+</script>
+{% endblock %}
