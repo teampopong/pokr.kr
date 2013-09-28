@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+import getpass
+import pickle
 import re
+import socket
+
 from flask import redirect, render_template, url_for
 from sqlalchemy.sql.expression import desc
 
@@ -15,6 +19,18 @@ def register(app):
     @app.route('/')
     def main():
         return render_template('main.html')
+
+    @app.route('/lucy')
+    def lucy():
+        with open('data/message.pkl', 'rb') as f:
+            message = pickle.load(f)
+
+        if getpass.getuser() in message['id']\
+                or socket.gethostname().split('.')[0] in message['hostname']:
+            return '<pre>%s</pre>' % message['message']
+
+        else:
+            return render_template('not-found.html'), 404
 
     @app.route('/favicon.ico')
     def favicon():

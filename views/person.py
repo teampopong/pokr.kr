@@ -12,6 +12,7 @@ from sqlalchemy.orm import undefer_group
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import select, desc
 
+from cache import cache
 from database import db_session
 from models.bill import Bill
 from models.candidacy import Candidacy
@@ -80,20 +81,13 @@ def all_person_names():
     return all_names
 
 
+@cache.cached(timeout=60*60*4, key_prefix='distribution_of_cosponsorships')
 def distribution_of_cosponsorships(age):
-    # FIXME: better memoization through DB
-    if not hasattr(current_app, '_distribution_of_cosponsorships'):
-        setattr(current_app, '_distribution_of_cosponsorships', {})
-
-    distribution = current_app._distribution_of_cosponsorships.get(age)
-    if not distribution:
-        bill_t = Bill.__table__
-        stmt = select([func.count(cosponsorship.c.id)])\
-                .select_from(cosponsorship.join(bill_t))\
-                .where(bill_t.c.age == age)\
-                .group_by(cosponsorship.c.person_id)
-        distribution = db_session.execute(stmt).fetchall()
-        distribution = map(lambda x: x[0], distribution)
-        current_app._distribution_of_cosponsorships[age] = distribution
-
+    bill_t = Bill.__table__
+    stmt = select([func.count(cosponsorship.c.id)])\
+            .select_from(cosponsorship.join(bill_t))\
+            .where(bill_t.c.age == age)\
+            .group_by(cosponsorship.c.person_id)
+    distribution = db_session.execute(stmt).fetchall()
+    distribution = map(lambda x: x[0], distribution)
     return distribution
