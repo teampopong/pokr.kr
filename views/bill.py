@@ -1,12 +1,20 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import redirect, render_template, request, url_for
+import os
+
+from flask import redirect, render_template, request, send_file, url_for
 from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from models.bill import Bill
+try:
+    from conf.storage import BILLPDF_DIR, BILLTXT_DIR
+except ImportError as e:
+    import sys
+    sys.stderr.write('Error: Update conf/storage.py\n')
+    sys.exit(1)
+from models.bill import assembly_id_by_bill_id, Bill
 from utils.jinja import breadcrumb
 
 
@@ -35,5 +43,30 @@ def register(app):
 
         return render_template('bill.html', bill=bill)
 
-    # TODO: bill pdf route 만들기
-    # TODO: bill text route 만들기
+    @app.route('/bill/<id>/pdf', methods=['GET'])
+    def bill_pdf(id):
+        assembly_id = assembly_id_by_bill_id(id)
+        filepath = '%s/%d/%s.pdf' % (BILLPDF_DIR, assembly_id, id)
+
+        if os.path.exists(filepath):
+            return send_file(filepath)
+        else:
+            return render_template('not-found.html'), 404
+
+    @app.route('/bill/<id>/text', methods=['GET'])
+    def bill_text(id):
+        assembly_id = assembly_id_by_bill_id(id)
+        filepath = '%s/%d/%s.txt' % (BILLTXT_DIR, assembly_id, id)
+
+        try:
+            bill = Bill.query.filter_by(id=id).one()
+
+        except NoResultFound, e:
+            return render_template('not-found.html'), 404
+
+        if os.path.exists(filepath):
+            with open(filepath) as f:
+                response = render_template('bill-text.html', bill=bill, f=f)
+            return response
+        else:
+            return render_template('not-found.html'), 404

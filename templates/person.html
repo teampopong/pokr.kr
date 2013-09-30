@@ -244,6 +244,7 @@
                         <h4 class="subsection-title">
                             {{ candidacy.age }}{{ gettext('th assembly') }}
                             <small>{{ macro.list_count(all_bills) }}</small>
+                            <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.age))|safe }}
                         </h4>
                         <table class="table table-condensed">
                             <tr>
@@ -283,6 +284,7 @@
                                     <th id="legislations-{{ candidacy.age }}" class="anchor" rowspan="{{ bills|length + 1 }}">
                                         {{ candidacy.age }}{{ gettext('th assembly') }}
                                         <br>{{ macro.list_count(all_bills) }}
+                                        <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.age))|safe }}
                                     </th>
                                 </tr>
                                 {% for bill in bills[:NUM_BILLS_SHOWN] %}

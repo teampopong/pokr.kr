@@ -1,37 +1,6 @@
-{% extends "layout.html" %}
-{% import 'macros.html' as macro with context %}
+{% extends "bill-layout.html" %}
 
-{% block title %}
-{{ bill.name }} - {{ super() }}
-{% endblock %}
-
-{% block extra_headers %}
-{# TODO: get rid of bill.less #}
-{% assets filters='less', output='build/bill.%(version)s.css',
-    depends=['**/*.less'], 'less/bill.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
-{% endblock %}
-
-{% block breadcrumb_current %}
-{{ bill.id }}
-{% endblock %}
-
-{% block card %}
-{% if mobile %}
-<h2 id="bill-name">{{ bill.name }}</h2>
-{% else %}
-<div class="instance-card">
-    <h2 class="instance-name">#{{ bill.id }}</h2>
-    <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
-</div>
-{% endif %}
-{% include 'social.html' %}
-<div class="original-link">
-    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
-    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
-    {% if bill.document_url %}<br><a href="{{ bill.document_url }}">{{ gettext('see original document') }}</a>{% endif %}
-</div>
+{% block bill_menus %}
 {% if not mobile %}
 <ul id="bill-section-tabs" class="nav section-tabs">
     <li class="active"><a href="#outline">{{gettext("outline")}}</a></li>
@@ -43,153 +12,140 @@
 {% endif %}
 {% endblock %}
 
-{% block content %}
-<div id="bill-view" class="view">
-    {% if not mobile %}
-    <h2 id="bill-name">{{ bill.name }}</h2>
-    {% if bill.name.endswith("(대안)") %}
-    <div class="info" style="margin-top: -30px;">
-        <i class="icon-exclamation-sign"></i>
-        <span>'대안'은 원안과 취지는 같으나 내용을 전면 수정하거나 체계를 전혀 다르게 하여 작성된 안이며, 이 때 원안은 '대안폐기'됩니다</span>
-    </div>
-    {% endif %}
-    {% endif %}
-    <div id="bill-sections" class="sections">
-        <div id="section-outline" class="section">
-            <h3 id="outline">{{ gettext('outline') }}</h3>
-            <table id="bill-outline" class="table table-condensed">
-                <tbody>
-                    {% if bill.age %}
-                    <tr>
-                        <th>{{ gettext("assembly #") }}</th>
-                        <td>{{ bill.age }}</td>
-                    </tr>
-                    {% endif %}
-                    {% if bill.proposed_date %}
-                    <tr>
-                        <th>{{ gettext("proposed date") }}</th>
-                        <td>{{ bill.proposed_date }}</td>
-                    </tr>
-                    {% endif %}
-                    {% if bill.decision_date %}
-                    <tr>
-                        <th>{{ gettext("decision date") }}</th>
-                        <td>{{ bill.decision_date }}</td>
-                    </tr>
-                    {% endif %}
-                    <tr>
-                        <th>{{ gettext("status") }}</th>
-                        <td>
-                            <table id="bill-status" class="table">
-                                {% set before_current = True %}
-                                {% if mobile %}
-                                    {% for status in bill.statuses %}
-                                        <tr>
-                                        {% if status.id == bill.status_id %}
-                                        <td class="present">
-                                        {% set before_current = False %}
-                                        {% elif before_current %}
-                                        <td class="past">
-                                        {% else %}
-                                        <td class="future">
-                                        {% endif %}
-                                        <a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td></tr>
-                                    {% endfor %}
+{% block bill_content %}
+<div id="section-outline" class="section">
+    <h3 id="outline">{{ gettext('outline') }}</h3>
+    <table id="bill-outline" class="table table-condensed">
+        <tbody>
+            {% if bill.age %}
+            <tr>
+                <th>{{ gettext("assembly #") }}</th>
+                <td>{{ bill.age }}</td>
+            </tr>
+            {% endif %}
+            {% if bill.proposed_date %}
+            <tr>
+                <th>{{ gettext("proposed date") }}</th>
+                <td>{{ bill.proposed_date }}</td>
+            </tr>
+            {% endif %}
+            {% if bill.decision_date %}
+            <tr>
+                <th>{{ gettext("decision date") }}</th>
+                <td>{{ bill.decision_date }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <th>{{ gettext("status") }}</th>
+                <td>
+                    <table id="bill-status" class="table">
+                        {% set before_current = True %}
+                        {% if mobile %}
+                            {% for status in bill.statuses %}
+                                <tr>
+                                {% if status.id == bill.status_id %}
+                                <td class="present">
+                                {% set before_current = False %}
+                                {% elif before_current %}
+                                <td class="past">
                                 {% else %}
-                                    <tr>
-                                    {% for status in bill.statuses %}
-                                        {% if status.id == bill.status_id %}
-                                        <td class="present">
-                                        {% set before_current = False %}
-                                        {% elif before_current %}
-                                        <td class="past">
-                                        {% else %}
-                                        <td class="future">
-                                        {% endif %}
-                                        <!-- TODO: status explanation -->
-                                        <a href="{{ url_for('search', target='bills', status_id=status.id) }}"><div class="tooltipped" data-placement="bottom" data-title="{{ status.description }}">{{ status.name }}</div></a></td>
-                                    {% endfor %}
-                                    </tr>
+                                <td class="future">
                                 {% endif %}
-                            </table>
-                        </td>
-                    </tr>
-                    {% if bill.keywords %}
-                    <tr>
-                        <th>{{ gettext("related keywords") }}</th>
-                        <td>{% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', keyword_id=keyword.id) }}">{{ keyword.name }}</a>{% if not loop.last %},&nbsp;{% endif %}{% endfor %}</td>
-                    </tr>
-                    {% endif %}
-                </table>
-            </div>
-            <div id="section-sponsors" class="section">
-                <h3 id="sponsors">{{ gettext('sponsors') }}</h3>
-                {% if mobile %}
-                    {% if bill.sponsor %}
-                        <h4 class="subsection-title">{{ gettext("representative sponsor") }}</h4>
-                        {% if bill.representative_people %}
-                            {% for sponsor in bill.representative_people %}
-                            {{ widgets.card(sponsor)|safe }}
+                                <a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td></tr>
                             {% endfor %}
                         {% else %}
-                            {{ bill.sponsor }}
+                            <tr>
+                            {% for status in bill.statuses %}
+                                {% if status.id == bill.status_id %}
+                                <td class="present">
+                                {% set before_current = False %}
+                                {% elif before_current %}
+                                <td class="past">
+                                {% else %}
+                                <td class="future">
+                                {% endif %}
+                                <!-- TODO: status explanation -->
+                                <a href="{{ url_for('search', target='bills', status_id=status.id) }}"><div class="tooltipped" data-placement="bottom" data-title="{{ status.description }}">{{ status.name }}</div></a></td>
+                            {% endfor %}
+                            </tr>
                         {% endif %}
-                    {% endif %}
-                    {% if bill.cosponsors %}
-                        <h4 class="subsection-title">
-                            {{ gettext("cosponsors") }}
-                            {{ macro.list_count(bill.cosponsors, type='people') }}
-                        </h4>
-                        <div id="cosponsor-cards">
-                        {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
-                        </div>
-                        <div id="cosponsor-parties"></div>
-                    {% endif %}
-                {% else %}
-                <table class="table table-condensed">
-                    {% if bill.sponsor %}
-                    <tr>
-                        <th>{{ gettext("representative sponsor") }}</th>
-                        <td>{% if bill.representative_people %}
-                                {% for sponsor in bill.representative_people %}
-                                {{ widgets.card(sponsor)|safe }}
-                                {% endfor %}
-                            {% else %}
-                                {{ bill.sponsor }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endif %}
-                    {% if bill.cosponsors %}
-                    <tr>
-                        <th>
-                            {{ gettext("cosponsors") }}
-                            <br>{{ macro.list_count(bill.cosponsors, type='people') }}
-                        </th>
-                        <td>
-                            <div id="cosponsor-cards">
-                            {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
-                            </div>
-                            <div id="cosponsor-parties"></div>
-                        </td>
-                    </tr>
-                    {% endif %}
-                </table>
-                {% endif %}
-            </div>
-            {% if bill.summary %}
-            <div id="section-contents" class="section">
-                <h3 id="contents">{{ gettext('contents') }}</h3>
-                <table class="table table-condensed">
-                    <tr>
-                        <th>{{ gettext('summary') }}</th>
-                        <td><pre id="bill-summary">{{ bill.summary }}</pre></td>
-                    </tr>
-                </tbody>
-            </table>
+                    </table>
+                </td>
+            </tr>
+            {% if bill.keywords %}
+            <tr>
+                <th>{{ gettext("related keywords") }}</th>
+                <td>{% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', keyword_id=keyword.id) }}">{{ keyword.name }}</a>{% if not loop.last %},&nbsp;{% endif %}{% endfor %}</td>
+            </tr>
             {% endif %}
-            </div>
-        </div>
+        </table>
+    </div>
+    <div id="section-sponsors" class="section">
+        <h3 id="sponsors">{{ gettext('sponsors') }}</h3>
+        {% if mobile %}
+            {% if bill.sponsor %}
+                <h4 class="subsection-title">{{ gettext("representative sponsor") }}</h4>
+                {% if bill.representative_people %}
+                    {% for sponsor in bill.representative_people %}
+                    {{ widgets.card(sponsor)|safe }}
+                    {% endfor %}
+                {% else %}
+                    {{ bill.sponsor }}
+                {% endif %}
+            {% endif %}
+            {% if bill.cosponsors %}
+                <h4 class="subsection-title">
+                    {{ gettext("cosponsors") }}
+                    {{ macro.list_count(bill.cosponsors, type='people') }}
+                </h4>
+                <div id="cosponsor-cards">
+                {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
+                </div>
+                <div id="cosponsor-parties"></div>
+            {% endif %}
+        {% else %}
+        <table class="table table-condensed">
+            {% if bill.sponsor %}
+            <tr>
+                <th>{{ gettext("representative sponsor") }}</th>
+                <td>{% if bill.representative_people %}
+                        {% for sponsor in bill.representative_people %}
+                        {{ widgets.card(sponsor)|safe }}
+                        {% endfor %}
+                    {% else %}
+                        {{ bill.sponsor }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+            {% if bill.cosponsors %}
+            <tr>
+                <th>
+                    {{ gettext("cosponsors") }}
+                    <br>{{ macro.list_count(bill.cosponsors, type='people') }}
+                </th>
+                <td>
+                    <div id="cosponsor-cards">
+                    {% for cosponsor in bill.cosponsors %}{{ widgets.card(cosponsor)|safe }}{% endfor %}
+                    </div>
+                    <div id="cosponsor-parties"></div>
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+        {% endif %}
+    </div>
+    {% if bill.summary %}
+    <div id="section-contents" class="section">
+        <h3 id="contents">{{ gettext('contents') }}</h3>
+        <table class="table table-condensed">
+            <tr>
+                <th>{{ gettext('summary') }}</th>
+                <td><pre id="bill-summary" class="text">{{ bill.summary }}</pre></td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
     </div>
 </div>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>

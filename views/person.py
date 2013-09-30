@@ -5,15 +5,18 @@ import json
 import operator
 import time
 
-from flask import redirect, render_template, request, url_for
+from flask import current_app, redirect, render_template, request, url_for
 from flask.ext.babel import gettext
-from sqlalchemy import and_
+from sqlalchemy import and_, func
 from sqlalchemy.orm import undefer_group
 from sqlalchemy.orm.exc import NoResultFound
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql.expression import select, desc
 
+from cache import cache
 from database import db_session
+from models.bill import Bill
 from models.candidacy import Candidacy
+from models.cosponsorship import cosponsorship
 from models.person import Person
 from utils.jinja import breadcrumb
 
@@ -65,6 +68,7 @@ def register(app):
             pass
 
         return render_template('person.html', person=person,
+                distribution_of_cosponsorships=distribution_of_cosponsorships,
                 person_extra_vars=person_extra_vars)
 
 
@@ -76,3 +80,14 @@ def all_person_names():
     all_names = list(set(reduce(operator.add, name_tuples)))
     return all_names
 
+
+@cache.memoize(timeout=60*60*4)
+def distribution_of_cosponsorships(age):
+    bill_t = Bill.__table__
+    stmt = select([func.count(cosponsorship.c.id)])\
+            .select_from(cosponsorship.join(bill_t))\
+            .where(bill_t.c.age == age)\
+            .group_by(cosponsorship.c.person_id)
+    distribution = db_session.execute(stmt).fetchall()
+    distribution = map(lambda x: x[0], distribution)
+    return distribution

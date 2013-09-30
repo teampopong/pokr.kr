@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ bill.name }} - {{ super() }}
+{% endblock %}
+
+{% block extra_headers %}
+{# TODO: get rid of bill.less #}
+{% assets filters='less', output='build/bill.%(version)s.css',
+    depends=['**/*.less'], 'less/bill.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ bill.id }}
+{% endblock %}
+
+{% block card %}
+{% if mobile %}
+<h2 id="bill-name">{{ bill.name }}</h2>
+{% else %}
+<div class="instance-card">
+    <h2 class="instance-name">#{{ bill.id }}</h2>
+    <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
+</div>
+{% endif %}
+{% include 'social.html' %}
+<div class="original-link">
+    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
+    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
+    {% if bill.document_url %}<br><a href="{{ bill.document_url }}">{{ gettext('see original document') }}</a>{% endif %}
+</div>
+{% block bill_menus %}
+{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div id="bill-view" class="view">
+    {% if not mobile %}
+    <h2 id="bill-name">{{ bill.name }}</h2>
+    {% if bill.name.endswith("(대안)") %}
+    <div class="info" style="margin-top: -30px;">
+        <i class="icon-exclamation-sign"></i>
+        <span>'대안'은 원안과 취지는 같으나 내용을 전면 수정하거나 체계를 전혀 다르게 하여 작성된 안이며, 이 때 원안은 '대안폐기'됩니다</span>
+    </div>
+    {% endif %}
+    {% endif %}
+    <div id="bill-sections" class="sections">
+        {% block bill_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

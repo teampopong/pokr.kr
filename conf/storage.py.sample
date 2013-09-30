@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 # File Storage
-BASEDIR = './data'
-DIRS = {
-    'data': BASEDIR + '/json',
-}
+BILLJSON_DIR = './bills/json'
+BILLPDF_DIR = './bill-docs/pdf'
+BILLTXT_DIR = './bill-docs/txt'
 
 
 # Redis
@@ -12,6 +11,14 @@ REDIS_SETTINGS = {
 }
 REDIS_KEYS = {
     'insert_bills_db': 'insert_bills_db'
+}
+
+
+# Cache
+CACHE_CONFIG = {
+    'CACHE_TYPE': 'memcached',
+    'CACHE_KEY_PREFIX': 'pokr',
+    'CACHE_MEMCACHED_SERVERS': ['127.0.0.1:11211'],
 }
 
 

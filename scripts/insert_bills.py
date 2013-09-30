@@ -9,10 +9,9 @@ import re
 import sys
 
 from sqlalchemy.sql.expression import and_
-from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
 try:
-    from conf.storage import DIRS, REDIS_SETTINGS, REDIS_KEYS
+    from conf.storage import BILLJSON_DIR, REDIS_SETTINGS, REDIS_KEYS
 except ImportError as e:
     import sys
     sys.stderr.write('Error: Update conf/storage.py\n')
@@ -24,7 +23,7 @@ from models.bill_review import BillReview
 from models.election import Election
 from models.cosponsorship import cosponsorship
 from models.candidacy import Candidacy
-from models.person import Person
+from models.person import guess_person, Person
 from queue import RedisQueue
 from utils.command import Command
 
@@ -130,7 +129,7 @@ def update_bills_from_files(files):
 
 def bill_filepath(bill_id):
     assembly_id = assembly_id_by_bill_id(bill_id)
-    return '%s/%d/%s.json' % (DIRS['data'], assembly_id, bill_id)
+    return '%s/%d/%s.json' % (BILLJSON_DIR, assembly_id, bill_id)
 
 
 def insert_bill(session, record):
@@ -275,24 +274,6 @@ def any_value_with_re(obj, regex):
             res.extend(any_value_with_re(val, regex))
 
     return res
-
-
-def guess_person(session, name, assembly_id):
-    try:
-        person = session.query(Person)\
-                        .filter_by(name=name)\
-                        .join(Person.candidacies)\
-                        .filter(and_(Candidacy.age == assembly_id))\
-                        .one()
-
-    except MultipleResultsFound, e:
-        person = session.query(Person)\
-                        .filter_by(name=name)\
-                        .join(Person.candidacies)\
-                        .filter(and_(Candidacy.age == assembly_id,
-                                     Candidacy.is_elected == True))\
-                        .one()
-    return person
 
 
 def parse_date(date_):
