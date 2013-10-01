@@ -25,6 +25,19 @@
 {{ gettext('Mypage') }}
 {% endblock %}
 
+{% block card %}
+{{ gettext('Favorite politicians') }}:<br>
+{% if user.favorite_people %}
+    <ul>
+    {% for person in user.favorite_people %}
+        <li><a href="{{ url_for('person', id=person.id) }}">{{ person.name|translit(type='name') }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    {{ gettext('None') }}
+{% endif %}
+{% endblock %}
+
 {% block content %}
 {% for feed in feeds %}
 <div class="feed">

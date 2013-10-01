@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-10-01 12:54+0900\n"
+"POT-Creation-Date: 2013-10-02 02:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,7 +145,16 @@ msgstr ""
 msgid "Mypage"
 msgstr ""
 
-#: templates/mypage.html:33
+#: templates/mypage.html:29
+msgid "Favorite politicians"
+msgstr ""
+
+#: templates/mypage.html:37 templates/widgets/card.html:42
+#: templates/widgets/relation.html:6
+msgid "None"
+msgstr ""
+
+#: templates/mypage.html:46
 #, python-format
 msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
 msgstr ""
@@ -414,10 +423,6 @@ msgstr ""
 
 #: templates/includes/header.html:8
 msgid "Seon-Mi Jin"
-msgstr ""
-
-#: templates/widgets/card.html:41 templates/widgets/relation.html:6
-msgid "None"
 msgstr ""
 
 #: templates/widgets/histogram.html:97
