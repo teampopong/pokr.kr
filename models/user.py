@@ -13,5 +13,3 @@ class User(Base, UserMixin):
     password = Column(String(200), default='')
     username = Column(String(200))
 
-    def is_active(self):
-        return self.active
