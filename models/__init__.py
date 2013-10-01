@@ -8,6 +8,8 @@ import bill_withdrawal
 import candidacy
 import cosponsorship
 import election
+import favorite_keyword
+import favorite_person
 import feed
 import keyword
 import party
