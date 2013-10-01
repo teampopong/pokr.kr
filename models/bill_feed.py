@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from sqlalchemy import Column, Date, DDL, event, ForeignKey, Integer, Text
+from sqlalchemy.orm import relationship
 
 from models.feed import Feed, FeedType
 
@@ -17,6 +18,8 @@ class BillFeed(Feed):
     __mapper_args__ = {
         'polymorphic_identity': FeedType.bill,
     }
+
+    bill = relationship('Bill', uselist=False)
 
     def to_html(self):
         pass # TODO
