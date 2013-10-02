@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-10-01 12:54+0900\n"
+"POT-Creation-Date: 2013-10-02 02:11+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -145,7 +145,16 @@ msgstr "당신의 피드백이<br>포커를 만듭니다!<br><small>(칭찬에 �
 msgid "Mypage"
 msgstr "마이페이지"
 
-#: templates/mypage.html:33
+#: templates/mypage.html:29
+msgid "Favorite politicians"
+msgstr "즐겨찾는 정치인"
+
+#: templates/mypage.html:37 templates/widgets/card.html:42
+#: templates/widgets/relation.html:6
+msgid "None"
+msgstr "없음"
+
+#: templates/mypage.html:46
 #, python-format
 msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
 msgstr "<a href=\"%(href)s\">%(title)s</a>을(를) 발의했습니다."
@@ -415,10 +424,6 @@ msgstr "지역"
 #: templates/includes/header.html:8
 msgid "Seon-Mi Jin"
 msgstr "진선미"
-
-#: templates/widgets/card.html:41 templates/widgets/relation.html:6
-msgid "None"
-msgstr "없음"
 
 #: templates/widgets/histogram.html:97
 msgid "Top"

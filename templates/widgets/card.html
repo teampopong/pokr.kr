@@ -1,7 +1,8 @@
 {% if detailed %}
+{% set is_favorite = person in user.favorite_people %}
 <div class="card card-large" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
     <img class="person-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"> 
-    <h2><span class="person-name">{{ person.name|translit(type='name') }}</span><br> 
+    <h2><span class="person-name">{{ person.name|translit(type='name') }}</span>{% if is_logged %} <a class="post-request" href="{{ url_for('unfavorite_person' if is_favorite else 'favorite_person', id=person.id) }}"><i style="color: gold;" class="icon-star{% if not is_favorite %}-empty{% endif %}"></i></a>{% endif %}<br> 
         <small>
             {% if person.twitter %}
             <a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
@@ -43,3 +44,20 @@
     </div>
 {% endif %}
 {% endif %}
+<script>
+$(function () {
+    $(document).on('click', 'a.post-request', function(e) {
+        e.preventDefault();
+        if (!$('form#post-request').size()) {
+            $('<form></form>')
+                .attr('id', 'post-request')
+                .attr('style', 'display: none;')
+                .attr('method', 'POST')
+                .insertAfter($(this));
+        }
+        $('form#post-request')
+            .attr('action', $(this).attr('href'))
+            .submit();
+    });
+});
+</script>
