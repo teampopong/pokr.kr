@@ -18,6 +18,7 @@
         <script>
         window.isMobile = {{ 'true' if mobile else 'false' }};
         window.currentPage = '{{request.endpoint}}';
+        window.isDebug = {{ 'true' if app.debug else 'false' }};
         </script>
 
         {% include 'includes/includes.html' %}

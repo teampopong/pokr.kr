@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% import 'macros.html' as macro with context %}
 
 {% block title %}
 {{ gettext("Mypage") }} - {{ super() }}
@@ -7,7 +6,13 @@
 
 {% block extra_headers %}
 <style>
+#newsfeed-feeds {
+    list-style: none;
+    padding-left: 0;
+}
+
 .feed {
+    display: block;
     padding: 10px 0;
     border-bottom: 1px solid #aaa;
 }
@@ -26,15 +31,10 @@
 {% endblock %}
 
 {% block content %}
-{% for feed in feeds %}
-<div class="feed">
-    <div class="feed-actor">{{ feed.sponsor }}</div>
-    <div class="feed-text">
-    {{ gettext('<a href="%(href)s">%(title)s</a> is proposed.', href=url_for('bill', id=feed.bill_id), title=feed.name) }}
-    </div>
-    <div class="feed-timestamp">
-    {{ feed.proposed_date }}
-    </div>
+<div id="newsfeed">
+    <ul id="newsfeed-feeds">
+        {% include 'feeds.html' with context %}
+    </ul>
+    <a class="btn-more btn-more-ajax {% if not next %}hide{% endif %}" href="{{ next }}" target="#newsfeed-feeds" method="GET">{{ gettext('more') }}</a>
 </div>
-{% endfor %}
 {% endblock %}
