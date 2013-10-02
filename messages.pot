@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-25 19:34+0900\n"
+"POT-Creation-Date: 2013-10-02 02:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,6 +139,24 @@ msgstr ""
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
+msgstr ""
+
+#: templates/mypage.html:5 templates/mypage.html:25
+msgid "Mypage"
+msgstr ""
+
+#: templates/mypage.html:29
+msgid "Favorite politicians"
+msgstr ""
+
+#: templates/mypage.html:37 templates/widgets/card.html:42
+#: templates/widgets/relation.html:6
+msgid "None"
+msgstr ""
+
+#: templates/mypage.html:46
+#, python-format
+msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
 msgstr ""
 
 #: templates/not-found.html:18
@@ -334,7 +352,7 @@ msgid "school"
 msgstr ""
 
 #: templates/search-results.html:10 templates/includes/header.html:6
-#: templates/includes/header.html:8 views/person.py:26
+#: templates/includes/header.html:8 views/person.py:27
 msgid "person"
 msgstr ""
 
@@ -407,15 +425,11 @@ msgstr ""
 msgid "Seon-Mi Jin"
 msgstr ""
 
-#: templates/widgets/card.html:41 templates/widgets/relation.html:6
-msgid "None"
-msgstr ""
-
-#: templates/widgets/histogram.html:87
+#: templates/widgets/histogram.html:97
 msgid "Top"
 msgstr ""
 
-#: templates/widgets/histogram.html:93
+#: templates/widgets/histogram.html:103
 msgid "th / "
 msgstr ""
 

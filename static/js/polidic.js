@@ -35,4 +35,43 @@ function onLoad() {
     });
 };
 
+$(function () {
+    $('.btn-more-ajax').click(function (e) {
+        e.preventDefault();
+        var $this = $(this),
+            href = $this.attr('href'),
+            target = $this.attr('target'),
+            method = $this.attr('method') || 'POST';
+        $.ajax(href, {
+            type: method,
+            cache: false,
+            dataType: 'json'
+        })
+        .done(function (data, textStatus) {
+            try {
+                $(data.html).appendTo($(target));
+            } catch (e) {
+                errLog('Failed to render.\n' + e);
+            }
+
+            if (typeof data.next !== 'undefined') {
+                $this.attr('href', data.next);
+            } else {
+                $this.addClass('hide');
+            }
+        })
+        .fail(function (jqxhr, textStatus, error) {
+            errLog('Request failed\n' + error);
+        });
+    });
+});
+
+function errLog(message) {
+    if (isDebug) {
+        alert(message);
+    } else {
+        console.error(message);
+    }
+}
+
 }());

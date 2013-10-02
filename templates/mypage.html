@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ gettext("Mypage") }} - {{ super() }}
+{% endblock %}
+
+{% block extra_headers %}
+<style>
+#newsfeed-feeds {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feed {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #aaa;
+}
+.feed-actor {
+    font-weight: bold;
+}
+.feed-timestamp {
+    text-align: right;
+    color: #aaa;
+}
+</style>
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ gettext('Mypage') }}
+{% endblock %}
+
+{% block card %}
+{{ gettext('Favorite politicians') }}:<br>
+{% if user.favorite_people %}
+    <ul>
+    {% for person in user.favorite_people %}
+        <li><a href="{{ url_for('person', id=person.id) }}">{{ person.name|translit(type='name') }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    {{ gettext('None') }}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div id="newsfeed">
+    <ul id="newsfeed-feeds">
+        {% include 'feeds.html' with context %}
+    </ul>
+    <a class="btn-more btn-more-ajax {% if not next %}hide{% endif %}" href="{{ next }}" target="#newsfeed-feeds" method="GET">{{ gettext('more') }}</a>
+</div>
+{% endblock %}

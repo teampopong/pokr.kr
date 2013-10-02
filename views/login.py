@@ -29,8 +29,10 @@ def register(app):
 
     @app.context_processor
     def inject_user():
+        user = getattr(g, 'user')
         return {
-            'user': getattr(g, 'user')
+            'user': user,
+            'is_logged': user and not user.is_anonymous()
         }
 
     app.context_processor(backends)

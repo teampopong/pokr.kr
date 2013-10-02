@@ -1,5 +1,6 @@
 import assembly
 import bill
+import bill_feed
 import bill_keyword
 import bill_review
 import bill_status
@@ -7,6 +8,9 @@ import bill_withdrawal
 import candidacy
 import cosponsorship
 import election
+import favorite_keyword
+import favorite_person
+import feed
 import keyword
 import party
 import person

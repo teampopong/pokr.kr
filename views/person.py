@@ -5,7 +5,7 @@ import json
 import operator
 import time
 
-from flask import current_app, redirect, render_template, request, url_for
+from flask import current_app, g, redirect, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy import and_, func
 from sqlalchemy.orm import undefer_group
@@ -71,6 +71,18 @@ def register(app):
                 distribution_of_cosponsorships=distribution_of_cosponsorships,
                 person_extra_vars=person_extra_vars)
 
+    @app.route('/person/<int:id>/favorite', methods=['POST'])
+    def favorite_person(id):
+        if not g.user.is_anonymous():
+            update_favorite(id, 1)
+        return redirect(url_for('person', id=id))
+
+    @app.route('/person/<int:id>/unfavorite', methods=['POST'])
+    def unfavorite_person(id):
+        if not g.user.is_anonymous():
+            update_favorite(id, -1)
+        return redirect(url_for('person', id=id))
+
 
 def all_person_names():
     name_tuples = (list(i) for i in db_session.query(
@@ -79,6 +91,29 @@ def all_person_names():
         ))
     all_names = list(set(reduce(operator.add, name_tuples)))
     return all_names
+
+
+def update_favorite(person_id, s):
+    '''s: { 0: do not change
+            1: set
+            2: unset }
+    '''
+    try:
+        person = Person.query.filter_by(id=person_id).one()
+    except NoResultFound, e:
+        return render_template('not-found.html'), 404
+
+    dirty = False
+    if s == 1:
+        if person not in g.user.favorite_people:
+            g.user.favorite_people.append(person)
+            dirty = True
+    elif s == -1:
+        if person.id in (p.id for p in g.user.favorite_people):
+            g.user.favorite_people.remove(person)
+            dirty = True
+    if dirty:
+        db_session.commit()
 
 
 @cache.memoize(timeout=60*60*4)
