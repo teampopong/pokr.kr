@@ -20,7 +20,7 @@ def upgrade():
 
 def downgrade():
     op.create_table(u'party_affiliation',
-    sa.Column(u'id', sa.INTEGER(), server_default="nextval('party_affiliation_id_seq'::regclass)", nullable=False),
+    sa.Column(u'id', sa.INTEGER(), nullable=False),
     sa.Column(u'person_id', sa.INTEGER(), autoincrement=False, nullable=False),
     sa.Column(u'party_id', sa.INTEGER(), autoincrement=False, nullable=False),
     sa.Column(u'start_date', sa.CHAR(length=8), autoincrement=False, nullable=True),

@@ -74,4 +74,8 @@ def upgrade():
 
 
 def downgrade():
+    op.drop_table('social_auth_usersocialauth')
+    op.drop_table('social_auth_nonce')
+    op.drop_table('social_auth_association')
+    op.drop_table('social_auth_code')
     op.drop_table('user')

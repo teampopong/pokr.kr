@@ -161,3 +161,4 @@ CREATE TRIGGER insert_bill_feed_trigger
 def downgrade():
     op.drop_table('bill_feed')
     op.drop_table('feed')
+    op.execute('DROP TYPE ck_feed_type')
