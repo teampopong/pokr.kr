@@ -101,10 +101,11 @@ def update_bills(source, files=None):
         with transaction() as session:
             assembly_id = session.query(Election)\
                                  .order_by(Election.age.desc())\
-                                 .first()
+                                 .first().age
 
         # FIXME: filter finished bills out
-        bill_ids = (record[0] for record in session.query(Bill.id))
+        bill_ids = (record[0] for record
+                              in session.query(Bill.id).filter_by(age=assembly_id))
         files = (bill_filepath(bill_id) for bill_id in bill_ids)
 
     elif files:
@@ -120,10 +121,14 @@ def update_bills_from_files(files):
     with transaction() as session:
         bill_statuses.init(session)
         for f in files:
-            if not isinstance(f, file):
-                f = open(f, 'r')
-            with f:
-                record = json.load(f)
+            try:
+                if not isinstance(f, file):
+                    f = open(f, 'r')
+                with f:
+                    record = json.load(f)
+            except e:
+                print >> sys.stderr, e
+                continue
             insert_bill(session, record)
         bill_statuses.insert_all()
 
