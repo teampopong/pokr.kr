@@ -15,11 +15,6 @@ depends=['**/*.less'], 'less/main.less' %}
 {% endif %}
 
 {% block content %}
-{% if locale=='ko' %}
-<img class="all-about-pokr" src="{{ url_for('static', filename='images/all_about_pokr.png') }}">
-{% else %}
-<h2 class="all-about-pokr hero-text">All About Korean Politics</h2>
-{% endif %}
 <div id="class-list">
     <div style="display: inline-block;"><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a><br><span class="menu-description">{{ gettext('Search for any official or<br>candidate in Korea') }}</span class="menu-description"></div>
     <div style="display: inline-block;"><a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a><br><span class="menu-description">{{ gettext('Search for any bill<br>proposed in Korea')}}</span class="menu-description"></div>
