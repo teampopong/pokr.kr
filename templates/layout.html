@@ -25,6 +25,12 @@
         {% block extra_headers %}{% endblock %}
 
         {% include 'includes/google-analytics.html' %}
+
+        <!--[if lte IE 7]>
+            <style type="text/css">
+                #header, #container, #footer { margin: 0px; }
+            </style>
+        <![endif]-->
     </head>
     <body>
         <div id="header">
