@@ -43,7 +43,8 @@ class UpdateBillsCommand(Command):
     def init_parser_options(cls):
         cls.parser.add_argument('files', nargs='*')
         cls.parser.add_argument('--source', dest='source', nargs='?',
-                choices=['redis', 'db', 'files'], default='files')
+                default='files',
+                help='source of the bill IDs to be updated (redis/db/files)')
 
     @classmethod
     def run(cls, source, files, **kwargs):
@@ -96,7 +97,7 @@ def update_bills(source, files=None):
         queue = RedisQueue(REDIS_KEYS['insert_bills_db'], **REDIS_SETTINGS)
         files = (bill_filepath(bill_id) for bill_id in queue)
 
-    elif source == 'db':
+    elif source.startswith('db'):
         with transaction() as session:
             assembly_id = session.query(Election)\
                                  .order_by(Election.age.desc())\
@@ -105,6 +106,18 @@ def update_bills(source, files=None):
         # FIXME: filter finished bills out
         bill_ids = (record[0] for record
                               in session.query(Bill.id).filter_by(age=assembly_id))
+
+        # ranged query
+        m = re.match(r'db\[(\d*):(\d*)\]', source)
+        if m:
+            start, end = m.group(1), m.group(2)
+            offset = int(start) if start else 0
+            limit = int(end) - offset if end else None
+            if offset:
+                bill_ids = bill_ids.offset(offset)
+            if limit:
+                bill_ids = bill_ids.limit(limit)
+
         files = (bill_filepath(bill_id) for bill_id in bill_ids)
 
     elif files:
