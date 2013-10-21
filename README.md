@@ -1,5 +1,7 @@
-POPONG Korean Politician Dictionary
-===================================
+Pokr - Politics in Korea
+==================================
+
+**Pull requests are always welcome.**
 
 ## Installation
 
@@ -57,3 +59,6 @@ POPONG Korean Politician Dictionary
 ## Run Server
 
     $ ./run.py
+
+## License
+[Apache v2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

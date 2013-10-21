@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-25 19:34+0900\n"
+"POT-Creation-Date: 2013-10-13 23:53+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -119,27 +119,27 @@ msgstr "날짜 미상"
 msgid "sponsor"
 msgstr "발의자"
 
-#: templates/main.html:24
+#: templates/main.html:19
 msgid "Search for any official or<br>candidate in Korea"
 msgstr "역대 국회의원 선거에 출마한<br>모든 인물을 검색할 수 있습니다"
 
-#: templates/main.html:25
+#: templates/main.html:20
 msgid "Search for any bill<br>proposed in Korea"
 msgstr "1대부터 19대까지 발의된 모든<br>의안을 검색할 수 있습니다"
 
-#: templates/main.html:26
+#: templates/main.html:21
 msgid "Search for any party in<br>Korea"
 msgstr "1대부터 19대까지 모든 정당을<br>검색할 수 있습니다"
 
-#: templates/main.html:27
+#: templates/main.html:22
 msgid "Search for any administrative<br>region in Korea"
 msgstr "대한민국의 모든 지역의 정보를<br>검색할 수 있습니다"
 
-#: templates/main.html:39
+#: templates/main.html:33
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
-msgstr "당신의 피드백이<br>포커를 만듭니다!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
+msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
 
 #: templates/not-found.html:18
 msgid "This is not the web page you are looking for."
@@ -166,8 +166,8 @@ msgid "people"
 msgstr "인물"
 
 #: templates/party.html:45 templates/person.html:67
-#: templates/search-results.html:9 templates/includes/header.html:6
-#: templates/includes/header.html:8 views/party.py:18
+#: templates/search-results.html:9 templates/includes/header.html:8
+#: templates/includes/header.html:10 views/party.py:18
 msgid "party"
 msgstr "정당"
 
@@ -333,8 +333,8 @@ msgstr "검색어"
 msgid "school"
 msgstr "교육기관"
 
-#: templates/search-results.html:10 templates/includes/header.html:6
-#: templates/includes/header.html:8 views/person.py:26
+#: templates/search-results.html:10 templates/includes/header.html:8
+#: templates/includes/header.html:10 views/person.py:27
 msgid "person"
 msgstr "인물"
 
@@ -393,17 +393,17 @@ msgstr "데이터"
 msgid "sources"
 msgstr "소스"
 
-#: templates/includes/header.html:6 templates/includes/header.html:8
+#: templates/includes/header.html:8 templates/includes/header.html:10
 #: views/bill.py:24
 msgid "bill"
 msgstr "의안"
 
-#: templates/includes/header.html:6 templates/includes/header.html:8
+#: templates/includes/header.html:8 templates/includes/header.html:10
 #: views/region.py:16
 msgid "region"
 msgstr "지역"
 
-#: templates/includes/header.html:8
+#: templates/includes/header.html:10
 msgid "Seon-Mi Jin"
 msgstr "진선미"
 
@@ -411,11 +411,11 @@ msgstr "진선미"
 msgid "None"
 msgstr "없음"
 
-#: templates/widgets/histogram.html:87
+#: templates/widgets/histogram.html:97
 msgid "Top"
 msgstr "상위"
 
-#: templates/widgets/histogram.html:93
+#: templates/widgets/histogram.html:103
 msgid "th / "
 msgstr "위 / "
 

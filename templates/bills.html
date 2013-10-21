@@ -46,6 +46,7 @@
     {% else %}
         <td>{{ bill.proposed_date }}</td>
         <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+        <td>{{ bill.sponsor }}</td>
         <td>
             {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
             <i class="icon-circle" style="color: green;"></i>

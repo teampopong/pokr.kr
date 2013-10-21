@@ -9,6 +9,9 @@
 
     #class-list {
         padding: 30px;
+        div {
+            display: inline-block;
+        }
     }
 
     #dashboard {
@@ -30,29 +33,19 @@
     }
 }
 
-.all-about-pokr {
-    display: block;
-    margin: 70px auto 0;
-}
-.hero-text {
-    text-align: center;
-    font-family: Times, serif;
-    font-size: 40pt;
-    font-style: italic;
-    font-weight: normal;
-}
-
 #feedback-guide {
     position: fixed;
-    .top-calc(~"50% + 40px", 55%);
-    left: 50px;
+    bottom: 50px;
+    right: 50px;
 
     img {
+        float: right;
         width: 50px;
     }
 
     span {
         display: block;
+        float: right;
         font-family: ComicSans, serif;
         -webkit-transform:rotate(-10deg);
         -moz-transform:rotate(-10deg); 
