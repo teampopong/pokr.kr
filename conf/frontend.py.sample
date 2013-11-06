@@ -8,3 +8,19 @@ BABEL_DEFAULT_TIMEZONE = 'KST'
 
 SCRIPT_NAME = '/'
 
+# Social logins
+SECRET_KEY = 'some-secret-key'
+SOCIAL_AUTH_LOGIN_URL = '/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/done/'
+SOCIAL_AUTH_USER_MODEL = 'models.user.User'
+SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.facebook.FacebookOAuth2',
+)
+
+SOCIAL_AUTH_TWITTER_KEY = ''
+SOCIAL_AUTH_TWITTER_SECRET = ''
+
+SOCIAL_AUTH_FACEBOOK_KEY = ''
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']

@@ -18,12 +18,13 @@ except ImportError as e:
 if not hasattr(app, '__loaded__'):
     from flask.ext.assets import Environment as Asset
 
+    from cache import init_cache
     from database import init_db
     from utils.assets import init_app as init_asset
-    from cache import init_cache
     from utils.jinja import init_app as init_jinja
     from utils.i18n import PopongBabel
     from utils.linkall import init_app as init_linkall
+    from utils.login import init_app as init_login
     from utils.mobile import PopongMobile
     from utils.reverse_proxy import init_app as init_reverse_proxy
     from views import init_app as init_view
@@ -37,6 +38,7 @@ if not hasattr(app, '__loaded__'):
     PopongBabel(app)
     PopongMobile(app)
     init_linkall(app)
+    init_login(app)
     init_reverse_proxy(app)
     init_view(app)
     init_widgets(app)
