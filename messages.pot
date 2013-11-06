@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-10-13 23:53+0900\n"
+"POT-Creation-Date: 2013-11-07 03:39+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,6 +88,11 @@ msgid ""
 "problem persists."
 msgstr ""
 
+#: templates/feeds.html:5
+#, python-format
+msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
+msgstr ""
+
 #: templates/macros.html:18
 msgid "show"
 msgstr ""
@@ -107,7 +111,8 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/person.html:261 templates/person.html:305
+#: templates/macros.html:88 templates/mypage.html:51 templates/person.html:261
+#: templates/person.html:305
 msgid "more"
 msgstr ""
 
@@ -135,10 +140,23 @@ msgstr ""
 msgid "Search for any administrative<br>region in Korea"
 msgstr ""
 
-#: templates/main.html:33
+#: templates/main.html:34
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
+msgstr ""
+
+#: templates/mypage.html:4 templates/mypage.html:30
+msgid "Mypage"
+msgstr ""
+
+#: templates/mypage.html:34
+msgid "Favorite politicians"
+msgstr ""
+
+#: templates/mypage.html:42 templates/widgets/card.html:42
+#: templates/widgets/relation.html:6
+msgid "None"
 msgstr ""
 
 #: templates/not-found.html:18
@@ -405,10 +423,6 @@ msgstr ""
 
 #: templates/includes/header.html:10
 msgid "Seon-Mi Jin"
-msgstr ""
-
-#: templates/widgets/card.html:41 templates/widgets/relation.html:6
-msgid "None"
 msgstr ""
 
 #: templates/widgets/histogram.html:97
