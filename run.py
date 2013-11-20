@@ -4,6 +4,7 @@
 import argparse
 
 from flask import Flask
+import meinheld
 
 
 app = Flask(__name__)
@@ -48,7 +49,7 @@ if not hasattr(app, '__loaded__'):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('port', type=int, nargs='?', default=50029)
+    parser.add_argument('port', type=int, nargs='?', default=8080)
     parser.add_argument('-l', dest='locale', default='auto',
                         help='force locale (e.g. en, kr)')
     return parser.parse_args()
@@ -59,5 +60,7 @@ if __name__ == '__main__':
     args = parse_args()
     if args.locale in app.LOCALES:
         app.babel.force_locale(app.locale)
-    app.run(host='0.0.0.0', port=args.port)
+    print 'Listening http://0.0.0.0:%s' % args.port
+    meinheld.listen(('0.0.0.0', args.port))
+    meinheld.run(app)
 
