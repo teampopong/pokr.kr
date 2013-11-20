@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import column_property, relationship
@@ -13,6 +15,13 @@ from models.cosponsorship import cosponsorship
 from models.election import Election
 from models.party import Party
 from models.person import Person
+
+try:
+    from conf.storage import BILLPDF_DIR, BILLTXT_DIR
+except ImportError as e:
+    import sys
+    sys.stderr.write('Error: Update conf/storage.py\n')
+    sys.exit(1)
 
 
 class Bill(Base):
@@ -40,6 +49,24 @@ class Bill(Base):
     keywords = relationship('Keyword',
             secondary=bill_keyword,
             order_by='desc(bill_keyword.c.weight)')
+
+    @property
+    def document_pdf_path(self):
+        assembly_id = assembly_id_by_bill_id(self.id)
+        filepath = '%s/%d/%s.pdf' % (BILLPDF_DIR, assembly_id, self.id)
+        if os.path.exists(filepath):
+            return filepath
+        else:
+            return None
+
+    @property
+    def document_text_path(self):
+        assembly_id = assembly_id_by_bill_id(self.id)
+        filepath = '%s/%d/%s.txt' % (BILLTXT_DIR, assembly_id, self.id)
+        if os.path.exists(filepath):
+            return filepath
+        else:
+            return None
 
     @property
     def party_counts(self):

@@ -30,7 +30,8 @@
 <div class="original-link">
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
     <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
-    {% if bill.document_url %}<br><a href="{{ bill.document_url }}">{{ gettext('see original document') }}</a>{% endif %}
+    {% if bill.document_pdf_path %}<br><a href="{{ url_for('bill_pdf', id=bill.id) }}">{{ gettext('see original pdf') }}</a>{% endif %}
+    {% if bill.document_text_path %}<br><a href="{{ url_for('bill_text', id=bill.id) }}">{{ gettext('see original text') }}</a>{% endif %}
 </div>
 {% block bill_menus %}
 {% endblock %}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-11-21 01:01+0900\n"
+"POT-Creation-Date: 2013-11-21 02:11+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -22,8 +22,12 @@ msgid "see official page"
 msgstr "국회에서 보기"
 
 #: templates/bill-layout.html:33
-msgid "see original document"
+msgid "see original pdf"
 msgstr "원문 PDF 보기"
+
+#: templates/bill-layout.html:34
+msgid "see original text"
+msgstr "원문 텍스트 보기"
 
 #: templates/bill.html:6 templates/bill.html:17
 msgid "outline"
@@ -425,7 +429,7 @@ msgid "sources"
 msgstr "소스"
 
 #: templates/includes/header.html:8 templates/includes/header.html:10
-#: views/bill.py:24
+#: views/bill.py:16
 msgid "bill"
 msgstr "의안"
 

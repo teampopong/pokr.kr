@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-11-21 01:01+0900\n"
+"POT-Creation-Date: 2013-11-21 02:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,11 @@ msgid "see official page"
 msgstr ""
 
 #: templates/bill-layout.html:33
-msgid "see original document"
+msgid "see original pdf"
+msgstr ""
+
+#: templates/bill-layout.html:34
+msgid "see original text"
 msgstr ""
 
 #: templates/bill.html:6 templates/bill.html:17
@@ -425,7 +429,7 @@ msgid "sources"
 msgstr ""
 
 #: templates/includes/header.html:8 templates/includes/header.html:10
-#: views/bill.py:24
+#: views/bill.py:16
 msgid "bill"
 msgstr ""
 
