@@ -20,18 +20,6 @@ def register(app):
     def main():
         return render_template('main.html')
 
-    @app.route('/lucy')
-    def lucy():
-        with open('data/message.pkl', 'rb') as f:
-            message = pickle.load(f)
-
-        if getpass.getuser() in message['id']\
-                or socket.gethostname().split('.')[0] in message['hostname']:
-            return '<pre>%s</pre>' % message['message']
-
-        else:
-            return render_template('not-found.html'), 404
-
     @app.route('/favicon.ico')
     def favicon():
         return app.send_static_file('images/favicon.ico')
