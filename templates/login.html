@@ -1,38 +1,5 @@
-{% extends "layout.html" %}
-
-{% block content %}
-<a href="{{ url_for("social.auth", backend="facebook") }}"><img src="{{ url_for('static', filename='images/facebook-login-button.png') }}"></a> <br />
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-<script src="https://login.persona.org/include.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(function () {
-    $('#persona').on('click', function (e) {
-        e.preventDefault();
-        var self = $(this);
-
-        navigator.id.get(function (assertion) {
-            if (assertion) {
-                self.parent('form')
-                        .find('input[type=hidden]')
-                        .attr('value', assertion)
-                        .end()
-                    .submit();
-            } else {
-                alert('Some error occurred');
-            }
-        });
-    });
-});
-
-$(function () {
-    $(document).on('click', 'a.disconnect', function (e) {
-        e.preventDefault();
-        $('form#disconnect-form')
-            .attr('action', $(this).attr('href'))
-            .submit();
-    });
-});
-</script>
-{% endblock %}
+{% if is_logged %}
+    <span style="margin-right: 20px;">Hello, <a class="user-action" href="{{ url_for('mypage') }}">{{ user.social_auth.filter_by(provider='facebook').one().extra_data['name'] }}</a>! - <a class="user-logout" href="{{ url_for('logout') }}">logout</a></span>
+{% else %}
+    <a class="user-action" href="{{ url_for("social.auth", backend="facebook") }}">login<!--img src="{{ url_for('static', filename='images/facebook-login-button.png') }}"--></a>
+{% endif %}
