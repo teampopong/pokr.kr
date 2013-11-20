@@ -1,6 +1,9 @@
 {% extends "bill-layout.html" %}
 {% block bill_content %}
-<pre class="text">
+<pre class="text glossary">
 {{ f.read().decode('utf-8')|safe }}
 </pre>
+<script>
+{{ glossary_js|safe }}
+</script>
 {% endblock %}
