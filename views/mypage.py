@@ -18,7 +18,7 @@ def register(app):
 
     app.views['mypage'] = 'mypage'
 
-    more = MoreQuery(Feed, 'mypage_feeds', 'desc', 'feeds', 1)
+    more = MoreQuery(Feed, 'mypage_feeds', 'desc', 'feeds')
 
     @app.route('/mypage/', methods=['GET'])
     @breadcrumb(app)
