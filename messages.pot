@@ -3,11 +3,12 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-11-07 03:39+0900\n"
+"POT-Creation-Date: 2013-11-21 01:01+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,6 +92,18 @@ msgstr ""
 #: templates/feeds.html:5
 #, python-format
 msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
+msgstr ""
+
+#: templates/login.html:2
+msgid "mypage"
+msgstr ""
+
+#: templates/login.html:2
+msgid "logout"
+msgstr ""
+
+#: templates/login.html:4
+msgid "login"
 msgstr ""
 
 #: templates/macros.html:18

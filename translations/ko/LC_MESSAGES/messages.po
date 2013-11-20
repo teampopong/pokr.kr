@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-11-07 03:39+0900\n"
+"POT-Creation-Date: 2013-11-21 01:01+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -93,6 +93,18 @@ msgstr "에러가 발생했습니다. 문제가 계속 발생한다면 저희에
 #, python-format
 msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
 msgstr "<a href=\"%(href)s\">%(title)s</a>을(를) 발의했습니다."
+
+#: templates/login.html:2
+msgid "mypage"
+msgstr "마이페이지"
+
+#: templates/login.html:2
+msgid "logout"
+msgstr "로그아웃"
+
+#: templates/login.html:4
+msgid "login"
+msgstr "로그인"
 
 #: templates/macros.html:18
 msgid "show"
