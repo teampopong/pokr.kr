@@ -31,8 +31,15 @@ depends=['**/*.less'], 'less/main.less' %}
 {% if not mobile and locale=="ko"%}
 <div id="feedback-guide">
     <img src="{{ url_for('static', filename='images/guide_arrow.png') }}">
-    <span>{{ gettext("Your feedback<br>makes us better!<br><small>(We feed on compliments)</small>") }}</span>
+    <span class="shaking-on-load">{{ gettext("Your feedback<br>makes us better!<br><small>(We feed on compliments)</small>") }}</span>
 </div>
+<script>
+$(window).load(function () {
+    setTimeout(function () {
+        $('.shaking-on-load').addClass('shaking');
+    }, 1000);
+});
+</script>
 {% endif %}
 
 {% if locale=='ko' %}

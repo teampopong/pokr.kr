@@ -1,0 +1,21 @@
+@-webkit-keyframes shaking {
+    0% { -webkit-transform: translate(4px, 2px) rotate(0deg); }
+    10% { -webkit-transform: translate(-2px, -4px) rotate(-1deg); }
+    20% { -webkit-transform: translate(-6px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 4px) rotate(0deg); }
+    40% { -webkit-transform: translate(2px, -2px) rotate(1deg); }
+    50% { -webkit-transform: translate(-2px, 4px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-6px, 2px) rotate(0deg); }
+    70% { -webkit-transform: translate(4px, 2px) rotate(-1deg); }
+    80% { -webkit-transform: translate(-2px, -2px) rotate(1deg); }
+    90% { -webkit-transform: translate(4px, 4px) rotate(0deg); }
+    100% { -webkit-transform: translate(2px, -4px) rotate(-1deg); }
+}
+
+.shaking {
+    -webkit-animation-name: shaking;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+}
