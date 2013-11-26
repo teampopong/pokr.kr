@@ -59,7 +59,7 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
     if args.locale in app.LOCALES:
-        app.babel.force_locale(app.locale)
+        app.babel.force_locale(args.locale)
     print 'Listening http://0.0.0.0:%s' % args.port
     meinheld.listen(('0.0.0.0', args.port))
     meinheld.run(app)
