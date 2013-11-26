@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-11-21 02:11+0900\n"
+"POT-Creation-Date: 2013-11-26 22:00+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -410,26 +410,20 @@ msgstr "지역"
 msgid "School"
 msgstr "교육기관"
 
-#: templates/includes/footer.html:4
-msgid ""
-"For any questions, problems and suggestions, please click the 'Feedback' "
-"button above."
-msgstr "질문이나 오류, 건의사항이 있는 경우 좌측의 'Feedback' 버튼을 클릭해주세요."
-
-#: templates/includes/footer.html:6
+#: templates/includes/footer.html:9
 msgid "code"
 msgstr "코드"
 
-#: templates/includes/footer.html:7
+#: templates/includes/footer.html:10
 msgid "data"
 msgstr "데이터"
 
-#: templates/includes/footer.html:8
+#: templates/includes/footer.html:11
 msgid "sources"
 msgstr "소스"
 
 #: templates/includes/header.html:8 templates/includes/header.html:10
-#: views/bill.py:16
+#: views/bill.py:17
 msgid "bill"
 msgstr "의안"
 

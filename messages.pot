@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-11-21 02:11+0900\n"
+"POT-Creation-Date: 2013-11-26 22:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -410,26 +409,20 @@ msgstr ""
 msgid "School"
 msgstr ""
 
-#: templates/includes/footer.html:4
-msgid ""
-"For any questions, problems and suggestions, please click the 'Feedback' "
-"button above."
-msgstr ""
-
-#: templates/includes/footer.html:6
+#: templates/includes/footer.html:9
 msgid "code"
 msgstr ""
 
-#: templates/includes/footer.html:7
+#: templates/includes/footer.html:10
 msgid "data"
 msgstr ""
 
-#: templates/includes/footer.html:8
+#: templates/includes/footer.html:11
 msgid "sources"
 msgstr ""
 
 #: templates/includes/header.html:8 templates/includes/header.html:10
-#: views/bill.py:16
+#: views/bill.py:17
 msgid "bill"
 msgstr ""
 

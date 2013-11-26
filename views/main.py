@@ -20,6 +20,14 @@ def register(app):
     def main():
         return render_template('main.html')
 
+    @app.route('/terms')
+    def terms():
+        return render_template('terms-of-service.html')
+
+    @app.route('/privacy')
+    def privacy():
+        return render_template('privacy-policy.html')
+
     @app.route('/favicon.ico')
     def favicon():
         return app.send_static_file('images/favicon.ico')

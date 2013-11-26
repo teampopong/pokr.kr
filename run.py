@@ -58,6 +58,6 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
     if args.locale in app.LOCALES:
-        app.babel.force_locale(app.locale)
+        app.babel.force_locale(args.locale)
     app.run(host='0.0.0.0', port=args.port)
 
