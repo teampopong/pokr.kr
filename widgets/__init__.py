@@ -5,6 +5,7 @@ from histogram import histogram
 from kmap import kmap
 from relation import rivals
 from timeline import timeline
+from wordle import wordle
 
 
 __all__ = ['init_app']
@@ -16,6 +17,7 @@ widgets = {
     'kmap': kmap,
     'rivals': rivals,
     'timeline': timeline,
+    'wordle': wordle,
 }
 
 

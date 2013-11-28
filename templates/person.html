@@ -128,6 +128,7 @@
                     {% endif %}
                 </tbody>
             </table>
+            {{ widgets.wordle(controllers('person').keyword_counts(person), 148, 148, gettext('Topics of Interest'))|safe }}
             {% if not mobile and person.address_id %}
             {{ widgets.kmap(person.address_id[0], width=120)|safe }}
             {% endif %}

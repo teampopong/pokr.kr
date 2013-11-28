@@ -8,6 +8,7 @@ from flask.ext.babel import gettext
 from sqlalchemy.ext.declarative import DeclarativeMeta
 from werkzeug.urls import Href, url_unquote
 
+from controllers import controllers
 from models.assembly import term as assembly_term
 
 
@@ -18,6 +19,7 @@ def init_app(app):
     app.jinja_env.filters['jsonify'] = jsonify
     app.jinja_env.globals.update(zip=zip, max=max, min=min, int=int, app=app)
     app.jinja_env.globals.update(assembly_term=assembly_term)
+    app.jinja_env.globals.update(controllers=controllers)
     app.jinja_env.globals.update(hasattr=hasattr)
     app.jinja_env.globals.update(url_for_query=url_for_query)
     app.jinja_env.globals.update(url_for_noencode=url_for_noencode)

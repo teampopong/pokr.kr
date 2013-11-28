@@ -1,0 +1,42 @@
+<script src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/d3.layout.cloud.js') }}"></script>
+<div class="wordle" id="{{ guids('canvas') }}">
+    {% if title %}<b>{{ title }}</b><br>{% endif %}
+</div>
+<script>
+  var WIDTH = {{ width }},
+      HEIGHT = {{ height }};
+
+  var fill = d3.scale.category20();
+
+  d3.layout.cloud().size([WIDTH, HEIGHT])
+    .words($.map({{ wordweights|jsonify|safe }}, function(v, k) {
+        console.log(k, v);
+        return {text: k, size: 15 + v * 10};
+      }))
+      .padding(5)
+      .font("Impact")
+      .rotate(function() { return 0; })
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+
+  function draw(words) {
+    d3.select("#{{ guids('canvas') }}").append("svg")
+        .attr("width", WIDTH)
+        .attr("height", HEIGHT)
+      .append("g")
+        .attr("transform", "translate(" + (WIDTH/2) + "," + (HEIGHT/2) + ")")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+            return "translate(" + [d.x, d.y] + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+</script>
