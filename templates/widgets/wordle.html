@@ -27,9 +27,13 @@
         .attr("height", HEIGHT)
       .append("g")
         .attr("transform", "translate(" + (WIDTH/2) + "," + (HEIGHT/2) + ")")
-      .selectAll("text")
+      .selectAll('a')
         .data(words)
-      .enter().append("text")
+      .enter().append('a')
+        .attr('xlink:href', function (d) {
+          return "{{ url_for('search', target='bills') }}&query=" + d.text;
+        })
+      .append('text')
         .style("font-size", function(d) { return d.size + "px"; })
         .style("font-family", "Impact")
         .style("fill", function(d, i) { return fill(i); })
