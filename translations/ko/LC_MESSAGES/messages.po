@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-01 17:16+0900\n"
+"POT-Creation-Date: 2013-12-01 17:51+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -86,6 +86,10 @@ msgstr "대"
 #: templates/bills.html:50
 msgid "keywords"
 msgstr "키워드"
+
+#: templates/bills.html:53
+msgid "No summary"
+msgstr "요약 준비 중"
 
 #: templates/error.html:4 templates/not-found.html:4
 msgid "Oops"
@@ -477,7 +481,4 @@ msgid ""
 msgstr ""
 "%(age)d대\n"
 "낙선"
-
-#~ msgid "Topics of Interest"
-#~ msgstr "관심 주제"
 
