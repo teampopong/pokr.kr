@@ -10,8 +10,8 @@
 {% endblock %}
 
 {% block extra_headers %}
-{% assets filters='less', output='build/submain.%(version)s.css',
-    depends=['**/*.less'], 'less/submain.less' %}
+{% assets filters='less', output='build/bill-submain.%(version)s.css',
+    depends=['**/*.less'], 'less/bill-submain.less', 'less/submain.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 {% endblock %}
@@ -45,7 +45,13 @@
         </td>
     {% else %}
         <td>{{ bill.proposed_date }}</td>
-        <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+        <td>
+            <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+            {% if bill.keywords %}<br><p class="keywords"><strong>{{ gettext('keywords') }}</strong>:
+            {% for keyword in bill.keywords %}{% if not loop.first %}, {%endif %}<a href="{{ url_for('search', target='bill', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
+            </p>{% endif %}
+            {% if bill.summary %}<br><p class="summary"><a href="{{ url_for('bill', id=bill.id) }}">{{ controllers('bill').truncated_summary(bill) }}</a></p>{% endif %}
+        </td>
         <td>{{ bill.sponsor }}</td>
         <td>
             {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}

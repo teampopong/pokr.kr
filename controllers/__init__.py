@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from base import Controller
+from bill import BillController
 from person import PersonController
 
 
