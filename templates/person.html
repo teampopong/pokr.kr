@@ -132,7 +132,7 @@
             {% if not mobile %}
             {{ widgets.kmap(person.address_id[0] if person.address_id else None, width=120)|safe }}
             {% endif %}
-            {{ widgets.wordle(controllers('person').keyword_counts(person), 148, 148, gettext('Topics of Interest'))|safe }}
+            {{ widgets.wordle(controllers('person').keyword_counts(person), 200, 148)|safe }}
             </div>
         </div>
         <div id="section-elections" class="section">
