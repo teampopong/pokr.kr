@@ -10,6 +10,7 @@ $('.map.clickable .region').on('click.map', function () {
 $('.map').each(function () {
     var $this = $(this),
         region_id = $this.data('default_region_id');
+    $this.find('text').css('display', 'none');
     if (region_id) {
         selectRegion($this, region_id);
         $this.data('default_region_id', null);
@@ -19,7 +20,7 @@ $('.map').each(function () {
 function selectRegion($map, region_id) {
     $map.find('.region').removeClass('selected');
     $map.find('.region[data-region_id="'+region_id+'"]').addSvgClass('selected');
-    $map.find('text:not([data-region_id="'+region_id+'"])').css('display', 'none');
+    $map.find('text[data-region_id="'+region_id+'"]').css('display', 'block');
 }
 
 }());
