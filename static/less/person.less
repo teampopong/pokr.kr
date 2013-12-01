@@ -15,15 +15,23 @@
             }
 
             #person-profile {
-                .width-calc(~"100% - 330px", 100%);
-                float: left;
+                position: relative;
+                width: 100%;
+            }
+
+            .person-summary-vis {
+                position: absolute;
+                top: 110px;
+                right: 0;
             }
 
             .wordle {
                 display: inline-block;
+                float: right;
                 border: 1px solid @border_color;
                 .border-radius(3px);
                 .border-box;
+                background: white;
                 width: 168px;
                 height: 168px;
                 margin: 10px;
@@ -31,8 +39,9 @@
             }
 
             .map {
-                margin: 0;
                 float: right;
+                background: white;
+                padding: 0 10px;
 
                 path {
                     fill: white;

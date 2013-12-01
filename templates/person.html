@@ -128,10 +128,12 @@
                     {% endif %}
                 </tbody>
             </table>
-            {{ widgets.wordle(controllers('person').keyword_counts(person), 148, 148, gettext('Topics of Interest'))|safe }}
-            {% if not mobile and person.address_id %}
-            {{ widgets.kmap(person.address_id[0], width=120)|safe }}
+            <div class="person-summary-vis">
+            {% if not mobile %}
+            {{ widgets.kmap(person.address_id[0] if person.address_id else None, width=120)|safe }}
             {% endif %}
+            {{ widgets.wordle(controllers('person').keyword_counts(person), 148, 148, gettext('Topics of Interest'))|safe }}
+            </div>
         </div>
         <div id="section-elections" class="section">
             <h3 id="elections">{{gettext('elections')}}</h3>

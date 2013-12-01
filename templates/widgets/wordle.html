@@ -1,3 +1,4 @@
+{% if wordweights %}
 <script src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/d3.layout.cloud.js') }}"></script>
 <div class="wordle" id="{{ guids('canvas') }}">
@@ -44,3 +45,4 @@
         .text(function(d) { return d.text; });
   }
 </script>
+{% endif %}
