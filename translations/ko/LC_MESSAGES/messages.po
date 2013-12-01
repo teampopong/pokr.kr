@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-01 17:51+0900\n"
+"POT-Creation-Date: 2013-12-01 22:03+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -83,10 +83,6 @@ msgstr "의안"
 msgid "th"
 msgstr "대"
 
-#: templates/bills.html:50
-msgid "keywords"
-msgstr "키워드"
-
 #: templates/bills.html:53
 msgid "No summary"
 msgstr "요약 준비 중"
@@ -136,7 +132,7 @@ msgstr "%(count)d 명"
 msgid "%(count)d results"
 msgstr "%(count)d 개"
 
-#: templates/macros.html:88 templates/mypage.html:51 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:57 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr "더보기"
@@ -171,18 +167,38 @@ msgid ""
 "compliments)</small>"
 msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
 
-#: templates/mypage.html:4 templates/mypage.html:30
+#: templates/mypage.html:4 templates/mypage.html:15
 msgid "Mypage"
 msgstr "마이페이지"
 
-#: templates/mypage.html:34
-msgid "Favorite politicians"
+#: templates/mypage.html:20
+msgid "My Politics Magazine"
+msgstr "나의 정치 매거진"
+
+#: templates/mypage.html:23
+msgid "Favorite Politicians"
 msgstr "즐겨찾는 정치인"
 
-#: templates/mypage.html:42 templates/widgets/card.html:42
+#: templates/mypage.html:31 templates/widgets/card.html:42
 #: templates/widgets/relation.html:6
 msgid "None"
 msgstr "없음"
+
+#: templates/mypage.html:38
+msgid "My district"
+msgstr "우리 동네"
+
+#: templates/mypage.html:43
+msgid "Please input your region"
+msgstr "지역을 입력해 주세요"
+
+#: templates/mypage.html:45
+msgid "Change region"
+msgstr "지역 변경"
+
+#: templates/mypage.html:49
+msgid "Topics of Interest"
+msgstr "관심 주제"
 
 #: templates/not-found.html:18
 msgid "This is not the web page you are looking for."

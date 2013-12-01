@@ -5,49 +5,55 @@
 {% endblock %}
 
 {% block extra_headers %}
-<style>
-#newsfeed-feeds {
-    list-style: none;
-    padding-left: 0;
-}
-
-.feed {
-    display: block;
-    padding: 10px 0;
-    border-bottom: 1px solid #aaa;
-}
-.feed-actor {
-    font-weight: bold;
-}
-.feed-timestamp {
-    text-align: right;
-    color: #aaa;
-}
-</style>
+{% assets filters='less', output='build/mypage.%(version)s.css',
+    depends=['**/*.less'], 'less/mypage.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
 {% endblock %}
 
 {% block breadcrumb_current %}
 {{ gettext('Mypage') }}
 {% endblock %}
 
-{% block card %}
-{{ gettext('Favorite politicians') }}:<br>
-{% if user.favorite_people %}
-    <ul>
-    {% for person in user.favorite_people %}
-        <li><a href="{{ url_for('person', id=person.id) }}">{{ person.name|translit(type='name') }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    {{ gettext('None') }}
-{% endif %}
-{% endblock %}
-
 {% block content %}
-<div id="newsfeed">
+<div class="header">
+    <h1>{{ gettext("My Politics Magazine") }}</h1>
+
+    <div class="favorite-politicians">
+        <i class="icon-star"></i><a href="">{{ gettext('Favorite Politicians') }}</a><br>
+        {% if user.favorite_people %}
+            <ul class="float-list">
+                {% for person in user.favorite_people %}
+                <li>{{ widgets.card(person, small=True)|safe }}
+                {% endfor %}
+            </ul>
+        {% else %}
+            {{ gettext('None') }}
+        {% endif %}
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column left">
+        <h2>{{ gettext('My district') }}</h2>
+        <div class="feed text-center">
+            {% if user.address_id %}
+            {{ user.address.fullname }}
+            {% else %}
+            <a href="">{{ gettext('Please input your region') }}</a>
+            {% endif %}
+            <button type="button" value="">{{ gettext('Change region') }}</button>
+        </div>
+    </div>
+    <div class="column right">
+        <h2>{{ gettext('Topics of Interest') }}</h2>
+    </div>
+</div>
+
+<!--div id="newsfeed">
     <ul id="newsfeed-feeds">
         {% include 'feeds.html' with context %}
     </ul>
     <a class="btn-more btn-more-ajax {% if not next %}hide{% endif %}" href="{{ next }}" target="#newsfeed-feeds" method="GET">{{ gettext('more') }}</a>
-</div>
+</div-->
 {% endblock %}

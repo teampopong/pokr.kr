@@ -1,0 +1,83 @@
+@import "includes";
+
+@border_color: #aeadae;
+
+#card-container {
+    width: 0;
+}
+
+#spec-container {
+    left: 0;
+    padding: 10px;
+}
+
+.header {
+    margin-top: -10px;
+    padding: 0 10px 10px;
+    border-bottom: 1px solid @border_color;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 22pt;
+}
+
+h2 {
+    background: #878787;
+    color: white;
+    border-top: 2px solid #212121;
+    padding: 3px 0;
+    font-size: 14pt;
+    font-weight: normal;
+    text-align: center;
+}
+
+.favorite-politicians {
+    margin-top: -30px;
+    text-align: right;
+
+    a {
+        color: #212121;
+    }
+
+    .icon-star {
+        color: orange;
+
+        &::before {
+            vertical-align: text-top;
+        }
+    }
+}
+
+.columns {
+    position: relative;
+    width: 100%;
+
+    &::after {
+        clear: both;
+    }
+}
+
+.column {
+    width: 50%;
+    .border-box;
+    padding: 5px 10px 10px;
+
+    &.left {
+        padding-right: 20px;
+    }
+
+    &.right {
+        padding-left: 20px;
+    }
+
+    h2 {
+        margin: 0px -10px 10px;
+    }
+}
+
+.feed {
+    border: 1px solid @border_color;
+    .border-box;
+    padding: 10px;
+}

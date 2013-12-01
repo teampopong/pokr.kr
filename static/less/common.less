@@ -98,6 +98,17 @@
     word-break: keep-all;
 }
 
+.float-list {
+    ul,
+    &:ul {
+        list-style: none;
+        margin-left: 0;
+    }
+    li {
+        .inline-block;
+    }
+}
+
 .nomargin {
     margin: 0;
 }
@@ -115,4 +126,12 @@
 .shrink {
     color: @spec_color;
     font-size: @spec_size;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
 }

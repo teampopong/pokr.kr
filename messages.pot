@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-01 17:51+0900\n"
+"POT-Creation-Date: 2013-12-01 22:03+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,10 +83,6 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: templates/bills.html:50
-msgid "keywords"
-msgstr ""
-
 #: templates/bills.html:53
 msgid "No summary"
 msgstr ""
@@ -136,7 +132,7 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/mypage.html:51 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:57 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr ""
@@ -171,17 +167,37 @@ msgid ""
 "compliments)</small>"
 msgstr ""
 
-#: templates/mypage.html:4 templates/mypage.html:30
+#: templates/mypage.html:4 templates/mypage.html:15
 msgid "Mypage"
 msgstr ""
 
-#: templates/mypage.html:34
-msgid "Favorite politicians"
+#: templates/mypage.html:20
+msgid "My Politics Magazine"
 msgstr ""
 
-#: templates/mypage.html:42 templates/widgets/card.html:42
+#: templates/mypage.html:23
+msgid "Favorite Politicians"
+msgstr ""
+
+#: templates/mypage.html:31 templates/widgets/card.html:42
 #: templates/widgets/relation.html:6
 msgid "None"
+msgstr ""
+
+#: templates/mypage.html:38
+msgid "My district"
+msgstr ""
+
+#: templates/mypage.html:43
+msgid "Please input your region"
+msgstr ""
+
+#: templates/mypage.html:45
+msgid "Change region"
+msgstr ""
+
+#: templates/mypage.html:49
+msgid "Topics of Interest"
 msgstr ""
 
 #: templates/not-found.html:18
