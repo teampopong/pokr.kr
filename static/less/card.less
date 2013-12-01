@@ -12,7 +12,6 @@
 
     .inline-block;
     .text-center;
-    .border-radius;
     .box-shadow;
 
     width: 60px;
@@ -27,6 +26,11 @@
     a:hover {
         color: #333;
         text-decoration: none;
+    }
+
+    .person-party {
+        min-height: 5px;
+        line-height: 0;
     }
 
     .person-img {
@@ -58,45 +62,5 @@
     }
 }
 
-.card.card-small {
-    width: 48px;
-
-    .person-img {
-        width: 48px;
-        height: 64px;
-    }
-}
-
-.card .badges {
-    .bg_rgba(255, 255, 255, 0.9);
-    position: absolute;
-    top: 52px;
-    right: 0;
-    height: 13px;
-    width: 20px;
-    .badge-elected {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-    }
-}
-
-.card.card-large {
-    display: block;
-    width: 90px;
-    margin: 20px auto 5px;
-
-    .person-img {
-        width: 90px;
-        height: 120px;
-    }
-
-    .person-name,
-    h2 {
-        font-size: 12pt;
-        margin: 2px;
-        text-align: right;
-        line-height: 1.1em;
-    }
-
-}
+@import "card-small";
+@import "card-large";

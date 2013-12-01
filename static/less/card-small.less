@@ -1,0 +1,53 @@
+.card.card-small {
+    width: 48px;
+
+    .person-img,
+    .person-filter {
+        width: 48px;
+        height: 64px;
+    }
+
+    .person-filter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: black;
+        display: none;
+    }
+
+    .person-name {
+        position: absolute;
+        top: 24px;
+        width: 100%;
+        display: none;
+    }
+
+    &:hover {
+        .person-filter {
+            opacity: .6;
+            -webkit-opacity: .6;
+            -moz-opacity: .6;
+            display: block;
+        }
+        .person-name {
+            display: block;
+            color: white;
+            font-weight: bold;
+        }
+    }
+
+    .badges {
+        .bg_rgba(255, 255, 255, 0.9);
+        position: absolute;
+        top: 52px;
+        right: 0;
+        height: 13px;
+        width: 20px;
+        .badge-elected {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+

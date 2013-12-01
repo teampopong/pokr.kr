@@ -1,0 +1,14 @@
+<div class="card card-small" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
+    <a class="person-link" href="{{url_for('person', id=person.id)}}" title="{{ person.cur_party.name|translit(type='party') }}">
+        <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
+        <div class="person-filter">&nbsp;</div>
+        <div class="person-name">{{person.name|translit(type='name')}}</div>
+    </a>
+    {# FIXME: remove 'u_candidacy' #}
+    {% if person.u_candidacy and person.u_candidacy.is_elected %}
+    <div class="badges">
+        <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
+    </div>
+    {% endif %}
+</div>
+

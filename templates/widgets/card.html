@@ -1,63 +1,8 @@
+{% set party = person.cur_party.name|translit(type='party') %}
 {% if detailed %}
-{% set is_favorite = person in user.favorite_people %}
-<div class="card card-large" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
-    <img class="person-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"> 
-    <h2><span class="person-name">{{ person.name|translit(type='name') }}</span>{% if is_logged %} <a class="post-request" href="{{ url_for('unfavorite_person' if is_favorite else 'favorite_person', id=person.id) }}"><i style="color: gold;" class="icon-star{% if not is_favorite %}-empty{% endif %}"></i></a>{% endif %}<br> 
-        <small>
-            {% if person.twitter %}
-            <a href="http://twitter.com/{{ person.twitter }}"><i class="icon-twitter-sign mobile-icon-large"></i></a>
-            {% endif %}
-            {% if person.facebook %}
-            <a href="http://facebook.com/{{ person.facebook }}"><i class="icon-facebook-sign mobile-icon-large"></i></a>
-            {% endif %}
-            {% if person.homepage %}
-            <a href="{{ person.homepage }}"><i class="icon-home mobile-icon-large"></i></a>
-            {% endif %}
-        </small>
-    </h2>
-    {% if person.u_candidacy and person.u_candidacy.is_elected %}
-    <div class="badges"
-        <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
-    </div>
-    {% endif %}
-</div>
-
-{% else %}
-{% if person %}
-    <div class="card{% if small %} card-small{% endif %}" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
-        <a class="person-link" href="{{url_for('person', id=person.id)}}" title="{{ person.cur_party.name|translit(type='party') }}">
-            <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
-            <div class="person-name">{{person.name|translit(type='name')}}</div>
-        </a>
-        {% if person.u_candidacy and person.u_candidacy.is_elected %}
-        <div class="badges">
-            <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
-        </div>
-        {% endif %}
-    </div>
-{% else %}
-    <div class="card{% if small %} card-small{% endif %}">
-        <a class="person-link">
-            <div style="width: 60px; height: 80px; background-color: #EEE;"></div>
-            <div class="person-name">{{ gettext('None') }}</div>
-        </a>
-    </div>
+    {% include "widgets/card-detailed.html" with context %}
+{% elif small %}
+    {% include "widgets/card-small.html" with context %}
+{% else %} {# normal #}
+    {% include "widgets/card-normal.html" with context %}
 {% endif %}
-{% endif %}
-<script>
-$(function () {
-    $(document).on('click', 'a.post-request', function(e) {
-        e.preventDefault();
-        if (!$('form#post-request').size()) {
-            $('<form></form>')
-                .attr('id', 'post-request')
-                .attr('style', 'display: none;')
-                .attr('method', 'POST')
-                .insertAfter($(this));
-        }
-        $('form#post-request')
-            .attr('action', $(this).attr('href'))
-            .submit();
-    });
-});
-</script>

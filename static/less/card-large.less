@@ -1,0 +1,57 @@
+.card.card-large {
+    display: block;
+    width: 90px;
+    margin: 20px auto 5px;
+
+    .person-party {
+        font-size: 9pt;
+        font-weight: bold;
+        color: white;
+        line-height: 1.5em;
+    }
+
+    .person-img,
+    .person-filter {
+        width: 90px;
+        height: 120px;
+    }
+
+    .person-filter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: black;
+        display: none;
+    }
+
+    .person-sns {
+        position: absolute;
+        top: 46px;
+        width: 100%;
+        display: none;
+        text-align: center;
+    }
+
+    &:hover {
+        .person-filter {
+            opacity: .6;
+            -webkit-opacity: .6;
+            -moz-opacity: .6;
+            display: block;
+        }
+        .person-sns {
+            display: block;
+            color: white;
+            font-weight: bold;
+        }
+    }
+
+    .person-name,
+    h2 {
+        font-size: 12pt;
+        margin: 2px;
+        text-align: right;
+        line-height: 1.1em;
+    }
+}
+
