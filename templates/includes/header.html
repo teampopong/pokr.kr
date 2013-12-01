@@ -16,7 +16,9 @@
     </form>
 </div>
 <span class="langselect">
+    {% if locale == 'ko' %}
     {% include "login.html" %}
+    {% endif %}
     {% for lang, url in locale_links.items() %}
     <a href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
