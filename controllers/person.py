@@ -11,7 +11,7 @@ class PersonController(Controller):
     @classmethod
     def keyword_counts(cls, person, limit=10):
         # TODO: batch calculation or non-blocking operation
-        elected_assembly_ids = [candidacy.age for candidacy in person.candidacies]
+        elected_assembly_ids = [candidacy.age for candidacy in person.candidacies if candidacy.is_elected]
 
         if not elected_assembly_ids:
             return {}
