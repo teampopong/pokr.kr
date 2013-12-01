@@ -50,7 +50,7 @@
             {% if bill.keywords %}<p class="keywords">
             {% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bill', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
             </p>{% endif %}
-            <br><p class="summary"><a href="{{ url_for('bill', id=bill.id) }}">{% if bill.summary %}{{ controllers('bill').truncated_summary(bill) }}{% else %}{{ gettext('No summary') }}</a>{% endif %}</p>
+            <br><p class="summary"><a href="{{ url_for('bill', id=bill.id) }}#contents">{% if bill.summary %}{{ controllers('bill').truncated_summary(bill) }}{% else %}{{ gettext('No summary') }}</a>{% endif %}</p>
         </td>
         <td>{{ bill.sponsor }}</td>
         <td>
