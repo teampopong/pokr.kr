@@ -47,8 +47,8 @@
         <td>{{ bill.proposed_date }}</td>
         <td>
             <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
-            {% if bill.keywords %}<br><p class="keywords"><strong>{{ gettext('keywords') }}</strong>:
-            {% for keyword in bill.keywords %}{% if not loop.first %}, {%endif %}<a href="{{ url_for('search', target='bill', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
+            {% if bill.keywords %}<p class="keywords">
+            {% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bill', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
             </p>{% endif %}
             <br><p class="summary"><a href="{{ url_for('bill', id=bill.id) }}">{% if bill.summary %}{{ controllers('bill').truncated_summary(bill) }}{% else %}{{ gettext('No summary') }}</a>{% endif %}</p>
         </td>
