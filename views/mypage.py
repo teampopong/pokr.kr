@@ -45,7 +45,7 @@ def my_feeds():
                 .with_polymorphic('*')\
                 .join(BillFeed.bill)\
                 .outerjoin(Bill.cosponsors)\
-                .outerjoin(Bill.keywords)\
+                .outerjoin(Bill._keywords)\
                 .filter(or_(
                     Keyword.id.in_(k.id for k in g.user.favorite_keywords),
                     Person.id.in_(p.id for p in g.user.favorite_people),

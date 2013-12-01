@@ -118,7 +118,7 @@ def register(app):
         if query:
             bills = bills.filter(or_(
                 Bill.name.like(u'%{0}%'.format(query)),
-                Bill.keywords.any(Keyword.name==unicode(query))
+                Bill._keywords.any(Keyword.name==unicode(query))
                 ))
 
         if person_id:
@@ -135,7 +135,7 @@ def register(app):
             options['status_id'] = BillStatus.query.filter_by(id=status_id).one().name
 
         if keyword_id:
-            bills = bills.join(Bill.keywords)\
+            bills = bills.join(Bill._keywords)\
                          .filter(Keyword.id == keyword_id)
             options['keyword_id'] = Keyword.query.filter_by(id=keyword_id).one().name
 

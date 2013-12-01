@@ -23,6 +23,13 @@ except ImportError as e:
     sys.stderr.write('Error: Update conf/storage.py\n')
     sys.exit(1)
 
+try:
+    from conf.stopwords import STOPWORDS
+except ImportError as e:
+    import sys
+    sys.stderr.write('Error: Update conf/stopwords.py\n')
+    sys.exit(1)
+
 
 class Bill(Base):
     __tablename__ = 'bill'
@@ -46,9 +53,14 @@ class Bill(Base):
 
     status = column_property(select([BillStatus.name])\
                              .where(BillStatus.id==status_id), deferred=True)
-    keywords = relationship('Keyword',
+    _keywords = relationship('Keyword',
             secondary=bill_keyword,
             order_by='desc(bill_keyword.c.weight)')
+
+    @property
+    def keywords(self):
+        return [keyword for keyword in self._keywords
+                        if keyword.name not in STOPWORDS]
 
     @property
     def document_pdf_path(self):

@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+
+STOPWORDS = [stopword.strip().decode('utf-8') for stopword in '''
 경우
 조제
 조의
@@ -51,3 +55,5 @@
 업자
 the
 한정
+표시
+'''.split('\n') if stopword]
