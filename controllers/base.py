@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Controller(object):
-    pass
+    @classmethod
+    def init(cls, app, *args, **kwargs):
+        pass
+

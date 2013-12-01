@@ -7,6 +7,14 @@ from controllers.base import Controller
 
 class PersonController(Controller):
     model = 'person'
+    STOPWORDS = []
+
+    @classmethod
+    def init(cls, app):
+        with app.open_resource('data/stopwords.txt') as f:
+            tokens = f.readlines()
+        cls.STOPWORDS = [token.strip().decode('utf-8')
+                            for token in tokens]
 
     @classmethod
     def keyword_counts(cls, person, limit=10):
@@ -20,6 +28,8 @@ class PersonController(Controller):
         keywords = (keyword.name
                         for bill in person.bills(latest_assembly_id)
                         for keyword in bill.keywords)
+        keywords = (keyword for keyword in keywords
+                            if keyword not in cls.STOPWORDS)
         counter = Counter(keywords)
 
         return dict(counter.most_common(limit))
