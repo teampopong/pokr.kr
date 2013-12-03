@@ -1,7 +1,7 @@
 {% set is_favorite = person in user.favorite_people %}
 {% set party = person.cur_party.name|translit(type='party') %}
 <div class="card card-large" data-id="{{ person.id }}" data-url="{{url_for('person', id=person.id)}}">
-    <div class="person-party" style="background: {{ person.cur_party.color or '#8c8c8c' }};">{{ party }}</div>
+    <div class="person-party" style="background: #{{ person.cur_party.color or '8c8c8c' }};">{{ party }}</div>
     <img class="person-img" src="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}"> 
     <h2><span class="person-name">{{ person.name|translit(type='name') }}</span>{% if is_logged %} <a class="post-request" href="{{ url_for('unfavorite_person' if is_favorite else 'favorite_person', id=person.id) }}"><i style="color: gold;" class="icon-star{% if not is_favorite %}-empty{% endif %}"></i></a>{% endif %}
         <div class="person-filter">&nbsp;</div>
