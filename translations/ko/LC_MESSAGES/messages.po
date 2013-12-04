@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-04 22:06+0900\n"
+"POT-Creation-Date: 2013-12-05 02:26+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -133,7 +133,7 @@ msgstr "%(count)d 명"
 msgid "%(count)d results"
 msgstr "%(count)d 개"
 
-#: templates/macros.html:88 templates/mypage.html:57 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:71 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr "더보기"
@@ -199,6 +199,14 @@ msgstr "지역 변경"
 #: templates/mypage.html:49
 msgid "Topics of Interest"
 msgstr "관심 주제"
+
+#: templates/mypage.html:58
+msgid "Please choose some keywords of your interest."
+msgstr "관심 키워드를 추가해 주세요."
+
+#: templates/mypage.html:61
+msgid "new keyword"
+msgstr "새 키워드"
 
 #: templates/not-found.html:18
 msgid "This is not the web page you are looking for."

@@ -47,6 +47,20 @@
     </div>
     <div class="column right">
         <h2>{{ gettext('Topics of Interest') }}</h2>
+        <div class="feed">
+            {% if user.favorite_keywords %}
+            <ul class="float-list" style="margin: 0; display: inline;">
+                {% for keyword in user.favorite_keywords %}
+                <li><a href="{{ url_for('favorite_keyword', keyword=keyword.name) }}" class="request close" data-method="DELETE">&times;</a><a href="{{ url_for('search', target='bills', query=keyword.name) }}" class="label">{{ keyword.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            {{ gettext('Please choose some keywords of your interest.') }}
+            {% endif %}
+            <form id="form-add-favorite-keyword" action="{{ url_for('favorite_keyword', keyword='') }}" style="margin: 0; display: inline;">
+                <input type="text" class="input-mini" name="keyword" placeholder="{{ gettext('new keyword') }}" style="margin: 0;" />
+            </form>
+        </div>
     </div>
 </div>
 
@@ -56,4 +70,5 @@
     </ul>
     <a class="btn-more btn-more-ajax {% if not next %}hide{% endif %}" href="{{ next }}" target="#newsfeed-feeds" method="GET">{{ gettext('more') }}</a>
 </div-->
+<script src="{{ url_for('static', filename='js/mypage.js') }}"></script>
 {% endblock %}

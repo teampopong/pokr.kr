@@ -66,6 +66,22 @@ $(function () {
     });
 });
 
+$(function () {
+    $(document).on('click', 'a.request', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var data = $this.data();
+        $.ajax($this.attr('href'), {
+            type: data.method,
+            data: data
+        }).done(function () {
+            window.location.reload();
+        }).fail(function () {
+            errLog(arguments);
+        });
+    });
+});
+
 function errLog(message) {
     if (isDebug) {
         alert(message);
