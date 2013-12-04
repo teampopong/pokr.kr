@@ -40,6 +40,10 @@ def register(app):
 
         return keyword + u'의 페이지입니다'
 
+    @app.errorhandler(401)
+    def unauthorized(e):
+        return render_template('unauthorized.html'), 401
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('not-found.html'), 404

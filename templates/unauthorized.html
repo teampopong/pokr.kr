@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ gettext("Oops") }} - {{ super() }}
+{% endblock %}
+
+{% if not mobile %}
+{% block extra_headers %}
+{% assets filters='less', output='build/main.%(version)s.css',
+    depends=['**/*.less'], 'less/main.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+{% endif %}
+
+{% block content %}
+<div class="alert alert-error">
+	{{ gettext("Login is requred.") }}.
+</div>
+{% endblock %}
+

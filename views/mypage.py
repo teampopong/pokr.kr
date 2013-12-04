@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import g, redirect, render_template, request, url_for
+from flask import abort, g, redirect, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy.sql.expression import or_
 
@@ -24,7 +24,7 @@ def register(app):
     @breadcrumb(app)
     def mypage():
         if g.user.is_anonymous():
-            return redirect(url_for('login'))
+            abort(401)
 
         data = more.query(my_feeds())
         return render_template('mypage.html', **data)
@@ -32,7 +32,7 @@ def register(app):
     @app.route('/mypage/feeds', methods=['GET'])
     def mypage_feeds():
         if g.user.is_anonymous():
-            return redirect(url_for('login'))
+            abort(401)
 
         data = more.query(my_feeds(), _from=request.args.get('before', None))
         data['html'] = render_template('feeds.html', **data)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-01 22:03+0900\n"
+"POT-Creation-Date: 2013-12-04 22:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,6 +88,7 @@ msgid "No summary"
 msgstr ""
 
 #: templates/error.html:4 templates/not-found.html:4
+#: templates/unauthorized.html:4
 msgid "Oops"
 msgstr ""
 
@@ -179,8 +180,7 @@ msgstr ""
 msgid "Favorite Politicians"
 msgstr ""
 
-#: templates/mypage.html:31 templates/widgets/card.html:42
-#: templates/widgets/relation.html:6
+#: templates/mypage.html:31 templates/widgets/relation.html:6
 msgid "None"
 msgstr ""
 
@@ -432,6 +432,10 @@ msgstr ""
 
 #: templates/search-results.html:126
 msgid "School"
+msgstr ""
+
+#: templates/unauthorized.html:18
+msgid "Login is requred."
 msgstr ""
 
 #: templates/includes/footer.html:9

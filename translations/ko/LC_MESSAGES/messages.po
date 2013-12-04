@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-01 22:03+0900\n"
+"POT-Creation-Date: 2013-12-04 22:06+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -88,6 +88,7 @@ msgid "No summary"
 msgstr "요약 준비 중"
 
 #: templates/error.html:4 templates/not-found.html:4
+#: templates/unauthorized.html:4
 msgid "Oops"
 msgstr "아이쿠"
 
@@ -179,8 +180,7 @@ msgstr "나의 정치 매거진"
 msgid "Favorite Politicians"
 msgstr "즐겨찾는 정치인"
 
-#: templates/mypage.html:31 templates/widgets/card.html:42
-#: templates/widgets/relation.html:6
+#: templates/mypage.html:31 templates/widgets/relation.html:6
 msgid "None"
 msgstr "없음"
 
@@ -433,6 +433,10 @@ msgstr "지역"
 #: templates/search-results.html:126
 msgid "School"
 msgstr "교육기관"
+
+#: templates/unauthorized.html:18
+msgid "Login is requred."
+msgstr "로그인이 필요합니다."
 
 #: templates/includes/footer.html:9
 msgid "code"
