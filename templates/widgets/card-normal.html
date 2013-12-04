@@ -2,6 +2,6 @@
     <a class="person-link" href="{{url_for('person', id=person.id)}}" title="{{ party }}">
         <div class="person-party" style="background: #{{ person.cur_party.color or '777' }};">&nbsp;</div>
         <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
-        <div class="person-name">{{person.name|translit(type='name')}}</div>
+        <div class="person-name text-center">{{person.name|translit(type='name')}}</div>
     </a>
 </div>
