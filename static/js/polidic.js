@@ -82,7 +82,7 @@ $(function () {
     });
 });
 
-function errLog(message) {
+window.errLog = function (message) {
     if (isDebug) {
         alert(message);
     } else {
