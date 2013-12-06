@@ -1,0 +1,11 @@
+{% for feed in keyword_feeds.feeds %}
+    <div class="feed">
+        <div class="feed-actor">{{ feed.sponsor }}</div>
+        <div class="feed-text">
+        {{ gettext('<a href="%(href)s">%(title)s</a> is proposed.', href=url_for('bill', id=feed.bill_id), title=feed.name) }}
+        </div>
+        <div class="feed-timestamp">
+        {{ feed.proposed_date }}
+        </div>
+    </div>
+{% endfor %}

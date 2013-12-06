@@ -8,11 +8,7 @@ from sqlalchemy.sql.expression import or_
 
 from controllers.user import UserController
 from database import db_session
-from models.bill import Bill
-from models.bill_feed import BillFeed
 from models.feed import Feed
-from models.keyword import Keyword
-from models.person import Person
 from utils.jinja import breadcrumb, jsonify
 from utils.paginate import MoreQuery
 
@@ -21,26 +17,28 @@ def register(app):
 
     app.views['mypage'] = 'mypage'
 
-    more = MoreQuery(Feed, 'mypage_feeds', 'desc', 'feeds')
+    more = MoreQuery(Feed, 'keyword_feeds', 'desc', 'feeds')
 
-    @app.route('/mypage/', methods=['GET'])
+    @app.route('/i', methods=['GET'])
     @breadcrumb(app)
     def mypage():
         if g.user.is_anonymous():
             abort(401)
 
-        data = more.query(my_feeds())
-        return render_template('mypage.html', **data)
+        keyword_feeds = UserController.keyword_feeds(g.user)
+        keyword_feeds = more.query(keyword_feeds)
+        return render_template('mypage.html', keyword_feeds=keyword_feeds)
 
-    @app.route('/mypage/feeds', methods=['GET'])
-    def mypage_feeds():
+    @app.route('/i/feeds/keyword', methods=['GET'])
+    def keyword_feeds():
         if g.user.is_anonymous():
             abort(401)
 
-        data = more.query(my_feeds(), _from=request.args.get('before', None))
-        data['html'] = render_template('feeds.html', **data)
-        del data['feeds']
-        return jsonify(data)
+        keyword_feeds = UserController.keyword_feeds(g.user)
+        keyword_feeds = more.query(keyword_feeds,  _from=request.args.get('before', None))
+        keyword_feeds['html'] = render_template('keyword-feeds.html', keyword_feeds=keyword_feeds)
+        del keyword_feeds['feeds']
+        return jsonify(keyword_feeds)
 
     @app.route('/i/person/<int:id>', methods=['POST', 'DELETE'])
     def favorite_person(id):
@@ -61,18 +59,4 @@ def register(app):
             except NoResultFound as e:
                 abort(404)
         return ''
-
-
-def my_feeds():
-    feeds = Feed.query\
-                .with_polymorphic('*')\
-                .join(BillFeed.bill)\
-                .outerjoin(Bill.cosponsors)\
-                .outerjoin(Bill._keywords)\
-                .filter(or_(
-                    Keyword.id.in_(k.id for k in g.user.favorite_keywords),
-                    Person.id.in_(p.id for p in g.user.favorite_people),
-                ))\
-                .order_by(Feed.id.desc())
-    return feeds
 

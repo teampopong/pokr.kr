@@ -61,14 +61,11 @@
                 <input type="text" class="input-mini" name="keyword" placeholder="{{ gettext('new keyword') }}" style="margin: 0;" />
             </form>
         </div>
+        <div id="keyword-feeds">
+            {% include 'keyword-feeds.html' with context %}
+        </div>
+        <a class="btn-more btn-more-ajax {% if not keyword_feeds.next %}hide{% endif %}" href="{{ keyword_feeds.next }}" target="#keyword-feeds" method="GET">{{ gettext('more') }}</a>
     </div>
 </div>
-
-<!--div id="newsfeed">
-    <ul id="newsfeed-feeds">
-        {% include 'feeds.html' with context %}
-    </ul>
-    <a class="btn-more btn-more-ajax {% if not next %}hide{% endif %}" href="{{ next }}" target="#newsfeed-feeds" method="GET">{{ gettext('more') }}</a>
-</div-->
 <script src="{{ url_for('static', filename='js/mypage.js') }}"></script>
 {% endblock %}
