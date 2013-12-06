@@ -71,12 +71,6 @@ def register(app):
                 distribution_of_cosponsorships=distribution_of_cosponsorships,
                 person_extra_vars=person_extra_vars)
 
-    @app.route('/i/favorite/person/<int:id>', methods=['POST', 'DELETE'])
-    def favorite_person(id):
-        if not g.user.is_anonymous():
-            update_favorite_person(id, request.method)
-        return ''
-
 
 def all_person_names():
     name_tuples = (list(i) for i in db_session.query(
@@ -85,29 +79,6 @@ def all_person_names():
         ))
     all_names = list(set(reduce(operator.add, name_tuples)))
     return all_names
-
-
-def update_favorite_person(person_id, method):
-    '''s: { 0: do not change
-            1: set
-            2: unset }
-    '''
-    try:
-        person = Person.query.filter_by(id=person_id).one()
-    except NoResultFound, e:
-        abort(404)
-
-    dirty = False
-    if method.lower() == 'post':
-        if person not in g.user.favorite_people:
-            g.user.favorite_people.append(person)
-            dirty = True
-    elif method.lower() == 'delete':
-        if person.id in (p.id for p in g.user.favorite_people):
-            g.user.favorite_people.remove(person)
-            dirty = True
-    if dirty:
-        db_session.commit()
 
 
 @cache.memoize(timeout=60*60*4)
