@@ -31,3 +31,9 @@ def register(app):
 
         return render_template('region.html', region=region)
 
+    @app.route('/find-region')  # FIXME: change url
+    def find_region():
+        q = request.args.get('query', '')
+        regions = Region.query.filter(Region.name.like(u'%{0}%'.format(q)))
+        return render_template('region-list.html', regions=regions)
+

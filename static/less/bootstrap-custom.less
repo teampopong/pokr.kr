@@ -20,47 +20,49 @@ a i.nolink:hover {
     color: @icon_color;
 }
 
-.input-append {
-    .tt-hint {
-        .border-box;
-        color: #ee44a1; // Lucy Pink!
-    }
+#searchbox {
+    .input-append {
+        .tt-hint {
+            .border-box;
+            color: #ee44a1; // Lucy Pink!
+        }
 
-    .tt-dropdown-menu {
-        width: 100%;
-        background: white;
-        text-align: left;
-        border: 1px solid skyblue;
-        .border-box;
-        .border-radius;
-    }
+        .tt-dropdown-menu {
+            width: 100%;
+            background: white;
+            text-align: left;
+            border: 1px solid skyblue;
+            .border-box;
+            .border-radius;
+        }
 
-    .tt-suggestions p {
-        margin: 0 0 3px;
-        padding: 0 6px;
-    }
+        .tt-suggestions p {
+            margin: 0 0 3px;
+            padding: 0 6px;
+        }
 
-    .tt-suggestion {
-        font-size: 9pt;
-        color: #555;
-    }
+        .tt-suggestion {
+            font-size: 9pt;
+            color: #555;
+        }
 
-    .tt-is-under-cursor {
-        background: lightskyblue;
-    }
+        .tt-is-under-cursor {
+            background: lightskyblue;
+        }
 
-    .btn.add-on {
-        height: 28px;
-        border-color: @border_color;
-        padding: 6px 5px;
-    }
+        .btn.add-on {
+            height: 28px;
+            border-color: @border_color;
+            padding: 6px 5px;
+        }
 
-    input {
-        width: 320px;
-        max-width: 100%;
-        height: 28px;
-        border-color: @border_color;
-        font-size: 9pt;
+        input {
+            width: 320px;
+            max-width: 100%;
+            height: 28px;
+            border-color: @border_color;
+            font-size: 9pt;
+        }
     }
 }
 
@@ -74,9 +76,11 @@ div[class="tooltip-inner"] {
 
 
 @media (max-width: 840px) {
-    .input-append {
-        input {
-            width: 250px;
+    #searchbox {
+        .input-append {
+            input {
+                width: 250px;
+            }
         }
     }
 }
@@ -98,9 +102,11 @@ div[class="tooltip-inner"] {
             width: 90%;
         }
 
-        .input-append {
-            input {
-                width: 100%;
+        #searchbox {
+            .input-append {
+                input {
+                    width: 100%;
+                }
             }
         }
     }

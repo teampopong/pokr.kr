@@ -1,0 +1,8 @@
+<table>
+    {% for region in regions %}
+    <tr>
+        <td>{{ region.fullname }}</td>
+        <td><a class="choose-region" href="#" data-region_id="{{ region.id }}">{{ gettext('choose') }}</td>
+    </tr>
+    {% endfor %}
+</table>

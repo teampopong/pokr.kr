@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-05 02:26+0900\n"
+"POT-Creation-Date: 2013-12-07 03:47+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr "원문 텍스트 보기"
 msgid "outline"
 msgstr "기본정보"
 
-#: templates/bill.html:7 templates/bill.html:84
+#: templates/bill.html:7 templates/bill.html:84 templates/keyword-feeds.html:11
 msgid "sponsors"
 msgstr "발의자"
 
@@ -83,7 +83,7 @@ msgstr "의안"
 msgid "th"
 msgstr "대"
 
-#: templates/bills.html:53
+#: templates/bills.html:53 templates/keyword-feeds.html:10
 msgid "No summary"
 msgstr "요약 준비 중"
 
@@ -97,11 +97,6 @@ msgid ""
 "An unexpected error seems to have occured. Please contact us if the "
 "problem persists."
 msgstr "에러가 발생했습니다. 문제가 계속 발생한다면 저희에게 알려주세요."
-
-#: templates/feeds.html:5
-#, python-format
-msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
-msgstr "<a href=\"%(href)s\">%(title)s</a>을(를) 발의했습니다."
 
 #: templates/login.html:2
 msgid "mypage"
@@ -133,7 +128,7 @@ msgstr "%(count)d 명"
 msgid "%(count)d results"
 msgstr "%(count)d 개"
 
-#: templates/macros.html:88 templates/mypage.html:71 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:76 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr "더보기"
@@ -168,43 +163,51 @@ msgid ""
 "compliments)</small>"
 msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
 
-#: templates/mypage.html:4 templates/mypage.html:15
+#: templates/mypage.html:4 templates/mypage.html:14
 msgid "Mypage"
 msgstr "마이페이지"
 
-#: templates/mypage.html:20
+#: templates/mypage.html:19
 msgid "My Politics Magazine"
 msgstr "나의 정치 매거진"
 
-#: templates/mypage.html:23
+#: templates/mypage.html:22
 msgid "Favorite Politicians"
 msgstr "즐겨찾는 정치인"
 
-#: templates/mypage.html:31 templates/widgets/relation.html:6
+#: templates/mypage.html:30 templates/widgets/relation.html:6
 msgid "None"
 msgstr "없음"
 
-#: templates/mypage.html:38
+#: templates/mypage.html:37
 msgid "My district"
 msgstr "우리 동네"
 
-#: templates/mypage.html:43
+#: templates/mypage.html:42
 msgid "Please input your region"
 msgstr "지역을 입력해 주세요"
 
-#: templates/mypage.html:45
+#: templates/mypage.html:44
 msgid "Change region"
 msgstr "지역 변경"
 
-#: templates/mypage.html:49
+#: templates/mypage.html:46
+msgid "dong"
+msgstr "동"
+
+#: templates/mypage.html:49 templates/search-results.html:31
+msgid "search"
+msgstr "검색"
+
+#: templates/mypage.html:58
 msgid "Topics of Interest"
 msgstr "관심 주제"
 
-#: templates/mypage.html:58
+#: templates/mypage.html:67
 msgid "Please choose some keywords of your interest."
 msgstr "관심 키워드를 추가해 주세요."
 
-#: templates/mypage.html:61
+#: templates/mypage.html:70
 msgid "new keyword"
 msgstr "새 키워드"
 
@@ -356,6 +359,10 @@ msgstr "역할"
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 
+#: templates/region-list.html:5
+msgid "choose"
+msgstr "선택"
+
 #: templates/region.html:33 templates/region.html:48 templates/region.html:95
 msgid "subregions"
 msgstr "하위 지역"
@@ -416,10 +423,6 @@ msgstr "연관 키워드"
 #: templates/search-results.html:27
 msgid "Searched results"
 msgstr "검색 결과"
-
-#: templates/search-results.html:31
-msgid "search"
-msgstr "검색"
 
 #: templates/search-results.html:48
 #, python-format

@@ -60,3 +60,13 @@ def register(app):
                 abort(404)
         return ''
 
+    @app.route('/i/region', methods=['PUT'])
+    def update_address():
+        region_id = request.form.get('region_id')
+
+        if not region_id:
+            abort(404)
+
+        UserController.update_address(g.user, region_id)
+        return ''
+

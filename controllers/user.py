@@ -54,6 +54,11 @@ class UserController(Controller):
         return dirty
 
     @classmethod
+    def update_address(cls, user, region_id):
+        user.address_id = region_id
+        db_session.commit()
+
+    @classmethod
     def keyword_feeds(cls, user):
         feeds = Feed.query\
                     .with_polymorphic('*')\

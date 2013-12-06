@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-05 02:26+0900\n"
+"POT-Creation-Date: 2013-12-07 03:47+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "outline"
 msgstr ""
 
-#: templates/bill.html:7 templates/bill.html:84
+#: templates/bill.html:7 templates/bill.html:84 templates/keyword-feeds.html:11
 msgid "sponsors"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: templates/bills.html:53
+#: templates/bills.html:53 templates/keyword-feeds.html:10
 msgid "No summary"
 msgstr ""
 
@@ -96,11 +96,6 @@ msgstr ""
 msgid ""
 "An unexpected error seems to have occured. Please contact us if the "
 "problem persists."
-msgstr ""
-
-#: templates/feeds.html:5
-#, python-format
-msgid "<a href=\"%(href)s\">%(title)s</a> is proposed."
 msgstr ""
 
 #: templates/login.html:2
@@ -133,7 +128,7 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/mypage.html:71 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:76 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr ""
@@ -168,43 +163,51 @@ msgid ""
 "compliments)</small>"
 msgstr ""
 
-#: templates/mypage.html:4 templates/mypage.html:15
+#: templates/mypage.html:4 templates/mypage.html:14
 msgid "Mypage"
 msgstr ""
 
-#: templates/mypage.html:20
+#: templates/mypage.html:19
 msgid "My Politics Magazine"
 msgstr ""
 
-#: templates/mypage.html:23
+#: templates/mypage.html:22
 msgid "Favorite Politicians"
 msgstr ""
 
-#: templates/mypage.html:31 templates/widgets/relation.html:6
+#: templates/mypage.html:30 templates/widgets/relation.html:6
 msgid "None"
 msgstr ""
 
-#: templates/mypage.html:38
+#: templates/mypage.html:37
 msgid "My district"
 msgstr ""
 
-#: templates/mypage.html:43
+#: templates/mypage.html:42
 msgid "Please input your region"
 msgstr ""
 
-#: templates/mypage.html:45
+#: templates/mypage.html:44
 msgid "Change region"
 msgstr ""
 
-#: templates/mypage.html:49
-msgid "Topics of Interest"
+#: templates/mypage.html:46
+msgid "dong"
+msgstr ""
+
+#: templates/mypage.html:49 templates/search-results.html:31
+msgid "search"
 msgstr ""
 
 #: templates/mypage.html:58
+msgid "Topics of Interest"
+msgstr ""
+
+#: templates/mypage.html:67
 msgid "Please choose some keywords of your interest."
 msgstr ""
 
-#: templates/mypage.html:61
+#: templates/mypage.html:70
 msgid "new keyword"
 msgstr ""
 
@@ -356,6 +359,10 @@ msgstr ""
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
 
+#: templates/region-list.html:5
+msgid "choose"
+msgstr ""
+
 #: templates/region.html:33 templates/region.html:48 templates/region.html:95
 msgid "subregions"
 msgstr ""
@@ -415,10 +422,6 @@ msgstr ""
 
 #: templates/search-results.html:27
 msgid "Searched results"
-msgstr ""
-
-#: templates/search-results.html:31
-msgid "search"
 msgstr ""
 
 #: templates/search-results.html:48

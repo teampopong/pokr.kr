@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 {% endblock %}
-
 {% block breadcrumb_current %}
 {{ gettext('Mypage') }}
 {% endblock %}
@@ -42,7 +41,17 @@
             {% else %}
             <a href="">{{ gettext('Please input your region') }}</a>
             {% endif %}
-            <button type="button" value="">{{ gettext('Change region') }}</button>
+            <button id="btn-change-region" type="button" class="btn">{{ gettext('Change region') }}</button>
+            <form id="form-search-region" action="{{ url_for('find_region') }}" class="form-horizontal" style="display: none;">
+                <label>{{ gettext('dong') }}</label>
+                <div class="input-append">
+                    <input type="text" class="input-small" name="query" />
+                    <button class="btn" type="submit">{{ gettext('search') }}</button>
+                </div>
+            </form>
+            <div id="find-region-list">
+            </div>
+            <div id="urlUpdateRegion" class="hide" action="{{ url_for('update_address') }}"></div>
         </div>
     </div>
     <div class="column right">
