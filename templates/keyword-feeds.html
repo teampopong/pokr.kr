@@ -1,11 +1,13 @@
 {% for feed in keyword_feeds.feeds %}
-    <div class="feed">
-        <div class="feed-actor">{{ feed.sponsor }}</div>
-        <div class="feed-text">
-        {{ gettext('<a href="%(href)s">%(title)s</a> is proposed.', href=url_for('bill', id=feed.bill_id), title=feed.name) }}
-        </div>
-        <div class="feed-timestamp">
+    <div class="feed bill">
+        <p class="keywords">
+        {% for keyword in feed.bill.keywords %}<a href="{{ url_for('search', target='bill', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
+        </p>
+        <span class="feed-timestamp">
         {{ feed.proposed_date }}
-        </div>
+        </span>
+        <p class="feed-title"><a href="{{ url_for('bill', id=feed.bill_id) }}">{{ feed.name }}</a></p>
+        <p class="summary"><a href="{{ url_for('bill', id=feed.bill_id) }}#contents">{% if feed.bill.summary %}{{ controllers('bill').truncated_summary(feed.bill) }}{% else %}{{ gettext('No summary') }}{% endif %}</a></p>
+        <p class="feed-sponsor"><span class="bold">{{ gettext('sponsors') }}</span><br>{{ feed.sponsor }}</p>
     </div>
 {% endfor %}
