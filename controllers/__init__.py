@@ -3,6 +3,8 @@
 from base import Controller
 from bill import BillController
 from person import PersonController
+from region import RegionController
+from user import UserController
 
 
 CONTROLLERS = Controller.__subclasses__()

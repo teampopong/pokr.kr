@@ -23,3 +23,6 @@ class Election(Base):
         if is_regular is not None:
             self.is_regular = is_regular
 
+
+def current_age():
+    return Election.query.order_by(Election.age.desc()).first().age

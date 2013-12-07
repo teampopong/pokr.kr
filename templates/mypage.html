@@ -53,6 +53,14 @@
             </div>
             <div id="urlUpdateRegion" class="hide" action="{{ url_for('update_address') }}"></div>
         </div>
+        {% if user.address_id %}
+            {% set legislator = controllers('region').legislator_of(user.address_id) %}
+            {% if legislator %}
+            <div class="feed">
+                {{ widgets.card(legislator)|safe }}
+            </div>
+            {% endif %}
+        {% endif %}
     </div>
     <div class="column right">
         <h2>{{ gettext('Topics of Interest') }}</h2>
@@ -60,14 +68,14 @@
             {% if user.favorite_keywords %}
             <ul class="float-list" style="margin: 0; display: inline;">
                 {% for keyword in user.favorite_keywords %}
-                <li><a href="{{ url_for('favorite_keyword', keyword=keyword.name) }}" class="request close" data-method="DELETE">&times;</a><a href="{{ url_for('search', target='bills', query=keyword.name) }}" class="label">{{ keyword.name }}</a></li>
+                <li><span class="label"><a href="{{ url_for('search', target='bills', query=keyword.name) }}" class="keyword">{{ keyword.name }}</a><a href="{{ url_for('favorite_keyword', keyword=keyword.name) }}" class="request close" data-method="DELETE">&times;</a></span></li>
                 {% endfor %}
             </ul>
             {% else %}
             {{ gettext('Please choose some keywords of your interest.') }}
             {% endif %}
-            <form id="form-add-favorite-keyword" action="{{ url_for('favorite_keyword', keyword='') }}" style="margin: 0; display: inline;">
-                <input type="text" class="input-mini" name="keyword" placeholder="{{ gettext('new keyword') }}" style="margin: 0;" />
+            <form id="form-add-favorite-keyword" action="{{ url_for('favorite_keyword', keyword='') }}">
+                <input type="text" class="input-mini" name="keyword" placeholder="{{ gettext('new keyword') }}" />
             </form>
         </div>
         <div id="keyword-feeds">
