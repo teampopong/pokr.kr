@@ -1,7 +1,7 @@
 {% for feed in keyword_feeds.feeds %}
     <div class="feed bill">
         <p class="keywords">
-        {% for keyword in feed.bill.keywords %}<a href="{{ url_for('search', target='bill', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
+        {% for keyword in feed.bill.keywords %}<a href="{{ url_for('search', target='bills', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
         </p>
         <span class="feed-timestamp">
         {{ feed.proposed_date }}
