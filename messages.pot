@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-07 03:47+0900\n"
+"POT-Creation-Date: 2013-12-07 21:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/mypage.html:76 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:84 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr ""
@@ -168,7 +168,7 @@ msgid "Mypage"
 msgstr ""
 
 #: templates/mypage.html:19
-msgid "My Politics Magazine"
+msgid "Politics News"
 msgstr ""
 
 #: templates/mypage.html:22
@@ -199,15 +199,15 @@ msgstr ""
 msgid "search"
 msgstr ""
 
-#: templates/mypage.html:58
+#: templates/mypage.html:66
 msgid "Topics of Interest"
 msgstr ""
 
-#: templates/mypage.html:67
+#: templates/mypage.html:75
 msgid "Please choose some keywords of your interest."
 msgstr ""
 
-#: templates/mypage.html:70
+#: templates/mypage.html:78
 msgid "new keyword"
 msgstr ""
 
