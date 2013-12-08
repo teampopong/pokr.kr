@@ -8,6 +8,7 @@ from sqlalchemy.sql.expression import desc
 
 from cache import cache
 from models.bill import Bill
+from models.election import current_age
 from utils.jinja import breadcrumb
 
 
@@ -19,8 +20,7 @@ def register(app):
     @app.route('/bill/', methods=['GET'])
     @breadcrumb(app)
     def bill_main():
-        # FIXME: 19
-        assembly_id = int(request.args.get('assembly_id', 19))
+        assembly_id = int(request.args.get('assembly_id', current_age()))
         bills = Bill.query.filter(Bill.age==assembly_id).order_by(desc(Bill.proposed_date).nullslast())
         return render_template('bills.html',\
                 assembly_id=assembly_id, bills=bills)
