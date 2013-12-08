@@ -23,7 +23,7 @@ h1 {
     font-size: 22pt;
 }
 
-h2 {
+h2.column-title {
     background: #878787;
     color: white;
     border-top: 2px solid #212121;
@@ -72,7 +72,7 @@ h2 {
         padding-left: 20px;
     }
 
-    h2 {
+    h2.column-title {
         margin: 0px -10px 10px;
     }
 }
@@ -171,9 +171,18 @@ h2 {
 
 #column-district {
     .card {
+        margin-top: 0;
         float: left;
         vertical-align: top;
         margin-right: 10px;
+
+        h2 {
+            text-align: center;
+        }
+
+        [class^="icon-star"] {
+            display: none;
+        }
     }
 
     h3 {
@@ -190,7 +199,7 @@ h2 {
 
 #pledges {
     .inline-block;
-    .width-calc(~"100% - 105px", 100%);
+    .width-calc(~"100% - 135px", 100%);
 
     li {
         font-size: 10pt;

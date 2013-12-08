@@ -34,7 +34,7 @@
 
 <div class="columns">
     <div class="column left" id="column-district">
-        <h2>{{ gettext('My district') }}</h2>
+        <h2 class="column-title">{{ gettext('My district') }}</h2>
         <div class="feed text-center">
             {% if user.address_id %}
             {{ user.address.fullname }}
@@ -57,7 +57,7 @@
             {% set legislator = controllers('region').legislator_of(user.address_id) %}
             {% if legislator %}
             <div class="feed">
-                {{ widgets.card(legislator)|safe }}
+                {{ widgets.card(legislator, detailed=True)|safe }}
                 {% set pledges = legislator.pledges %}
                 {% set pledges = pledges and pledges[current_age()] %}
                 {% if pledges %}
@@ -77,7 +77,7 @@
         {% endif %}
     </div>
     <div class="column right">
-        <h2>{{ gettext('Topics of Interest') }}</h2>
+        <h2 class="column-title">{{ gettext('Topics of Interest') }}</h2>
         <div class="feed">
             {% if user.favorite_keywords %}
             <ul class="float-list" style="margin: 0; display: inline;">
