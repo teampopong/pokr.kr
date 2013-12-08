@@ -33,7 +33,7 @@
 </div>
 
 <div class="columns">
-    <div class="column left">
+    <div class="column left" id="column-district">
         <h2>{{ gettext('My district') }}</h2>
         <div class="feed text-center">
             {% if user.address_id %}
@@ -58,6 +58,20 @@
             {% if legislator %}
             <div class="feed">
                 {{ widgets.card(legislator)|safe }}
+                {% set pledges = legislator.pledges %}
+                {% set pledges = pledges and pledges[current_age()] %}
+                {% if pledges %}
+                <h3>{{ gettext('Pledges of this election') }} <small>[{{ gettext('%(age)dth legislator election', age=current_age()) }}]</small></h3>
+                <ol id="pledges">
+                    {% for pledge in pledges %}
+                    <li>
+                    <a href="#" class="btn-show-pledge-description" data-pledge_description_id="pledge-{{ loop.index }}">{{ pledge.pledge }}</a>
+                    <pre id="pledge-{{ loop.index }}" class="hide">{{ pledge.description }}</pre>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+                <div style="clear: both;"></div>
             </div>
             {% endif %}
         {% endif %}

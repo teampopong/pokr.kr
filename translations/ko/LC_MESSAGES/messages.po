@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-08 15:45+0900\n"
+"POT-Creation-Date: 2013-12-08 17:56+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgstr "%(count)d 명"
 msgid "%(count)d results"
 msgstr "%(count)d 개"
 
-#: templates/macros.html:88 templates/mypage.html:84 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:98 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr "더보기"
@@ -199,15 +199,24 @@ msgstr "동"
 msgid "search"
 msgstr "검색"
 
-#: templates/mypage.html:66
+#: templates/mypage.html:64
+msgid "Pledges of this election"
+msgstr "이번 선거 공약"
+
+#: templates/mypage.html:64
+#, python-format
+msgid "%(age)dth legislator election"
+msgstr "%(age)d대 총선"
+
+#: templates/mypage.html:80
 msgid "Topics of Interest"
 msgstr "관심 주제"
 
-#: templates/mypage.html:75
+#: templates/mypage.html:89
 msgid "Please choose some keywords of your interest."
 msgstr "관심 키워드를 추가해 주세요."
 
-#: templates/mypage.html:78
+#: templates/mypage.html:92
 msgid "new keyword"
 msgstr "새 키워드"
 
@@ -237,7 +246,7 @@ msgstr "인물"
 
 #: templates/party.html:45 templates/person.html:67
 #: templates/search-results.html:9 templates/includes/header.html:8
-#: templates/includes/header.html:10 views/party.py:18
+#: templates/includes/header.html:10 views/party.py:19
 msgid "party"
 msgstr "정당"
 
@@ -408,7 +417,7 @@ msgid "school"
 msgstr "교육기관"
 
 #: templates/search-results.html:10 templates/includes/header.html:8
-#: templates/includes/header.html:10 views/person.py:27
+#: templates/includes/header.html:10 views/person.py:28
 msgid "person"
 msgstr "인물"
 
@@ -462,7 +471,7 @@ msgid "sources"
 msgstr "소스"
 
 #: templates/includes/header.html:8 templates/includes/header.html:10
-#: views/bill.py:17
+#: views/bill.py:18
 msgid "bill"
 msgstr "의안"
 

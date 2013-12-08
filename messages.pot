@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-08 15:45+0900\n"
+"POT-Creation-Date: 2013-12-08 17:56+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/mypage.html:84 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:98 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr ""
@@ -199,15 +199,24 @@ msgstr ""
 msgid "search"
 msgstr ""
 
-#: templates/mypage.html:66
+#: templates/mypage.html:64
+msgid "Pledges of this election"
+msgstr ""
+
+#: templates/mypage.html:64
+#, python-format
+msgid "%(age)dth legislator election"
+msgstr ""
+
+#: templates/mypage.html:80
 msgid "Topics of Interest"
 msgstr ""
 
-#: templates/mypage.html:75
+#: templates/mypage.html:89
 msgid "Please choose some keywords of your interest."
 msgstr ""
 
-#: templates/mypage.html:78
+#: templates/mypage.html:92
 msgid "new keyword"
 msgstr ""
 
@@ -237,7 +246,7 @@ msgstr ""
 
 #: templates/party.html:45 templates/person.html:67
 #: templates/search-results.html:9 templates/includes/header.html:8
-#: templates/includes/header.html:10 views/party.py:18
+#: templates/includes/header.html:10 views/party.py:19
 msgid "party"
 msgstr ""
 
@@ -408,7 +417,7 @@ msgid "school"
 msgstr ""
 
 #: templates/search-results.html:10 templates/includes/header.html:8
-#: templates/includes/header.html:10 views/person.py:27
+#: templates/includes/header.html:10 views/person.py:28
 msgid "person"
 msgstr ""
 
@@ -462,7 +471,7 @@ msgid "sources"
 msgstr ""
 
 #: templates/includes/header.html:8 templates/includes/header.html:10
-#: views/bill.py:17
+#: views/bill.py:18
 msgid "bill"
 msgstr ""
 

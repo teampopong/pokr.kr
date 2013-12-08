@@ -17,6 +17,11 @@ $(function () {
     $('#btn-change-region').click(function () {
         $('#form-search-region').show();
     });
+    $('.btn-show-pledge-description').click(function () {
+        var id = $(this).data('pledge_description_id');
+        $('#' + id).toggleClass('hide');
+        return false;
+    });
     $('#form-search-region button[type="submit"]').click(searchRegion);
 
 });
