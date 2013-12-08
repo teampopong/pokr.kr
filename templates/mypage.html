@@ -56,25 +56,33 @@
         {% if user.address_id %}
             {% set legislator = controllers('region').legislator_of(user.address_id) %}
             {% if legislator %}
-            <div class="feed">
-                {{ widgets.card(legislator, detailed=True)|safe }}
-                {% set pledges = legislator.pledges %}
-                {% set pledges = pledges and pledges[current_age()] %}
-                {% if pledges %}
-                <h3>{{ gettext('Pledges of this election') }} <small>[{{ gettext('%(age)dth legislator election', age=current_age()) }}]</small></h3>
-                <ol id="pledges">
-                    {% for pledge in pledges %}
-                    <li>
-                    <a href="#" class="btn-show-pledge-description" data-pledge_description_id="pledge-{{ loop.index }}">{{ pledge.pledge }}</a>
-                    <pre id="pledge-{{ loop.index }}" class="hide">{{ pledge.description }}</pre>
-                    </li>
-                    {% endfor %}
-                </ol>
-                {% else %}
-                <p>{{ gettext('※ No pledges available') }}</p>
+                <div class="feed">
+                    {{ widgets.card(legislator, detailed=True)|safe }}
+                    {% set pledges = legislator.pledges %}
+                    {% set pledges = pledges and pledges[current_age()] %}
+                    {% if pledges %}
+                    <h3>{{ gettext('Pledges of this election') }} <small>[{{ gettext('%(age)dth legislator election', age=current_age()) }}]</small></h3>
+                    <ol id="pledges">
+                        {% for pledge in pledges %}
+                        <li>
+                        <a href="#" class="btn-show-pledge-description" data-pledge_description_id="pledge-{{ loop.index }}">{{ pledge.pledge }}</a>
+                        <pre id="pledge-{{ loop.index }}" class="hide">{{ pledge.description }}</pre>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    {% else %}
+                    <p>{{ gettext('※ No pledges available') }}</p>
+                    {% endif %}
+                    <div style="clear: both;"></div>
+                </div>
+                {% if legislator.twitter %}
+                <div class="feed">
+                    <a class="twitter-timeline" href="https://twitter.com/{{ legislator.twitter }}" data-related="twitterapi,twitter" data-widget-id="409615412398022656" lang="KO" data-screen-name="{{ legislator.twitter }}" height="400">{{ gettext("@%(handle)s's tweets", handle=legislator.twitter) }}</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+                </div>
                 {% endif %}
-                <div style="clear: both;"></div>
-            </div>
             {% endif %}
         {% endif %}
     </div>
