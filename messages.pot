@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-08 18:31+0900\n"
+"POT-Creation-Date: 2013-12-08 19:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,8 @@ msgstr ""
 msgid "related keywords"
 msgstr ""
 
-#: templates/bill.html:87 templates/bill.html:110 templates/macros.html:98
+#: templates/bill.html:87 templates/bill.html:110
+#: templates/district-feeds.html:6 templates/macros.html:98
 #: templates/person.html:299
 msgid "representative sponsor"
 msgstr ""
@@ -83,8 +84,17 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: templates/bills.html:53
+#: templates/bills.html:53 templates/district-feeds.html:18
 msgid "No summary"
+msgstr ""
+
+#: templates/district-feeds.html:4
+#, python-format
+msgid "Legislator %(name)s"
+msgstr ""
+
+#: templates/district-feeds.html:8
+msgid "cosponsor"
 msgstr ""
 
 #: templates/error.html:4 templates/not-found.html:4
@@ -128,8 +138,8 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/mypage.html:108 templates/person.html:264
-#: templates/person.html:308
+#: templates/macros.html:88 templates/mypage.html:88 templates/mypage.html:111
+#: templates/person.html:264 templates/person.html:308
 msgid "more"
 msgstr ""
 
@@ -199,33 +209,33 @@ msgstr ""
 msgid "search"
 msgstr ""
 
-#: templates/mypage.html:64
+#: templates/mypage.html:63
 msgid "Pledges of this election"
 msgstr ""
 
-#: templates/mypage.html:64
+#: templates/mypage.html:63
 #, python-format
 msgid "%(age)dth legislator election"
 msgstr ""
 
-#: templates/mypage.html:74
+#: templates/mypage.html:73
 msgid "※ No pledges available"
 msgstr ""
 
-#: templates/mypage.html:80
+#: templates/mypage.html:79
 #, python-format
 msgid "@%(handle)s's tweets"
 msgstr ""
 
-#: templates/mypage.html:90
+#: templates/mypage.html:93
 msgid "Topics of Interest"
 msgstr ""
 
-#: templates/mypage.html:99
+#: templates/mypage.html:102
 msgid "Please choose some keywords of your interest."
 msgstr ""
 
-#: templates/mypage.html:102
+#: templates/mypage.html:105
 msgid "new keyword"
 msgstr ""
 

@@ -54,7 +54,6 @@
             <div id="urlUpdateRegion" class="hide" action="{{ url_for('update_address') }}"></div>
         </div>
         {% if user.address_id %}
-            {% set legislator = controllers('region').legislator_of(user.address_id) %}
             {% if legislator %}
                 <div class="feed">
                     {{ widgets.card(legislator, detailed=True)|safe }}
@@ -83,6 +82,10 @@
 
                 </div>
                 {% endif %}
+                <div id="district-feeds">
+                    {% include "district-feeds.html" with context %}
+                </div>
+                <a class="btn-more btn-more-ajax {% if not district_feeds.next %}hide{% endif %}" href="{{ district_feeds.next }}" target="#district-feeds" method="GET">{{ gettext('more') }}</a>
             {% endif %}
         {% endif %}
     </div>

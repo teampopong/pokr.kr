@@ -59,6 +59,16 @@ class UserController(Controller):
         db_session.commit()
 
     @classmethod
+    def district_feeds(cls, legislator):
+        feeds = Feed.query\
+                    .with_polymorphic('*')\
+                    .join(BillFeed.bill)\
+                    .outerjoin(Bill.cosponsors)\
+                    .filter(Person.id == legislator.id)\
+                    .order_by(Feed.id.desc())
+        return feeds
+
+    @classmethod
     def keyword_feeds(cls, user):
         feeds = Feed.query\
                     .with_polymorphic('*')\
