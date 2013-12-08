@@ -4,7 +4,7 @@ from flask import url_for
 
 
 class MoreQuery(object):
-    def __init__(self, Model, view, order, target='items', pagesize=20):
+    def __init__(self, Model, view, order, target='items', pagesize=10):
         if order not in ['asc', 'desc']:
             raise RuntimeError()
 
