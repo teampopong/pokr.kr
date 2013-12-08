@@ -15,6 +15,9 @@ class MoreQuery(object):
         self.target = target
 
     def query(self, q, _from=None, pagesize=None):
+        if not q:
+            return None
+
         pagesize = pagesize or self.pagesize
         data = {}
 

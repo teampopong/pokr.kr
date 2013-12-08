@@ -1,3 +1,4 @@
+{% if district_feeds %}
 {% for feed in district_feeds.feeds %}
     <div class="feed bill">
         <p class="feed-sponsor-type">
@@ -18,4 +19,4 @@
         <p class="summary"><a href="{{ url_for('bill', id=feed.bill_id) }}#contents">{% if feed.bill.summary %}{{ controllers('bill').truncated_summary(feed.bill) }}{% else %}{{ gettext('No summary') }}{% endif %}</a></p>
     </div>
 {% endfor %}
-
+{% endif %}

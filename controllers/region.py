@@ -15,6 +15,9 @@ class RegionController(Controller):
 
     @classmethod
     def legislator_of(cls, region_id):
+        if not region_id:
+            return None
+
         age = current_age()
         region = Region.query.filter_by(id=region_id).one()
 

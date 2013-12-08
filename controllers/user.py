@@ -60,6 +60,9 @@ class UserController(Controller):
 
     @classmethod
     def district_feeds(cls, legislator):
+        if not legislator:
+            return None
+
         feeds = Feed.query\
                     .with_polymorphic('*')\
                     .join(BillFeed.bill)\
