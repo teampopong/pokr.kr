@@ -16,6 +16,7 @@ breadcrumb_home = ['home']
 
 
 def init_app(app):
+    app.jinja_env.add_extension('jinja2.ext.loopcontrols')
     app.jinja_env.filters['jsonify'] = jsonify
     app.jinja_env.globals.update(zip=zip, max=max, min=min, int=int, app=app)
     app.jinja_env.globals.update(assembly_term=assembly_term)

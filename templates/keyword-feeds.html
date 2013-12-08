@@ -1,12 +1,20 @@
 {% for feed in keyword_feeds.feeds %}
     <div class="feed bill">
+        {% set keywords = feed.bill.keywords %}
+        {% for keyword in keywords %}
+            {% if keyword.image %}
+            <img src="{{ url_for('static', filename='images/keyword_icons/%s' % keyword.image) }}" class="keyword-icon">
+                {% break %}
+            {% endif %}
+        {% endfor %}
         <p class="keywords">
-        {% for keyword in feed.bill.keywords %}<a href="{{ url_for('search', target='bills', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
+        {% for keyword in keywords %}<a href="{{ url_for('search', target='bills', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
         </p>
         <span class="feed-timestamp">
         {{ feed.proposed_date }}
         </span>
         <p class="feed-title"><a href="{{ url_for('bill', id=feed.bill_id) }}">{{ feed.name }}</a></p>
+        <div style="clear: both;"></div>
         <p class="summary"><a href="{{ url_for('bill', id=feed.bill_id) }}#contents">{% if feed.bill.summary %}{{ controllers('bill').truncated_summary(feed.bill) }}{% else %}{{ gettext('No summary') }}{% endif %}</a></p>
         <p class="feed-sponsor"><span class="bold">{{ gettext('sponsors') }}</span><br>{{ feed.sponsor }}</p>
     </div>
