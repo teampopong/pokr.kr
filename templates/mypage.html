@@ -70,6 +70,8 @@
                     </li>
                     {% endfor %}
                 </ol>
+                {% else %}
+                <p>{{ gettext('※ No pledges available') }}</p>
                 {% endif %}
                 <div style="clear: both;"></div>
             </div>

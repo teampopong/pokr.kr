@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-08 17:56+0900\n"
+"POT-Creation-Date: 2013-12-08 18:07+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgstr "%(count)d 명"
 msgid "%(count)d results"
 msgstr "%(count)d 개"
 
-#: templates/macros.html:88 templates/mypage.html:98 templates/person.html:264
+#: templates/macros.html:88 templates/mypage.html:100 templates/person.html:264
 #: templates/person.html:308
 msgid "more"
 msgstr "더보기"
@@ -208,15 +208,19 @@ msgstr "이번 선거 공약"
 msgid "%(age)dth legislator election"
 msgstr "%(age)d대 총선"
 
-#: templates/mypage.html:80
+#: templates/mypage.html:74
+msgid "※ No pledges available"
+msgstr "알려진 공약이 없거나 준비중입니다."
+
+#: templates/mypage.html:82
 msgid "Topics of Interest"
 msgstr "관심 주제"
 
-#: templates/mypage.html:89
+#: templates/mypage.html:91
 msgid "Please choose some keywords of your interest."
 msgstr "관심 키워드를 추가해 주세요."
 
-#: templates/mypage.html:92
+#: templates/mypage.html:94
 msgid "new keyword"
 msgstr "새 키워드"
 
