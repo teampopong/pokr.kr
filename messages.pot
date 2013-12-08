@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-08 19:00+0900\n"
+"POT-Creation-Date: 2013-12-08 19:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,8 +61,7 @@ msgstr ""
 msgid "related keywords"
 msgstr ""
 
-#: templates/bill.html:87 templates/bill.html:110
-#: templates/district-feeds.html:6 templates/macros.html:98
+#: templates/bill.html:87 templates/bill.html:110 templates/macros.html:98
 #: templates/person.html:299
 msgid "representative sponsor"
 msgstr ""
@@ -93,8 +92,12 @@ msgstr ""
 msgid "Legislator %(name)s"
 msgstr ""
 
+#: templates/district-feeds.html:6
+msgid "sponsored"
+msgstr ""
+
 #: templates/district-feeds.html:8
-msgid "cosponsor"
+msgid "cosponsored"
 msgstr ""
 
 #: templates/error.html:4 templates/not-found.html:4

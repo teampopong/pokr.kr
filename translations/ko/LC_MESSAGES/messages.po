@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-08 19:00+0900\n"
+"POT-Creation-Date: 2013-12-08 19:09+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -61,8 +61,7 @@ msgstr "상태"
 msgid "related keywords"
 msgstr "연관 키워드"
 
-#: templates/bill.html:87 templates/bill.html:110
-#: templates/district-feeds.html:6 templates/macros.html:98
+#: templates/bill.html:87 templates/bill.html:110 templates/macros.html:98
 #: templates/person.html:299
 msgid "representative sponsor"
 msgstr "대표발의자"
@@ -93,8 +92,12 @@ msgstr "요약 준비 중"
 msgid "Legislator %(name)s"
 msgstr "%(name)s 의원"
 
+#: templates/district-feeds.html:6
+msgid "sponsored"
+msgstr "발의"
+
 #: templates/district-feeds.html:8
-msgid "cosponsor"
+msgid "cosponsored"
 msgstr "공동발의"
 
 #: templates/error.html:4 templates/not-found.html:4

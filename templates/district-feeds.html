@@ -3,9 +3,9 @@
         <p class="feed-sponsor-type">
             {{ gettext('Legislator %(name)s', name=legislator.name) }}
             {% if legislator.name in feed.sponsor %}
-            {{ gettext('representative sponsor') }}
+            {{ gettext('sponsored') }}
             {% else %}
-            {{ gettext('cosponsor') }}
+            {{ gettext('cosponsored') }}
             {% endif %}
         </p>
         <p class="keywords">
