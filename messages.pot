@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-07 21:30+0900\n"
+"POT-Creation-Date: 2013-12-08 15:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "outline"
 msgstr ""
 
-#: templates/bill.html:7 templates/bill.html:84 templates/keyword-feeds.html:11
+#: templates/bill.html:7 templates/bill.html:84
 msgid "sponsors"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: templates/bills.html:53 templates/keyword-feeds.html:10
+#: templates/bills.html:53
 msgid "No summary"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgid "Mypage"
 msgstr ""
 
 #: templates/mypage.html:19
-msgid "Politics News"
+msgid "My Politics News"
 msgstr ""
 
 #: templates/mypage.html:22
