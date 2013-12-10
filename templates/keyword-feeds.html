@@ -15,7 +15,7 @@
         </span>
         <p class="feed-title"><a href="{{ url_for('bill', id=feed.bill_id) }}">{{ feed.name }}</a></p>
         <div style="clear: both;"></div>
-        <p class="summary"><a href="{{ url_for('bill', id=feed.bill_id) }}#contents">{% if feed.bill.summary %}{{ controllers('bill').truncated_summary(feed.bill) }}{% else %}{{ gettext('No summary') }}{% endif %}</a></p>
+        <p class="summary"><a href="{{ url_for('bill', id=feed.bill_id) }}#contents">{% if feed.bill.summary %}{{ BillController.truncated_summary(feed.bill) }}{% else %}{{ gettext('No summary') }}{% endif %}</a></p>
         <p class="feed-sponsor"><span class="bold">{{ gettext('sponsors') }}</span><br>{{ feed.sponsor }}</p>
     </div>
 {% endfor %}

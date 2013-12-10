@@ -16,7 +16,7 @@
         {{ feed.proposed_date }}
         </span>
         <p class="feed-title"><a href="{{ url_for('bill', id=feed.bill_id) }}">{{ feed.name }}</a></p>
-        <p class="summary"><a href="{{ url_for('bill', id=feed.bill_id) }}#contents">{% if feed.bill.summary %}{{ controllers('bill').truncated_summary(feed.bill) }}{% else %}{{ gettext('No summary') }}{% endif %}</a></p>
+        <p class="summary"><a href="{{ url_for('bill', id=feed.bill_id) }}#contents">{% if feed.bill.summary %}{{ BillController.truncated_summary(feed.bill) }}{% else %}{{ gettext('No summary') }}{% endif %}</a></p>
     </div>
 {% endfor %}
 {% endif %}

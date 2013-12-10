@@ -7,18 +7,11 @@ from region import RegionController
 from user import UserController
 
 
-CONTROLLERS = Controller.__subclasses__()
-
-
-def controllers(model):
-    _controllers = [controller for controller in CONTROLLERS
-                               if controller.model == model]
-    if len(_controllers) > 1:
-        raise RuntimeError('Too many controllers with the same model: %s' % model)
-    return _controllers.pop()
-
-
 def init_controller(app):
-    for controller in CONTROLLERS:
+    controllers = Controller.__subclasses__()
+    for controller in controllers:
         controller.init(app)
+        app.jinja_env.globals.update({
+            controller.__name__: controller
+        })
 

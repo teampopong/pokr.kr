@@ -8,7 +8,6 @@ from flask.ext.babel import gettext
 from sqlalchemy.ext.declarative import DeclarativeMeta
 from werkzeug.urls import Href, url_unquote
 
-from controllers import controllers
 from models.assembly import term as assembly_term
 from models.election import current_age
 
@@ -29,7 +28,6 @@ def init_app(app):
     app.jinja_env.globals.update(
         app=app,
         assembly_term=assembly_term,
-        controllers=controllers,
         current_age=current_age,
         url_for_query=url_for_query,
         url_for_noencode=url_for_noencode,

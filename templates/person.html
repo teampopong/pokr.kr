@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% import 'macros.html' as macro with context %}
 
-{% set has_bills = controllers('person').bills_of(person).limit(1).all() %}
-{% set party_history = controllers('person').party_history(person) %}
+{% set has_bills = PersonController.bills_of(person).limit(1).all() %}
+{% set party_history = PersonController.party_history(person) %}
 {% set NUM_BILLS_SHOWN = 10 %}
 
 {% block title %}
@@ -132,7 +132,7 @@
             {% if not mobile %}
             {{ widgets.kmap(person.address_id[0] if person.address_id else None, width=120)|safe }}
             {% endif %}
-            {{ widgets.wordle(controllers('person').keyword_counts(person), 200, 148)|safe }}
+            {{ widgets.wordle(PersonController.keyword_counts(person), 200, 148)|safe }}
             </div>
         </div>
         <div id="section-elections" class="section">
@@ -197,7 +197,7 @@
                                 {% endif %}
                             </strong>
                             <div class="pledges">
-                            {% set pledges = controllers('person').pledges_grouped_by_age(person) %}
+                            {% set pledges = PersonController.pledges_grouped_by_age(person) %}
                             {% if pledges and pledges[candidacy.age] %}
                             <small><a class="inline-box btn-show-pledge" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('Pledges')}}]</a></small>
                             <div style="display:none">
@@ -241,7 +241,7 @@
             {% if mobile %}
                 {% for candidacy in person.candidacies %}
                     {% if candidacy.is_elected %}
-                        {% set all_bills = controllers('person').bills_of(person, candidacy.age) %}
+                        {% set all_bills = PersonController.bills_of(person, candidacy.age) %}
                         {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
                         {% if bills %}
                         <h4 class="subsection-title">
@@ -280,7 +280,7 @@
                 <tbody>
                     {% for candidacy in person.candidacies %}
                         {% if candidacy.is_elected %}
-                            {% set all_bills = controllers('person').bills_of(person, candidacy.age) %}
+                            {% set all_bills = PersonController.bills_of(person, candidacy.age) %}
                             {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
                             {% if bills %}
                                 <tr>
