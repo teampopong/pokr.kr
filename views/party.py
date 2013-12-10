@@ -8,7 +8,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
 from models.candidacy import Candidacy
-from models.election import current_age
+from models.election import current_assembly_id
 from models.party import Party
 from utils.jinja import breadcrumb
 
@@ -22,7 +22,7 @@ def register(app):
     @app.route('/party/', methods=['GET'])
     @breadcrumb(app)
     def party_main():
-        assembly_id = int(request.args.get('assembly_id', current_age()))
+        assembly_id = int(request.args.get('assembly_id', current_assembly_id()))
 
         parties = Party.query.distinct(Party.id)\
                         .join(Candidacy)\

@@ -9,7 +9,7 @@ from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 from controllers.base import Controller
 from database import db_session
 from models.candidacy import Candidacy
-from models.election import current_age, Election
+from models.election import current_assembly_id, Election
 from models.person import Person
 from models.region import Region
 
@@ -22,7 +22,7 @@ class RegionController(Controller):
         if not region_id:
             return None
 
-        age = current_age()
+        age = current_assembly_id()
         region = Region.query.filter_by(id=region_id).one()
 
         legislator = None

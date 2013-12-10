@@ -58,9 +58,9 @@
                 <div class="feed">
                     {{ widgets.card(legislator, detailed=True)|safe }}
                     {% set pledges = legislator.pledges %}
-                    {% set pledges = pledges and pledges[current_age()] %}
+                    {% set pledges = pledges and pledges[current_assembly_id()] %}
                     {% if pledges %}
-                    <h3>{{ gettext('Pledges of this election') }} <small>[{{ gettext('%(age)dth legislator election', age=current_age()) }}]</small></h3>
+                    <h3>{{ gettext('Pledges of this election') }} <small>[{{ gettext('%(age)dth legislator election', age=current_assembly_id()) }}]</small></h3>
                     <ol id="pledges">
                         {% for pledge in pledges %}
                         <li>

@@ -9,7 +9,7 @@ from sqlalchemy.ext.declarative import DeclarativeMeta
 from werkzeug.urls import Href, url_unquote
 
 from models.assembly import term as assembly_term
-from models.election import current_age
+from models.election import current_assembly_id
 
 
 breadcrumb_home = ['home']
@@ -28,7 +28,7 @@ def init_app(app):
     app.jinja_env.globals.update(
         app=app,
         assembly_term=assembly_term,
-        current_age=current_age,
+        current_assembly_id=current_assembly_id,
         url_for_query=url_for_query,
         url_for_noencode=url_for_noencode,
     )

@@ -2,7 +2,9 @@
 
 from sqlalchemy import Boolean, CHAR, Column, Enum, Integer
 from sqlalchemy.orm import backref, relationship
+
 from database import Base
+
 
 class Election(Base):
     __tablename__ = 'election'
@@ -24,5 +26,8 @@ class Election(Base):
             self.is_regular = is_regular
 
 
-def current_age():
-    return Election.query.order_by(Election.age.desc()).first().age
+def current_assembly_id():
+    latest_election = Election.query.order_by(Election.age.desc()).first()
+    if latest_election:
+        return latest_election.age
+

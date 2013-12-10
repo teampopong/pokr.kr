@@ -17,7 +17,7 @@ from database import db_session
 from models.bill import Bill
 from models.candidacy import Candidacy
 from models.cosponsorship import cosponsorship
-from models.election import current_age
+from models.election import current_assembly_id
 from models.person import Person
 from utils.jinja import breadcrumb
 
@@ -33,7 +33,7 @@ def register(app):
     @app.route('/person/', methods=['GET'])
     @breadcrumb(app)
     def person_main():
-        assembly_id = int(request.args.get('assembly_id', current_age()))
+        assembly_id = int(request.args.get('assembly_id', current_assembly_id()))
         officials = Person.query.order_by(desc(Person.id))\
                                 .join(Candidacy)\
                                 .filter(and_(Candidacy.age == assembly_id,
