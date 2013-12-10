@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 
-from collections import defaultdict
 from datetime import date
 
 from flaskext.babel import format_date
@@ -16,7 +15,6 @@ from models.bill_withdrawal import bill_withdrawal
 from models.candidacy import Candidacy
 from models.cosponsorship import cosponsorship
 from models.party import Party
-from models.pledge import Pledge
 
 class Person(Base):
     __tablename__ = 'person'
@@ -58,13 +56,6 @@ class Person(Base):
             secondary=bill_withdrawal,
             backref='withdrawers')
 
-    def __init__(self, name, **kwargs):
-        self.name = name
-
-        for key, val in kwargs.items():
-            if hasattr(self, key):
-                setattr(self, key, kwargs[key])
-
     @hybrid_property
     def birthday_year(self):
         return int(self.birthday[:4])
@@ -93,6 +84,7 @@ class Person(Base):
 
     @property
     def parties(self):
+        # FIXME: relationship w/ party_affiliation
         parties = Party.query.join(Candidacy,
                                   Candidacy.party_id == Party.id)\
                             .join(Person,
@@ -104,48 +96,6 @@ class Person(Base):
     @property
     def cur_party(self):
         return self.parties.first()
-
-    @property
-    def party_history(self):
-        parties_and_ages = self.parties.add_columns(Candidacy.age)
-        result = []
-        prev_party_id = None
-        for party, age in parties_and_ages:
-            if prev_party_id == party.id:
-                result[-1][0].append(age)
-            else:
-                result.append(([age], party))
-                prev_party_id = party.id
-        return [(party, min(ages), max(ages)) for ages, party in result]
-
-    @property
-    def pledges(self):
-        query = Pledge.query.join(Candidacy,
-                                  Candidacy.id == Pledge.candidacy_id)\
-                            .join(Person,
-                                  Person.id == Candidacy.person_id)\
-                            .filter(Person.id == self.id)\
-                            .order_by(Pledge.id)
-
-        result = defaultdict(list)
-        for pledge in query:
-            result[pledge.candidacy.age].append(pledge)
-
-        return result
-
-    def bills(self, age=None):
-        if 'Bill' not in dir():
-            from models.bill import Bill
-        query = Bill.query.join(cosponsorship,
-                                Bill.id == cosponsorship.c.bill_id)\
-                          .join(Person,
-                                Person.id == cosponsorship.c.person_id)\
-                          .filter_by(id=self.id)\
-                          .order_by(desc(Bill.proposed_date))
-        if age:
-            query = query.filter(Bill.age == age)
-
-        return query
 
 
 def guess_person(session, name, assembly_id):

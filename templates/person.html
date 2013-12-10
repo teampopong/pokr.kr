@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% import 'macros.html' as macro with context %}
 
-{% set has_bills = person.bills().limit(1).all() %}
-{% set party_history = person.party_history %}
+{% set has_bills = controllers('person').bills_of(person).limit(1).all() %}
+{% set party_history = controllers('person').party_history(person) %}
 {% set NUM_BILLS_SHOWN = 10 %}
 
 {% block title %}
@@ -197,7 +197,7 @@
                                 {% endif %}
                             </strong>
                             <div class="pledges">
-                            {% set pledges = person.pledges %}
+                            {% set pledges = controllers('person').pledges_grouped_by_age(person) %}
                             {% if pledges and pledges[candidacy.age] %}
                             <small><a class="inline-box btn-show-pledge" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('Pledges')}}]</a></small>
                             <div style="display:none">
@@ -241,7 +241,7 @@
             {% if mobile %}
                 {% for candidacy in person.candidacies %}
                     {% if candidacy.is_elected %}
-                        {% set all_bills = person.bills(candidacy.age) %}
+                        {% set all_bills = controllers('person').bills_of(person, candidacy.age) %}
                         {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
                         {% if bills %}
                         <h4 class="subsection-title">
@@ -280,7 +280,7 @@
                 <tbody>
                     {% for candidacy in person.candidacies %}
                         {% if candidacy.is_elected %}
-                            {% set all_bills = person.bills(candidacy.age) %}
+                            {% set all_bills = controllers('person').bills_of(person, candidacy.age) %}
                             {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
                             {% if bills %}
                                 <tr>

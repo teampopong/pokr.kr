@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from database import transaction
-from models.person import guess_person, Person
+from models.person import Person
 from utils.command import Command
 from utils.csv import read_csv
 
