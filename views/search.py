@@ -128,7 +128,7 @@ def register(app):
             options['person_id'] = Person.query.filter_by(id=person_id).one().name
 
         if assembly_id:
-            bills = bills.filter(Bill.age == assembly_id)
+            bills = bills.filter(Bill.assembly_id == assembly_id)
 
         if status_id:
             bills = bills.filter(Bill.status_id == status_id)

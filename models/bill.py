@@ -38,7 +38,7 @@ class Bill(Base):
     name = Column(Unicode(256), index=True, nullable=False)
     summary = Column(Text)
 
-    age = Column(Integer, index=True, nullable=False)
+    assembly_id = Column(Integer, index=True, nullable=False)
     proposed_date = Column(Date, index=True)
     decision_date = Column(Date, index=True)
 
@@ -86,7 +86,7 @@ class Bill(Base):
                                         func.count(distinct(Person.id)))\
                                  .join(Candidacy)\
                                  .join(Election)\
-                                 .filter(Election.age == self.age)\
+                                 .filter(Election.assembly_id == self.assembly_id)\
                                  .join(Person)\
                                  .join(cosponsorship)\
                                  .join(Bill)\

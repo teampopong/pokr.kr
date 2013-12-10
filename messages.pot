@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-08 19:09+0900\n"
+"POT-Creation-Date: 2013-12-11 02:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,20 +83,20 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: templates/bills.html:53 templates/district-feeds.html:18
+#: templates/bills.html:53 templates/district-feeds.html:19
 msgid "No summary"
 msgstr ""
 
-#: templates/district-feeds.html:4
+#: templates/district-feeds.html:5
 #, python-format
 msgid "Legislator %(name)s"
 msgstr ""
 
-#: templates/district-feeds.html:6
+#: templates/district-feeds.html:7
 msgid "sponsored"
 msgstr ""
 
-#: templates/district-feeds.html:8
+#: templates/district-feeds.html:9
 msgid "cosponsored"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 
 #: templates/mypage.html:63
 #, python-format
-msgid "%(age)dth legislator election"
+msgid "%(assembly_id)dth legislator election"
 msgstr ""
 
 #: templates/mypage.html:73
@@ -329,7 +329,7 @@ msgstr ""
 
 #: templates/person.html:74 templates/person.html:143 templates/person.html:192
 #, python-format
-msgid "%(age)dth"
+msgid "%(assembly_id)dth"
 msgstr ""
 
 #: templates/person.html:85
@@ -493,7 +493,7 @@ msgid "sources"
 msgstr ""
 
 #: templates/includes/header.html:8 templates/includes/header.html:10
-#: views/bill.py:18
+#: views/bill.py:17
 msgid "bill"
 msgstr ""
 
@@ -530,13 +530,13 @@ msgstr ""
 #, python-format
 msgid ""
 "won\n"
-"%(age)dth"
+"%(assembly_id)dth"
 msgstr ""
 
 #: widgets/timeline.py:70
 #, python-format
 msgid ""
 "lost\n"
-"%(age)dth"
+"%(assembly_id)dth"
 msgstr ""
 

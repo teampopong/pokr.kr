@@ -100,12 +100,13 @@ def update_bills(source, files=None):
     elif source.startswith('db'):
         with transaction() as session:
             assembly_id = session.query(Election)\
-                                 .order_by(Election.age.desc())\
-                                 .first().age
+                                 .order_by(Election.assembly_id.desc())\
+                                 .first().assembly_id
 
         # FIXME: filter finished bills out
         bill_ids = (record[0] for record
-                              in session.query(Bill.id).filter_by(age=assembly_id))
+                              in session.query(Bill.id)\
+                                        .filter_by(assembly_id=assembly_id))
 
         # ranged query
         m = re.match(r'db\[(\d*):(\d*)\]', source)
@@ -195,7 +196,7 @@ def extract_bill(record):
     return {
         'id': bill_id,
         'name': name,
-        'age': assembly_id,
+        'assembly_id': assembly_id,
         'proposed_date': proposed_date,
         'decision_date': decision_date,
         'is_processed': is_processed,
@@ -212,10 +213,10 @@ def insert_cosponsorships(session, bill, cosponsors):
     existing_cosponsor_ids = [c.id for c in bill.cosponsors]
     cosponsor_ids = []
     for proposer in cosponsors:
-        key = (proposer, bill.age)
+        key = (proposer, bill.assembly_id)
         if key not in person_ids:
             try:
-                person = guess_person(session, proposer, bill.age)
+                person = guess_person(session, proposer, bill.assembly_id)
 
             except Exception, e:
                 person = None

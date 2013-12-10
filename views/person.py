@@ -36,7 +36,7 @@ def register(app):
         assembly_id = int(request.args.get('assembly_id', current_assembly_id()))
         officials = Person.query.order_by(desc(Person.id))\
                                 .join(Candidacy)\
-                                .filter(and_(Candidacy.age == assembly_id,
+                                .filter(and_(Candidacy.assembly_id == assembly_id,
                                              Candidacy.is_elected == True))
 
         return render_template('people.html',
@@ -82,11 +82,11 @@ def all_person_names():
 
 
 @cache.memoize(timeout=60*60*4)
-def distribution_of_cosponsorships(age):
+def distribution_of_cosponsorships(assembly_id):
     bill_t = Bill.__table__
     stmt = select([func.count(cosponsorship.c.id)])\
             .select_from(cosponsorship.join(bill_t))\
-            .where(bill_t.c.age == age)\
+            .where(bill_t.c.assembly_id == assembly_id)\
             .group_by(cosponsorship.c.person_id)
     distribution = db_session.execute(stmt).fetchall()
     distribution = map(lambda x: x[0], distribution)

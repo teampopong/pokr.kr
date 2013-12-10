@@ -17,10 +17,10 @@
     <h3 id="outline">{{ gettext('outline') }}</h3>
     <table id="bill-outline" class="table table-condensed">
         <tbody>
-            {% if bill.age %}
+            {% if bill.assembly_id %}
             <tr>
                 <th>{{ gettext("assembly #") }}</th>
-                <td>{{ bill.age }}</td>
+                <td>{{ bill.assembly_id }}</td>
             </tr>
             {% endif %}
             {% if bill.proposed_date %}

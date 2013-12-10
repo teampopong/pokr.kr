@@ -44,15 +44,15 @@ class UpdateCandidaciesCommand(Command):
     @classmethod
     def init_parser_options(cls):
         cls.parser.add_argument('files')
-        cls.parser.add_argument('--age', type=int, required=True)
+        cls.parser.add_argument('--assembly_id', type=int, required=True)
         cls.parser.add_argument('--date', required=True)
 
     @classmethod
-    def run(cls, files, age, date, **kwargs):
-        insert_candidacies(files, age, date)
+    def run(cls, files, assembly_id, date, **kwargs):
+        insert_candidacies(files, assembly_id, date)
 
 
-def insert_candidacies(files, age, date):
+def insert_candidacies(files, assembly_id, date):
     with transaction() as session:
         for file_ in glob(files):
             with open(file_, 'r') as f:
@@ -60,7 +60,7 @@ def insert_candidacies(files, age, date):
             for record in list_:
                 person_id = insert_person(session, record)
                 insert_party(session, record)
-                insert_election(session, age, date)
+                insert_election(session, assembly_id, date)
                 insert_candidacy(session, record, person_id, date)
 
             # TODO: recalc order, size of party table
@@ -125,9 +125,9 @@ def insert_party(session, r):
         session.flush()
 
 
-def insert_election(session, age, date):
-    if not has_election(session, age=age, date=date, type='assembly'):
-        election = Election('assembly', age, date=date, is_regular=False)
+def insert_election(session, assembly_id, date):
+    if not has_election(session, assembly_id=assembly_id, date=date, type='assembly'):
+        election = Election('assembly', assembly_id, date=date, is_regular=False)
         session.add(election)
         session.flush()
 
@@ -163,9 +163,9 @@ def to_float(num):
     return float(num)
 
 
-def has_election(session, type, age, date):
+def has_election(session, type, assembly_id, date):
     return session.query(Election)\
-            .filter_by(age=age, date=date, type='assembly').count() > 0
+            .filter_by(assembly_id=assembly_id, date=date, type='assembly').count() > 0
 
 
 def guess_person(r):

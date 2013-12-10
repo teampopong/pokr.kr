@@ -46,7 +46,7 @@ class Person(Base):
 
     ### Relations ###
     candidacies = relationship('Candidacy',
-            order_by='desc(Candidacy.age)',
+            order_by='desc(Candidacy.assembly_id)',
             backref='person')
     bills_ = relationship('Bill',
             secondary=cosponsorship,
@@ -90,7 +90,7 @@ class Person(Base):
                             .join(Person,
                                   Person.id == Candidacy.person_id)\
                             .filter(Person.id == self.id)\
-                            .order_by(desc(Candidacy.age))
+                            .order_by(desc(Candidacy.assembly_id))
         return parties
 
     @property
@@ -103,14 +103,14 @@ def guess_person(session, name, assembly_id):
         person = session.query(Person)\
                         .filter_by(name=name)\
                         .join(Person.candidacies)\
-                        .filter(and_(Candidacy.age == assembly_id))\
+                        .filter(Candidacy.assembly_id == assembly_id)\
                         .one()
 
     except MultipleResultsFound, e:
         person = session.query(Person)\
                         .filter_by(name=name)\
                         .join(Person.candidacies)\
-                        .filter(and_(Candidacy.age == assembly_id,
+                        .filter(and_(Candidacy.assembly_id == assembly_id,
                                      Candidacy.is_elected == True))\
                         .one()
     return person

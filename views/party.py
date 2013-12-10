@@ -26,7 +26,7 @@ def register(app):
 
         parties = Party.query.distinct(Party.id)\
                         .join(Candidacy)\
-                        .filter(Candidacy.age==assembly_id)
+                        .filter(Candidacy.assembly_id==assembly_id)
 
         return render_template('parties.html',\
                                 assembly_id=assembly_id,\
@@ -59,8 +59,8 @@ def register(app):
         candidacies = Candidacy.query\
                                .join(Party)\
                                .filter(Party.id == party.id)\
-                               .distinct(Candidacy.age)
-        assemblies = [candidacy.age for candidacy in candidacies]
+                               .distinct(Candidacy.assembly_id)
+        assemblies = [candidacy.assembly_id for candidacy in candidacies]
         return render_template('party.html',\
                                 party=party,\
                                 is_duplicate=is_duplicate,\

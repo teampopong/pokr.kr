@@ -61,12 +61,12 @@ def candidacy_events(person):
     return events
 
 def candidacy_event(candidacy):
-    age = int(candidacy.age)
-    term = ASSEMBLY_TERMS[age]
+    assembly_id = int(candidacy.assembly_id)
+    term = ASSEMBLY_TERMS[assembly_id]
     if candidacy.is_elected:
-        e = event(gettext('won\n%(age)dth', age=age),
+        e = event(gettext('won\n%(assembly_id)dth', assembly_id=assembly_id),
                   term[0], term[1])
     else:
-        e = event(gettext('lost\n%(age)dth', age=age),
+        e = event(gettext('lost\n%(assembly_id)dth', assembly_id=assembly_id),
                   term[0])
     return e

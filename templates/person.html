@@ -67,11 +67,11 @@
                         <th>{{ gettext("party") }}</th>
                         <td>
                             <ul class="unstyled nomargin">
-                            {% for party, min_age, max_age in party_history %}
+                            {% for party, min_assembly_id, max_assembly_id in party_history %}
                                 {% if loop.first %}
                                 <li>
                                 {% else %}
-                                <li class="extra"><span class="search-count">{{ gettext('%(age)dth', age=min_age) }}{% if min_age != max_age %} - {{ gettext('%(age)dth', age=max_age) }}{% endif %}</span>
+                                <li class="extra"><span class="search-count">{{ gettext('%(assembly_id)dth', assembly_id=min_assembly_id) }}{% if min_assembly_id != max_assembly_id %} - {{ gettext('%(assembly_id)dth', assembly_id=max_assembly_id) }}{% endif %}</span>
                                 {% endif %}
                                     <a href="{{ url_for('party', id=party.id) }}">{{ party.name|translit(type='party') }}</a>
                                 </li>
@@ -140,7 +140,7 @@
             {% if mobile %}
                 {% for candidacy in person.candidacies %}
                 <h4 class="subsection-title">
-                    {{ gettext('%(age)dth', age=candidacy.age) }}
+                    {{ gettext('%(assembly_id)dth', assembly_id=candidacy.assembly_id) }}
                     {% if candidacy.election.is_regular %}
                     {{ gettext('National Assembly Election') }}
                     {% else %}
@@ -186,10 +186,10 @@
                 </thead>
                 <tbody>
                     {% for candidacy in person.candidacies %}
-                    <tr id="assembly-election-{{candidacy.age}}">
-                        <th class="anchor" data-target-id="assembly-election-{{candidacy.age}}">
+                    <tr id="assembly-election-{{candidacy.assembly_id}}">
+                        <th class="anchor" data-target-id="assembly-election-{{candidacy.assembly_id}}">
                             <strong class="header-name">
-                                {{ gettext('%(age)dth', age=candidacy.age) }}
+                                {{ gettext('%(assembly_id)dth', assembly_id=candidacy.assembly_id) }}
                                 {% if candidacy.election.is_regular %}
                                 {{ gettext('National Assembly Election') }}
                                 {% else %}
@@ -197,12 +197,12 @@
                                 {% endif %}
                             </strong>
                             <div class="pledges">
-                            {% set pledges = PersonController.pledges_grouped_by_age(person) %}
-                            {% if pledges and pledges[candidacy.age] %}
-                            <small><a class="inline-box btn-show-pledge" href="#assembly-pledges-{{candidacy.age}}">[{{gettext('Pledges')}}]</a></small>
+                            {% set pledges = PersonController.pledges_grouped_by_assembly_id(person) %}
+                            {% if pledges and pledges[candidacy.assembly_id] %}
+                            <small><a class="inline-box btn-show-pledge" href="#assembly-pledges-{{candidacy.assembly_id}}">[{{gettext('Pledges')}}]</a></small>
                             <div style="display:none">
-                                <ul id="assembly-pledges-{{candidacy.age}}">
-                                    {% for pledge in pledges[candidacy.age] %}
+                                <ul id="assembly-pledges-{{candidacy.assembly_id}}">
+                                    {% for pledge in pledges[candidacy.assembly_id] %}
                                         <li class="pledge">
                                             {{pledge.pledge}}
                                             <pre class="pledge-description hide">{{pledge.description}}</pre>
@@ -241,13 +241,13 @@
             {% if mobile %}
                 {% for candidacy in person.candidacies %}
                     {% if candidacy.is_elected %}
-                        {% set all_bills = PersonController.bills_of(person, candidacy.age) %}
+                        {% set all_bills = PersonController.bills_of(person, candidacy.assembly_id) %}
                         {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
                         {% if bills %}
                         <h4 class="subsection-title">
-                            {{ candidacy.age }}{{ gettext('th assembly') }}
+                            {{ candidacy.assembly_id }}{{ gettext('th assembly') }}
                             <small>{{ macro.list_count(all_bills) }}</small>
-                            <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.age))|safe }}
+                            <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.assembly_id))|safe }}
                         </h4>
                         <table class="table table-condensed">
                             <tr>
@@ -261,7 +261,7 @@
                             </tr>
                             {% endfor %}
                             {% if bills|length > NUM_BILLS_SHOWN %}
-                            <tr><td colspan="2" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td></tr>
+                            <tr><td colspan="2" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.assembly_id, person_id=person.id) }}">{{ gettext('more') }}</a></td></tr>
                         </table>
                         {% endif %}
                         {% endif %}
@@ -280,14 +280,14 @@
                 <tbody>
                     {% for candidacy in person.candidacies %}
                         {% if candidacy.is_elected %}
-                            {% set all_bills = PersonController.bills_of(person, candidacy.age) %}
+                            {% set all_bills = PersonController.bills_of(person, candidacy.assembly_id) %}
                             {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
                             {% if bills %}
                                 <tr>
-                                    <th id="legislations-{{ candidacy.age }}" class="anchor" rowspan="{{ bills|length + 1 }}">
-                                        {{ candidacy.age }}{{ gettext('th assembly') }}
+                                    <th id="legislations-{{ candidacy.assembly_id }}" class="anchor" rowspan="{{ bills|length + 1 }}">
+                                        {{ candidacy.assembly_id }}{{ gettext('th assembly') }}
                                         <br>{{ macro.list_count(all_bills) }}
-                                        <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.age))|safe }}
+                                        <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.assembly_id))|safe }}
                                     </th>
                                 </tr>
                                 {% for bill in bills[:NUM_BILLS_SHOWN] %}
@@ -305,7 +305,7 @@
                                 {% endfor %}
                                 {% if bills|length > NUM_BILLS_SHOWN %}
                                 <tr>
-                                    <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.age, person_id=person.id) }}">{{ gettext('more') }}</a></td>
+                                    <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.assembly_id, person_id=person.id) }}">{{ gettext('more') }}</a></td>
                                 </tr>
                                 {% endif %}
                             {% endif %}

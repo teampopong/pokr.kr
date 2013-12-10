@@ -17,18 +17,10 @@ class Candidacy(Base):
     ### additional infos ###
     district = Column(ARRAY(Unicode(20)))
     district_id = Column(ARRAY(String(16)))
-    age = column_property(select([Election.age]).where(Election.id==election_id),\
-            deferred=True)
+    assembly_id = column_property(select([Election.assembly_id])\
+                                      .where(Election.id==election_id))
     is_elected = Column(Boolean, default=False, index=True)
     cand_no = Column(Integer)
     vote_score = Column(Integer)
     vote_share = Column(Float)
 
-    def __init__(self, person_id, election_id, party_id, **kwargs):
-        self.person_id = person_id
-        self.election_id = election_id
-        self.party_id = party_id
-
-        for key, val in kwargs.items():
-            if hasattr(self, key):
-                setattr(self, key, kwargs[key])

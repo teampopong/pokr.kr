@@ -14,22 +14,22 @@ class PersonController(Controller):
     model = 'person'
 
     @classmethod
-    def bills_of(cls, person, age=None):
+    def bills_of(cls, person, assembly_id=None):
         query = Bill.query.join(cosponsorship,
                                 Bill.id == cosponsorship.c.bill_id)\
                           .join(Person,
                                 Person.id == cosponsorship.c.person_id)\
                           .filter_by(id=person.id)\
                           .order_by(Bill.proposed_date.desc())
-        if age:
-            query = query.filter(Bill.age == age)
+        if assembly_id:
+            query = query.filter(Bill.assembly_id == assembly_id)
 
         return query
 
     @classmethod
     def keyword_counts(cls, person, limit=10):
         # TODO: batch calculation or non-blocking operation
-        elected_assembly_ids = [candidacy.age for candidacy in person.candidacies if candidacy.is_elected]
+        elected_assembly_ids = [candidacy.assembly_id for candidacy in person.candidacies if candidacy.is_elected]
 
         if not elected_assembly_ids:
             return {}
@@ -44,19 +44,19 @@ class PersonController(Controller):
 
     @classmethod
     def party_history(cls, person):
-        parties_and_ages = person.parties.add_columns(Candidacy.age)
+        parties_and_assembly_ids = person.parties.add_columns(Candidacy.assembly_id)
         result = []
         prev_party_id = None
-        for party, age in parties_and_ages:
+        for party, assembly_id in parties_and_assembly_ids:
             if prev_party_id == party.id:
-                result[-1][0].append(age)
+                result[-1][0].append(assembly_id)
             else:
-                result.append(([age], party))
+                result.append(([assembly_id], party))
                 prev_party_id = party.id
-        return [(party, min(ages), max(ages)) for ages, party in result]
+        return [(party, min(assembly_ids), max(assembly_ids)) for assembly_ids, party in result]
 
     @classmethod
-    def pledges_grouped_by_age(cls, person):
+    def pledges_grouped_by_assembly_id(cls, person):
         query = Pledge.query.join(Candidacy,
                                   Candidacy.id == Pledge.candidacy_id)\
                             .join(Person,
@@ -66,7 +66,7 @@ class PersonController(Controller):
 
         result = defaultdict(list)
         for pledge in query:
-            result[pledge.candidacy.age].append(pledge)
+            result[pledge.candidacy.assembly_id].append(pledge)
 
         return result
 
