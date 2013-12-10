@@ -1,11 +1,9 @@
-from collections import defaultdict
 
 from flask import url_for
 from sqlalchemy import Column, func, String, Unicode
 from sqlalchemy.sql.expression import and_, bindparam
 from database import Base
 
-from database import db_session
 from models.person import Person
 from models.election import Election
 from models.candidacy import Candidacy
@@ -17,20 +15,6 @@ class Region(Base):
     name = Column(Unicode(20), index=True, nullable=False)
     name_cn = Column(Unicode(20))
     name_en = Column(String(80))
-
-    @property
-    def officials_grouped_by_age(self):
-        officials_ = db_session.query(Person.id, Candidacy.age)\
-                     .filter(Candidacy.person_id == Person.id)\
-                     .filter(Candidacy.district_id.any(self.id))\
-                     .filter(Candidacy.is_elected == True)\
-                     .group_by(Person.id, Candidacy.election_id)
-
-        res = defaultdict(list)
-        for person_id, age in officials_:
-            res[age].append(person_id)
-        return res
-
 
     @property
     def is_province(self):

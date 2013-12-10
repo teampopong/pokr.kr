@@ -56,7 +56,7 @@
             <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
             <table id="region-people" class="table table-condensed">
                 <tbody>
-                    {% set officials_grouped_by_age = region.officials_grouped_by_age %}
+                    {% set officials_grouped_by_age = controllers('region').officials_grouped_by_age(region.id) %}
                     {% for age in range(19, 0, -1) %}
                     <tr>
                         <th>{{ age }}{{ gettext('th') }}</th>
