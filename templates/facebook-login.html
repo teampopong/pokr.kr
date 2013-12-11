@@ -1,3 +1,4 @@
+{% if not mobile %}
 <a href="{{ url_for("social.auth", backend="facebook") }}" id="facebook-login">
     <div class="row-fluid">
         <i class="icon-facebook span2"></i>
@@ -7,3 +8,4 @@
         </span>
     </div>
 </a>
+{% endif %}
