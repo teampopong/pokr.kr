@@ -1,6 +1,9 @@
 @import "includes";
 @import "animation";
 
+@facebook_color: #266fe7;
+
+
 #card-container {
     width: 0;
 }
@@ -8,8 +11,60 @@
 #spec-container {
     left: 0;
 
+    #hero {
+        background-color: #cfdff0;
+        background-image: url('../images/na.png');
+        background-position: 20% bottom;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        height: 65%;
+        margin: -10px;
+        min-height: 270px;
+        padding-top: 90px;
+        position: relative;
+        text-align: center;
+        img {
+            display: inline-block;
+            height: 50px;
+        }
+        #facebook-login {
+            position: absolute;
+            right: 10%;
+            bottom: 25%;
+            text-align: left;
+            &:hover {
+                font-weight: bold;
+                opacity: 0.9;
+                text-decoration: none;
+                transition: .2s linear;
+            }
+            div {
+                .border-radius(10px);
+                .box-shadow;
+                background-color: @facebook_color;
+                color: white;
+                padding: 10px;
+                width: 300px;
+                [class^="icon-"] {
+                    background-color: lighten(@facebook_color, 5%);
+                    color: white;
+                    font-size: 30pt;
+                    margin: 0;
+                }
+                span {
+                    font-size: 14pt;
+                }
+                p {
+                    font-size: 9pt;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
     #class-list {
-        padding: 30px;
+        padding-top: 30px;
+        position: relative;
         div {
             display: inline-block;
         }
@@ -55,17 +110,16 @@
     }
 }
 
-#notice {
-    color: @bottom_link_color;
-    margin: 70px 0 30px;
-    padding: 30px;
-    text-align: center;
-}
-
 .social-sends {
+    background-color: rgba(255, 255, 255, 0.5);
     margin-bottom: -5px !important;
+    padding: 10px 20px ;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
     div {
-        width: 80px;
+        width: 90px;
     }
     #send-to-twitter {
         margin-left: 7px;

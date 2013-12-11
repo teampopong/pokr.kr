@@ -15,19 +15,26 @@ depends=['**/*.less'], 'less/main.less' %}
 {% endif %}
 
 {% block content %}
+<div id="hero">
+    <img src="{{ url_for('static', filename="images/hero-1.png") }}">
+    <img src="{{ url_for('static', filename="images/hero-2.png") }}">
+    {% if locale=='ko' %}
+    <p style="color: #777">당신의 지역과 관심사를 입력하면 당신에게 필요한 정치정보를 선별해서 보여드립니다. </p>
+    <p class="pull-right" style="position: absolute; right: 10%; bottom: 18%;"><i class="icon-twitter"></i><a href="http://twitter.com/pokrbot">@pokrbot</a>으로 의안을 구독해 보세요!</p>
+    {% include 'facebook-login.html' %}
+    <div class="social-sends">
+        {% include 'pokr-like.html' %}
+        {% include 'pokr-follow.html' %}
+    </div>
+    {% endif %}
+</div>
 <div id="class-list">
-    <div><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a><span class="menu-description">{{ gettext('Search for any official or<br>candidate in Korea') }}</span class="menu-description"></div>
-    <div><a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a><span class="menu-description">{{ gettext('Search for any bill<br>proposed in Korea')}}</span class="menu-description"></div>
-    <div><a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a><span class="menu-description">{{ gettext('Search for any party in<br>Korea') }}</span class="menu-description"></div>
-    <div><a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a><span class="menu-description">{{ gettext('Search for any administrative<br>region in Korea') }}</span class="menu-description"></div>
+    <div><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a></div>
+    <div><a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a></div>
+    <div><a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a></div>
+    <div><a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a></div>
 </div>
 
-<div style="text-align: center; color: #555;">
-    <div class="social-sends">
-    {% include 'pokr-like.html' %}
-    {% include 'pokr-follow.html' %}
-    </div>
-</div>
 {% if not mobile and locale=="ko"%}
 <div id="feedback-guide">
     <img src="{{ url_for('static', filename='images/guide_arrow.png') }}">
@@ -42,11 +49,6 @@ $(window).load(function () {
 </script>
 {% endif %}
 
-{% if locale=='ko' %}
-<div id="notice">
-    <i class="icon-twitter"></i>지금 <a href="http://twitter.com/pokrbot">@pokrbot</a>으로 의안을 구독해 보세요!
-</div>
-{% endif %}
 
 {# To preload images #}
 <div style="display: none;">

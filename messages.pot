@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-11 02:06+0900\n"
+"POT-Creation-Date: 2013-12-11 21:46+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,22 +155,14 @@ msgid "sponsor"
 msgstr ""
 
 #: templates/main.html:19
-msgid "Search for any official or<br>candidate in Korea"
+msgid "The political service"
 msgstr ""
 
 #: templates/main.html:20
-msgid "Search for any bill<br>proposed in Korea"
+msgid "you've been waiting for"
 msgstr ""
 
-#: templates/main.html:21
-msgid "Search for any party in<br>Korea"
-msgstr ""
-
-#: templates/main.html:22
-msgid "Search for any administrative<br>region in Korea"
-msgstr ""
-
-#: templates/main.html:34
+#: templates/main.html:50
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
