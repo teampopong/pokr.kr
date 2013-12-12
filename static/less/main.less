@@ -2,6 +2,7 @@
 @import "animation";
 
 @facebook_color: #266fe7;
+@twitter_color: #4099ff;
 
 
 #card-container {
@@ -29,6 +30,19 @@
         }
         p {
             margin-top: 10px;
+        }
+        #pokrbot {
+            color: #777;
+            float: right;
+            position: absolute;
+            right: 13%;
+            bottom: 16%;
+            [class^="icon-"] {
+                margin: 0 5px;
+            }
+            .twitter-icon [class^="icon-"]:hover {
+                color: @twitter_color;
+            }
         }
         #facebook-login {
             position: absolute;
