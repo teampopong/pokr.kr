@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-11 21:46+0900\n"
+"POT-Creation-Date: 2013-12-13 03:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,7 +141,7 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: templates/macros.html:88 templates/mypage.html:88 templates/mypage.html:111
+#: templates/macros.html:88 templates/mypage.html:88 templates/mypage.html:113
 #: templates/person.html:264 templates/person.html:308
 msgid "more"
 msgstr ""
@@ -154,15 +154,7 @@ msgstr ""
 msgid "sponsor"
 msgstr ""
 
-#: templates/main.html:19
-msgid "The political service"
-msgstr ""
-
-#: templates/main.html:20
-msgid "you've been waiting for"
-msgstr ""
-
-#: templates/main.html:50
+#: templates/main.html:45
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
@@ -222,15 +214,19 @@ msgstr ""
 msgid "@%(handle)s's tweets"
 msgstr ""
 
-#: templates/mypage.html:93
+#: templates/mypage.html:90
+msgid "To see the legislator of your region, please input more detailed address."
+msgstr ""
+
+#: templates/mypage.html:95
 msgid "Topics of Interest"
 msgstr ""
 
-#: templates/mypage.html:102
+#: templates/mypage.html:104
 msgid "Please choose some keywords of your interest."
 msgstr ""
 
-#: templates/mypage.html:105
+#: templates/mypage.html:107
 msgid "new keyword"
 msgstr ""
 
@@ -259,8 +255,8 @@ msgid "people"
 msgstr ""
 
 #: templates/party.html:45 templates/person.html:67
-#: templates/search-results.html:9 templates/includes/header.html:8
-#: templates/includes/header.html:10 views/party.py:19
+#: templates/search-results.html:9 templates/includes/header.html:7
+#: templates/includes/header.html:9 views/party.py:19
 msgid "party"
 msgstr ""
 
@@ -430,8 +426,8 @@ msgstr ""
 msgid "school"
 msgstr ""
 
-#: templates/search-results.html:10 templates/includes/header.html:8
-#: templates/includes/header.html:10 views/person.py:28
+#: templates/search-results.html:10 templates/includes/header.html:7
+#: templates/includes/header.html:9 views/person.py:28
 msgid "person"
 msgstr ""
 
@@ -484,17 +480,17 @@ msgstr ""
 msgid "sources"
 msgstr ""
 
-#: templates/includes/header.html:8 templates/includes/header.html:10
+#: templates/includes/header.html:7 templates/includes/header.html:9
 #: views/bill.py:17
 msgid "bill"
 msgstr ""
 
-#: templates/includes/header.html:8 templates/includes/header.html:10
+#: templates/includes/header.html:7 templates/includes/header.html:9
 #: views/region.py:16
 msgid "region"
 msgstr ""
 
-#: templates/includes/header.html:10
+#: templates/includes/header.html:9
 msgid "Seon-Mi Jin"
 msgstr ""
 

@@ -86,6 +86,8 @@
                     {% include "district-feeds.html" with context %}
                 </div>
                 <a class="btn-more btn-more-ajax {% if not district_feeds.next %}hide{% endif %}" href="{{ district_feeds.next }}" target="#district-feeds" method="GET">{{ gettext('more') }}</a>
+            {% else %}
+            {{ gettext('To see the legislator of your region, please input more detailed address.') }}
             {% endif %}
         {% endif %}
     </div>
