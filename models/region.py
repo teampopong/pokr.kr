@@ -15,6 +15,7 @@ class Region(Base):
     name = Column(Unicode(20), index=True, nullable=False)
     name_cn = Column(Unicode(20))
     name_en = Column(String(80))
+    district_name = Column(Unicode, index=True)
 
     @property
     def is_province(self):
