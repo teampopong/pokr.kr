@@ -6,7 +6,7 @@ import pickle
 import re
 import socket
 
-from flask import redirect, render_template, url_for
+from flask import g, redirect, render_template, request, url_for
 from sqlalchemy.sql.expression import desc
 
 from database import db_session
@@ -17,7 +17,10 @@ year_re = re.compile(r'[1-9][0-9]{3}')
 def register(app):
 
     @app.route('/')
+    @app.route('/main')
     def main():
+        if request.path == '/' and hasattr(g, 'user') and not g.user.is_anonymous():
+            return redirect(url_for('mypage'))
         return render_template('main.html')
 
     @app.route('/terms')
