@@ -68,7 +68,8 @@ class UserController(Controller):
                     .join(BillFeed.bill)\
                     .outerjoin(Bill.cosponsors)\
                     .filter(Person.id == legislator.id)\
-                    .order_by(Feed.id.desc())
+                    .order_by(Feed.id.desc())\
+                    .distinct(Feed.id)
         return feeds
 
     @classmethod
@@ -79,6 +80,7 @@ class UserController(Controller):
                     .outerjoin(Bill._keywords)\
                     .filter(Keyword.id.in_(
                                 k.id for k in user.favorite_keywords))\
-                    .order_by(Feed.id.desc())
+                    .order_by(Feed.id.desc())\
+                    .distinct(Feed.id)
         return feeds
 
