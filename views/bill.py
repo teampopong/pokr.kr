@@ -66,6 +66,15 @@ def register(app):
         else:
             return render_template('not-found.html'), 404
 
+    @app.route('/bill/<id>/official', methods=['GET'])
+    def bill_official(id):
+        try:
+            bill = Bill.query.filter_by(id=id).one()
+
+        except NoResultFound, e:
+            return render_template('not-found.html'), 404
+
+        return redirect("http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={0}".format(bill.link_id))
 
 @cache.memoize(timeout=60*60*24)
 def generate_glossary_js():
