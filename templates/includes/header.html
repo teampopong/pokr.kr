@@ -18,6 +18,7 @@
     {% if locale == 'ko' %}
     {% include "login.html" %}
     {% endif %}
+    <a href="https://teampopong.uservoice.com/forums/211529">{{ gettext('feedback') }}</a>
     {% for lang, url in locale_links.items() %}
     <a href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}

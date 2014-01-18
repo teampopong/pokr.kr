@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-13 03:32+0900\n"
+"POT-Creation-Date: 2014-01-18 12:39+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -493,6 +493,10 @@ msgstr "지역"
 #: templates/includes/header.html:9
 msgid "Seon-Mi Jin"
 msgstr "진선미"
+
+#: templates/includes/header.html:21
+msgid "feedback"
+msgstr "건의하기"
 
 #: templates/widgets/histogram.html:97
 msgid "Top"
