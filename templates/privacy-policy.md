@@ -91,7 +91,7 @@ POPONG은 이용자들의 개인정보와 관련하여 이용자의 의견을 �
 
 - 직위 : 개인정보보호책임자 
 - 담당 : 박은정
-- E-mail : lucypark@popong.com
+- E-mail : privacy@popong.com
 
 \* 개인정보보호에 대해 의견을 제시하거나 관련 문의사항은 e-mail로 연락주시기 바랍니다.
 
