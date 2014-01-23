@@ -25,7 +25,7 @@ Base = declarative_base()
 Base.query = db_session.query_property()
 
 
-def init_db(app):
+def init_db(app, login=True):
     if not is_alembic_head():
         raise Exception('alembic is not on the head')
 
@@ -33,7 +33,8 @@ def init_db(app):
     # they will be registered properly on the metadata.  Otherwise
     # you will have to import them first before calling init_db()
     import models
-    from utils.login import init_db; init_db(app)
+    if login:
+        from utils.login import init_db; init_db(app)
 
     Base.metadata.create_all(bind=engine)
 

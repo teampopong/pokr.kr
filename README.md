@@ -60,5 +60,10 @@ Pokr - Politics in Korea
 
     $ ./run.py
 
+## Run API Server
+
+	$ ./api.py
+
 ## License
 [Apache v2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
