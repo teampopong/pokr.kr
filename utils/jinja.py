@@ -6,7 +6,7 @@ from flask import request, url_for
 from flask.ext.babel import gettext
 from werkzeug.urls import Href, url_unquote
 
-from api import jsonify
+from jsonify import jsonify
 from models.assembly import term as assembly_term
 from models.election import current_assembly_id
 
