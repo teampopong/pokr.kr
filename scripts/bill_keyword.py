@@ -8,6 +8,7 @@ from os.path import basename
 import sys
 
 from database import transaction
+from models.bill import Bill
 from models.bill_keyword import bill_keyword
 from models.keyword import Keyword
 from utils.command import Command
@@ -33,12 +34,15 @@ class UpdateBillKeywordsCommand(Command):
 
 def insert_bill_keywords(files):
     with transaction() as session:
+        existing_bill_ids = [bill.id for bill in Bill.query]
         keyword_store = KeywordStore(session)
         for file_ in glob(files):
             filename = basename(file_)
             print 'processing %s' % filename
             sys.stdout.flush()
             bill_id = filename.split('.', 1)[0]
+            if bill_id not in existing_bill_ids:
+                continue
             with open(file_, 'r') as f:
                 keywords = extract_keywords(f)
             keyword_ids = [keyword_store.id(keyword[0]) for keyword in keywords]
