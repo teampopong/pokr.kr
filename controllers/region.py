@@ -69,7 +69,6 @@ def guess_legislator(legislators, region, assembly_id):
                        .get(str(assembly_id), {})\
                        .get('district')
         district_name = district.strip().split()[-1]
-        print legislator.name, district_name, region.district_name
         if district_name == region.district_name:
             return legislator
 
