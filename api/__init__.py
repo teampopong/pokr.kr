@@ -5,6 +5,10 @@ def init_app(app):
 
 
 def register_api(app, view, endpoint, url, pk_type='int'):
+    '''Register an API resource::
+
+        register_api(app, BillApi, 'bill_api', '/v0.1/bill/', pk_type='string')
+    '''
     view_func = view.as_view(endpoint)
     app.add_url_rule(url, view_func=view_func,
                      defaults={'_type': 'list'}, methods=['GET',])

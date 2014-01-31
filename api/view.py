@@ -8,9 +8,21 @@ from utils.jsonify import jsonify
 
 
 class ApiView(MethodView):
+    '''Create basic REST HTTP endpoints for a single resource type.
+    To create the endpoints, an API view class may inherit this class.
+    The view subclass should have :attr:`model` which inherits :class:`ApiModel`.
+
+        class PersonApi(ApiView):
+            model = Person
+            ...
+
+        class Person(ApiModel):
+            ...
+    '''
     model = None
 
     def get(self, _type=None, **kwargs):
+        '''Dispatch GET request to an appropriate handler based on the `type`'''
         if _type == 'single':
             return self.get_single(**kwargs)
         elif _type == 'search':
@@ -20,10 +32,12 @@ class ApiView(MethodView):
         raise Exception('unknown api request type: %s' % _type)
 
     def get_single(self, id, **kwargs):
+        '''Find a entry with `id` and return in JSON format.'''
         query = self._query.filter_by(id=id)
         return self._jsonify_single(query)
 
     def get_list(self, query, **kwargs):
+        '''Return filtered/sorted entry list'''
         if request.args.get('sort'):
             key = request.args.get('sort')
             order = request.args.get('order', 'desc')
@@ -61,6 +75,7 @@ class ApiView(MethodView):
         return entity.to_dict(projection=request.args.get('projection'))
 
     def _jsonify_single(self, query):
+        '''Compose a `single`-typed response data.'''
         entity = query.first()
         if not entity:
             abort(404)
@@ -70,6 +85,7 @@ class ApiView(MethodView):
         return jsonify(result)
 
     def _jsonify_list(self, query):
+        '''Compose a `list`/`search`-typed response data.'''
         page = query.paginate(int(request.args.get('page', 1)),
                               int(request.args.get('per_page', 20)))
 
