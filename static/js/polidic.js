@@ -17,7 +17,6 @@ if (!isMobile) {
 $(window).load(onLoad);
 
 function onLoad() {
-    $('.person-img').clipImage();
     if (!isMobile) {
         $('.tooltipped:not(.tooltipped-delay)').tooltip();
         $('.tooltipped-delay').tooltip({
