@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-01-18 12:39+0900\n"
+"POT-Creation-Date: 2014-03-16 11:18+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr "내용"
 msgid "assembly #"
 msgstr "국회 대수"
 
-#: templates/bill.html:28 templates/person.html:254 templates/person.html:276
+#: templates/bill.html:28 templates/person.html:261 templates/person.html:283
 msgid "proposed date"
 msgstr "제안일자"
 
@@ -62,7 +62,7 @@ msgid "related keywords"
 msgstr "연관 키워드"
 
 #: templates/bill.html:87 templates/bill.html:110 templates/macros.html:98
-#: templates/person.html:299
+#: templates/person.html:306
 msgid "representative sponsor"
 msgstr "대표발의자"
 
@@ -142,7 +142,7 @@ msgid "%(count)d results"
 msgstr "%(count)d 개"
 
 #: templates/macros.html:88 templates/mypage.html:88 templates/mypage.html:113
-#: templates/person.html:264 templates/person.html:308
+#: templates/person.html:271 templates/person.html:315
 msgid "more"
 msgstr "더보기"
 
@@ -150,7 +150,7 @@ msgstr "더보기"
 msgid "date unknown"
 msgstr "날짜 미상"
 
-#: templates/macros.html:100 templates/person.html:301
+#: templates/macros.html:100 templates/person.html:308
 msgid "sponsor"
 msgstr "발의자"
 
@@ -301,7 +301,7 @@ msgstr "선거활동"
 msgid "legislations"
 msgstr "입법활동"
 
-#: templates/person.html:43 templates/person.html:322
+#: templates/person.html:43 templates/person.html:329
 msgid "trends"
 msgstr "검색추이"
 
@@ -361,19 +361,32 @@ msgstr "보궐선거 데이터는 곧 추가될 예정입니다!"
 msgid "Pledges"
 msgstr "공약"
 
-#: templates/person.html:248 templates/person.html:288
+#: templates/person.html:241
+msgid "Allies"
+msgstr "동료"
+
+#: templates/person.html:242
+#, python-format
+msgid "These legislators often supported the legislations of %(name)s."
+msgstr "%(name)s 의원이 대표발의했을 때 자주 공동발의해준 의원들입니다."
+
+#: templates/person.html:247
+msgid "Recently Proposed Bills"
+msgstr "최근 발의한 의안"
+
+#: templates/person.html:255 templates/person.html:295
 msgid "th assembly"
 msgstr "대 국회"
 
-#: templates/person.html:255 templates/person.html:275
+#: templates/person.html:262 templates/person.html:282
 msgid "title"
 msgstr "제목"
 
-#: templates/person.html:277
+#: templates/person.html:284
 msgid "role"
 msgstr "역할"
 
-#: templates/person.html:324
+#: templates/person.html:331
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."

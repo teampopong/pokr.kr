@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-01-18 12:39+0900\n"
+"POT-Creation-Date: 2014-03-16 11:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "assembly #"
 msgstr ""
 
-#: templates/bill.html:28 templates/person.html:254 templates/person.html:276
+#: templates/bill.html:28 templates/person.html:261 templates/person.html:283
 msgid "proposed date"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgid "related keywords"
 msgstr ""
 
 #: templates/bill.html:87 templates/bill.html:110 templates/macros.html:98
-#: templates/person.html:299
+#: templates/person.html:306
 msgid "representative sponsor"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgid "%(count)d results"
 msgstr ""
 
 #: templates/macros.html:88 templates/mypage.html:88 templates/mypage.html:113
-#: templates/person.html:264 templates/person.html:308
+#: templates/person.html:271 templates/person.html:315
 msgid "more"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "date unknown"
 msgstr ""
 
-#: templates/macros.html:100 templates/person.html:301
+#: templates/macros.html:100 templates/person.html:308
 msgid "sponsor"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr ""
 msgid "legislations"
 msgstr ""
 
-#: templates/person.html:43 templates/person.html:322
+#: templates/person.html:43 templates/person.html:329
 msgid "trends"
 msgstr ""
 
@@ -361,19 +361,32 @@ msgstr ""
 msgid "Pledges"
 msgstr ""
 
-#: templates/person.html:248 templates/person.html:288
+#: templates/person.html:241
+msgid "Allies"
+msgstr ""
+
+#: templates/person.html:242
+#, python-format
+msgid "These legislators often supported the legislations of %(name)s."
+msgstr ""
+
+#: templates/person.html:247
+msgid "Recently Proposed Bills"
+msgstr ""
+
+#: templates/person.html:255 templates/person.html:295
 msgid "th assembly"
 msgstr ""
 
-#: templates/person.html:255 templates/person.html:275
+#: templates/person.html:262 templates/person.html:282
 msgid "title"
 msgstr ""
 
-#: templates/person.html:277
+#: templates/person.html:284
 msgid "role"
 msgstr ""
 
-#: templates/person.html:324
+#: templates/person.html:331
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""

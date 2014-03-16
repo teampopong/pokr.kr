@@ -238,6 +238,12 @@
         {% if has_bills %}
         <div id="section-legislations" class="section">
             <h3 id="legislations">{{ gettext('legislations') }}</h3>
+            <h4>{{ gettext('Allies') }}</h4>
+            <p>{{ gettext('These legislators often supported the legislations of %(name)s.', name=person.name) }}<p>
+            {% for person_id, frequency in PersonController.allies(person).iteritems() %}
+                <div class="inline-block">{{ widgets.card(person_id)|safe }}<br><center>{{ int(frequency * 100) }}%</center></div>
+            {% endfor %}
+            <h4 style="margin-top: 30px;">{{ gettext('Recently Proposed Bills') }}</h4>
             {% if mobile %}
                 {% for candidacy in person.candidacies %}
                     {% if candidacy.is_elected %}

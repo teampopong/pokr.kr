@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, OrderedDict
+from database import db_session
 
 from controllers.base import Controller
 from models.bill import Bill
@@ -12,6 +13,25 @@ from models.pledge import Pledge
 
 class PersonController(Controller):
     model = 'person'
+
+    @classmethod
+    def allies(cls, person, assembly_id=None, threshold=0.5):
+        bills = cls.bills_of(person, assembly_id)
+        sponsored_bills = (bill for bill in bills if person.id in (p.id for p in bill.representative_people))
+        counter = Counter()
+        num_sponsored_bills = 0
+        for bill in bills:
+            followers = db_session.query(Person.id)\
+                              .join(cosponsorship)\
+                              .filter(cosponsorship.c.bill_id == bill.id)
+            counter = counter + Counter(follower.id for follower in followers if follower.id != person.id)
+            num_sponsored_bills += 1
+
+        return OrderedDict(
+            (key, (value + .0) / num_sponsored_bills)
+                for key, value in counter.most_common(10)\
+                if (value + .0) / num_sponsored_bills > threshold
+        )
 
     @classmethod
     def bills_of(cls, person, assembly_id=None):
