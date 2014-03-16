@@ -5,8 +5,6 @@ Pokr - Politics in Korea
 
 ## Installation
 
-<span style="color: red">Caution: outdated. Need to be updated.</span>
-
 1. Install dependant packages
     - Ubuntu Linux:
 
@@ -30,14 +28,41 @@ Pokr - Politics in Korea
 
 ## Setup
 
-1. Modify settings file
+1. Modify configuration files:
     - conf/frontend.py
     - conf/storage.py
+        - `POSTGRES_SETTINGS`
     - alembic.ini
+        - `ID_HERE`: postgres id
+        - `PASSWD_HERE`: postgres pw
+        - `HOST_HERE`: postgres host
 
 1. Load data
 
         $ make load_db
+
+    <blockquote>
+    <b>Troubleshooting</b>
+
+    1. For load_db error:
+
+            pg_restore -d popongdb data/db.sql
+            pg_restore: [archiver] input file does not appear to be a valid archive
+            make: *** [load_db] Error 1
+
+        execute:<br>
+        (If you don't have a password set, run `ALTER USER 'someUsername' PASSWORD 'somePassword';` in psql.)
+
+            $ sudo -u postgres psql
+            postgres=# create database popongdb;
+
+            $ cat data/db.sql | psql popongdb
+
+    2. For `Exception: alembic is not on the head`, execute:
+
+            $ alembic upgrade head
+
+    </blockquote>
 
 ## Insert/Update Data
 
