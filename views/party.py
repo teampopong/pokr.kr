@@ -22,7 +22,7 @@ def register(app):
     @app.route('/party/', methods=['GET'])
     @breadcrumb(app)
     def party_main():
-        assembly_id = int(request.args.get('assembly_id', current_assembly_id()))
+        assembly_id = int(request.args.get('assembly_id', current_assembly_id()) or 0)
 
         parties = Party.query.distinct(Party.id)\
                         .join(Candidacy)\
