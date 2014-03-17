@@ -8,8 +8,8 @@ class FavoritePerson(Base):
     __tablename__ = 'favorite_person'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    user_id = Column(Integer, ForeignKey('user.id', onupdate='CACADE', ondelete='CASCADE'),
+    user_id = Column(Integer, ForeignKey('user.id', onupdate='CASCADE', ondelete='CASCADE'),
             nullable=False, index=True, unique='uix_favorite_person')
-    person_id = Column(Integer, ForeignKey('person.id', onupdate='CACADE', ondelete='CASCADE'),
+    person_id = Column(Integer, ForeignKey('person.id', onupdate='CASCADE', ondelete='CASCADE'),
             nullable=False, index=True, unique='uix_favorite_person')
 
