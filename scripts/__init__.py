@@ -4,5 +4,6 @@
 import bill
 import bill_keyword
 import candidacy
+import db
 import person
 
