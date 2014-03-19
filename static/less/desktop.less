@@ -54,7 +54,7 @@ body {
 
     form {
         .inline-block;
-        margin-top: 5px;
+        margin-top: 15px;
         vertical-align: middle;
         margin-bottom: 10px;
     }
@@ -253,7 +253,7 @@ a.btn-show {
 }
 
 
-.langselect {
+.user-options {
     position: absolute;
     top: 7px;
     right: 10px;
@@ -262,8 +262,9 @@ a.btn-show {
     z-index: 99;
 
     a {
-        color: @bottom_color;
-
+        &.language {
+            color: @bottom_color;
+        }
         &.user-action {
             color: #08c;
         }

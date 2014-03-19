@@ -14,13 +14,13 @@
         </div>
     </form>
 </div>
-<span class="langselect">
+<span class="user-options">
     {% if locale == 'ko' %}
     {% include "login.html" %}
     {% endif %}
-    <a href="https://teampopong.uservoice.com/forums/211529">{{ gettext('feedback') }}</a>
+    <a class="btn btn-mini btn-primary white" href="https://teampopong.uservoice.com/forums/211529">{{ gettext('feedback') }}</a>
     {% for lang, url in locale_links.items() %}
-    <a href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
+    <a class="language" href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
 </span>
 <img id="banner" src="{{ url_for('static', filename="images/beta3.png") }}">
