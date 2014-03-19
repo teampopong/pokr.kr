@@ -29,9 +29,6 @@ def init_db(app, login=True):
     if not is_alembic_head():
         raise Exception('alembic is not on the head')
 
-    # import all modules here that might define models so that
-    # they will be registered properly on the metadata.  Otherwise
-    # you will have to import them first before calling init_db()
     import models
     if login:
         from utils.login import init_db; init_db(app)

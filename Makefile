@@ -3,8 +3,8 @@ install:
 	git submodule init
 	git submodule update
 	cp alembic.ini.sample alembic.ini
-	cp conf/frontend.py.sample conf/frontend.py
-	cp conf/storage.py.sample conf/storage.py
+	for f in conf/*.sample; do cp "$f" "conf/`basename $f .sample`"; done
+	chmod o-rwx alembic.ini conf/*.py
 
 extract_i18n:
 	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o messages.pot .
@@ -13,7 +13,8 @@ extract_i18n:
 update_i18n:
 	pybabel compile -d translations
 
-load_db:
-	pg_restore -d popongdb data/db.sql
+init_db
+	./shell db init
+	alembic stamp head
 
-.PHONY: install extract_i18n update_i18n load_db
+.PHONY: install extract_i18n update_i18n init_db

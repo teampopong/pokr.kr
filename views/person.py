@@ -33,7 +33,7 @@ def register(app):
     @app.route('/person/', methods=['GET'])
     @breadcrumb(app)
     def person_main():
-        assembly_id = int(request.args.get('assembly_id', current_assembly_id()))
+        assembly_id = int(request.args.get('assembly_id', current_assembly_id()) or 0)
         officials = Person.query.order_by(desc(Person.id))\
                                 .join(Candidacy)\
                                 .filter(and_(Candidacy.assembly_id == assembly_id,
@@ -77,7 +77,11 @@ def all_person_names():
         Person.name,
         Person.name_en,
         ))
-    all_names = list(set(reduce(operator.add, name_tuples)))
+    all_names = ''
+    try:
+        all_names = list(set(reduce(operator.add, name_tuples)))
+    except TypeError as e:
+        pass
     return all_names
 
 

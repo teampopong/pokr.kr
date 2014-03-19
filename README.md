@@ -28,6 +28,8 @@ Pokr - Politics in Korea
 
 ## Setup
 
+1. Create Database
+
 1. Modify configuration files:
     - conf/frontend.py
     - conf/storage.py
@@ -37,32 +39,9 @@ Pokr - Politics in Korea
         - `PASSWD_HERE`: postgres pw
         - `HOST_HERE`: postgres host
 
-1. Load data
+1. Initialize Database
 
-        $ make load_db
-
-    <blockquote>
-    <b>Troubleshooting</b>
-
-    1. For load_db error:
-
-            pg_restore -d popongdb data/db.sql
-            pg_restore: [archiver] input file does not appear to be a valid archive
-            make: *** [load_db] Error 1
-
-        execute:<br>
-        (If you don't have a password set, run `ALTER USER 'someUsername' PASSWORD 'somePassword';` in psql.)
-
-            $ sudo -u postgres psql
-            postgres=# create database popongdb;
-
-            $ cat data/db.sql | psql popongdb
-
-    2. For `Exception: alembic is not on the head`, execute:
-
-            $ alembic upgrade head
-
-    </blockquote>
+        $ make init\_db
 
 ## Insert/Update Data
 

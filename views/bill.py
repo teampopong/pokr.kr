@@ -19,7 +19,7 @@ def register(app):
     @app.route('/bill/', methods=['GET'])
     @breadcrumb(app)
     def bill_main():
-        assembly_id = int(request.args.get('assembly_id', current_assembly_id()))
+        assembly_id = int(request.args.get('assembly_id', current_assembly_id()) or 0)
         bills = Bill.query.filter(Bill.assembly_id==assembly_id)\
                           .order_by(Bill.proposed_date.desc().nullslast())
         return render_template('bills.html',\
