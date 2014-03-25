@@ -1,9 +1,10 @@
 install:
 	pip install -r requirements.txt
+
+init:
 	git submodule init
 	git submodule update
-	cp alembic.ini.sample alembic.ini
-	for f in conf/*.sample; do cp "$f" "conf/`basename $f .sample`"; done
+	bash -c 'for file in `find . -name "*.sample" -not -path "./.git/*"`; do cp $$file $${file/.sample/}; done'
 	chmod o-rwx alembic.ini conf/*.py
 
 extract_i18n:
@@ -13,8 +14,8 @@ extract_i18n:
 update_i18n:
 	pybabel compile -d translations
 
-init_db
-	./shell db init
+init_db:
+	./shell.py db init
 	alembic stamp head
 
-.PHONY: install extract_i18n update_i18n init_db
+.PHONY: install init extract_i18n update_i18n init_db

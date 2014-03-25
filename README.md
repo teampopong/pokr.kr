@@ -30,7 +30,8 @@ Pokr - Politics in Korea
 
 1. Create Database
 
-1. Modify configuration files:
+1. Create & modify configuration files:
+    - `make init`
     - conf/frontend.py
     - conf/storage.py
         - `POSTGRES_SETTINGS`
