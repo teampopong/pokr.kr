@@ -3,8 +3,9 @@
 
 from __future__ import unicode_literals
 from cgi import escape
-from flask import url_for
 import re
+
+from flask import url_for
 
 
 __all__ = ['init_app']

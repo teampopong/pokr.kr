@@ -1,10 +1,9 @@
 *.sw[poq]
 *.pyc
 
-/build
-/static/.webassets-cache
-/static/build
-/conf/*.py
+pokr/static/.webassets-cache
+pokr/static/build
+conf/*.py
 
 server.log
 alembic.ini

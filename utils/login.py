@@ -1,7 +1,7 @@
 # -*- codiing: utf-8 -*-
+# TODO: should be inside pokr app
 
-
-from database import Base, db_session
+from pokr.database import Base, db_session
 
 
 def init_app(app):
@@ -14,7 +14,7 @@ def init_app(app):
     from social.apps.flask_app.routes import social_auth
     app.register_blueprint(social_auth)
 
-    from models.user import User
+    from pokr.models.user import User
     @login_manager.user_loader
     def load_user(userid):
         try:

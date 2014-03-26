@@ -5,7 +5,7 @@ import argparse
 
 from flask import Flask
 
-import scripts  # Do not remove this line
+import pokr.scripts  # Do not remove this line
 from utils.command import Command
 
 

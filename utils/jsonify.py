@@ -5,6 +5,7 @@ import json
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
 
+
 class MyJSONEncoder(json.JSONEncoder):
     def default(self, obj, **kwargs):
         # handles SQLAlchemy object

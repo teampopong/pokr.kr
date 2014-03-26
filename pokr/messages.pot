@@ -1,0 +1,556 @@
+# Translations template for PROJECT.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2014-03-26 22:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: pokr/templates/bill-layout.html:31
+msgid "see official page"
+msgstr ""
+
+#: pokr/templates/bill-layout.html:33
+msgid "see original pdf"
+msgstr ""
+
+#: pokr/templates/bill-layout.html:34
+msgid "see original text"
+msgstr ""
+
+#: pokr/templates/bill.html:6 pokr/templates/bill.html:17
+msgid "outline"
+msgstr ""
+
+#: pokr/templates/bill.html:7 pokr/templates/bill.html:85
+msgid "sponsors"
+msgstr ""
+
+#: pokr/templates/bill.html:9 pokr/templates/bill.html:141
+msgid "contents"
+msgstr ""
+
+#: pokr/templates/bill.html:22 pokr/templates/search-results.html:15
+msgid "assembly #"
+msgstr ""
+
+#: pokr/templates/bill.html:28 pokr/templates/person.html:262
+#: pokr/templates/person.html:284
+msgid "proposed date"
+msgstr ""
+
+#: pokr/templates/bill.html:34
+msgid "decision date"
+msgstr ""
+
+#: pokr/templates/bill.html:39 pokr/templates/search-results.html:13
+msgid "status"
+msgstr ""
+
+#: pokr/templates/bill.html:77
+msgid "related keywords"
+msgstr ""
+
+#: pokr/templates/bill.html:88 pokr/templates/bill.html:111
+#: pokr/templates/macros.html:98 pokr/templates/person.html:307
+msgid "representative sponsor"
+msgstr ""
+
+#: pokr/templates/bill.html:99 pokr/templates/bill.html:125
+msgid "cosponsors"
+msgstr ""
+
+#: pokr/templates/bill.html:144 pokr/templates/party.html:35
+#: pokr/templates/party.html:45
+msgid "summary"
+msgstr ""
+
+#: pokr/templates/bills.html:5 pokr/templates/bills.html:9
+msgid "bills"
+msgstr ""
+
+#: pokr/templates/bills.html:27 pokr/templates/parties.html:28
+#: pokr/templates/people.html:27 pokr/templates/region.html:62
+#: pokr/templates/region.html:107
+msgid "th"
+msgstr ""
+
+#: pokr/templates/bills.html:53 pokr/templates/district-feeds.html:19
+msgid "No summary"
+msgstr ""
+
+#: pokr/templates/district-feeds.html:5
+#, python-format
+msgid "Legislator %(name)s"
+msgstr ""
+
+#: pokr/templates/district-feeds.html:7
+msgid "sponsored"
+msgstr ""
+
+#: pokr/templates/district-feeds.html:9
+msgid "cosponsored"
+msgstr ""
+
+#: pokr/templates/error.html:4 pokr/templates/not-found.html:4
+#: pokr/templates/unauthorized.html:4
+msgid "Oops"
+msgstr ""
+
+#: pokr/templates/error.html:18
+msgid ""
+"An unexpected error seems to have occured. Please contact us if the "
+"problem persists."
+msgstr ""
+
+#: pokr/templates/login.html:2
+msgid "mypage"
+msgstr ""
+
+#: pokr/templates/login.html:2
+msgid "logout"
+msgstr ""
+
+#: pokr/templates/login.html:4
+msgid "login"
+msgstr ""
+
+#: pokr/templates/macros.html:18
+msgid "show"
+msgstr ""
+
+#: pokr/templates/macros.html:19
+msgid "hide"
+msgstr ""
+
+#: pokr/templates/macros.html:27
+#, python-format
+msgid "%(count)d people"
+msgstr ""
+
+#: pokr/templates/macros.html:27
+#, python-format
+msgid "%(count)d results"
+msgstr ""
+
+#: pokr/templates/macros.html:88 pokr/templates/mypage.html:88
+#: pokr/templates/mypage.html:113 pokr/templates/person.html:272
+#: pokr/templates/person.html:316
+msgid "more"
+msgstr ""
+
+#: pokr/templates/macros.html:93
+msgid "date unknown"
+msgstr ""
+
+#: pokr/templates/macros.html:100 pokr/templates/person.html:309
+msgid "sponsor"
+msgstr ""
+
+#: pokr/templates/main.html:45
+msgid ""
+"Your feedback<br>makes us better!<br><small>(We feed on "
+"compliments)</small>"
+msgstr ""
+
+#: pokr/templates/mypage.html:4 pokr/templates/mypage.html:14
+msgid "Mypage"
+msgstr ""
+
+#: pokr/templates/mypage.html:19
+msgid "My Politics News"
+msgstr ""
+
+#: pokr/templates/mypage.html:22
+msgid "Favorite Politicians"
+msgstr ""
+
+#: pokr/templates/mypage.html:30 pokr/templates/widgets/relation.html:6
+msgid "None"
+msgstr ""
+
+#: pokr/templates/mypage.html:37
+msgid "My district"
+msgstr ""
+
+#: pokr/templates/mypage.html:42
+msgid "Please input your region"
+msgstr ""
+
+#: pokr/templates/mypage.html:44
+msgid "Change region"
+msgstr ""
+
+#: pokr/templates/mypage.html:46
+msgid "dong"
+msgstr ""
+
+#: pokr/templates/mypage.html:49 pokr/templates/search-results.html:31
+msgid "search"
+msgstr ""
+
+#: pokr/templates/mypage.html:63
+msgid "Pledges of this election"
+msgstr ""
+
+#: pokr/templates/mypage.html:63
+#, python-format
+msgid "%(assembly_id)dth legislator election"
+msgstr ""
+
+#: pokr/templates/mypage.html:73
+msgid "※ No pledges available"
+msgstr ""
+
+#: pokr/templates/mypage.html:79
+#, python-format
+msgid "@%(handle)s's tweets"
+msgstr ""
+
+#: pokr/templates/mypage.html:90
+msgid "To see the legislator of your region, please input more detailed address."
+msgstr ""
+
+#: pokr/templates/mypage.html:95
+msgid "Topics of Interest"
+msgstr ""
+
+#: pokr/templates/mypage.html:104
+msgid "Please choose some keywords of your interest."
+msgstr ""
+
+#: pokr/templates/mypage.html:107
+msgid "new keyword"
+msgstr ""
+
+#: pokr/templates/not-found.html:18
+msgid "This is not the web page you are looking for."
+msgstr ""
+
+#: pokr/templates/parties.html:5
+msgid "Parties"
+msgstr ""
+
+#: pokr/templates/parties.html:9
+msgid "parties"
+msgstr ""
+
+#: pokr/templates/party.html:27
+msgid "This page may contain information for more than one party."
+msgstr ""
+
+#: pokr/templates/party.html:29
+msgid "details"
+msgstr ""
+
+#: pokr/templates/party.html:36 pokr/templates/party.html:59
+#: pokr/templates/people.html:9
+msgid "people"
+msgstr ""
+
+#: pokr/templates/party.html:45 pokr/templates/person.html:67
+#: pokr/templates/search-results.html:9 pokr/templates/includes/header.html:7
+#: pokr/templates/includes/header.html:9 pokr/views/party.py:19
+msgid "party"
+msgstr ""
+
+#: pokr/templates/party.html:48
+msgid "#candidates"
+msgstr ""
+
+#: pokr/templates/party.html:49
+msgid "person(s)"
+msgstr ""
+
+#: pokr/templates/party.html:52
+msgid "assemblies"
+msgstr ""
+
+#: pokr/templates/party.html:53
+msgid "th assembly election"
+msgstr ""
+
+#: pokr/templates/people.html:5 pokr/templates/search-results.html:55
+msgid "People"
+msgstr ""
+
+#: pokr/templates/person.html:9
+#, python-format
+msgid "Member of %(last_elected_no)dth National Assembly,"
+msgstr ""
+
+#: pokr/templates/person.html:32
+msgid "Wikipedia"
+msgstr ""
+
+#: pokr/templates/person.html:38 pokr/templates/person.html:54
+msgid "profile"
+msgstr ""
+
+#: pokr/templates/person.html:39 pokr/templates/person.html:139
+msgid "elections"
+msgstr ""
+
+#: pokr/templates/person.html:41 pokr/templates/person.html:242
+msgid "legislations"
+msgstr ""
+
+#: pokr/templates/person.html:43 pokr/templates/person.html:330
+msgid "trends"
+msgstr ""
+
+#: pokr/templates/person.html:56
+msgid ""
+"Data in this section is based on latest election records, and therefore "
+"can be outdated."
+msgstr ""
+
+#: pokr/templates/person.html:61
+msgid "birthday"
+msgstr ""
+
+#: pokr/templates/person.html:74 pokr/templates/person.html:144
+#: pokr/templates/person.html:194
+#, python-format
+msgid "%(assembly_id)dth"
+msgstr ""
+
+#: pokr/templates/person.html:85
+msgid "education"
+msgstr ""
+
+#: pokr/templates/person.html:87 pokr/templates/person.html:99
+msgid "original"
+msgstr ""
+
+#: pokr/templates/person.html:97
+msgid "address"
+msgstr ""
+
+#: pokr/templates/person.html:112
+msgid "work experiences"
+msgstr ""
+
+#: pokr/templates/person.html:146 pokr/templates/person.html:196
+msgid "National Assembly Election"
+msgstr ""
+
+#: pokr/templates/person.html:148 pokr/templates/person.html:198
+msgid "National Assembly By-election"
+msgstr ""
+
+#: pokr/templates/person.html:156 pokr/templates/person.html:185
+#: pokr/templates/search-results.html:11
+msgid "election district"
+msgstr ""
+
+#: pokr/templates/person.html:170 pokr/templates/person.html:186
+msgid "competitors"
+msgstr ""
+
+#: pokr/templates/person.html:177
+msgid "By-election results are coming soon!"
+msgstr ""
+
+#: pokr/templates/person.html:204
+msgid "Pledges"
+msgstr ""
+
+#: pokr/templates/person.html:243
+msgid "Allies"
+msgstr ""
+
+#: pokr/templates/person.html:244
+#, python-format
+msgid "These legislators often supported the legislations of %(name)s."
+msgstr ""
+
+#: pokr/templates/person.html:248
+msgid "Recently Proposed Bills"
+msgstr ""
+
+#: pokr/templates/person.html:256 pokr/templates/person.html:296
+msgid "th assembly"
+msgstr ""
+
+#: pokr/templates/person.html:263 pokr/templates/person.html:283
+msgid "title"
+msgstr ""
+
+#: pokr/templates/person.html:285
+msgid "role"
+msgstr ""
+
+#: pokr/templates/person.html:332
+#, python-format
+msgid "Results from Google Trends searched by query %(name)s"
+msgstr ""
+
+#: pokr/templates/region-list.html:5
+msgid "choose"
+msgstr ""
+
+#: pokr/templates/region.html:33 pokr/templates/region.html:48
+#: pokr/templates/region.html:95
+msgid "subregions"
+msgstr ""
+
+#: pokr/templates/region.html:35 pokr/templates/region.html:56
+#: pokr/templates/region.html:100
+msgid "chronicles"
+msgstr ""
+
+#: pokr/templates/region.html:37 pokr/templates/region.html:82
+#: pokr/templates/region.html:127
+msgid "related people"
+msgstr ""
+
+#: pokr/templates/region.html:74 pokr/templates/region.html:119
+msgid "No officials"
+msgstr ""
+
+#: pokr/templates/region.html:84 pokr/templates/region.html:131
+msgid "Candidates"
+msgstr ""
+
+#: pokr/templates/region.html:89 pokr/templates/region.html:136
+msgid "Residents"
+msgstr ""
+
+#: pokr/templates/regions.html:5
+msgid "Regions"
+msgstr ""
+
+#: pokr/templates/regions.html:9
+msgid "regions"
+msgstr ""
+
+#: pokr/templates/search-results.html:6
+msgid "birthyear"
+msgstr ""
+
+#: pokr/templates/search-results.html:7
+msgid "query"
+msgstr ""
+
+#: pokr/templates/search-results.html:8
+msgid "school"
+msgstr ""
+
+#: pokr/templates/search-results.html:10 pokr/templates/includes/header.html:7
+#: pokr/templates/includes/header.html:9 pokr/views/person.py:28
+msgid "person"
+msgstr ""
+
+#: pokr/templates/search-results.html:12
+msgid "residential region"
+msgstr ""
+
+#: pokr/templates/search-results.html:14
+msgid "related keyword"
+msgstr ""
+
+#: pokr/templates/search-results.html:27
+msgid "Searched results"
+msgstr ""
+
+#: pokr/templates/search-results.html:48
+#, python-format
+msgid "Search results by %(options)s"
+msgstr ""
+
+#: pokr/templates/search-results.html:70
+msgid "Bill"
+msgstr ""
+
+#: pokr/templates/search-results.html:88
+msgid "Party"
+msgstr ""
+
+#: pokr/templates/search-results.html:107
+msgid "Region"
+msgstr ""
+
+#: pokr/templates/search-results.html:126
+msgid "School"
+msgstr ""
+
+#: pokr/templates/unauthorized.html:18
+msgid "Login is requred."
+msgstr ""
+
+#: pokr/templates/includes/footer.html:9
+msgid "code"
+msgstr ""
+
+#: pokr/templates/includes/footer.html:10
+msgid "data"
+msgstr ""
+
+#: pokr/templates/includes/footer.html:11
+msgid "sources"
+msgstr ""
+
+#: pokr/templates/includes/header.html:7 pokr/templates/includes/header.html:9
+#: pokr/views/bill.py:17
+msgid "bill"
+msgstr ""
+
+#: pokr/templates/includes/header.html:7 pokr/templates/includes/header.html:9
+#: pokr/views/region.py:16
+msgid "region"
+msgstr ""
+
+#: pokr/templates/includes/header.html:9
+msgid "Seon-Mi Jin"
+msgstr ""
+
+#: pokr/templates/includes/header.html:21
+msgid "feedback"
+msgstr ""
+
+#: pokr/templates/widgets/histogram.html:97
+msgid "Top"
+msgstr ""
+
+#: pokr/templates/widgets/histogram.html:103
+msgid "th / "
+msgstr ""
+
+#: pokr/views/__init__.py:7
+msgid "home"
+msgstr ""
+
+#: pokr/widgets/relation.py:24
+msgid "in the same constituency"
+msgstr ""
+
+#: pokr/widgets/timeline.py:51
+msgid "birth"
+msgstr ""
+
+#: pokr/widgets/timeline.py:67
+#, python-format
+msgid ""
+"won\n"
+"%(assembly_id)dth"
+msgstr ""
+
+#: pokr/widgets/timeline.py:70
+#, python-format
+msgid ""
+"lost\n"
+"%(assembly_id)dth"
+msgstr ""
+

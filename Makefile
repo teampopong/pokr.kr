@@ -4,15 +4,17 @@ install:
 init:
 	git submodule init
 	git submodule update
-	bash -c 'for file in `find . -name "*.sample" -not -path "./.git/*"`; do cp $$file $${file/.sample/}; done'
-	chmod o-rwx alembic.ini conf/*.py
+	.conf.samples/copyall.sh
+	cd utils/nlp
+	git submodule init
+	git submodule update
 
 extract_i18n:
-	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o messages.pot .
-	pybabel update -i messages.pot -d translations
+	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o pokr/messages.pot .
+	pybabel update -i pokr/messages.pot -d pokr/translations
 
 update_i18n:
-	pybabel compile -d translations
+	pybabel compile -d pokr/translations
 
 init_db:
 	./shell.py db init

@@ -6,8 +6,8 @@ from logging.config import fileConfig
 
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.sys.path.insert(0,parentdir)
-import models
-from database import Base
+import pokr.models
+from pokr.database import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
