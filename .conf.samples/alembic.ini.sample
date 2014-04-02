@@ -11,7 +11,7 @@ script_location = alembic
 # the 'revision' command, regardless of autogenerate
 # revision_environment = false
 
-sqlalchemy.url = postgresql+psycopg2://ID_HERE:PASSWD_HERE@HOST_HERE/popongdb
+sqlalchemy.url = postgresql+psycopg2://ID_HERE:PASSWD_HERE@HOST_HERE/pokr
 
 
 # Logging configuration

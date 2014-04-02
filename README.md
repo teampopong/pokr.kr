@@ -32,9 +32,7 @@ Pokr - Politics in Korea
 
 1. Create & modify configuration files:
     - `make init`
-    - conf/frontend.py
-    - conf/storage.py
-        - `POSTGRES_SETTINGS`
+    - settings.py
     - alembic.ini
         - `ID_HERE`: postgres id
         - `PASSWD_HERE`: postgres pw
@@ -63,11 +61,11 @@ Pokr - Politics in Korea
 
 ## Run Server
 
-    $ ./run.py
+    $ ./run.py [-d] [-l LOCALE] [--port PORT]
 
 ## Run API Server
 
-	$ ./api.py
+	$ ./run_api.py [--port PORT]
 
 ## License
 [Apache v2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

@@ -24,16 +24,6 @@ REDIS_KEYS = {
 }
 
 # Database
-# TODO: ask(stdio) & fill them in `make init`
-POSTGRES_SETTINGS = {
-    'dialect': 'postgresql',
-    'driver': 'psycopg2',
-    'host': 'localhost',
-    'id': '', # fill it
-    'password': '', # fill it
-    'db': 'pokr',
-}
-SQLALCHEMY_URI = '{dialect}+{driver}://{id}:{password}@{host}/{db}'.format(**POSTGRES_SETTINGS)
 
 # Social logins
 SECRET_KEY = 'some-secret-key' # autogenerate this
