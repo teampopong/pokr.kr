@@ -10,12 +10,7 @@ import sys
 
 from sqlalchemy.sql.expression import and_
 
-try:
-    from conf.storage import BILLJSON_DIR, REDIS_SETTINGS, REDIS_KEYS
-except ImportError as e:
-    import sys
-    sys.stderr.write('Error: Update conf/storage.py\n')
-    sys.exit(1)
+from settings import BILLJSON_DIR, REDIS_SETTINGS, REDIS_KEYS
 from pokr.database import transaction
 from pokr.models.bill import assembly_id_by_bill_id, Bill
 from pokr.models.bill_status import BillStatus

@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
-STOPWORDS = [stopword.strip().decode('utf-8') for stopword in '''
 경우
 조제
 조의
@@ -56,4 +52,3 @@ STOPWORDS = [stopword.strip().decode('utf-8') for stopword in '''
 the
 한정
 표시
-'''.split('\n') if stopword]

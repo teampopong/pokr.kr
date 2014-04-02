@@ -3,7 +3,7 @@
 
 from flask.ext.cache import Cache
 
-from conf.storage import CACHE_CONFIG
+from settings import CACHE_CONFIG
 
 
 cache = Cache()

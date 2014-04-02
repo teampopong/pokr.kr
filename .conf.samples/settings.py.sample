@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+
+# Server
+DEBUG = False
+SCRIPT_NAME = '/'
+
+# I18n
+BABEL_DEFAULT_LOCALE = 'ko'
+BABEL_DEFAULT_TIMEZONE = 'KST'
+
+# Cache
+CACHE_CONFIG = {
+    'CACHE_TYPE': 'memcached',
+    'CACHE_KEY_PREFIX': 'pokr',
+    'CACHE_MEMCACHED_SERVERS': ['127.0.0.1:11211'],
+}
+
+# Redis
+# FIXME: remove dep.
+REDIS_SETTINGS = {
+}
+REDIS_KEYS = {
+    'insert_bills_db': 'insert_bills_db'
+}
+
+# Database
+# TODO: ask(stdio) & fill them in `make init`
+POSTGRES_SETTINGS = {
+    'dialect': 'postgresql',
+    'driver': 'psycopg2',
+    'host': 'localhost',
+    'id': '', # fill it
+    'password': '', # fill it
+    'db': 'pokr',
+}
+SQLALCHEMY_URI = '{dialect}+{driver}://{id}:{password}@{host}/{db}'.format(**POSTGRES_SETTINGS)
+
+# Social logins
+SECRET_KEY = 'some-secret-key' # autogenerate this
+SOCIAL_AUTH_LOGIN_URL = '/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/done/'
+SOCIAL_AUTH_USER_MODEL = 'pokr.models.user.User'
+SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = ''
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_about_me']
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = ['name']
+
+# Paths
+BILLJSON_DIR = './bills/json'
+BILLPDF_DIR = './bill-docs/pdf'
+BILLTXT_DIR = './bill-docs/txt'
+STOPWORDS_PATH = 'pokr/static/stopwords.txt'
+with open(STOPWORDS_PATH) as stopwords:
+    STOPWORDS = [stopword.strip().decode('utf-8') for stopword in stopwords if stopword]
+

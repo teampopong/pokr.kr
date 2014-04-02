@@ -3,7 +3,7 @@
 
 pokr/static/.webassets-cache
 pokr/static/build
-conf/*.py
 
 server.log
 alembic.ini
+*settings.py

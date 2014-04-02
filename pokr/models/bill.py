@@ -17,19 +17,7 @@ from .election import Election
 from .party import Party
 from .person import Person
 
-try:
-    from conf.storage import BILLPDF_DIR, BILLTXT_DIR
-except ImportError as e:
-    import sys
-    sys.stderr.write('Error: Update conf/storage.py\n')
-    sys.exit(1)
-
-try:
-    from conf.stopwords import STOPWORDS
-except ImportError as e:
-    import sys
-    sys.stderr.write('Error: Update conf/stopwords.py\n')
-    sys.exit(1)
+from settings import BILLPDF_DIR, BILLTXT_DIR, STOPWORDS
 
 
 class Bill(Base, ApiModel):

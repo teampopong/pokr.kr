@@ -18,7 +18,7 @@ class InitDbCommand(Command):
     @classmethod
     def run(cls, **kwargs):
         dummy_app = Flask(__name__)
-        dummy_app.config.from_object('conf.frontend')
+        dummy_app.config.from_object('settings')
 
         import pokr.models
         from utils.login import init_db; init_db(dummy_app)

@@ -7,12 +7,7 @@ from flask import Flask
 
 
 app = Flask(__name__)
-try:
-    app.config.from_object('conf.api')
-except ImportError as e:
-    import sys
-    sys.stderr.write('Error: Update conf/api.py\n')
-    sys.exit(1)
+app.config.from_object('api_settings')
 
 
 if not hasattr(app, '__loaded__'):
