@@ -61,7 +61,7 @@ class BillStatusStore(object):
             bs.name: bs.id
             for bs in bss
         }
-        self.last_id_in_db = self.last_id = bss[-1].id
+        self.last_id_in_db = self.last_id = bss[-1].id if bss else 0
         self.session = session
 
     def id(self, name):

@@ -115,6 +115,7 @@ class Person(Base, ApiModel):
 
 
 def guess_person(session, name, assembly_id):
+    name = name.split('(')[0]
     try:
         person = session.query(Person)\
                         .filter_by(name=name)\
