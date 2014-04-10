@@ -9,7 +9,7 @@ SQLAlchemy==0.8.1
 Werkzeug==0.8.3
 alembic==0.5.0
 cssmin==0.2.0
-pandas==0.10
+pandas>=0.10
 psycopg2==2.4.5
 python-memcached==1.53
 python-social-auth==0.1.13
