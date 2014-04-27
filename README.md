@@ -63,10 +63,6 @@ Pokr - Politics in Korea
 
     $ ./run.py [-d] [-l LOCALE] [--port PORT]
 
-## Run API Server
-
-	$ ./run_api.py [--port PORT]
-
 ## License
 [Apache v2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 

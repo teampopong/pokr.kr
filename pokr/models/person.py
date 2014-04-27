@@ -11,7 +11,6 @@ from sqlalchemy.orm import backref, deferred, relationship
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 from sqlalchemy.sql.expression import and_, desc
 
-from api.model import ApiModel
 from pokr.database import Base
 from .bill_withdrawal import bill_withdrawal
 from .candidacy import Candidacy
@@ -19,11 +18,8 @@ from .cosponsorship import cosponsorship
 from .party import Party
 
 
-class Person(Base, ApiModel):
+class Person(Base):
     __tablename__ = 'person'
-    __kind_single__ = 'person'
-    __kind_list__ = 'people'
-
     id = Column(Integer, primary_key=True)
 
     ### Fields ###
@@ -101,17 +97,6 @@ class Person(Base, ApiModel):
     @property
     def cur_party(self):
         return self.parties.first()
-
-    def _to_dict_light(self):
-        d = self._columns_to_dict()
-        extra_vars = json.loads(self.extra_vars)
-
-        del d['extra_vars']
-        d['address'] = extra_vars.get('address')
-        d['education'] = extra_vars.get('education')
-        d['birthday'] = self.birthday_date.isoformat()
-        # TODO: add relation data
-        return d
 
 
 def guess_person(session, name, assembly_id):
