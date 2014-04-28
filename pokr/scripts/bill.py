@@ -205,6 +205,9 @@ def extract_bill(record):
 
 
 def insert_cosponsorships(session, bill, cosponsors):
+    if isinstance(cosponsors[0], dict):
+        cosponsors = [c['name_kr'] for c in cosponsors]
+
     existing_cosponsor_ids = [c.id for c in bill.cosponsors]
     cosponsor_ids = []
     for proposer in cosponsors:
