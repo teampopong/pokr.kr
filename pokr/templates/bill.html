@@ -5,9 +5,7 @@
 <ul id="bill-section-tabs" class="nav section-tabs">
     <li class="active"><a href="#outline">{{gettext("outline")}}</a></li>
     <li><a href="#sponsors">{{gettext("sponsors")}}</a></li>
-    {% if bill.summary %}
     <li><a href="#contents">{{gettext("contents")}}</a></li>
-    {% endif %}
 </ul>
 {% endif %}
 {% endblock %}
@@ -136,17 +134,21 @@
         </table>
         {% endif %}
     </div>
-    {% if bill.summary %}
     <div id="section-contents" class="section">
         <h3 id="contents">{{ gettext('contents') }}</h3>
         <table class="table table-condensed">
             <tr>
                 <th>{{ gettext('summary') }}</th>
-                <td><pre id="bill-summary" class="text">{{ bill.summary }}</pre></td>
+                <td>
+                {% if bill.summary %}
+                <pre id="bill-summary" class="text">{{ bill.summary }}</pre>
+                {% else %}
+                {{ gettext('The summary of this bill has not been updated.') }}
+                {% endif %}
+                </td>
             </tr>
-        </tbody>
+        </table>
     </table>
-    {% endif %}
     </div>
 </div>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
