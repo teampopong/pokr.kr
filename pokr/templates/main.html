@@ -16,12 +16,15 @@ depends=['**/*.less'], 'less/main.less' %}
 
 {% block content %}
 <div id="hero">
+    {% if locale=='ko' %}
     <img src="{{ url_for('static', filename="images/hero-1.png") }}">
     <img src="{{ url_for('static', filename="images/hero-2.png") }}">
-    {% if locale=='ko' %}
-    <p style="color: #333">지역과 관심사를 입력하면 당신에게 필요한 정치정보를 선별해서 보여드립니다. </p>
+    {% else %}
+    <h2>Legislative information that best fits your life</h2>
+    {% endif %}
+    <p style="color: #333">{{ gettext('If you input your location and interests, we deliver legislative information based on your taste.') }}</p>
     <p id="pokrbot">
-        SNS로 의안을 구독해 보세요:
+        {{ gettext('Get realtime legislative information now') }}:
         <a href="http://twitter.com/pokrbot" target="_blank" class="twitter-icon"><i class="icon-twitter"></i></a>
         <a href="http://facebook.com/pokrbot" target="_blank" class="facebook-icon"><i class="icon-facebook"></i></a>
     </p>
@@ -30,7 +33,6 @@ depends=['**/*.less'], 'less/main.less' %}
         {% include 'popong-like.html' %}
         {% include 'popong-follow.html' %}
     </div>
-    {% endif %}
 </div>
 <div id="class-list">
     <div><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a></div>
