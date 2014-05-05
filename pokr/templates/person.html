@@ -59,7 +59,7 @@
                     {% if person.birthday %}
                     <tr>
                         <th>{{ gettext("birthday") }}</th>
-                        <td>{{ person.birthday_formatted|linkall|safe }}</td>
+                        <td>{{ person.birthday_date|dateformat|linkall|safe }}</td>
                     </tr>
                     {% endif %}
                     {% if party_history %}

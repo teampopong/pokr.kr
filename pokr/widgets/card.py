@@ -2,7 +2,7 @@
 
 from flask import render_template
 
-from pokr.models.person import Person
+from popong_models.person import Person
 
 
 def card(person_or_id, **kwargs):

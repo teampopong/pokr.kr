@@ -9,16 +9,17 @@ import re
 import sys
 
 from sqlalchemy.sql.expression import and_
+from popong_models.bill import Bill
+from popong_models.bill_status import BillStatus
+from popong_models.bill_review import BillReview
+from popong_models.election import Election
+from popong_models.cosponsorship import cosponsorship
+from popong_models.candidacy import Candidacy
+from popong_models.person import guess_person, Person
 
 from settings import BILLJSON_DIR, REDIS_SETTINGS, REDIS_KEYS
 from pokr.database import transaction
-from pokr.models.bill import assembly_id_by_bill_id, Bill
-from pokr.models.bill_status import BillStatus
-from pokr.models.bill_review import BillReview
-from pokr.models.election import Election
-from pokr.models.cosponsorship import cosponsorship
-from pokr.models.candidacy import Candidacy
-from pokr.models.person import guess_person, Person
+from pokr.models.bill import assembly_id_by_bill_id
 from pokr.queue import RedisQueue
 from utils.command import Command
 

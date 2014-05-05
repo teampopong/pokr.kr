@@ -3,8 +3,8 @@
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Enum, Integer, Text
+from popong_models import Base
 
-from pokr.database import Base
 from utils.enum import DeclEnum
 
 

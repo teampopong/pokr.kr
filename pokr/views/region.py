@@ -6,7 +6,7 @@ from flask.ext.babel import gettext
 from sqlalchemy import func
 from sqlalchemy.orm.exc import NoResultFound
 
-from pokr.models.region import Region
+from popong_models.region import Region
 from utils.jinja import breadcrumb
 
 

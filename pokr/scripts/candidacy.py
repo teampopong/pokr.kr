@@ -6,13 +6,13 @@ import json
 from glob import glob
 import sys
 
+from popong_models.candidacy import Candidacy
+from popong_models.election import Election
+from popong_models.party import Party
+from popong_models.person import Person
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
 from pokr.database import transaction
-from pokr.models.candidacy import Candidacy
-from pokr.models.election import Election
-from pokr.models.party import Party
-from pokr.models.person import Person
 from utils.command import Command
 from utils.nlp.structurizer import markup
 from utils.nlp.utils.translit import translit

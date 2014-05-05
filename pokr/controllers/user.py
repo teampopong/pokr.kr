@@ -2,13 +2,13 @@
 
 from flask import abort
 
+from popong_models.bill import Bill
+from popong_models.keyword import Keyword
+from popong_models.person import Person
+
 from .base import Controller
-from pokr.database import db_session
-from pokr.models.bill import Bill
 from pokr.models.bill_feed import BillFeed
 from pokr.models.feed import Feed
-from pokr.models.keyword import Keyword
-from pokr.models.person import Person
 
 
 class UserController(Controller):
@@ -18,7 +18,7 @@ class UserController(Controller):
     def update_favorite_keyword(cls, user, keyword, method):
         keyword = Keyword.query.filter_by(name=keyword).one()
 
-        # XXX: is it safe to db_session.commit()?
+        # XXX: is it safe to db.session.commit()?
         dirty = False
         if method.lower() == 'post':
             if keyword not in user.favorite_keywords:
@@ -30,7 +30,7 @@ class UserController(Controller):
                 dirty = True
 
         if dirty:
-            db_session.commit()
+            current_app.db.session.commit()
 
         return dirty
 
@@ -49,14 +49,14 @@ class UserController(Controller):
                 dirty = True
 
         if dirty:
-            db_session.commit()
+            current_app.db.session.commit()
 
         return dirty
 
     @classmethod
     def update_address(cls, user, region_id):
         user.address_id = region_id
-        db_session.commit()
+        current_app.db.session.commit()
 
     @classmethod
     def district_feeds(cls, legislator):

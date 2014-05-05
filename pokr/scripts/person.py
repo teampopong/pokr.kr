@@ -2,8 +2,9 @@
 
 from __future__ import unicode_literals
 
+from popong_models.person import Person
+
 from pokr.database import transaction
-from pokr.models.person import Person
 from utils.command import Command
 from utils.csv import read_csv
 

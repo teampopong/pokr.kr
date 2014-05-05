@@ -8,14 +8,14 @@ from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import and_, desc, false
 from werkzeug.local import LocalProxy
 
-from pokr.models.cosponsorship import cosponsorship
-from pokr.models.bill import Bill
-from pokr.models.bill_status import BillStatus
-from pokr.models.keyword import Keyword
-from pokr.models.party import Party
-from pokr.models.person import Person
-from pokr.models.region import Region
-from pokr.models.school import School
+from popong_models.cosponsorship import cosponsorship
+from popong_models.bill import Bill
+from popong_models.bill_status import BillStatus
+from popong_models.keyword import Keyword
+from popong_models.party import Party
+from popong_models.person import Person
+from popong_models.region import Region
+from popong_models.school import School
 from pokr.models.query_log import log_query
 from utils.jinja import breadcrumb
 

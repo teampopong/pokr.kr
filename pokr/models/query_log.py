@@ -3,8 +3,9 @@
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Integer, UnicodeText
+from popong_models import Base
 
-from pokr.database import transaction, Base
+from pokr.database import transaction
 
 
 class QueryLog(Base):

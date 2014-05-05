@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: remove `pokr/controller` and merge into models
 
 from .base import Controller
 from .bill import BillController

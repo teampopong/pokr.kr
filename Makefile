@@ -1,13 +1,13 @@
 install:
 	pip install -r requirements.txt
-
-init:
 	git submodule init
 	git submodule update
-	.conf.samples/copyall.sh
 	cd utils/nlp
 	git submodule init
 	git submodule update
+
+init:
+	.conf.samples/copyall.sh
 
 extract_i18n:
 	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o pokr/messages.pot .

@@ -13,12 +13,11 @@ from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import select, desc
 
 from pokr.cache import cache
-from pokr.database import db_session
-from pokr.models.bill import Bill
-from pokr.models.candidacy import Candidacy
-from pokr.models.cosponsorship import cosponsorship
-from pokr.models.election import current_assembly_id
-from pokr.models.person import Person
+from popong_models.bill import Bill
+from popong_models.candidacy import Candidacy
+from popong_models.cosponsorship import cosponsorship
+from popong_models.election import current_assembly_id
+from popong_models.person import Person
 from utils.jinja import breadcrumb
 
 
@@ -27,7 +26,7 @@ def register(app):
     app.views['person'] = 'person_main'
     gettext('person') # for babel extraction
 
-    person_names_json = json.dumps(all_person_names())
+    person_names_json = json.dumps(all_person_names(app.db.session))
 
     # 루트
     @app.route('/person/', methods=['GET'])
@@ -72,8 +71,8 @@ def register(app):
                 person_extra_vars=person_extra_vars)
 
 
-def all_person_names():
-    name_tuples = (list(i) for i in db_session.query(
+def all_person_names(session):
+    name_tuples = (list(i) for i in session.query(
         Person.name,
         Person.name_en,
         ))
@@ -92,6 +91,7 @@ def distribution_of_cosponsorships(assembly_id):
             .select_from(cosponsorship.join(bill_t))\
             .where(bill_t.c.assembly_id == assembly_id)\
             .group_by(cosponsorship.c.person_id)
-    distribution = db_session.execute(stmt).fetchall()
+    distribution = current_app.db.session.execute(stmt).fetchall()
     distribution = map(lambda x: x[0], distribution)
     return distribution
+

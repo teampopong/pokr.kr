@@ -8,7 +8,6 @@ from sqlalchemy.sql.expression import or_
 
 from pokr.controllers.region import RegionController
 from pokr.controllers.user import UserController
-from pokr.database import db_session
 from pokr.models.feed import Feed
 from utils.jinja import breadcrumb, jsonify
 from utils.paginate import MoreQuery

@@ -5,13 +5,12 @@ from itertools import izip
 
 from flask import render_template
 from flask.ext.babel import gettext
+from popong_models.candidacy import Candidacy
+from popong_models.election import Election
+from popong_models.person import Person
 from sqlalchemy import Text
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.sql.expression import and_, cast, desc
-
-from pokr.models.candidacy import Candidacy
-from pokr.models.election import Election
-from pokr.models.person import Person
 
 
 def rivals(person_or_id, election_id, size=4):

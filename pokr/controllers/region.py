@@ -5,15 +5,14 @@ import json
 import os.path
 
 from flask import abort, current_app
+from popong_models.candidacy import Candidacy
+from popong_models.election import current_assembly_id, Election
+from popong_models.person import Person
+from popong_models.region import Region
 from sqlalchemy import func
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
 from .base import Controller
-from pokr.database import db_session
-from pokr.models.candidacy import Candidacy
-from pokr.models.election import current_assembly_id, Election
-from pokr.models.person import Person
-from pokr.models.region import Region
 
 
 class RegionController(Controller):
@@ -50,7 +49,7 @@ class RegionController(Controller):
 
     @classmethod
     def officials_grouped_by_assembly_id(cls, region_id):
-        officials_ = db_session.query(Person.id, Candidacy.assembly_id)\
+        officials_ = current_app.db.session.query(Person.id, Candidacy.assembly_id)\
                      .filter(Candidacy.person_id == Person.id)\
                      .filter(Candidacy.district_id.any(region_id))\
                      .filter(Candidacy.is_elected == True)\

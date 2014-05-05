@@ -9,8 +9,7 @@ import socket
 from flask import g, redirect, render_template, request, url_for
 from sqlalchemy.sql.expression import desc
 
-from pokr.database import db_session
-from pokr.models.bill import Bill
+from popong_models.bill import Bill
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 

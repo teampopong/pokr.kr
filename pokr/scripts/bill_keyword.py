@@ -8,9 +8,9 @@ from os.path import basename
 import sys
 
 from pokr.database import transaction
-from pokr.models.bill import Bill
-from pokr.models.bill_keyword import bill_keyword
-from pokr.models.keyword import Keyword
+from popong_models.bill import Bill
+from popong_models.bill_keyword import bill_keyword
+from popong_models.keyword import Keyword
 from utils.command import Command
 from utils.nlp.extractor.extract import keywords as extract_keywords
 

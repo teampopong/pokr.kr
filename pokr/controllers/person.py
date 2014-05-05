@@ -2,13 +2,15 @@
 
 from collections import Counter, defaultdict, OrderedDict
 
+from flask import current_app
+
+from popong_models.bill import Bill
+from popong_models.candidacy import Candidacy
+from popong_models.cosponsorship import cosponsorship
+from popong_models.person import Person
+from popong_models.pledge import Pledge
+
 from .base import Controller
-from pokr.database import db_session
-from pokr.models.bill import Bill
-from pokr.models.candidacy import Candidacy
-from pokr.models.cosponsorship import cosponsorship
-from pokr.models.person import Person
-from pokr.models.pledge import Pledge
 
 
 class PersonController(Controller):
@@ -21,7 +23,7 @@ class PersonController(Controller):
         counter = Counter()
         num_sponsored_bills = 0
         for bill in bills:
-            followers = db_session.query(Person.id)\
+            followers = current_app.db.session.query(Person.id)\
                               .join(cosponsorship)\
                               .filter(cosponsorship.c.bill_id == bill.id)
             counter = counter + Counter(follower.id for follower in followers if follower.id != person.id)

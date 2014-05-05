@@ -7,8 +7,8 @@ from flask.ext.babel import gettext
 from werkzeug.urls import Href, url_unquote
 
 from .jsonify import jsonify
-from pokr.models.assembly import term as assembly_term # FIXME: no dep. w/ pokr
-from pokr.models.election import current_assembly_id
+from popong_models.assembly import term as assembly_term # FIXME: no dep. w/ pokr
+from popong_models.election import current_assembly_id
 
 
 breadcrumb_home = ['home']

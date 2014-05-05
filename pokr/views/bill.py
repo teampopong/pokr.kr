@@ -6,8 +6,8 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 
 from pokr.cache import cache
-from pokr.models.bill import Bill
-from pokr.models.election import current_assembly_id
+from popong_models.bill import Bill
+from popong_models.election import current_assembly_id
 from utils.jinja import breadcrumb
 
 

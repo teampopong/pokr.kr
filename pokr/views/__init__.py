@@ -5,7 +5,7 @@ from flask.ext.babel import gettext
 
 def init_app(app):
     gettext('home') # for babel extraction
-    app.views = getattr(app, 'views', dict(home='main'))
+    app.views = getattr(app, 'views', { 'home': 'main' })
     from .bill import register; register(app)
     from .login import register; register(app)
     from .main import register; register(app)

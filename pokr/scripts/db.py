@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from alembic import command
 from flask import Flask
 
-from pokr.database import Base, engine
+from pokr.database import Database
 from utils.command import Command
 
 
@@ -17,11 +16,8 @@ class InitDbCommand(Command):
 
     @classmethod
     def run(cls, **kwargs):
-        dummy_app = Flask(__name__)
-        dummy_app.config.from_object('settings')
-
-        import pokr.models
-        from utils.login import init_db; init_db(dummy_app)
-
-        Base.metadata.create_all(bind=engine)
+        app = Flask(__name__)
+        app.config.from_object('settings')
+        db = Database(app)
+        db.create()
 

@@ -7,9 +7,9 @@ from sqlalchemy import distinct
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
-from pokr.models.candidacy import Candidacy
-from pokr.models.election import current_assembly_id
-from pokr.models.party import Party
+from popong_models.candidacy import Candidacy
+from popong_models.election import current_assembly_id
+from popong_models.party import Party
 from utils.jinja import breadcrumb
 
 

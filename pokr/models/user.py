@@ -3,8 +3,7 @@
 from flask.ext.login import UserMixin
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Unicode
 from sqlalchemy.orm import relationship
-
-from pokr.database import Base
+from popong_models import Base
 
 
 class User(Base, UserMixin):

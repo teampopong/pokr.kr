@@ -2,7 +2,7 @@
 
 from sqlalchemy import Column, ForeignKey, Integer
 
-from pokr.database import Base
+from popong_models import Base
 
 
 class FavoriteKeyword(Base):
