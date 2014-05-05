@@ -57,7 +57,7 @@
             {% if legislator %}
                 <div class="feed">
                     {{ widgets.card(legislator, detailed=True)|safe }}
-                    {% set pledges = PersonController.pledges_grouped_by_assembly_id(legislator) %}
+                    {% set pledges = legislator.pledges_grouped_by_assembly_id() %}
                     {% set pledges = pledges and pledges[current_assembly_id()] %}
                     {% if pledges %}
                     <h3>{{ gettext('Pledges of this election') }} <small>[{{ gettext('%(assembly_id)dth legislator election', assembly_id=current_assembly_id()) }}]</small></h3>

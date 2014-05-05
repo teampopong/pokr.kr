@@ -1,30 +1,18 @@
 from popong_models import Base
-import bill_feed
-import favorite_keyword
-import favorite_person
-import feed
-import query_log
-import user
-
-
-class PatchMixin(object):
-
-    @property
-    def session(self):
-        return self.query.session
-
-    @classmethod
-    def patch(cls):
-        for key, val in cls.__dict__.iteritems():
-            if not key.startswith('_'):
-                setattr(cls.model, key, val)
+from . import bill
+from . import bill_feed
+from . import favorite_keyword
+from . import favorite_person
+from . import feed
+from . import party
+from . import person
+from . import region
+from . import query_log
+from . import user
+from .patch import PatchMixin
 
 
 def patch_all():
-    import bill
-    import party
-    import person
-    import region
     for subclass in PatchMixin.__subclasses__():
         subclass.patch()
 

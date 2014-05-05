@@ -1,9 +1,17 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
 import os
 
-from popong_models import Bill, Candidacy, cosponsorship, Election, Party, Person
+from popong_models import Bill, Candidacy, Election, Party, Person
+from popong_models.cosponsorship import cosponsorship
 
-from . import PatchMixin
+from .patch import PatchMixin
 from settings import BILLPDF_DIR, BILLTXT_DIR, STOPWORDS
+
+
+TITLE_WORDS = ['제안이유', '주요내용']
+DEFAULT_SUMMARY_SIZE = 200
 
 
 class BillPatch(PatchMixin):
@@ -37,7 +45,7 @@ class BillPatch(PatchMixin):
         # TODO: cache (denormalize)
         party_counts = self.session\
                            .query(Party.name,
-                                     func.count(distinct(Person.id)))\
+                                     Person.id.distinct().count())\
                            .join(Candidacy)\
                            .join(Election)\
                            .filter(Election.assembly_id == self.assembly_id)\
@@ -53,6 +61,21 @@ class BillPatch(PatchMixin):
         return [cosponsor
                 for cosponsor in self.cosponsors
                 if cosponsor.name in self.sponsor]
+
+    def truncated_summary(self, size=DEFAULT_SUMMARY_SIZE):
+        # TODO: caching
+        if not self.summary:
+            return ''
+
+        lines = self.summary.split('\n')
+        first_line = lines[0]
+        if any(title_word in first_line for title_word in TITLE_WORDS):
+            lines.pop(0)
+            while lines and not lines[0].strip():
+                lines.pop(0)
+        summary = '\n'.join(lines)
+        ellipsis = '…' if len(summary) > size else ''
+        return summary[:size] + ellipsis
 
 
 def assembly_id_by_bill_id(bill_id):

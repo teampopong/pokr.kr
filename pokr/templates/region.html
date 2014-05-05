@@ -56,7 +56,7 @@
             <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
             <table id="region-people" class="table table-condensed">
                 <tbody>
-                    {% set officials_grouped_by_assembly_id = RegionController.officials_grouped_by_assembly_id(region.id) %}
+                    {% set officials_grouped_by_assembly_id = region.officials_grouped_by_assembly_id() %}
                     {% for assembly_id in range(19, 0, -1) %}
                     <tr>
                         <th>{{ assembly_id }}{{ gettext('th') }}</th>
@@ -101,7 +101,7 @@
             <table id="region-chronicles" class="table table-condensed">
                 <tbody>
                     <!-- FIXME: 19 -->
-                    {% set officials_grouped_by_assembly_id = RegionController.officials_grouped_by_assembly_id(region.id) %}
+                    {% set officials_grouped_by_assembly_id = region.officials_grouped_by_assembly_id() %}
                     {% for assembly_id in range(19, 0, -1) %}
                     <tr>
                         <th class="assembly-id">{{ assembly_id }}{{ gettext('th') }}</th>

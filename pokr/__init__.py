@@ -4,7 +4,6 @@ from flask import Flask
 from flask.ext.assets import Environment as Asset
 
 from pokr.cache import init_cache
-from pokr.controllers import init_controller
 from pokr.database import Database
 from pokr.login import Login
 from pokr.models import patch_all; patch_all()
@@ -24,7 +23,6 @@ app.config.from_object('settings')
 
 Asset(app)
 init_cache(app)
-init_controller(app)
 init_asset(app)
 Database(app)
 init_jinja(app)

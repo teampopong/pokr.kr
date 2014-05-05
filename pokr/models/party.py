@@ -1,6 +1,6 @@
 from popong_models import Candidacy, Party, Person
 
-from . import PatchMixin
+from .patch import PatchMixin
 
 
 class PartyPatch(PatchMixin):
