@@ -138,7 +138,6 @@
         <div id="section-elections" class="section">
             <h3 id="elections">{{gettext('elections')}}</h3>
             {% if mobile %}
-                {% include 'includes/adsense-728x90.html' %}
                 {% for candidacy in person.candidacies %}
                 <h4 class="subsection-title">
                     {{ gettext('%(assembly_id)dth', assembly_id=candidacy.assembly_id) }}
@@ -177,7 +176,6 @@
                 <span class="shrink pull-right"><i class="icon-exclamation-sign"></i>{{ gettext("By-election results are coming soon!") }}</span>
                 {{widgets.timeline(person.id)|safe}}
             </div>
-            {% include 'includes/adsense-728x90.html' %}
             <table class="table table-condensed">
                 <thead>
                     <tr>
@@ -331,6 +329,7 @@
             {% endif %}
         </div>
         {% endif %}
+        {% include 'includes/adsense-728x90.html' %}
     </div>
 </div>
 <script>
