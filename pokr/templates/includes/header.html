@@ -23,9 +23,7 @@
     </form>
 </div>
 <span class="user-options">
-    {% if locale == 'ko' %}
     {% include "login.html" %}
-    {% endif %}
     <a class="btn btn-mini btn-primary white" href="https://teampopong.uservoice.com/forums/211529">{{ gettext('feedback') }}</a>
     {% for lang, url in locale_links.items() %}
     <a class="language" href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
