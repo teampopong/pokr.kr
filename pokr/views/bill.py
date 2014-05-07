@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import redirect, render_template, request, send_file, url_for
+import os.path
+
+from flask import current_app, redirect, render_template, request, send_file, url_for
 from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -78,8 +80,9 @@ def register(app):
 
 @cache.memoize(timeout=60*60*24)
 def generate_glossary_js():
-    terms_regex = open('./data/glossary-terms.regex').read().decode('utf-8').strip()
-    dictionary = open('./data/glossary-map.json').read().decode('utf-8').strip()
+    datadir = os.path.join(current_app.root_path, 'data')
+    terms_regex = open('%s/glossary-terms.regex' % datadir).read().decode('utf-8').strip()
+    dictionary = open('%s/glossary-map.json' % datadir).read().decode('utf-8').strip()
     return render_template('js/glossary.js', terms_regex=terms_regex,
             dictionary=dictionary)
 
