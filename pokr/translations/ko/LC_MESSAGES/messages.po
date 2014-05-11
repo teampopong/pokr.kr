@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-05 17:43+0800\n"
+"POT-Creation-Date: 2014-05-11 19:42+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -29,14 +29,6 @@ msgstr "원문 PDF 보기"
 msgid "see original text"
 msgstr "원문 텍스트 보기"
 
-#: pokr/templates/bill-new.html:5 pokr/templates/regions.html:5
-msgid "Regions"
-msgstr "지역"
-
-#: pokr/templates/bill-new.html:9 pokr/templates/regions.html:9
-msgid "regions"
-msgstr "지역"
-
 #: pokr/templates/bill.html:6 pokr/templates/bill.html:15
 msgid "outline"
 msgstr "기본정보"
@@ -53,8 +45,8 @@ msgstr "내용"
 msgid "assembly #"
 msgstr "국회 대수"
 
-#: pokr/templates/bill.html:26 pokr/templates/person.html:256
-#: pokr/templates/person.html:278
+#: pokr/templates/bill.html:26 pokr/templates/person.html:254
+#: pokr/templates/person.html:276
 msgid "proposed date"
 msgstr "제안일자"
 
@@ -71,7 +63,7 @@ msgid "related keywords"
 msgstr "연관 키워드"
 
 #: pokr/templates/bill.html:86 pokr/templates/bill.html:109
-#: pokr/templates/macros.html:98 pokr/templates/person.html:301
+#: pokr/templates/macros.html:98 pokr/templates/person.html:299
 msgid "representative sponsor"
 msgstr "대표발의자"
 
@@ -165,8 +157,8 @@ msgid "%(count)d results"
 msgstr "%(count)d 개"
 
 #: pokr/templates/macros.html:88 pokr/templates/mypage.html:88
-#: pokr/templates/mypage.html:113 pokr/templates/person.html:266
-#: pokr/templates/person.html:310
+#: pokr/templates/mypage.html:113 pokr/templates/person.html:264
+#: pokr/templates/person.html:308
 msgid "more"
 msgstr "더보기"
 
@@ -174,7 +166,7 @@ msgstr "더보기"
 msgid "date unknown"
 msgstr "날짜 미상"
 
-#: pokr/templates/macros.html:100 pokr/templates/person.html:303
+#: pokr/templates/macros.html:100 pokr/templates/person.html:301
 msgid "sponsor"
 msgstr "발의자"
 
@@ -284,14 +276,14 @@ msgstr "이 페이지는 두 개 이상의 정당에 대한 정보일 수 있습
 msgid "details"
 msgstr "자세히 보기"
 
-#: pokr/templates/party.html:36 pokr/templates/party.html:59
+#: pokr/templates/party.html:36 pokr/templates/party.html:62
 #: pokr/templates/people.html:9
 msgid "people"
 msgstr "인물"
 
 #: pokr/templates/party.html:45 pokr/templates/person.html:67
 #: pokr/templates/search-results.html:9 pokr/templates/includes/header.html:15
-#: pokr/templates/includes/header.html:17 pokr/views/party.py:19
+#: pokr/templates/includes/header.html:17 pokr/views/party.py:21
 msgid "party"
 msgstr "정당"
 
@@ -303,13 +295,15 @@ msgstr "출마자 수"
 msgid "person(s)"
 msgstr "명"
 
-#: pokr/templates/party.html:52
-msgid "assemblies"
-msgstr "출마 대수"
+#: pokr/templates/party.html:52 pokr/templates/person.html:39
+#: pokr/templates/person.html:139
+msgid "elections"
+msgstr "선거활동"
 
-#: pokr/templates/party.html:53
-msgid "th assembly election"
-msgstr "대 국회의원 선거"
+#: pokr/templates/party.html:54
+#, python-format
+msgid "th %(election_type)s election"
+msgstr "대 %(election_type)s 선거"
 
 #: pokr/templates/people.html:5 pokr/templates/search-results.html:55
 msgid "People"
@@ -328,15 +322,11 @@ msgstr "위키피디아"
 msgid "profile"
 msgstr "기본정보"
 
-#: pokr/templates/person.html:39 pokr/templates/person.html:139
-msgid "elections"
-msgstr "선거활동"
-
-#: pokr/templates/person.html:41 pokr/templates/person.html:242
+#: pokr/templates/person.html:41 pokr/templates/person.html:240
 msgid "legislations"
 msgstr "입법활동"
 
-#: pokr/templates/person.html:43 pokr/templates/person.html:324
+#: pokr/templates/person.html:43 pokr/templates/person.html:322
 msgid "trends"
 msgstr "검색추이"
 
@@ -350,8 +340,8 @@ msgstr "이 데이터는 직전 선거 기록에서 추출된 것으로, 현재 
 msgid "birthday"
 msgstr "출생"
 
-#: pokr/templates/person.html:74 pokr/templates/person.html:144
-#: pokr/templates/person.html:194
+#: pokr/templates/person.html:74 pokr/templates/person.html:143
+#: pokr/templates/person.html:192
 #, python-format
 msgid "%(assembly_id)dth"
 msgstr "%(assembly_id)d대"
@@ -372,44 +362,44 @@ msgstr "주소"
 msgid "work experiences"
 msgstr "경력"
 
-#: pokr/templates/person.html:146 pokr/templates/person.html:196
+#: pokr/templates/person.html:145 pokr/templates/person.html:194
 msgid "National Assembly Election"
 msgstr "국회의원 선거"
 
-#: pokr/templates/person.html:148 pokr/templates/person.html:198
+#: pokr/templates/person.html:147 pokr/templates/person.html:196
 msgid "National Assembly By-election"
 msgstr "국회의원 보궐선거"
 
-#: pokr/templates/person.html:156 pokr/templates/person.html:185
+#: pokr/templates/person.html:155 pokr/templates/person.html:183
 #: pokr/templates/search-results.html:11
 msgid "election district"
 msgstr "선거구"
 
-#: pokr/templates/person.html:170 pokr/templates/person.html:186
+#: pokr/templates/person.html:169 pokr/templates/person.html:184
 msgid "competitors"
 msgstr "동시 출마"
 
-#: pokr/templates/person.html:177
+#: pokr/templates/person.html:176
 msgid "By-election results are coming soon!"
 msgstr "보궐선거 데이터는 곧 추가될 예정입니다!"
 
-#: pokr/templates/person.html:204
+#: pokr/templates/person.html:202
 msgid "Pledges"
 msgstr "공약"
 
-#: pokr/templates/person.html:250 pokr/templates/person.html:290
+#: pokr/templates/person.html:248 pokr/templates/person.html:288
 msgid "th assembly"
 msgstr "대 국회"
 
-#: pokr/templates/person.html:257 pokr/templates/person.html:277
+#: pokr/templates/person.html:255 pokr/templates/person.html:275
 msgid "title"
 msgstr "제목"
 
-#: pokr/templates/person.html:279
+#: pokr/templates/person.html:277
 msgid "role"
 msgstr "역할"
 
-#: pokr/templates/person.html:326
+#: pokr/templates/person.html:324
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
@@ -444,6 +434,14 @@ msgstr "출마자"
 #: pokr/templates/region.html:89 pokr/templates/region.html:136
 msgid "Residents"
 msgstr "거주자"
+
+#: pokr/templates/regions.html:5
+msgid "Regions"
+msgstr "지역"
+
+#: pokr/templates/regions.html:9
+msgid "regions"
+msgstr "지역"
 
 #: pokr/templates/search-results.html:6
 msgid "birthyear"
@@ -512,7 +510,7 @@ msgid "sources"
 msgstr "소스"
 
 #: pokr/templates/includes/header.html:15
-#: pokr/templates/includes/header.html:17 pokr/views/bill.py:18
+#: pokr/templates/includes/header.html:17 pokr/views/bill.py:19
 msgid "bill"
 msgstr "의안"
 
@@ -525,7 +523,7 @@ msgstr "지역"
 msgid "Seon-Mi Jin"
 msgstr "진선미"
 
-#: pokr/templates/includes/header.html:29
+#: pokr/templates/includes/header.html:27
 msgid "feedback"
 msgstr "건의하기"
 
@@ -545,25 +543,41 @@ msgstr "홈"
 msgid "in the same constituency"
 msgstr "동일 선거구 출마"
 
-#: pokr/widgets/timeline.py:51
+#: pokr/widgets/timeline.py:36
+msgid "assembly"
+msgstr "국회"
+
+#: pokr/widgets/timeline.py:37
+msgid "mayor"
+msgstr "시장"
+
+#: pokr/widgets/timeline.py:38
+msgid "president"
+msgstr "대통령"
+
+#: pokr/widgets/timeline.py:58
 msgid "birth"
 msgstr "출생"
 
-#: pokr/widgets/timeline.py:67
+#: pokr/widgets/timeline.py:74
 #, python-format
 msgid ""
 "won\n"
-"%(assembly_id)dth"
+"%(assembly_id)dth\n"
+"%(election_type)s"
 msgstr ""
 "%(assembly_id)d대\n"
+"%(election_type)s\n"
 "당선"
 
-#: pokr/widgets/timeline.py:70
+#: pokr/widgets/timeline.py:77
 #, python-format
 msgid ""
 "lost\n"
-"%(assembly_id)dth"
+"%(assembly_id)dth\n"
+"%(election_type)s"
 msgstr ""
 "%(assembly_id)d대\n"
+"%(election_type)s\n"
 "낙선"
 

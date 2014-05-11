@@ -49,8 +49,11 @@
                     <td>{{ party.size }}{{ gettext('person(s)') }}</td>
                 </tr>
                 <tr>
-                    <th>{{ gettext('assemblies') }}</th>
-                    <td>{{ assemblies|join(', ') }}{{ gettext('th assembly election') }}</td>
+                    <th>{{ gettext('elections') }}</th>
+                    <td>{% for election_type, session_ids in elections.iteritems() %}
+                        {{ session_ids|join(', ') }}{{ gettext('th %(election_type)s election', election_type=gettext(election_type)) }}
+                        {% endfor %}
+                    </td>
                 </tr>
 
             </table>

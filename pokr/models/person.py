@@ -95,7 +95,7 @@ class Person(Base, ApiModel):
                             .join(Person,
                                   Person.id == Candidacy.person_id)\
                             .filter(Person.id == self.id)\
-                            .order_by(desc(Candidacy.assembly_id))
+                            .order_by(Candidacy.election_date.desc())
         return parties
 
     @property
@@ -112,23 +112,4 @@ class Person(Base, ApiModel):
         d['birthday'] = self.birthday_date.isoformat()
         # TODO: add relation data
         return d
-
-
-def guess_person(session, name, assembly_id):
-    name = name.split('(')[0]
-    try:
-        person = session.query(Person)\
-                        .filter_by(name=name)\
-                        .join(Person.candidacies)\
-                        .filter(Candidacy.assembly_id == assembly_id)\
-                        .one()
-
-    except MultipleResultsFound, e:
-        person = session.query(Person)\
-                        .filter_by(name=name)\
-                        .join(Person.candidacies)\
-                        .filter(and_(Candidacy.assembly_id == assembly_id,
-                                     Candidacy.is_elected == True))\
-                        .one()
-    return person
 

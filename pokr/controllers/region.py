@@ -11,7 +11,7 @@ from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 from .base import Controller
 from pokr.database import db_session
 from pokr.models.candidacy import Candidacy
-from pokr.models.election import current_assembly_id, Election
+from pokr.models.election import current_session_id, Election
 from pokr.models.person import Person
 from pokr.models.region import Region
 
@@ -24,7 +24,7 @@ class RegionController(Controller):
         if not region_id:
             return None
         if not assembly_id:
-            assembly_id = current_assembly_id()
+            assembly_id = current_session_id('assembly')
 
         region = Region.query.filter_by(id=region_id).one()
         original_region = region

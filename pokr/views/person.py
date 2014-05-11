@@ -17,7 +17,7 @@ from pokr.database import db_session
 from pokr.models.bill import Bill
 from pokr.models.candidacy import Candidacy
 from pokr.models.cosponsorship import cosponsorship
-from pokr.models.election import current_assembly_id
+from pokr.models.election import current_session_id
 from pokr.models.person import Person
 from utils.jinja import breadcrumb
 
@@ -33,10 +33,12 @@ def register(app):
     @app.route('/person/', methods=['GET'])
     @breadcrumb(app)
     def person_main():
-        assembly_id = int(request.args.get('assembly_id', current_assembly_id()) or 0)
+        election_type = request.args.get('election_type', 'assembly')
+        assembly_id = int(request.args.get('assembly_id', current_session_id(election_type)) or 0)
         officials = Person.query.order_by(desc(Person.id))\
                                 .join(Candidacy)\
-                                .filter(and_(Candidacy.assembly_id == assembly_id,
+                                .filter(and_(Candidacy.type == election_type,
+                                             Candidacy.assembly_id == assembly_id,
                                              Candidacy.is_elected == True))
 
         return render_template('people.html',

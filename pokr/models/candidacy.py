@@ -18,8 +18,13 @@ class Candidacy(Base):
     ### additional infos ###
     district = Column(ARRAY(Unicode(20)))
     district_id = Column(ARRAY(String(16)))
+    election_date = column_property(select([Election.date])\
+                                          .where(Election.id==election_id))
+    type = column_property(select([Election.type])\
+                                 .where(Election.id==election_id))
+    # FIXME: rename assembly_id -> session_id
     assembly_id = column_property(select([Election.assembly_id])\
-                                      .where(Election.id==election_id))
+                                        .where(Election.id==election_id))
     is_elected = Column(Boolean, default=False, index=True)
     cand_no = Column(Integer)
     vote_score = Column(Integer)

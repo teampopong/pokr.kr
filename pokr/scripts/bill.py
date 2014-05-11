@@ -18,7 +18,7 @@ from pokr.models.bill_review import BillReview
 from pokr.models.election import Election
 from pokr.models.cosponsorship import cosponsorship
 from pokr.models.candidacy import Candidacy
-from pokr.models.person import guess_person, Person
+from pokr.models.person import Person
 from pokr.queue import RedisQueue
 from utils.command import Command
 
@@ -302,3 +302,19 @@ def parse_date(date_):
     except:
         date_ = None
     return date_
+
+
+def guess_person(session, name, assembly_id):
+    name = name.split('(')[0]
+    candidates = session.query(Person)\
+                        .filter_by(name=name)\
+                        .join(Person.candidacies)\
+                        .filter(and_(Candidacy.type == 'assembly',
+                                     Candidacy.assembly_id == assembly_id))\
+    try:
+        person = candidates.one()
+    except MultipleResultsFound, e:
+        person = candidates.filter(Candidacy.is_elected == True).one()
+
+    return person
+

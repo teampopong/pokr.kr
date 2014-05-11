@@ -33,8 +33,8 @@ def _rivals(person, election_id):
     if not person:
         return []
 
-    my_candidacy = Candidacy.query.filter_by(person_id=person.id)\
-                                  .filter_by(election_id=election_id).one()
+    my_candidacy = Candidacy.query.filter_by(person_id=person.id,
+                                             election_id=election_id).one()
 
     if not my_candidacy:
         return []

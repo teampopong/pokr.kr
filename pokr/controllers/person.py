@@ -64,10 +64,13 @@ class PersonController(Controller):
 
     @classmethod
     def party_history(cls, person):
-        parties_and_assembly_ids = person.parties.add_columns(Candidacy.assembly_id)
+        parties_and_assembly_ids = person.parties.add_columns(Candidacy.type, Candidacy.assembly_id)
         result = []
         prev_party_id = None
-        for party, assembly_id in parties_and_assembly_ids:
+        for party, election_type, assembly_id in parties_and_assembly_ids:
+            # TODO: 국회의원 선거 외 다른 선거도.
+            if election_type != 'assembly':
+                continue
             if prev_party_id == party.id:
                 result[-1][0].append(assembly_id)
             else:

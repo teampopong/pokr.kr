@@ -9,7 +9,7 @@ from sqlalchemy.orm.exc import NoResultFound
 
 from pokr.cache import cache
 from pokr.models.bill import Bill
-from pokr.models.election import current_assembly_id
+from pokr.models.election import current_session_id
 from utils.jinja import breadcrumb
 
 
@@ -21,7 +21,7 @@ def register(app):
     @app.route('/bill/', methods=['GET'])
     @breadcrumb(app)
     def bill_main():
-        assembly_id = int(request.args.get('assembly_id', current_assembly_id()) or 0)
+        assembly_id = int(request.args.get('assembly_id', current_session_id('assembly')) or 0)
         bills = Bill.query.filter(Bill.assembly_id==assembly_id)\
                           .order_by(Bill.proposed_date.desc().nullslast())
         return render_template('bills.html',\

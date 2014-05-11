@@ -30,6 +30,15 @@ ASSEMBLY_TERMS = [
     ('30 May 2008', '29 May 2012'),
     ('30 May 2012', '29 May 2016'),
 ]
+SESSION_TERMS = {
+    'assembly': ASSEMBLY_TERMS,
+}
+
+# NOTE(steel): Do not remove the following lines for babel extraction.
+gettext('assembly')
+gettext('mayor')
+gettext('president')
+
 
 def timeline(person_or_id):
     if isinstance(person_or_id, Person):
@@ -62,11 +71,11 @@ def candidacy_events(person):
 
 def candidacy_event(candidacy):
     assembly_id = int(candidacy.assembly_id)
-    term = ASSEMBLY_TERMS[assembly_id]
+    term = SESSION_TERMS[candidacy.type][assembly_id]
     if candidacy.is_elected:
-        e = event(gettext('won\n%(assembly_id)dth', assembly_id=assembly_id),
+        e = event(gettext('won\n%(assembly_id)dth\n%(election_type)s', assembly_id=assembly_id, election_type=gettext(candidacy.type)),
                   term[0], term[1])
     else:
-        e = event(gettext('lost\n%(assembly_id)dth', assembly_id=assembly_id),
+        e = event(gettext('lost\n%(assembly_id)dth\n%(election_type)s', assembly_id=assembly_id, election_type=gettext(candidacy.type)),
                   term[0])
     return e

@@ -32,8 +32,8 @@ class Region(Base):
     @property
     def candidates(self):
         return Person.query\
-                     .join(Candidacy)\
-                     .filter(Candidacy.person_id == Person.id)\
+                     .join(Candidacy,
+                           Candidacy.person_id == Person.id)\
                      .filter(Candidacy.district_id.any(self.id))\
                      .group_by(Person.id)
 

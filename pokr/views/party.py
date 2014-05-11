@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+from collections import defaultdict
+
 from flask import redirect, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy import distinct
@@ -8,7 +10,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
 from pokr.models.candidacy import Candidacy
-from pokr.models.election import current_assembly_id
+from pokr.models.election import current_session_id
 from pokr.models.party import Party
 from utils.jinja import breadcrumb
 
@@ -22,11 +24,13 @@ def register(app):
     @app.route('/party/', methods=['GET'])
     @breadcrumb(app)
     def party_main():
-        assembly_id = int(request.args.get('assembly_id', current_assembly_id()) or 0)
+        election_type = request.args.get('election_type', 'assembly')
+        assembly_id = int(request.args.get('assembly_id', current_session_id(election_type)) or 0)
 
         parties = Party.query.distinct(Party.id)\
                         .join(Candidacy)\
-                        .filter(Candidacy.assembly_id==assembly_id)
+                        .filter(Candidacy.assembly_id == assembly_id)\
+                        .filter(Candidacy.type == election_type)
 
         return render_template('parties.html',\
                                 assembly_id=assembly_id,\
@@ -59,9 +63,11 @@ def register(app):
         candidacies = Candidacy.query\
                                .join(Party)\
                                .filter(Party.id == party.id)\
-                               .distinct(Candidacy.assembly_id)
-        assemblies = [candidacy.assembly_id for candidacy in candidacies]
+                               .distinct(Candidacy.type, Candidacy.assembly_id)
+        elections = defaultdict(list)
+        for candidacy in candidacies:
+            elections[candidacy.type].append(candidacy.assembly_id)
         return render_template('party.html',\
                                 party=party,\
                                 is_duplicate=is_duplicate,\
-                                assemblies=assemblies)
+                                elections=elections)

@@ -18,8 +18,11 @@ class Election(Base):
     candidates = relationship('Candidacy', backref='election')
 
 
-def current_assembly_id():
-    latest_election = Election.query.order_by(Election.assembly_id.desc()).first()
+def current_session_id(type):
+    latest_election = Election.query\
+                              .filter_by(type=type)\
+                              .order_by(Election.assembly_id.desc())\
+                              .first()
     if latest_election:
         return latest_election.assembly_id
 
