@@ -99,9 +99,7 @@ def update_bills(source, files=None):
                                  .first().assembly_id
 
         # FIXME: filter finished bills out
-        bill_ids = (record[0] for record
-                              in session.query(Bill.id)\
-                                        .filter_by(assembly_id=assembly_id))
+        bill_ids = session.query([Bill.id]).filter_by(assembly_id=assembly_id)
 
         # ranged query
         m = re.match(r'db\[(\d*):(\d*)\]', source)
@@ -114,6 +112,7 @@ def update_bills(source, files=None):
             if limit:
                 bill_ids = bill_ids.limit(limit)
 
+        bill_ids = (record[0] for record in bill_ids)
         files = (bill_filepath(bill_id) for bill_id in bill_ids)
 
     elif files:
@@ -310,7 +309,7 @@ def guess_person(session, name, assembly_id):
                         .filter_by(name=name)\
                         .join(Person.candidacies)\
                         .filter(and_(Candidacy.type == 'assembly',
-                                     Candidacy.assembly_id == assembly_id))\
+                                     Candidacy.assembly_id == assembly_id))
     try:
         person = candidates.one()
     except MultipleResultsFound, e:
