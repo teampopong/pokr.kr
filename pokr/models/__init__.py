@@ -12,10 +12,13 @@ import favorite_keyword
 import favorite_person
 import feed
 import keyword
+import meeting
+import meeting_attendee
 import party
 import person
 import pledge
 import region
 import school
+import statement
 import user
 import query_log

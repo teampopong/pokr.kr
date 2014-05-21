@@ -10,7 +10,7 @@ class FavoritePerson(Base):
 
     id = Column(Integer, autoincrement=True, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id', onupdate='CASCADE', ondelete='CASCADE'),
-            nullable=False, index=True, unique='uix_favorite_person')
+            nullable=False, index=True)
     person_id = Column(Integer, ForeignKey('person.id', onupdate='CASCADE', ondelete='CASCADE'),
-            nullable=False, index=True, unique='uix_favorite_person')
+            nullable=False, index=True)
 
