@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.config.from_object('settings')
 
 
-if not hasattr(app, '__loaded__'):
+@app.before_first_request
+def init():
     from flask.ext.assets import Environment as Asset
 
     from pokr.cache import init_cache

@@ -31,11 +31,8 @@ def init_db(app, login=True):
     if not is_alembic_head():
         raise Exception('alembic is not on the head')
 
-    import pokr.models
     if login:
         from utils.login import init_db; init_db(app)
-
-    Base.metadata.create_all(bind=engine)
 
     @app.teardown_request
     def shutdown_session(exception=None):
