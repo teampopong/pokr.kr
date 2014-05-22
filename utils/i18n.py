@@ -12,6 +12,7 @@ __all__ = ['PopongBabel']
 class PopongBabel(Babel):
 
     def init_app(self, app):
+
         super(PopongBabel, self).init_app(app)
 
         self.localeselector(localeselector)
@@ -19,6 +20,10 @@ class PopongBabel(Babel):
         # shortcuts
         app.babel = self
         app.LOCALES = self.list_translations() + [Locale('en')]
+
+        # cmd-line locale option
+        if app.locale in app.LOCALES:
+            app.babel.force_locale(app.locale)
 
         # jinja filters
         app.jinja_env.filters['translit'] = filter_translit

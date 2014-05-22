@@ -7,36 +7,19 @@ app = Flask(__name__)
 app.config.from_object('settings')
 
 
-@app.before_first_request
-def init():
-    from flask.ext.assets import Environment as Asset
+def bootstrap():
+    from flask.ext.assets import Environment as Asset; Asset(app)
 
-    from pokr.cache import init_cache
-    from pokr.controllers import init_controller
-    from pokr.database import init_db
-    from utils.assets import init_app as init_asset
-    from utils.jinja import init_app as init_jinja
-    from utils.i18n import PopongBabel
-    from utils.linkall import init_app as init_linkall
-    from utils.login import init_app as init_login
-    from utils.mobile import PopongMobile
-    from utils.reverse_proxy import init_app as init_reverse_proxy
-    from pokr.views import init_app as init_view
-    from pokr.widgets import init_app as init_widgets
-
-    Asset(app)
-    init_cache(app)
-    init_controller(app)
-    init_asset(app)
-    init_db(app)
-    init_jinja(app)
-    PopongBabel(app)
-    PopongMobile(app)
-    init_linkall(app)
-    init_login(app)
-    init_reverse_proxy(app)
-    init_view(app)
-    init_widgets(app)
-
-    setattr(app, '__loaded__', True)
+    from pokr.cache import init_cache; init_cache(app)
+    from pokr.controllers import init_controller; init_controller(app)
+    from pokr.database import init_db; init_db(app)
+    from utils.assets import init_app as init_asset; init_asset(app)
+    from utils.jinja import init_app as init_jinja; init_jinja(app)
+    from utils.i18n import PopongBabel; PopongBabel(app)
+    from utils.linkall import init_app as init_linkall; init_linkall(app)
+    from utils.login import init_app as init_login; init_login(app)
+    from utils.mobile import PopongMobile; PopongMobile(app)
+    from utils.reverse_proxy import init_app as init_reverse_proxy; init_reverse_proxy(app)
+    from pokr.views import init_app as init_view; init_view(app)
+    from pokr.widgets import init_app as init_widgets; init_widgets(app)
 
