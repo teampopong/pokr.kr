@@ -5,9 +5,12 @@ Pokr - Politics in Korea
 
 ## Installation
 
-1. Install dependant packages
+1. Install dependant packages (postgresql >= 9.2)
+
+
     - Ubuntu Linux:
 
+            Install postgresql (http://www.postgresql.org/download/)
             Install nodejs to use npm (http://nodejs.org/download/)
             Install Redis (http://redis.io/download)
             # apt-get update
@@ -21,6 +24,7 @@ Pokr - Politics in Korea
             # brew install python postgresql libevent
             # initdb /usr/local/var/postgres -E utf8
             # npm install less uglify-js@1 -g
+
 
 1. Install **pokr**
 
