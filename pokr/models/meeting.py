@@ -31,3 +31,7 @@ class Meeting(Base):
             secondary=MeetingAttendee.__table__,
             backref='meeting')
 
+    statements = relationship('Statement',
+            order_by='Statement.sequence',
+            backref='meeting')
+
