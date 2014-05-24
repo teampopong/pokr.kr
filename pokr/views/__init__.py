@@ -9,6 +9,7 @@ def init_app(app):
     from .bill import register; register(app)
     from .login import register; register(app)
     from .main import register; register(app)
+    from .meeting import register; register(app)
     from .mypage import register; register(app)
     from .party import register; register(app)
     from .person import register; register(app)

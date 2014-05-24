@@ -1,15 +1,5 @@
 {% extends "bill-layout.html" %}
 
-{% block bill_menus %}
-{% if not mobile %}
-<ul id="bill-section-tabs" class="nav section-tabs">
-    <li class="active"><a href="#outline">{{gettext("outline")}}</a></li>
-    <li><a href="#sponsors">{{gettext("sponsors")}}</a></li>
-    <li><a href="#contents">{{gettext("contents")}}</a></li>
-</ul>
-{% endif %}
-{% endblock %}
-
 {% block bill_content %}
 <div id="section-outline" class="section">
     <h3 id="outline">{{ gettext('outline') }}</h3>
@@ -68,7 +58,21 @@
                             </tr>
                         {% endif %}
                     </table>
+
                 </td>
+            </tr>
+            <tr>
+                <th>
+                    {{ gettext('external links') }}
+                </th>
+                <td>
+                    <div class="original-link">
+                        <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
+                        <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
+                        {% if bill.document_pdf_path %}<br><a href="{{ url_for('bill_pdf', id=bill.id) }}">{{ gettext('see original pdf') }}</a>{% endif %}
+                        {% if bill.document_text_path %}<br><a href="{{ url_for('bill_text', id=bill.id) }}">{{ gettext('see original text') }}</a>{% endif %}
+                    </div>
+</td>
             </tr>
             {% if bill.keywords %}
             <tr>

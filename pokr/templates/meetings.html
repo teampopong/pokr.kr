@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ gettext('meetings') }} - {{ super() }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ gettext('meetings') }}
+{% endblock %}
+
+{% block extra_headers %}
+{% assets filters='less', output='build/submain.%(version)s.css',
+    depends=['**/*.less'], 'less/submain.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+
+{% block content %}
+<div id="search-tabs" class="submain-header">
+    <img class="submain-img" src="{{ url_for('static', filename='images/bills_image.png') }}">
+    <div class="submain-nav">
+        <h2 class="submain-title">{{ gettext('meeting') }}</h2>
+    </div>
+</div>
+<div class="calendar">
+    <p id="year-num" class="year-num">
+        <a href="?year={{year-1}}">&lt;</a>
+        <span>{{year}}</span>
+        <a href="?year={{year+1}}">&gt;</a>
+    </p>
+    {{ widgets.year(year) | safe }}
+</div>
+{% endblock %}

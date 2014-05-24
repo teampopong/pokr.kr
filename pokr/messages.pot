@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-11 19:42+0900\n"
+"POT-Creation-Date: 2014-05-24 15:33+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,66 +17,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: pokr/templates/bill-layout.html:31
-msgid "see official page"
-msgstr ""
-
-#: pokr/templates/bill-layout.html:33
-msgid "see original pdf"
-msgstr ""
-
-#: pokr/templates/bill-layout.html:34
-msgid "see original text"
-msgstr ""
-
-#: pokr/templates/bill.html:6 pokr/templates/bill.html:15
+#: pokr/templates/bill.html:5
 msgid "outline"
 msgstr ""
 
-#: pokr/templates/bill.html:7 pokr/templates/bill.html:83
-msgid "sponsors"
-msgstr ""
-
-#: pokr/templates/bill.html:8 pokr/templates/bill.html:138
-msgid "contents"
-msgstr ""
-
-#: pokr/templates/bill.html:20 pokr/templates/search-results.html:15
+#: pokr/templates/bill.html:10 pokr/templates/search-results.html:15
 msgid "assembly #"
 msgstr ""
 
-#: pokr/templates/bill.html:26 pokr/templates/person.html:254
-#: pokr/templates/person.html:276
+#: pokr/templates/bill.html:16 pokr/templates/person.html:268
+#: pokr/templates/person.html:290
 msgid "proposed date"
 msgstr ""
 
-#: pokr/templates/bill.html:32
+#: pokr/templates/bill.html:22
 msgid "decision date"
 msgstr ""
 
-#: pokr/templates/bill.html:37 pokr/templates/search-results.html:13
+#: pokr/templates/bill.html:27 pokr/templates/search-results.html:13
 msgid "status"
 msgstr ""
 
-#: pokr/templates/bill.html:75
+#: pokr/templates/bill.html:66 pokr/templates/person.html:135
+msgid "external links"
+msgstr ""
+
+#: pokr/templates/bill.html:70
+msgid "see official page"
+msgstr ""
+
+#: pokr/templates/bill.html:72
+msgid "see original pdf"
+msgstr ""
+
+#: pokr/templates/bill.html:73
+msgid "see original text"
+msgstr ""
+
+#: pokr/templates/bill.html:79
 msgid "related keywords"
 msgstr ""
 
-#: pokr/templates/bill.html:86 pokr/templates/bill.html:109
-#: pokr/templates/macros.html:98 pokr/templates/person.html:299
+#: pokr/templates/bill.html:87
+msgid "sponsors"
+msgstr ""
+
+#: pokr/templates/bill.html:90 pokr/templates/bill.html:113
+#: pokr/templates/macros.html:98 pokr/templates/person.html:313
 msgid "representative sponsor"
 msgstr ""
 
-#: pokr/templates/bill.html:97 pokr/templates/bill.html:123
+#: pokr/templates/bill.html:101 pokr/templates/bill.html:127
 msgid "cosponsors"
 msgstr ""
 
-#: pokr/templates/bill.html:141 pokr/templates/party.html:35
+#: pokr/templates/bill.html:142
+msgid "contents"
+msgstr ""
+
+#: pokr/templates/bill.html:145 pokr/templates/party.html:35
 #: pokr/templates/party.html:45
 msgid "summary"
 msgstr ""
 
-#: pokr/templates/bill.html:146
+#: pokr/templates/bill.html:150
 msgid "The summary of this bill has not been updated."
 msgstr ""
 
@@ -90,7 +94,14 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: pokr/templates/bills.html:53 pokr/templates/district-feeds.html:19
+#: pokr/templates/bills.html:55 pokr/templates/macros.html:88
+#: pokr/templates/mypage.html:88 pokr/templates/mypage.html:113
+#: pokr/templates/person.html:124 pokr/templates/person.html:278
+#: pokr/templates/person.html:322
+msgid "more"
+msgstr ""
+
+#: pokr/templates/bills.html:56 pokr/templates/district-feeds.html:19
 msgid "No summary"
 msgstr ""
 
@@ -156,17 +167,11 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: pokr/templates/macros.html:88 pokr/templates/mypage.html:88
-#: pokr/templates/mypage.html:113 pokr/templates/person.html:264
-#: pokr/templates/person.html:308
-msgid "more"
-msgstr ""
-
 #: pokr/templates/macros.html:93
 msgid "date unknown"
 msgstr ""
 
-#: pokr/templates/macros.html:100 pokr/templates/person.html:301
+#: pokr/templates/macros.html:100 pokr/templates/person.html:315
 msgid "sponsor"
 msgstr ""
 
@@ -180,10 +185,24 @@ msgstr ""
 msgid "Get realtime legislative information now"
 msgstr ""
 
-#: pokr/templates/main.html:47
+#: pokr/templates/main.html:49
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
+msgstr ""
+
+#: pokr/templates/meeting.html:5 pokr/templates/meetings.html:5
+#: pokr/templates/meetings.html:9
+msgid "meetings"
+msgstr ""
+
+#: pokr/templates/meeting.html:23 pokr/templates/meetings.html:49
+#: pokr/views/meeting.py:21
+msgid "meeting"
+msgstr ""
+
+#: pokr/templates/meeting.html:27
+msgid "national"
 msgstr ""
 
 #: pokr/templates/mypage.html:4 pokr/templates/mypage.html:14
@@ -281,7 +300,7 @@ msgstr ""
 msgid "people"
 msgstr ""
 
-#: pokr/templates/party.html:45 pokr/templates/person.html:67
+#: pokr/templates/party.html:45 pokr/templates/person.html:48
 #: pokr/templates/search-results.html:9 pokr/templates/includes/header.html:15
 #: pokr/templates/includes/header.html:17 pokr/views/party.py:21
 msgid "party"
@@ -295,8 +314,8 @@ msgstr ""
 msgid "person(s)"
 msgstr ""
 
-#: pokr/templates/party.html:52 pokr/templates/person.html:39
-#: pokr/templates/person.html:139
+#: pokr/templates/party.html:52 pokr/templates/person.html:123
+#: pokr/templates/person.html:155
 msgid "elections"
 msgstr ""
 
@@ -305,7 +324,7 @@ msgstr ""
 msgid "th %(election_type)s election"
 msgstr ""
 
-#: pokr/templates/people.html:5 pokr/templates/search-results.html:55
+#: pokr/templates/people.html:5 pokr/templates/search-results.html:43
 msgid "People"
 msgstr ""
 
@@ -314,92 +333,96 @@ msgstr ""
 msgid "Member of %(last_elected_no)dth National Assembly,"
 msgstr ""
 
-#: pokr/templates/person.html:32
-msgid "Wikipedia"
-msgstr ""
-
-#: pokr/templates/person.html:38 pokr/templates/person.html:54
+#: pokr/templates/person.html:35
 msgid "profile"
 msgstr ""
 
-#: pokr/templates/person.html:41 pokr/templates/person.html:240
-msgid "legislations"
-msgstr ""
-
-#: pokr/templates/person.html:43 pokr/templates/person.html:322
-msgid "trends"
-msgstr ""
-
-#: pokr/templates/person.html:56
+#: pokr/templates/person.html:36
 msgid ""
 "Data in this section is based on latest election records, and therefore "
 "can be outdated."
 msgstr ""
 
-#: pokr/templates/person.html:61
+#: pokr/templates/person.html:42
 msgid "birthday"
 msgstr ""
 
-#: pokr/templates/person.html:74 pokr/templates/person.html:143
-#: pokr/templates/person.html:192
+#: pokr/templates/person.html:55 pokr/templates/person.html:161
+#: pokr/templates/person.html:206
 #, python-format
 msgid "%(assembly_id)dth"
 msgstr ""
 
-#: pokr/templates/person.html:85
+#: pokr/templates/person.html:66
 msgid "education"
 msgstr ""
 
-#: pokr/templates/person.html:87 pokr/templates/person.html:99
+#: pokr/templates/person.html:68 pokr/templates/person.html:80
 msgid "original"
 msgstr ""
 
-#: pokr/templates/person.html:97
+#: pokr/templates/person.html:78
 msgid "address"
 msgstr ""
 
-#: pokr/templates/person.html:112
+#: pokr/templates/person.html:93
 msgid "work experiences"
 msgstr ""
 
-#: pokr/templates/person.html:145 pokr/templates/person.html:194
+#: pokr/templates/person.html:113 pokr/templates/person.html:254
+msgid "legislations"
+msgstr ""
+
+#: pokr/templates/person.html:113
+msgid "keywords"
+msgstr ""
+
+#: pokr/templates/person.html:138
+msgid "Wikipedia"
+msgstr ""
+
+#: pokr/templates/person.html:156
+msgid "By-election results are coming soon!"
+msgstr ""
+
+#: pokr/templates/person.html:163 pokr/templates/person.html:208
 msgid "National Assembly Election"
 msgstr ""
 
-#: pokr/templates/person.html:147 pokr/templates/person.html:196
+#: pokr/templates/person.html:165 pokr/templates/person.html:210
 msgid "National Assembly By-election"
 msgstr ""
 
-#: pokr/templates/person.html:155 pokr/templates/person.html:183
+#: pokr/templates/person.html:173 pokr/templates/person.html:197
 #: pokr/templates/search-results.html:11
 msgid "election district"
 msgstr ""
 
-#: pokr/templates/person.html:169 pokr/templates/person.html:184
+#: pokr/templates/person.html:187 pokr/templates/person.html:198
 msgid "competitors"
 msgstr ""
 
-#: pokr/templates/person.html:176
-msgid "By-election results are coming soon!"
-msgstr ""
-
-#: pokr/templates/person.html:202
+#: pokr/templates/person.html:216
 msgid "Pledges"
 msgstr ""
 
-#: pokr/templates/person.html:248 pokr/templates/person.html:288
+#: pokr/templates/person.html:262 pokr/templates/person.html:302
 msgid "th assembly"
 msgstr ""
 
-#: pokr/templates/person.html:255 pokr/templates/person.html:275
+#: pokr/templates/person.html:269 pokr/templates/person.html:289
 msgid "title"
 msgstr ""
 
-#: pokr/templates/person.html:277
+#: pokr/templates/person.html:291
 msgid "role"
 msgstr ""
 
-#: pokr/templates/person.html:324
+#: pokr/templates/person.html:336
+msgid "trends"
+msgstr ""
+
+#: pokr/templates/person.html:338
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""
@@ -472,24 +495,24 @@ msgstr ""
 msgid "Searched results"
 msgstr ""
 
-#: pokr/templates/search-results.html:48
+#: pokr/templates/search-results.html:36
 #, python-format
 msgid "Search results by %(options)s"
 msgstr ""
 
-#: pokr/templates/search-results.html:70
+#: pokr/templates/search-results.html:58
 msgid "Bill"
 msgstr ""
 
-#: pokr/templates/search-results.html:88
+#: pokr/templates/search-results.html:76
 msgid "Party"
 msgstr ""
 
-#: pokr/templates/search-results.html:107
+#: pokr/templates/search-results.html:95
 msgid "Region"
 msgstr ""
 
-#: pokr/templates/search-results.html:126
+#: pokr/templates/search-results.html:114
 msgid "School"
 msgstr ""
 
@@ -543,23 +566,23 @@ msgstr ""
 msgid "in the same constituency"
 msgstr ""
 
-#: pokr/widgets/timeline.py:36
+#: pokr/widgets/timeline.py:38
 msgid "assembly"
 msgstr ""
 
-#: pokr/widgets/timeline.py:37
+#: pokr/widgets/timeline.py:39
 msgid "mayor"
 msgstr ""
 
-#: pokr/widgets/timeline.py:38
+#: pokr/widgets/timeline.py:40
 msgid "president"
 msgstr ""
 
-#: pokr/widgets/timeline.py:58
+#: pokr/widgets/timeline.py:60
 msgid "birth"
 msgstr ""
 
-#: pokr/widgets/timeline.py:74
+#: pokr/widgets/timeline.py:76
 #, python-format
 msgid ""
 "won\n"
@@ -567,7 +590,7 @@ msgid ""
 "%(election_type)s"
 msgstr ""
 
-#: pokr/widgets/timeline.py:77
+#: pokr/widgets/timeline.py:79
 #, python-format
 msgid ""
 "lost\n"

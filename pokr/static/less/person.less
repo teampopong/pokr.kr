@@ -7,7 +7,7 @@
    #person-sections{
 
         #section-profile {
-            overflow: hidden;
+            position: relative;
 
             #currentjob {
                 display: block;
@@ -20,14 +20,13 @@
 
             .person-summary-vis {
                 position: absolute;
-                top: 110px;
+                top: 60px;
                 right: 0;
                 background: white;
             }
 
             .wordle {
                 display: inline-block;
-                float: right;
                 .border-box;
                 width: 200px;
                 height: 168px;
@@ -52,7 +51,7 @@
         #section-elections {
             tr:first-child th,
             tr:first-child td {
-                border-top: 1px solid @border_color;
+                border-bottom: 1px solid @border_color;
             }
             #district {
                 width: 30%;

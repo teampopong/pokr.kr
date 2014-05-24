@@ -25,35 +25,16 @@
 {% endif %}
 {% endblock %}
 
-{% block card %}
-{{widgets.card(person, detailed=True)|safe}}
-{% if person.wiki %}
-<p class="original-link">
-    <a href="http://ko.wikipedia.org{{ person.wiki }}">{{ gettext('Wikipedia') }}</a>
-    <a href="http://ko.wikipedia.org{{ person.wiki }}" target="_blank"><i class="icon-external-link"></i></a>
-</p>
-{% endif %}
-{% if not mobile %}
-    <ul id="person-section-tabs" class="nav section-tabs">
-        <li class="active"><a href="#profile">{{gettext("profile")}}</a></li>
-        <li><a href="#elections">{{gettext("elections")}}</a></li>
-        {% if has_bills %}
-        <li><a href="#legislations">{{gettext("legislations")}}</a></li>
-        {% endif %}
-        <li><a href="#trends">{{gettext("trends")}}</a></li>
-    </ul>
-{% endif %}
-{% include 'social.html' %}
-{% endblock %}
-
 {% block content %}
 <div id="person-view" class="view">
+    {{ widgets.card(person, detailed=True)|safe }}
+    {% include 'social.html' %}
     <div id="person-sections" class="sections">
         <div id="section-profile" class="section">
             <h3 id="profile">
                 {{ gettext('profile') }}
+                <span class="shrink pull-right font-normal line-height-15"><i class="icon-exclamation-sign"></i>{{ gettext('Data in this section is based on latest election records, and therefore can be outdated.') }}</span>
             </h3>
-            <span class="shrink tooltipped pull-right" data-placement="bottom" data-title="{{ gettext('Data in this section is based on latest election records, and therefore can be outdated.') }}"><i class="icon-exclamation-sign"></i>{{ gettext('Data in this section is based on latest election records, and therefore can be outdated.') }}</span>
             <table id="person-profile" class="table table-condensed">
                 <tbody>
                     {% if person.birthday %}
@@ -126,17 +107,54 @@
                         </td>
                     </tr>
                     {% endif %}
+                    {% if mobile %}
+                    <tr>
+                        <th>
+                            {{ gettext('legislations') }} {{ gettext('keywords') }}
+                        </th>
+                        <td>
+                        {{ widgets.wordle(PersonController.keyword_counts(person), 200, 148)|safe }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% if not mobile %}
+                    <tr>
+                        <th>
+                            {{ gettext("elections") }}
+                            <a href="#elections" class="shrink">{{ gettext("more") }}</a>
+                        </th>
+                        <td>
+                            <div id="timeline">
+                                {{widgets.timeline(person.id)|safe}}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% if person.wiki %}
+                    <tr>
+                        <th>{{ gettext('external links') }}</th>
+                        <td>
+                            <p class="original-link">
+                                <a href="http://ko.wikipedia.org{{ person.wiki }}">{{ gettext('Wikipedia') }}</a>
+                                <a href="http://ko.wikipedia.org{{ person.wiki }}" target="_blank"><i class="icon-external-link"></i></a>
+                            </p>
+                        </td>
+                    </tr>
+                    {% endif %}
                 </tbody>
             </table>
-            <div class="person-summary-vis">
             {% if not mobile %}
+            <div class="person-summary-vis">
             {{ widgets.kmap(person.address_id[0] if person.address_id else None, width=120)|safe }}
-            {% endif %}
             {{ widgets.wordle(PersonController.keyword_counts(person), 200, 148)|safe }}
             </div>
+            {% endif %}
         </div>
         <div id="section-elections" class="section">
-            <h3 id="elections">{{gettext('elections')}}</h3>
+            <h3 id="elections">
+                {{gettext('elections')}}
+                <span class="shrink pull-right font-normal line-height-15"><i class="icon-exclamation-sign"></i>{{ gettext("By-election results are coming soon!") }}</span>
+            </h3>
             {% if mobile %}
                 {% for candidacy in person.candidacies %}
                 <h4 class="subsection-title">
@@ -172,10 +190,6 @@
                 </table>
                 {% endfor %}
             {% else %}
-            <div id="timeline">
-                <span class="shrink pull-right"><i class="icon-exclamation-sign"></i>{{ gettext("By-election results are coming soon!") }}</span>
-                {{widgets.timeline(person.id)|safe}}
-            </div>
             <table class="table table-condensed">
                 <thead>
                     <tr>
@@ -329,7 +343,11 @@
             {% endif %}
         </div>
         {% endif %}
-        {% include 'includes/adsense-728x90.html' %}
+        <div class="adsense">
+        {% if not mobile %}
+            {% include 'includes/adsense-728x90.html' %}
+        {% endif %}
+        </div>
     </div>
 </div>
 <script>

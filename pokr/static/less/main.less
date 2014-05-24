@@ -4,105 +4,94 @@
 @facebook_color: #266fe7;
 @twitter_color: #4099ff;
 
-
-#card-container {
-    width: 0;
+#hero {
+    background-color: #cfdff0;
+    background-image: url('../images/na.png');
+    background-position: 20% bottom;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    height: 57%;
+    margin-top: -40px;
+    position: relative;
+    text-align: center;
+    img {
+        display: inline-block;
+        height: 40px;
+    }
+    p {
+        margin-top: 10px;
+    }
+    #pokrbot {
+        color: #777;
+        float: right;
+        position: absolute;
+        right: 13%;
+        bottom: 16%;
+        [class^="icon-"] {
+            margin: 0 5px;
+        }
+        .twitter-icon [class^="icon-"]:hover {
+            color: @twitter_color;
+        }
+    }
+    #facebook-login {
+        position: absolute;
+        right: 10%;
+        bottom: 25%;
+        text-align: left;
+        &:hover {
+            font-weight: bold;
+            opacity: 0.9;
+            text-decoration: none;
+            transition: .2s linear;
+        }
+        div {
+            .border-radius(10px);
+            .box-shadow;
+            background-color: @facebook_color;
+            color: white;
+            padding: 10px;
+            width: 320px;
+            [class^="icon-"] {
+                background-color: lighten(@facebook_color, 5%);
+                color: white;
+                font-size: 30pt;
+                margin: 0;
+            }
+            span {
+                font-size: 14pt;
+            }
+            p {
+                font-size: 9pt;
+                margin: 0;
+            }
+        }
+    }
 }
 
-#spec-container {
-    left: 0;
+#class-list {
+    padding-top: 30px;
+    position: relative;
+    div {
+        display: inline-block;
+    }
+}
 
-    #hero {
-        background-color: #cfdff0;
-        background-image: url('../images/na.png');
-        background-position: 20% bottom;
-        background-repeat: no-repeat;
-        background-size: 50%;
-        height: 57%;
-        margin: -10px;
-        min-height: 270px;
-        padding-top: 110px;
-        position: relative;
+#dashboard {
+    padding: 30px;
+
+    h2 {
+        border-bottom: 2px solid @icon_color;
+        color: @bg_color;
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    .mainlist {
+        padding: 0 20px;
         text-align: center;
-        img {
-            display: inline-block;
-            height: 40px;
-        }
-        p {
-            margin-top: 10px;
-        }
-        #pokrbot {
-            color: #777;
-            float: right;
-            position: absolute;
-            right: 13%;
-            bottom: 16%;
-            [class^="icon-"] {
-                margin: 0 5px;
-            }
-            .twitter-icon [class^="icon-"]:hover {
-                color: @twitter_color;
-            }
-        }
-        #facebook-login {
-            position: absolute;
-            right: 10%;
-            bottom: 25%;
-            text-align: left;
-            &:hover {
-                font-weight: bold;
-                opacity: 0.9;
-                text-decoration: none;
-                transition: .2s linear;
-            }
-            div {
-                .border-radius(10px);
-                .box-shadow;
-                background-color: @facebook_color;
-                color: white;
-                padding: 10px;
-                width: 320px;
-                [class^="icon-"] {
-                    background-color: lighten(@facebook_color, 5%);
-                    color: white;
-                    font-size: 30pt;
-                    margin: 0;
-                }
-                span {
-                    font-size: 14pt;
-                }
-                p {
-                    font-size: 9pt;
-                    margin: 0;
-                }
-            }
-        }
-    }
-
-    #class-list {
-        padding-top: 30px;
-        position: relative;
-        div {
-            display: inline-block;
-        }
-    }
-
-    #dashboard {
-        padding: 30px;
-
-        h2 {
-            border-bottom: 2px solid @icon_color;
-            color: @bg_color;
-            font-size: 16px;
-            line-height: 20px;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        .mainlist {
-            padding: 0 20px;
-            text-align: center;
-            height: 400px;
-        }
+        height: 400px;
     }
 }
 
