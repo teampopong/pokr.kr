@@ -115,10 +115,14 @@
 }
 
 .shrink {
-    color: @spec_color;
     font-size: @spec_size;
 }
 
+.silver-link {
+    color: @icon_color;
+    font-weight: bold;
+    .shrink;
+}
 .left {
     float: left;
 }
@@ -134,4 +138,10 @@
 #google_translate_element {
     display: inline-block;
     float: left;
+}
+
+.comment {
+    .shrink;
+    float: right;
+    font-weight: normal;
 }
