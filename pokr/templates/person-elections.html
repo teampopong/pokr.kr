@@ -1,0 +1,99 @@
+<div id="section-elections" class="section">
+    <h3 id="elections">
+        {{gettext('elections')}}
+        <span class="shrink pull-right font-normal line-height-15"><i class="icon-exclamation-sign"></i>{{ gettext("By-election results are coming soon!") }}</span>
+    </h3>
+    {% if mobile %}
+        {% for candidacy in person.candidacies %}
+        <h4 class="subsection-title">
+            {{ gettext('%(assembly_id)dth', assembly_id=candidacy.assembly_id) }}
+            {% if candidacy.election.is_regular %}
+            {{ gettext('National Assembly Election') }}
+            {% else %}
+            {{ gettext('National Assembly By-election') }}
+            {% endif %}
+            {% if candidacy.is_elected %}
+            <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
+            {% endif %}
+        </h4>
+        <table class="table table-condensed">
+            <tr>
+                <th>{{ gettext('election district') }}</th>
+                <td>
+                {% if candidacy.district_id %}
+                    {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
+                        {% if region_id %}
+                            <a href="{{url_for('region', region_id=region_id)}}">{{region}}</a>
+                        {% else %}
+                            {{region}}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>{{ gettext('competitors')}}</th>
+                <td>{{widgets.rivals(person, election_id=candidacy.election_id)|safe}}</td>
+            </tr>
+        </table>
+        {% endfor %}
+    {% else %}
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th></th>
+                <th id="district">{{gettext('election district')}}</th>
+                <th id="competitors">{{gettext('competitors')}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidacy in person.candidacies %}
+            <tr id="assembly-election-{{candidacy.assembly_id}}">
+                <th class="anchor" data-target-id="assembly-election-{{candidacy.assembly_id}}">
+                    <strong class="header-name">
+                        {{ gettext('%(assembly_id)dth', assembly_id=candidacy.assembly_id) }}
+                        {% if candidacy.election.is_regular %}
+                        {{ gettext('National Assembly Election') }}
+                        {% else %}
+                        {{ gettext('National Assembly By-election') }}
+                        {% endif %}
+                    </strong>
+                    <div class="pledges">
+                    {% set pledges = PersonController.pledges_grouped_by_assembly_id(person) %}
+                    {% if pledges and pledges[candidacy.assembly_id] %}
+                    <small><a class="inline-box btn-show-pledge" href="#assembly-pledges-{{candidacy.assembly_id}}">[{{gettext('Pledges')}}]</a></small>
+                    <div style="display:none">
+                        <ul id="assembly-pledges-{{candidacy.assembly_id}}">
+                            {% for pledge in pledges[candidacy.assembly_id] %}
+                                <li class="pledge">
+                                    {{pledge.pledge}}
+                                    <pre class="pledge-description hide">{{pledge.description}}</pre>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    {% endif %}
+                    </div>
+                </th>
+                <td>
+                {% if candidacy.district_id %}
+                    {% for region, region_id in zip(candidacy.district, candidacy.district_id) %}
+                        {% if region_id %}
+                            <a href="{{url_for('region', region_id=region_id)}}">{{region}}</a>
+                        {% else %}
+                            {{region}}
+                        {% endif %}
+                    {% endfor %}
+                    {% if candidacy.is_elected %}
+                    <img class="badge-elected" src="{{ url_for('static', filename='images/badge_elected_small.png') }}">
+                    {% endif %}
+                {% endif %}
+                </td>
+                <td>{{widgets.rivals(person, election_id=candidacy.election_id)|safe}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
