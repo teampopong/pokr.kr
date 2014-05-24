@@ -19,7 +19,7 @@
 
 {% block content %}
 {% if mobile %}
-<h2 id="bill-name">{{ bill.name }}</h2>
+<h2>{{ bill.name }}</h2>
 {% endif %}
 
 {% block bill_menus %}
@@ -27,8 +27,8 @@
 
 <div id="bill-view" class="view">
     {% if not mobile %}
-    <p id="bill-id" class="text-center">#{{ bill.id }}</p>
-    <h2 id="bill-name" class="text-center">{{ bill.name }}</h2>
+    <p class="text-center entity-info">{{ gettext('bill no. %(bill_id)s', bill_id=bill.id) }}</p>
+    <h2 class="text-center">{{ bill.name }}</h2>
     {% include 'social.html' %}
     {% if bill.name.endswith("(대안)") %}
     <div class="info" style="margin-top: -30px;">
