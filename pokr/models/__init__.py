@@ -1,24 +1,24 @@
-import assembly
-import bill
-import bill_feed
-import bill_keyword
-import bill_review
-import bill_status
-import bill_withdrawal
-import candidacy
-import cosponsorship
-import election
-import favorite_keyword
-import favorite_person
-import feed
-import keyword
-import meeting
-import meeting_attendee
-import party
-import person
-import pledge
-import region
-import school
-import statement
-import user
-import query_log
+from assembly import *
+from bill import *
+from bill_feed import *
+from bill_keyword import *
+from bill_review import *
+from bill_status import *
+from bill_withdrawal import *
+from candidacy import *
+from cosponsorship import *
+from election import *
+from favorite_keyword import *
+from favorite_person import *
+from feed import *
+from keyword import *
+from meeting import *
+from meeting_attendee import *
+from party import *
+from person import *
+from pledge import *
+from region import *
+from school import *
+from statement import *
+from user import *
+from query_log import *
