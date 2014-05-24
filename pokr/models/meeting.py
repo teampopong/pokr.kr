@@ -4,8 +4,10 @@ from datetime import date
 
 from sqlalchemy import Column, Date, Integer, Text
 from sqlalchemy.dialects.postgresql import ARRAY, JSON
+from sqlalchemy.orm import relationship
 
 from pokr.database import Base
+from pokr.models.meeting_attendee import MeetingAttendee
 
 
 class Meeting(Base):
@@ -24,4 +26,8 @@ class Meeting(Base):
     dialogue = Column(JSON)
     url = Column(Text)
     pdf_url = Column(Text)
+
+    attendees = relationship('Person',
+            secondary=MeetingAttendee.__table__,
+            backref='meeting')
 
