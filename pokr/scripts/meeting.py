@@ -5,6 +5,7 @@ import argparse
 from datetime import datetime
 import json
 import logging
+import hashlib
 
 from popong_models import Base
 from popong_data_utils import guess_person
@@ -26,33 +27,40 @@ class InsertMeetingCommand(Command):
     @classmethod
     def init_parser_options(cls):
         cls.parser.add_argument('files', type=argparse.FileType('r'), nargs='+')
+        cls.parser.add_argument('-r', dest='region_id', required=True)
 
     @classmethod
-    def run(cls, files, **kwargs):
+    def run(cls, files, region_id, **kwargs):
         Base.query = db_session.query_property()
         for file_ in files:
             obj = json.load(file_)
-            insert_meetings(obj)
+            insert_meetings(region_id, obj)
 
 
-def insert_meetings(obj):
+def insert_meetings(region_id, obj):
     if isinstance(obj, dict):
         insert_meeting(obj)
 
     elif isinstance(obj, list):
         for o in obj:
-            insert_meeting(o)
+            insert_meeting(region_id, o)
 
     else:
         raise Exception()
 
 
-def insert_meeting(obj):
+def insert_meeting(region_id, obj):
     date = datetime.strptime(obj['date'], '%Y-%m-%d').date()
     dialogue = obj['dialogue']
     attendee_names = obj['attendance']['출석 의원']['names']
+    id = int('{region_id}{assembly_id}{session_id}{meeting_id}{md5}'.format(
+             region_id=region_id,
+             md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16),
+             **obj))
 
     meeting = Meeting(
+        id=id,
+        region_id=region_id,
         committee=obj['committee'],
         parliament_id=obj['assembly_id'],
         session_id=obj['session_id'],

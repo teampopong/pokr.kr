@@ -2,7 +2,7 @@
 
 from datetime import date
 
-from sqlalchemy import Column, Date, Integer, Text
+from sqlalchemy import BigInteger, Column, Date, ForeignKey, Integer, Text
 from sqlalchemy.dialects.postgresql import ARRAY, JSON
 from sqlalchemy.orm import relationship
 
@@ -14,8 +14,9 @@ class Meeting(Base):
     __tablename__ = 'meeting'
 
     # Identifiers
-    id = Column(Integer, autoincrement=True, primary_key=True)
+    id = Column(BigInteger, primary_key=True)
     committee = Column(Text, index=True)
+    region_id = Column(ForeignKey('region.id'), nullable=False, index=True)
     parliament_id = Column(Integer, nullable=False, index=True)
     session_id = Column(Integer, nullable=False, index=True)
     sitting_id = Column(Integer, nullable=False, index=True)
