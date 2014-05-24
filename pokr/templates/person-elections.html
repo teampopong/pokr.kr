@@ -1,7 +1,7 @@
 <div id="section-elections" class="section">
     <h3 id="elections">
         {{gettext('elections')}}
-        <span class="shrink pull-right font-normal line-height-15"><i class="icon-exclamation-sign"></i>{{ gettext("By-election results are coming soon!") }}</span>
+        <span class="comment down-10"><i class="icon-exclamation-sign"></i>{{ gettext("By-election results are coming soon!") }}</span>
     </h3>
     {% if mobile %}
         {% for candidacy in person.candidacies %}
