@@ -9,37 +9,29 @@
 {{ party.name|translit(type='party') }}
 {% endblock %}
 
-{% block card %}
-{% if mobile %}
-    <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
-{% else %}
-<div class="instance-card">
-    {% if not party.logo %}
-    <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
-    {% endif %}
-    <img class="instance-img" src="{{ party.logo|default(url_for('static', filename='images/default_party.jpg'), True) }}" title="{{ party.name }}">
-    </div>
-{% endif %}
-{% include 'social.html' %}
-{% if is_duplicate %}
-<div class="warning warning-card">
-    <i class="icon-exclamation-sign"></i>
-    {{ gettext('This page may contain information for more than one party.') }} 
-    <!-- TODO:
-    (<a href="#">{{ gettext('details') }}</a>)
-    -->
-</div>
-{% endif %}
-{% if not mobile %}
-<ul id="party-section-tabs" class="nav section-tabs">
-    <li class="active"><a href="#summary">{{gettext("summary")}}</a></li>
-    <li><a href="#people">{{gettext("people")}}</a></li>
-</ul>
-{% endif %}
-{% endblock %}
-
 {% block content %}
 <div id="party-view" class="view">
+    <div class="text-center entity-header grad">
+        {% if mobile %}
+            <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
+        {% else %}
+        <div class="instance-card">
+            {% if not party.logo %}
+            <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
+            {% endif %}
+            </div>
+        {% endif %}
+        {% if is_duplicate %}
+        <div class="warning warning-card">
+            <i class="icon-exclamation-sign"></i>
+            {{ gettext('This page may contain information for more than one party.') }} 
+            <!-- TODO:
+            (<a href="#">{{ gettext('details') }}</a>)
+            -->
+        </div>
+        {% endif %}
+        {% include 'social.html' %}
+    </div>
     <div id="party-sections" class="sections">
         <div id="section-summary" class="section">
             <h3 id="summary">{{ gettext('party') }} {{ gettext('summary') }}</h3>

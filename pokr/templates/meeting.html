@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ gettext('meetings') }} - {{ super() }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ meeting.id }}
+{% endblock %}
+
+{% block content %}
+<div id="meeting-view" class="view">
+    <div id="meeting-header" class="text-center entity-header grad">
+        <div class="entity-info">
+            {{ meeting.parliament }}{{ gettext('th parliament') }}
+            {{ meeting.session }}{{ gettext('th session') }}
+            {{ meeting.sitting }}{{ gettext('th sitting') }}
+        </div>
+        <h2>{{ meeting.committee }}</h2>
+        {% include 'social.html' %}
+    </div>
+    <div id="meeting-sections" class="sections">
+        <h3 id="outline">{{ gettext('outline') }}</h3>
+        <table id="meeting-outline" class="table table-condensed">
+            <tbody>
+                <tr>
+                    <th>{{ gettext('date') }}</th>
+                    <td>{{ meeting.date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <h3>{{ gettext('issues') }}</h3>
+        <ul class="no-bullets">
+            {% for issue in meeting.issues %}
+            <li>{{ issue.rsplit('(', 1)[0] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

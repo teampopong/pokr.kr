@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-24 18:52+0900\n"
+"POT-Creation-Date: 2014-05-24 20:35+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,7 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: pokr/templates/bill.html:5
+#: pokr/templates/bill-layout.html:30
+#, python-format
+msgid "bill no. %(bill_id)s"
+msgstr "의안 제%(bill_id)s호"
+
+#: pokr/templates/bill.html:5 pokr/templates/meeting.html:24
 msgid "outline"
 msgstr "기본정보"
 
@@ -197,14 +202,29 @@ msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 �
 msgid "meetings"
 msgstr "회의"
 
-#: pokr/templates/meeting.html:23 pokr/templates/meetings.html:23
-#: pokr/views/meeting.py:16
+#: pokr/templates/meeting.html:16
+msgid "th parliament"
+msgstr "대"
+
+#: pokr/templates/meeting.html:17
+msgid "th session"
+msgstr "회"
+
+#: pokr/templates/meeting.html:18
+msgid "th sitting"
+msgstr "차"
+
+#: pokr/templates/meeting.html:28
+msgid "date"
+msgstr "날짜"
+
+#: pokr/templates/meeting.html:35
+msgid "issues"
+msgstr "목차"
+
+#: pokr/templates/meetings.html:23 pokr/views/meeting.py:18
 msgid "meeting"
 msgstr "회의"
-
-#: pokr/templates/meeting.html:27
-msgid "national"
-msgstr "국회"
 
 #: pokr/templates/mypage.html:4 pokr/templates/mypage.html:14
 msgid "Mypage"
@@ -622,7 +642,4 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
-
-#~ msgid "최근 발의한 의안에서 추출된 키워드"
-#~ msgstr ""
 
