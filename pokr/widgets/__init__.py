@@ -6,6 +6,7 @@ from .kmap import kmap
 from .relation import rivals
 from .timeline import timeline
 from .wordle import wordle
+from .year import year
 
 
 __all__ = ['init_app']
@@ -18,6 +19,7 @@ widgets = {
     'rivals': rivals,
     'timeline': timeline,
     'wordle': wordle,
+    'year': year,
 }
 
 
