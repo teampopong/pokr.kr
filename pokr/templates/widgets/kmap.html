@@ -1,5 +1,8 @@
 <!--[if gte IE 9]><!-->
+<div class="map down-10">
+<p class="text-center font-bold">{{ gettext('base region') }}</p>
 {% include 'includes/korea.svg' with context %}
+</div>
 
 <script>
 window.tmpl_region_url = "{{ url_for_noencode('region', region_id='{{ region_id }}', _external=True) }}";
