@@ -54,9 +54,9 @@ def insert_meeting(obj):
 
     meeting = Meeting(
         committee=obj['committee'],
-        parliament=obj['assembly_id'],
-        session=obj['session_id'],
-        sitting=obj['meeting_id'],
+        parliament_id=obj['assembly_id'],
+        session_id=obj['session_id'],
+        sitting_id=obj['meeting_id'],
         date=date,
         issues=obj['issues'],
         dialogue=dialogue,
@@ -82,7 +82,7 @@ def insert_meeting(obj):
 def get_attendees(meeting, names, session=None):
     for name in names:
         try:
-            person = guess_person(name=name, assembly_id=meeting.parliament,
+            person = guess_person(name=name, assembly_id=meeting.parliament_id,
                                   is_elected=True)
             # FIXME: workaround different session binding problem
             yield session.query(Person).filter_by(id=person.id).one()

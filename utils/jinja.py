@@ -8,7 +8,7 @@ from werkzeug.urls import Href, url_unquote
 
 from .jsonify import jsonify
 from pokr.models.assembly import term as assembly_term # FIXME: no dep. w/ pokr
-from pokr.models.election import current_session_id
+from pokr.models.election import current_parliament_id
 
 
 breadcrumb_home = ['home']
@@ -27,7 +27,7 @@ def init_app(app):
     app.jinja_env.globals.update(
         app=app,
         assembly_term=assembly_term,
-        current_session_id=current_session_id,
+        current_parliament_id=current_parliament_id,
         url_for_query=url_for_query,
         url_for_noencode=url_for_noencode,
     )

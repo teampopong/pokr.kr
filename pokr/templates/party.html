@@ -50,8 +50,8 @@
                 </tr>
                 <tr>
                     <th>{{ gettext('elections') }}</th>
-                    <td>{% for election_type, session_ids in elections.iteritems() %}
-                        {{ session_ids|join(', ') }}{{ gettext('th %(election_type)s election', election_type=gettext(election_type)) }}
+                    <td>{% for election_type, parliament_ids in elections.iteritems() %}
+                        {{ parliament_ids|join(', ') }}{{ gettext('th %(election_type)s election', election_type=gettext(election_type)) }}
                         {% endfor %}
                     </td>
                 </tr>

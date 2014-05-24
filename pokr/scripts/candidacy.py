@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-import argparse
 import json
 from glob import glob
 import sys
@@ -44,21 +43,22 @@ class UpdateCandidaciesCommand(Command):
     @classmethod
     def init_parser_options(cls):
         cls.parser.add_argument('files')
+        cls.parser.add_argument('--type', required=True)
         cls.parser.add_argument('--assembly_id', type=int, required=True)
         cls.parser.add_argument('--date', required=True)
 
     @classmethod
-    def run(cls, files, assembly_id, date, **kwargs):
-        insert_candidacies(files, assembly_id, date)
+    def run(cls, files, type, assembly_id, date, **kwargs):
+        insert_candidacies(files, type, assembly_id, date)
 
 
-def insert_candidacies(files, assembly_id, date):
+def insert_candidacies(files, election_type, assembly_id, date):
     with transaction() as session:
         for file_ in glob(files):
             with open(file_, 'r') as f:
                 list_ = json.load(f)
             for record in list_:
-                person_id = insert_person(session, record)
+                person_id = insert_person(session, election_type, assembly_id, record)
                 insert_party(session, record)
                 insert_election(session, assembly_id, date)
                 insert_candidacy(session, record, person_id, date)
@@ -68,13 +68,13 @@ def insert_candidacies(files, assembly_id, date):
             # TODO: put pledges
 
 
-def insert_person(session, r):
+def insert_person(session, election_type, assembly_id, r):
     person = guess_person(r)
 
     if person:
         extra_vars = json.loads(person.extra_vars)
         extra_vars.update(r)
-        extra_vars['assembly']['19'] = r
+        extra_vars[election_type][assembly_id] = r
         person.extra_vars = json.dumps(extra_vars)
 
     else:

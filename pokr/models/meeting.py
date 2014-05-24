@@ -16,9 +16,9 @@ class Meeting(Base):
     # Identifiers
     id = Column(Integer, autoincrement=True, primary_key=True)
     committee = Column(Text, index=True)
-    parliament = Column(Integer, nullable=False, index=True)
-    session = Column(Integer, nullable=False, index=True)
-    sitting = Column(Integer, nullable=False, index=True)
+    parliament_id = Column(Integer, nullable=False, index=True)
+    session_id = Column(Integer, nullable=False, index=True)
+    sitting_id = Column(Integer, nullable=False, index=True)
 
     # Meta & contents
     date = Column(Date, nullable=False, index=True)
