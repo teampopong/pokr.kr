@@ -3,14 +3,6 @@
 @card_width: 100px;
 @card_height: 70px;
 
-#card-container {
-    width: 0;
-}
-
-#spec-container {
-    left: 0;
-}
-
 .itemlist {
     ul {
         margin: inherit;
@@ -32,9 +24,11 @@
 
 ///// bills.html
 div#bill-list table {
-    td:nth-child(3),
-    td:last-child {
+    td:nth-child(3) {
         width: 15%;
+    }
+    td:last-child {
+        width: 10%;
     }
 }
 
@@ -73,8 +67,9 @@ div.party-card {
 }
 
 #search-tabs {
-    overflow: hidden;
+    margin-top: -40px;
     margin-bottom: 20px;
+    padding: 20px;
     padding-left: 20px;
     border-bottom: 1px solid @layout_border_color;
 }

@@ -34,7 +34,6 @@ body {
     position: relative;
     text-align: center;
     margin: 0 auto;
-    overflow: hidden;
 
     h1 {
         .inline-block;
@@ -68,7 +67,7 @@ body {
 
     .breadcrumb {
         background-color: @container_color;
-        border: 1px solid @layout_border_color;
+        border-top: 1px solid @layout_border_color;
         padding: 0 5px 8px 5px;
         font-size: 85%;
         text-align: left;
@@ -97,22 +96,18 @@ body {
 }
 
 #container {
-    position: fixed;
-    top: 114px;
-    bottom: 30px;
-    left: 20px;
-    right: 20px;
     background: white;
     border: 1px solid @layout_border_color;
     border-top: none;
     margin: 0 auto;
+    padding-bottom: 30px;
+    #hero {
+        min-height: 330px;
+        padding-top: 110px;
+    }
 }
 
 #footer {
-    position: fixed;
-    bottom: 5px;
-    left: 20px;
-    right: 20px;
     color: @bottom_color;
     font-size: 85%;
     text-align: center;
@@ -129,73 +124,6 @@ body {
 
 a#barometer_tab {
     top: 50%;
-}
-
-
-
-// content
-#card-container {
-    position: absolute;
-    top: 0px;
-    bottom: 0;
-    left: 0;
-    width: 180px;
-    .border-box;
-    padding: 10px;
-
-    .instance-card {
-        position: relative;
-    }
-
-    .instance-img {
-        width: 85%;
-        max-width: 150px;
-        height: 100px;
-        display: block;
-        margin: 0 auto;
-        .framed;
-    }
-
-    .class-name,
-    .instance-name {
-        font-size: 15pt;
-        line-height: 30px;
-        text-align: center;
-    }
-
-    .class-card {
-        background-position: center;
-        width: 85%;
-        max-width: 150px;
-        margin: 0 auto;
-    }
-
-    .instance-name {
-        position: absolute;
-        top: 20px;
-        width: 100%;
-        word-break: keep-all;
-        .border-box;
-        padding: 0 10px;
-    }
-    .original-link {
-        text-align: center;
-
-        a i {
-            color: #08c;
-        }
-    }
-}
-
-#spec-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 180px;
-    right: 0;
-    .border-box;
-    padding: 10px;
-    overflow-y: auto;
 }
 
 // others
@@ -295,4 +223,13 @@ a.btn-show {
 
 :hover > .permalink {
     visibility: visible;
+}
+
+.itemlist {
+    margin: 0 30px;
+}
+
+.adsense .adsbygoogle{
+    margin-left: auto;
+    margin-right: auto;
 }

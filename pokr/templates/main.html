@@ -28,11 +28,13 @@ depends=['**/*.less'], 'less/main.less' %}
         <a href="http://twitter.com/pokrbot" target="_blank" class="twitter-icon"><i class="icon-twitter"></i></a>
         <a href="http://facebook.com/pokrbot" target="_blank" class="facebook-icon"><i class="icon-facebook"></i></a>
     </p>
+    {% if not mobile %}
     {% include 'facebook-login.html' %}
     <div class="social-sends">
         {% include 'popong-like.html' %}
         {% include 'popong-follow.html' %}
     </div>
+    {% endif %}
 </div>
 <div id="class-list">
     <div><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a></div>

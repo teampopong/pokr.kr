@@ -31,18 +31,6 @@
 {{ gettext('search') }}
 {% endblock %}
 
-{% block extra_headers %}
-<style>
-#card-container {
-    width: 0;
-}
-
-#spec-container {
-    left: 0;
-}
-</style>
-{% endblock %}
-
 {% block content %}
 <div class="alert alert-info">
     {{ gettext('Search results by %(options)s', options=search_options()) }}

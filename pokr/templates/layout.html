@@ -53,16 +53,8 @@
         </div>
 
         <div id="container">
-            <div id="content">
-               <div id="card-container">
-                {% block card %}
-                {% endblock %}
-                </div>
-                <div id="spec-container">
-                {% block content %}
-                {% endblock %}
-                </div>
-            </div>
+            {% block content %}
+            {% endblock %}
         </div>
         {% include 'includes/footer.html' %}
         {% include 'includes/feedback.html' %}

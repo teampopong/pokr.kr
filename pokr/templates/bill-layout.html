@@ -17,30 +17,19 @@
 {{ bill.id }}
 {% endblock %}
 
-{% block card %}
+{% block content %}
 {% if mobile %}
 <h2 id="bill-name">{{ bill.name }}</h2>
-{% else %}
-<div class="instance-card">
-    <h2 class="instance-name">#{{ bill.id }}</h2>
-    <img class="instance-img" src="{{ url_for('static', filename='images/default_bill.jpg') }}">
-</div>
 {% endif %}
-{% include 'social.html' %}
-<div class="original-link">
-    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
-    <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
-    {% if bill.document_pdf_path %}<br><a href="{{ url_for('bill_pdf', id=bill.id) }}">{{ gettext('see original pdf') }}</a>{% endif %}
-    {% if bill.document_text_path %}<br><a href="{{ url_for('bill_text', id=bill.id) }}">{{ gettext('see original text') }}</a>{% endif %}
-</div>
+
 {% block bill_menus %}
 {% endblock %}
-{% endblock %}
 
-{% block content %}
 <div id="bill-view" class="view">
     {% if not mobile %}
-    <h2 id="bill-name">{{ bill.name }}</h2>
+    <p id="bill-id" class="text-center">#{{ bill.id }}</p>
+    <h2 id="bill-name" class="text-center">{{ bill.name }}</h2>
+    {% include 'social.html' %}
     {% if bill.name.endswith("(대안)") %}
     <div class="info" style="margin-top: -30px;">
         <i class="icon-exclamation-sign"></i>

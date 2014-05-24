@@ -1,7 +1,7 @@
 <h1>
     <a href="{{ url_for('main') }}">
     {% if locale=='ko' %}
-    <img src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea" style="max-width: 300px">
+    <img class="logo" src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea" style="max-width: 300px">
     {% else %}
     <img src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea" style="max-width: 300px">
     {% endif %}
