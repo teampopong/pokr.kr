@@ -26,6 +26,7 @@ body {
     div#header,
     div#container,
     div#footer {
+        min-width: 850px;
         max-width: @container_width;
     }
 }
@@ -66,7 +67,7 @@ body {
     }
 
     .breadcrumb {
-        background-color: @container_color;
+        background: transparent;
         border-top: 1px solid @layout_border_color;
         padding: 0 5px 8px 5px;
         font-size: 85%;
@@ -75,10 +76,19 @@ body {
         height: 12px;
 
         a {
-            color: #777;
+            color: #555;
             &:hover {
-                color: #777;
+                color: #333;
             }
+        }
+        li {
+            text-shadow: none;
+        }
+        .active {
+            color: #777;
+        }
+        .divider {
+            color: #aaa;
         }
     }
     #submain-links {

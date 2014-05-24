@@ -17,30 +17,18 @@
 {{ fullname|translit }}
 {% endblock %}
 
-{% block card %}
-{% if mobile %}
-<h2 class="instance-name">{{ fullname }}</h2>
-{% else %}
-<div class="instance-card">
-    <h2 class="instance-name">{{ fullname }}</h2>
-    <img class="instance-img" src="{{ url_for('static', filename='images/default_region.png') }}">
-</div>
-{% endif %}
-{% include 'social.html' %}
-{% if not mobile %}
-<ul id="region-section-tabs" class="nav section-tabs">
-    {% if region.is_province %}
-    <li class="active"><a href="#subregions">{{gettext('subregions')}}</a></li>
-    {% else %}
-    <li class="active"><a href="#chronicles">{{gettext('chronicles')}}</a></li>
-    {% endif %}
-    <li><a href="#people">{{gettext('related people')}}</a></li>
-</ul>
-{% endif %}
-{% endblock %}
-
 {% block content %}
 <div id="region-view" class="view">
+    <div class="text-center entity-header grad">
+        {% if mobile %}
+        <h2 class="instance-name">{{ fullname }}</h2>
+        {% else %}
+        <div class="instance-card">
+            <h2 class="instance-name">{{ fullname }}</h2>
+        </div>
+        {% endif %}
+        {% include 'social.html' %}
+    </div>
     <div id="region-sections" class="sections">
         <div id="section-outline" class="section">
         {% if mobile %}

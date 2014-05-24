@@ -13,7 +13,6 @@
 
 {% block extra_headers %}
 {{ super() }}
-
 {% if not mobile %}
     {# TODO: get rid of person.less #}
     {% assets filters='less', output='build/person.%(version)s.css',
@@ -25,7 +24,7 @@
 
 {% block content %}
 <div id="person-view" class="view">
-    <div id="person-header">
+    <div class="grad entity-header">
         {{ widgets.card(person, detailed=True)|safe }}
         {% include 'social.html' %}
     </div>
