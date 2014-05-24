@@ -27,8 +27,10 @@
 
 {% block content %}
 <div id="person-view" class="view">
-    {{ widgets.card(person, detailed=True)|safe }}
-    {% include 'social.html' %}
+    <div id="person-header">
+        {{ widgets.card(person, detailed=True)|safe }}
+        {% include 'social.html' %}
+    </div>
     <div id="person-sections" class="sections">
         <div id="section-profile" class="section">
             <h3 id="profile">
@@ -120,8 +122,8 @@
                     {% if not mobile %}
                     <tr>
                         <th>
-                            {{ gettext("elections") }}
-                            <a href="#elections" class="shrink">{{ gettext("more") }}</a>
+                            <p class="no-margin">{{ gettext("elections") }}</p>
+                            <a href="#elections" class="shrink animated">[{{ gettext("more") }}]</a>
                         </th>
                         <td>
                             <div id="timeline">
