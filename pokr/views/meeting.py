@@ -13,7 +13,6 @@ from utils.jinja import breadcrumb
 
 
 def register(app):
-
     app.views['meeting'] = 'meeting_main'
     gettext('meeting') # for babel extraction
 
@@ -24,7 +23,7 @@ def register(app):
         return render_template(\
                 'meetings.html', year=int(year))
 
-    @app.route('/meeting/<id>', methods=['GET'])
+    @app.route('/meeting/<id>/', methods=['GET'])
     @breadcrumb(app, 'meeting')
     def meeting(id):
         try:
@@ -33,3 +32,12 @@ def register(app):
             return render_template('not-found.html'), 404
 
         return render_template('meeting.html', meeting=meeting)
+
+    @app.route('/meeting/<id>/dialog', methods=['GET'])
+    def meeting_dialogue(id):
+        try:
+            meeting = Meeting.query.filter_by(id=id).one()
+        except NoResultFound, e:
+            return render_template('not-found.html'), 404
+
+        return render_template('meeting-dialogue.html', meeting=meeting)
