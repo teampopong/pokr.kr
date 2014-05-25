@@ -18,8 +18,8 @@ class Meeting(Base):
     committee = Column(Text, index=True)
     region_id = Column(ForeignKey('region.id'), nullable=False, index=True)
     parliament_id = Column(Integer, nullable=False, index=True)
-    session_id = Column(Integer, nullable=False, index=True)
-    sitting_id = Column(Integer, nullable=False, index=True)
+    session_id = Column(Integer, index=True)
+    sitting_id = Column(Integer, index=True)
 
     # Meta & contents
     date = Column(Date, nullable=False, index=True)
