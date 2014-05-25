@@ -3,9 +3,10 @@
 from __future__ import unicode_literals
 import argparse
 from datetime import datetime
+import hashlib
 import json
 import logging
-import hashlib
+import re
 
 from popong_models import Base
 from popong_data_utils import guess_person
@@ -14,6 +15,9 @@ from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 from pokr.database import db_session, transaction
 from pokr.models import Meeting, Person, Statement
 from utils.command import Command
+
+
+attendance_re = re.compile(r'(출|참)석\s*(감사위|의|위)원')
 
 
 class MeetingCommand(Command):
@@ -52,7 +56,7 @@ def insert_meetings(region_id, obj):
 def insert_meeting(region_id, obj):
     date = datetime.strptime(obj['date'], '%Y-%m-%d').date()
     dialogue = obj['dialogue']
-    attendee_names = obj['attendance']['출석 의원']['names']
+    attendee_names = get_attendee_names(obj)
     id = int('{region_id}{assembly_id}{session_id}{meeting_id}{md5}'.format(
              region_id=region_id,
              md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16),
@@ -89,6 +93,14 @@ def insert_meeting(region_id, obj):
         meeting.dialogue = dialogue
 
         # TODO: votes = obj['votes']
+
+
+def get_attendee_names(obj):
+    for key, val in obj['attendance'].iteritems():
+        if attendance_re.match(key):
+            return val['names']
+    logging.warning('Attendance not found {date}-{committee}'.format(**obj))
+    return []
 
 
 def get_attendees(meeting, names, session=None):
