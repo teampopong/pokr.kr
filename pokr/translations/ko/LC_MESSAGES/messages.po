@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-24 20:35+0900\n"
+"POT-Creation-Date: 2014-05-25 02:49+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: pokr/templates/bill-layout.html:30
+#: pokr/templates/bill-layout.html:31
 #, python-format
 msgid "bill no. %(bill_id)s"
 msgstr "의안 제%(bill_id)s호"
 
-#: pokr/templates/bill.html:5 pokr/templates/meeting.html:24
+#: pokr/templates/bill.html:5 pokr/templates/meeting.html:4
 msgid "outline"
 msgstr "기본정보"
 
@@ -43,7 +43,7 @@ msgstr "의결일자"
 msgid "status"
 msgstr "상태"
 
-#: pokr/templates/bill.html:66 pokr/templates/person.html:144
+#: pokr/templates/bill.html:66 pokr/templates/person.html:134
 msgid "external links"
 msgstr "외부링크"
 
@@ -80,8 +80,7 @@ msgstr "공동발의자"
 msgid "contents"
 msgstr "내용"
 
-#: pokr/templates/bill.html:145 pokr/templates/party.html:35
-#: pokr/templates/party.html:45
+#: pokr/templates/bill.html:145 pokr/templates/party.html:37
 msgid "summary"
 msgstr "요약"
 
@@ -94,15 +93,15 @@ msgid "bills"
 msgstr "의안"
 
 #: pokr/templates/bills.html:27 pokr/templates/parties.html:28
-#: pokr/templates/people.html:27 pokr/templates/region.html:62
-#: pokr/templates/region.html:107
+#: pokr/templates/people.html:27 pokr/templates/region.html:50
+#: pokr/templates/region.html:95
 msgid "th"
 msgstr "대"
 
 #: pokr/templates/bills.html:55 pokr/templates/macros.html:88
 #: pokr/templates/mypage.html:88 pokr/templates/mypage.html:113
 #: pokr/templates/person-legislations.html:29
-#: pokr/templates/person-legislations.html:73 pokr/templates/person.html:133
+#: pokr/templates/person-legislations.html:73 pokr/templates/person.html:123
 #: pokr/templates/widgets/wordle.html:9
 msgid "more"
 msgstr "더보기"
@@ -197,30 +196,37 @@ msgid ""
 "compliments)</small>"
 msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
 
-#: pokr/templates/meeting.html:5 pokr/templates/meetings.html:5
-#: pokr/templates/meetings.html:9
-msgid "meetings"
-msgstr "회의"
-
-#: pokr/templates/meeting.html:16
+#: pokr/templates/meeting-layout.html:5 pokr/templates/meeting-layout.html:19
 msgid "th parliament"
 msgstr "대"
 
-#: pokr/templates/meeting.html:17
+#: pokr/templates/meeting-layout.html:6 pokr/templates/meeting-layout.html:20
 msgid "th session"
 msgstr "회"
 
-#: pokr/templates/meeting.html:18
+#: pokr/templates/meeting-layout.html:7 pokr/templates/meeting-layout.html:21
 msgid "th sitting"
 msgstr "차"
 
-#: pokr/templates/meeting.html:28
+#: pokr/templates/meeting.html:8
 msgid "date"
 msgstr "날짜"
 
-#: pokr/templates/meeting.html:35
+#: pokr/templates/meeting.html:12
+msgid "dialogue"
+msgstr "회의록"
+
+#: pokr/templates/meeting.html:13
+msgid "view"
+msgstr "내용보기"
+
+#: pokr/templates/meeting.html:18
 msgid "issues"
-msgstr "목차"
+msgstr "안건"
+
+#: pokr/templates/meetings.html:5 pokr/templates/meetings.html:9
+msgid "meetings"
+msgstr "회의"
 
 #: pokr/templates/meetings.html:23 pokr/views/meeting.py:18
 msgid "meeting"
@@ -316,34 +322,33 @@ msgstr "이 페이지는 두 개 이상의 정당에 대한 정보일 수 있습
 msgid "details"
 msgstr "자세히 보기"
 
-#: pokr/templates/party.html:36 pokr/templates/party.html:62
-#: pokr/templates/people.html:9
-msgid "people"
-msgstr "인물"
-
-#: pokr/templates/party.html:45 pokr/templates/person.html:57
+#: pokr/templates/party.html:37 pokr/templates/person.html:47
 #: pokr/templates/search-results.html:9 pokr/templates/includes/header.html:15
 #: pokr/templates/includes/header.html:17 pokr/views/party.py:21
 msgid "party"
 msgstr "정당"
 
-#: pokr/templates/party.html:48
+#: pokr/templates/party.html:40
 msgid "#candidates"
 msgstr "출마자 수"
 
-#: pokr/templates/party.html:49
+#: pokr/templates/party.html:41
 msgid "person(s)"
 msgstr "명"
 
-#: pokr/templates/party.html:52 pokr/templates/person-elections.html:3
-#: pokr/templates/person.html:132
+#: pokr/templates/party.html:44 pokr/templates/person-elections.html:3
+#: pokr/templates/person.html:122
 msgid "elections"
 msgstr "선거활동"
 
-#: pokr/templates/party.html:54
+#: pokr/templates/party.html:46
 #, python-format
 msgid "th %(election_type)s election"
 msgstr "대 %(election_type)s 선거"
+
+#: pokr/templates/party.html:54 pokr/templates/people.html:9
+msgid "people"
+msgstr "인물"
 
 #: pokr/templates/people.html:5 pokr/templates/search-results.html:43
 msgid "People"
@@ -354,7 +359,7 @@ msgid "By-election results are coming soon!"
 msgstr "보궐선거 데이터는 곧 추가될 예정입니다!"
 
 #: pokr/templates/person-elections.html:9
-#: pokr/templates/person-elections.html:54 pokr/templates/person.html:64
+#: pokr/templates/person-elections.html:54 pokr/templates/person.html:54
 #, python-format
 msgid "%(assembly_id)dth"
 msgstr "%(assembly_id)d대"
@@ -384,7 +389,7 @@ msgstr "동시 출마"
 msgid "Pledges"
 msgstr "공약"
 
-#: pokr/templates/person-legislations.html:5 pokr/templates/person.html:122
+#: pokr/templates/person-legislations.html:5 pokr/templates/person.html:112
 msgid "legislations"
 msgstr "입법활동"
 
@@ -407,49 +412,49 @@ msgstr "역할"
 msgid "Member of %(last_elected_no)dth National Assembly,"
 msgstr "%(last_elected_no)d대 국회의원"
 
-#: pokr/templates/person.html:44
+#: pokr/templates/person.html:34
 msgid "profile"
 msgstr "기본정보"
 
-#: pokr/templates/person.html:45
+#: pokr/templates/person.html:35
 msgid ""
 "Data in this section is based on latest election records, and therefore "
 "can be outdated."
 msgstr "이 데이터는 직전 선거 기록에서 추출된 것으로, 현재 상황과 다를 수 있습니다."
 
-#: pokr/templates/person.html:51
+#: pokr/templates/person.html:41
 msgid "birthday"
 msgstr "출생"
 
-#: pokr/templates/person.html:75
+#: pokr/templates/person.html:65
 msgid "education"
 msgstr "최종학력"
 
-#: pokr/templates/person.html:77 pokr/templates/person.html:89
+#: pokr/templates/person.html:67 pokr/templates/person.html:79
 msgid "original"
 msgstr "원본"
 
-#: pokr/templates/person.html:87
+#: pokr/templates/person.html:77
 msgid "address"
 msgstr "주소"
 
-#: pokr/templates/person.html:102
+#: pokr/templates/person.html:92
 msgid "work experiences"
 msgstr "경력"
 
-#: pokr/templates/person.html:122
+#: pokr/templates/person.html:112
 msgid "keywords"
 msgstr "키워드"
 
-#: pokr/templates/person.html:147
+#: pokr/templates/person.html:137
 msgid "Wikipedia"
 msgstr "위키피디아"
 
-#: pokr/templates/person.html:167
+#: pokr/templates/person.html:157
 msgid "trends"
 msgstr "검색추이"
 
-#: pokr/templates/person.html:169
+#: pokr/templates/person.html:159
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
@@ -458,30 +463,27 @@ msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
 msgid "choose"
 msgstr "선택"
 
-#: pokr/templates/region.html:33 pokr/templates/region.html:48
-#: pokr/templates/region.html:95
+#: pokr/templates/region.html:36 pokr/templates/region.html:83
 msgid "subregions"
 msgstr "하위 지역"
 
-#: pokr/templates/region.html:35 pokr/templates/region.html:56
-#: pokr/templates/region.html:100
+#: pokr/templates/region.html:44 pokr/templates/region.html:88
 msgid "chronicles"
 msgstr "역대 당선자"
 
-#: pokr/templates/region.html:37 pokr/templates/region.html:82
-#: pokr/templates/region.html:127
-msgid "related people"
-msgstr "관련 인물"
-
-#: pokr/templates/region.html:74 pokr/templates/region.html:119
+#: pokr/templates/region.html:62 pokr/templates/region.html:107
 msgid "No officials"
 msgstr "당선자 없음"
 
-#: pokr/templates/region.html:84 pokr/templates/region.html:131
+#: pokr/templates/region.html:70 pokr/templates/region.html:115
+msgid "related people"
+msgstr "관련 인물"
+
+#: pokr/templates/region.html:72 pokr/templates/region.html:119
 msgid "Candidates"
 msgstr "출마자"
 
-#: pokr/templates/region.html:89 pokr/templates/region.html:136
+#: pokr/templates/region.html:77 pokr/templates/region.html:124
 msgid "Residents"
 msgstr "거주자"
 

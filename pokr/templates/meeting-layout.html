@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ meeting.parliament_id }}{{ gettext('th parliament') }}
+{{ meeting.session_id }}{{ gettext('th session') }}
+{{ meeting.sitting_id }}{{ gettext('th sitting') }}
+{{ meeting.committee }} - {{ super() }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ meeting.id }}
+{% endblock %}
+
+{% block content %}
+<div id="meeting-view" class="view">
+    <div id="meeting-header" class="text-center entity-header grad">
+        <div class="entity-info">
+            {{ meeting.parliament_id }}{{ gettext('th parliament') }}
+            {{ meeting.session_id }}{{ gettext('th session') }}
+            {{ meeting.sitting_id }}{{ gettext('th sitting') }}
+        </div>
+        <h2>{{ meeting.committee }}</h2>
+        {% include 'social.html' %}
+    </div>
+    <div id="meeting-sections" class="sections">
+        {% block meeting_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

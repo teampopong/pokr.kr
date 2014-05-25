@@ -1,0 +1,52 @@
+@import "includes";
+
+.dialogue > div {
+    margin: 0 -10px;
+    padding: 15px 0;
+    padding-left: 10px;
+    position: relative;
+    .links {
+        display: none;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    &:hover {
+        .links {
+            display: block;
+        }
+    }
+}
+
+.dialogue {
+    .issue {
+        background-color: moccasin;
+        color: firebrick;
+    }
+    .statement {
+        .speaker {
+            display: inline-block;
+            font-weight: bold;
+            vertical-align: top;
+            width: 15%;
+        }
+        .content {
+            display: inline-block;
+            width: 80%;
+        }
+        &:hover {
+            background-color: #f9f9f9;
+        }
+    }
+    .time {
+        border-bottom: 1px solid @border_color;
+        border-top: 1px solid @border_color;
+        background-color: #efefef;
+    }
+    .unknown {
+        &:hover {
+            background-color: #f9f9f9;
+        }
+    }
+}
