@@ -67,7 +67,6 @@ def insert_meeting(region_id, obj):
         sitting_id=obj['meeting_id'],
         date=date,
         issues=obj['issues'],
-        dialogue=dialogue,
         url=obj['issues_url'],
         pdf_url=obj['pdf'],
     )
@@ -81,8 +80,13 @@ def insert_meeting(region_id, obj):
         # 'statement' table
         statements = (stmt for stmt in dialogue
                            if stmt['type'] == 'statement')
-        statements = list(create_statements(meeting, statements, attendees))
-        meeting.statements = statements
+        for seq, statement in enumerate(statements):
+            item = create_statement(meeting, seq, statement, attendees)
+            statement['person_id'] = item.person_id
+            meeting.statements.append(item)
+
+        # Updated dialog field of meeting table
+        meeting.dialogue = dialogue
 
         # TODO: votes = obj['votes']
 
@@ -100,17 +104,16 @@ def get_attendees(meeting, names, session=None):
             logging.warning('No result found for: %s' % name)
 
 
-def create_statements(meeting, statements, attendees):
-    for seq, statement in enumerate(statements):
-        person = guess_attendee(attendees, statement['person'])
-        item = Statement(
-            meeting_id=meeting.id,
-            person_id=person.id if person else None,
-            sequence=seq,
-            speaker=statement['person'],
-            content=statement['content'],
-        )
-        yield item
+def create_statement(meeting, seq, statement, attendees):
+    person = guess_attendee(attendees, statement['person'])
+    item = Statement(
+        meeting_id=meeting.id,
+        person_id=person.id if person else None,
+        sequence=seq,
+        speaker=statement['person'],
+        content=statement['content'],
+    )
+    return item
 
 
 def guess_attendee(attendees, name):
