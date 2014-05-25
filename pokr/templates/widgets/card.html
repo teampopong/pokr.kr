@@ -1,8 +1,12 @@
-{% set party = person.cur_party.name|translit(type='party') %}
-{% if detailed %}
-    {% include "widgets/card-detailed.html" with context %}
-{% elif small %}
-    {% include "widgets/card-small.html" with context %}
-{% else %} {# normal #}
-    {% include "widgets/card-normal.html" with context %}
+{% if tiny %}
+    {% include "widgets/card-tiny.html" with context %}
+{% else %}
+    {% set party = person.cur_party.name|translit(type='party') %}
+    {% if detailed %}
+        {% include "widgets/card-detailed.html" with context %}
+    {% elif small %}
+        {% include "widgets/card-small.html" with context %}
+    {% else %} {# normal #}
+        {% include "widgets/card-normal.html" with context %}
+    {% endif %}
 {% endif %}
