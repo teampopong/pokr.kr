@@ -57,18 +57,22 @@ def insert_meeting(region_id, obj):
     date = datetime.strptime(obj['date'], '%Y-%m-%d').date()
     dialogue = obj['dialogue']
     attendee_names = get_attendee_names(obj)
+    session_id = int(obj['session_id']) if obj['session_id'].isdigit() else None
+    meeting_id = int(obj['meeting_id']) if obj['meeting_id'].isdigit() else None
     id = int('{region_id}{assembly_id}{session_id}{meeting_id}{md5}'.format(
              region_id=region_id,
-             md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16),
-             **obj))
+             assembly_id=obj['assembly_id'],
+             session_id=session_id or '',
+             meeting_id=meeting_id or '',
+             md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16)))
 
     meeting = Meeting(
         id=id,
         region_id=region_id,
         committee=obj['committee'],
         parliament_id=obj['assembly_id'],
-        session_id=obj['session_id'],
-        sitting_id=obj['meeting_id'],
+        session_id=session_id,
+        sitting_id=meeting_id,
         date=date,
         issues=obj['issues'],
         url=obj['issues_url'],
