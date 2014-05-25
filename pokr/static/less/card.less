@@ -63,5 +63,17 @@
     }
 }
 
+.card.card-tiny {
+    @tiny_card_size: 70px;
+    border: 5px solid #eee;
+    .border-radius (50%, 50%, 50%, 50%);
+    height: @tiny_card_size;
+    width: @tiny_card_size;
+    img {
+        opacity: 0.4;
+        width: @tiny_card_size;
+    }
+}
+
 @import "card-small";
 @import "card-large";

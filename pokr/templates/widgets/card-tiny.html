@@ -1,0 +1,5 @@
+<div class="card card-tiny">
+    <a class="person-link" href="{{url_for('person', id=person.id)}}">
+        <img class="person-img" src="{{person.image|default(url_for('static', filename='images/default_profile.jpg'), True)}}">
+    </a>
+</div>

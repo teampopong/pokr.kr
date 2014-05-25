@@ -28,6 +28,7 @@ def init_app(app):
         app=app,
         assembly_term=assembly_term,
         current_parliament_id=current_parliament_id,
+        guid_factory=guid_factory,
         url_for_query=url_for_query,
         url_for_noencode=url_for_noencode,
     )

@@ -1,0 +1,55 @@
+{% extends "meeting-layout.html" %}
+{% block extra_headers %}
+{% assets filters='less', output='build/meeting.%(version)s.css',
+    depends=['**/*.less'], 'less/dialogue.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+{% block meeting_content %}
+
+<div class="dialogue">
+{% with guids = guid_factory() %}
+{% for row in meeting.dialogue %}
+    {% if row.type=='issue' %}
+    <div id="{{ loop.index }}" class="issue">
+        {% for item in row.content.rsplit('(', 1) %}
+            
+            {% if loop.first %}
+            <p class="font-bold no-margin">{{ item }}</p>
+            {% else  %}
+            <p class="indent-12 no-margin">({{ item }}</p>
+            {% endif %}
+        </span>
+        {% endfor %}
+    {% elif row.type=='statement' %}
+    <div id="{{ loop.index }}" class="statement">
+        <div class="speaker">
+            <!-- TODO: guess_person by name and input person_id to db -->
+            {% if row.person_id %}
+                {{ widgets.card(row.person_id, tiny=True)|safe }}
+            {% else %}
+                <div class="card card-tiny" style="border-color: #{{ guids(row.person)[1:7] }}; background-color: #{{ guids(row.person)[1:7] }}">
+                    <img class="person-img " src="{{ url_for('static', filename='images/default_profile.jpg') }}">
+                </div>
+            {% endif %}
+            <div class="person-name">{{ row.person }}</div>
+        </div>
+        <div class="content glossary">
+            {% for sentence in row.content.split('.') %}
+            {{ sentence }}{% if not loop.last %}.{% endif %}<br>
+            {% endfor %}
+        </div>
+    {% elif row.type=='time' %}
+    <div id="{{ loop.index }}" class="time">{{ row.content }}
+    {% else %}
+    <div id="{{ loop.index }}" class="unknown">{{ row.content }}
+    {% endif %}
+        <div class="links"><a href="#{{ loop.index }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
+    </div>
+{% endfor %}
+{% endwith %}
+</div>
+<script>
+{{ glossary_js|safe }}
+</script>
+{% endblock %}
