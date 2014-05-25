@@ -100,7 +100,7 @@ def insert_meeting(region_id, obj):
 
 
 def get_attendee_names(obj):
-    for key, val in obj['attendance'].iteritems():
+    for key, val in obj.get('attendance', {}).iteritems():
         if attendance_re.match(key):
             return val['names']
     logging.warning('Attendance not found {date}-{committee}'.format(**obj))
