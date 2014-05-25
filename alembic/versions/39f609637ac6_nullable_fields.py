@@ -15,9 +15,6 @@ import sqlalchemy as sa
 
 
 def upgrade():
-    op.alter_column('meeting', 'region_id',
-               existing_type=sa.VARCHAR(length=16),
-               nullable=False)
     op.alter_column('meeting', 'session_id',
                existing_type=sa.INTEGER(),
                nullable=True)
@@ -33,7 +30,4 @@ def downgrade():
     op.alter_column('meeting', 'session_id',
                existing_type=sa.INTEGER(),
                nullable=False)
-    op.alter_column('meeting', 'region_id',
-               existing_type=sa.VARCHAR(length=16),
-               nullable=True)
 

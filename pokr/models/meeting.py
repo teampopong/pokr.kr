@@ -16,7 +16,7 @@ class Meeting(Base):
     # Identifiers
     id = Column(BigInteger, primary_key=True)
     committee = Column(Text, index=True)
-    region_id = Column(ForeignKey('region.id'), nullable=False, index=True)
+    region_id = Column(ForeignKey('region.id'), index=True)
     parliament_id = Column(Integer, nullable=False, index=True)
     session_id = Column(Integer, index=True)
     sitting_id = Column(Integer, index=True)
