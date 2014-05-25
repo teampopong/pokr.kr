@@ -2,11 +2,13 @@
 # -*- encoding: utf-8 -*-
 
 from datetime import date
+import os.path
 
-from flask import render_template, request
+from flask import current_app, render_template, request
 from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 
+from pokr.cache import cache
 from pokr.models.meeting import Meeting
 from pokr.widgets.year import year
 from utils.jinja import breadcrumb
@@ -35,9 +37,19 @@ def register(app):
 
     @app.route('/meeting/<id>/dialog', methods=['GET'])
     def meeting_dialogue(id):
+        glossary_js = generate_glossary_js()
         try:
             meeting = Meeting.query.filter_by(id=id).one()
         except NoResultFound, e:
             return render_template('not-found.html'), 404
 
-        return render_template('meeting-dialogue.html', meeting=meeting)
+        return render_template('meeting-dialogue.html',\
+                meeting=meeting, glossary_js=glossary_js)
+
+@cache.memoize(timeout=60*60*24)
+def generate_glossary_js():
+    datadir = os.path.join(current_app.root_path, 'data')
+    terms_regex = open('%s/glossary-terms.regex' % datadir).read().decode('utf-8').strip()
+    dictionary = open('%s/glossary-map.json' % datadir).read().decode('utf-8').strip()
+    return render_template('js/glossary.js', terms_regex=terms_regex,
+            dictionary=dictionary)

@@ -34,7 +34,7 @@
             {% endif %}
             <div class="person-name">{{ row.person }}</div>
         </div>
-        <div class="content">
+        <div class="content glossary">
             {% for sentence in row.content.split('.') %}
             {{ sentence }}{% if not loop.last %}.{% endif %}<br>
             {% endfor %}
@@ -49,4 +49,7 @@
 {% endfor %}
 {% endwith %}
 </div>
+<script>
+{{ glossary_js|safe }}
+</script>
 {% endblock %}
