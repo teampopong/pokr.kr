@@ -4,11 +4,12 @@
 from datetime import date
 import os.path
 
-from flask import current_app, render_template, request
+from flask import current_app, render_template, request, url_for
 from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 
 from pokr.cache import cache
+from pokr.database import db_session
 from pokr.models.meeting import Meeting
 from pokr.widgets.year import year
 from utils.jinja import breadcrumb
@@ -22,8 +23,18 @@ def register(app):
     @breadcrumb(app)
     def meeting_main():
         year = request.args.get('year', date.today().year)
-        return render_template(\
-                'meetings.html', year=int(year))
+        meetings_of_the_year =\
+                db_session.query(Meeting.id, Meeting.date)\
+                          .filter(Meeting.year == year)
+        meetings_of_the_year = (
+            {
+                'date': meeting_date,
+                'url': url_for('meeting', id=meeting_id)
+            }
+            for meeting_id, meeting_date in meetings_of_the_year
+        )
+        return render_template('meetings.html',
+                               year=int(year), meetings=meetings_of_the_year)
 
     @app.route('/meeting/<id>/', methods=['GET'])
     @breadcrumb(app, 'meeting')

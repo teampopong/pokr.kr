@@ -25,10 +25,10 @@
 </div>
 <div class="calendar">
     <p id="year-num" class="year-num">
-        <a href="?year={{year-1}}">&lt;</a>
+        <a href="?year={{year - 1}}">&lt;</a>
         <span>{{year}}</span>
-        <a href="?year={{year+1}}">&gt;</a>
+        <a href="?year={{year + 1}}">&gt;</a>
     </p>
-    {{ widgets.year(year) | safe }}
+    {{ widgets.year(year, meetings)|safe }}
 </div>
 {% endblock %}

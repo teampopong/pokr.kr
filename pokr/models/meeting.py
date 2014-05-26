@@ -4,7 +4,9 @@ from datetime import date
 
 from sqlalchemy import BigInteger, Column, Date, ForeignKey, Integer, Text
 from sqlalchemy.dialects.postgresql import ARRAY, JSON
+from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql.expression import extract
 
 from pokr.database import Base
 from pokr.models.meeting_attendee import MeetingAttendee
@@ -35,4 +37,12 @@ class Meeting(Base):
     statements = relationship('Statement',
             order_by='Statement.sequence',
             backref='meeting')
+
+    @hybrid_property
+    def year(self):
+        return self.date.year
+
+    @year.expression
+    def year(cls):
+        return extract('year', cls.date)
 
