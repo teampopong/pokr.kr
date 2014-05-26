@@ -22,7 +22,7 @@ class PopongBabel(Babel):
         app.LOCALES = self.list_translations() + [Locale('en')]
 
         # cmd-line locale option
-        if app.locale in app.LOCALES:
+        if hasattr(app, 'locale') and getattr(app, 'locale') in app.LOCALES:
             app.babel.force_locale(app.locale)
 
         # jinja filters
