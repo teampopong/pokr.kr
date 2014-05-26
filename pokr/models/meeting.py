@@ -2,10 +2,11 @@
 
 from datetime import date
 
+from flask.ext.babel import gettext
 from sqlalchemy import BigInteger, Column, Date, ForeignKey, Integer, Text
 from sqlalchemy.dialects.postgresql import ARRAY, JSON
 from sqlalchemy.ext.hybrid import hybrid_property
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import deferred, relationship
 from sqlalchemy.sql.expression import extract
 
 from pokr.database import Base
@@ -25,10 +26,10 @@ class Meeting(Base):
 
     # Meta & contents
     date = Column(Date, nullable=False, index=True)
-    issues = Column(ARRAY(Text))
-    dialogue = Column(JSON)
-    url = Column(Text)
-    pdf_url = Column(Text)
+    issues = deferred(Column(ARRAY(Text)), group='extra')
+    dialogue = deferred(Column(JSON), group='extra')
+    url = deferred(Column(Text), group='extra')
+    pdf_url = deferred(Column(Text), group='extra')
 
     attendees = relationship('Person',
             secondary=MeetingAttendee.__table__,
@@ -37,6 +38,20 @@ class Meeting(Base):
     statements = relationship('Statement',
             order_by='Statement.sequence',
             backref='meeting')
+
+    @property
+    def title(self):
+        r = []
+        r.append(gettext('%(parliament_id)dth parliament',
+                         parliament_id=self.parliament_id))
+        if self.session_id:
+            r.append(gettext('%(session_id)dth session',
+                             session_id=self.session_id))
+        if self.sitting_id:
+            r.append(gettext('%(sitting_id)dth sitting',
+                             sitting_id=self.sitting_id))
+        r.append(self.committee)
+        return ' '.join(r)
 
     @hybrid_property
     def year(self):

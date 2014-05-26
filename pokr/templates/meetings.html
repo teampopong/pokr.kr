@@ -22,13 +22,27 @@
     <div class="submain-nav">
         <h2 class="submain-title">{{ gettext('meeting') }}</h2>
     </div>
-</div>
-<div class="calendar">
     <p id="year-num" class="year-num">
         <a href="?year={{year - 1}}">&lt;</a>
         <span>{{year}}</span>
         <a href="?year={{year + 1}}">&gt;</a>
     </p>
-    {{ widgets.year(year, meetings)|safe }}
+</div>
+{% if date %}
+<div style="padding: 0 40px;">
+    <h3 class="text-center">{{ date }}</h3>
+    <h4>{{ gettext('Meetings of the date') }}</h4>
+    {% if meetings_of_the_day %}
+    <ul>
+        {% for meeting in meetings_of_the_day %}
+        <li><a href="{{ url_for('meeting', id=meeting.id) }}">{{ meeting.title }}</a>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<hr>
+{% endif %}
+<div class="calendar">
+    {{ widgets.year(year, meetings_of_the_year)|safe }}
 </div>
 {% endblock %}
