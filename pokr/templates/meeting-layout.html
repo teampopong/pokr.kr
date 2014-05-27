@@ -21,6 +21,8 @@
             {% if meeting.sitting_id %}{{ meeting.sitting_id }}{{ gettext('th sitting') }}{% endif %}
         </div>
         <h2>{{ meeting.committee }}</h2>
+        {% block extra_subtitle %}
+        {% endblock %}
         {% include 'social.html' %}
     </div>
     <div id="meeting-sections" class="sections">

@@ -5,6 +5,20 @@
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 {% endblock %}
+
+{% block extra_subtitle %}
+{# FIXME #}
+{% with date = meeting.date %}
+<div style="margin-top: -5px;">
+{% if locale=='ko' %}
+{{ date.year }}년 {{ date.month }}월 {{ date.day }}일
+{% else %}
+{{ date.strftime("%B %d, %Y") }}
+{% endif %}
+</div>
+{% endwith %}
+{% endblock %}
+
 {% block meeting_content %}
 
 <div class="dialogue">
