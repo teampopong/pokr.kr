@@ -5,67 +5,6 @@
 @import "search";
 @import "entity";
 
-@button_height: 100px;
-@button_width: 169px;
-
-#class-list {
-    text-align: center;
-    a {
-        .inline-block;
-    }
-}
-.class-item,
-.class-item:hover {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    .bgsize;
-    .inline-block;
-    margin: 0 10px;
-    transition: .3s linear;
-    width: @button_width;
-    height: @button_height;
-}
-
-.logo(@name, @locale) {
-    background-image: url("../images/default_@{name}_@{locale}_empty.png");
-    &:hover {
-        background-image: url("../images/default_@{name}_@{locale}_grey.png");
-    }
-}
-
-#class-parties {
-    &.ko {
-        .logo("party", "ko");
-    }
-    &.en {
-        .logo("party", "en");
-    }
-}
-#class-bills {
-    &.ko {
-        .logo("bill", "ko");
-    }
-    &.en {
-        .logo("bill", "en");
-    }
-}
-#class-people {
-    &.ko {
-        .logo("person", "ko");
-    }
-    &.en {
-        .logo("person", "en");
-    }
-}
-#class-regions {
-    &.ko {
-        .logo("region", "ko");
-    }
-    &.en {
-        .logo("region", "en");
-    }
-}
-
 .breadcrumb {
     text-transform: capitalize;
 }

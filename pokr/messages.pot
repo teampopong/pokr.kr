@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-25 02:49+0900\n"
+"POT-Creation-Date: 2014-05-27 15:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,10 +190,35 @@ msgstr ""
 msgid "Get realtime legislative information now"
 msgstr ""
 
-#: pokr/templates/main.html:49
+#: pokr/templates/main.html:40 pokr/templates/people.html:5
+#: pokr/templates/search-results.html:43
+msgid "People"
+msgstr ""
+
+#: pokr/templates/main.html:41
+msgid "Bills"
+msgstr ""
+
+#: pokr/templates/main.html:42
+msgid "Meetings"
+msgstr ""
+
+#: pokr/templates/main.html:43 pokr/templates/parties.html:5
+msgid "Parties"
+msgstr ""
+
+#: pokr/templates/main.html:44 pokr/templates/regions.html:5
+msgid "Regions"
+msgstr ""
+
+#: pokr/templates/main.html:50
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
+msgstr ""
+
+#: pokr/templates/meeting-dialogue.html:47
+msgid "link"
 msgstr ""
 
 #: pokr/templates/meeting-layout.html:5 pokr/templates/meeting-layout.html:19
@@ -228,7 +253,7 @@ msgstr ""
 msgid "meetings"
 msgstr ""
 
-#: pokr/templates/meetings.html:23 pokr/views/meeting.py:18
+#: pokr/templates/meetings.html:23 pokr/views/meeting.py:19
 msgid "meeting"
 msgstr ""
 
@@ -306,10 +331,6 @@ msgstr ""
 msgid "This is not the web page you are looking for."
 msgstr ""
 
-#: pokr/templates/parties.html:5
-msgid "Parties"
-msgstr ""
-
 #: pokr/templates/parties.html:9
 msgid "parties"
 msgstr ""
@@ -348,10 +369,6 @@ msgstr ""
 
 #: pokr/templates/party.html:54 pokr/templates/people.html:9
 msgid "people"
-msgstr ""
-
-#: pokr/templates/people.html:5 pokr/templates/search-results.html:43
-msgid "People"
 msgstr ""
 
 #: pokr/templates/person-elections.html:4
@@ -485,10 +502,6 @@ msgstr ""
 
 #: pokr/templates/region.html:77 pokr/templates/region.html:124
 msgid "Residents"
-msgstr ""
-
-#: pokr/templates/regions.html:5
-msgid "Regions"
 msgstr ""
 
 #: pokr/templates/regions.html:9

@@ -37,10 +37,11 @@ depends=['**/*.less'], 'less/main.less' %}
     {% endif %}
 </div>
 <div id="class-list">
-    <div><a href="{{ url_for('person_main') }}"><div id="class-people" class="class-item {{ locale }}"></div></a></div>
-    <div><a href="{{ url_for('bill_main') }}"><div id="class-bills" class="class-item {{ locale }}"></div></a></div>
-    <div><a href="{{ url_for('party_main') }}"><div id="class-parties" class="class-item {{ locale }}"></div></a></div>
-    <div><a href="{{ url_for('region_main') }}"><div id="class-regions" class="class-item {{ locale }}"></div></a></div>
+    <a class="btn-submain" href="{{ url_for('person_main') }}"><img src="{{ url_for('static', filename='images/button_person.png') }}"><div class="btn-text">{{ gettext('People') }}</div></a>
+    <a class="btn-submain" href="{{ url_for('bill_main') }}"><img src="{{ url_for('static', filename='images/button_bill.png') }}"><div class="btn-text">{{ gettext('Bills') }}</div></a>
+    <a class="btn-submain" href="{{ url_for('meeting_main') }}"><img src="{{ url_for('static', filename='images/button_meeting.png') }}"><div class="btn-text">{{ gettext('Meetings') }}</div></a>
+    <a class="btn-submain" href="{{ url_for('party_main') }}"><img src="{{ url_for('static', filename='images/button_party.png') }}"><div class="btn-text">{{ gettext('Parties') }}</div></a>
+    <a class="btn-submain" href="{{ url_for('region_main') }}"><img src="{{ url_for('static', filename='images/button_region.png') }}"><div class="btn-text">{{ gettext('Regions') }}</div></a>
 </div>
 
 {% if not mobile and locale=="ko"%}

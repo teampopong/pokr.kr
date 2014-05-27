@@ -1,8 +1,49 @@
 @import "includes";
 @import "animation";
+@import "fonts";
 
+@button_height: 100px;
+@button_width: 169px;
 @facebook_color: #266fe7;
 @twitter_color: #4099ff;
+
+#class-list {
+    text-align: center;
+}
+
+a.btn-submain {
+    .inline-block;
+    position: relative;
+    margin: 0 10px;
+    width: @button_width;
+    height: @button_height;
+    font-size: 14pt;
+    font-family: "Nanum Gothic";
+    font-weight: 400;
+    color: #555;
+
+    &:hover {
+        font-weight: 700;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @button_width;
+        height: @button_height;
+    }
+
+    .btn-text {
+        position: absolute;
+        top: 37px;
+        left: 0;
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+        .border-box;
+    }
+}
 
 #hero {
     background-color: #cfdff0;
