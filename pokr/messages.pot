@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-27 15:47+0900\n"
+"POT-Creation-Date: 2014-05-27 21:51+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "%(sitting_id)dth sitting"
 msgstr ""
 
-#: pokr/templates/bill-layout.html:31
+#: pokr/templates/bill-layout.html:26
 #, python-format
 msgid "bill no. %(bill_id)s"
 msgstr ""
@@ -107,13 +107,13 @@ msgstr ""
 msgid "bills"
 msgstr ""
 
-#: pokr/templates/bills.html:27 pokr/templates/parties.html:28
-#: pokr/templates/people.html:27 pokr/templates/region.html:50
+#: pokr/templates/bills.html:29 pokr/templates/parties.html:30
+#: pokr/templates/people.html:29 pokr/templates/region.html:50
 #: pokr/templates/region.html:95
 msgid "th"
 msgstr ""
 
-#: pokr/templates/bills.html:55 pokr/templates/macros.html:88
+#: pokr/templates/bills.html:57 pokr/templates/macros.html:88
 #: pokr/templates/mypage.html:88 pokr/templates/mypage.html:113
 #: pokr/templates/person-legislations.html:29
 #: pokr/templates/person-legislations.html:73 pokr/templates/person.html:123
@@ -121,7 +121,7 @@ msgstr ""
 msgid "more"
 msgstr ""
 
-#: pokr/templates/bills.html:56 pokr/templates/district-feeds.html:19
+#: pokr/templates/bills.html:58 pokr/templates/district-feeds.html:19
 msgid "No summary"
 msgstr ""
 
@@ -256,11 +256,15 @@ msgstr ""
 msgid "dialogue"
 msgstr ""
 
-#: pokr/templates/meeting.html:13
-msgid "view"
+#: pokr/templates/meeting.html:14
+msgid "view HTML"
 msgstr ""
 
-#: pokr/templates/meeting.html:18
+#: pokr/templates/meeting.html:15
+msgid "view PDF"
+msgstr ""
+
+#: pokr/templates/meeting.html:21
 msgid "issues"
 msgstr ""
 
@@ -270,10 +274,6 @@ msgstr ""
 
 #: pokr/templates/meetings.html:23 pokr/views/meeting.py:25
 msgid "meeting"
-msgstr ""
-
-#: pokr/templates/meetings.html:37
-msgid "Meetings of the date"
 msgstr ""
 
 #: pokr/templates/mypage.html:4 pokr/templates/mypage.html:14

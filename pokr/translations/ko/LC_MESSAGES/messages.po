@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-27 15:47+0900\n"
+"POT-Creation-Date: 2014-05-27 21:51+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "%(session_id)d회"
 msgid "%(sitting_id)dth sitting"
 msgstr "%(sitting_id)d차"
 
-#: pokr/templates/bill-layout.html:31
+#: pokr/templates/bill-layout.html:26
 #, python-format
 msgid "bill no. %(bill_id)s"
 msgstr "의안 제%(bill_id)s호"
@@ -107,13 +107,13 @@ msgstr "이 의안의 요약이 아직 업로드되지 않았습니다."
 msgid "bills"
 msgstr "의안"
 
-#: pokr/templates/bills.html:27 pokr/templates/parties.html:28
-#: pokr/templates/people.html:27 pokr/templates/region.html:50
+#: pokr/templates/bills.html:29 pokr/templates/parties.html:30
+#: pokr/templates/people.html:29 pokr/templates/region.html:50
 #: pokr/templates/region.html:95
 msgid "th"
 msgstr "대"
 
-#: pokr/templates/bills.html:55 pokr/templates/macros.html:88
+#: pokr/templates/bills.html:57 pokr/templates/macros.html:88
 #: pokr/templates/mypage.html:88 pokr/templates/mypage.html:113
 #: pokr/templates/person-legislations.html:29
 #: pokr/templates/person-legislations.html:73 pokr/templates/person.html:123
@@ -121,7 +121,7 @@ msgstr "대"
 msgid "more"
 msgstr "더보기"
 
-#: pokr/templates/bills.html:56 pokr/templates/district-feeds.html:19
+#: pokr/templates/bills.html:58 pokr/templates/district-feeds.html:19
 msgid "No summary"
 msgstr "요약 준비 중"
 
@@ -256,11 +256,15 @@ msgstr "날짜"
 msgid "dialogue"
 msgstr "회의록"
 
-#: pokr/templates/meeting.html:13
-msgid "view"
-msgstr "내용보기"
+#: pokr/templates/meeting.html:14
+msgid "view HTML"
+msgstr "웹으로 보기"
 
-#: pokr/templates/meeting.html:18
+#: pokr/templates/meeting.html:15
+msgid "view PDF"
+msgstr "파일로 보기"
+
+#: pokr/templates/meeting.html:21
 msgid "issues"
 msgstr "안건"
 
@@ -271,10 +275,6 @@ msgstr "회의"
 #: pokr/templates/meetings.html:23 pokr/views/meeting.py:25
 msgid "meeting"
 msgstr "회의"
-
-#: pokr/templates/meetings.html:37
-msgid "Meetings of the date"
-msgstr "이날의 회의"
 
 #: pokr/templates/mypage.html:4 pokr/templates/mypage.html:14
 msgid "Mypage"
@@ -676,4 +676,7 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
+
+#~ msgid "view as web page"
+#~ msgstr "웹으로 보기"
 

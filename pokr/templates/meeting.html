@@ -10,7 +10,10 @@
         </tr>
         <tr>
             <th>{{ gettext('dialogue') }}</th>
-            <td><a href="{{ request.path }}dialog">{{ gettext('view') }}</a></td>
+            <td>
+                <a href="{{ request.path }}dialog">{{ gettext('view HTML') }}</a>,
+                <a href="{{ meeting.pdf_url }}">{{ gettext('view PDF') }}</a>
+            </td>
         </tr>
     </tbody>
 </table>
