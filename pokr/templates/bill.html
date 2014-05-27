@@ -153,7 +153,9 @@
         </tr>
     </table>
 </div>
+{% if not mobile %}
 {% include 'includes/adsense-728x90.html' %}
+{% endif %}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});
