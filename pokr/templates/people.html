@@ -18,7 +18,9 @@
 
 {% block content %}
 <div id="search-tabs">
+    {% if not mobile %}
     <img class="submain-img" src="{{ url_for('static', filename='images/people_image.png') }}">
+    {% endif %}
     <div class="submain-nav">
         <img class="submain-title" src="{{ url_for('static', filename='images/people_text_%s.png'%locale) }}"><br>
         <ul class="nav nav-tiles">

@@ -71,6 +71,7 @@ def register(app):
         return render_template('meeting.html', meeting=meeting)
 
     @app.route('/meeting/<id>/dialog', methods=['GET'])
+    @breadcrumb(app, 'meeting')
     def meeting_dialogue(id):
         glossary_js = generate_glossary_js()
         try:
