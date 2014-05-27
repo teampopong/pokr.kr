@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-27 21:51+0900\n"
+"POT-Creation-Date: 2014-05-27 23:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -257,11 +257,11 @@ msgid "dialogue"
 msgstr ""
 
 #: pokr/templates/meeting.html:14
-msgid "view HTML"
+msgid "view web"
 msgstr ""
 
 #: pokr/templates/meeting.html:15
-msgid "view PDF"
+msgid "view file"
 msgstr ""
 
 #: pokr/templates/meeting.html:21

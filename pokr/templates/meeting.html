@@ -11,8 +11,10 @@
         <tr>
             <th>{{ gettext('dialogue') }}</th>
             <td>
-                <a href="{{ request.path }}dialog">{{ gettext('view HTML') }}</a>,
-                <a href="{{ meeting.pdf_url }}">{{ gettext('view PDF') }}</a>
+                <ul>
+                    <li><a href="{{ request.path }}dialog">{{ gettext('view web') }} (HTML)</a></li>
+                    <li><a href="{{ meeting.pdf_url }}">{{ gettext('view file') }} (PDF)</a></li>
+                </ul>
             </td>
         </tr>
     </tbody>
