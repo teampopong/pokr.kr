@@ -52,6 +52,7 @@ def register(app):
             return render_template('not-found.html'), 404
 
     @app.route('/bill/<id>/text', methods=['GET'])
+    @breadcrumb(app, 'bill')
     def bill_text(id):
         try:
             bill = Bill.query.filter_by(id=id).one()
