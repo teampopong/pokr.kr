@@ -3,8 +3,8 @@
 
 {% block title %}
 {{ meeting.parliament_id }}{{ gettext('th parliament') }}
-{{ meeting.session_id }}{{ gettext('th session') }}
-{{ meeting.sitting_id }}{{ gettext('th sitting') }}
+{% if meeting.session_id %}{{ meeting.session_id }}{{ gettext('th session') }}{% endif %}
+{% if meeting.sitting_id %}{{ meeting.sitting_id }}{{ gettext('th sitting') }}{% endif %}
 {{ meeting.committee }} - {{ super() }}
 {% endblock %}
 
@@ -17,8 +17,8 @@
     <div id="meeting-header" class="text-center entity-header grad">
         <div class="entity-info">
             {{ meeting.parliament_id }}{{ gettext('th parliament') }}
-            {{ meeting.session_id }}{{ gettext('th session') }}
-            {{ meeting.sitting_id }}{{ gettext('th sitting') }}
+            {% if meeting.session_id %}{{ meeting.session_id }}{{ gettext('th session') }}{% endif %}
+            {% if meeting.sitting_id %}{{ meeting.sitting_id }}{{ gettext('th sitting') }}{% endif %}
         </div>
         <h2>{{ meeting.committee }}</h2>
         {% include 'social.html' %}

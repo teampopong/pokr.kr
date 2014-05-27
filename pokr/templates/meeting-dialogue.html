@@ -29,7 +29,7 @@
                 {{ widgets.card(row.person_id, tiny=True)|safe }}
             {% else %}
                 <div class="card card-tiny" style="border-color: #{{ guids(row.person)[1:7] }}; background-color: #{{ guids(row.person)[1:7] }}">
-                    <img class="person-img " src="{{ url_for('static', filename='images/default_profile.jpg') }}">
+                    <img class="person-img " src="{{ url_for('static', filename='images/default_profile.jpg') }}" style="opacity: 0.4">
                 </div>
             {% endif %}
             <div class="person-name">{{ row.person }}</div>

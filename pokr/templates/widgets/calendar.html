@@ -1,1 +1,26 @@
-{{ calendar | safe }}
+{% for month in range(1, 13) %}
+<div class="month-num">
+    <h4>{{ month }}</h4>
+    <table class="month">
+        {% for week in calendar.monthcalendar(year, month) %}
+        <tr>
+            {% for day in week %}
+            {% if day == 0 %}
+            <td></td>
+            {% else %}
+            <td class="{{ classes_of_a_date(year, month, day)|join(' ') }}">
+                {% with events_of_the_day = events.get(date(year, month, day)) %}
+                {% if events_of_the_day %}
+                    <a href="{{ events_of_the_day[0]['url'] }}">{{ day }}</a>
+                {% else %}
+                    {{ day }}
+                {% endif %}
+                {% endwith %}
+            </td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endfor %}

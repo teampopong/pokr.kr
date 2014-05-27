@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-27 15:41+0900\n"
+"POT-Creation-Date: 2014-05-27 15:47+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -16,6 +16,21 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
+
+#: pokr/models/meeting.py:45
+#, python-format
+msgid "%(parliament_id)dth parliament"
+msgstr "%(parliament_id)d대"
+
+#: pokr/models/meeting.py:48
+#, python-format
+msgid "%(session_id)dth session"
+msgstr "%(session_id)d회"
+
+#: pokr/models/meeting.py:51
+#, python-format
+msgid "%(sitting_id)dth sitting"
+msgstr "%(sitting_id)d차"
 
 #: pokr/templates/bill-layout.html:31
 #, python-format
@@ -253,9 +268,13 @@ msgstr "안건"
 msgid "meetings"
 msgstr "회의"
 
-#: pokr/templates/meetings.html:23 pokr/views/meeting.py:19
+#: pokr/templates/meetings.html:23 pokr/views/meeting.py:25
 msgid "meeting"
 msgstr "회의"
+
+#: pokr/templates/meetings.html:37
+msgid "Meetings of the date"
+msgstr "이날의 회의"
 
 #: pokr/templates/mypage.html:4 pokr/templates/mypage.html:14
 msgid "Mypage"
