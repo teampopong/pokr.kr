@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-27 23:44+0900\n"
+"POT-Creation-Date: 2014-05-28 20:45+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -232,7 +232,7 @@ msgid ""
 "compliments)</small>"
 msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
 
-#: pokr/templates/meeting-dialogue.html:47
+#: pokr/templates/meeting-dialogue.html:61
 msgid "link"
 msgstr "링크"
 
@@ -256,17 +256,21 @@ msgstr "날짜"
 msgid "dialogue"
 msgstr "회의록"
 
-#: pokr/templates/meeting.html:14
+#: pokr/templates/meeting.html:15
 msgid "view web"
 msgstr "웹으로 보기"
 
-#: pokr/templates/meeting.html:15
+#: pokr/templates/meeting.html:16
 msgid "view file"
 msgstr "파일로 보기"
 
-#: pokr/templates/meeting.html:21
+#: pokr/templates/meeting.html:23
 msgid "issues"
 msgstr "안건"
+
+#: pokr/templates/meeting.html:30
+msgid "attendees"
+msgstr "참석자"
 
 #: pokr/templates/meetings.html:5 pokr/templates/meetings.html:9
 msgid "meetings"
@@ -676,7 +680,4 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
-
-#~ msgid "view HTML"
-#~ msgstr "웹으로 보기"
 

@@ -26,4 +26,9 @@
     <li>{{ issue.rsplit('(', 1)[0] }}</li>
     {% endfor %}
 </ul>
+
+<h3>{{ gettext('attendees') }}</h3>
+{% for attendee in meeting.attendees %}
+{{ widgets.card(attendee.id)|safe }}
+{% endfor %}
 {% endblock %}

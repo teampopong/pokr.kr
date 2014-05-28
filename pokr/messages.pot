@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-27 23:44+0900\n"
+"POT-Creation-Date: 2014-05-28 20:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,7 +232,7 @@ msgid ""
 "compliments)</small>"
 msgstr ""
 
-#: pokr/templates/meeting-dialogue.html:47
+#: pokr/templates/meeting-dialogue.html:61
 msgid "link"
 msgstr ""
 
@@ -256,16 +256,20 @@ msgstr ""
 msgid "dialogue"
 msgstr ""
 
-#: pokr/templates/meeting.html:14
+#: pokr/templates/meeting.html:15
 msgid "view web"
 msgstr ""
 
-#: pokr/templates/meeting.html:15
+#: pokr/templates/meeting.html:16
 msgid "view file"
 msgstr ""
 
-#: pokr/templates/meeting.html:21
+#: pokr/templates/meeting.html:23
 msgid "issues"
+msgstr ""
+
+#: pokr/templates/meeting.html:30
+msgid "attendees"
 msgstr ""
 
 #: pokr/templates/meetings.html:5 pokr/templates/meetings.html:9
