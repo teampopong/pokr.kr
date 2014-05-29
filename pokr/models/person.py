@@ -60,6 +60,9 @@ class Person(Base, ApiModel):
     withdrawed_bills = relationship('Bill',
             secondary=bill_withdrawal,
             backref='withdrawers')
+    statements = relationship('Statement',
+            backref='person',
+            lazy='dynamic')
 
     @hybrid_property
     def birthday_year(self):

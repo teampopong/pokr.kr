@@ -150,6 +150,7 @@
             {% endif %}
         </div>
         {% if has_bills %}{% include 'person-legislations.html' with context %}{% endif %}
+        {% include 'person-statements.html' with context %}
         {% include 'person-elections.html' with context %}
         {% if not mobile %}
         <div id="section-trends" class="section">
