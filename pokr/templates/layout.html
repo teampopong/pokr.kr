@@ -7,7 +7,7 @@
         <meta property="og:image" content="{{ url_for('static', filename="images/logo-pokr-256x256.png", _external=True) }}"/>
         <meta property="og:title" content="Pokr - Politics in Korea" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://pokr.kr/" />
+        <meta property="og:url" content="{{ request.url }}" />
         <meta property="fb:admins" content="1347665216" />
 
         {% for lang, url in locale_links.items() %}
