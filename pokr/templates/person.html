@@ -10,7 +10,7 @@
 {% block meta_headers %}
 <meta property="og:title" content="{{ person.name|translit(type='name') }} - 대한민국 정치의 모든 것" />
 <meta property="og:image" content="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}" />
-<meta property="og:description" content="{% if person.birthday %}{{ person.birthday[:4] }}년생. {% endif %}{% if person.cur_party.name %}{{ person.cur_party.name|translit(type='party') }} 소속.{% endif %}" />
+<meta property="og:description" content="{% if person.birthday %}{{ person.birthday[:4] }}년생. {% endif %}{% if person.cur_party.name %}{{ person.cur_party.name|translit(type='party') }}.{% endif %}" />
 {% endblock %}
 
 {% block breadcrumb_current %}
