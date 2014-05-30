@@ -46,7 +46,9 @@ def update_people(fd, date):
                 continue
             party_id = insert_party(session, record['party'])
             insert_party_affiliation(session, person_id, party_id, date)
-            backup_person(session, record, person_id, date)
+            # XXX: temporarily disabled
+            # TODO: check whether the data changed
+            # backup_person(session, record, person_id, date)
 
 
 def preprocess_record(record):
