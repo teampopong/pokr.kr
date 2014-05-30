@@ -19,6 +19,7 @@ from person import *
 from pledge import *
 from region import *
 from school import *
+from snapshot import *
 from statement import *
 from user import *
 from query_log import *
