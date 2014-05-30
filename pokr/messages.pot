@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-28 20:45+0900\n"
+"POT-Creation-Date: 2014-05-29 20:22+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,24 +58,24 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: pokr/templates/bill.html:66 pokr/templates/person.html:134
+#: pokr/templates/bill.html:66
+msgid "related keywords"
+msgstr ""
+
+#: pokr/templates/bill.html:72 pokr/templates/person.html:134
 msgid "external links"
 msgstr ""
 
-#: pokr/templates/bill.html:70
+#: pokr/templates/bill.html:76
 msgid "see official page"
 msgstr ""
 
-#: pokr/templates/bill.html:72
+#: pokr/templates/bill.html:78
 msgid "see original pdf"
 msgstr ""
 
-#: pokr/templates/bill.html:73
-msgid "see original text"
-msgstr ""
-
 #: pokr/templates/bill.html:79
-msgid "related keywords"
+msgid "see original text"
 msgstr ""
 
 #: pokr/templates/bill.html:87
@@ -447,6 +447,26 @@ msgstr ""
 msgid "role"
 msgstr ""
 
+#: pokr/templates/person-statements.html:3
+msgid "Statements"
+msgstr ""
+
+#: pokr/templates/person-statements.html:6
+msgid "Speaker"
+msgstr ""
+
+#: pokr/templates/person-statements.html:7
+msgid "Statement"
+msgstr ""
+
+#: pokr/templates/person-statements.html:8
+msgid "Date"
+msgstr ""
+
+#: pokr/templates/person-statements.html:24
+msgid "'more' is comming soon"
+msgstr ""
+
 #: pokr/templates/person.html:7
 #, python-format
 msgid "Member of %(last_elected_no)dth National Assembly,"
@@ -490,11 +510,11 @@ msgstr ""
 msgid "Wikipedia"
 msgstr ""
 
-#: pokr/templates/person.html:157
+#: pokr/templates/person.html:158
 msgid "trends"
 msgstr ""
 
-#: pokr/templates/person.html:159
+#: pokr/templates/person.html:160
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr ""

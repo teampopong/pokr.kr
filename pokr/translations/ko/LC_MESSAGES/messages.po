@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-28 20:45+0900\n"
+"POT-Creation-Date: 2014-05-29 20:22+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -58,25 +58,25 @@ msgstr "의결일자"
 msgid "status"
 msgstr "상태"
 
-#: pokr/templates/bill.html:66 pokr/templates/person.html:134
+#: pokr/templates/bill.html:66
+msgid "related keywords"
+msgstr "연관 키워드"
+
+#: pokr/templates/bill.html:72 pokr/templates/person.html:134
 msgid "external links"
 msgstr "외부링크"
 
-#: pokr/templates/bill.html:70
+#: pokr/templates/bill.html:76
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: pokr/templates/bill.html:72
+#: pokr/templates/bill.html:78
 msgid "see original pdf"
 msgstr "원문 PDF 보기"
 
-#: pokr/templates/bill.html:73
+#: pokr/templates/bill.html:79
 msgid "see original text"
 msgstr "원문 텍스트 보기"
-
-#: pokr/templates/bill.html:79
-msgid "related keywords"
-msgstr "연관 키워드"
 
 #: pokr/templates/bill.html:87
 msgid "sponsors"
@@ -447,6 +447,26 @@ msgstr "제목"
 msgid "role"
 msgstr "역할"
 
+#: pokr/templates/person-statements.html:3
+msgid "Statements"
+msgstr "발언"
+
+#: pokr/templates/person-statements.html:6
+msgid "Speaker"
+msgstr "발언자"
+
+#: pokr/templates/person-statements.html:7
+msgid "Statement"
+msgstr "발언"
+
+#: pokr/templates/person-statements.html:8
+msgid "Date"
+msgstr "날짜"
+
+#: pokr/templates/person-statements.html:24
+msgid "'more' is comming soon"
+msgstr "더보기는 준비중입니다"
+
 #: pokr/templates/person.html:7
 #, python-format
 msgid "Member of %(last_elected_no)dth National Assembly,"
@@ -490,11 +510,11 @@ msgstr "키워드"
 msgid "Wikipedia"
 msgstr "위키피디아"
 
-#: pokr/templates/person.html:157
+#: pokr/templates/person.html:158
 msgid "trends"
 msgstr "검색추이"
 
-#: pokr/templates/person.html:159
+#: pokr/templates/person.html:160
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."

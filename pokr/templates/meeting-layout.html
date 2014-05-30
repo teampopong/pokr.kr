@@ -8,11 +8,6 @@
 {{ meeting.committee }} - {{ super() }}
 {% endblock %}
 
-{% block meta_headers %}
-<meta property="og:title" content="{{ meeting.parliament_id }}{{ gettext('th parliament') }} {% if meeting.session_id %}{{ meeting.session_id }}{{ gettext('th session') }}{% endif %} {% if meeting.sitting_id %}{{ meeting.sitting_id }}{{ gettext('th sitting') }}{% endif %} {{ meeting.committee }} - 대한민국 정치의 모든 것" />
-<meta property="og:description" content="{% for issue in meeting.issues %}{{ issue.rsplit('(', 1)[0] }}{% if not loop.last %} / {% endif %}{% endfor %}" />
-{% endblock %}
-
 {% block breadcrumb_current %}
 {{ meeting.id }}
 {% endblock %}

@@ -7,12 +7,6 @@
 {{person.name|translit(type='name')}}{% if person.cur_party.name %} ({{person.cur_party.name|translit(type='party')}}){% endif %}{% if person.last_elected_no %}, {{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} - {{super()}}
 {% endblock %}
 
-{% block meta_headers %}
-<meta property="og:title" content="{{ person.name|translit(type='name') }} - 대한민국 정치의 모든 것" />
-<meta property="og:image" content="{{ person.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}" />
-<meta property="og:description" content="{% if person.birthday %}{{ person.birthday[:4] }}년생. {% endif %}{% if person.cur_party.name %}{{ person.cur_party.name|translit(type='party') }}.{% endif %}" />
-{% endblock %}
-
 {% block breadcrumb_current %}
 {{ person.name|translit(type='name') }}
 {% endblock %}
@@ -156,6 +150,7 @@
             {% endif %}
         </div>
         {% if has_bills %}{% include 'person-legislations.html' with context %}{% endif %}
+        {% include 'person-statements.html' with context %}
         {% include 'person-elections.html' with context %}
         {% if not mobile %}
         <div id="section-trends" class="section">
