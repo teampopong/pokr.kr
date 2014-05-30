@@ -3,20 +3,18 @@
     <h3 id="statements">{{gettext('Statements')}}</h3>
     <table class="table table-condensed">
         <tr>
-            <th>{{ gettext('Speaker') }}</th>
-            <th>{{ gettext('Statement') }}</th>
             <th class="statement-date">{{ gettext('Date') }}</th>
+            <th>{{ gettext('Statement') }}</th>
         </tr>
         {% with statements = person.statements[:NUM_STATEMENTS_SHOWN + 1] %}
         {% for statement in statements[:NUM_STATEMENTS_SHOWN] %}
         <tr>
-            <td class="speaker-name">{{ widgets.card(person, tiny=True)|safe }}<br>{{ person.name }}</td>
+            <td><a href="{{ statement.url }}">{{ statement.date }}</a></td>
             <td>
             {% for sentence in statement.content.split('.') %}
             {{ sentence }}{% if not loop.last %}.{% endif %}<br>
             {% endfor %}
             </td>
-            <td><a href="{{ statement.url }}">{{ statement.date }}</a></td>
         </tr>
         {% endfor %}
         {% if statements|length > NUM_STATEMENTS_SHOWN %}
