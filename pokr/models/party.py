@@ -21,22 +21,6 @@ class Party(Base, ApiModel):
     order = Column(Integer)
     size = Column(Integer)
 
-    def __init__(self, name, color=None):
-        self.name = name
-        if color:
-            self.color = color
-
-    @property
-    def members(self):
-        if 'Person' not in dir():
-            from .person import Person
-        return Person.query.join(Candidacy,
-                                 Person.id == Candidacy.person_id)\
-                           .join(Party,
-                                 Party.id == Candidacy.party_id)\
-                           .filter(Party.id == self.id)\
-                           .group_by(Person.id)
-
     def _to_dict_light(self):
         d = self._columns_to_dict()
         del d['order']

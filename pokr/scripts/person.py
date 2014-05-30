@@ -6,12 +6,11 @@ from datetime import date
 import json
 import logging
 
-from popong_models import Base
 from popong_data_utils import connect_db, guess_person
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 
 from pokr.database import db_session, transaction
-from pokr.models import Person, Snapshot
+from pokr.models import Party, PartyAffiliation, Person, Snapshot
 from utils.command import Command
 
 
@@ -43,11 +42,17 @@ def update_people(fd, date):
         for record in records:
             preprocess_record(record)
             person_id = update_person(session, record)
+            if not person_id:
+                continue
+            party_id = insert_party(session, record['party'])
+            insert_party_affiliation(session, person_id, party_id, date)
             backup_person(session, record, person_id, date)
+
 
 def preprocess_record(record):
     record['birthday'] = record.pop('birth').replace('-', '')
     record['image'] = record.pop('photo')
+
 
 def update_person(session, record):
     name = record['name_kr']
@@ -69,9 +74,21 @@ def update_person(session, record):
         if key != 'id' and hasattr(person, key):
             setattr(person, key, val)
 
+    return person.id
 
-def extract_person(headers, record):
-    raise NotImplementedError()
+
+def insert_party(session, name):
+    party = session.query(Party).filter_by(name=name).first()
+    if not party:
+        party = Party(name=name)
+        session.add(party)
+        session.flush()
+    return party.id
+
+
+def insert_party_affiliation(session, person_id, party_id, date):
+    party_affiliation = PartyAffiliation(person_id=person_id, party_id=party_id, date=date)
+    session.add(party_affiliation)
 
 
 def backup_person(session, record, person_id, date):

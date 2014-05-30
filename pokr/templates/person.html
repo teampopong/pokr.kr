@@ -53,12 +53,9 @@
                         <th>{{ gettext("party") }}</th>
                         <td>
                             <ul class="unstyled nomargin">
+                                <li><a href="{{ url_for('party', id=person.cur_party.id) }}">{{ person.cur_party.name|translit(type='party') }}</a></li>
                             {% for party, min_assembly_id, max_assembly_id in party_history %}
-                                {% if loop.first %}
-                                <li>
-                                {% else %}
                                 <li class="extra"><span class="search-count">{{ gettext('%(assembly_id)dth', assembly_id=min_assembly_id) }}{% if min_assembly_id != max_assembly_id %} - {{ gettext('%(assembly_id)dth', assembly_id=max_assembly_id) }}{% endif %}</span>
-                                {% endif %}
                                     <a href="{{ url_for('party', id=party.id) }}">{{ party.name|translit(type='party') }}</a>
                                 </li>
                             {% endfor %}
