@@ -42,6 +42,7 @@ class Person(Base, ApiModel):
     address_id = deferred(Column(ARRAY(String(16))), group='profile')
 
     image = Column(String(1024))
+    email = deferred(Column(Text), group='extra')
     twitter = deferred(Column(String(20)), group='extra')
     facebook = deferred(Column(String(80)), group='extra')
     blog = deferred(Column(String(255)), group='extra')
