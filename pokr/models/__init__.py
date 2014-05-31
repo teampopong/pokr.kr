@@ -15,6 +15,7 @@ from keyword import *
 from meeting import *
 from meeting_attendee import *
 from party import *
+from party_affiliation import *
 from person import *
 from pledge import *
 from region import *

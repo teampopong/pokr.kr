@@ -4,11 +4,7 @@ from collections import Counter, defaultdict, OrderedDict
 
 from .base import Controller
 from pokr.database import db_session
-from pokr.models.bill import Bill
-from pokr.models.candidacy import Candidacy
-from pokr.models.cosponsorship import cosponsorship
-from pokr.models.person import Person
-from pokr.models.pledge import Pledge
+from pokr.models import Bill, Candidacy, cosponsorship, Party, Person, Pledge
 
 
 class PersonController(Controller):
@@ -64,7 +60,12 @@ class PersonController(Controller):
 
     @classmethod
     def party_history(cls, person):
-        parties_and_assembly_ids = person.parties.add_columns(Candidacy.type, Candidacy.assembly_id)
+        parties_and_assembly_ids = Party.query\
+                                        .join(Candidacy)\
+                                        .filter(Candidacy.person_id == person.id)\
+                                        .join(Person)\
+                                        .order_by(Candidacy.election_date.desc())\
+                                        .add_columns(Candidacy.type, Candidacy.assembly_id)
         result = []
         prev_party_id = None
         for party, election_type, assembly_id in parties_and_assembly_ids:
