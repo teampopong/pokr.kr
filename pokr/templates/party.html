@@ -21,7 +21,7 @@
         {% else %}
         <div class="instance-card">
             {% if party.logo %}
-            <img class="instance-name" src="{{ party.logo }}">
+            <img class="instance-name" src="{{ party.logo }}" width="120px">
             {% else %}
             <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
             {% endif %}
