@@ -66,6 +66,10 @@ def insert_meeting(region_id, obj):
              meeting_id=meeting_id or '',
              md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16)))
 
+    if db_session.query(Meeting.id).filter_by(id=id).first():
+        logging.info('Skip {id}'.format(id=id))
+        return
+
     meeting = Meeting(
         id=id,
         region_id=region_id,
