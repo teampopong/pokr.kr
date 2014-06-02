@@ -5,6 +5,10 @@
 {{ party.name|translit(type='party') }} - {{ super() }}
 {% endblock %}
 
+{% block meta_headers %}
+<meta property="og:title" content="{{ party.name|translit(type='party') }}" />
+{% endblock %}
+
 {% block breadcrumb_current %}
 {{ party.name|translit(type='party') }}
 {% endblock %}
@@ -16,7 +20,9 @@
             <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
         {% else %}
         <div class="instance-card">
-            {% if not party.logo %}
+            {% if party.logo %}
+            <img class="instance-name" src="{{ party.logo }}" width="120px">
+            {% else %}
             <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
             {% endif %}
             </div>

@@ -15,10 +15,12 @@ from keyword import *
 from meeting import *
 from meeting_attendee import *
 from party import *
+from party_affiliation import *
 from person import *
 from pledge import *
 from region import *
 from school import *
+from snapshot import *
 from statement import *
 from user import *
 from query_log import *

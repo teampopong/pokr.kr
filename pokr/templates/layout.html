@@ -4,9 +4,12 @@
         <title>{% block title %}대한민국 정치의 모든 것{% endblock %}</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta property="og:image" content="{{ url_for('static', filename="images/button-pokr-512x512.png", _external=True) }}"/>
+
+        {% block meta_headers %}
         <meta property="og:title" content="대한민국 정치의 모든 것 (Politics in Korea)" />
         <meta property="og:description" content="1대부터 19대까지 모든 국회의원 후보자와 당선자, 그들이 발의한 의안과 회의록을 이 곳에서 보세요! 가입하면 내가 살고 있는 지역, 내 관심사에 대한 의안만 선별해서 보여드립니다." />
+        {% endblock %}
+        <meta property="og:image" content="{{ url_for('static', filename="images/button-pokr-512x512.png", _external=True) }}"/>
         <meta property="og:type" content="website" />
         <meta property="og:url" content="{{ request.url }}" />
         <meta property="fb:admins" content="1347665216" />

@@ -1,0 +1,29 @@
+{% if statements %}
+{% set NUM_STATEMENTS_SHOWN = 5 %}
+<div id="section-statements" class="section">
+    <h3 id="statements">{{gettext('Statements')}}</h3>
+    <table class="table table-condensed">
+        <tr>
+            <th class="statement-date">{{ gettext('Date') }}</th>
+            <th>{{ gettext('Statement') }}</th>
+        </tr>
+        {% with statements = person.statements[:NUM_STATEMENTS_SHOWN + 1] %}
+        {% for statement in statements[:NUM_STATEMENTS_SHOWN] %}
+        <tr>
+            <td><a href="{{ statement.url }}">{{ statement.date }}</a></td>
+            <td>
+            {% for sentence in statement.content.split('.') %}
+            {{ sentence }}{% if not loop.last %}.{% endif %}<br>
+            {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+        {% if statements|length > NUM_STATEMENTS_SHOWN %}
+        <tr>
+            <td colspan="3" class="btn-more"><a href="#">{{ gettext("'more' is comming soon") }}</a></td>
+        </tr>
+        {% endif %}
+        {% endwith %}
+    </table>
+</div>
+{% endif %}

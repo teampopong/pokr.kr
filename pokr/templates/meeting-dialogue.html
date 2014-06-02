@@ -63,7 +63,9 @@
 {% endfor %}
 {% endwith %}
 </div>
+{% if not mobile %}
 <script>
 {{ glossary_js|safe }}
 </script>
+{% endif %}
 {% endblock %}

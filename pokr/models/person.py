@@ -17,6 +17,7 @@ from .bill_withdrawal import bill_withdrawal
 from .candidacy import Candidacy
 from .cosponsorship import cosponsorship
 from .party import Party
+from .party_affiliation import PartyAffiliation
 
 
 class Person(Base, ApiModel):
@@ -42,6 +43,7 @@ class Person(Base, ApiModel):
     address_id = deferred(Column(ARRAY(String(16))), group='profile')
 
     image = Column(String(1024))
+    email = deferred(Column(Text), group='extra')
     twitter = deferred(Column(String(20)), group='extra')
     facebook = deferred(Column(String(80)), group='extra')
     blog = deferred(Column(String(255)), group='extra')
@@ -60,6 +62,14 @@ class Person(Base, ApiModel):
     withdrawed_bills = relationship('Bill',
             secondary=bill_withdrawal,
             backref='withdrawers')
+    statements = relationship('Statement',
+            backref='person',
+            lazy='dynamic')
+    parties = relationship('Party',
+            secondary=PartyAffiliation.__table__,
+            order_by='desc(PartyAffiliation.date)',
+            backref=backref('members', lazy='dynamic'),
+            lazy='dynamic')
 
     @hybrid_property
     def birthday_year(self):
@@ -86,17 +96,6 @@ class Person(Base, ApiModel):
     @property
     def birthday_formatted(self):
         return format_date(self.birthday_date)
-
-    @property
-    def parties(self):
-        # FIXME: relationship w/ party_affiliation
-        parties = Party.query.join(Candidacy,
-                                  Candidacy.party_id == Party.id)\
-                            .join(Person,
-                                  Person.id == Candidacy.person_id)\
-                            .filter(Person.id == self.id)\
-                            .order_by(Candidacy.election_date.desc())
-        return parties
 
     @property
     def cur_party(self):

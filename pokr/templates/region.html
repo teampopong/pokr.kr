@@ -7,6 +7,10 @@
 {{ fullname }} - {{ super() }}
 {% endblock %}
 
+{% block meta_headers %}
+<meta property="og:title" content="{{ fullname }} - 대한민국 정치의 모든 것" />
+{% endblock %}
+
 {% block breadcrumb_extra %}
 {% for parent in region.parents %}
     <li><a href="{{ url_for('region', region_id=parent.id) }}">{{ gettext(parent.name) }}</a> <span class="divider">&gt;</span></li>
