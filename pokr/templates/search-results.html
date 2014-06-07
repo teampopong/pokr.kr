@@ -81,7 +81,7 @@
                     <a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a>
                     {% endcall %}
                 {% else %}
-                    {% call(party) macro.list_more(parties, url_for_query(target='people')) %}
+                    {% call(party) macro.list_more(parties, url_for_query(target='parties')) %}
                     <a href="{{ url_for('party', id=party.id) }}">{{ party.name }}</a>
                     {% endcall %}
                 {% endif %}
