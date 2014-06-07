@@ -104,3 +104,20 @@
 {% endif %}
 </td>
 {%- endmacro %}
+
+{% macro meeting_statement(statement) -%}
+<td>
+    {% if statement.person_id %}<a href="{{ url_for('person', id=statement.person_id) }}">{% else %}<p>{% endif %}
+    {{ statement.speaker }}
+    {% if statement.person_id %}</a>{% else %}</p>{% endif %}
+</td>
+<td>
+    {% set content = statement.content %}
+    {% include 'macro-statement.html' with context %}
+    <a href="{{ url_for('meeting', id=statement.meeting_id) }}" class="pull-right">{{ statement.date }}</a>
+</td>
+{%- endmacro %}
+
+{% macro statement_content(content) -%}
+{% include 'macro-statement.html' with context %}
+{%- endmacro %}

@@ -16,6 +16,7 @@ from pokr.models.party import Party
 from pokr.models.person import Person
 from pokr.models.region import Region
 from pokr.models.school import School
+from pokr.models.statement import Statement
 from pokr.models.query_log import log_query
 from utils.jinja import breadcrumb
 
@@ -38,6 +39,7 @@ def register(app):
             results['schools'], options['schools'] = search_schools()
             results['bills']  , options['bills']   = search_bills()
             results['regions'], options['regions'] = search_regions()
+            results['statements'], options['statements'] = search_statements()
 
             options = dict(chain(*(d.iteritems() for d in options.itervalues())))
             response = render_template('search-results.html',
@@ -150,6 +152,12 @@ def register(app):
                                 func.length(Region.id) < 7))
         return (regions, options)
 
+    @if_target('statements')
+    def search_statements():
+        options = {}
+        statements = Statement.query\
+                        .filter(Statement.content.like(u'%{0}%'.format(query)))
+        return (statements, options)
 
 def if_target(target_):
     def deco(f):

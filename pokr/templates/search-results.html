@@ -31,6 +31,11 @@
 {{ gettext('search') }}
 {% endblock %}
 
+{% block extra_headers %}
+{{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/moreless.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 <div class="alert alert-info">
     {{ gettext('Search results by %(options)s', options=search_options()) }}
@@ -70,6 +75,7 @@
             </td>
         </tr>
         {% endif %}
+
         {% if not target or target == 'parties' %}
         <tr>
             <th>
@@ -126,6 +132,26 @@
             </td>
         </tr>
         {% endif %}
+
+        {% if not target or target == 'statements' %}
+        <tr>
+            <th>
+                {{ gettext('Statement') }}
+                <br>{{ macro.list_count(statements) }}
+            </th>
+            <td>{% if target %}
+                    {% call(statement) macro.list_pagenav(statements, layout='table') %}
+                    {{ macro.meeting_statement(statement) }}
+                    {% endcall %}
+                {% else %}
+                    {% call(statement) macro.list_more(statements, url_for_query(target='statements'), layout='table', pagesize=5) %}
+                    {{ macro.meeting_statement(statement) }}
+                    {% endcall %}
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+
     </tbody>
 </table>
 {% endblock %}

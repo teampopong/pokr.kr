@@ -1,0 +1,13 @@
+{% set sentences = content.split('.') %}
+{% if sentences|length > 5 %}
+    <span class="default-content">
+    {% for sentence in sentences %}
+    {{ sentence }}{% if loop.last %}<a class="read-more-hide shrink sometimes-hide" href="#">{{ gettext('less') }}</a></span>{% else %}.{% endif %}
+{% if loop.index == 5 %}</span><a class="read-more-show shrink sometimes-hide" href="#">{{ gettext('more') }}</a><span class="read-more-content">{% endif %}
+    <br>
+    {% endfor %}
+{% else %}
+    {% for sentence in sentences %}
+    {{ sentence }}{% if not loop.last %}.{% endif %}<br>
+    {% endfor %}
+{% endif %}
