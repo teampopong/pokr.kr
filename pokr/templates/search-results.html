@@ -33,6 +33,7 @@
 
 {% block extra_headers %}
 {{ super() }}
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.highlight-4.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/moreless.js') }}"></script>
 {% endblock %}
 
@@ -154,4 +155,7 @@
 
     </tbody>
 </table>
+<script>
+$('table').highlight("{{ request.args.get('query') }}");
+</script>
 {% endblock %}
