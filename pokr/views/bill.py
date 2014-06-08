@@ -47,7 +47,9 @@ def register(app):
             return render_template('not-found.html'), 404
 
         if bill.document_pdf_path:
-            return send_file(bill.document_pdf_path)
+            response = send_file(bill.document_pdf_path)
+            response.headers['Content-Disposition'] = 'filename=%s.pdf' % id
+            return response
         else:
             return render_template('not-found.html'), 404
 
