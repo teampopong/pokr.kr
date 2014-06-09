@@ -50,7 +50,7 @@
         <td>
             <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
             {% if bill.keywords %}<p class="keywords">
-            {% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bill', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
+            {% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
             </p>{% endif %}
             <br>
             <p class="summary">
