@@ -99,7 +99,7 @@ def update_bills(source, files=None):
                                  .first().assembly_id
 
         # FIXME: filter finished bills out
-        bill_ids = session.query([Bill.id]).filter_by(assembly_id=assembly_id)
+        bill_ids = session.query(Bill.id).filter_by(assembly_id=assembly_id)
 
         # ranged query
         m = re.match(r'db\[(\d*):(\d*)\]', source)
