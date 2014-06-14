@@ -3,7 +3,7 @@ from flask import current_app as cur_app, request
 from flask.ext.babel import Babel, get_locale
 from functools import wraps
 
-from .nlp.utils.translit import translit
+from popong_nlp.utils.translit import translit
 
 
 __all__ = ['PopongBabel']

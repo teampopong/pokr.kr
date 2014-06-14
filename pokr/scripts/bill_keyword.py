@@ -7,12 +7,13 @@ from itertools import izip
 from os.path import basename
 import sys
 
+import konlpy
 from pokr.database import transaction
 from pokr.models.bill import Bill
 from pokr.models.bill_keyword import bill_keyword
 from pokr.models.keyword import Keyword
+from popong_nlp.extractor.extract import keywords as extract_keywords
 from utils.command import Command
-from utils.nlp.extractor.extract import keywords as extract_keywords
 
 
 class BillKeywordCommand(Command):
@@ -33,6 +34,7 @@ class UpdateBillKeywordsCommand(Command):
 
 
 def insert_bill_keywords(files):
+    hannanum = konlpy.Hannanum()
     with transaction() as session:
         existing_bill_ids = set(r[0] for r in session.query(Bill.id))
         keyword_store = KeywordStore(session)
@@ -44,7 +46,7 @@ def insert_bill_keywords(files):
             if bill_id not in existing_bill_ids:
                 continue
             with open(file_, 'r') as f:
-                keywords = extract_keywords(f)
+                keywords = extract_keywords(f, hannanum)
             keyword_ids = [keyword_store.id(keyword[0]) for keyword in keywords]
             keyword_store.sync()
             existing_keywords_for_bill = set(r[0]

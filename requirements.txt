@@ -20,3 +20,4 @@ gevent==0.13.7
 regex==2014.02.19
 redis==2.9.1
 Unidecode==0.04.14
+-e git+https://github.com/teampopong/popong-nlp.git
