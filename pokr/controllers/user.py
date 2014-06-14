@@ -77,7 +77,7 @@ class UserController(Controller):
         feeds = Feed.query\
                     .with_polymorphic('*')\
                     .join(BillFeed.bill)\
-                    .outerjoin(Bill._keywords)\
+                    .outerjoin(Bill.keywords)\
                     .filter(Keyword.id.in_(
                                 k.id for k in user.favorite_keywords))\
                     .order_by(Feed.id.desc())\
