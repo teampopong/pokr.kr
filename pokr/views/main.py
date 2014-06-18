@@ -35,6 +35,10 @@ def register(app):
     def favicon():
         return app.send_static_file('images/favicon.ico')
 
+    @app.route('/sitemap.xml')
+    def sitemap():
+        return render_template('sitemap.xml')
+
     @app.route('/entity/<keyword>')
     @app.endpoint('entity_page')
     def entity_page(keyword):
