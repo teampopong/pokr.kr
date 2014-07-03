@@ -5,9 +5,6 @@ init:
 	git submodule init
 	git submodule update
 	.conf.samples/copyall.sh
-	cd utils/nlp
-	git submodule init
-	git submodule update
 
 extract_i18n:
 	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o pokr/messages.pot .

@@ -17,7 +17,7 @@ from .election import Election
 from .party import Party
 from .person import Person
 
-from settings import BILLPDF_DIR, BILLTXT_DIR, STOPWORDS
+from settings import BILLPDF_DIR, BILLTXT_DIR
 
 
 class Bill(Base, ApiModel):
@@ -44,14 +44,9 @@ class Bill(Base, ApiModel):
 
     status = column_property(select([BillStatus.name])\
                              .where(BillStatus.id==status_id), deferred=True)
-    _keywords = relationship('Keyword',
+    keywords = relationship('Keyword',
             secondary=bill_keyword,
             order_by='desc(bill_keyword.c.weight)')
-
-    @property
-    def keywords(self):
-        return [keyword for keyword in self._keywords
-                        if keyword.name not in STOPWORDS]
 
     @property
     def document_pdf_path(self):

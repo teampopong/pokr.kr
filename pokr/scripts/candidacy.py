@@ -13,8 +13,8 @@ from pokr.models.election import Election
 from pokr.models.party import Party
 from pokr.models.person import Person
 from utils.command import Command
-from utils.nlp.structurizer import markup
-from utils.nlp.utils.translit import translit
+from popong_nlp.structurizer import markup
+from popong_nlp.utils.translit import translit
 
 
 __all__ = ['insert_candidacies']

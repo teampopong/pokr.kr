@@ -7,12 +7,13 @@ from itertools import izip
 from os.path import basename
 import sys
 
+import konlpy
 from pokr.database import transaction
 from pokr.models.bill import Bill
 from pokr.models.bill_keyword import bill_keyword
 from pokr.models.keyword import Keyword
+from popong_nlp.extractor.extract import keywords as extract_keywords
 from utils.command import Command
-from utils.nlp.extractor.extract import keywords as extract_keywords
 
 
 class BillKeywordCommand(Command):
@@ -33,8 +34,9 @@ class UpdateBillKeywordsCommand(Command):
 
 
 def insert_bill_keywords(files):
+    hannanum = konlpy.Hannanum()
     with transaction() as session:
-        existing_bill_ids = [bill.id for bill in Bill.query]
+        existing_bill_ids = set(r[0] for r in session.query(Bill.id))
         keyword_store = KeywordStore(session)
         for file_ in glob(files):
             filename = basename(file_)
@@ -44,11 +46,11 @@ def insert_bill_keywords(files):
             if bill_id not in existing_bill_ids:
                 continue
             with open(file_, 'r') as f:
-                keywords = extract_keywords(f)
+                keywords = extract_keywords(f, hannanum)
             keyword_ids = [keyword_store.id(keyword[0]) for keyword in keywords]
             keyword_store.sync()
-            existing_keywords_for_bill = set(bk.keyword_id
-                    for bk in session.query(bill_keyword)\
+            existing_keywords_for_bill = set(r[0]
+                    for r in session.query(bill_keyword.c.keyword_id)\
                                      .filter(bill_keyword.c.bill_id == bill_id)
             )
 
@@ -76,12 +78,13 @@ class KeywordStore(object):
             self.init(session)
 
     def init(self, session):
-        bss = session.query(Keyword).order_by(Keyword.id).all()
+        bss = session.query(Keyword.id, Keyword.name)\
+                     .order_by(Keyword.id)\
+                     .all()
         self.dict_ = {
-            keyword.name: keyword.id
-            for keyword in bss
+            r[1]: r[0] for r in bss
         }
-        self.last_id_in_db = self.last_id = bss[-1].id if bss else 0
+        self.last_id_in_db = self.last_id = bss[-1][0] if bss else 0
         self.session = session
 
     def id(self, name):

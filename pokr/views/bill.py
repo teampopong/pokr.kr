@@ -23,7 +23,8 @@ def register(app):
     def bill_main():
         assembly_id = int(request.args.get('assembly_id', current_parliament_id('assembly')) or 0)
         bills = Bill.query.filter(Bill.assembly_id==assembly_id)\
-                          .order_by(Bill.proposed_date.desc().nullslast())
+                          .order_by(Bill.proposed_date.desc().nullslast(),
+                                    Bill.id.desc())
         return render_template('bills.html',\
                 assembly_id=assembly_id, bills=bills)
 
