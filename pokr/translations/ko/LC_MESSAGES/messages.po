@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-06-07 15:33+0900\n"
+"POT-Creation-Date: 2014-07-03 13:11+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -113,11 +113,10 @@ msgstr "의안"
 msgid "th"
 msgstr "대"
 
-#: pokr/templates/bills.html:57 pokr/templates/macros.html:88
-#: pokr/templates/mypage.html:88 pokr/templates/mypage.html:113
-#: pokr/templates/person-legislations.html:29
-#: pokr/templates/person-legislations.html:73
-#: pokr/templates/person-statements.html:20 pokr/templates/person.html:126
+#: pokr/templates/bills.html:57 pokr/templates/macro-statement.html:6
+#: pokr/templates/macros.html:88 pokr/templates/mypage.html:88
+#: pokr/templates/mypage.html:113 pokr/templates/person-legislations.html:29
+#: pokr/templates/person-legislations.html:73 pokr/templates/person.html:126
 #: pokr/templates/widgets/wordle.html:9
 msgid "more"
 msgstr "더보기"
@@ -170,6 +169,10 @@ msgstr "로그아웃"
 msgid "login"
 msgstr "로그인"
 
+#: pokr/templates/macro-statement.html:5
+msgid "less"
+msgstr "접기"
+
 #: pokr/templates/macros.html:18
 msgid "show"
 msgstr "보이기"
@@ -196,38 +199,42 @@ msgstr "날짜 미상"
 msgid "sponsor"
 msgstr "발의자"
 
-#: pokr/templates/main.html:25
-msgid ""
-"If you input your location and interests, we deliver legislative "
-"information based on your taste."
-msgstr "지역과 관심사를 입력하면 당신에게 필요한 정치정보를 선별해서 보여드립니다."
+#: pokr/templates/main.html:19
+msgid "Get Korean legislative information, all in one place"
+msgstr "정치 정보를 한 곳에서, 쉽고 빠르고 재미있게"
 
-#: pokr/templates/main.html:27
+#: pokr/templates/main.html:20
+msgid ""
+"Search for up to 14,000 legislators, 52,000 bills, meeting logs, party "
+"information and more!"
+msgstr "14000명의 정치인, 52000개의 의안 정보, 회의록, 정당 정보를 손쉽게 탐색해보세요!"
+
+#: pokr/templates/main.html:22
 msgid "Get realtime legislative information now"
 msgstr "SNS로 의안을 구독해 보세요"
 
-#: pokr/templates/main.html:40 pokr/templates/people.html:5
-#: pokr/templates/search-results.html:43
+#: pokr/templates/main.html:35 pokr/templates/people.html:5
+#: pokr/templates/search-results.html:49
 msgid "People"
 msgstr "인물"
 
-#: pokr/templates/main.html:41
+#: pokr/templates/main.html:36
 msgid "Bills"
 msgstr "의안"
 
-#: pokr/templates/main.html:42
+#: pokr/templates/main.html:37
 msgid "Meetings"
 msgstr "회의"
 
-#: pokr/templates/main.html:43 pokr/templates/parties.html:5
+#: pokr/templates/main.html:38 pokr/templates/parties.html:5
 msgid "Parties"
 msgstr "정당"
 
-#: pokr/templates/main.html:44 pokr/templates/regions.html:5
+#: pokr/templates/main.html:39 pokr/templates/regions.html:5
 msgid "Regions"
 msgstr "지역"
 
-#: pokr/templates/main.html:50
+#: pokr/templates/main.html:52
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
@@ -451,23 +458,20 @@ msgstr "제목"
 msgid "role"
 msgstr "역할"
 
-#: pokr/templates/person-statements.html:4
+#: pokr/templates/person-statements.html:6
 msgid "Statements"
 msgstr "발언"
 
-#: pokr/templates/person-statements.html:7
+#: pokr/templates/person-statements.html:9
 msgid "Date"
 msgstr "날짜"
 
-#: pokr/templates/person-statements.html:8
+#: pokr/templates/person-statements.html:10
+#: pokr/templates/search-results.html:140
 msgid "Statement"
 msgstr "발언"
 
-#: pokr/templates/person-statements.html:19
-msgid "less"
-msgstr "접기"
-
-#: pokr/templates/person-statements.html:33
+#: pokr/templates/person-statements.html:23
 msgid "'more' is comming soon"
 msgstr "더보기는 준비중입니다"
 
@@ -578,24 +582,24 @@ msgstr "연관 키워드"
 msgid "Searched results"
 msgstr "검색 결과"
 
-#: pokr/templates/search-results.html:36
+#: pokr/templates/search-results.html:42
 #, python-format
 msgid "Search results by %(options)s"
 msgstr "%(options)s(으)로 검색된 결과"
 
-#: pokr/templates/search-results.html:58
+#: pokr/templates/search-results.html:64
 msgid "Bill"
 msgstr "의안"
 
-#: pokr/templates/search-results.html:76
+#: pokr/templates/search-results.html:83
 msgid "Party"
 msgstr "정당"
 
-#: pokr/templates/search-results.html:95
+#: pokr/templates/search-results.html:102
 msgid "Region"
 msgstr "지역"
 
-#: pokr/templates/search-results.html:114
+#: pokr/templates/search-results.html:121
 msgid "School"
 msgstr "교육기관"
 
@@ -698,4 +702,10 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
+
+#~ msgid ""
+#~ "If you input your location and "
+#~ "interests, we deliver legislative information"
+#~ " based on your taste."
+#~ msgstr "지역과 관심사를 입력하면 당신에게 필요한 정치정보를 선별해서 보여드립니다."
 

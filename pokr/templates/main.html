@@ -16,13 +16,8 @@ depends=['**/*.less'], 'less/main.less' %}
 
 {% block content %}
 <div id="hero">
-    {% if locale=='ko' %}
-    <img src="{{ url_for('static', filename="images/hero-1.png") }}">
-    <img src="{{ url_for('static', filename="images/hero-2.png") }}">
-    {% else %}
-    <h2>Legislative information that best fits your life</h2>
-    {% endif %}
-    <p style="color: #333">{{ gettext('If you input your location and interests, we deliver legislative information based on your taste.') }}</p>
+    <h2>{{ gettext('Get Korean legislative information, all in one place') }}</h2>
+    <p>{{ gettext('Search for up to 14,000 legislators, 52,000 bills, meeting logs, party information and more!') }}</p>
     <p id="pokrbot">
         {{ gettext('Get realtime legislative information now') }}:
         <a href="http://twitter.com/pokrbot" target="_blank" class="twitter-icon"><i class="icon-twitter"></i></a>
@@ -42,6 +37,13 @@ depends=['**/*.less'], 'less/main.less' %}
     <a class="btn-submain" href="{{ url_for('meeting_main') }}"><img src="{{ url_for('static', filename='images/button_meeting.png') }}"><div class="btn-text">{{ gettext('Meetings') }}</div></a>
     <a class="btn-submain" href="{{ url_for('party_main') }}"><img src="{{ url_for('static', filename='images/button_party.png') }}"><div class="btn-text">{{ gettext('Parties') }}</div></a>
     <a class="btn-submain" href="{{ url_for('region_main') }}"><img src="{{ url_for('static', filename='images/button_region.png') }}"><div class="btn-text">{{ gettext('Regions') }}</div></a>
+</div>
+<div>
+    개발, 디자인에 능통하신가요?
+    팀포퐁에 조인하세요! 관심있는 누구에게나 문은 열려 있습니다.
+
+    좋은 아이디어가 있으신가요?
+    이곳에 당신의 아이디어를 실현해줄 개발자, 디자이너들이 있습니다!
 </div>
 
 {% if not mobile and locale=="ko"%}

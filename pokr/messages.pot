@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-06-07 15:33+0900\n"
+"POT-Creation-Date: 2014-07-03 13:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,11 +113,10 @@ msgstr ""
 msgid "th"
 msgstr ""
 
-#: pokr/templates/bills.html:57 pokr/templates/macros.html:88
-#: pokr/templates/mypage.html:88 pokr/templates/mypage.html:113
-#: pokr/templates/person-legislations.html:29
-#: pokr/templates/person-legislations.html:73
-#: pokr/templates/person-statements.html:20 pokr/templates/person.html:126
+#: pokr/templates/bills.html:57 pokr/templates/macro-statement.html:6
+#: pokr/templates/macros.html:88 pokr/templates/mypage.html:88
+#: pokr/templates/mypage.html:113 pokr/templates/person-legislations.html:29
+#: pokr/templates/person-legislations.html:73 pokr/templates/person.html:126
 #: pokr/templates/widgets/wordle.html:9
 msgid "more"
 msgstr ""
@@ -170,6 +169,10 @@ msgstr ""
 msgid "login"
 msgstr ""
 
+#: pokr/templates/macro-statement.html:5
+msgid "less"
+msgstr ""
+
 #: pokr/templates/macros.html:18
 msgid "show"
 msgstr ""
@@ -196,38 +199,42 @@ msgstr ""
 msgid "sponsor"
 msgstr ""
 
-#: pokr/templates/main.html:25
-msgid ""
-"If you input your location and interests, we deliver legislative "
-"information based on your taste."
+#: pokr/templates/main.html:19
+msgid "Get Korean legislative information, all in one place"
 msgstr ""
 
-#: pokr/templates/main.html:27
+#: pokr/templates/main.html:20
+msgid ""
+"Search for up to 14,000 legislators, 52,000 bills, meeting logs, party "
+"information and more!"
+msgstr ""
+
+#: pokr/templates/main.html:22
 msgid "Get realtime legislative information now"
 msgstr ""
 
-#: pokr/templates/main.html:40 pokr/templates/people.html:5
-#: pokr/templates/search-results.html:43
+#: pokr/templates/main.html:35 pokr/templates/people.html:5
+#: pokr/templates/search-results.html:49
 msgid "People"
 msgstr ""
 
-#: pokr/templates/main.html:41
+#: pokr/templates/main.html:36
 msgid "Bills"
 msgstr ""
 
-#: pokr/templates/main.html:42
+#: pokr/templates/main.html:37
 msgid "Meetings"
 msgstr ""
 
-#: pokr/templates/main.html:43 pokr/templates/parties.html:5
+#: pokr/templates/main.html:38 pokr/templates/parties.html:5
 msgid "Parties"
 msgstr ""
 
-#: pokr/templates/main.html:44 pokr/templates/regions.html:5
+#: pokr/templates/main.html:39 pokr/templates/regions.html:5
 msgid "Regions"
 msgstr ""
 
-#: pokr/templates/main.html:50
+#: pokr/templates/main.html:52
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
@@ -451,23 +458,20 @@ msgstr ""
 msgid "role"
 msgstr ""
 
-#: pokr/templates/person-statements.html:4
+#: pokr/templates/person-statements.html:6
 msgid "Statements"
 msgstr ""
 
-#: pokr/templates/person-statements.html:7
+#: pokr/templates/person-statements.html:9
 msgid "Date"
 msgstr ""
 
-#: pokr/templates/person-statements.html:8
+#: pokr/templates/person-statements.html:10
+#: pokr/templates/search-results.html:140
 msgid "Statement"
 msgstr ""
 
-#: pokr/templates/person-statements.html:19
-msgid "less"
-msgstr ""
-
-#: pokr/templates/person-statements.html:33
+#: pokr/templates/person-statements.html:23
 msgid "'more' is comming soon"
 msgstr ""
 
@@ -578,24 +582,24 @@ msgstr ""
 msgid "Searched results"
 msgstr ""
 
-#: pokr/templates/search-results.html:36
+#: pokr/templates/search-results.html:42
 #, python-format
 msgid "Search results by %(options)s"
 msgstr ""
 
-#: pokr/templates/search-results.html:58
+#: pokr/templates/search-results.html:64
 msgid "Bill"
 msgstr ""
 
-#: pokr/templates/search-results.html:76
+#: pokr/templates/search-results.html:83
 msgid "Party"
 msgstr ""
 
-#: pokr/templates/search-results.html:95
+#: pokr/templates/search-results.html:102
 msgid "Region"
 msgstr ""
 
-#: pokr/templates/search-results.html:114
+#: pokr/templates/search-results.html:121
 msgid "School"
 msgstr ""
 
