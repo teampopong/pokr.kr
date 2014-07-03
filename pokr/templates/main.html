@@ -38,13 +38,6 @@ depends=['**/*.less'], 'less/main.less' %}
     <a class="btn-submain" href="{{ url_for('party_main') }}"><img src="{{ url_for('static', filename='images/button_party.png') }}"><div class="btn-text">{{ gettext('Parties') }}</div></a>
     <a class="btn-submain" href="{{ url_for('region_main') }}"><img src="{{ url_for('static', filename='images/button_region.png') }}"><div class="btn-text">{{ gettext('Regions') }}</div></a>
 </div>
-<div>
-    개발, 디자인에 능통하신가요?
-    팀포퐁에 조인하세요! 관심있는 누구에게나 문은 열려 있습니다.
-
-    좋은 아이디어가 있으신가요?
-    이곳에 당신의 아이디어를 실현해줄 개발자, 디자이너들이 있습니다!
-</div>
 
 {% if not mobile and locale=="ko"%}
 <div id="feedback-guide">
