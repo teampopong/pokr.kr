@@ -1,8 +1,8 @@
 from sqlalchemy import CHAR, Column, Integer, String, Unicode
 from sqlalchemy.orm import backref, relationship
 
-from api.model import ApiModel
 from pokr.database import Base
+from utils.api_model import ApiModel
 from .candidacy import Candidacy
 
 

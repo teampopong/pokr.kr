@@ -7,8 +7,8 @@ from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
-from api.model import ApiModel
 from pokr.database import Base, db_session
+from utils.api_model import ApiModel
 from .bill_keyword import bill_keyword
 from .bill_status import BillStatus
 from .candidacy import Candidacy

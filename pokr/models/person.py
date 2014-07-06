@@ -11,8 +11,8 @@ from sqlalchemy.orm import backref, deferred, relationship
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 from sqlalchemy.sql.expression import and_, desc
 
-from api.model import ApiModel
 from pokr.database import Base
+from utils.api_model import ApiModel
 from .bill_withdrawal import bill_withdrawal
 from .candidacy import Candidacy
 from .cosponsorship import cosponsorship
