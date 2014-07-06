@@ -63,6 +63,7 @@ class Person(Base, ApiModel):
             secondary=bill_withdrawal,
             backref='withdrawers')
     statements = relationship('Statement',
+            order_by='Statement.meeting_id.desc().nullslast(), Statement.sequence',
             backref='person',
             lazy='dynamic')
     parties = relationship('Party',
