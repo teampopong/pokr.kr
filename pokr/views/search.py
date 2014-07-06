@@ -155,8 +155,21 @@ def register(app):
     @if_target('statements')
     def search_statements():
         options = {}
+        person_id = request.args.get('person_id')
+
+        # Sort by meeting_id does not exactly match sort-by-date
         statements = Statement.query\
+                        .order_by(Statement.meeting_id.desc().nullslast(),\
+                                  Statement.sequence)
+        if query:
+            statements = statements\
                         .filter(Statement.content.like(u'%{0}%'.format(query)))
+
+        if person_id:
+            statements = statements.filter_by(person_id=person_id)
+            options['person_id'] =\
+                    Person.query.filter_by(id=person_id).one().name
+
         return (statements, options)
 
 def if_target(target_):
