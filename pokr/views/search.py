@@ -12,6 +12,7 @@ from pokr.models.cosponsorship import cosponsorship
 from pokr.models.bill import Bill
 from pokr.models.bill_status import BillStatus
 from pokr.models.keyword import Keyword
+from pokr.models.meeting import Meeting
 from pokr.models.party import Party
 from pokr.models.person import Person
 from pokr.models.region import Region
@@ -157,16 +158,16 @@ def register(app):
         options = {}
         person_id = request.args.get('person_id')
 
-        # Sort by meeting_id does not exactly match sort-by-date
-        statements = Statement.query\
-                        .order_by(Statement.meeting_id.desc().nullslast(),\
+        statements = Statement.query.join(Meeting)\
+                        .order_by(Meeting.date.desc().nullslast(),\
                                   Statement.sequence)
+
         if query:
             statements = statements\
                         .filter(Statement.content.like(u'%{0}%'.format(query)))
 
         if person_id:
-            statements = statements.filter_by(person_id=person_id)
+            statements = statements.filter(Statement.person_id==person_id)
             options['person_id'] =\
                     Person.query.filter_by(id=person_id).one().name
 

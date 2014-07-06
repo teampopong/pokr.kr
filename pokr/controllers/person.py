@@ -4,7 +4,7 @@ from collections import Counter, defaultdict, OrderedDict
 
 from .base import Controller
 from pokr.database import db_session
-from pokr.models import Bill, Candidacy, cosponsorship, Party, Person, Pledge
+from pokr.models import Bill, Candidacy, cosponsorship, Meeting, Party, Person, Pledge, Statement
 
 
 class PersonController(Controller):
@@ -93,4 +93,10 @@ class PersonController(Controller):
             result[pledge.candidacy.assembly_id].append(pledge)
 
         return result
+
+    @classmethod
+    def sorted_statements(cls, person):
+        return Statement.query.join(Meeting)\
+                  .filter(Statement.person_id==person.id)\
+                  .order_by(Meeting.date.desc().nullslast(), Statement.sequence)
 

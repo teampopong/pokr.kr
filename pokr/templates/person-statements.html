@@ -1,6 +1,6 @@
 {% import 'macros.html' as macro with context %}
+{% set sorted_statements = PersonController.sorted_statements(person) %}
 
-{% if person.statements %}
 {% set NUM_STATEMENTS_SHOWN = 5 %}
 <div id="section-statements" class="section">
     <h3 id="statements">{{gettext('Statements')}}</h3>
@@ -9,21 +9,26 @@
             <th class="statement-date">{{ gettext('Date') }}</th>
             <th>{{ gettext('Statement') }}</th>
         </tr>
-        {% with statements = person.statements[:NUM_STATEMENTS_SHOWN + 1] %}
-        {% for statement in statements[:NUM_STATEMENTS_SHOWN] %}
-        <tr>
-            <td><a href="{{ statement.url }}">{{ statement.date }}</a></td>
-            <td>
-            {{ macro.statement_content(statement.content) }}
-            </td>
-        </tr>
-        {% endfor %}
-        {% if statements|length > NUM_STATEMENTS_SHOWN %}
-        <tr>
-            <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='statements', person_id=person.id) }} ">{{ gettext("more") }}</a></td>
-        </tr>
+        {% with statements = sorted_statements[:NUM_STATEMENTS_SHOWN + 1] %}
+        {% if statements %}
+            {% for statement in statements[:NUM_STATEMENTS_SHOWN] %}
+            <tr>
+                <td><a href="{{ statement.url }}">{{ statement.date }}</a></td>
+                <td>
+                {{ macro.statement_content(statement.content) }}
+                </td>
+            </tr>
+            {% endfor %}
+            {% if statements|length > NUM_STATEMENTS_SHOWN %}
+            <tr>
+                <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='statements', person_id=person.id) }} ">{{ gettext("more") }}</a></td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td></td><td>{{ gettext('No recent statements.') }}</td>
+            </tr>
         {% endif %}
         {% endwith %}
     </table>
 </div>
-{% endif %}
