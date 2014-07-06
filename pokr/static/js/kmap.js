@@ -10,8 +10,8 @@ $('.map.clickable .region').on('click.map', function () {
 $('.map').each(function () {
     var $this = $(this),
         region_id = $this.data('default_region_id');
-    $this.find('text').css('display', 'none');
     if (region_id) {
+        $this.find('text').css('display', 'none');
         selectRegion($this, region_id);
         $this.data('default_region_id', null);
     }
