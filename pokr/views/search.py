@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+import re
 from functools import wraps
 from itertools import chain
 
@@ -38,6 +41,7 @@ def register(app):
             results['people'] , options['people']  = search_people()
             results['parties'], options['parties'] = search_parties()
             results['schools'], options['schools'] = search_schools()
+            results['laws'], options['laws'] = search_laws()
             results['bills']  , options['bills']   = search_bills()
             results['regions'], options['regions'] = search_regions()
             results['statements'], options['statements'] = search_statements()
@@ -107,6 +111,25 @@ def register(app):
         if query:
             schools = schools.filter(School.name.like(u'%{0}%'.format(query)))
         return (schools, options)
+
+    @if_target('laws')
+    def search_laws():
+        def strip_bill(bill):
+            billname = re.sub(u'\(대안\)', '', bill.name)
+            billname = billname.strip(u'안')
+            return billname
+
+        options = {}
+        bills, options = search_bills()
+        query = request.args.get('query')
+        if query:
+            bills = Bill.query.order_by(desc(Bill.proposed_date).nullslast())\
+                    .filter(or_(
+                        Bill.name.like(u'%{0}%'.format(query)),
+                        Bill.keywords.any(Keyword.name==unicode(query))
+                        ))
+        laws = sorted(list(set([strip_bill(bill) for bill in bills])))
+        return (laws, options)
 
     @if_target('bills')
     def search_bills():
