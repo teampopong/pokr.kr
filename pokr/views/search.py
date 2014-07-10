@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import re
+import regex
 from functools import wraps
 from itertools import chain
 
@@ -115,7 +116,12 @@ def register(app):
     @if_target('laws')
     def search_laws():
         def strip_bill(bill):
-            billname = re.sub(u'\(대안\)', '', bill.name)
+            stripped = re.sub(u'\(대안\)', '', bill.name)
+            replaced = stripped.replace(u'ㆍ', '')
+            hanguls = regex.findall(ur'[\p{Hangul}]+', replaced.strip())
+            billname = re.sub(u'중개정법률안', '', ''.join(hanguls))
+            billname = re.sub(u'개정법률안', '', billname)
+            billname = re.sub(ur'(일|전)부', '', billname)
             billname = billname.strip(u'안')
             return billname
 
