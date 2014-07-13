@@ -94,7 +94,10 @@ def insert_meeting(region_id, obj):
                            if stmt['type'] == 'statement')
         for seq, statement in enumerate(statements):
             item = create_statement(meeting, seq, statement, attendees)
+            session.add(item)
+            session.flush()
             statement['person_id'] = item.person_id
+            statement['id'] = item.id
             meeting.statements.append(item)
 
         # Updated dialog field of meeting table
