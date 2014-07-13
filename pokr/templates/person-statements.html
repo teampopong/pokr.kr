@@ -13,7 +13,7 @@
         {% if statements %}
             {% for statement in statements[:NUM_STATEMENTS_SHOWN] %}
             <tr>
-                <td><a href="{{ statement.url }}">{{ statement.date }}</a></td>
+                <td><a href="{{ statement.url }}dialog#{{ statement.id }}">{{ statement.date }}</a></td>
                 <td>
                 {{ macro.statement_content(statement.content) }}
                 </td>
