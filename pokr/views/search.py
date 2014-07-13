@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+import re
+import regex
 from functools import wraps
 from itertools import chain
 
@@ -12,6 +16,7 @@ from pokr.models.cosponsorship import cosponsorship
 from pokr.models.bill import Bill
 from pokr.models.bill_status import BillStatus
 from pokr.models.keyword import Keyword
+from pokr.models.meeting import Meeting
 from pokr.models.party import Party
 from pokr.models.person import Person
 from pokr.models.region import Region
@@ -37,6 +42,7 @@ def register(app):
             results['people'] , options['people']  = search_people()
             results['parties'], options['parties'] = search_parties()
             results['schools'], options['schools'] = search_schools()
+            results['laws'], options['laws'] = search_laws()
             results['bills']  , options['bills']   = search_bills()
             results['regions'], options['regions'] = search_regions()
             results['statements'], options['statements'] = search_statements()
@@ -107,6 +113,30 @@ def register(app):
             schools = schools.filter(School.name.like(u'%{0}%'.format(query)))
         return (schools, options)
 
+    @if_target('laws')
+    def search_laws():
+        def strip_bill(bill):
+            stripped = re.sub(u'\(대안\)', '', bill.name)
+            replaced = stripped.replace(u'ㆍ', '')
+            hanguls = regex.findall(ur'[\p{Hangul}]+', replaced.strip())
+            billname = re.sub(u'중개정법률안', '', ''.join(hanguls))
+            billname = re.sub(u'개정법률안', '', billname)
+            billname = re.sub(ur'(일|전)부', '', billname)
+            billname = billname.strip(u'안')
+            return billname
+
+        options = {}
+        bills, options = search_bills()
+        query = request.args.get('query')
+        if query:
+            bills = Bill.query.order_by(desc(Bill.proposed_date).nullslast())\
+                    .filter(or_(
+                        Bill.name.like(u'%{0}%'.format(query)),
+                        Bill.keywords.any(Keyword.name==unicode(query))
+                        ))
+        laws = sorted(list(set([strip_bill(bill) for bill in bills])))
+        return (laws, options)
+
     @if_target('bills')
     def search_bills():
         options = {}
@@ -157,16 +187,16 @@ def register(app):
         options = {}
         person_id = request.args.get('person_id')
 
-        # Sort by meeting_id does not exactly match sort-by-date
-        statements = Statement.query\
-                        .order_by(Statement.meeting_id.desc().nullslast(),\
+        statements = Statement.query.join(Meeting)\
+                        .order_by(Meeting.date.desc().nullslast(),\
                                   Statement.sequence)
+
         if query:
             statements = statements\
                         .filter(Statement.content.like(u'%{0}%'.format(query)))
 
         if person_id:
-            statements = statements.filter_by(person_id=person_id)
+            statements = statements.filter(Statement.person_id==person_id)
             options['person_id'] =\
                     Person.query.filter_by(id=person_id).one().name
 

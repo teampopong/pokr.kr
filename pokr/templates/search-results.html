@@ -57,6 +57,27 @@
             </td>
         </tr>
         {% endif %}
+
+        {% if not target or target == 'laws' %}
+        {% set person_name = option_texts.get('person_id') %}
+        <tr>
+            <th>
+                {{ gettext('Law') }}
+                <br>{{ macro.list_count(laws) }}
+            </th>
+            <td>{% if target %}
+                    {% call(law) macro.list_pagenav(laws) %}
+                    {{ law }}
+                    {% endcall %}
+                {% else %}
+                    {% call(law) macro.list_more(laws, url_for_query(target='laws'), layout='list', pagesize=5) %}
+                    {{ law }}
+                    {% endcall %}
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+
         {% if not target or target == 'bills' %}
         {% set person_name = option_texts.get('person_id') %}
         <tr>

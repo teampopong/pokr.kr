@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-03 13:11+0900\n"
+"POT-Creation-Date: 2014-07-13 18:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,7 +87,7 @@ msgid "sponsors"
 msgstr ""
 
 #: pokr/templates/bill.html:90 pokr/templates/bill.html:113
-#: pokr/templates/macros.html:98 pokr/templates/person-legislations.html:64
+#: pokr/templates/macros.html:105 pokr/templates/person-legislations.html:64
 msgid "representative sponsor"
 msgstr ""
 
@@ -114,9 +114,10 @@ msgid "th"
 msgstr ""
 
 #: pokr/templates/bills.html:57 pokr/templates/macro-statement.html:6
-#: pokr/templates/macros.html:88 pokr/templates/mypage.html:88
+#: pokr/templates/macros.html:95 pokr/templates/mypage.html:88
 #: pokr/templates/mypage.html:113 pokr/templates/person-legislations.html:29
-#: pokr/templates/person-legislations.html:73 pokr/templates/person.html:126
+#: pokr/templates/person-legislations.html:73
+#: pokr/templates/person-statements.html:24 pokr/templates/person.html:126
 #: pokr/templates/widgets/wordle.html:9
 msgid "more"
 msgstr ""
@@ -191,11 +192,11 @@ msgstr ""
 msgid "%(count)d results"
 msgstr ""
 
-#: pokr/templates/macros.html:93
+#: pokr/templates/macros.html:100
 msgid "date unknown"
 msgstr ""
 
-#: pokr/templates/macros.html:100 pokr/templates/person-legislations.html:66
+#: pokr/templates/macros.html:107 pokr/templates/person-legislations.html:66
 msgid "sponsor"
 msgstr ""
 
@@ -234,13 +235,15 @@ msgstr ""
 msgid "Regions"
 msgstr ""
 
-#: pokr/templates/main.html:52
+#: pokr/templates/main.html:45
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
 msgstr ""
 
-#: pokr/templates/meeting-dialogue.html:61
+#: pokr/templates/meeting-dialogue.html:56
+#: pokr/templates/meeting-dialogue.html:59
+#: pokr/templates/meeting-dialogue.html:62
 msgid "link"
 msgstr ""
 
@@ -281,6 +284,10 @@ msgstr ""
 
 #: pokr/templates/meeting.html:30
 msgid "attendees"
+msgstr ""
+
+#: pokr/templates/meeting.html:31
+msgid "Attendees among National Assembly members are listed."
 msgstr ""
 
 #: pokr/templates/meetings.html:5 pokr/templates/meetings.html:9
@@ -467,12 +474,12 @@ msgid "Date"
 msgstr ""
 
 #: pokr/templates/person-statements.html:10
-#: pokr/templates/search-results.html:140
+#: pokr/templates/search-results.html:161
 msgid "Statement"
 msgstr ""
 
-#: pokr/templates/person-statements.html:23
-msgid "'more' is comming soon"
+#: pokr/templates/person-statements.html:29
+msgid "No recent statements."
 msgstr ""
 
 #: pokr/templates/person.html:7
@@ -587,19 +594,23 @@ msgstr ""
 msgid "Search results by %(options)s"
 msgstr ""
 
-#: pokr/templates/search-results.html:64
+#: pokr/templates/search-results.html:65
+msgid "Law"
+msgstr ""
+
+#: pokr/templates/search-results.html:85
 msgid "Bill"
 msgstr ""
 
-#: pokr/templates/search-results.html:83
+#: pokr/templates/search-results.html:104
 msgid "Party"
 msgstr ""
 
-#: pokr/templates/search-results.html:102
+#: pokr/templates/search-results.html:123
 msgid "Region"
 msgstr ""
 
-#: pokr/templates/search-results.html:121
+#: pokr/templates/search-results.html:142
 msgid "School"
 msgstr ""
 
