@@ -41,22 +41,37 @@ class InsertMeetingCommand(Command):
             insert_meetings(region_id, obj)
 
 
-def insert_meetings(region_id, obj):
+class UpdateMeetingCommand(Command):
+    __command__ = 'update'
+    __parent__ = MeetingCommand
+
+    @classmethod
+    def init_parser_options(cls):
+        cls.parser.add_argument('files', type=argparse.FileType('r'), nargs='+')
+        cls.parser.add_argument('-r', dest='region_id', required=True)
+
+    @classmethod
+    def run(cls, files, region_id, **kwargs):
+        Base.query = db_session.query_property()
+        for file_ in files:
+            obj = json.load(file_)
+            insert_meetings(region_id, obj, update=True)
+
+
+def insert_meetings(region_id, obj, update=False):
     if isinstance(obj, dict):
-        insert_meeting(region_id, obj)
+        insert_meeting(region_id, obj, update)
 
     elif isinstance(obj, list):
         for o in obj:
-            insert_meeting(region_id, o)
+            insert_meeting(region_id, o, update)
 
     else:
         raise Exception()
 
 
-def insert_meeting(region_id, obj):
+def create_or_get_meeting(session, region_id, obj, update=False):
     date = datetime.strptime(obj['date'], '%Y-%m-%d').date()
-    dialogue = obj['dialogue']
-    attendee_names = get_attendee_names(obj)
     session_id = int(obj['session_id']) if obj['session_id'].isdigit() else None
     meeting_id = int(obj['meeting_id']) if obj['meeting_id'].isdigit() else None
     id = int('{region_id}{assembly_id}{session_id}{meeting_id}{md5}'.format(
@@ -66,31 +81,47 @@ def insert_meeting(region_id, obj):
              meeting_id=meeting_id or '',
              md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16)))
 
-    if db_session.query(Meeting.id).filter_by(id=id).first():
+    meeting = session.query(Meeting).filter_by(id=id).first()
+    if not update and meeting:
         logging.info('Skip {id}'.format(id=id))
         return
+    if not meeting:
+        meeting = Meeting(
+            id=id,
+            region_id=region_id,
+            committee=obj['committee'],
+            parliament_id=obj['assembly_id'],
+            session_id=session_id,
+            sitting_id=meeting_id,
+            date=date,
+            issues=obj['issues'],
+            url=obj['issues_url'],
+            pdf_url=obj['pdf'],
+        )
+    return meeting
 
-    meeting = Meeting(
-        id=id,
-        region_id=region_id,
-        committee=obj['committee'],
-        parliament_id=obj['assembly_id'],
-        session_id=session_id,
-        sitting_id=meeting_id,
-        date=date,
-        issues=obj['issues'],
-        url=obj['issues_url'],
-        pdf_url=obj['pdf'],
-    )
+
+def insert_meeting(region_id, obj, update=False):
+
     with transaction() as session:
+        meeting = create_or_get_meeting(session, region_id, obj, update)
+        if not meeting:
+            return
         session.add(meeting)
 
         # 'meeting_attendee' table
+        attendee_names = get_attendee_names(obj)
         attendees = list(get_attendees(meeting, attendee_names, session))
         meeting.attendees = attendees
 
+        # clear the meeting's statements
+        for statement in meeting.statements:
+            session.delete(statement)
+        session.flush()
+        meeting.statements = []
+
         # 'statement' table
-        statements = (stmt for stmt in dialogue
+        statements = (stmt for stmt in obj['dialogue']
                            if stmt['type'] == 'statement')
         for seq, statement in enumerate(statements):
             item = create_statement(meeting, seq, statement, attendees)
@@ -101,7 +132,7 @@ def insert_meeting(region_id, obj):
             meeting.statements.append(item)
 
         # Updated dialog field of meeting table
-        meeting.dialogue = dialogue
+        meeting.dialogue = obj['dialogue']
 
         # TODO: votes = obj['votes']
 
