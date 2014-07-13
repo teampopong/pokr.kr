@@ -50,7 +50,7 @@
         </div>
         <div class="content glossary">
             {% for sentence in row.content.split('.') %}
-            {{ sentence }}{% if not loop.last %}.{% endif %}<br>
+            {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
             {% endfor %}
         </div>
         <div class="links"><a href="#{{ row.statement_id }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
