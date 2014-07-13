@@ -43,7 +43,7 @@ class InsertMeetingCommand(Command):
 
 def insert_meetings(region_id, obj):
     if isinstance(obj, dict):
-        insert_meeting(obj)
+        insert_meeting(region_id, obj)
 
     elif isinstance(obj, list):
         for o in obj:
