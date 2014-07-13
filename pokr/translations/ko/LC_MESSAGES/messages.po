@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-13 18:18+0900\n"
+"POT-Creation-Date: 2014-07-14 00:22+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -279,14 +279,12 @@ msgid "view file"
 msgstr "파일로 보기"
 
 #: pokr/templates/meeting.html:23
-#, fuzzy
 msgid "issues"
-msgstr "소스"
+msgstr "안건"
 
 #: pokr/templates/meeting.html:30
-#, fuzzy
 msgid "attendees"
-msgstr "검색추이"
+msgstr "참석자"
 
 #: pokr/templates/meeting.html:31
 msgid "Attendees among National Assembly members are listed."
