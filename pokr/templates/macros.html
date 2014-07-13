@@ -121,7 +121,7 @@
 <td>
     {% set content = statement.content %}
     {% include 'macro-statement.html' with context %}
-    <a href="{{ url_for('meeting', id=statement.meeting_id) }}dialog#{{ statement.id }}" class="pull-right">{{ statement.date }}</a>
+    <a href="{{ statement.url }}dialog#{{ statement.id }}" class="pull-right">{{ statement.date }}</a>
 </td>
 {%- endmacro %}
 
