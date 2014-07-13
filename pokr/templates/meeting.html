@@ -27,7 +27,9 @@
     {% endfor %}
 </ul>
 
-<h3>{{ gettext('attendees') }}</h3>
+<h3>{{ gettext('attendees') }}
+    <span class="comment down-10"><i class="icon-exclamation-sign"></i> {{ gettext('Attendees among National Assembly members are listed.') }}</span>
+</h3>
 {% for attendee in meeting.attendees %}
 {{ widgets.card(attendee.id)|safe }}
 {% endfor %}
