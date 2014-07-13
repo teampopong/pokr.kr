@@ -36,7 +36,7 @@
         </span>
         {% endfor %}
     {% elif row.type=='statement' %}
-    <div id="{{ loop.index }}" class="statement">
+    <div id="{{ row.statement_id }}" class="statement">
         <div class="speaker">
             <!-- TODO: guess_person by name and input person_id to db -->
             {% if row.person_id %}
@@ -53,12 +53,14 @@
             {{ sentence }}{% if not loop.last %}.{% endif %}<br>
             {% endfor %}
         </div>
+        <div class="links"><a href="#{{ row.statement_id }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
     {% elif row.type=='time' %}
     <div id="{{ loop.index }}" class="time">{{ row.content }}
+        <div class="links"><a href="#{{ loop.index }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
     {% else %}
     <div id="{{ loop.index }}" class="unknown">{{ row.content }}
-    {% endif %}
         <div class="links"><a href="#{{ loop.index }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
+    {% endif %}
     </div>
 {% endfor %}
 {% endwith %}
