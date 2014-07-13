@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-11 00:05+0900\n"
+"POT-Creation-Date: 2014-07-13 18:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,7 +241,9 @@ msgid ""
 "compliments)</small>"
 msgstr ""
 
-#: pokr/templates/meeting-dialogue.html:61
+#: pokr/templates/meeting-dialogue.html:56
+#: pokr/templates/meeting-dialogue.html:59
+#: pokr/templates/meeting-dialogue.html:62
 msgid "link"
 msgstr ""
 
@@ -282,6 +284,10 @@ msgstr ""
 
 #: pokr/templates/meeting.html:30
 msgid "attendees"
+msgstr ""
+
+#: pokr/templates/meeting.html:31
+msgid "Attendees among National Assembly members are listed."
 msgstr ""
 
 #: pokr/templates/meetings.html:5 pokr/templates/meetings.html:9
