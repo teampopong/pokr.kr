@@ -8,7 +8,6 @@ from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
 from pokr.database import Base, db_session
-from utils.api_model import ApiModel
 from .bill_keyword import bill_keyword
 from .bill_status import BillStatus
 from .candidacy import Candidacy
@@ -20,10 +19,8 @@ from .person import Person
 from settings import BILLPDF_DIR, BILLTXT_DIR
 
 
-class Bill(Base, ApiModel):
+class Bill(Base):
     __tablename__ = 'bill'
-    __kind_single__ = 'bill'
-    __kind_list__ = 'bills'
 
     id = Column(String(20), primary_key=True)
     name = Column(Unicode(256), index=True, nullable=False)
@@ -85,12 +82,6 @@ class Bill(Base, ApiModel):
         return [cosponsor
                 for cosponsor in self.cosponsors
                 if cosponsor.name in self.sponsor]
-
-    def _to_dict_light(self):
-        d = self._columns_to_dict()
-        d['status'] = self.status
-        # TODO: add relation data
-        return d
 
 
 bill_and_status = select([func.row_number().over().label('status_order'),
