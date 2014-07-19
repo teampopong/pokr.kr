@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-14 00:22+0900\n"
+"POT-Creation-Date: 2014-07-19 20:38+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -223,7 +223,7 @@ msgstr "인물"
 msgid "Bills"
 msgstr "의안"
 
-#: pokr/templates/main.html:37
+#: pokr/templates/main.html:37 pokr/templates/search-results.html:161
 msgid "Meetings"
 msgstr "회의"
 
@@ -474,7 +474,7 @@ msgid "Date"
 msgstr "날짜"
 
 #: pokr/templates/person-statements.html:10
-#: pokr/templates/search-results.html:161
+#: pokr/templates/search-results.html:181
 msgid "Statement"
 msgstr "발언"
 
@@ -613,6 +613,10 @@ msgstr "지역"
 #: pokr/templates/search-results.html:142
 msgid "School"
 msgstr "교육기관"
+
+#: pokr/templates/search-results.html:162
+msgid "Meetings where query was discussed"
+msgstr "검색어가 거론된 회의 목록"
 
 #: pokr/templates/unauthorized.html:18
 msgid "Login is requred."

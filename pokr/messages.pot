@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-14 00:22+0900\n"
+"POT-Creation-Date: 2014-07-19 20:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Bills"
 msgstr ""
 
-#: pokr/templates/main.html:37
+#: pokr/templates/main.html:37 pokr/templates/search-results.html:161
 msgid "Meetings"
 msgstr ""
 
@@ -474,7 +474,7 @@ msgid "Date"
 msgstr ""
 
 #: pokr/templates/person-statements.html:10
-#: pokr/templates/search-results.html:161
+#: pokr/templates/search-results.html:181
 msgid "Statement"
 msgstr ""
 
@@ -612,6 +612,10 @@ msgstr ""
 
 #: pokr/templates/search-results.html:142
 msgid "School"
+msgstr ""
+
+#: pokr/templates/search-results.html:162
+msgid "Meetings where query was discussed"
 msgstr ""
 
 #: pokr/templates/unauthorized.html:18
