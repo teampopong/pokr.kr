@@ -45,6 +45,7 @@ def register(app):
             results['laws'], options['laws'] = search_laws()
             results['bills']  , options['bills']   = search_bills()
             results['regions'], options['regions'] = search_regions()
+            results['meetings'], options['meetings'] = search_meetings()
             results['statements'], options['statements'] = search_statements()
 
             options = dict(chain(*(d.iteritems() for d in options.itervalues())))
@@ -181,6 +182,16 @@ def register(app):
                                 Region.name.like(u'%{0}%'.format(query)),
                                 func.length(Region.id) < 7))
         return (regions, options)
+
+    @if_target('meetings')
+    def search_meetings():
+        options = {}
+        query = request.args.get('query')
+        if query:
+            meetings = Meeting.query.join(Statement)\
+                        .filter(Statement.content.like(u'%{0}%'.format(query)))\
+                        .group_by(Meeting.id).order_by(desc(Meeting.date))
+        return (meetings, options)
 
     @if_target('statements')
     def search_statements():

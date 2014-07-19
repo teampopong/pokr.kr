@@ -155,6 +155,26 @@
         </tr>
         {% endif %}
 
+        {% if not target or target == 'meetings' %}
+        <tr>
+            <th>
+                {{ gettext('Meetings') }}
+                <i class="icon-exclamation-sign tooltipped" data-placement="bottom" data-title="{{ gettext('Meetings where query was discussed') }}"></i>
+                <br>{{ macro.list_count(meetings) }}
+            </th>
+            <td>{% if target %}
+                    {% call(meeting) macro.list_pagenav(meetings) %}
+                    {{ meeting.date }} <a href="{{ url_for('meeting', id=meeting.id) }}">{{ meeting.committee }}</a>
+                    {% endcall %}
+                {% else %}
+                    {% call(meeting) macro.list_more(meetings, url_for_query(target='meetings'), layout='list', pagesize=5) %}
+                    {{ meeting.date }} <a href="/meeting/{{ meeting.id }}">{{ meeting.committee }}</a>
+                    {% endcall %}
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+
         {% if not target or target == 'statements' %}
         <tr>
             <th>
