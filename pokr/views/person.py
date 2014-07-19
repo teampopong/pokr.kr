@@ -35,7 +35,7 @@ def register(app):
     def person_main():
         election_type = request.args.get('election_type', 'assembly')
         assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
-        officials = Person.query.order_by(desc(Person.id))\
+        officials = Person.query.order_by(Person.name)\
                                 .join(Candidacy)\
                                 .filter(and_(Candidacy.type == election_type,
                                              Candidacy.assembly_id == assembly_id,
