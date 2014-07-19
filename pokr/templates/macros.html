@@ -23,7 +23,7 @@
 {%- endmacro %}
 
 {% macro list_count(query, type=None) -%}
-    {% set cnt = query|count if hasattr(query, 'append') else query.count() %}
+    {% set cnt = query|count if hasattr(query, 'sort') else query.count() %}
     <span class="search-count">{% if type=='people' %}{{ gettext('%(count)d people', count=cnt) }}{% else %}{{ gettext('%(count)d results', count=cnt) }}{% endif %}</span>
 {%- endmacro %}
 
@@ -34,7 +34,7 @@
     {% set next_url = url_for_query(page=page + 1) %}
     {% set offset = (page - 1) * pagesize %}
 
-    {% if hasattr(query, 'append') %}
+    {% if hasattr(query, 'sort') %}
         {% set items = query[offset:offset+pagesize+1] %}
         {% set num_items_left = max(query[offset+pagesize+1:]|length, 0) %}
         {% set num_pages_left = int((num_items_left + pagesize - 1) / pagesize) %}
@@ -75,7 +75,7 @@
 
 {% macro list_more(query, url, pagesize=None, layout='list', more=True) -%}
     {% set pagesize = pagesize or 20 %}
-    {% set items = query if hasattr(query, 'append') else query.limit(pagesize+1).all() %}
+    {% set items = query if hasattr(query, 'sort') else query.limit(pagesize+1).all() %}
 
     {% if layout=='list' %}
         <ul>
