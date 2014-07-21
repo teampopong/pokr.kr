@@ -24,7 +24,7 @@
 <ul class="no-bullets">
 {% for row in meeting.dialogue %}
     {% if row.type=='issue' %}
-    <li><a href="{{ request.path }}dialog#{{ loop.index }}">
+    <li><a href="{{ request.path }}dialog#{{ loop.index }}" title="{{ row.content }}">
         {{ row.content.rsplit('(', 1)[0] }}</a></li>
     {% endif %}
 {% endfor %}
