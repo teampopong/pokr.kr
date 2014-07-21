@@ -5,7 +5,7 @@ from datetime import date
 import os.path
 import re
 
-from flask import abort, current_app, render_template, request, url_for
+from flask import abort, current_app, render_template, redirect, request, url_for
 from flask.ext.babel import gettext, format_date
 from sqlalchemy.orm import undefer, undefer_group
 from sqlalchemy.orm.exc import NoResultFound
@@ -82,6 +82,15 @@ def register(app):
 
         return render_template('meeting-dialogue.html',\
                 meeting=meeting, glossary_js=glossary_js)
+
+    @app.route('/meeting/<id>/pdf', methods=['GET'])
+    def meeting_pdf(id):
+        try:
+            return redirect(Meeting.query.filter_by(id=id)\
+                             .options(undefer('issues')).one().pdf_url)
+        except NoResultFound, e:
+            abort(404)
+
 
 @cache.memoize(timeout=60*60*24)
 def generate_glossary_js():
