@@ -20,7 +20,7 @@
     </tbody>
 </table>
 
-<h3>{{ gettext('issues') }}</h3>
+<h3 id="issues">{{ gettext('issues') }}</h3>
 <ul>
 {% for row in meeting.dialogue %}
     {% if row.type=='issue' %}
@@ -29,7 +29,7 @@
 {% endfor %}
 </ul>
 
-<h3>{{ gettext('attendees') }}
+<h3 id="attendees">{{ gettext('attendees') }}
     <span class="comment down-10"><i class="icon-exclamation-sign"></i> {{ gettext('Attendees among National Assembly members are listed.') }}</span>
 </h3>
 {% for attendee in meeting.attendees %}
