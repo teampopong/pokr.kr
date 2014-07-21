@@ -22,9 +22,12 @@
 
 <h3>{{ gettext('issues') }}</h3>
 <ul class="no-bullets">
-    {% for issue in meeting.issues %}
-    <li>{{ issue.rsplit('(', 1)[0] }}</li>
-    {% endfor %}
+{% for row in meeting.dialogue %}
+    {% if row.type=='issue' %}
+    <li><a href="{{ request.path }}dialog#{{ loop.index }}">
+        {{ row.content.rsplit('(', 1)[0] }}</a></li>
+    {% endif %}
+{% endfor %}
 </ul>
 
 <h3>{{ gettext('attendees') }}
