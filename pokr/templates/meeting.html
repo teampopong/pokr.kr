@@ -21,11 +21,10 @@
 </table>
 
 <h3>{{ gettext('issues') }}</h3>
-<ul class="no-bullets">
+<ul>
 {% for row in meeting.dialogue %}
     {% if row.type=='issue' %}
-    <li><a href="{{ request.path }}dialog#{{ loop.index }}" title="{{ row.content }}">
-        {{ row.content.rsplit('(', 1)[0] }}</a></li>
+    <li><a href="{{ request.path }}dialog#{{ loop.index }}" title="{{ row.content }}">{{ row.content.rsplit('(', 1)[0][:100] }}{% if row.content|length > 100 %}...{% endif %}</a></li>
     {% endif %}
 {% endfor %}
 </ul>
