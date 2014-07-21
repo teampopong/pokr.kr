@@ -27,14 +27,13 @@
     {% if row.type=='issue' %}
     <div id="{{ loop.index }}" class="issue">
         {% for item in row.content.rsplit('(', 1) %}
-            
             {% if loop.first %}
             <p class="font-bold no-margin">{{ item }}</p>
             {% else  %}
             <p class="indent-12 no-margin">({{ item }}</p>
             {% endif %}
-        </span>
         {% endfor %}
+        <div class="links"><a href="#{{ loop.index }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
     {% elif row.type=='statement' %}
     <div id="{{ row.id }}" class="statement">
         <div class="speaker">
