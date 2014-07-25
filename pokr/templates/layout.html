@@ -14,6 +14,10 @@
         <meta property="og:url" content="{{ request.url }}" />
         <meta property="fb:admins" content="1347665216" />
 
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@teampopong">
+        <meta name="twitter:creator" content="@teampopong">
+        <meta name="twitter:domain" content="{{ request.url }}">
         {% for lang, url in locale_links.items() %}
         <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
         {% endfor %}
