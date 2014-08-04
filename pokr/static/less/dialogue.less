@@ -24,6 +24,15 @@
         color: firebrick;
     }
     .statement {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: #eee;
+            left: 8%;
+        }
         .speaker {
             display: inline-block;
             font-weight: bold;
@@ -34,6 +43,10 @@
                 display: block;
                 margin: 0 auto 10px;
             }
+            .person-name {
+                background: #fff;
+                position: relative;
+            }
         }
         .content {
             display: inline-block;
@@ -41,6 +54,9 @@
         }
         &:hover {
             background-color: #f9f9f9;
+            .person-name {
+                background-color: #f9f9f9;
+            }
         }
     }
     .time {
