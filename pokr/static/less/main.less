@@ -116,24 +116,6 @@ a.btn-submain {
     }
 }
 
-#dashboard {
-    padding: 30px;
-
-    h2 {
-        border-bottom: 2px solid @icon_color;
-        color: @bg_color;
-        font-size: 16px;
-        line-height: 20px;
-        margin-bottom: 30px;
-        text-align: left;
-    }
-    .mainlist {
-        padding: 0 20px;
-        text-align: center;
-        height: 400px;
-    }
-}
-
 #feedback-guide {
     position: fixed;
     bottom: 50px;
@@ -177,16 +159,22 @@ a.btn-submain {
 }
 
 #features {
-    margin-top: 30px;
+    border-top: 1px solid #eee;
+    margin-top: 80px;
+    h3 {
+        font-weight: normal;
+        margin-top: 30px;
+        text-align: center;
+    }
     a {
         &:hover {
             .glow;
             text-decoration: none;
         }
-        h3 {
+        h4 {
             font-size: 15pt;
             font-weight: Normal;
-            margin: 0;
+            margin-top: 0;
         }
         img {
             display: block;
@@ -206,6 +194,16 @@ a.btn-submain {
         vertical-align: top;
         width: 26%;
     }
+}
+
+#hero {
+    font-family: 'Nanum Gothic', serif;
+    min-height: 330px;
+    padding-top: 110px;
+}
+
+h2 {
+    font-weight: normal;
 }
 
 @media (max-width: 770px) {

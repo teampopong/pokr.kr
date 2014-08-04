@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-04 11:34+0900\n"
+"POT-Creation-Date: 2014-08-04 13:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,74 +242,78 @@ msgid ""
 msgstr ""
 
 #: pokr/templates/main.html:65
-msgid "Data interlinking"
+msgid "What does Politics in Korea do?"
 msgstr ""
 
 #: pokr/templates/main.html:66
+msgid "Data interlinking"
+msgstr ""
+
+#: pokr/templates/main.html:67
 msgid "Easier to discover new facts"
 msgstr ""
 
-#: pokr/templates/main.html:69
+#: pokr/templates/main.html:70
 msgid "My page"
 msgstr ""
 
-#: pokr/templates/main.html:70
+#: pokr/templates/main.html:71
 msgid "Easier to find bills related to my region and interests"
 msgstr ""
 
-#: pokr/templates/main.html:73
+#: pokr/templates/main.html:74
 msgid "Graphs and images"
 msgstr ""
 
-#: pokr/templates/main.html:74
+#: pokr/templates/main.html:75
 msgid "Easier to understand the data in depth"
 msgstr ""
 
-#: pokr/templates/main.html:77
+#: pokr/templates/main.html:78
 msgid "Open participation"
 msgstr ""
 
-#: pokr/templates/main.html:78
+#: pokr/templates/main.html:79
 msgid "Anyone can share ideas"
 msgstr ""
 
-#: pokr/templates/main.html:81
+#: pokr/templates/main.html:82
 msgid "Open data"
 msgstr ""
 
-#: pokr/templates/main.html:82
+#: pokr/templates/main.html:83
 msgid "Anyone can access the data"
 msgstr ""
 
-#: pokr/templates/main.html:85
+#: pokr/templates/main.html:86
 msgid "Open source"
 msgstr ""
 
-#: pokr/templates/main.html:86
+#: pokr/templates/main.html:87
 msgid "Anyone can contribute code"
 msgstr ""
 
-#: pokr/templates/main.html:89
+#: pokr/templates/main.html:90
 msgid "Mobile compatibility"
 msgstr ""
 
-#: pokr/templates/main.html:90
+#: pokr/templates/main.html:91
 msgid "Easier to access on the go"
 msgstr ""
 
-#: pokr/templates/main.html:93
+#: pokr/templates/main.html:94
 msgid "Short and descriptive URLs"
 msgstr ""
 
-#: pokr/templates/main.html:94
+#: pokr/templates/main.html:95
 msgid "Easier to understand and manipulate URLs"
 msgstr ""
 
-#: pokr/templates/main.html:97
+#: pokr/templates/main.html:98
 msgid "Jargon explanations"
 msgstr ""
 
-#: pokr/templates/main.html:98
+#: pokr/templates/main.html:99
 msgid "Easier to understand difficult words"
 msgstr ""
 
