@@ -176,6 +176,38 @@ a.btn-submain {
     }
 }
 
+#features {
+    margin-top: 30px;
+    a {
+        &:hover {
+            .glow;
+            text-decoration: none;
+        }
+        h3 {
+            font-size: 15pt;
+            font-weight: Normal;
+            margin: 0;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-height: 133px;
+            max-width: 100%;
+            vertical-align: bottom
+        }
+        border: 3px solid #eee;
+        .border-radius(10px);
+        display: inline-block;
+        color: #333;
+        height: 200px;
+        margin: 2%;
+        padding: 1%;
+        text-align: center;
+        vertical-align: top;
+        width: 26%;
+    }
+}
+
 @media (max-width: 770px) {
     #facebook-login {
         display: none;
