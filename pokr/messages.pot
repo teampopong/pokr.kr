@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-19 20:38+0900\n"
+"POT-Creation-Date: 2014-08-04 11:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,9 +241,82 @@ msgid ""
 "compliments)</small>"
 msgstr ""
 
-#: pokr/templates/meeting-dialogue.html:56
-#: pokr/templates/meeting-dialogue.html:59
-#: pokr/templates/meeting-dialogue.html:62
+#: pokr/templates/main.html:65
+msgid "Data interlinking"
+msgstr ""
+
+#: pokr/templates/main.html:66
+msgid "Easier to discover new facts"
+msgstr ""
+
+#: pokr/templates/main.html:69
+msgid "My page"
+msgstr ""
+
+#: pokr/templates/main.html:70
+msgid "Easier to find bills related to my region and interests"
+msgstr ""
+
+#: pokr/templates/main.html:73
+msgid "Graphs and images"
+msgstr ""
+
+#: pokr/templates/main.html:74
+msgid "Easier to understand the data in depth"
+msgstr ""
+
+#: pokr/templates/main.html:77
+msgid "Open participation"
+msgstr ""
+
+#: pokr/templates/main.html:78
+msgid "Anyone can share ideas"
+msgstr ""
+
+#: pokr/templates/main.html:81
+msgid "Open data"
+msgstr ""
+
+#: pokr/templates/main.html:82
+msgid "Anyone can access the data"
+msgstr ""
+
+#: pokr/templates/main.html:85
+msgid "Open source"
+msgstr ""
+
+#: pokr/templates/main.html:86
+msgid "Anyone can contribute code"
+msgstr ""
+
+#: pokr/templates/main.html:89
+msgid "Mobile compatibility"
+msgstr ""
+
+#: pokr/templates/main.html:90
+msgid "Easier to access on the go"
+msgstr ""
+
+#: pokr/templates/main.html:93
+msgid "Short and descriptive URLs"
+msgstr ""
+
+#: pokr/templates/main.html:94
+msgid "Easier to understand and manipulate URLs"
+msgstr ""
+
+#: pokr/templates/main.html:97
+msgid "Jargon explanations"
+msgstr ""
+
+#: pokr/templates/main.html:98
+msgid "Easier to understand difficult words"
+msgstr ""
+
+#: pokr/templates/meeting-dialogue.html:36
+#: pokr/templates/meeting-dialogue.html:55
+#: pokr/templates/meeting-dialogue.html:58
+#: pokr/templates/meeting-dialogue.html:61
 msgid "link"
 msgstr ""
 
@@ -282,11 +355,11 @@ msgstr ""
 msgid "issues"
 msgstr ""
 
-#: pokr/templates/meeting.html:30
+#: pokr/templates/meeting.html:32
 msgid "attendees"
 msgstr ""
 
-#: pokr/templates/meeting.html:31
+#: pokr/templates/meeting.html:33
 msgid "Attendees among National Assembly members are listed."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-19 20:38+0900\n"
+"POT-Creation-Date: 2014-08-04 11:34+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -241,9 +241,82 @@ msgid ""
 "compliments)</small>"
 msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
 
-#: pokr/templates/meeting-dialogue.html:56
-#: pokr/templates/meeting-dialogue.html:59
-#: pokr/templates/meeting-dialogue.html:62
+#: pokr/templates/main.html:65
+msgid "Data interlinking"
+msgstr "데이터 간 유기적 연결성"
+
+#: pokr/templates/main.html:66
+msgid "Easier to discover new facts"
+msgstr "페이지끼리 연결되어 있어 손쉽게 이동할 수 있습니다"
+
+#: pokr/templates/main.html:69
+msgid "My page"
+msgstr "마이페이지"
+
+#: pokr/templates/main.html:70
+msgid "Easier to find bills related to my region and interests"
+msgstr "내 지역구, 관심사 관련 의안을 선별해 볼 수 있습니다"
+
+#: pokr/templates/main.html:73
+msgid "Graphs and images"
+msgstr "그래프와 이미지"
+
+#: pokr/templates/main.html:74
+msgid "Easier to understand the data in depth"
+msgstr "데이터를 더욱 쉽고 재미있게 이해할 수 있습니다"
+
+#: pokr/templates/main.html:77
+msgid "Open participation"
+msgstr "열린 참여"
+
+#: pokr/templates/main.html:78
+msgid "Anyone can share ideas"
+msgstr "누구나 사이트에 대한 아이디어를 공유할 수 있습니다"
+
+#: pokr/templates/main.html:81
+msgid "Open data"
+msgstr "오픈 데이터"
+
+#: pokr/templates/main.html:82
+msgid "Anyone can access the data"
+msgstr "누구나 데이터에 접근할 수 있습니다"
+
+#: pokr/templates/main.html:85
+msgid "Open source"
+msgstr "오픈 소스"
+
+#: pokr/templates/main.html:86
+msgid "Anyone can contribute code"
+msgstr "누구나 개발에 참여할 수 있습니다"
+
+#: pokr/templates/main.html:89
+msgid "Mobile compatibility"
+msgstr "모바일 호환성"
+
+#: pokr/templates/main.html:90
+msgid "Easier to access on the go"
+msgstr "이동하면서 편리하게 볼 수 있습니다"
+
+#: pokr/templates/main.html:93
+msgid "Short and descriptive URLs"
+msgstr "짧고 명료한 URL"
+
+#: pokr/templates/main.html:94
+msgid "Easier to understand and manipulate URLs"
+msgstr "URL의 구조를 이해하고 직접 조작하기 쉽습니다"
+
+#: pokr/templates/main.html:97
+msgid "Jargon explanations"
+msgstr "용어 풀이"
+
+#: pokr/templates/main.html:98
+msgid "Easier to understand difficult words"
+msgstr "어려운 용어에는 용어 풀이가  부착되어 있습니다"
+
+#: pokr/templates/meeting-dialogue.html:36
+#: pokr/templates/meeting-dialogue.html:55
+#: pokr/templates/meeting-dialogue.html:58
+#: pokr/templates/meeting-dialogue.html:61
 msgid "link"
 msgstr "링크"
 
@@ -282,11 +355,11 @@ msgstr "파일로 보기"
 msgid "issues"
 msgstr "안건"
 
-#: pokr/templates/meeting.html:30
+#: pokr/templates/meeting.html:32
 msgid "attendees"
 msgstr "참석자"
 
-#: pokr/templates/meeting.html:31
+#: pokr/templates/meeting.html:33
 msgid "Attendees among National Assembly members are listed."
 msgstr "참석자 중 의원만 표기되어 있음."
 
