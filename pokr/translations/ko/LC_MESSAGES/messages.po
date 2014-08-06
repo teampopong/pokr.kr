@@ -345,7 +345,7 @@ msgstr "날짜"
 
 #: pokr/templates/meeting.html:12
 msgid "starting time"
-msgstr "시작한 시간"
+msgstr "시작 시간"
 
 #: pokr/templates/meeting.html:16
 msgid "ending time"
