@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-04 13:08+0900\n"
+"POT-Creation-Date: 2014-08-06 14:57+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: pokr/models/meeting.py:45
+#: pokr/models/meeting.py:46
 #, python-format
 msgid "%(parliament_id)dth parliament"
 msgstr "%(parliament_id)d대"
 
-#: pokr/models/meeting.py:48
+#: pokr/models/meeting.py:49
 #, python-format
 msgid "%(session_id)dth session"
 msgstr "%(session_id)d회"
 
-#: pokr/models/meeting.py:51
+#: pokr/models/meeting.py:52
 #, python-format
 msgid "%(sitting_id)dth sitting"
 msgstr "%(sitting_id)d차"
@@ -344,26 +344,38 @@ msgid "date"
 msgstr "날짜"
 
 #: pokr/templates/meeting.html:12
+msgid "starting time"
+msgstr "시작한 시간"
+
+#: pokr/templates/meeting.html:16
+msgid "ending time"
+msgstr "끝난 시간"
+
+#: pokr/templates/meeting.html:20
+msgid "duration time"
+msgstr "지속 시간"
+
+#: pokr/templates/meeting.html:24
 msgid "dialogue"
 msgstr "회의록"
 
-#: pokr/templates/meeting.html:15
+#: pokr/templates/meeting.html:27
 msgid "view web"
 msgstr "웹으로 보기"
 
-#: pokr/templates/meeting.html:16
+#: pokr/templates/meeting.html:28
 msgid "view file"
 msgstr "파일로 보기"
 
-#: pokr/templates/meeting.html:23
+#: pokr/templates/meeting.html:35
 msgid "issues"
 msgstr "안건"
 
-#: pokr/templates/meeting.html:32
+#: pokr/templates/meeting.html:44
 msgid "attendees"
 msgstr "참석자"
 
-#: pokr/templates/meeting.html:33
+#: pokr/templates/meeting.html:45
 msgid "Attendees among National Assembly members are listed."
 msgstr "참석자 중 의원만 표기되어 있음."
 
@@ -794,4 +806,10 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
+
+#~ msgid "start"
+#~ msgstr "상태"
+
+#~ msgid "end"
+#~ msgstr "검색추이"
 

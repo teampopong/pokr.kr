@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from datetime import date
+from datetime import datetime
+import re
 
 from flask.ext.babel import gettext
 from sqlalchemy import BigInteger, Column, Date, ForeignKey, Integer, Text
@@ -61,3 +62,27 @@ class Meeting(Base):
     def year(cls):
         return extract('year', cls.date)
 
+    @property
+    def start(self):
+        s = self.dialogue[0]
+        if s['type']=='time':
+            return ':'.join(\
+                re.search(ur'([0-9]+)시.*?([0-9]+)분', s['content']).groups())
+        return 'Unknown'
+
+    @property
+    def end(self):
+        e = self.dialogue[-1]
+        if e['type']=='time':
+            return ':'.join(\
+                re.search(ur'([0-9]+)시.*?([0-9]+)분', e['content']).groups())
+        return 'Unknown'
+
+    @property
+    def duration(self):
+        try:
+            s = datetime.strptime(self.start, '%H:%M')
+            e = datetime.strptime(self.end, '%H:%M')
+            return str(e-s)[:-3]
+        except ValueError:
+            return 'Unknown'
