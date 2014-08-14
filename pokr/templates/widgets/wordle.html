@@ -17,7 +17,6 @@
 
   d3.layout.cloud().size([WIDTH, HEIGHT])
     .words($.map({{ wordweights|jsonify|safe }}, function(v, k) {
-        console.log(k, v);
         return {text: k, size: 5 + v * 20};
       }))
       .padding(5)
