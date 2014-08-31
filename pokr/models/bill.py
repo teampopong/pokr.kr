@@ -74,9 +74,9 @@ class Bill(Base):
                                  .group_by(Party.id)
 
         # Otherwise, use the most recent party affiliation of candidacy info.
-        if not all(count for party, count in party_counts):
-            party_counts = db_session.query(func.count(distinct(Person.id)),
-                                            Party.name)\
+        if any(party is None for count, party in party_counts):
+            party_counts = db_session.query(Party.name,
+                                            func.count(distinct(Person.id)))\
                                      .join(Candidacy)\
                                      .join(Election)\
                                      .filter(Election.assembly_id == self.assembly_id)\
@@ -85,6 +85,7 @@ class Bill(Base):
                                      .join(Bill)\
                                      .filter(Bill.id == self.id)\
                                      .group_by(Party.id)
+            party_counts = ((count, party) for party, count in party_counts)
 
         return [(party, int(count)) for count, party in party_counts]
 
