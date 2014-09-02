@@ -134,7 +134,7 @@ def update_bills_from_files(files):
                     f = open(f, 'r')
                 with f:
                     record = json.load(f)
-            except e:
+            except Exception, e:
                 print >> sys.stderr, e
                 continue
             insert_bill(session, record)
