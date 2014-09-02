@@ -216,7 +216,7 @@ def insert_cosponsorships(session, bill, cosponsors):
     for proposer in cosponsors:
         key = (proposer, bill.assembly_id)
         person_id = person_ids.get(key)
-        if not person_id
+        if not person_id:
             try:
                 person = guess_person(session, proposer, bill.assembly_id)
 
