@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 
 from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
@@ -17,6 +18,8 @@ from .party import Party
 from .person import Person
 
 from settings import BILLPDF_DIR, BILLTXT_DIR
+
+numbers_re = re.compile(r'\d+')
 
 
 class Bill(Base):
@@ -111,5 +114,7 @@ Bill.statuses = relationship("BillStatus",
 
 
 def assembly_id_by_bill_id(bill_id):
-    return int(bill_id.lstrip('Z')[:2])
+    if bill_id.startswith('DD'): # FIXME
+        return 19
+    return int(''.join(numbers_re.findall(bill_id))[:2])
 
