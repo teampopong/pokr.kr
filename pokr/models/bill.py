@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import re
 
 from sqlalchemy import Boolean, Column, Date, func, Integer, select, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
@@ -8,22 +9,21 @@ from sqlalchemy.orm import column_property, relationship
 from sqlalchemy.sql.expression import distinct
 
 from pokr.database import Base, db_session
-from utils.api_model import ApiModel
 from .bill_keyword import bill_keyword
 from .bill_status import BillStatus
 from .candidacy import Candidacy
-from .cosponsorship import cosponsorship
+from .cosponsorship import Cosponsorship
 from .election import Election
 from .party import Party
 from .person import Person
 
 from settings import BILLPDF_DIR, BILLTXT_DIR
 
+numbers_re = re.compile(r'\d+')
 
-class Bill(Base, ApiModel):
+
+class Bill(Base):
     __tablename__ = 'bill'
-    __kind_single__ = 'bill'
-    __kind_list__ = 'bills'
 
     id = Column(String(20), primary_key=True)
     name = Column(Unicode(256), index=True, nullable=False)
@@ -68,29 +68,35 @@ class Bill(Base, ApiModel):
 
     @property
     def party_counts(self):
-        party_counts = db_session.query(Party.name,
-                                        func.count(distinct(Person.id)))\
-                                 .join(Candidacy)\
-                                 .join(Election)\
-                                 .filter(Election.assembly_id == self.assembly_id)\
-                                 .join(Person)\
-                                 .join(cosponsorship)\
-                                 .join(Bill)\
+        # if the bill cosponsorships have party_ids, then use it.
+        party_counts = db_session.query(func.count(distinct(Cosponsorship.person_id)))\
+                                 .join(Cosponsorship.bill)\
                                  .filter(Bill.id == self.id)\
+                                 .outerjoin(Cosponsorship.party)\
+                                 .add_columns(Party.name)\
                                  .group_by(Party.id)
-        return [(party, int(count)) for party, count in party_counts]
+
+        # Otherwise, use the most recent party affiliation of candidacy info.
+        if any(party is None for count, party in party_counts):
+            party_counts = db_session.query(Party.name,
+                                            func.count(distinct(Person.id)))\
+                                     .join(Candidacy)\
+                                     .join(Election)\
+                                     .filter(Election.assembly_id == self.assembly_id)\
+                                     .join(Person)\
+                                     .join(Cosponsorship)\
+                                     .join(Bill)\
+                                     .filter(Bill.id == self.id)\
+                                     .group_by(Party.id)
+            party_counts = ((count, party) for party, count in party_counts)
+
+        return [(party, int(count)) for count, party in party_counts]
 
     @property
     def representative_people(self):
         return [cosponsor
                 for cosponsor in self.cosponsors
                 if cosponsor.name in self.sponsor]
-
-    def _to_dict_light(self):
-        d = self._columns_to_dict()
-        d['status'] = self.status
-        # TODO: add relation data
-        return d
 
 
 bill_and_status = select([func.row_number().over().label('status_order'),
@@ -108,5 +114,7 @@ Bill.statuses = relationship("BillStatus",
 
 
 def assembly_id_by_bill_id(bill_id):
-    return int(bill_id.lstrip('Z')[:2])
+    if bill_id.startswith('DD'): # FIXME
+        return 19
+    return int(''.join(numbers_re.findall(bill_id))[:2])
 

@@ -18,6 +18,7 @@ from pokr.models.bill_review import BillReview
 from pokr.models.election import Election
 from pokr.models.cosponsorship import cosponsorship
 from pokr.models.candidacy import Candidacy
+from pokr.models.party_affiliation import PartyAffiliation
 from pokr.models.person import Person
 from pokr.queue import RedisQueue
 from utils.command import Command
@@ -133,7 +134,7 @@ def update_bills_from_files(files):
                     f = open(f, 'r')
                 with f:
                     record = json.load(f)
-            except e:
+            except Exception, e:
                 print >> sys.stderr, e
                 continue
             insert_bill(session, record)
@@ -214,7 +215,8 @@ def insert_cosponsorships(session, bill, cosponsors):
     cosponsor_ids = []
     for proposer in cosponsors:
         key = (proposer, bill.assembly_id)
-        if key not in person_ids:
+        person_id = person_ids.get(key)
+        if not person_id:
             try:
                 person = guess_person(session, proposer, bill.assembly_id)
 
@@ -222,9 +224,8 @@ def insert_cosponsorships(session, bill, cosponsors):
                 person = None
                 print proposer.encode('utf-8'), e
 
-            person_ids[key] = person.id if person else None
+            person_id = person_ids[key] = person.id if person else None
 
-        person_id = person_ids[key]
         if person_id:
             cosponsor_ids.append(person_id)
 
@@ -237,6 +238,10 @@ def insert_cosponsorships(session, bill, cosponsors):
             {
                 'person_id': person_id,
                 'bill_id': bill.id,
+                'party_id': session.query(Person).filter_by(id=person_id).one()\
+                               .parties.filter(
+                                   PartyAffiliation.date < Bill.proposed_date)\
+                               .first().id,
             } for person_id in ids_to_insert
         ])
 
