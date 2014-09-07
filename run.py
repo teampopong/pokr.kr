@@ -1,4 +1,6 @@
 #!/usr/bin/env python2
+# if python2 does not work, run this first:
+# sudo ln -s /usr/bin/python /usr/bin/python2
 # -*- coding: utf-8 -*-
 
 import argparse
