@@ -5,7 +5,7 @@ from datetime import date
 import os.path
 import re
 
-from flask import abort, current_app, render_template, redirect, request, url_for
+from flask import abort, current_app, render_template, redirect, request, send_file, url_for
 from flask.ext.babel import gettext, format_date
 from sqlalchemy.orm import undefer, undefer_group
 from sqlalchemy.orm.exc import NoResultFound
@@ -86,9 +86,15 @@ def register(app):
     @app.route('/meeting/<id>/pdf', methods=['GET'])
     def meeting_pdf(id):
         try:
-            return redirect(Meeting.query.filter_by(id=id)\
-                             .options(undefer('issues')).one().pdf_url)
+            meeting = Meeting.query.filter_by(id=id).one()
         except NoResultFound, e:
+            abort(404)
+
+        if meeting.document_pdf_path:
+            response = send_file(meeting.document_pdf_path)
+            response.headers['Content-Disposition'] = 'filename=%s.pdf' % id
+            return response
+        else:
             abort(404)
 
 

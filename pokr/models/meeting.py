@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from datetime import datetime
+import os
 import re
 
 from flask.ext.babel import gettext
@@ -12,6 +13,8 @@ from sqlalchemy.sql.expression import extract
 
 from pokr.database import Base
 from pokr.models.meeting_attendee import MeetingAttendee
+
+from settings import MEETINGPDF_DIR
 
 
 class Meeting(Base):
@@ -86,3 +89,17 @@ class Meeting(Base):
             return str(e-s)[:-3]
         except ValueError:
             return 'Unknown'
+
+    @property
+    def document_pdf_path(self):
+        level = 'national'
+        filename = '%s-%s-%s-%s.pdf' % (self.parliament_id,
+                                        self.session_id,
+                                        self.sitting_id,
+                                        self.committee)
+        filepath = os.path.join(MEETINGPDF_DIR, level,\
+                str(self.parliament_id), str(self.date), filename)
+        if os.path.exists(filepath):
+            return filepath
+        else:
+            return None

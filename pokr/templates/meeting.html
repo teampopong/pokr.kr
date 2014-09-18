@@ -25,7 +25,7 @@
             <td>
                 <ul>
                     <li><a href="{{ request.path }}dialog">{{ gettext('view web') }} (HTML)</a></li>
-                    <li><a href="{{ meeting.pdf_url }}">{{ gettext('view file') }} (PDF)</a></li>
+                    {% if meeting.document_pdf_path %}<li><a href="{{ url_for('meeting_pdf', id=meeting.id) }}">{{ gettext('view file') }} (PDF)</a></li>{% endif %}
                 </ul>
             </td>
         </tr>
