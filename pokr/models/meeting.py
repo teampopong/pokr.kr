@@ -54,14 +54,14 @@ class Meeting(Base):
                 r.append(gettext('%(session_id)sth session',
                                  session_id=self.session_id))
             else:
-                r.append(str(self.session_id))
+                r.append(self.session_id)
 
         if self.sitting_id:
             if self.sitting_id.isdigit():
                 r.append(gettext('%(sitting_id)sth sitting',
                                  sitting_id=self.sitting_id))
             else:
-                r.append(str(self.sitting_id))
+                r.append(self.sitting_id)
 
         r.append(self.committee)
         return ' '.join(r)
