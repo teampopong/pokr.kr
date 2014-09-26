@@ -83,8 +83,8 @@ def create_or_get_meeting(session, region_id, obj, update=False):
     id = int('{region_id}{assembly_id}{session_id}{meeting_id}{md5}'.format(
              region_id=region_id,
              assembly_id=obj['assembly_id'],
-             session_id=strhash(session_id),
-             meeting_id=strhash(meeting_id),
+             session_id=int(session_id) if session_id.isdigit() else strhash(session_id),
+             meeting_id=int(meeting_id) if meeting_id.isdigit() else strhash(meeting_id),
              md5=strhash(obj['committee'])))
 
     meeting = session.query(Meeting).filter_by(id=id).first()
