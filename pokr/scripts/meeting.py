@@ -70,6 +70,12 @@ def insert_meetings(region_id, obj, update=False):
         raise Exception()
 
 
+def strhash(s, len=4):
+    if isinstance(s, unicode):
+        s = s.encode('utf-8')
+    return int(hashlib.md5(s).hexdigest()[:len], 16)
+
+
 def create_or_get_meeting(session, region_id, obj, update=False):
     date = datetime.strptime(obj['date'], '%Y-%m-%d').date()
     session_id = obj['session_id'] or ''
@@ -77,9 +83,9 @@ def create_or_get_meeting(session, region_id, obj, update=False):
     id = int('{region_id}{assembly_id}{session_id}{meeting_id}{md5}'.format(
              region_id=region_id,
              assembly_id=obj['assembly_id'],
-             session_id=session_id,
-             meeting_id=meeting_id,
-             md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16)))
+             session_id=strhash(session_id),
+             meeting_id=strhash(meeting_id),
+             md5=strhash(obj['committee'])))
 
     meeting = session.query(Meeting).filter_by(id=id).first()
     if not update and meeting:
