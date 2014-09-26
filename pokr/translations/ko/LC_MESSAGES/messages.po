@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-06 14:57+0900\n"
+"POT-Creation-Date: 2014-09-26 15:38+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: pokr/models/meeting.py:46
-#, python-format
-msgid "%(parliament_id)dth parliament"
-msgstr "%(parliament_id)d대"
-
 #: pokr/models/meeting.py:49
 #, python-format
-msgid "%(session_id)dth session"
-msgstr "%(session_id)d회"
+msgid "%(parliament_id)sth parliament"
+msgstr "%(parliament_id)s대"
 
-#: pokr/models/meeting.py:52
+#: pokr/models/meeting.py:54
 #, python-format
-msgid "%(sitting_id)dth sitting"
-msgstr "%(sitting_id)d차"
+msgid "%(session_id)sth session"
+msgstr "%(session_id)s회"
+
+#: pokr/models/meeting.py:61
+#, python-format
+msgid "%(sitting_id)sth sitting"
+msgstr "%(sitting_id)s차"
 
 #: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:150
 msgid "The summary of this bill has not been updated."
@@ -325,17 +325,17 @@ msgid "link"
 msgstr "링크"
 
 #: pokr/templates/meeting-layout.html:5 pokr/templates/meeting-layout.html:12
-#: pokr/templates/meeting-layout.html:24
+#: pokr/templates/meeting-layout.html:26
 msgid "th parliament"
 msgstr "대"
 
 #: pokr/templates/meeting-layout.html:6 pokr/templates/meeting-layout.html:12
-#: pokr/templates/meeting-layout.html:25
+#: pokr/templates/meeting-layout.html:27
 msgid "th session"
 msgstr "회"
 
 #: pokr/templates/meeting-layout.html:7 pokr/templates/meeting-layout.html:12
-#: pokr/templates/meeting-layout.html:26
+#: pokr/templates/meeting-layout.html:28
 msgid "th sitting"
 msgstr "차"
 
@@ -806,10 +806,4 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
-
-#~ msgid "start"
-#~ msgstr "상태"
-
-#~ msgid "end"
-#~ msgstr "검색추이"
 

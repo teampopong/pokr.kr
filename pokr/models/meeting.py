@@ -46,14 +46,23 @@ class Meeting(Base):
     @property
     def title(self):
         r = []
-        r.append(gettext('%(parliament_id)dth parliament',
+        r.append(gettext('%(parliament_id)sth parliament',
                          parliament_id=self.parliament_id))
+
         if self.session_id:
-            r.append(gettext('%(session_id)dth session',
-                             session_id=self.session_id))
+            if self.session_id.isdigit():
+                r.append(gettext('%(session_id)sth session',
+                                 session_id=self.session_id))
+            else:
+                r.append(str(self.session_id))
+
         if self.sitting_id:
-            r.append(gettext('%(sitting_id)dth sitting',
-                             sitting_id=self.sitting_id))
+            if self.sitting_id.isdigit():
+                r.append(gettext('%(sitting_id)sth sitting',
+                                 sitting_id=self.sitting_id))
+            else:
+                r.append(str(self.sitting_id))
+
         r.append(self.committee)
         return ' '.join(r)
 

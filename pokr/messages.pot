@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-06 14:57+0900\n"
+"POT-Creation-Date: 2014-09-26 15:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: pokr/models/meeting.py:46
-#, python-format
-msgid "%(parliament_id)dth parliament"
-msgstr ""
-
 #: pokr/models/meeting.py:49
 #, python-format
-msgid "%(session_id)dth session"
+msgid "%(parliament_id)sth parliament"
 msgstr ""
 
-#: pokr/models/meeting.py:52
+#: pokr/models/meeting.py:54
 #, python-format
-msgid "%(sitting_id)dth sitting"
+msgid "%(session_id)sth session"
+msgstr ""
+
+#: pokr/models/meeting.py:61
+#, python-format
+msgid "%(sitting_id)sth sitting"
 msgstr ""
 
 #: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:150
@@ -325,17 +325,17 @@ msgid "link"
 msgstr ""
 
 #: pokr/templates/meeting-layout.html:5 pokr/templates/meeting-layout.html:12
-#: pokr/templates/meeting-layout.html:24
+#: pokr/templates/meeting-layout.html:26
 msgid "th parliament"
 msgstr ""
 
 #: pokr/templates/meeting-layout.html:6 pokr/templates/meeting-layout.html:12
-#: pokr/templates/meeting-layout.html:25
+#: pokr/templates/meeting-layout.html:27
 msgid "th session"
 msgstr ""
 
 #: pokr/templates/meeting-layout.html:7 pokr/templates/meeting-layout.html:12
-#: pokr/templates/meeting-layout.html:26
+#: pokr/templates/meeting-layout.html:28
 msgid "th sitting"
 msgstr ""
 
