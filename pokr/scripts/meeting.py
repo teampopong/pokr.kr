@@ -72,13 +72,13 @@ def insert_meetings(region_id, obj, update=False):
 
 def create_or_get_meeting(session, region_id, obj, update=False):
     date = datetime.strptime(obj['date'], '%Y-%m-%d').date()
-    session_id = int(obj['session_id']) if obj['session_id'].isdigit() else None
-    meeting_id = int(obj['meeting_id']) if obj['meeting_id'].isdigit() else None
+    session_id = obj['session_id'] or ''
+    meeting_id = obj['meeting_id'] or ''
     id = int('{region_id}{assembly_id}{session_id}{meeting_id}{md5}'.format(
              region_id=region_id,
              assembly_id=obj['assembly_id'],
-             session_id=session_id or '',
-             meeting_id=meeting_id or '',
+             session_id=session_id,
+             meeting_id=meeting_id,
              md5=int(hashlib.md5(obj['committee'].encode('utf-8')).hexdigest()[:4], 16)))
 
     meeting = session.query(Meeting).filter_by(id=id).first()

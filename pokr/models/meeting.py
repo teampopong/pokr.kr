@@ -5,7 +5,7 @@ import os
 import re
 
 from flask.ext.babel import gettext
-from sqlalchemy import BigInteger, Column, Date, ForeignKey, Integer, Text
+from sqlalchemy import BigInteger, Column, Date, ForeignKey, Text
 from sqlalchemy.dialects.postgresql import ARRAY, JSON
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import deferred, relationship
@@ -24,9 +24,9 @@ class Meeting(Base):
     id = Column(BigInteger, primary_key=True)
     committee = Column(Text, index=True)
     region_id = Column(ForeignKey('region.id'), index=True)
-    parliament_id = Column(Integer, nullable=False, index=True)
-    session_id = Column(Integer, index=True)
-    sitting_id = Column(Integer, index=True)
+    parliament_id = Column(Text, nullable=False, index=True)
+    session_id = Column(Text, index=True)
+    sitting_id = Column(Text, index=True)
 
     # Meta & contents
     date = Column(Date, nullable=False, index=True)
