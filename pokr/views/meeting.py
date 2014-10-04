@@ -20,6 +20,13 @@ from utils.jinja import breadcrumb
 date_re = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 
 
+def latest_meeting_date():
+    date_ =  db_session.query(Meeting.date)\
+                       .order_by(Meeting.date.desc())\
+                       .first()
+    return date_[0] if date_ else None
+
+
 def register(app):
     app.views['meeting'] = 'meeting_main'
     gettext('meeting') # for babel extraction
@@ -29,6 +36,12 @@ def register(app):
     def meeting_main():
         year = request.args.get('year', date.today().year)
         date_ = request.args.get('date')
+
+        if not date_:
+            d = latest_meeting_date()
+            if d:
+                return redirect(url_for('meeting_main',
+                                        date=format_date(d, 'yyyy-MM-dd')))
 
         # meetings of the day (optional)
         meetings_of_the_day = None
