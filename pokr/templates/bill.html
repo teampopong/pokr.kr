@@ -156,6 +156,7 @@
 {% if not mobile %}
 {% include 'includes/adsense-728x90.html' %}
 {% endif %}
+{% with party_counts = bill.party_counts %}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});
@@ -163,7 +164,7 @@
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ['party', 'count'],
-      {% for party_name, size in bill.party_counts %}
+      {% for party_name, size, _ in party_counts %}
       ['{{ party_name }}', {{ size }}]{% if not loop.last %},{% endif %}
       {% endfor %}
     ]);
@@ -176,11 +177,17 @@
             textStyle: {
                 fontSize: 11
             }
-        }
+        },
+        colors: [
+            {% for _, _, color in bill.party_counts %}
+               '{{ color }}'{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ]
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('cosponsor-parties'));
     chart.draw(data, options);
   }
 </script>
+{% endwith %}
 {% endblock %}
