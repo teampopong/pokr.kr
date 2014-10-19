@@ -5,27 +5,32 @@ Pokr - Politics in Korea
 
 ## Installation
 
-1. Install dependencies
+1. Install dependencies (varies by OS)
 
         $ apt-get install postgresql-9.3 npm python-psycopg2 node-less node-uglify # and set password for user 'postgres' in postgresql
         $ pip install -r requirements.txt
 
     > Installing `less` and `uglify` via npm may not work
 
-1. Create & modify configuration files:
-    - `make init`
-    - settings.py
-    - alembic.ini
-        - `ID_HERE`: postgres id
+1. Create & modify configuration files
+
+        $ make init
+
+    - Modify `alembic.ini`
+        - `ID_HERE`: postgres id (ex: postgres)
         - `PASSWD_HERE`: postgres pw
-        - `HOST_HERE`: postgres host
+        - `HOST_HERE`: postgres host (ex: localhost)
 
 1. Create & init DB
 
         $ make create_db # psql dumpfile should be in the highest directory as 'pokr.dump'
         $ make init_db
 
-## Insert/Update Data
+## Run Server
+
+    $ ./run.py [-d] [-l LOCALE] [--port PORT]
+
+## Update Data
 
 1. Bills
 
@@ -41,12 +46,5 @@ Pokr - Politics in Korea
 
         $ ./shell.py candidacy update "some/where/*.json"
 
-
-## Run Server
-
-    $ ./run.py [-d] [-l LOCALE] [--port PORT]
-
-
 ## License
 [Apache v2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
-
