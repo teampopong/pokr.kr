@@ -24,7 +24,10 @@ def init_app(app):
 
 
 def init_db(app):
-    from social.apps.flask_app import models
-    from social.apps.flask_app.models import init_social
-    social_storage = init_social(app, Base, db_session)
-
+    try:
+        from social.apps.flask_app import models
+        from social.apps.flask_app.models import init_social
+        social_storage = init_social(app, Base, db_session)
+    except ImportError:
+        # FIXME
+        pass

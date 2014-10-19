@@ -5,34 +5,12 @@ Pokr - Politics in Korea
 
 ## Installation
 
-1. Install dependant packages (postgresql >= 9.2)
+1. Install dependencies
 
+        $ apt-get install postgresql-9.3 npm python-psycopg2 node-less node-uglify # and set password for user 'postgres' in postgresql
+        $ pip install -r requirements.txt
 
-    - Ubuntu Linux:
-
-            Install postgresql (http://www.postgresql.org/download/)
-            Install nodejs to use npm (http://nodejs.org/download/)
-            Install Redis (http://redis.io/download)
-            # apt-get update
-            # apt-get install python python-dev python2.7 libpq-dev
-            # npm install less uglify-js@1 -g
-    - Mac OS X:
-
-            Install Homebrew (http://mxcl.github.com/homebrew/)
-            Install nodejs to use npm (http://nodejs.org/download/)
-            Install Redis (http://redis.io/download)
-            # brew install python postgresql
-            # initdb /usr/local/var/postgres -E utf8
-            # npm install less uglify-js@1 -g
-
-
-1. Install **pokr**
-
-        $ sudo make install
-
-## Setup
-
-1. Create Database
+    > Installing `less` and `uglify` via npm may not work
 
 1. Create & modify configuration files:
     - `make init`
@@ -42,9 +20,10 @@ Pokr - Politics in Korea
         - `PASSWD_HERE`: postgres pw
         - `HOST_HERE`: postgres host
 
-1. Initialize Database
+1. Create & init DB
 
-        $ make init\_db
+        $ make create_db # psql dumpfile should be in the highest directory as 'pokr.dump'
+        $ make init_db
 
 ## Insert/Update Data
 

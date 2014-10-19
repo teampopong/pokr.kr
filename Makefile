@@ -1,6 +1,3 @@
-install:
-	pip install -r requirements.txt
-
 init:
 	git submodule init
 	git submodule update
@@ -12,6 +9,10 @@ extract_i18n:
 
 update_i18n:
 	pybabel compile -d pokr/translations
+
+create_db:
+	sudo -u postgres psql -h localhost -U postgres -c 'CREATE DATABASE popongdb;'\
+	&& sudo -u postgres psql -d popongdb -f pokr.dump
 
 init_db:
 	./shell.py db init

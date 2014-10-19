@@ -3,7 +3,10 @@
 from datetime import date
 import json
 
-from flaskext.babel import format_date
+try:
+    from flaskext.babel import format_date
+except ImportError:
+    from flask.ext.babel import format_date
 from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.hybrid import hybrid_property
