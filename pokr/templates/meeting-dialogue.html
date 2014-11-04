@@ -21,6 +21,13 @@
 
 {% block meeting_content %}
 
+<div id="issue-box">
+{% for row in meeting.dialogue %}
+    {% if row.type=='issue' %}
+    <a href="#{{ loop.index }}"><i class="icon-circle tooltipped" data-placement="left" data-title="{{ row.content }}"></i></a>
+    {% endif %}
+{% endfor %}
+</div>
 <div class="dialogue">
 {% with guids = guid_factory() %}
 {% for row in meeting.dialogue %}
