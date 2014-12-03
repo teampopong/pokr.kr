@@ -11,6 +11,6 @@ alembic>=0.5.0
 cssmin>=0.2.0
 nltk>=3.0.0
 oauthlib>=0.6.2
-popong-nlp>=0.1
 python-memcached>=1.53
 python-social-auth>=0.1.13
+redis>=2.10.3

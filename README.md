@@ -5,26 +5,39 @@ Pokr - Politics in Korea
 
 ## Installation
 
-1. Install dependencies (varies by OS)
+1. Install dependencies
 
-        $ apt-get install postgresql-9.3 npm python-psycopg2 node-less node-uglify # and set password for user 'postgres' in postgresql
-        $ pip install -r requirements.txt
+    - Install [node.js](http://nodejs.org/)
+    - Ubuntu
 
-    > Installing `less` and `uglify` via npm may not work
+            $ apt-get install postgresql-9.3 npm python-psycopg2 node-less node-uglify
+            $ pip install -r requirements.txt
+            $ make install
+
+    - Mac OS X
+
+            $ brew install postgresql
+            $ npm install less uglify-js -g
+            $ pip install -r requirements.txt
+            $ pip install psycopg2
+            $ make install
 
 1. Create & modify configuration files
 
         $ make init
-
+        $ createuser postgres
+    - Set password for user "postgres" in PostgreSQL
     - Modify `alembic.ini`
         - `ID_HERE`: postgres id (ex: postgres)
         - `PASSWD_HERE`: postgres pw
         - `HOST_HERE`: postgres host (ex: localhost)
 
-1. Create & init DB
+1. Create & init DB (You should first obtain a `pokrdb.dump` from the admins: contact@popong.com) 
 
-        $ make create_db # psql dumpfile should be in the highest directory as 'pokr.dump'
-        $ make init_db
+        $ sudo -u postgres psql -h localhost -U postgres -c 'CREATE DATABASE pokrdb;'
+        $ sudo -u postgres psql -d pokrdb -f pokrdb.dump
+        $ ./shell.py db init
+        $ alembic stamp head
 
 ## Run Server
 
