@@ -7,7 +7,7 @@ from itertools import izip
 from os.path import basename
 import sys
 
-import konlpy
+from konlpy.tag import Hannanum # konlpy>=0.3.0
 from pokr.database import transaction
 from pokr.models.bill import Bill
 from pokr.models.bill_keyword import bill_keyword
@@ -34,7 +34,7 @@ class UpdateBillKeywordsCommand(Command):
 
 
 def insert_bill_keywords(files):
-    hannanum = konlpy.Hannanum()
+    hannanum = Hannanum()
     with transaction() as session:
         existing_bill_ids = set(r[0] for r in session.query(Bill.id))
         keyword_store = KeywordStore(session)
@@ -65,6 +65,7 @@ def insert_bill_keywords(files):
             ]
 
             if new_bill_keywords:
+                # TODO(lucypark, 2014-12-13): delete existing keywords before insert
                 session.execute(bill_keyword.insert(), new_bill_keywords)
 
 
