@@ -7,16 +7,15 @@ Pokr - Politics in Korea
 
 1. Install dependencies
 
-    - Install [node.js](http://nodejs.org/)
     - Ubuntu
 
-            $ apt-get install postgresql-9.3 npm python-psycopg2 node-less node-uglify
-            $ pip install -r requirements.txt
-            $ make install
+            $ sudo apt-get install nodejs postgresql-9.3 npm python-psycopg2 node-less node-uglify
+            $ sudo pip install -r requirements.txt
+            $ sudo make install
 
     - Mac OS X
 
-            $ brew install postgresql
+            $ brew install node postgresql
             $ npm install less uglify-js -g
             $ pip install -r requirements.txt
             $ pip install psycopg2
@@ -32,7 +31,7 @@ Pokr - Politics in Korea
         - `PASSWD_HERE`: postgres pw
         - `HOST_HERE`: postgres host (ex: localhost)
 
-1. Create & init DB (You should first obtain a `pokrdb.dump` from the admins: contact@popong.com) 
+1. Create & init DB (You should first obtain a `pokrdb.dump` from the admins: contact@popong.com)
 
         $ sudo -u postgres psql -h localhost -U postgres -c 'CREATE DATABASE pokrdb;'
         $ sudo -u postgres psql -d pokrdb -f pokrdb.dump
