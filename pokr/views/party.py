@@ -5,7 +5,7 @@ from collections import defaultdict
 
 from flask import redirect, render_template, request, url_for
 from flask.ext.babel import gettext
-from sqlalchemy import distinct
+from sqlalchemy import func
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
 
@@ -27,10 +27,13 @@ def register(app):
         election_type = request.args.get('election_type', 'assembly')
         assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
 
-        parties = Party.query.distinct(Party.id)\
+        parties = Party.query\
                         .join(Candidacy)\
                         .filter(Candidacy.assembly_id == assembly_id)\
-                        .filter(Candidacy.type == election_type)
+                        .filter(Candidacy.type == election_type)\
+                        .group_by(Party.id)\
+                        .order_by(func.count().desc())
+        print parties        
 
         return render_template('parties.html',\
                                 assembly_id=assembly_id,\
