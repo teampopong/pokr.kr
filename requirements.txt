@@ -14,3 +14,4 @@ oauthlib>=0.6.2
 python-memcached>=1.53
 python-social-auth>=0.1.13
 redis>=2.10.3
+konlpy>=0.3.3

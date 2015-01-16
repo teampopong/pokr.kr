@@ -11,7 +11,7 @@ install:
 	cd popong-nlp
 	git submodule init
 	git submodule update
-	python setup.py install
+	sudo python setup.py install
 
 extract_i18n:
 	pybabel extract -F babel.cfg -k ngettext -k lazy_gettext -o pokr/messages.pot .
