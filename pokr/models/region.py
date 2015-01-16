@@ -69,7 +69,7 @@ class Region(Base):
                             .filter(and_(
                                 Region.id.startswith(self.id),
                                 self.id != Region.id))\
-                            .order_by(func.length(Region.id)).all()
+                            .order_by(func.length(Region.id),Region.id).all()
         try:
             smallest_len = min(len(region.id) for region in descendants)
         except:
