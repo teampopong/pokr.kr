@@ -20,8 +20,9 @@ from utils.jinja import breadcrumb
 date_re = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 
 
-def latest_meeting_date():
+def latest_meeting_date(year):
     date_ =  db_session.query(Meeting.date)\
+                       .filter(Meeting.year == year)\
                        .order_by(Meeting.date.desc())\
                        .first()
     return date_[0] if date_ else None
@@ -34,15 +35,23 @@ def register(app):
     @app.route('/meeting/', methods=['GET'])
     @breadcrumb(app)
     def meeting_main():
-        year = request.args.get('year', date.today().year)
+        year = request.args.get('year')
         date_ = request.args.get('date')
 
+        # find the right calendar
+        if not year:
+            if date_:
+                year = format_date(date(*map(int, date_.split('-'))), 'yyyy')
+            else:
+                year = date.today().year
+
         if not date_:
-            d = latest_meeting_date()
+            # find the latest meeting date for the selected year
+            d = latest_meeting_date(year)
             if d:
                 return redirect(url_for('meeting_main',
                                         date=format_date(d, 'yyyy-MM-dd')))
-
+        
         # meetings of the day (optional)
         meetings_of_the_day = None
         if date_:
