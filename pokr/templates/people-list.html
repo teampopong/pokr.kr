@@ -1,0 +1,5 @@
+{% import 'macros.html' as macro with context %}
+    {{ macro.list_count(officials, type='people') }}
+    <td class="float-list">
+        {{ macro.people_list_pagenav(officials, pagesize=500) }}
+    </td>
