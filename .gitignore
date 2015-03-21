@@ -1,5 +1,6 @@
 *.sw[poq]
 *.pyc
+.DS_Store
 
 pokr/static/.webassets-cache
 pokr/static/build
