@@ -33,13 +33,36 @@ def register(app):
     @app.route('/person/', methods=['GET'])
     @breadcrumb(app)
     def person_main():
+        sort = request.args.get('sort', 'name')
         election_type = request.args.get('election_type', 'assembly')
         assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
-        officials = Person.query.order_by(Person.name)\
-                                .join(Candidacy)\
-                                .filter(and_(Candidacy.type == election_type,
-                                             Candidacy.assembly_id == assembly_id,
-                                             Candidacy.is_elected == True))
+
+        if sort == 'cosponsorship':
+            bill_t = Bill.__table__
+            cosponsorship_count = db_session.query(
+                        cosponsorship.c.person_id,
+                        func.count(cosponsorship.c.id).label('cosponsorship_count')
+                    )\
+                .outerjoin(bill_t)\
+                .filter(bill_t.c.assembly_id == assembly_id)\
+                .group_by(cosponsorship.c.person_id)\
+                .subquery('cosponsorship_count')
+
+            officials = Person.query.order_by(
+                                            desc(func.coalesce(func.sum(cosponsorship_count.c.cosponsorship_count), 0))
+                                        )\
+                                    .join(Candidacy)\
+                                    .outerjoin(cosponsorship_count)\
+                                    .filter(and_(Candidacy.type == election_type,
+                                                 Candidacy.assembly_id == assembly_id,
+                                                 Candidacy.is_elected == True))\
+                                    .group_by(Person.id)
+        else:
+            officials = Person.query.order_by(Person.name)\
+                                    .join(Candidacy)\
+                                    .filter(and_(Candidacy.type == election_type,
+                                                 Candidacy.assembly_id == assembly_id,
+                                                 Candidacy.is_elected == True))
 
         return render_template('people.html',
                                 officials=officials,
