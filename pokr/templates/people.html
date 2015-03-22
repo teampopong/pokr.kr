@@ -29,7 +29,7 @@
              <li {% if assembly_id_ == assembly_id %}class="active"{% endif %}><a href="{{ url_for('person_main', assembly_id=assembly_id_) }}">{{ assembly_id_ }}{{ gettext('th') }}</a></li>
              {% endfor %}
          </ul>
-     </div>
+    </div>
 </div>
 {% if mobile %}
 <div class="float-list">
@@ -40,6 +40,12 @@
 </div>
 {% else %}
     {{ macro.list_count(officials, type='people') }}
+    <div id="sort-tabs">
+        <ul class="nav nav-tiles">
+           <li><a href="{{ url_for('person_main', sort='name') }}">{{ gettext('Sort by name') }}</a></li>
+           <li><a href="{{ url_for('person_main', sort='cosponsorship') }}">{{ gettext('Sort by cosponsorship') }}</a></li>
+        </ul>
+    </div>
     <td class="float-list">
         {{ macro.people_list_pagenav(officials, pagesize=72) }}
     </td>
