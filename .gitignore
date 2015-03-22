@@ -7,3 +7,5 @@ pokr/static/build
 server.log
 alembic.ini
 *settings.py
+
+.env
