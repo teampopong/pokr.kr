@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
+import math
+import numpy
 
 from collections import Counter, defaultdict, OrderedDict
 
 from .base import Controller
+from pokr.cache import cache
 from pokr.database import db_session
 from pokr.models import Bill, Candidacy, cosponsorship, Meeting, Party, Person, Pledge, Statement
-
+from sqlalchemy.orm.exc import NoResultFound
+from sqlalchemy.sql.expression import select
 
 class PersonController(Controller):
     model = 'person'
@@ -100,3 +104,86 @@ class PersonController(Controller):
                   .filter(Statement.person_id==person.id)\
                   .order_by(Meeting.date.desc().nullslast(), Statement.sequence)
 
+    @classmethod
+    def get_similar_assembly_members(cls, person, assembly_id):
+        ideology_tuples = calculate_ideology_tuple(assembly_id)
+        # find the person's ideology level
+        self_ideology_tuple = None
+        for ideology_tuple in ideology_tuples:
+            if ideology_tuple[0] == person.id:
+                self_ideology_tuple = ideology_tuple
+                break
+
+        #remove self from the tuples
+        ideology_tuples.remove(self_ideology_tuple)
+        self_ideology = self_ideology_tuple[1]
+
+        # find the most similar 5 persons
+        diff_ideology_tuples = map(lambda tuple: (tuple[0], math.fabs(tuple[1] - self_ideology)), ideology_tuples)
+        diff_ideology_tuples.sort(cmp=lambda x,y: cmp(x[1], y[1]))
+        similar_people_ids = map(lambda tuple: tuple[0], diff_ideology_tuples[:5])
+
+        return Person.query\
+          .filter(Person.id.in_(similar_people_ids))\
+          .all()
+
+
+
+def rescale(u):
+    u = (u - min(u)) / (max(u) - min(u))
+    return [float(v) for v in u]
+
+# Also draws heavily from govtrack.us
+@cache.memoize(timeout=60*60*24)
+def generate_cosponsorship_matrix(assembly_id):
+    try:
+        bills = Bill.query.filter(Bill.assembly_id==assembly_id).all()
+        rep_to_row = {}
+        cosponsorships = []
+
+        def rownum(id):
+            if not id in rep_to_row:
+                rep_to_row[id] = len(rep_to_row)
+            return rep_to_row[id]
+
+        for bill in bills:
+            reps = bill.representative_people
+            if len(reps) == 0:
+                continue
+
+            for rep in reps:
+                for cosponsor in bill.cosponsors:
+                    rownum(cosponsor.id)
+                    cosponsorships.append((rep.id, cosponsor.id))
+
+        P = numpy.identity(len(rep_to_row), numpy.float)
+        for sponsor, cosponsor in cosponsorships:
+            P[rep_to_row[sponsor], rep_to_row[cosponsor]] += 1.0
+
+    except NoResultFound, e:
+        print e
+
+    return rep_to_row, P
+
+# Got a lot of inspiration from govtrack.us
+@cache.memoize(timeout=60*60*24)
+def calculate_ideology_tuple(assembly_id):
+    try:
+        rep_to_row, P = generate_cosponsorship_matrix(assembly_id)
+        u, s, vh = numpy.linalg.svd(P)
+        spectrum = vh[1,:]
+        spectrum = rescale(spectrum)
+        ids = [None for k in rep_to_row]
+        for k, v in rep_to_row.items():
+            ids[v] = k
+
+        ideology_tuples = []
+        for index, person_id in enumerate(ids):
+            ideology_tuples.append((person_id, spectrum[index]))
+
+        ideology_tuples.sort(cmp=lambda x,y: cmp(x[1], y[1]))
+
+    except NoResultFound, e:
+        print e
+
+    return ideology_tuples
