@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-03-21 19:55-0700\n"
+"POT-Creation-Date: 2015-04-01 17:11+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 0.9.6\n"
 
 #: pokr/models/meeting.py:49
 #, python-format
@@ -32,7 +32,7 @@ msgstr "%(session_id)s회"
 msgid "%(sitting_id)sth sitting"
 msgstr "%(sitting_id)s차"
 
-#: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:150
+#: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:142
 msgid "The summary of this bill has not been updated."
 msgstr "이 의안의 요약이 아직 업로드되지 않았습니다."
 
@@ -62,44 +62,48 @@ msgstr "의결일자"
 msgid "status"
 msgstr "상태"
 
-#: pokr/templates/bill.html:66
+#: pokr/templates/bill.html:56
 msgid "related keywords"
 msgstr "연관 키워드"
 
-#: pokr/templates/bill.html:72 pokr/templates/person.html:137
+#: pokr/templates/bill.html:62 pokr/templates/person.html:137
 msgid "external links"
 msgstr "외부링크"
 
-#: pokr/templates/bill.html:76
+#: pokr/templates/bill.html:66
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: pokr/templates/bill.html:78
+#: pokr/templates/bill.html:68
+msgid "suggest to assembly"
+msgstr "의견제출하기"
+
+#: pokr/templates/bill.html:70
 msgid "see original pdf"
 msgstr "원문 PDF 보기"
 
-#: pokr/templates/bill.html:79
+#: pokr/templates/bill.html:71
 msgid "see original text"
 msgstr "원문 텍스트 보기"
 
-#: pokr/templates/bill.html:87
+#: pokr/templates/bill.html:79
 msgid "sponsors"
 msgstr "발의자"
 
-#: pokr/templates/bill.html:90 pokr/templates/bill.html:113
+#: pokr/templates/bill.html:82 pokr/templates/bill.html:105
 #: pokr/templates/macros.html:105 pokr/templates/person-legislations.html:64
 msgid "representative sponsor"
 msgstr "대표발의자"
 
-#: pokr/templates/bill.html:101 pokr/templates/bill.html:127
+#: pokr/templates/bill.html:93 pokr/templates/bill.html:119
 msgid "cosponsors"
 msgstr "공동발의자"
 
-#: pokr/templates/bill.html:142
+#: pokr/templates/bill.html:134
 msgid "contents"
 msgstr "내용"
 
-#: pokr/templates/bill.html:145 pokr/templates/party.html:43
+#: pokr/templates/bill.html:137 pokr/templates/party.html:43
 msgid "summary"
 msgstr "요약"
 
@@ -727,7 +731,7 @@ msgstr "코드"
 msgid "data"
 msgstr "데이터"
 
-#: pokr/templates/includes/footer.html:11
+#: pokr/templates/includes/footer.html:10
 msgid "sources"
 msgstr "소스"
 
@@ -814,3 +818,4 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
+
