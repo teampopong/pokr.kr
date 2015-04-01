@@ -146,6 +146,9 @@
 {% if not mobile %}
 {% include 'includes/adsense-728x90.html' %}
 {% endif %}
+<div id="section-comments" class="section">
+{% include 'includes/disqus.html' %}
+</div>
 {% with party_counts = bill.party_counts %}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
