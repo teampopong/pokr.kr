@@ -8,10 +8,17 @@ from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 
 from pokr.cache import cache
+from pokr.database import db_session
 from pokr.models.bill import Bill
+from pokr.models.bill_status import BillStatus
 from pokr.models.election import current_parliament_id
 from utils.jinja import breadcrumb
 
+def status_count(status, assembly_id):
+    return db_session.query(Bill).filter(\
+            Bill.status_id==status.id,
+            Bill.assembly_id==assembly_id
+        ).count()
 
 def register(app):
 
@@ -21,12 +28,23 @@ def register(app):
     @app.route('/bill/', methods=['GET'])
     @breadcrumb(app)
     def bill_main():
+
         assembly_id = int(request.args.get('assembly_id', current_parliament_id('assembly')) or 0)
         bills = Bill.query.filter(Bill.assembly_id==assembly_id)\
                           .order_by(Bill.proposed_date.desc().nullslast(),
                                     Bill.id.desc())
+        statuses = BillStatus.query.all()
+        status_counts = filter(lambda x: x['value']!=0, [{
+                'id': s.id,
+                'name': s.name,
+                'value': status_count(s, assembly_id),
+                'url': url_for('search', target='bills',\
+                       status_id=s.id, assembly_id=assembly_id)
+            } for s in statuses])
+
         return render_template('bills.html',\
-                assembly_id=assembly_id, bills=bills)
+                assembly_id=assembly_id, bills=bills,
+                status_counts=status_counts)
 
     @app.route('/bill/<id>', methods=['GET'])
     @breadcrumb(app, 'bill')

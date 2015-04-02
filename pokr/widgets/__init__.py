@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+from .bubble import bubble
 from .card import card
 from .histogram import histogram
 from .kmap import kmap
@@ -13,6 +14,7 @@ __all__ = ['init_app']
 
 
 widgets = {
+    'bubble': bubble,
     'card': card,
     'histogram': histogram,
     'kmap': kmap,

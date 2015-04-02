@@ -31,8 +31,12 @@
          </ul>
      </div>
 </div>
-<div id="bill-list" class="itemlist">
+<div id="bill-status-counts" class="itemlist">
     {{ macro.list_count(bills) }}
+    {{ widgets.bubble(status_counts, diameter=420)|safe }}
+    <hr>
+</div>
+<div id="bill-list" class="itemlist">
     {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=15) %}
     {% if mobile %}
         <td style="padding: 5px 0 10px;">
