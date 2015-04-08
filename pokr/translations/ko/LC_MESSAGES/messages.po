@@ -511,7 +511,7 @@ msgstr "이름순 정렬"
 
 #: pokr/templates/people.html:46
 msgid "Sort by cosponsorship"
-msgstr "의안활동순 정렬"
+msgstr "공동발의안수순 정렬"
 
 #: pokr/templates/person-elections.html:4
 msgid "By-election results are coming soon!"
