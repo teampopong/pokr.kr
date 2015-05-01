@@ -1,0 +1,32 @@
+{% import 'macros.html' as macro with context %}
+
+<div id="section-similar-people" class="section">
+    <h3 id="similar-people">{{ gettext('similar people') }}</h3>
+    <table id="person-legislations" class="table table-condensed">
+        <thead>
+            <tr>
+                <th>{{ gettext('based on cosponsorships') }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidacy in person.candidacies %}
+                {% if candidacy.is_elected %}
+                    {% set similar_assembly_members = PersonController.get_similar_assembly_members(person, candidacy.assembly_id) %}
+                    <tr>
+                        <td>
+                            <a href="{{ url_for('person_main', assembly_id=candidacy.assembly_id) }}">{{ candidacy.assembly_id }}{{ gettext('th assembly') }}</a>
+                        </td>
+                        <td>
+                            {% for similar_assembly_member in similar_assembly_members %}
+                            <span class="people">
+                                <a href="{{ url_for('person', id=similar_assembly_member.id) }}">{{ similar_assembly_member.name }}</a>
+                            </span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -152,6 +152,7 @@
             </div>
             {% endif %}
         </div>
+        {% if has_bills %}{% include 'person-similar-people.html' with context %}{% endif %}
         {% if has_bills %}{% include 'person-legislations.html' with context %}{% endif %}
         {% include 'person-statements.html' with context %}
         {% include 'person-elections.html' with context %}
