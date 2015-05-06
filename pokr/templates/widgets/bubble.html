@@ -1,0 +1,48 @@
+<div class="bubble" id="{{ guids('canvas') }}"></div>
+<script>
+var data = {{ items|jsonify|safe }},
+    diameter = "{{ diameter }}",
+    format = d3.format(",d"),
+    color = d3.scale.category20c();
+
+var svg = d3.select("#{{ guids('canvas') }}").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter);
+
+var bubble = d3.layout.pack()
+    .sort(null)
+    .size([diameter, diameter])
+    .padding(1.5);
+
+var nodes = svg.selectAll(".node")
+  .data(bubble.nodes({"children": data})
+    .filter(function(d) { return !d.children; }));
+
+{% if items[0].url %}
+var node = nodes.enter().append("a")
+    .attr("class", "node")
+    .attr("xlink:href", function(d) { return d.url })
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+{% else %}
+var node = nodes.enter().append("g")
+    .attr("class", "node")
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+{% endif %}
+
+node.append("title")
+    .text(function(d) { return d.name + ": " + format(d.value); });
+
+node.append("circle")
+    .attr("r", function(d) { return d.r; })
+    .style("fill", function(d) { return color(d.id); });
+
+node.append("text")
+    .attr("dy", ".3em")
+    .style("text-anchor", "middle")
+    .text(function(d) {
+        var strlen = d.r / 5;
+        if(strlen > 2) return d.name.substring(0, Math.max(2, strlen));
+    });
+
+d3.select(self.frameElement).style("height", diameter + "px");
+</script>

@@ -1,14 +1,14 @@
 # Translations template for PROJECT.
-# Copyright (C) 2014 ORGANIZATION
+# Copyright (C) 2015 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-09-26 15:38+0900\n"
+"POT-Creation-Date: 2015-04-01 17:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "%(sitting_id)sth sitting"
 msgstr ""
 
-#: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:150
+#: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:142
 msgid "The summary of this bill has not been updated."
 msgstr ""
 
@@ -62,44 +62,48 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: pokr/templates/bill.html:66
+#: pokr/templates/bill.html:56
 msgid "related keywords"
 msgstr ""
 
-#: pokr/templates/bill.html:72 pokr/templates/person.html:137
+#: pokr/templates/bill.html:62 pokr/templates/person.html:137
 msgid "external links"
 msgstr ""
 
-#: pokr/templates/bill.html:76
+#: pokr/templates/bill.html:66
 msgid "see official page"
 msgstr ""
 
-#: pokr/templates/bill.html:78
+#: pokr/templates/bill.html:68
+msgid "suggest to assembly"
+msgstr ""
+
+#: pokr/templates/bill.html:70
 msgid "see original pdf"
 msgstr ""
 
-#: pokr/templates/bill.html:79
+#: pokr/templates/bill.html:71
 msgid "see original text"
 msgstr ""
 
-#: pokr/templates/bill.html:87
+#: pokr/templates/bill.html:79
 msgid "sponsors"
 msgstr ""
 
-#: pokr/templates/bill.html:90 pokr/templates/bill.html:113
+#: pokr/templates/bill.html:82 pokr/templates/bill.html:105
 #: pokr/templates/macros.html:105 pokr/templates/person-legislations.html:64
 msgid "representative sponsor"
 msgstr ""
 
-#: pokr/templates/bill.html:101 pokr/templates/bill.html:127
+#: pokr/templates/bill.html:93 pokr/templates/bill.html:119
 msgid "cosponsors"
 msgstr ""
 
-#: pokr/templates/bill.html:142
+#: pokr/templates/bill.html:134
 msgid "contents"
 msgstr ""
 
-#: pokr/templates/bill.html:145 pokr/templates/party.html:43
+#: pokr/templates/bill.html:137 pokr/templates/party.html:43
 msgid "summary"
 msgstr ""
 
@@ -317,10 +321,10 @@ msgstr ""
 msgid "Easier to understand difficult words"
 msgstr ""
 
-#: pokr/templates/meeting-dialogue.html:36
-#: pokr/templates/meeting-dialogue.html:55
-#: pokr/templates/meeting-dialogue.html:58
-#: pokr/templates/meeting-dialogue.html:61
+#: pokr/templates/meeting-dialogue.html:43
+#: pokr/templates/meeting-dialogue.html:62
+#: pokr/templates/meeting-dialogue.html:65
+#: pokr/templates/meeting-dialogue.html:68
 msgid "link"
 msgstr ""
 
@@ -383,7 +387,7 @@ msgstr ""
 msgid "meetings"
 msgstr ""
 
-#: pokr/templates/meetings.html:23 pokr/views/meeting.py:25
+#: pokr/templates/meetings.html:23 pokr/views/meeting.py:33
 msgid "meeting"
 msgstr ""
 
@@ -499,6 +503,14 @@ msgstr ""
 
 #: pokr/templates/party.html:60 pokr/templates/people.html:9
 msgid "people"
+msgstr ""
+
+#: pokr/templates/people.html:45
+msgid "Sort by name"
+msgstr ""
+
+#: pokr/templates/people.html:46
+msgid "Sort by cosponsorship"
 msgstr ""
 
 #: pokr/templates/person-elections.html:4
@@ -719,7 +731,7 @@ msgstr ""
 msgid "data"
 msgstr ""
 
-#: pokr/templates/includes/footer.html:11
+#: pokr/templates/includes/footer.html:10
 msgid "sources"
 msgstr ""
 

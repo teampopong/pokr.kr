@@ -40,8 +40,7 @@ def insert_bill_keywords(files):
         keyword_store = KeywordStore(session)
         for file_ in glob(files):
             filename = basename(file_)
-            print 'processing %s' % filename
-            sys.stdout.flush()
+            print 'processing %s,' % filename,
             bill_id = filename.split('.', 1)[0]
             if bill_id not in existing_bill_ids:
                 continue
@@ -67,6 +66,9 @@ def insert_bill_keywords(files):
             if new_bill_keywords:
                 # TODO(lucypark, 2014-12-13): delete existing keywords before insert
                 session.execute(bill_keyword.insert(), new_bill_keywords)
+                print 'done'
+            else:
+                print 'passed'
 
 
 class KeywordStore(object):

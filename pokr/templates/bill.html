@@ -26,39 +26,29 @@
             <tr>
                 <th>{{ gettext("status") }}</th>
                 <td>
+                    {% set before_current = True %}
+                    {% if mobile %}
                     <table id="bill-status" class="table">
-                        {% set before_current = True %}
-                        {% if mobile %}
-                            {% for status in bill.statuses %}
-                                <tr>
-                                {% if status.id == bill.status_id %}
-                                <td class="present">
-                                {% set before_current = False %}
-                                {% elif before_current %}
-                                <td class="past">
-                                {% else %}
-                                <td class="future">
-                                {% endif %}
-                                <a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td></tr>
-                            {% endfor %}
-                        {% else %}
+                        {% for status in bill.statuses %}
                             <tr>
-                            {% for status in bill.statuses %}
-                                {% if status.id == bill.status_id %}
-                                <td class="present">
-                                {% set before_current = False %}
-                                {% elif before_current %}
-                                <td class="past">
-                                {% else %}
-                                <td class="future">
-                                {% endif %}
-                                <!-- TODO: status explanation -->
-                                <a href="{{ url_for('search', target='bills', status_id=status.id) }}"><div class="tooltipped" data-placement="bottom" data-title="{{ status.description }}">{{ status.name }}</div></a></td>
-                            {% endfor %}
-                            </tr>
-                        {% endif %}
+                            {% if status.id == bill.status_id %}
+                            <td class="present">
+                            {% set before_current = False %}
+                            {% elif before_current %}
+                            <td class="past">
+                            {% else %}
+                            <td class="future">
+                            {% endif %}
+                            <a href="{{ url_for('search', target='bills', status_id=status.id) }}">{{ status.name }}</a></td></tr>
+                        {% endfor %}
                     </table>
-
+                    {% else %}
+                    <div id="bill-status">
+                        {% for status in bill.statuses %}
+                            {% if status.id == bill.status_id %}<div class="present{% set before_current = False %}{% elif before_current %}<div class="past{% else %}<div class="future{% endif %} tooltipped status" data-placement="bottom" data-title="{{ status.description }}">{{ status.name }}</div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </td>
             </tr>
             {% if bill.keywords %}
@@ -72,12 +62,12 @@
                     {{ gettext('external links') }}
                 </th>
                 <td>
-                    <div class="original-link">
-                        <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a>
-                        <a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}" target="_blank"><i class="icon-external-link"></i></a>
-                        {% if bill.document_pdf_path %}<br><a href="{{ url_for('bill_pdf', id=bill.id) }}">{{ gettext('see original pdf') }}</a>{% endif %}
-                        {% if bill.document_text_path %}<br><a href="{{ url_for('bill_text', id=bill.id) }}">{{ gettext('see original text') }}</a>{% endif %}
-                    </div>
+                    <ul id="external-links" class="nav">
+                        <li><a href="http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={{ bill.link_id }}">{{ gettext('see official page') }}</a></li>
+                        <li{% if not bill.status_id==2 %} class="disabled"{% endif %}><a href="http://pal.assembly.go.kr/law/readView.do?lgsltpaId={{ bill.link_id }}#LblockListTable01">{{ gettext('suggest to assembly') }}</a>
+                        <li{% if not bill.document_pdf_path %} class="disabled"{% endif %}><a href="{{ url_for('bill_pdf', id=bill.id) }}">{{ gettext('see original pdf') }}</a>
+                        <li{% if not bill.document_text_path %} class="disabled"{% endif %}><a href="{{ url_for('bill_text', id=bill.id) }}">{{ gettext('see original text') }}</a>
+                    </ul>
 </td>
             </tr>
         </tbody>
@@ -156,6 +146,9 @@
 {% if not mobile %}
 {% include 'includes/adsense-728x90.html' %}
 {% endif %}
+<div id="section-comments" class="section">
+{% include 'includes/disqus.html' %}
+</div>
 {% with party_counts = bill.party_counts %}
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">

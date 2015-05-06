@@ -29,7 +29,7 @@
 <div id="bill-view" class="view">
     <div class="entity-header grad">
         <p class="text-center entity-info">{{ gettext('bill no. %(bill_id)s', bill_id=bill.id) }}</p>
-        <h2 class="text-center">{{ bill.name }}</h2>
+        <h2 class="text-center"><a href='{{ url_for('bill', id=bill.id) }}'>{{ bill.name }}</a></h2>
         {% include 'social.html' %}
         {% if bill.name.endswith("(대안)") %}
         <div class="info text-center">

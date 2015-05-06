@@ -31,7 +31,7 @@ Pokr - Politics in Korea
         - `PASSWD_HERE`: postgres pw
         - `HOST_HERE`: postgres host (ex: localhost)
 
-1. Create & init DB (You should first obtain a `pokrdb.dump` from the admins: contact@popong.com)
+1. Create & init DB (You should first obtain a `pokrdb.dump` from [here](https://drive.google.com/file/d/0BwxUh0GzMJ4VMXJncHM4Qm1LZDQ/view?usp=sharing))
 
         $ sudo -u postgres psql -h localhost -U postgres -c 'CREATE DATABASE pokrdb;'
         $ sudo -u postgres psql -d pokrdb -f pokrdb.dump

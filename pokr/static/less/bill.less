@@ -9,13 +9,18 @@
     border: 0;
 }
 
-.original-link [class^="icon-"] {
-    color: #08c;
+#external-links {
+    li > a:hover {
+        background-color: transparent;
+    }
+    [class^="icon-"] {
+        color: #08c;
+    }
 }
 
 .adsbygoogle {
     display: block;
-    margin: 20px auto 15px;
+    margin: 50px auto 70px;
 }
 
 #cosponsor-cards {
@@ -32,6 +37,58 @@
 }
 
 #bill-status {
+    .past {
+        background-color: #cff;
+    }
+    .present {
+        background-color: #ccf;
+    }
+    .future {
+        background-color: #eee;
+    }
+}
+
+div#bill-status {
+    div.arrow {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    div.status {
+        position: relative;
+        margin-right: 10px;
+        border: solid transparent;
+        display: inline-block;
+        text-align: center;
+        width: 10%;
+    }
+    div.status.past {
+        border-color: #cff;
+    }
+    div.status.present {
+        border-color: #ccf;
+    }
+    div.status.future {
+        border-color: #eee;
+    }
+    div.status:after, div.status:before {
+        left: 100%;
+        top: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    div.status:after {
+        content: " ";
+        border-left-color: inherit;
+        border-width: 16px;
+        margin-top: -16px;
+    }
+}
+
+table#bill-status {
     margin-bottom: 0;
     width: 100%;
     a {
@@ -51,15 +108,6 @@
     }
     td:hover {
         font-weight: bold;
-    }
-    .past {
-        background-color: #eee;
-    }
-    .present {
-        background-color: #ccf;
-    }
-    .future {
-        background-color: white;
     }
 }
 
