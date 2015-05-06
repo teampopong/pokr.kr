@@ -19,7 +19,6 @@ from pokr.models.candidacy import Candidacy
 from pokr.models.cosponsorship import cosponsorship
 from pokr.models.election import current_parliament_id
 from pokr.models.person import Person
-from pokr.models.party import Party
 from utils.jinja import breadcrumb
 
 
@@ -42,36 +41,7 @@ def register(app):
                                              Candidacy.assembly_id == assembly_id,
                                              Candidacy.is_elected == True))
 
-        party_list = Party.query.join(Candidacy)\
-                                .filter(and_(Candidacy.type == election_type,
-                                             Candidacy.assembly_id == assembly_id,
-                                             Candidacy.is_elected == True))\
-                                .group_by(Party.id)\
-                                .order_by(func.count().desc())
-        
         return render_template('people.html',
-                                officials=officials,
-                                assembly_id=assembly_id,
-                                party_list=party_list)
-
-    @app.route('/person/filters/', methods=['GET'])
-    def person_list():
-        election_type = request.args.get('election_type', 'assembly')
-        assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
-        party_id = int(request.args.get('party_id', 0))
-        gender = request.args.get('gender', None)
-        officials = Person.query.order_by(Person.name)\
-                                .join(Candidacy)\
-                                .filter(and_(Candidacy.type == election_type,
-                                             Candidacy.assembly_id == assembly_id,
-                                             Candidacy.is_elected == True))
-        if party_id > 0:
-            officials = officials.filter(Candidacy.party_id == party_id)
-        if gender:
-            officials = officials.filter(Person.gender == gender)
-
-
-        return render_template('people-list.html',
                                 officials=officials,
                                 assembly_id=assembly_id)
 

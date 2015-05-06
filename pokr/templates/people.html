@@ -14,21 +14,6 @@
     depends=['**/*.less'], 'less/submain.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
-<style>
-#people-filters li { float: left; display: inline; margin-right: 5px; cursor: pointer; text-decoration: underline; }
-#people-filters input { display: none; }
-#people-list { clear: both; }
-</style>
-<script>
-$(document).ready(function(){
-    $("#people-filters label").click(function(){
-        var attribute = $(this).find("input").attr("name");
-		var value = $(this).find("input").attr("value");
-		$("#people-list").load("/person/filters/?assembly_id={{ assembly_id }}&"+attribute+"="+value, function() {
-		});
-    });
-});
-</script>
 {% endblock %}
 
 {% block content %}
@@ -54,18 +39,9 @@ $(document).ready(function(){
     {% endcall %}
 </div>
 {% else %}
-<div id="people-filters">
-{% for party in party_list %}
-<li><label><input type="checkbox" name="party_id" value="{{ party.id }}">{{ party.name }}</label>
-{% endfor %}
-
-<li><label><input type="checkbox" name="gender" value="m">Male</label>
-<li><label><input type="checkbox" name="gender" value="f">Female</label>
-</div>
-<div id="people-list">
-    
-        {% include 'people-list.html' %}
+    {{ macro.list_count(officials, type='people') }}
+    <td class="float-list">
+        {{ macro.people_list_pagenav(officials, pagesize=72) }}
     </td>
-</div>
 {% endif %}
 {% endblock %}
