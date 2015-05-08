@@ -4,6 +4,7 @@
 import json
 import operator
 import time
+from collections import defaultdict
 
 from flask import abort, current_app, g, redirect, render_template, request, url_for
 from flask.ext.babel import gettext
@@ -18,6 +19,7 @@ from pokr.models.bill import Bill
 from pokr.models.candidacy import Candidacy
 from pokr.models.cosponsorship import cosponsorship
 from pokr.models.election import current_parliament_id
+from pokr.models.party import Party
 from pokr.models.person import Person
 from utils.jinja import breadcrumb
 
@@ -64,9 +66,16 @@ def register(app):
                                                  Candidacy.assembly_id == assembly_id,
                                                  Candidacy.is_elected == True))
 
+        # party list
+        party_count = defaultdict(int)
+        for official in officials:
+            party_count[official.cur_party] += 1
+        party_list = [p[0] for p in sorted(party_count.items(), key=lambda x: x[1], reverse=True)]
+
         return render_template('people.html',
                                 officials=officials,
-                                assembly_id=assembly_id)
+                                assembly_id=assembly_id,
+                                party_list=party_list)
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():

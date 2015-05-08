@@ -14,9 +14,22 @@
     depends=['**/*.less'], 'less/submain.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
+
+<!-- jPList -->
+<script src="/static/js/jplist-core.min.js"></script>
+<script src="/static/js/jplist.filter-toggle-bundle.min.js"></script>
+<script src="/static/js/jplist.pagination-bundle.min.js"></script>
+<script src="/static/js/jplist.counter-control.min.js"></script>
+
+<script>
+$('document').ready(function(){
+    $('body').jplist({itemsBox: '.float-list ul', itemPath: 'li', panelPath: '.filters-panel'});
+});
+</script>
 {% endblock %}
 
 {% block content %}
+
 <div id="search-tabs">
     {% if not mobile %}
     <img class="submain-img" src="{{ url_for('static', filename='images/people_image.png') }}">
@@ -31,23 +44,48 @@
          </ul>
     </div>
 </div>
+
+<div class="filters-panel">                        
+    <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="gender">
+        <li><label><input data-path="div[data-attribute-gender='m']" id="male" type="checkbox" />{{ gettext('male') }}</label>
+        <li><label><input data-path="div[data-attribute-gender='f']" id="female" type="checkbox" />{{ gettext('female') }}</label>
+    </ul>   
+
+    <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="ages">
+        <li><label><input data-path="div[data-attribute-ages='30']" id="30s" type="checkbox" />30{{ gettext('ages') }} {{ gettext("less than") }}</label>
+        <li><label><input data-path="div[data-attribute-ages='40']" id="40s" type="checkbox" />40{{ gettext('ages') }}</label>
+        <li><label><input data-path="div[data-attribute-ages='50']" id="50s" type="checkbox" />50{{ gettext('ages') }}</label>
+        <li><label><input data-path="div[data-attribute-ages='60']" id="60s" type="checkbox" />60{{ gettext('ages') }}</label>
+        <li><label><input data-path="div[data-attribute-ages='70']" id="70s" type="checkbox" />70{{ gettext('ages') }} {{ gettext("greater than") }}</label>
+    </ul>   
+
+    <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="party">
+        {% for party in party_list %}
+        <li><label><input data-path="a[title='{{ party.name }}']" id="party-{{ party.id }}" type="checkbox" />{{ party.name }}</label>
+        {% endfor %}
+    </ul>
+
+    <div style="clear: both; height: 5px;"></div>
+
+    <span class="search-count" data-control-type="counter" data-control-action="counter" data-control-name="card-counter" data-format="{count} {{ gettext('persons') }}" data-path=".card" data-mode="filter" data-type="path"></span>
+</div>
+
+{% set items_per_page = 76 %}
 {% if mobile %}
+{% set items_per_page = 20 %}
+{% endif %}
+
 <div class="float-list">
-    {{ macro.list_count(officials, type='people') }}
-    {% call(person) macro.list_pagenav(officials) %}
+    {% call(person) macro.list_more(officials, pagesize=400) %}
     {{widgets.card(person)|safe}}
     {% endcall %}
 </div>
-{% else %}
-    {{ macro.list_count(officials, type='people') }}
-    <div id="sort-tabs">
-        <ul class="nav nav-tiles">
-           <li><a href="{{ url_for('person_main', sort='name') }}">{{ gettext('Sort by name') }}</a></li>
-           <li><a href="{{ url_for('person_main', sort='cosponsorship') }}">{{ gettext('Sort by cosponsorship') }}</a></li>
-        </ul>
-    </div>
-    <td class="float-list">
-        {{ macro.people_list_pagenav(officials, pagesize=72) }}
-    </td>
-{% endif %}
+
+<div class="jplist-no-results">
+    <p>{{ gettext("No people found") }}</p>
+</div>
+
+<div class="filters-panel pagination-panel">                        
+    <div class="jplist-pagination" data-control-type="pagination" data-control-name="paging" data-control-action="paging" data-items-per-page="{{ items_per_page }}"></div>
+</div>
 {% endblock %}

@@ -95,6 +95,16 @@ class Person(Base):
         return format_date(self.birthday_date)
 
     @property
+    def age(self):
+        return date.today().year+1-self.birthday_year
+
+    @property
+    def ages(self):
+        if self.age < 30: return 30
+        elif self.age >= 70: return 70
+        else: return (self.age / 10) * 10
+
+    @property
     def cur_party(self):
         return self.parties.first()
 

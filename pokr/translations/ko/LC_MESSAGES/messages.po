@@ -513,6 +513,34 @@ msgstr "이름순 정렬"
 msgid "Sort by cosponsorship"
 msgstr "의안활동순 정렬"
 
+#: pokr/templates/people.html:50
+msgid "male"
+msgstr "남성"
+
+#: pokr/templates/people.html:51
+msgid "female"
+msgstr "여성"
+
+#: pokr/templates/people.html:55
+msgid "ages"
+msgstr "대"
+
+#: pokr/templates/people.html:55
+msgid "less than"
+msgstr "이하"
+
+#: pokr/templates/people.html:59
+msgid "greater than"
+msgstr "이상"
+
+#: pokr/templates/people.html:71
+msgid "persons"
+msgstr "명"
+
+#: pokr/templates/people.html:85
+msgid "No people found"
+msgstr "해당하는 인물이 없습니다"
+
 #: pokr/templates/person-elections.html:4
 msgid "By-election results are coming soon!"
 msgstr "보궐선거 데이터는 곧 추가될 예정입니다!"
