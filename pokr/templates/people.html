@@ -45,47 +45,51 @@ $('document').ready(function(){
     </div>
 </div>
 
-<div class="filters-panel">                        
-    <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="gender">
-        <li><label><input data-path="div[data-attribute-gender='m']" id="male" type="checkbox" />{{ gettext('male') }}</label>
-        <li><label><input data-path="div[data-attribute-gender='f']" id="female" type="checkbox" />{{ gettext('female') }}</label>
-    </ul>   
+<div class="row">
+    <div class="filters-panel span2">
+        <span class="search-count" data-control-type="counter" data-control-action="counter" data-control-name="card-counter" data-format="{count} {{ gettext('persons') }}" data-path=".card" data-mode="filter" data-type="path"></span>
 
-    <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="ages">
-        <li><label><input data-path="div[data-attribute-ages='30']" id="30s" type="checkbox" />30{{ gettext('ages') }} {{ gettext("less than") }}</label>
-        <li><label><input data-path="div[data-attribute-ages='40']" id="40s" type="checkbox" />40{{ gettext('ages') }}</label>
-        <li><label><input data-path="div[data-attribute-ages='50']" id="50s" type="checkbox" />50{{ gettext('ages') }}</label>
-        <li><label><input data-path="div[data-attribute-ages='60']" id="60s" type="checkbox" />60{{ gettext('ages') }}</label>
-        <li><label><input data-path="div[data-attribute-ages='70']" id="70s" type="checkbox" />70{{ gettext('ages') }} {{ gettext("greater than") }}</label>
-    </ul>   
+        <p class="filter-name">{{ gettext('gender') }}</p>
+        <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="gender">
+            <li><label><input data-path="div[data-attribute-gender='m']" id="male" type="checkbox" />{{ gettext('male') }}</label>
+            <li><label><input data-path="div[data-attribute-gender='f']" id="female" type="checkbox" />{{ gettext('female') }}</label>
+        </ul>
 
-    <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="party">
-        {% for party in party_list %}
-        <li><label><input data-path="a[title='{{ party.name }}']" id="party-{{ party.id }}" type="checkbox" />{{ party.name }}</label>
-        {% endfor %}
-    </ul>
+        <p class="filter-name">{{ gettext('age group') }}</p>
+        <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="ages">
+            <li><label><input data-path="div[data-attribute-ages='30']" id="30s" type="checkbox" />30{{ gettext('ages') }} {{ gettext("less than") }}</label>
+            <li><label><input data-path="div[data-attribute-ages='40']" id="40s" type="checkbox" />40{{ gettext('ages') }}</label>
+            <li><label><input data-path="div[data-attribute-ages='50']" id="50s" type="checkbox" />50{{ gettext('ages') }}</label>
+            <li><label><input data-path="div[data-attribute-ages='60']" id="60s" type="checkbox" />60{{ gettext('ages') }}</label>
+            <li><label><input data-path="div[data-attribute-ages='70']" id="70s" type="checkbox" />70{{ gettext('ages') }} {{ gettext("greater than") }}</label>
+        </ul>
 
-    <div style="clear: both; height: 5px;"></div>
+        <p class="filter-name">{{ gettext('party') }}</p>
+        <ul class="filter-group" data-control-type="checkbox-group-filter" data-control-action="filter" data-control-name="party">
+            {% for party in party_list %}
+            <li><label><input data-path="a[title='{{ party.name }}']" id="party-{{ party.id }}" type="checkbox" />{{ party.name }}</label>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="span11">
+        {% set items_per_page = 75 %}
+        {% if mobile %}
+        {% set items_per_page = 20 %}
+        {% endif %}
 
-    <span class="search-count" data-control-type="counter" data-control-action="counter" data-control-name="card-counter" data-format="{count} {{ gettext('persons') }}" data-path=".card" data-mode="filter" data-type="path"></span>
-</div>
+        <div class="float-list">
+            {% call(person) macro.list_more(officials, pagesize=400) %}
+            {{widgets.card(person)|safe}}
+            {% endcall %}
+        </div>
 
-{% set items_per_page = 76 %}
-{% if mobile %}
-{% set items_per_page = 20 %}
-{% endif %}
+        <div class="jplist-no-results">
+            <p>{{ gettext("No people found") }}</p>
+        </div>
 
-<div class="float-list">
-    {% call(person) macro.list_more(officials, pagesize=400) %}
-    {{widgets.card(person)|safe}}
-    {% endcall %}
-</div>
-
-<div class="jplist-no-results">
-    <p>{{ gettext("No people found") }}</p>
-</div>
-
-<div class="filters-panel pagination-panel">                        
-    <div class="jplist-pagination" data-control-type="pagination" data-control-name="paging" data-control-action="paging" data-items-per-page="{{ items_per_page }}"></div>
+        <div class="filters-panel pagination-panel">
+            <div class="jplist-pagination" data-control-type="pagination" data-control-name="paging" data-control-action="paging" data-items-per-page="{{ items_per_page }}"></div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -15,7 +15,7 @@
 }
 
 .submain-img {
-    float:left;
+    float: left;
     margin-right: 20px;
 }
 
@@ -90,17 +90,19 @@ div.party-card {
 }
 
 ///// people.html
+.filters-panel {
+    margin-bottom: 30px;
+}
+
 .filters-panel ul.filter-group {
-    float: left;
     border: 1px solid #ddd;
     background-color: #f3f3f3;
-    margin: 0 5px 5px 5px;
+    margin: 0 5px 5px;
     padding: 5px 0 5px 10px;
     list-style: none;
 }
 
 .filters-panel ul.filter-group li {
-    float: left;
     margin-right: 15px;
 }
 
@@ -112,12 +114,18 @@ div.party-card {
     margin: 0;
 }
 
+.filters-panel .filter-name {
+    font-size: 10pt;
+    line-height: inherit;
+    margin: 10px 5px 0;
+    text-transform: capitalize;
+}
+
 .jplist-hidden {
     display: none;
 }
 
 .pagination-panel {
-    width: 100%;
     margin: 10px 0;
     text-align: center;
 }
@@ -130,10 +138,12 @@ div.party-card {
     display: inline-block;
     color: #333333;
     height: 30px;
-    padding: 0 10px;
+    margin: 3px 1px;
     background-color: white;
     border: 1px solid #d9d9d9;
     cursor: pointer;
+    text-align: center;
+    width: 30px;
 }
 
 .jplist-pagination .jplist-current {
@@ -154,7 +164,7 @@ div.party-card {
 .jplist-pagination .jplist-pagingprev button,
 .jplist-pagination .jplist-pagingnext button {
     font-size: 20px;
-    margin: 0 5px;
+    margin: 3px 4px 1px;
 }
 
 .jplist-one-page {
@@ -165,3 +175,16 @@ div.party-card {
     display: none;
 }
 
+@media (max-width: 770px) {
+    .filters-panel {
+        padding: 0 20px 30px;
+    }
+    .filters-panel h3.filter-name,
+    .filters-panel ul.filter-group li {
+        display: inline-block;
+    }
+    .jplist-pagination .jplist-pagingprev button,
+    .jplist-pagination .jplist-pagingnext button {
+        margin: 3px 5px 3px 1px;
+    }
+}
