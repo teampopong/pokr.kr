@@ -54,6 +54,7 @@ $(window).load(function () {
 {% endfor %}
 </div>
 
+{% if not mobile %}
 <div id="features">
     <h3>{{ gettext('What does Politics in Korea do?') }}</h3>
     <a><h4>{{ gettext('Data interlinking') }}</h4>
@@ -93,4 +94,5 @@ $(window).load(function () {
         <img src="{{ url_for('static', filename='images/main_dict.png') }}">
     </a>
 </div>
+{% endif %}
 {% endblock %}
