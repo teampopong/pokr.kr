@@ -23,15 +23,21 @@
             </div>
         </form>
     </div>
-    {% if not mobile %}
     <div id="class-list">
+        {% if mobile %}
+        <a class="btn btn-submain" href="{{ url_for('person_main') }}">{{ gettext('People') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a>
+        {% else %}
         <a class="btn-submain" href="{{ url_for('person_main') }}">{{ gettext('People') }}</a>
         <a class="btn-submain" href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a>
         <a class="btn-submain" href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a>
         <a class="btn-submain" href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a>
         <a class="btn-submain" href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a>
+        {% endif %}
     </div>
-    {% endif %}
 </div>
 
 <span class="user-options">

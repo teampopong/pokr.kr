@@ -46,14 +46,6 @@ $(window).load(function () {
 </script>
 {% endif %}
 
-
-{# To preload images #}
-<div style="display: none;">
-{% for name in ('bill', 'party', 'person', 'region') %}
-<img src="{{ url_for('static', filename='images/default_%s_%s_grey.png'%(name, locale)) }}">
-{% endfor %}
-</div>
-
 {% if not mobile %}
 <div id="features">
     <h3>{{ gettext('What does Politics in Korea do?') }}</h3>
