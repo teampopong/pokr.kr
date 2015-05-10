@@ -157,14 +157,19 @@
         {% include 'person-elections.html' with context %}
         {% if not mobile %}
         <div id="section-trends" class="section">
-            <h3 id="trends">
-                {{ gettext('trends') }}
-            </h3>
+            <h3 id="trends">{{ gettext('trends') }}</h3>
             <i class="icon-exclamation-sign tooltipped pull-right" data-placement="bottom" data-title="{{ gettext('Results from Google Trends searched by query %(name)s', name=person.name) }}"></i>
             {% if not config['DEBUG'] %}
-            <div id="google-trends">
-                <script type="text/javascript" src="http://www.gmodules.com/ig/ifr?url=http%3A%2F%2Fwww.google.com%2Fig%2Fmodules%2Fgoogle_insightsforsearch_interestovertime_searchterms.xml&up__property=empty&up__search_terms={{ person.name }}&up__location=KR&up__category=0&up__time_range=12-m&up__compare_to_category=false&synd=open&w=640&h=150&lang={{lang}}&title=Google+%EA%B2%80%EC%83%89+%ED%86%B5%EA%B3%84&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
-            </div>
+            <table class="table table-condensed">
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <td id="google-trends">
+                            <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q={{ person.name }}&tz&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=800&h=400"></script>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             {% endif %}
         </div>
         {% endif %}
