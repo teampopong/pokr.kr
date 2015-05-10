@@ -71,8 +71,8 @@ $('document').ready(function(){
             {% endfor %}
         </ul>
     </div>
-    <div class="span11">
-        {% set items_per_page = 75 %}
+    <div id="people-panel" class="span10">
+        {% set items_per_page = 70 %}
         {% if mobile %}
         {% set items_per_page = 20 %}
         {% endif %}
