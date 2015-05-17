@@ -2,7 +2,7 @@
 {% for feed in district_feeds.feeds %}
     <div class="feed bill">
         <p class="feed-sponsor-type">
-            {{ gettext('Legislator %(name)s', name=legislator.name) }}
+            {{ gettext('Legislator %(name)s', name=legislator.name|translit(type='name')) }}
             {% if legislator.name in feed.sponsor %}
             {{ gettext('sponsored') }}
             {% else %}

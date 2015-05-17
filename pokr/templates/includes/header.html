@@ -1,9 +1,9 @@
 <h1>
     <a href="{{ url_for('main') }}">
     {% if locale=='ko' %}
-    <img class="logo" src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea" style="max-width: 300px">
+    <img class="logo" src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea">
     {% else %}
-    <img src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea" style="max-width: 300px">
+    <img class="logo" src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea">
     {% endif %}
     </a>
 </h1>
@@ -45,7 +45,7 @@
     <a class="language" href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
     {% include "login.html" %}
-    <a class="btn btn-mini btn-primary white" href="https://teampopong.uservoice.com/forums/211529">{{ gettext('feedback') }}</a>
+    <a class="btn btn-mini btn-primary white" href="https://teampopong.uservoice.com/forums/211529">{{ gettext('Feedback') }}</a>
 </span>
 <img id="banner" src="{{ url_for('static', filename="images/beta3.png") }}">
 <script type="text/javascript">
