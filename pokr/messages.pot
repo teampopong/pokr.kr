@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-05-17 15:54+0900\n"
+"POT-Creation-Date: 2015-05-17 16:07+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,12 +162,12 @@ msgstr ""
 msgid "No writing on your wall without permission."
 msgstr ""
 
-#: pokr/templates/login.html:2
-msgid "mypage"
+#: pokr/templates/login.html:2 pokr/templates/main.html:56
+msgid "My page"
 msgstr ""
 
 #: pokr/templates/login.html:2
-msgid "logout"
+msgid "Logout"
 msgstr ""
 
 #: pokr/templates/login.html:4
@@ -234,10 +234,6 @@ msgstr ""
 
 #: pokr/templates/main.html:53
 msgid "Easier to discover new facts"
-msgstr ""
-
-#: pokr/templates/main.html:56
-msgid "My page"
 msgstr ""
 
 #: pokr/templates/main.html:57

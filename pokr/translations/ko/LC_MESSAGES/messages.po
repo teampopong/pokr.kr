@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-05-17 15:54+0900\n"
+"POT-Creation-Date: 2015-05-17 16:07+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -162,12 +162,12 @@ msgstr "페이스북으로 로그인"
 msgid "No writing on your wall without permission."
 msgstr "당신의 허락없이 담벼락에 포스팅하지 않아요!"
 
-#: pokr/templates/login.html:2
-msgid "mypage"
+#: pokr/templates/login.html:2 pokr/templates/main.html:56
+msgid "My page"
 msgstr "마이페이지"
 
 #: pokr/templates/login.html:2
-msgid "logout"
+msgid "Logout"
 msgstr "로그아웃"
 
 #: pokr/templates/login.html:4
@@ -235,10 +235,6 @@ msgstr "데이터 간 유기적 연결성"
 #: pokr/templates/main.html:53
 msgid "Easier to discover new facts"
 msgstr "페이지끼리 연결되어 있어 손쉽게 이동할 수 있습니다"
-
-#: pokr/templates/main.html:56
-msgid "My page"
-msgstr "마이페이지"
 
 #: pokr/templates/main.html:57
 msgid "Easier to find bills related to my region and interests"
@@ -854,4 +850,3 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
-
