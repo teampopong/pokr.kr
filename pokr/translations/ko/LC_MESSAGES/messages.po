@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-05-17 15:43+0900\n"
+"POT-Creation-Date: 2015-05-17 15:54+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -751,7 +751,7 @@ msgid "Meetings where query was discussed"
 msgstr "검색어가 거론된 회의 목록"
 
 #: pokr/templates/unauthorized.html:18
-msgid "Login is requred."
+msgid "Login is required."
 msgstr "로그인이 필요합니다."
 
 #: pokr/templates/includes/footer.html:9
@@ -854,3 +854,4 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
+
