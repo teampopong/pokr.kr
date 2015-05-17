@@ -1,5 +1,5 @@
 {% if is_logged %}
 <span style="margin-right: 20px;">Hello, {{ user.social_auth.filter_by(provider='facebook').one().extra_data['name'] }}! - <a class="user-action" href="{{ url_for('My page') }}">{{ gettext('mypage') }}</a> | <a class="user-logout" href="{{ url_for('Logout') }}">{{ gettext('logout') }}</a></span>
 {% else %}
-<a class="user-action" href="{{ url_for('social.auth', backend='facebook') }}">{{ gettext('Login') }}<!--img src="{{ url_for('static', filename='images/facebook-login-button.png') }}"--></a>
+<a class="user-action" href="{{ url_for("social.auth", backend="facebook") }}">{{ gettext('Login') }}<!--img src="{{ url_for('static', filename='images/facebook-login-button.png') }}"--></a>
 {% endif %}
