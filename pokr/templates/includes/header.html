@@ -15,7 +15,7 @@
                     {% if mobile %}
                     <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }}">
                     {% else %}
-                    <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }} (ex: {{ gettext('Seon-Mi Jin') }}, 청년, 무소속, 관악구)">
+                    <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }}, {{ gettext('keyword') }} (ex: 세월호, 단통법, 관악구)">
                     {% endif %}
                     <button class="btn add-on">
                             <i class="icon-search"></i>
