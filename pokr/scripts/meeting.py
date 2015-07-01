@@ -101,7 +101,7 @@ def create_or_get_meeting(session, region_id, obj, update=False):
             sitting_id=meeting_id,
             date=date,
             issues=obj['issues'],
-            url=obj['issues_url'],
+            url='',
             pdf_url=obj['pdf'],
         )
     return meeting
