@@ -10,6 +10,7 @@
 <meta property="og:description" content="{% if bill.summary %}{{ bill.summary }}{% else %}{{ gettext('The summary of this bill has not been updated.') }}{% endif %}" />
 {% for sponsor in bill.representative_people %}
     <meta property="og:image" content="{{ sponsor.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}" />
+    <meta property="twitter:image" content="{{ sponsor.image|default(url_for('static', filename='images/default_profile.jpg'), True) }}" />
 {% endfor %}
 {% endblock %}
 
