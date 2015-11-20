@@ -58,5 +58,11 @@ Pokr - Politics in Korea
 
         $ ./shell.py candidacy update "some/where/*.json"
 
+1. People
+
+        $ ./shell.py person update "some/where/*.json"
+
+    when the json is in [this form](https://github.com/teampopong/data-assembly/blob/master/assembly.json).
+
 ## License
 [Apache v2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
