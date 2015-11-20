@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-05-17 16:07+0900\n"
+"POT-Creation-Date: 2015-11-20 15:51+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "The summary of this bill has not been updated."
 msgstr ""
 
-#: pokr/templates/bill-layout.html:31
+#: pokr/templates/bill-layout.html:35
 #, python-format
 msgid "bill no. %(bill_id)s"
 msgstr ""
@@ -162,7 +162,7 @@ msgstr ""
 msgid "No writing on your wall without permission."
 msgstr ""
 
-#: pokr/templates/login.html:2 pokr/templates/main.html:56
+#: pokr/templates/login.html:2
 msgid "My page"
 msgstr ""
 
@@ -222,78 +222,6 @@ msgstr ""
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
-msgstr ""
-
-#: pokr/templates/main.html:51
-msgid "What does Politics in Korea do?"
-msgstr ""
-
-#: pokr/templates/main.html:52
-msgid "Data interlinking"
-msgstr ""
-
-#: pokr/templates/main.html:53
-msgid "Easier to discover new facts"
-msgstr ""
-
-#: pokr/templates/main.html:57
-msgid "Easier to find bills related to my region and interests"
-msgstr ""
-
-#: pokr/templates/main.html:60
-msgid "Graphs and images"
-msgstr ""
-
-#: pokr/templates/main.html:61
-msgid "Easier to understand the data in depth"
-msgstr ""
-
-#: pokr/templates/main.html:64
-msgid "Open participation"
-msgstr ""
-
-#: pokr/templates/main.html:65
-msgid "Anyone can share ideas"
-msgstr ""
-
-#: pokr/templates/main.html:68
-msgid "Open data"
-msgstr ""
-
-#: pokr/templates/main.html:69
-msgid "Anyone can access the data"
-msgstr ""
-
-#: pokr/templates/main.html:72
-msgid "Open source"
-msgstr ""
-
-#: pokr/templates/main.html:73
-msgid "Anyone can contribute code"
-msgstr ""
-
-#: pokr/templates/main.html:76
-msgid "Mobile compatibility"
-msgstr ""
-
-#: pokr/templates/main.html:77
-msgid "Easier to access on the go"
-msgstr ""
-
-#: pokr/templates/main.html:80
-msgid "Short and descriptive URLs"
-msgstr ""
-
-#: pokr/templates/main.html:81
-msgid "Easier to understand and manipulate URLs"
-msgstr ""
-
-#: pokr/templates/main.html:84
-msgid "Jargon explanations"
-msgstr ""
-
-#: pokr/templates/main.html:85
-msgid "Easier to understand difficult words"
 msgstr ""
 
 #: pokr/templates/meeting-dialogue.html:43
@@ -773,7 +701,7 @@ msgid "region"
 msgstr ""
 
 #: pokr/templates/includes/header.html:18
-msgid "Seon-Mi Jin"
+msgid "keyword"
 msgstr ""
 
 #: pokr/templates/includes/header.html:29

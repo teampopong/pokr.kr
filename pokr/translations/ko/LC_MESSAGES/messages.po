@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-05-17 16:07+0900\n"
+"POT-Creation-Date: 2015-11-20 15:51+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "%(sitting_id)s차"
 msgid "The summary of this bill has not been updated."
 msgstr "이 의안의 요약이 아직 업로드되지 않았습니다."
 
-#: pokr/templates/bill-layout.html:31
+#: pokr/templates/bill-layout.html:35
 #, python-format
 msgid "bill no. %(bill_id)s"
 msgstr "의안 제%(bill_id)s호"
@@ -162,7 +162,7 @@ msgstr "페이스북으로 로그인"
 msgid "No writing on your wall without permission."
 msgstr "당신의 허락없이 담벼락에 포스팅하지 않아요!"
 
-#: pokr/templates/login.html:2 pokr/templates/main.html:56
+#: pokr/templates/login.html:2
 msgid "My page"
 msgstr "마이페이지"
 
@@ -223,78 +223,6 @@ msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
 msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
-
-#: pokr/templates/main.html:51
-msgid "What does Politics in Korea do?"
-msgstr "\"대정모\"<small>대한민국 정치의 모든 것</small>는 어떤 특징이 있나요?"
-
-#: pokr/templates/main.html:52
-msgid "Data interlinking"
-msgstr "데이터 간 유기적 연결성"
-
-#: pokr/templates/main.html:53
-msgid "Easier to discover new facts"
-msgstr "페이지끼리 연결되어 있어 손쉽게 이동할 수 있습니다"
-
-#: pokr/templates/main.html:57
-msgid "Easier to find bills related to my region and interests"
-msgstr "내 지역구와 관심사 관련 의안를 선별해 볼 수 있습니다"
-
-#: pokr/templates/main.html:60
-msgid "Graphs and images"
-msgstr "그래프와 이미지"
-
-#: pokr/templates/main.html:61
-msgid "Easier to understand the data in depth"
-msgstr "데이터를 보다 쉽고 재미있게 이해할 수 있습니다"
-
-#: pokr/templates/main.html:64
-msgid "Open participation"
-msgstr "열린 참여"
-
-#: pokr/templates/main.html:65
-msgid "Anyone can share ideas"
-msgstr "누구나 아이디어를 제안할 수 있습니다"
-
-#: pokr/templates/main.html:68
-msgid "Open data"
-msgstr "오픈 데이터"
-
-#: pokr/templates/main.html:69
-msgid "Anyone can access the data"
-msgstr "누구나 데이터에 접근할 수 있습니다"
-
-#: pokr/templates/main.html:72
-msgid "Open source"
-msgstr "오픈 소스"
-
-#: pokr/templates/main.html:73
-msgid "Anyone can contribute code"
-msgstr "누구나 직접 개발에 참여할 수 있습니다"
-
-#: pokr/templates/main.html:76
-msgid "Mobile compatibility"
-msgstr "모바일 호환성"
-
-#: pokr/templates/main.html:77
-msgid "Easier to access on the go"
-msgstr "이동하면서 편리하게 볼 수 있습니다"
-
-#: pokr/templates/main.html:80
-msgid "Short and descriptive URLs"
-msgstr "짧고 명료한 URL"
-
-#: pokr/templates/main.html:81
-msgid "Easier to understand and manipulate URLs"
-msgstr "URL의 구조를 이해하고 직접 조작하기 쉽습니다"
-
-#: pokr/templates/main.html:84
-msgid "Jargon explanations"
-msgstr "용어 풀이"
-
-#: pokr/templates/main.html:85
-msgid "Easier to understand difficult words"
-msgstr "어려운 용어에는 용어 풀이가 부착되어 있습니다"
 
 #: pokr/templates/meeting-dialogue.html:43
 #: pokr/templates/meeting-dialogue.html:62
@@ -773,8 +701,8 @@ msgid "region"
 msgstr "지역"
 
 #: pokr/templates/includes/header.html:18
-msgid "Seon-Mi Jin"
-msgstr "진선미"
+msgid "keyword"
+msgstr "키워드"
 
 #: pokr/templates/includes/header.html:29
 #: pokr/templates/includes/header.html:35
@@ -850,3 +778,61 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
+
+#~ msgid "What does Politics in Korea do?"
+#~ msgstr "\"대정모\"<small>대한민국 정치의 모든 것</small>는 어떤 특징이 있나요?"
+
+#~ msgid "Data interlinking"
+#~ msgstr "데이터 간 유기적 연결성"
+
+#~ msgid "Easier to discover new facts"
+#~ msgstr "페이지끼리 연결되어 있어 손쉽게 이동할 수 있습니다"
+
+#~ msgid "Easier to find bills related to my region and interests"
+#~ msgstr "내 지역구와 관심사 관련 의안를 선별해 볼 수 있습니다"
+
+#~ msgid "Graphs and images"
+#~ msgstr "그래프와 이미지"
+
+#~ msgid "Easier to understand the data in depth"
+#~ msgstr "데이터를 보다 쉽고 재미있게 이해할 수 있습니다"
+
+#~ msgid "Open participation"
+#~ msgstr "열린 참여"
+
+#~ msgid "Anyone can share ideas"
+#~ msgstr "누구나 아이디어를 제안할 수 있습니다"
+
+#~ msgid "Open data"
+#~ msgstr "오픈 데이터"
+
+#~ msgid "Anyone can access the data"
+#~ msgstr "누구나 데이터에 접근할 수 있습니다"
+
+#~ msgid "Open source"
+#~ msgstr "오픈 소스"
+
+#~ msgid "Anyone can contribute code"
+#~ msgstr "누구나 직접 개발에 참여할 수 있습니다"
+
+#~ msgid "Mobile compatibility"
+#~ msgstr "모바일 호환성"
+
+#~ msgid "Easier to access on the go"
+#~ msgstr "이동하면서 편리하게 볼 수 있습니다"
+
+#~ msgid "Short and descriptive URLs"
+#~ msgstr "짧고 명료한 URL"
+
+#~ msgid "Easier to understand and manipulate URLs"
+#~ msgstr "URL의 구조를 이해하고 직접 조작하기 쉽습니다"
+
+#~ msgid "Jargon explanations"
+#~ msgstr "용어 풀이"
+
+#~ msgid "Easier to understand difficult words"
+#~ msgstr "어려운 용어에는 용어 풀이가 부착되어 있습니다"
+
+#~ msgid "Seon-Mi Jin"
+#~ msgstr "진선미"
+
