@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-04-01 17:11+0900\n"
+"POT-Creation-Date: 2015-11-20 15:51+0900\n"
 "PO-Revision-Date: 2012-08-06 12:48+0900\n"
 "Last-Translator: Cheol KANG <steel@popong.com>\n"
 "Language-Team: ko <LL@li.org>\n"
@@ -32,11 +32,11 @@ msgstr "%(session_id)s회"
 msgid "%(sitting_id)sth sitting"
 msgstr "%(sitting_id)s차"
 
-#: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:142
+#: pokr/templates/bill-layout.html:10 pokr/templates/bill.html:140
 msgid "The summary of this bill has not been updated."
 msgstr "이 의안의 요약이 아직 업로드되지 않았습니다."
 
-#: pokr/templates/bill-layout.html:31
+#: pokr/templates/bill-layout.html:35
 #, python-format
 msgid "bill no. %(bill_id)s"
 msgstr "의안 제%(bill_id)s호"
@@ -74,36 +74,36 @@ msgstr "외부링크"
 msgid "see official page"
 msgstr "국회에서 보기"
 
-#: pokr/templates/bill.html:68
+#: pokr/templates/bill.html:67
 msgid "suggest to assembly"
 msgstr "의견제출하기"
 
-#: pokr/templates/bill.html:70
+#: pokr/templates/bill.html:68
 msgid "see original pdf"
 msgstr "원문 PDF 보기"
 
-#: pokr/templates/bill.html:71
+#: pokr/templates/bill.html:69
 msgid "see original text"
 msgstr "원문 텍스트 보기"
 
-#: pokr/templates/bill.html:79
+#: pokr/templates/bill.html:77
 msgid "sponsors"
 msgstr "발의자"
 
-#: pokr/templates/bill.html:82 pokr/templates/bill.html:105
+#: pokr/templates/bill.html:80 pokr/templates/bill.html:103
 #: pokr/templates/macros.html:105 pokr/templates/person-legislations.html:64
 msgid "representative sponsor"
 msgstr "대표발의자"
 
-#: pokr/templates/bill.html:93 pokr/templates/bill.html:119
+#: pokr/templates/bill.html:91 pokr/templates/bill.html:117
 msgid "cosponsors"
 msgstr "공동발의자"
 
-#: pokr/templates/bill.html:134
+#: pokr/templates/bill.html:132
 msgid "contents"
 msgstr "내용"
 
-#: pokr/templates/bill.html:137 pokr/templates/party.html:43
+#: pokr/templates/bill.html:135 pokr/templates/party.html:43
 msgid "summary"
 msgstr "요약"
 
@@ -111,13 +111,13 @@ msgstr "요약"
 msgid "bills"
 msgstr "의안"
 
-#: pokr/templates/bills.html:29 pokr/templates/parties.html:30
-#: pokr/templates/people.html:29 pokr/templates/region.html:54
+#: pokr/templates/bills.html:30 pokr/templates/parties.html:30
+#: pokr/templates/people.html:42 pokr/templates/region.html:54
 #: pokr/templates/region.html:99
 msgid "th"
 msgstr "대"
 
-#: pokr/templates/bills.html:57 pokr/templates/macro-statement.html:6
+#: pokr/templates/bills.html:62 pokr/templates/macro-statement.html:6
 #: pokr/templates/macros.html:95 pokr/templates/mypage.html:88
 #: pokr/templates/mypage.html:113 pokr/templates/person-legislations.html:29
 #: pokr/templates/person-legislations.html:73
@@ -126,7 +126,7 @@ msgstr "대"
 msgid "more"
 msgstr "더보기"
 
-#: pokr/templates/bills.html:58 pokr/templates/district-feeds.html:19
+#: pokr/templates/bills.html:63 pokr/templates/district-feeds.html:19
 msgid "No summary"
 msgstr "요약 준비 중"
 
@@ -159,19 +159,19 @@ msgid "Login with Facebook"
 msgstr "페이스북으로 로그인"
 
 #: pokr/templates/facebook-login.html:7
-msgid "We don't write on your wall without permission."
+msgid "No writing on your wall without permission."
 msgstr "당신의 허락없이 담벼락에 포스팅하지 않아요!"
 
 #: pokr/templates/login.html:2
-msgid "mypage"
+msgid "My page"
 msgstr "마이페이지"
 
 #: pokr/templates/login.html:2
-msgid "logout"
+msgid "Logout"
 msgstr "로그아웃"
 
 #: pokr/templates/login.html:4
-msgid "login"
+msgid "Login"
 msgstr "로그인"
 
 #: pokr/templates/macro-statement.html:5
@@ -218,108 +218,11 @@ msgstr "14000명의 정치인, 52000개의 의안 정보, 회의록, 정당 정�
 msgid "Get realtime legislative information now"
 msgstr "SNS로 의안을 구독해 보세요"
 
-#: pokr/templates/main.html:35 pokr/templates/people.html:5
-#: pokr/templates/search-results.html:49
-msgid "People"
-msgstr "인물"
-
-#: pokr/templates/main.html:36
-msgid "Bills"
-msgstr "의안"
-
-#: pokr/templates/main.html:37 pokr/templates/search-results.html:161
-msgid "Meetings"
-msgstr "회의"
-
-#: pokr/templates/main.html:38 pokr/templates/parties.html:5
-msgid "Parties"
-msgstr "정당"
-
-#: pokr/templates/main.html:39 pokr/templates/regions.html:5
-msgid "Regions"
-msgstr "지역"
-
-#: pokr/templates/main.html:45
+#: pokr/templates/main.html:38
 msgid ""
 "Your feedback<br>makes us better!<br><small>(We feed on "
 "compliments)</small>"
 msgstr "당신의 의견을<br>들려주세요!<br><small>(칭찬에 호랑이 기운이 솟아나요)</small>"
-
-#: pokr/templates/main.html:65
-msgid "What does Politics in Korea do?"
-msgstr "\"대정모\"<small>대한민국 정치의 모든 것</small>는 어떤 특징이 있나요?"
-
-#: pokr/templates/main.html:66
-msgid "Data interlinking"
-msgstr "데이터 간 유기적 연결성"
-
-#: pokr/templates/main.html:67
-msgid "Easier to discover new facts"
-msgstr "페이지끼리 연결되어 있어 손쉽게 이동할 수 있습니다"
-
-#: pokr/templates/main.html:70
-msgid "My page"
-msgstr "마이페이지"
-
-#: pokr/templates/main.html:71
-msgid "Easier to find bills related to my region and interests"
-msgstr "내 지역구와 관심사 관련 의안를 선별해 볼 수 있습니다"
-
-#: pokr/templates/main.html:74
-msgid "Graphs and images"
-msgstr "그래프와 이미지"
-
-#: pokr/templates/main.html:75
-msgid "Easier to understand the data in depth"
-msgstr "데이터를 보다 쉽고 재미있게 이해할 수 있습니다"
-
-#: pokr/templates/main.html:78
-msgid "Open participation"
-msgstr "열린 참여"
-
-#: pokr/templates/main.html:79
-msgid "Anyone can share ideas"
-msgstr "누구나 아이디어를 제안할 수 있습니다"
-
-#: pokr/templates/main.html:82
-msgid "Open data"
-msgstr "오픈 데이터"
-
-#: pokr/templates/main.html:83
-msgid "Anyone can access the data"
-msgstr "누구나 데이터에 접근할 수 있습니다"
-
-#: pokr/templates/main.html:86
-msgid "Open source"
-msgstr "오픈 소스"
-
-#: pokr/templates/main.html:87
-msgid "Anyone can contribute code"
-msgstr "누구나 직접 개발에 참여할 수 있습니다"
-
-#: pokr/templates/main.html:90
-msgid "Mobile compatibility"
-msgstr "모바일 호환성"
-
-#: pokr/templates/main.html:91
-msgid "Easier to access on the go"
-msgstr "이동하면서 편리하게 볼 수 있습니다"
-
-#: pokr/templates/main.html:94
-msgid "Short and descriptive URLs"
-msgstr "짧고 명료한 URL"
-
-#: pokr/templates/main.html:95
-msgid "Easier to understand and manipulate URLs"
-msgstr "URL의 구조를 이해하고 직접 조작하기 쉽습니다"
-
-#: pokr/templates/main.html:98
-msgid "Jargon explanations"
-msgstr "용어 풀이"
-
-#: pokr/templates/main.html:99
-msgid "Easier to understand difficult words"
-msgstr "어려운 용어에는 용어 풀이가 부착되어 있습니다"
 
 #: pokr/templates/meeting-dialogue.html:43
 #: pokr/templates/meeting-dialogue.html:62
@@ -465,6 +368,11 @@ msgstr "새 키워드"
 msgid "This is not the web page you are looking for."
 msgstr "어라? 여기가 어디지... 존재하지 않는 페이지입니다."
 
+#: pokr/templates/parties.html:5 pokr/templates/includes/header.html:31
+#: pokr/templates/includes/header.html:37
+msgid "Parties"
+msgstr "정당"
+
 #: pokr/templates/parties.html:9
 msgid "parties"
 msgstr "정당"
@@ -477,9 +385,10 @@ msgstr "이 페이지는 두 개 이상의 정당에 대한 정보일 수 있습
 msgid "details"
 msgstr "자세히 보기"
 
-#: pokr/templates/party.html:43 pokr/templates/person.html:53
-#: pokr/templates/search-results.html:9 pokr/templates/includes/header.html:15
-#: pokr/templates/includes/header.html:17 pokr/views/party.py:21
+#: pokr/templates/party.html:43 pokr/templates/people.html:67
+#: pokr/templates/person.html:53 pokr/templates/search-results.html:9
+#: pokr/templates/includes/header.html:16
+#: pokr/templates/includes/header.html:18 pokr/views/party.py:21
 msgid "party"
 msgstr "정당"
 
@@ -505,39 +414,46 @@ msgstr "대 %(election_type)s 선거"
 msgid "people"
 msgstr "인물"
 
-#: pokr/templates/people.html:45
-msgid "Sort by name"
-msgstr "이름순 정렬"
-
-#: pokr/templates/people.html:46
-msgid "Sort by cosponsorship"
-msgstr "의안활동순 정렬"
+#: pokr/templates/people.html:5 pokr/templates/search-results.html:50
+#: pokr/templates/includes/header.html:28
+#: pokr/templates/includes/header.html:34
+msgid "People"
+msgstr "인물"
 
 #: pokr/templates/people.html:50
-msgid "male"
-msgstr "남성"
-
-#: pokr/templates/people.html:51
-msgid "female"
-msgstr "여성"
-
-#: pokr/templates/people.html:55
-msgid "ages"
-msgstr "대"
-
-#: pokr/templates/people.html:55
-msgid "less than"
-msgstr "이하"
-
-#: pokr/templates/people.html:59
-msgid "greater than"
-msgstr "이상"
-
-#: pokr/templates/people.html:71
 msgid "persons"
 msgstr "명"
 
-#: pokr/templates/people.html:85
+#: pokr/templates/people.html:52
+msgid "gender"
+msgstr "성별"
+
+#: pokr/templates/people.html:54
+msgid "male"
+msgstr "남성"
+
+#: pokr/templates/people.html:55
+msgid "female"
+msgstr "여성"
+
+#: pokr/templates/people.html:58
+msgid "age group"
+msgstr "연령대"
+
+#: pokr/templates/people.html:60
+msgid "s and down"
+msgstr "대 이하"
+
+#: pokr/templates/people.html:61 pokr/templates/people.html:62
+#: pokr/templates/people.html:63
+msgid "s"
+msgstr "대"
+
+#: pokr/templates/people.html:64
+msgid "s and up"
+msgstr "대 이상"
+
+#: pokr/templates/people.html:87
 msgid "No people found"
 msgstr "해당하는 인물이 없습니다"
 
@@ -603,7 +519,7 @@ msgid "Date"
 msgstr "날짜"
 
 #: pokr/templates/person-statements.html:10
-#: pokr/templates/search-results.html:181
+#: pokr/templates/search-results.html:182
 msgid "Statement"
 msgstr "발언"
 
@@ -648,11 +564,11 @@ msgstr "키워드"
 msgid "Wikipedia"
 msgstr "위키피디아"
 
-#: pokr/templates/person.html:161
+#: pokr/templates/person.html:160
 msgid "trends"
 msgstr "검색추이"
 
-#: pokr/templates/person.html:163
+#: pokr/templates/person.html:161
 #, python-format
 msgid "Results from Google Trends searched by query %(name)s"
 msgstr "'%(name)s를 구글 Trends에서 검색한 결과입니다."
@@ -685,6 +601,11 @@ msgstr "출마자"
 msgid "Residents"
 msgstr "거주자"
 
+#: pokr/templates/regions.html:5 pokr/templates/includes/header.html:32
+#: pokr/templates/includes/header.html:38
+msgid "Regions"
+msgstr "지역"
+
 #: pokr/templates/regions.html:9
 msgid "regions"
 msgstr "지역"
@@ -701,8 +622,8 @@ msgstr "검색어"
 msgid "school"
 msgstr "교육기관"
 
-#: pokr/templates/search-results.html:10 pokr/templates/includes/header.html:15
-#: pokr/templates/includes/header.html:17 pokr/views/person.py:28
+#: pokr/templates/search-results.html:10 pokr/templates/includes/header.html:16
+#: pokr/templates/includes/header.html:18 pokr/views/person.py:30
 msgid "person"
 msgstr "인물"
 
@@ -718,37 +639,43 @@ msgstr "연관 키워드"
 msgid "Searched results"
 msgstr "검색 결과"
 
-#: pokr/templates/search-results.html:42
+#: pokr/templates/search-results.html:43
 #, python-format
 msgid "Search results by %(options)s"
 msgstr "%(options)s(으)로 검색된 결과"
 
-#: pokr/templates/search-results.html:65
+#: pokr/templates/search-results.html:66
 msgid "Law"
 msgstr "법률"
 
-#: pokr/templates/search-results.html:85
+#: pokr/templates/search-results.html:86
 msgid "Bill"
 msgstr "의안"
 
-#: pokr/templates/search-results.html:104
+#: pokr/templates/search-results.html:105
 msgid "Party"
 msgstr "정당"
 
-#: pokr/templates/search-results.html:123
+#: pokr/templates/search-results.html:124
 msgid "Region"
 msgstr "지역"
 
-#: pokr/templates/search-results.html:142
+#: pokr/templates/search-results.html:143
 msgid "School"
 msgstr "교육기관"
 
 #: pokr/templates/search-results.html:162
+#: pokr/templates/includes/header.html:30
+#: pokr/templates/includes/header.html:36
+msgid "Meetings"
+msgstr "회의"
+
+#: pokr/templates/search-results.html:163
 msgid "Meetings where query was discussed"
 msgstr "검색어가 거론된 회의 목록"
 
 #: pokr/templates/unauthorized.html:18
-msgid "Login is requred."
+msgid "Login is required."
 msgstr "로그인이 필요합니다."
 
 #: pokr/templates/includes/footer.html:9
@@ -763,22 +690,27 @@ msgstr "데이터"
 msgid "sources"
 msgstr "소스"
 
-#: pokr/templates/includes/header.html:15
-#: pokr/templates/includes/header.html:17 pokr/views/bill.py:19
+#: pokr/templates/includes/header.html:16
+#: pokr/templates/includes/header.html:18 pokr/views/bill.py:26
 msgid "bill"
 msgstr "의안"
 
-#: pokr/templates/includes/header.html:15
-#: pokr/templates/includes/header.html:17 pokr/views/region.py:16
+#: pokr/templates/includes/header.html:16
+#: pokr/templates/includes/header.html:18 pokr/views/region.py:16
 msgid "region"
 msgstr "지역"
 
-#: pokr/templates/includes/header.html:17
-msgid "Seon-Mi Jin"
-msgstr "진선미"
+#: pokr/templates/includes/header.html:18
+msgid "keyword"
+msgstr "키워드"
 
-#: pokr/templates/includes/header.html:27
-msgid "feedback"
+#: pokr/templates/includes/header.html:29
+#: pokr/templates/includes/header.html:35
+msgid "Bills"
+msgstr "의안"
+
+#: pokr/templates/includes/header.html:48
+msgid "Feedback"
 msgstr "건의하기"
 
 #: pokr/templates/widgets/histogram.html:97
@@ -846,4 +778,61 @@ msgstr ""
 "%(assembly_id)d대\n"
 "%(election_type)s\n"
 "낙선"
+
+#~ msgid "What does Politics in Korea do?"
+#~ msgstr "\"대정모\"<small>대한민국 정치의 모든 것</small>는 어떤 특징이 있나요?"
+
+#~ msgid "Data interlinking"
+#~ msgstr "데이터 간 유기적 연결성"
+
+#~ msgid "Easier to discover new facts"
+#~ msgstr "페이지끼리 연결되어 있어 손쉽게 이동할 수 있습니다"
+
+#~ msgid "Easier to find bills related to my region and interests"
+#~ msgstr "내 지역구와 관심사 관련 의안를 선별해 볼 수 있습니다"
+
+#~ msgid "Graphs and images"
+#~ msgstr "그래프와 이미지"
+
+#~ msgid "Easier to understand the data in depth"
+#~ msgstr "데이터를 보다 쉽고 재미있게 이해할 수 있습니다"
+
+#~ msgid "Open participation"
+#~ msgstr "열린 참여"
+
+#~ msgid "Anyone can share ideas"
+#~ msgstr "누구나 아이디어를 제안할 수 있습니다"
+
+#~ msgid "Open data"
+#~ msgstr "오픈 데이터"
+
+#~ msgid "Anyone can access the data"
+#~ msgstr "누구나 데이터에 접근할 수 있습니다"
+
+#~ msgid "Open source"
+#~ msgstr "오픈 소스"
+
+#~ msgid "Anyone can contribute code"
+#~ msgstr "누구나 직접 개발에 참여할 수 있습니다"
+
+#~ msgid "Mobile compatibility"
+#~ msgstr "모바일 호환성"
+
+#~ msgid "Easier to access on the go"
+#~ msgstr "이동하면서 편리하게 볼 수 있습니다"
+
+#~ msgid "Short and descriptive URLs"
+#~ msgstr "짧고 명료한 URL"
+
+#~ msgid "Easier to understand and manipulate URLs"
+#~ msgstr "URL의 구조를 이해하고 직접 조작하기 쉽습니다"
+
+#~ msgid "Jargon explanations"
+#~ msgstr "용어 풀이"
+
+#~ msgid "Easier to understand difficult words"
+#~ msgstr "어려운 용어에는 용어 풀이가 부착되어 있습니다"
+
+#~ msgid "Seon-Mi Jin"
+#~ msgstr "진선미"
 

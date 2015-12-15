@@ -12,7 +12,7 @@ UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script
 UserVoice.push(['set', {
   accent_color: '#448dd6',
   trigger_color: 'white',
-  trigger_background_color: '#448dd6'
+  trigger_background_color: '#FFAD46'
 }]);
 
 // Identify the user and pass traits
@@ -33,11 +33,16 @@ UserVoice.push(['identify', {
   //}
 }]);
 
-// Add default trigger to the bottom-right corner of the window:
-UserVoice.push(['addTrigger', { mode: 'smartvote', trigger_position: 'bottom-right' }]);
-
-// Or, use your own custom trigger:
-//UserVoice.push(['addTrigger', '#id', { mode: 'smartvote' }]);
+// Add default trigger
+UserVoice.push(['addTrigger', {
+  mode: 'satisfaction',
+  trigger_position: 'bottom-right',
+{% if mobile %}
+  trigger_style: 'icon'
+{% else %}
+  trigger_style: 'tab'
+{% endif %}
+}]);
 
 // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
 UserVoice.push(['autoprompt', {}]);

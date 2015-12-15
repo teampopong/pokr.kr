@@ -1,33 +1,51 @@
 <h1>
     <a href="{{ url_for('main') }}">
     {% if locale=='ko' %}
-    <img class="logo" src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea" style="max-width: 300px">
+    <img class="logo" src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea">
     {% else %}
-    <img src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea" style="max-width: 300px">
+    <img class="logo" src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea">
     {% endif %}
     </a>
 </h1>
 
-<div id="searchbox">
-    <form action="{{ url_for("search") }}">
-        <div class="input-append">
-                {% if mobile %}
-                <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }}">
-                {% else %}
-                <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }} (ex: {{ gettext('Seon-Mi Jin') }}, 청년, 무소속, 관악구)">
-                {% endif %}
-                <button class="btn add-on">
-                        <i class="icon-search"></i>
-                </button>
-        </div>
-    </form>
+<div id="header-options">
+    <div id="searchbox">
+        <form action="{{ url_for("search") }}">
+            <div class="input-append">
+                    {% if mobile %}
+                    <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }}">
+                    {% else %}
+                    <input id="search" type="text" name="query" autocomplete="on" class="border-box" placeholder="{{ gettext('person') }}, {{ gettext('bill') }}, {{ gettext('party') }}, {{ gettext('region') }}, {{ gettext('keyword') }} (ex: 담배, 층간소음, 관악구)">
+                    {% endif %}
+                    <button class="btn add-on">
+                            <i class="icon-search"></i>
+                    </button>
+            </div>
+        </form>
+    </div>
+    <div id="class-list">
+        {% if mobile %}
+        <a class="btn btn-submain" href="{{ url_for('person_main') }}">{{ gettext('People') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a>
+        <a class="btn btn-submain" href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a>
+        {% else %}
+        <a class="btn-submain" href="{{ url_for('person_main') }}">{{ gettext('People') }}</a>
+        <a class="btn-submain" href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a>
+        <a class="btn-submain" href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a>
+        <a class="btn-submain" href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a>
+        <a class="btn-submain" href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a>
+        {% endif %}
+    </div>
 </div>
+
 <span class="user-options">
-    {% include "login.html" %}
-    <a class="btn btn-mini btn-primary white" href="https://teampopong.uservoice.com/forums/211529">{{ gettext('feedback') }}</a>
     {% for lang, url in locale_links.items() %}
     <a class="language" href="{{ url }}">{{ lang.english_name }}</a>&nbsp;{% if not loop.last %}/{% endif %}
     {% endfor %}
+    {% include "login.html" %}
+    <a class="btn btn-mini btn-primary white" href="https://teampopong.uservoice.com/forums/211529">{{ gettext('Feedback') }}</a>
 </span>
 <img id="banner" src="{{ url_for('static', filename="images/beta3.png") }}">
 <script type="text/javascript">

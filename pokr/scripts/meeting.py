@@ -59,15 +59,17 @@ class UpdateMeetingCommand(Command):
 
 
 def insert_meetings(region_id, obj, update=False):
-    if isinstance(obj, dict):
-        insert_meeting(region_id, obj, update)
+    try:
+        if isinstance(obj, dict):
+            insert_meeting(region_id, obj, update)
 
-    elif isinstance(obj, list):
-        for o in obj:
-            insert_meeting(region_id, o, update)
-
-    else:
-        raise Exception()
+        elif isinstance(obj, list):
+            for o in obj:
+                insert_meeting(region_id, o, update)
+        else:
+            raise Exception()
+    except KeyError, e:
+        logging.warn('KeyError: %s' % e)
 
 
 def strhash(s, len=4):
@@ -101,7 +103,7 @@ def create_or_get_meeting(session, region_id, obj, update=False):
             sitting_id=meeting_id,
             date=date,
             issues=obj['issues'],
-            url=obj['issues_url'],
+            url='',
             pdf_url=obj['pdf'],
         )
     return meeting

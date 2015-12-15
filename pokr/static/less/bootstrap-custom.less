@@ -17,6 +17,10 @@ a i.nolink:hover {
 }
 
 #searchbox {
+    margin: 10px 0;
+    form {
+        margin-bottom: 0;
+    }
     .input-append {
         .tt-hint {
             .border-box;
@@ -48,12 +52,13 @@ a i.nolink:hover {
 
         .btn.add-on {
             height: 28px;
+            width: 50px;
             border-color: @border_color;
-            padding: 6px 5px;
+            padding: 3px;
         }
 
         input {
-            width: 320px;
+            width: 400px;
             max-width: 100%;
             height: 28px;
             border-color: @border_color;
@@ -74,22 +79,8 @@ div[class="tooltip-inner"] {
 }
 
 
-@media (max-width: 840px) {
-    #searchbox {
-        .input-append {
-            input {
-                width: 250px;
-            }
-        }
-    }
-}
-
 @media (max-width: 650px) {
     #header {
-        h1 {
-            display: block !important;
-        }
-
         form {
             position: relative;
             width: 100%;
@@ -101,13 +92,6 @@ div[class="tooltip-inner"] {
             width: 90%;
         }
 
-        #searchbox {
-            .input-append {
-                input {
-                    width: 100%;
-                }
-            }
-        }
     }
 
     #container {

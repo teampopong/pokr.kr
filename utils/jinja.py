@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+import datetime
 import uuid
 
 from flask import request, url_for
@@ -29,6 +30,7 @@ def init_app(app):
         assembly_term=assembly_term,
         current_parliament_id=current_parliament_id,
         guid_factory=guid_factory,
+        today = datetime.date.today(),
         url_for_query=url_for_query,
         url_for_noencode=url_for_noencode,
     )

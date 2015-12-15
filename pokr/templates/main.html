@@ -31,13 +31,6 @@ depends=['**/*.less'], 'less/main.less' %}
     </div>
     {% endif %}
 </div>
-<div id="class-list">
-    <a class="btn-submain" href="{{ url_for('person_main') }}"><img src="{{ url_for('static', filename='images/button_person.png') }}"><div class="btn-text">{{ gettext('People') }}</div></a>
-    <a class="btn-submain" href="{{ url_for('bill_main') }}"><img src="{{ url_for('static', filename='images/button_bill.png') }}"><div class="btn-text">{{ gettext('Bills') }}</div></a>
-    <a class="btn-submain" href="{{ url_for('meeting_main') }}"><img src="{{ url_for('static', filename='images/button_meeting.png') }}"><div class="btn-text">{{ gettext('Meetings') }}</div></a>
-    <a class="btn-submain" href="{{ url_for('party_main') }}"><img src="{{ url_for('static', filename='images/button_party.png') }}"><div class="btn-text">{{ gettext('Parties') }}</div></a>
-    <a class="btn-submain" href="{{ url_for('region_main') }}"><img src="{{ url_for('static', filename='images/button_region.png') }}"><div class="btn-text">{{ gettext('Regions') }}</div></a>
-</div>
 
 {% if not mobile and locale=="ko"%}
 <div id="feedback-guide">
@@ -52,52 +45,4 @@ $(window).load(function () {
 });
 </script>
 {% endif %}
-
-
-{# To preload images #}
-<div style="display: none;">
-{% for name in ('bill', 'party', 'person', 'region') %}
-<img src="{{ url_for('static', filename='images/default_%s_%s_grey.png'%(name, locale)) }}">
-{% endfor %}
-</div>
-
-<div id="features">
-    <h3>{{ gettext('What does Politics in Korea do?') }}</h3>
-    <a><h4>{{ gettext('Data interlinking') }}</h4>
-        <p>{{ gettext('Easier to discover new facts') }}</p>
-        <img src="{{ url_for('static', filename='images/main_classes.png') }}">
-    </a>
-    <a><h4>{{ gettext('My page') }}</h4>
-        <p>{{ gettext('Easier to find bills related to my region and interests') }}</p>
-        <img src="{{ url_for('static', filename='images/main_mypage.png') }}">
-    </a>
-    <a><h4>{{ gettext('Graphs and images') }}</h4>
-        <p>{{ gettext('Easier to understand the data in depth') }}</p>
-        <img src="{{ url_for('static', filename='images/main_graph.png') }}">
-    </a>
-    <a href="http://teampopong.uservoice.com"><h4>{{ gettext('Open participation') }}</h4>
-        <p>{{ gettext('Anyone can share ideas') }}</p>
-        <img src="{{ url_for('static', filename='images/main_uservoice.png') }}">
-    </a>
-    <a href="http://data.popong.com"><h4>{{ gettext('Open data') }}</h4>
-        <p>{{ gettext('Anyone can access the data') }}</p>
-        <img src="{{ url_for('static', filename='images/main_api.png') }}">
-    </a>
-    <a href="http://github.com/teampopong"><h4>{{ gettext('Open source') }}</h4>
-        <p>{{ gettext('Anyone can contribute code') }}</p>
-        <img src="{{ url_for('static', filename='images/main_github.png') }}">
-    </a>
-    <a><h4>{{ gettext('Mobile compatibility') }}</h4>
-        <p>{{ gettext('Easier to access on the go') }}</p>
-        <img src="{{ url_for('static', filename='images/main_mobile.png') }}">
-    </a>
-    <a><h4>{{ gettext('Short and descriptive URLs') }}</h4>
-        <p>{{ gettext('Easier to understand and manipulate URLs') }}</p>
-        <img src="{{ url_for('static', filename='images/main_url.png') }}">
-    </a>
-    <a><h4>{{ gettext('Jargon explanations') }}</h4>
-        <p>{{ gettext('Easier to understand difficult words') }}</p>
-        <img src="{{ url_for('static', filename='images/main_dict.png') }}">
-    </a>
-</div>
 {% endblock %}

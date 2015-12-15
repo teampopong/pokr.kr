@@ -1,6 +1,9 @@
 @import "includes";
 
-@container_width: 1300px;
+@container_maxwidth: 1300px;
+@container_minwidth: 950px;
+@button_height: 60px;
+@button_width: 100px;
 
 ///// override DOM styles /////
 tr:first-child th,
@@ -26,24 +29,45 @@ body {
     div#header,
     div#container,
     div#footer {
-        min-width: 850px;
-        max-width: @container_width;
+        min-width: @container_minwidth;
+        max-width: @container_maxwidth;
     }
 }
 
 #header {
     position: relative;
-    text-align: center;
     margin: 0 auto;
 
     h1 {
         .inline-block;
-        margin: 8px 10px 0;
-        img {
-            height: 65px;
+        vertical-align: top;
+        img.logo {
+            height: 50px;
+            margin-left: 100px;
+            max-width: 300px;
         }
     }
 
+    a.btn-submain {
+        .inline-block;
+        font-size: 9pt;
+        font-family: "Nanum Gothic";
+        font-weight: 400;
+        color: #555;
+        margin: 0 5px;
+
+        &:hover {
+            font-weight: 700;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: @button_width;
+            height: @button_height;
+        }
+    }
     p.brand-name {
         display: block;
         text-align: center;
@@ -53,11 +77,11 @@ body {
         font-weight: normal;
     }
 
-    form {
-        .inline-block;
-        margin-top: 15px;
-        vertical-align: middle;
-        margin-bottom: 10px;
+    #class-list {
+        display: inline-block;
+        div {
+            display: inline-block;
+        }
     }
 
     #header-top {
@@ -209,10 +233,9 @@ a.btn-show {
     }
 }
 
-#searchbox {
-    position: absolute;
-    top: 24px;
-    right: 10px;
+#header-options {
+    display: inline-block;
+    margin-left: 70px;
 }
 
 .nowrap {
@@ -251,11 +274,6 @@ a.btn-show {
     .links {
         display: none;
     }
-}
-
-a.btn-submain {
-    font-family: "Nanum Gothic";
-    font-weight: 400;
 }
 
 #issue-box {

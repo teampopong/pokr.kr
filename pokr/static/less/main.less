@@ -2,46 +2,9 @@
 @import "animation";
 @import "fonts";
 
-@button_height: 100px;
-@button_width: 169px;
 @facebook_color: #266fe7;
 @twitter_color: #4099ff;
 
-#class-list {
-    text-align: center;
-}
-
-a.btn-submain {
-    .inline-block;
-    position: relative;
-    margin: 0 10px;
-    width: @button_width;
-    height: @button_height;
-    font-size: 14pt;
-    color: #555;
-
-    &:hover {
-        font-weight: 700;
-    }
-
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: @button_width;
-        height: @button_height;
-    }
-
-    .btn-text {
-        position: absolute;
-        top: 37px;
-        left: 0;
-        width: 100%;
-        text-align: left;
-        padding-left: 20px;
-        .border-box;
-    }
-}
 
 #hero {
     background-color: #cfdff0;
@@ -108,14 +71,6 @@ a.btn-submain {
     }
 }
 
-#class-list {
-    padding-top: 30px;
-    position: relative;
-    div {
-        display: inline-block;
-    }
-}
-
 #feedback-guide {
     position: fixed;
     bottom: 50px;
@@ -155,45 +110,6 @@ a.btn-submain {
         width: 193px;
         margin-left: 10px;
         vertical-align: top;
-    }
-}
-
-#features {
-    border-top: 1px solid #eee;
-    margin-top: 80px;
-    text-align: center;
-    h3 {
-        font-weight: normal;
-        margin-top: 30px;
-        text-align: center;
-    }
-    a {
-        &:hover {
-            .glow;
-            text-decoration: none;
-        }
-        h4 {
-            font-size: 15pt;
-            font-weight: Normal;
-            margin-top: 0;
-        }
-        img {
-            display: block;
-            margin: 0 auto;
-            max-height: 133px;
-            max-width: 100%;
-            vertical-align: bottom
-        }
-        border: 3px solid #eee;
-        .border-radius(10px);
-        display: inline-block;
-        color: #333;
-        height: 200px;
-        margin: 1%;
-        padding: 1%;
-        text-align: center;
-        vertical-align: top;
-        width: 26%;
     }
 }
 

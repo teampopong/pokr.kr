@@ -1,18 +1,17 @@
 <div id="footer">
-    <p id="copyright">&copy; 2013-2014 <a href="http://popong.com/">Team POPONG</a>.</p>
+    <p id="copyright">&copy; 2013-{{ today.strftime('%Y') }} <a href="http://popong.com/">Team POPONG</a>.</p>
     {% if not mobile %}
     <p>
         <a href="{{ url_for('terms') }}" target="_blank">Terms</a> |
         <a href="{{ url_for('privacy') }}" target="_blank">Privacy</a>
     </p>
     <p id="sources">
-        (<a href="http://github.com/teampopong/polidic">{{ gettext("code") }}</a>, 
+        (<a href="http://github.com/teampopong/polidic">{{ gettext("code") }}</a>,
         <a href="http://popong.com/sources">{{ gettext("data") }} {{ gettext("sources") }}</a>)
     </p>
     {% endif %}
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
     {% if not mobile and locale=="ko" %}
-    {% include 'includes/google-translate.html' %}
     {% endif %}
 </div>
 
@@ -25,18 +24,18 @@ if (typeof $.fn.typeahead == 'function') {
     });
 }
 </script>
-<script type="text/javascript"> 
+<script type="text/javascript">
 var $buoop = {
     l: "ko"
-}; 
-$buoop.ol = window.onload; 
-window.onload=function(){ 
-    try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-    var e = document.createElement("script"); 
-    e.setAttribute("type", "text/javascript"); 
-    e.setAttribute("src", "//browser-update.org/update.js"); 
-    document.body.appendChild(e); 
-} 
-</script> 
-    
+};
+$buoop.ol = window.onload;
+window.onload=function(){
+    try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+    var e = document.createElement("script");
+    e.setAttribute("type", "text/javascript");
+    e.setAttribute("src", "//browser-update.org/update.js");
+    document.body.appendChild(e);
+}
+</script>
+
 {% endif %}
