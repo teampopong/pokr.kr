@@ -143,6 +143,18 @@ def insert_meeting(region_id, obj, update=False):
         meeting.dialogue = obj['dialogue']
 
         # TODO: votes = obj['votes']
+        # The following code should be reviewed
+        meeting.votes = []
+        options = ['yea', 'nay', 'forfeit']
+        for option in options:
+            if option in stmt['votes']:
+                for person_name in stmt['votes'][option]:
+                    person = guess_attendee(attendees, person_name)
+                    statement = guess_statement(statements, stmt['name'])
+                    if person and statement:
+                        item = create_vote(meeting, statement, person, option)
+                        session.add(item)
+                        meeting.votes.append(item)
 
 
 def get_attendee_names(obj):
@@ -178,9 +190,27 @@ def create_statement(meeting, seq, statement, attendees):
     return item
 
 
+def create_vote(meeting, statement, person, option):
+    item = MeetingStatementVote(
+        meeting_id=meeting.id,
+        statement_id=statement['id']
+        person_id=person.id,
+        vote=option,
+    )
+    return item
+
+
 def guess_attendee(attendees, name):
     for attendee in attendees:
         if attendee.name in name:
             return attendee
+    return None
+
+
+def guess_statement(statements, name):
+    # Not sure whether it works properly
+    for statement in statements:
+        if statement.name in name:
+            return statement
     return None
 
