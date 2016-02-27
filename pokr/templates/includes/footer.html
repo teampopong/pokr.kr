@@ -1,16 +1,14 @@
 <div id="footer">
-    <p id="copyright">&copy; 2013-{{ today.strftime('%Y') }} <a href="http://popong.com/">Team POPONG</a>.</p>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    <p id="copyright"><a href="http://popong.com/">Team POPONG</a>. 2013-{{ today.strftime('%Y') }}.</p>
     {% if not mobile %}
-    <p>
-        <a href="{{ url_for('terms') }}" target="_blank">Terms</a> |
+    <p class="pull-right">
+        <a href="http://github.com/teampopong/pokr.kr">Code</a> |
+        <a href="{{ url_for('sources') }}">Sources</a> |
+        <a href="{{ url_for('terms') }}">Terms</a> |
         <a href="{{ url_for('privacy') }}" target="_blank">Privacy</a>
     </p>
-    <p id="sources">
-        (<a href="http://github.com/teampopong/polidic">{{ gettext("code") }}</a>,
-        <a href="http://popong.com/sources">{{ gettext("data") }} {{ gettext("sources") }}</a>)
-    </p>
     {% endif %}
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
     {% if not mobile and locale=="ko" %}
     {% endif %}
 </div>

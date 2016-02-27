@@ -31,6 +31,10 @@ def register(app):
     def privacy():
         return render_template('privacy-policy.html')
 
+    @app.route('/sources')
+    def sources():
+        return render_template('sources.html')
+
     @app.route('/favicon.ico')
     def favicon():
         return app.send_static_file('images/favicon.ico')

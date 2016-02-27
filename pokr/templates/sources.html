@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Data sources - {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div id="sources">
+<h2>Data sources</h2>
+<table class="table table-bordered">
+    <tr class="bg-whitesmoke">
+        <th id="source-type" colspan=4>
+            {{ gettext("정부공식기관") }}
+        </th>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("대한민국 국회") }}
+        </td>
+        <td>
+        <ul>
+            <li><a href="http://www.assembly.go.kr/renew10/asm/ifn/file_down.jsp?M_idx=1_02&SAVEFILENAME=oldmem.pdf&FILENAME=%BF%AA%B4%EB%B1%B9%C8%B8%C0%C7%BF%F8.pdf">{{ gettext("역대 국회의원 선거구 및 당적 (pdf)") }}</a>
+            <li>{{ gettext("의원광장") }} <a href="http://www.assembly.go.kr/renew10/mem/mem/mem_search.jsp">현재 국회의원 목록 및 현황</a>
+            <li>{{ gettext("의안정보시스템") }} <a href="http://likms.assembly.go.kr/bill">{{ gettext("국회 회의록 및 의안 원문") }}</a>
+            <li>{{ gettext("영상회의록시스템") }} <a href="http://w3.assembly.go.kr/" alt="vod service for conferences">{{ gettext("본회의, 예결위, 상임위, 특별위 등 회의의 요약 정보") }}</a>
+            <li>{{ gettext("회의록시스템") }} <a href="http://likms.assembly.go.kr/record/wnsearch/search_result.jsp?collection=record1&CONF_DATE1=1948.05.31&CONF_DATE2=2016.05.29" alt="knowledge management system">{{ gettext("본회의, 상임위 등 회의의 일정 및 회의록") }}</a>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("중앙선거관리위원회") }}
+        </td>
+        <td>
+        <ul>
+            <li>{{ gettext("선거통계시스템") }}
+            <a href="http://info.nec.go.kr/main/showDocument.xhtml?electionId=0000000000&topMenuId=BI&secondMenuId=BIGI">{{ gettext("1~18대 국회의원 선거 후보자/당선인 데이터") }}</a>
+            <li>{{ gettext("선거통계시스템") }}
+            <a href="http://info.nec.go.kr/main/showDocument.xhtml?topMenuId=CP&electionId=0020120411">{{ gettext("19대 국회의원 선거 후보자/당선인 데이터") }}</a>
+            <li>{{ gettext("선거통계시스템") }}
+            <a href="http://info.nec.go.kr/electioninfo/electionInfo_report.xhtml?electionId=0020120411&requestURI=%2Felectioninfo%2F0020120411%2Fep%2Fepei01.jsp&topMenuId=EP&secondMenuId=EPEI01&menuId=&statementId=EPEI01_%232&electionCode=2&cityCode=0&proportionalRepresentationCode=0&x=17&y=11">{{ gettext("19대 국회의원 공약 데이터") }}</a>
+            <li>{{ gettext("선거통계시스템") }}
+            <a href="http://info.nec.go.kr/main/showDocument.xhtml?topMenuId=CP&electionId=0020130424">{{ gettext("2013년 상반기 재보궐선거 (19대)") }}</a>
+            <li>{{ gettext("알림광장") }}
+            <a href="http://www.nec.go.kr/nec_new2009/BoardCotBySeq.do?cmSeq=&bmSeq=14&bcSeq=772">{{ gettext("정치인들이 받은 선거 자금 내역") }}</a>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("국회사무처") }}
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("법제처") }}
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("국가법령정보센터") }}
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("통계청") }}
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("안전행정부") }}
+        </td>
+        <td></td>
+    </tr>
+    <tr class="bg-whitesmoke">
+        <th id="source-type" colspan=4>
+            {{ gettext("민간기관") }}
+        </th>
+    </tr>
+    <tr>
+        <td>
+            {{ gettext("대한민국헌정회") }}
+        </td>
+        <td>
+            <a href="http://www.rokps.or.kr/profile.asp">{{ gettext("헌정회 소속 국회의원 데이터") }}</a>
+        </td>
+    </tr>
+    <tr class="bg-whitesmoke">
+        <th id="source-type" colspan=4>
+            {{ gettext("개인") }}
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @mazefind
+        </td>
+        <td>
+            <a href="https://docs.google.com/spreadsheet/ccc?key=0Ao-novvdf79gdExCbW9FVWg0VlBoanNQSzV1akFJR1E">{{ gettext("현직 국회의원 블로그/SNS 데이터") }}</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @masoris
+        </td>
+        <td>
+            <a href="http://kore.wikia.com/wiki/%EC%82%AC%EC%9A%A9%EC%9E%90:Masoris/hani_converter.js">{{ gettext("한자, 한글 매핑 데이터") }} (json)</a>
+        </td>
+    </tr>
+</table>
+</div>
+{% endblock %}
