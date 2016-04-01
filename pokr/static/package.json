@@ -2,6 +2,7 @@
   "name": "pokr",
   "description": "http://pokr.kr",
   "dependencies": {
+    "bootstrap": "x",
     "d3": "x"
   }
 }

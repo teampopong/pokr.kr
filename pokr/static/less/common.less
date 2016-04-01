@@ -5,6 +5,10 @@
 @import "search";
 @import "entity";
 
+body {
+    background: #f3f3f4;
+}
+
 .breadcrumb {
     text-transform: capitalize;
 }
@@ -104,4 +108,69 @@
 
 .bg-whitesmoke {
     background-color: whitesmoke;
+}
+
+#header-top {
+    background: white;
+}
+
+#beta-banner a {
+    background: @color_navy;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial,sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40px;
+    font-size: 1rem;
+    line-height: 2rem;
+    position: relative;
+    transition: 0.5s;
+}
+
+#beta-banner a:hover {
+    background: @color_darknavy;
+    color: #fff;
+}
+
+#beta-banner a::before,
+#beta-banner a::after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
+}
+
+#beta-banner a::after {
+    bottom: 1px;
+    top: auto;
+}
+
+@media screen and (min-width: 800px) {
+    #beta-banner {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 80px;
+        overflow: hidden;
+        height: 80px;
+        z-index: 9999;
+    }
+
+    #beta-banner a {
+        width: 100px;
+        position: absolute;
+        top: 0;
+        left: -70px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+    }
 }
