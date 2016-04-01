@@ -1,11 +1,17 @@
 {% if not is_logged %}
-<a href="{{ url_for("social.auth", backend="facebook") }}" id="facebook-login">
-    <div class="row-fluid">
-        <i class="icon-facebook span2"></i>
-        <span class="span10">
-            {{ gettext("Login with Facebook") }}
-            <p>{{ gettext("No writing on your wall without permission.") }}</p>
-        </span>
+<div class="row">
+    <div class="col-xs-offset-7 col-xs-4">
+        <a id="big-login-button" class="btn btn-success btn-large" href="{{ url_for("social.auth", backend="facebook") }}">
+            <div class="row">
+                <div class="col-xs-2">
+                    <i class="fa fa-facebook fa-3x"></i>
+                </div>
+                <div class="col-xs-10">
+                    <h2>{{ gettext("Login with Facebook") }}</h2>
+                    <span>{{ gettext("No writing on your wall without permission.") }}</span>
+                </div>
+            </div>
+        </a>
     </div>
-</a>
+</div>
 {% endif %}

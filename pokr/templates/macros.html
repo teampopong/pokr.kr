@@ -60,15 +60,15 @@
 
     <div class="pagenav">
         {% if 1 <= page-l-1 %}
-            <a class="btn-pagenav btn-prev" href="{{ url_for_query(page=1) }}"><i class="icon-double-angle-left"></i></a>
-            <a class="btn-pagenav btn-prev" href="{{ url_for_query(page=page-l-1) }}"><i class="icon-angle-left"></i></a>
+            <a class="btn-pagenav btn-prev" href="{{ url_for_query(page=1) }}"><i class="fa fa-angle-double-left"></i></a>
+            <a class="btn-pagenav btn-prev" href="{{ url_for_query(page=page-l-1) }}"><i class="fa fa-angle-left"></i></a>
         {% endif %}
         {% for p in range(max(page-l, 1), page+min(num_pages_left, l)+1) %}
             <a class="btn-pagenav{% if p == page %} active{% endif %}" href="{{ url_for_query(page=p) }}">{{ p }}</a>
         {% endfor %}
         {% if l < num_pages_left %}
-            <a class="btn-pagenav btn-next" href="{{ url_for_query(page=page+l+1) }}"><i class="icon-angle-right"></i></a>
-            <a class="btn-pagenav btn-next" href="{{ url_for_query(page=page+num_pages_left) }}"><i class="icon-double-angle-right"></i></a>
+            <a class="btn-pagenav btn-next" href="{{ url_for_query(page=page+l+1) }}"><i class="fa fa-angle-right"></i></a>
+            <a class="btn-pagenav btn-next" href="{{ url_for_query(page=page+num_pages_left) }}"><i class="fa fa-angle-double-right"></i></a>
         {% endif %}
     </div>
 {%- endmacro %}

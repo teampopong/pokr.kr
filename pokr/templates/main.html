@@ -15,16 +15,41 @@ depends=['**/*.less'], 'less/main.less' %}
 {% endif %}
 
 {% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content text-center p-md">
+                <h2>{{ gettext('Get Korean legislative information, all in one place') }}</h2>
+                <p>{{ gettext('Search for up to 14,000 legislators, 52,000 bills, meeting logs, party information and more!') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="hero">
-    <h2>{{ gettext('Get Korean legislative information, all in one place') }}</h2>
-    <p>{{ gettext('Search for up to 14,000 legislators, 52,000 bills, meeting logs, party information and more!') }}</p>
-    <p id="pokrbot">
-        {{ gettext('Get realtime legislative information now') }}:
-        <a href="http://twitter.com/pokrbot" target="_blank" class="twitter-icon"><i class="icon-twitter"></i></a>
-        <a href="http://facebook.com/pokrbot" target="_blank" class="facebook-icon"><i class="icon-facebook"></i></a>
-    </p>
+    <div class="row">
+        <div class="col-lg-offset-8 col-lg-2">
+            <h3><i class="fa fa-line-chart"></i> {{ gettext('Now trending') }}</h3>
+            <ul class="list-group clear-list m-t">
+                <li class="list-group-item fist-item">
+                    <span class="label label-success">1</span> Please contact me
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-success">2</span> Sign a contract
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-success">3</span> Open new shop
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-success">4</span> Call back to Sylvia
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-success">5</span> Write a letter to Sandra
+                </li>
+            </ul>
+        </div>
+    </div>
     {% if not mobile %}
-    {% include 'facebook-login.html' %}
     <div class="social-sends">
         {% include 'popong-like.html' %}
         {% include 'popong-follow.html' %}
@@ -34,7 +59,7 @@ depends=['**/*.less'], 'less/main.less' %}
 
 {% if not mobile and locale=="ko"%}
 <div id="feedback-guide">
-    <img src="{{ url_for('static', filename='images/guide_arrow.png') }}">
+    <i class="fa fa-reply fa-3x"></i>
     <span class="shaking-on-load">{{ gettext("Your feedback<br>makes us better!<br><small>(We feed on compliments)</small>") }}</span>
 </div>
 <script>

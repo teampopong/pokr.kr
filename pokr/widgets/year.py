@@ -12,12 +12,14 @@ calendar.setfirstweekday(calendar.SUNDAY)
 def classes_of_a_date(y, m, d):
     date = datetime.date(y, m, d)
     today = datetime.date.today()
-
     classlist = []
+
     if today == date:
         classlist.append('today')
-    if today < date:
+    elif today < date:
         classlist.append('future')
+    else:
+        classlist.append('past')
     return classlist
 
 

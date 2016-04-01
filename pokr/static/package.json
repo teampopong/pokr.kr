@@ -3,6 +3,9 @@
   "description": "http://pokr.kr",
   "dependencies": {
     "bootstrap": "x",
-    "d3": "x"
+    "bootstrap-3-typeahead": "x",
+    "d3": "x",
+    "font-awesome": "x",
+    "jquery": "x"
   }
 }

@@ -17,20 +17,24 @@
 {% endblock %}
 
 {% block content %}
-<div id="search-tabs">
-    <img class="submain-img" src="{{ url_for('static', filename='images/regions_image.png') }}">
-    <div class="submain-nav">
-        <img class="submain-title" src="{{ url_for('static', filename='images/regions_text_%s.png'%locale) }}">
-     </div>
+{% include 'includes/sidebar.html' %}
+<div id="page-wrapper" class="row">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div>
+                <h3 class="font-bold no-margins">{{ gettext('base region') }}</h3>
+                <small>지역 별 역대 국회의원 목록.</small>
+            </div>
+            {{ widgets.kmap(clickable=True)|safe }}
+
+            {# fallback #}
+            <!--[if lt IE 9]>
+            {% call(province) macro.list_more(provinces, '', more=False) %}
+            <a href="{{ url_for('region', region_id=province.id) }}">{{ province.name|translit }}</a>
+            {% endcall %}
+            <![endif]-->
+        </div>
+    </div>
 </div>
-
-{{ widgets.kmap(clickable=True)|safe }}
-
-{# fallback #}
-<!--[if lt IE 9]>
-{% call(province) macro.list_more(provinces, '', more=False) %}
-<a href="{{ url_for('region', region_id=province.id) }}">{{ province.name|translit }}</a>
-{% endcall %}
-<![endif]-->
 {% endblock %}
 

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <span id="beta-banner"><a href="#">&beta;eta</a></span>
+    <div class="navbar-header">
+        <a id="logo" href="{{ url_for('main') }}">
+            {% if locale=='ko' %}
+            <img src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea">
+            {% else %}
+            <img src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea">
+            {% endif %}
+        </a>
+    </div>
+    <ul class="nav navbar-top-links navbar-left">
+        {% if mobile %}
+        <li><a href="{{ url_for('person_main') }}"><i class="fa fa-map-marker"></i>{{ gettext('People') }}</a></li>
+        <li><a href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
+        <li><a href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a></li>
+        <li><a href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
+        <li><a href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
+        {% else %}
+        <li><a href="{{ url_for('person_main') }}">{{ gettext('People') }}</a></li>
+        <li><a href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
+        <li><a href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a></li>
+        <li><a href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
+        <li><a href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
+        {% endif %}
+    </ul>
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="search">
+
+            <form role="search" class="navbar-form-custom" action="{{ url_for('search') }}">
+                <div class="form-group">
+                    <input type="text" placeholder="{{ gettext('search') }}" class="form-control" name="query" id="top-search" autocomplete="on">
+                </div>
+            </form>
+        </li>
+        <li class="buttons">
+            <span id="pokrbot-button">
+                <a class="btn btn-default btn-circle" href="https://twitter.com/pokrbot"><i class="fa fa-twitter"></i></a>
+            </span>
+            <span id="feedback-button">
+                <a class="btn btn-default btn-circle" href="https://teampopong.uservoice.com/forums/211529"><i class="fa fa-comment"></i></a>
+            </span>
+            <span id="language-button">
+                <a class="btn btn-default btn-circle dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-language"></i></a>
+                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                    {% for lang, url in locale_links.items() %}
+                    <li><a class="language" href="{{ url }}">{{ lang.english_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </span>
+        </li>
+        <li class="login">{% include "login.html" %}</li>
+    </ul>
+</nav>

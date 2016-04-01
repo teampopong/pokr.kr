@@ -18,62 +18,65 @@
 {% endblock %}
 
 {% block content %}
-<div id="search-tabs">
-    {% if not mobile %}
-    <img class="submain-img" src="{{ url_for('static', filename='images/bills_image.png') }}">
+{% include 'includes/sidebar.html' %}
+<div id="page-wrapper">
+    {% if not request.args.page or request.args.page=='1' %}
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div>
+                <span class="pull-right text-right">All bills: {{ macro.list_count(bills) }}</span>
+                <h3 class="font-bold no-margins">{{ assembly_id }}대 국회 의안</h3>
+                <small>의안 상태별 비중을 나타낸 버블 그래프.</small>
+            </div>
+            <div id="bill-status-counts" class="itemlist">
+                {{ widgets.bubble(status_counts, diameter=250)|safe }}
+            </div>
+        </div>
+    </div>
     {% endif %}
-    <div class="submain-nav">
-        <img class="submain-title" src="{{ url_for('static', filename='images/bills_text_%s.png'%locale) }}"><br>
-        <ul class="nav nav-tiles">
-             <!-- FIXME: range -->
-             {% for assembly_id_ in range(1, 20) %}
-             <li {% if assembly_id_ == assembly_id %}class="active"{% endif %}><a href="{{ url_for('bill_main', assembly_id=assembly_id_) }}">{{ assembly_id_ }}{{ gettext('th') }}</a></li>
-             {% endfor %}
-         </ul>
-     </div>
-</div>
-<div id="bill-status-counts" class="itemlist">
-    {{ macro.list_count(bills) }}
-    {{ widgets.bubble(status_counts, diameter=420)|safe }}
-    <hr>
-</div>
-<div id="bill-list" class="itemlist">
-    {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=15) %}
-    {% if mobile %}
-        <td style="padding: 5px 0 10px;">
-            <span style="background-color: #EEE; color: #555; font-weight: bold; padding: 1px 5px;">{{ bill.proposed_date }}</span>
-            {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
-            <i class="icon-circle" style="color: green;"></i>
-            {% else %}
-            <i class="icon-circle" style="color: red;"></i>
-            {% endif %}
-            {{ bill.status }}<br>
-            <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
-        </td>
-    {% else %}
-        <td>{{ bill.proposed_date }}</td>
-        <td>
-            <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
-            {% if bill.keywords %}<p class="keywords">
-            {% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
-            </p>{% endif %}
-            <br>
-            <p class="summary">
-                {% if bill.summary %}{{ BillController.truncated_summary(bill) }} <a href="{{ url_for('bill', id=bill.id) }}#contents">{{ gettext('more') }}</a>
-                {% else %}{{ gettext('No summary') }}
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <span class="search-count">Page {{ request.args.page or 1 }}</span>
+            <div id="bill-list" class="itemlist">
+                {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=10) %}
+                {% if mobile %}
+                    <td style="padding: 5px 0 10px;">
+                        <span style="background-color: #EEE; color: #555; font-weight: bold; padding: 1px 5px;">{{ bill.proposed_date }}</span>
+                        {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
+                        <i class="icon-circle" style="color: green;"></i>
+                        {% else %}
+                        <i class="icon-circle" style="color: red;"></i>
+                        {% endif %}
+                        {{ bill.status }}<br>
+                        <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+                    </td>
+                {% else %}
+                    <td>{{ bill.proposed_date }}</td>
+                    <td>
+                        <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
+                        {% if bill.keywords %}<p class="keywords">
+                        {% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
+                        </p>{% endif %}
+                        <br>
+                        <p class="summary">
+                            {% if bill.summary %}{{ BillController.truncated_summary(bill) }} <a href="{{ url_for('bill', id=bill.id) }}#contents">{{ gettext('more') }}</a>
+                            {% else %}{{ gettext('No summary') }}
+                            {% endif %}
+                        </p>
+                    </td>
+                    <td>{{ bill.sponsor }}</td>
+                    <td>
+                        {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
+                        <i class="icon-circle" style="color: green;"></i>
+                        {% else %}
+                        <i class="icon-circle" style="color: red;"></i>
+                        {% endif %}
+                        {{ bill.status }}
+                    </td>
                 {% endif %}
-            </p>
-        </td>
-        <td>{{ bill.sponsor }}</td>
-        <td>
-            {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
-            <i class="icon-circle" style="color: green;"></i>
-            {% else %}
-            <i class="icon-circle" style="color: red;"></i>
-            {% endif %}
-            {{ bill.status }}
-        </td>
-    {% endif %}
-    {% endcall %}
+                {% endcall %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -6,7 +6,7 @@
 @import "entity";
 
 body {
-    background: #f3f3f4;
+    background: @bg_color;
 }
 
 .breadcrumb {
@@ -19,7 +19,7 @@ body {
 }
 
 .social-sends {
-    height: 30px;
+    height: 45px;
     margin: 20px auto 10px;
     text-align: center;
     div {
@@ -110,6 +110,10 @@ body {
     background-color: whitesmoke;
 }
 
+.navbar-static-side {
+    background: #2f4050;
+}
+
 #header-top {
     background: white;
 }
@@ -150,6 +154,17 @@ body {
     top: auto;
 }
 
+#big-login-button {
+    text-align: left;
+    h2 {
+        font-size: 15pt;
+        margin: 3px;
+    }
+    p {
+        font-size: 9pt;
+    }
+}
+
 @media screen and (min-width: 800px) {
     #beta-banner {
         position: absolute;
@@ -158,19 +173,23 @@ body {
         left: 0;
         width: 80px;
         overflow: hidden;
-        height: 80px;
+        height: 70px;
         z-index: 9999;
     }
 
     #beta-banner a {
         width: 100px;
         position: absolute;
-        top: 0;
-        left: -70px;
+        top: 5px;
+        left: -25px;
         transform: rotate(-45deg);
         -webkit-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
     }
+}
+
+svg circle:hover {
+    opacity: 0.7;
 }

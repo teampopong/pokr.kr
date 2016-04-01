@@ -43,27 +43,23 @@
         <![endif]-->
     </head>
     <body class="{{ locale }}">
-        <div id="header">
-            <div id="header-top">
-            {% include 'includes/header.html' %}
-            </div>
-            <ul class="breadcrumb">
-            {% if breadcrumbs %}
-                {% for name in breadcrumbs %}
-                    {% set endpoint = app.views[name] %}
-                    <li><a href="{{ url_for(endpoint) }}">{{ gettext(name) }}</a> <span class="divider">&gt;</span></li>
-                {% endfor %}
-                {% block breadcrumb_extra %}
-                {% endblock %}
-                <li class="active">{% block breadcrumb_current %}{% endblock %}</li>
-            {% endif %}
-            </ul>
-        </div>
+        {% include 'includes/nav-top.html' %}
 
-        <div id="container">
-            {% block content %}
+        <ul class="breadcrumb">
+        {% if breadcrumbs %}
+            {% for name in breadcrumbs %}
+                {% set endpoint = app.views[name] %}
+                <li><a href="{{ url_for(endpoint) }}">{{ gettext(name) }}</a></li>
+            {% endfor %}
+            {% block breadcrumb_extra %}
             {% endblock %}
-        </div>
+            <li class="active">{% block breadcrumb_current %}{% endblock %}</li>
+        {% endif %}
+        </ul>
+
+        {% block content %}
+        {% endblock %}
+
         {% include 'includes/footer.html' %}
         {% include 'includes/feedback.html' %}
     </body>

@@ -26,7 +26,6 @@ th.no-min-width {
 // layout
 body {
     padding: 0 20px;
-    div#header,
     div#container,
     div#footer {
         min-width: @container_minwidth;
@@ -35,9 +34,6 @@ body {
 }
 
 #header {
-    position: relative;
-    margin: 0 auto;
-
     h1 {
         .inline-block;
         vertical-align: top;
@@ -90,31 +86,6 @@ body {
         height: 78px;
     }
 
-    .breadcrumb {
-        background: transparent;
-        border-top: 1px solid @layout_border_color;
-        padding: 0 5px 8px 5px;
-        font-size: 85%;
-        text-align: left;
-        .border-radius(0, 0, 0, 0);
-        height: 12px;
-
-        a {
-            color: #555;
-            &:hover {
-                color: #333;
-            }
-        }
-        li {
-            text-shadow: none;
-        }
-        .active {
-            color: #777;
-        }
-        .divider {
-            color: #aaa;
-        }
-    }
     #submain-links {
         font-size: 85%;
         position: absolute;
@@ -126,6 +97,32 @@ body {
             margin-left: 2px;
             padding: 0 3px;
         }
+    }
+}
+
+.breadcrumb {
+    margin: 0 auto;
+    background: @bg_color;
+    border-top: 1px solid @layout_border_color;
+    padding: 10px 20px;
+    font-size: 85%;
+    text-align: left;
+    .border-radius(0, 0, 0, 0);
+
+    a {
+        color: #555;
+        &:hover {
+            color: #333;
+        }
+    }
+    li {
+        text-shadow: none;
+    }
+    .active {
+        color: #777;
+    }
+    .divider {
+        color: #aaa;
     }
 }
 
@@ -254,7 +251,7 @@ a.btn-show {
 }
 
 .itemlist {
-    margin: 0 30px;
+    margin: 30px 0;
 }
 
 .adsense .adsbygoogle{
@@ -293,3 +290,36 @@ a.btn-show {
     padding: 20px;
     margin-top: -40px;
 }
+
+.navbar.navbar-static-top {
+    background: white;
+
+    .buttons {
+        margin: 10px 20px;
+    }
+
+    .navbar-form-custom {
+        float: none;
+
+        input {
+            background: #eee;
+            height: 40px;
+            margin: 10px 0;
+        }
+    }
+
+    .navbar-top-links li a.btn {
+        margin-left: 10px;
+        min-height: inherit;
+        padding: 4px 0;
+    }
+
+    #logo {
+        display: inline-block;
+        img {
+            margin: 10px 50px 10px 90px;
+            width: 100px;
+        }
+    }
+}
+

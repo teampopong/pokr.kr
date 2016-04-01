@@ -14,11 +14,13 @@ from pokr.models.bill_status import BillStatus
 from pokr.models.election import current_parliament_id
 from utils.jinja import breadcrumb
 
+
 def status_count(status, assembly_id):
     return db_session.query(Bill).filter(\
             Bill.status_id==status.id,
             Bill.assembly_id==assembly_id
         ).count()
+
 
 def register(app):
 
@@ -100,6 +102,7 @@ def register(app):
 
         return redirect("http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={0}".format(bill.link_id))
 
+
 @cache.memoize(timeout=60*60*24)
 def generate_glossary_js():
     datadir = os.path.join(current_app.root_path, 'data')
@@ -107,4 +110,3 @@ def generate_glossary_js():
     dictionary = open('%s/glossary-map.json' % datadir).read().decode('utf-8').strip()
     return render_template('js/glossary.js', terms_regex=terms_regex,
             dictionary=dictionary)
-

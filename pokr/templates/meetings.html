@@ -17,38 +17,41 @@
 {% endblock %}
 
 {% block content %}
-<div id="search-tabs" class="submain-header">
-    <img class="submain-img" src="{{ url_for('static', filename='images/meetings_image.png') }}">
-    <div class="submain-nav">
-        <h2 class="submain-title">{{ gettext('meeting') }}</h2>
+{% include 'includes/sidebar.html' %}
+<div id="page-wrapper">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <span class="warning pull-right"><i class="fa fa-exclamation-triangle"></i> 회의록은 19대 국회부터 제공됩니다.</span>
+            <h5>달력으로 보는 국회</h5>
+        </div>
+        <div class="ibox-content">
+            <div class="calendar">
+                <p id="year-num" class="year-num">
+                    <a href="?year={{year - 1}}" class="btn"><i class="fa fa-angle-left"></i></a>
+                    <span class="btn btn-primary">{{year}}</span>
+                    <a href="?year={{year + 1}}" class="btn"><i class="fa fa-angle-right"></i></a>
+                </p>
+            </div>
+            <div class="calendar">
+                {{ widgets.year(year, meetings_of_the_year)|safe }}
+            </div>
+            <hr>
+            {% if date %}
+                {% if locale=='ko' %}
+                <h4>{{ date.year }}년 {{ date.month }}월 {{ date.day }}일</h4>
+                {% else %}
+                <h4>{{ date.strftime("%B %d, %Y") }}</h4>
+                {% endif %}
+            {% endif %}
+
+            {% if meetings_of_the_day %}
+            <ul>
+                {% for meeting in meetings_of_the_day %}
+                <li><a href="{{ url_for('meeting', id=meeting.id) }}">{{ meeting.title }}</a>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
     </div>
-    <div class="calendar">
-        <p id="year-num" class="year-num">
-            <a href="?year={{year - 1}}">&lt;</a>
-            <span>{{year}}</span>
-            <a href="?year={{year + 1}}">&gt;</a>
-        </p>
-    </div>
-</div>
-<div class="warning pull-right" style="margin-top: -15px; margin-right: 15px;"><i class="icon-exclamation-sign"></i>19대 국회 회의록부터 제공됩니다.</div>
-{% if date %}
-<div style="padding: 0 40px;">
-    {% if locale=='ko' %}
-    <h4>{{ date.year }}년 {{ date.month }}월 {{ date.day }}일</h4>
-    {% else %}
-    <h4>{{ date.strftime("%B %d, %Y") }}</h4>
-    {% endif %}
-    {% if meetings_of_the_day %}
-    <ul>
-        {% for meeting in meetings_of_the_day %}
-        <li><a href="{{ url_for('meeting', id=meeting.id) }}">{{ meeting.title }}</a>
-        {% endfor %}
-    </ul>
-    {% endif %}
-</div>
-<hr>
-{% endif %}
-<div class="calendar">
-    {{ widgets.year(year, meetings_of_the_year)|safe }}
 </div>
 {% endblock %}

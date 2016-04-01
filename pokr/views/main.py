@@ -11,6 +11,7 @@ from sqlalchemy.sql.expression import desc
 
 from pokr.database import db_session
 from pokr.models.bill import Bill
+from settings import THIS_ASSEMBLY
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 
@@ -62,4 +63,10 @@ def register(app):
     @app.errorhandler(500)
     def internal_error(e):
         return render_template('error.html'), 500
+
+    @app.context_processor
+    def inject_assembly():
+        return {
+            'THIS_ASSEMBLY': THIS_ASSEMBLY,
+        }
 
