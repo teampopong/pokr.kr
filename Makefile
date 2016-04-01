@@ -1,7 +1,11 @@
 init:
 	git submodule init
 	git submodule update
+	find . -name package.json -maxdepth 3 -execdir npm install \;
 	.conf.samples/copyall.sh
+
+update:
+	find . -name package.json -maxdepth 3 -execdir npm install \;
 
 install:
 	pip install git+https://github.com/teampopong/popong-models.git

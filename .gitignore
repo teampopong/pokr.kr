@@ -1,12 +1,10 @@
-*.sw[poq]
 *.pyc
+*.sw[poq]
+*settings.py
 .DS_Store
-
+.env
+alembic.ini
+node_modules
 pokr/static/.webassets-cache
 pokr/static/build
-
 server.log
-alembic.ini
-*settings.py
-
-.env

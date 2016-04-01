@@ -1,0 +1,7 @@
+{
+  "name": "pokr",
+  "description": "http://pokr.kr",
+  "dependencies": {
+    "d3": "x"
+  }
+}
