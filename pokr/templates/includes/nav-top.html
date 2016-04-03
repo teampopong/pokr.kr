@@ -11,17 +11,17 @@
     </div>
     <ul class="nav navbar-top-links navbar-left">
         {% if mobile %}
-        <li><a href="{{ url_for('person_main') }}"><i class="fa fa-map-marker"></i>{{ gettext('People') }}</a></li>
-        <li><a href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
-        <li><a href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a></li>
-        <li><a href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
-        <li><a href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
-        {% else %}
         <li><a href="{{ url_for('person_main') }}">{{ gettext('People') }}</a></li>
         <li><a href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
         <li><a href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a></li>
         <li><a href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
         <li><a href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
+        {% else %}
+        <li><a href="{{ url_for('person_main') }}"><i class="fa fa-user"></i>{{ gettext('People') }}</a></li>
+        <li><a href="{{ url_for('bill_main') }}"><i class="fa fa-file-text-o"></i>{{ gettext('Bills') }}</a></li>
+        <li><a href="{{ url_for('meeting_main') }}"><i class="fa fa-comment"></i>{{ gettext('Meetings') }}</a></li>
+        <li><a href="{{ url_for('party_main') }}"><i class="fa fa-users"></i>{{ gettext('Parties') }}</a></li>
+        <li><a href="{{ url_for('region_main') }}"><i class="fa fa-map-marker"></i>{{ gettext('Regions') }}</a></li>
         {% endif %}
     </ul>
     <ul class="nav navbar-top-links navbar-right">
