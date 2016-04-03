@@ -11,6 +11,7 @@ Pokr - Politics in Korea
 
             $ sudo apt-get install nodejs postgresql-9.3 npm python-psycopg2 node-less node-uglify
             $ sudo pip install -r requirements.txt
+            $ sudo pip install git+https://github.com/teampopong/popong-nlp.git
             $ sudo make install
 
     - Mac OS X
@@ -26,6 +27,9 @@ Pokr - Politics in Korea
         $ make init
         $ createuser postgres
     - Set password for user "postgres" in PostgreSQL
+
+            ALTER USER "postgres" WITH PASSWORD 'new_password';
+
     - Modify `alembic.ini`
         - `ID_HERE`: postgres id (ex: postgres)
         - `PASSWD_HERE`: postgres pw
