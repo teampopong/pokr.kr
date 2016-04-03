@@ -17,7 +17,7 @@ from .election import Election
 from .party import Party
 from .person import Person
 
-from settings import BILLPDF_DIR, BILLTXT_DIR
+from settings import BILLPDF_DIR, BILLTXT_DIR, THIS_ASSEMBLY
 
 numbers_re = re.compile(r'\d+')
 
@@ -118,6 +118,6 @@ Bill.statuses = relationship("BillStatus",
 
 def assembly_id_by_bill_id(bill_id):
     if bill_id.startswith('DD'): # FIXME
-        return 19
+        return THIS_ASSEMBLY
     return int(''.join(numbers_re.findall(bill_id))[:2])
 

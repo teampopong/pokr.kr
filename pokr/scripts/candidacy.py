@@ -16,6 +16,8 @@ from utils.command import Command
 from popong_nlp.structurizer import markup
 from popong_nlp.utils.translit import translit
 
+from settings import THIS_ASSEMBLY
+
 
 __all__ = ['insert_candidacies']
 
@@ -89,8 +91,9 @@ def insert_person(session, election_type, assembly_id, r):
         education = markup(r['education'], 'education') if 'education' in r else []
         address = markup(r['address'], 'district') if 'address' in r else []
         extra_vars = r.copy()
+        # FIXME: THIS_ASSEMBLY를 쓰면 시점을 제대로 못잡음
         extra_vars['assembly'] = {}
-        extra_vars['assembly']['19'] = r
+        extra_vars['assembly'][THIS_ASSEMBLY] = r
 
         person = Person(
                 id=person_id,
