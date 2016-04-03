@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+# Current assembly_id
+THIS_ASSEMBLY = 20
+
 # Server
 DEBUG = False
 SCRIPT_NAME = '/'
