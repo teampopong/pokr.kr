@@ -13,52 +13,56 @@
 {{ party.name|translit(type='party') }}
 {% endblock %}
 
+{% block extra_headers %}
+{% assets filters='less', output='build/party.%(version)s.css',
+    depends=['**/*.less'], 'less/party.less' %}
+<link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% endblock %}
+
 {% block content %}
-<div id="party-view" class="view">
-    <div class="text-center entity-header grad">
-        {% if mobile %}
-            <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
-        {% else %}
-        <div class="instance-card">
+<div class="row m-lg">
+    <div class="col-lg-3">
+        <div class="party-card">
             {% if party.logo %}
-            <img class="instance-name" src="{{ party.logo }}" width="120px">
+            <img class="party-logo" src="{{ party.logo }}" title="{{ party.name }}">
             {% else %}
-            <h2 class="instance-name">{{ party.name|translit(type='party') }}</h2>
-            {% endif %}
+            <div class="default-logo">
+                <span class="party-name">{{ party.name|translit(type='party') }}</span>
             </div>
-        {% endif %}
+            {% endif %}
+        </div>
         {% if is_duplicate %}
         <div class="warning warning-card">
             <i class="icon-exclamation-sign"></i>
-            {{ gettext('This page may contain information for more than one party.') }} 
+            {{ gettext('This page may contain information for more than one party.') }}
             <!-- TODO:
             (<a href="#">{{ gettext('details') }}</a>)
             -->
         </div>
         {% endif %}
-        {% include 'social.html' %}
+       <table class="table table-condensed">
+           <tr>
+               <th>{{ gettext('#candidates') }}</th>
+               <td>{{ party.size }}{{ gettext('person(s)') }}</td>
+           </tr>
+           <tr>
+               <th>{{ gettext('elections') }}</th>
+               <td>{% for election_type, parliament_ids in elections.iteritems() %}
+                   {{ parliament_ids|join(', ') }}{{ gettext('th %(election_type)s election', election_type=gettext(election_type)) }}
+                   {% endfor %}
+               </td>
+           </tr>
+       </table>
     </div>
-    <div id="party-sections" class="sections">
-        <div id="section-summary" class="section">
-            <h3 id="summary">{{ gettext('party') }} {{ gettext('summary') }}</h3>
-            <table class="table table-condensed">
-                <tr>
-                    <th>{{ gettext('#candidates') }}</th>
-                    <td>{{ party.size }}{{ gettext('person(s)') }}</td>
-                </tr>
-                <tr>
-                    <th>{{ gettext('elections') }}</th>
-                    <td>{% for election_type, parliament_ids in elections.iteritems() %}
-                        {{ parliament_ids|join(', ') }}{{ gettext('th %(election_type)s election', election_type=gettext(election_type)) }}
-                        {% endfor %}
-                    </td>
-                </tr>
-
-            </table>
-        </div>
-        <div id="section-people" class="section">
-            <h3 id="people">{{ gettext('people') }}</h3>
-            {{ macro.people_list_more(party.members, url_for('search', target='people', party_id=party.id)) }}
+    <div class="col-lg-9">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h3 id="people">{{ gettext('people') }}</h3>
+            </div>
+            <div class="ibox-content">
+                {{ macro.people_list_more(party.members, url_for('search', target='people', party_id=party.id), pagesize=50) }}
+            </div>
         </div>
     </div>
 </div>

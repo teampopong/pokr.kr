@@ -27,7 +27,7 @@
     <span class="search-count">{% if type=='people' %}{{ gettext('%(count)d people', count=cnt) }}{% else %}{{ gettext('%(count)d results', count=cnt) }}{% endif %}</span>
 {%- endmacro %}
 
-{% macro list_pagenav(query, page=None, pagesize=None, l=2, layout='list') -%}
+{% macro list_pagenav(query, page=None, pagesize=None, l=2, layout='list', headers=None) -%}
     {% set page = int(request.args.get('page', 1)) %}
     {% set pagesize = pagesize or 20 %}
     {% set prev_url = url_for_query(page=max(1, page - 1)) %}
@@ -52,6 +52,13 @@
         </ul>
     {% elif layout=='table' %}
         <table class="table table-condensed">
+        {% if headers %}
+            <thead><tr>
+                {% for head in headers.split() %}
+                <th>{{ head }}</th>
+                {% endfor %}
+            </tr></thead>
+        {% endif %}
         {% for item in items[:pagesize] %}
             <tr>{{caller(item)}}</tr>
         {% endfor %}

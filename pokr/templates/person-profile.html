@@ -1,0 +1,82 @@
+<table id="person-profile" class="table table-condensed">
+    <tbody>
+        {% if person.birthday %}
+        <tr>
+            <th>{{ gettext("birthday") }}</th>
+            <td>{{ person.birthday_formatted|linkall|safe }}</td>
+        </tr>
+        {% endif %}
+        {% if party_history %}
+        <tr>
+            <th>{{ gettext("party") }}</th>
+            <td>
+                <ul class="unstyled nomargin">
+                    <li><a href="{{ url_for('party', id=person.cur_party.id) }}">{{ person.cur_party.name|translit(type='party') }}</a></li>
+                {% for party, min_assembly_id, max_assembly_id in party_history %}
+                    <li class="extra"><span class="search-count">{{ gettext('%(assembly_id)dth', assembly_id=min_assembly_id) }}{% if min_assembly_id != max_assembly_id %} - {{ gettext('%(assembly_id)dth', assembly_id=max_assembly_id) }}{% endif %}</span>
+                        <a href="{{ url_for('party', id=party.id) }}">{{ party.name|translit(type='party') }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endif %}
+        {% if person.education %}
+        <tr>
+            <th>{{ gettext("education") }}</th>
+            <td>
+                <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.education}}">
+                {% for term, school_id in zip(person.education, person.education_id) %}
+                {% if school_id %}<a href="{{url_for('search', target='people', school_id=school_id)}}">{% endif %}{{term}}{% if school_id %}</a>{% endif %}
+                {% endfor %}
+                </span>
+            </td>
+        </tr>
+        {% endif %}
+        {% if person.address_id %}
+        <tr>
+            <th>{{gettext('address')}}</th>
+            <td>
+                <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.address}}">
+                {% for region, region_id in zip(person.address, person.address_id) %}
+                    {% if region_id %}
+                        <a href="{{url_for('region', region_id=region_id)}}">{{region}}</a>
+                    {% else %}
+                        {{region}}
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        {% endif %}
+        {% if person_extra_vars.job or person_extra_vars.experience %}
+        <tr>
+            <th>{{ gettext("work experiences") }}</th>
+            <td>
+                {% if person_extra_vars.job %}
+                <span id="currentjob">
+                    {{person_extra_vars.job}}
+                </span>
+                {% endif %}
+                {% if person_extra_vars.experience %}
+                <div id="experiences" class="extra">
+                    {% for exp in person_extra_vars.experience %}
+                    {{exp}}<br>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+        {% if person.wiki %}
+        <tr>
+            <th>{{ gettext('external links') }}</th>
+            <td>
+                <p class="original-link">
+                    <a href="http://ko.wikipedia.org{{ person.wiki }}">{{ gettext('Wikipedia') }}</a>
+                    <a href="http://ko.wikipedia.org{{ person.wiki }}" target="_blank"><i class="icon-external-link"></i></a>
+                </p>
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>

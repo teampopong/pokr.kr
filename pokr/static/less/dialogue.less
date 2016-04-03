@@ -20,9 +20,17 @@
 
 .dialogue {
     .issue {
-        background-color: moccasin;
-        color: firebrick;
+        background-color: @color_green;
+        border-bottom: 1px solid @color_darkgreen;
+        color: white;
+        a {
+            color: @border_color;
+        }
+        a:hover {
+            color: white;
+        }
     }
+
     .statement {
         &:before {
             content: '';

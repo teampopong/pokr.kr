@@ -1,12 +1,7 @@
 {% if wordweights %}
 <script src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/d3.layout.cloud.js') }}"></script>
-<div class="wordle down-10 text-center" id="{{ guids('canvas') }}">
-    <p class="font-bold no-margin">
-    {{ gettext('legislation keywords') }}
-    <i class="icon-exclamation-sign tooltipped" data-placement="bottom" data-title="{{ gettext('keywords extracted from recent proposals')}}"></i>
-    </p>
-    <a href="#legislations" class="animated silver-link">[{{ gettext('more') }}]</a>
+<div class="wordle" id="{{ guids('canvas') }}">
     {% if title %}<b>{{ title }}</b><br>{% endif %}
 </div>
 <script>

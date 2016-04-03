@@ -1,0 +1,6 @@
+{% set before_current = True %}
+<div id="bill-status">
+    {% for status in bill.statuses %}
+        {% if status.id == bill.status_id %}<div class="present{% set before_current = False %}{% elif before_current %}<div class="past{% else %}<div class="future{% endif %} tooltipped status" data-placement="bottom" data-title="{{ status.description }}">{{ status.name }}</div>
+    {% endfor %}
+</div>

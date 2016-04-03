@@ -38,7 +38,7 @@
         <div class="ibox-content">
             <span class="search-count">Page {{ request.args.page or 1 }}</span>
             <div id="bill-list" class="itemlist">
-                {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=10) %}
+                {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=10, headers='날짜 의안명 발의자 상태') %}
                 {% if mobile %}
                     <td style="padding: 5px 0 10px;">
                         <span style="background-color: #EEE; color: #555; font-weight: bold; padding: 1px 5px;">{{ bill.proposed_date }}</span>

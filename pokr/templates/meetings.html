@@ -21,8 +21,8 @@
 <div id="page-wrapper">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <span class="warning pull-right"><i class="fa fa-exclamation-triangle"></i> 회의록은 19대 국회부터 제공됩니다.</span>
-            <h5>달력으로 보는 국회</h5>
+            <h5>달력으로 보는 국회 회의</h5>
+            <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> 회의록은 19대 국회부터 제공됩니다.</span>
         </div>
         <div class="ibox-content">
             <div class="calendar">
@@ -33,7 +33,7 @@
                 </p>
             </div>
             <div class="calendar">
-                {{ widgets.year(year, meetings_of_the_year)|safe }}
+                {{ widgets.year(year, meetings_of_the_year) | safe }}
             </div>
             <hr>
             {% if date %}

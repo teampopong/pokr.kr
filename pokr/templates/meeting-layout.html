@@ -20,18 +20,50 @@
 {% endblock %}
 
 {% block content %}
-<div id="meeting-view" class="view">
-    <div id="meeting-header" class="text-center entity-header grad">
-        <div class="entity-info">
+<div class="row m-lg">
+    <div class="col-lg-6">
+        <p class="entity-info">
             {{ meeting.parliament_id }}{{ gettext('th parliament') }}
             {% if meeting.session_id %}{{ meeting.session_id }}{{ gettext('th session') }}{% endif %}
             {% if meeting.sitting_id %}{{ meeting.sitting_id }}{{ gettext('th sitting') }}{% endif %}
-        </div>
+        </p>
         <h2>{{ meeting.committee }}</h2>
-        {% block extra_subtitle %}
-        {% endblock %}
-        {% include 'social.html' %}
     </div>
+    <div class="col-lg-6">
+        <table id="meeting-outline" class="table table-condensed">
+            <tbody>
+                <tr>
+                    <th>{{ gettext('date') }}</th>
+                    <td>{{ meeting.date }}</td>
+                </tr>
+                <tr>
+                    <th>{{ gettext('starting time') }}</th>
+                    <td>{{ meeting.start }}</td>
+                </tr>
+                <tr>
+                    <th>{{ gettext('ending time') }}</th>
+                    <td>{{ meeting.end }}</td>
+                </tr>
+                <tr>
+                    <th>{{ gettext('duration time') }}</th>
+                    <td>{{ meeting.duration }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="tabs-container m-md">
+    <ul class="nav nav-tabs">
+        <li{% if request.path.endswith('/') %} class="active"{% endif %}><a href="{{ url_for('meeting', id=meeting.id) }}">기본정보</a></li>
+        <li{% if 'dialog' in request.path %} class="active"{% endif %}><a href="{{ url_for('meeting_dialogue', id=meeting.id) }}">{{ gettext('view web') }} (HTML)</a></li>
+        {% if meeting.document_pdf_path %}
+            <li{% if 'pdf' in request.path %} class="active"{% endif %}><a href="{{ url_for('meeting_pdf', id=meeting.id) }}">{{ gettext('view file') }} (PDF)</a></li>
+        {% endif %}
+    </ul>
+</div>
+
+<div id="meeting-view" class="view">
     <div id="meeting-sections" class="sections">
         {% block meeting_content %}{% endblock %}
     </div>

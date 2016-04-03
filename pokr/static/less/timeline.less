@@ -1,20 +1,25 @@
+@import "includes";
+
 #timeline {
     svg rect {
-        fill: #B0E2FF;
-        stroke: #A2B5CD;
-    }
-
-    svg rect:hover {
-        fill: #87CEFA;
+        fill: @color_green;
+        opacity: 0.5;
+        stroke: @color_darkgreen;
     }
 
     svg circle.event {
-        fill: #FFB6C1;
-        stroke: #FF1493;
+        fill: @color_red;
+        opacity: 0.7;
+        stroke: @color_darkred;
+    }
+
+    svg circle:hover,
+    svg rect:hover {
+        opacity: 1;
     }
 
     svg line.event {
-        stroke: #FF1493;
+        stroke: @color_darkred;
     }
 
     svg text,
@@ -22,5 +27,6 @@
         font-size: 11px;
         line-height: 1em;
         text-align: center;
+        pointer-events: none;
     }
 }

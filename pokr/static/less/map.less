@@ -1,6 +1,6 @@
 @import "includes";
 
-.map {
+svg.map {
     display: block;
     vertical-align: top;
     margin: 0 auto;
@@ -16,19 +16,22 @@
         stroke: @icon_color;
     }
 
-    .region {
-
-        &.selected {
-            fill: @region_color;
-        }
-    }
-
     &.clickable {
         .region {
             cursor: pointer;
+        }
 
-            &:hover { 
-                fill: @region_color;
+        .region:hover {
+            fill: @color_lavender;
+        }
+    }
+
+    .region {
+        &.selected {
+            fill: @color_lavender;
+
+            &:hover {
+                fill: @color_darklavender;
             }
         }
     }

@@ -10,10 +10,11 @@
 {% endblock %}
 
 {% block extra_headers %}
-{% assets filters='less', output='build/submain.%(version)s.css',
-    depends=['**/*.less'], 'less/submain.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
+<style>
+    svg.map text {
+        font-size: 5pt !important;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -23,9 +24,9 @@
         <div class="ibox-content">
             <div>
                 <h3 class="font-bold no-margins">{{ gettext('base region') }}</h3>
-                <small>지역 별 역대 국회의원 목록.</small>
+                <small>지역 별 역대 국회의원 목록을 볼 수 있어요.</small>
             </div>
-            {{ widgets.kmap(clickable=True)|safe }}
+            {{ widgets.kmap(clickable=True) | safe }}
 
             {# fallback #}
             <!--[if lt IE 9]>
@@ -37,4 +38,3 @@
     </div>
 </div>
 {% endblock %}
-

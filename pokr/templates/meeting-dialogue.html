@@ -6,71 +6,66 @@
 {% endassets %}
 {% endblock %}
 
-{% block extra_subtitle %}
-{# FIXME #}
-{% with date = meeting.date %}
-<div style="margin-top: -5px;">
-{% if locale=='ko' %}
-{{ date.year }}년 {{ date.month }}월 {{ date.day }}일
-{% else %}
-{{ date.strftime("%B %d, %Y") }}
-{% endif %}
-</div>
-{% endwith %}
-{% endblock %}
-
 {% block meeting_content %}
 
-<div id="issue-box">
-{% for row in meeting.dialogue %}
-    {% if row.type=='issue' %}
-    <a href="#{{ loop.index }}"><i class="icon-circle tooltipped" data-placement="left" data-title="{{ row.content }}"></i></a>
-    {% endif %}
-{% endfor %}
-</div>
-<div class="dialogue">
-{% with guids = guid_factory() %}
-{% for row in meeting.dialogue %}
-    {% if row.type=='issue' %}
-    <div id="{{ loop.index }}" class="issue">
-        {% for item in row.content.rsplit('(', 1) %}
-            {% if loop.first %}
-            <p class="font-bold no-margin">{{ item }}</p>
-            {% else  %}
-            <p class="indent-12 no-margin">({{ item }}</p>
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>회의록</h5>
+        <div id="issue-box" class="pull-right">
+        {% for row in meeting.dialogue %}
+            {% if row.type=='issue' %}
+            <a href="#{{ loop.index }}"><i class="fa fa-circle-o tooltipped" data-placement="left" data-title="{{ row.content }}"></i></a>
             {% endif %}
         {% endfor %}
-        <div class="links"><a href="#{{ loop.index }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
-    {% elif row.type=='statement' %}
-    <div id="{{ row.id }}" class="statement">
-        <div class="speaker">
-            <!-- TODO: guess_person by name and input person_id to db -->
-            {% if row.person_id %}
-                {{ widgets.card(row.person_id, tiny=True)|safe }}
-            {% else %}
-                <div class="card card-tiny" style="border-color: #{{ guids(row.person)[1:7] }}; background-color: #{{ guids(row.person)[1:7] }}">
-                    <img class="person-img " src="{{ url_for('static', filename='images/default_profile.jpg') }}" style="opacity: 0.4">
-                </div>
-            {% endif %}
-            <div class="person-name">{{ row.person }}</div>
         </div>
-        <div class="content glossary">
-            {% for sentence in row.content.split('.') %}
-            {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
-            {% endfor %}
-        </div>
-        <div class="links"><a href="#{{ row.id }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
-    {% elif row.type=='time' %}
-    <div id="{{ loop.index }}" class="time">{{ row.content }}
-        <div class="links"><a href="#{{ loop.index }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
-    {% else %}
-    <div id="{{ loop.index }}" class="unknown">{{ row.content }}
-        <div class="links"><a href="#{{ loop.index }}"><i class="icon-link">&nbsp;{{ gettext('link') }}</i></a></div>
-    {% endif %}
     </div>
-{% endfor %}
-{% endwith %}
+    <div class="ibox-content">
+        <div class="dialogue">
+        {% with guids = guid_factory() %}
+        {% for row in meeting.dialogue %}
+            {% if row.type=='issue' %}
+            <div id="{{ loop.index }}" class="issue">
+                {% for item in row.content.rsplit('(', 1) %}
+                    {% if loop.first %}
+                    <p class="no-margin">{{ item }}</p>
+                    {% else  %}
+                    <p class="indent-12 no-margin">({{ item }}</p>
+                    {% endif %}
+                {% endfor %}
+                <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+            {% elif row.type=='statement' %}
+            <div id="{{ row.id }}" class="statement">
+                <div class="speaker">
+                    <!-- TODO: guess_person by name and input person_id to db -->
+                    {% if row.person_id %}
+                        {{ widgets.card(row.person_id, tiny=True)|safe }}
+                    {% else %}
+                        <div class="card card-tiny" style="border-color: #{{ guids(row.person)[1:7] }}; background-color: #{{ guids(row.person)[1:7] }}">
+                            <img class="person-img " src="{{ url_for('static', filename='images/default_profile.jpg') }}" style="opacity: 0.4">
+                        </div>
+                    {% endif %}
+                    <div class="person-name">{{ row.person }}</div>
+                </div>
+                <div class="content glossary">
+                    {% for sentence in row.content.split('.') %}
+                    {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
+                    {% endfor %}
+                </div>
+                <div class="links"><a href="#{{ row.id }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+            {% elif row.type=='time' %}
+            <div id="{{ loop.index }}" class="time">{{ row.content }}
+                <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+            {% else %}
+            <div id="{{ loop.index }}" class="unknown">{{ row.content }}
+                <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+            {% endif %}
+            </div>
+        {% endfor %}
+        {% endwith %}
+        </div>
+    </div>
 </div>
+
 {% if not mobile %}
 <script>
 {{ glossary_js|safe }}

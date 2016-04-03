@@ -1,55 +1,36 @@
 {% extends 'meeting-layout.html' %}
 
 {% block meeting_content %}
-<h3 id="outline">{{ gettext('outline') }}</h3>
-<table id="meeting-outline" class="table table-condensed">
-    <tbody>
-        <tr>
-            <th>{{ gettext('date') }}</th>
-            <td>{{ meeting.date }}</td>
-        </tr>
-        <tr>
-            <th>{{ gettext('starting time') }}</th>
-            <td>{{ meeting.start }}</td>
-        </tr>
-        <tr>
-            <th>{{ gettext('ending time') }}</th>
-            <td>{{ meeting.end }}</td>
-        </tr>
-        <tr>
-            <th>{{ gettext('duration time') }}</th>
-            <td>{{ meeting.duration }}</td>
-        </tr>
-        <tr>
-            <th>{{ gettext('dialogue') }}</th>
-            <td>
-                <ul>
-                    <li><a href="{{ request.path }}dialog">{{ gettext('view web') }} (HTML)</a></li>
-                    {% if meeting.document_pdf_path %}<li><a href="{{ url_for('meeting_pdf', id=meeting.id) }}">{{ gettext('view file') }} (PDF)</a></li>{% endif %}
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>{{ gettext('issues') }}</h5>
+    </div>
+    <div class="ibox-content">
+        <ul class="dd-list">
+        {% for row in meeting.dialogue %}
+            {% if row.type=='issue' %}
+            <li class="dd-item"><a class="dd-handle" href="{{ request.path }}dialog#{{ loop.index }}" title="{{ row.content }}">{{ row.content.rsplit('(', 1)[0][:100] }}{% if row.content|length > 100 %}...{% endif %}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+</div>
 
-<h3 id="issues">{{ gettext('issues') }}</h3>
-<ul id="issue-list">
-{% for row in meeting.dialogue %}
-    {% if row.type=='issue' %}
-    <li><a href="{{ request.path }}dialog#{{ loop.index }}" title="{{ row.content }}">{{ row.content.rsplit('(', 1)[0][:100] }}{% if row.content|length > 100 %}...{% endif %}</a></li>
-    {% endif %}
-{% endfor %}
-</ul>
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>{{ gettext('attendees') }}</h5>
+        <small class="pull-right"><i class="fa fa-exclamation-triangle"></i> {{ gettext('Attendees among National Assembly members are listed.') }}</small>
+    </div>
+    <div class="ibox-content">
+        {% for attendee in meeting.attendees %}
+        {{ widgets.card(attendee.id)|safe }}
+        {% endfor %}
+    </div>
+</div>
 
-<h3 id="attendees">{{ gettext('attendees') }}
-    <span class="comment down-10"><i class="icon-exclamation-sign"></i> {{ gettext('Attendees among National Assembly members are listed.') }}</span>
-</h3>
-{% for attendee in meeting.attendees %}
-{{ widgets.card(attendee.id)|safe }}
-{% endfor %}
 <script>
 if ($('#issue-list').is(':empty')){
-    var issues= document.getElementById('#issue-list');
+    var issues = document.getElementById('#issue-list');
     div.appendChild("iadf");
 }
 </script>

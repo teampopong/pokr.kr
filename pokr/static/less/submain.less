@@ -1,9 +1,6 @@
 @import "includes";
 @import "year";
 
-@card_width: 100px;
-@card_height: 70px;
-
 .itemlist {
     ul {
         margin: inherit;
@@ -34,43 +31,6 @@ div#bill-list table {
     }
 }
 
-///// parties.html
-div.party-card {
-    width: @card_width;
-    height: @card_height;
-    border: 1px solid #EEE;
-    .border-box;
-    margin: 5px auto;
-
-    .party-logo {
-        width: 100%;
-        height: 100%;
-    }
-
-    .default-logo {
-        background-image: url('../images/default_party.jpg');
-        background-size: @card_width @card_height;
-        .bgsize;
-        line-height: @card_height;
-        width: 100%;
-        height: 100%;
-
-        span.party-name {
-            color: #444;
-            width: 100%;
-            font-size: 13pt;
-            text-align: center;
-            margin: 0 auto;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 20px;
-        }
-    }
-}
-
-#sort-tabs {
-    position: relative;
-}
 
 ///// people.html
 .filters-panel {

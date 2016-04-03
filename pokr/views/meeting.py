@@ -51,7 +51,7 @@ def register(app):
             if d:
                 return redirect(url_for('meeting_main',
                                         date=format_date(d, 'yyyy-MM-dd')))
-        
+
         # meetings of the day (optional)
         meetings_of_the_day = None
         if date_:

@@ -13,7 +13,7 @@
 
 {% block breadcrumb_extra %}
 {% for parent in region.parents %}
-    <li><a href="{{ url_for('region', region_id=parent.id) }}">{{ gettext(parent.name) }}</a> <span class="divider">&gt;</span></li>
+    <li><a href="{{ url_for('region', region_id=parent.id) }}">{{ gettext(parent.name) }}</a> </li>
 {% endfor %}
 {% endblock %}
 
@@ -22,116 +22,77 @@
 {% endblock %}
 
 {% block content %}
-<div id="region-view" class="view">
-    <div class="text-center entity-header grad">
-        {% if mobile %}
-        <h2 class="instance-name">{{ fullname }}</h2>
-        {% else %}
-        <div class="instance-card">
-            <h2 class="instance-name">{{ fullname }}</h2>
-        </div>
-        {% endif %}
-        {% include 'social.html' %}
+<div class="row m-lg">
+    <div class="col-lg-3">
+        <h2 class="region-name">{{ fullname }}</h2>
+        {{ widgets.kmap(region.id[:2], width=120)|safe }}
     </div>
-    <div id="region-sections" class="sections">
-        <div id="section-outline" class="section">
-        {% if mobile %}
-            {% if not region.is_submunicipality %}
-                <h3 id="subregions">{{ gettext('subregions') }}</h3>
-                {% for child in region.children %}
-                <a href="{{ child.url }}">{{ child.name }}</a>
-                {% endfor %}
-            {% endif %}
-
-            <!-- FIXME: 19 -->
-            {% if not region.is_province %}
-            <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
-            <table id="region-people" class="table table-condensed">
-                <tbody>
-                    {% set officials_grouped_by_assembly_id = RegionController.officials_grouped_by_assembly_id(region.id) %}
-                    {% for assembly_id in range(19, 0, -1) %}
-                    <tr>
-                        <th>{{ assembly_id }}{{ gettext('th') }}</th>
-                        <td>
-                           {% set officials = officials_grouped_by_assembly_id.get(assembly_id) %}
-                            {% if officials %}
-                            <ul class="float-list">
-                                {% for official in officials %}
-                                <li>
-                                    {{ widgets.card(official)|safe }}
-                                </li>
-                                {% endfor %}
-                            </ul>
-                            {% else %}
-                            {{ gettext('No officials') }}
-                            {% endif %}
-                       </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            {% endif %}
-            <h3 id="people">{{ gettext('related people') }}</h3>
-            <h4 class="subsection-title">
-                {{ gettext('Candidates') }}
-                <small>{{ macro.list_count(region.candidates, type='people') }}</small>
-            </h4>
-            {{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}
-            <h4 class="subsection-title">
-                {{ gettext('Residents') }}
-                <small>{{ macro.list_count(region.residents, type='people') }}</small>
-            </h4>
-            {{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}
-        {% else %}
+    <div class="col-lg-9">
+        <div class="ibox">
             {% if region.is_province %}
-                <h3 id="subregions">{{ gettext('subregions') }}</h3>
+            <div class="ibox-title">
+                <h5>
+                    {{ gettext('subregions') }}
+                    <small>우리 동네의 역대 국회의원들을 살펴볼까요?</small>
+                </h5>
+            </div>
+            <div class="ibox-content">
                 {% for child in region.children %}
-                <a href="{{ child.url }}">{{ child.name }}</a>
+                <a class="btn btn-default btn-rounded btn-sm m-b-sm" href="{{ child.url }}">{{ child.name }}</a>
                 {% endfor %}
+            </div>
             {% else %}
-            <h3 id="chronicles">{{ gettext('chronicles') }}</h3>
-            <table id="region-chronicles" class="table table-condensed">
-                <tbody>
-                    <!-- FIXME: 19 -->
-                    {% set officials_grouped_by_assembly_id = RegionController.officials_grouped_by_assembly_id(region.id) %}
-                    {% for assembly_id in range(19, 0, -1) %}
-                    <tr>
-                        <th class="assembly-id">{{ assembly_id }}{{ gettext('th') }}</th>
-                        <td>
-                            {% set officials = officials_grouped_by_assembly_id.get(assembly_id) %}
-                            {% if officials %}
-                            <ul class="float-list">
-                                {% for official in officials %}
-                                <li>
-                                    {{ widgets.card(official)|safe }}
-                                </li>
-                                {% endfor %}
-                            </ul>
-                            {% else %}
-                            {{ gettext('No officials') }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="ibox-title">
+                <h5 id="chronicles">{{ gettext('chronicles') }}</h5>
+            </div>
+            <div class="ibox-content">
+                <table id="region-chronicles" class="table table-condensed no-t-b">
+                    <tbody>
+                        {% set officials_grouped_by_assembly_id = RegionController.officials_grouped_by_assembly_id(region.id) %}
+                        {% for assembly_id in range(THIS_ASSEMBLY, 0, -1) %}
+                        <tr>
+                            <th class="assembly-id">{{ assembly_id }}{{ gettext('th') }}</th>
+                            <td>
+                                {% set officials = officials_grouped_by_assembly_id.get(assembly_id) %}
+                                {% if officials %}
+                                <ul class="float-list">
+                                    {% for official in officials %}
+                                    <li>
+                                        {{ widgets.card(official)|safe }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% else %}
+                                {{ gettext('No officials') }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             {% endif %}
-            <h3 id="people">{{ gettext('related people') }}</h3>
-            <table id="region-people" class="table table-condensed">
-                <tbody>
-                    <tr>
-                        <th>{{ gettext('Candidates') }}
-                            <br>{{ macro.list_count(region.candidates, type='people') }}</th>
-                        <td colspan="2">{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ gettext('Residents') }}
-                            <br>{{ macro.list_count(region.residents, type='people') }}</th>
-                        <td colspan="2">{{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        {% endif %}
+        </div>
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5 id="people">{{ gettext('related people') }}</h5>
+            </div>
+            <div class="ibox-content">
+                <table id="region-people" class="table table-condensed no-t-b min-w-100">
+                    <tbody>
+                        <tr>
+                            <th>{{ gettext('Candidates') }}
+                                {{ macro.list_count(region.candidates, type='people') }}</th>
+                            <td colspan="2">{{ macro.people_list_more(region.candidates, url_for('search', target='people', candidacy_region_id=region.id)) }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ gettext('Residents') }}
+                                {{ macro.list_count(region.residents, type='people') }}</th>
+                            <td colspan="2">{{ macro.people_list_more(region.residents, url_for('search', target='people', residence_region_id=region.id)) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

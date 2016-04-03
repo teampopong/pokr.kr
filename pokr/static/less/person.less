@@ -1,115 +1,30 @@
 @import "includes";
-@bg_color       : #f1efeb;
-@link_color     : silver;
-@hover_color    : #005580;
 
-#person-view {
-   #person-sections{
+table {
+    td {
+        min-width: 100px;
+    }
 
-        #section-profile {
-            position: relative;
+    td.btn-more {
+        padding: 0 !important;
 
-            #currentjob {
-                display: block;
-                line-height: 23px;
-            }
-
-            #person-profile {
-                position: relative;
-            }
-
-            .person-summary-vis {
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: white;
-            }
-
-            .wordle {
-                display: inline-block;
-                .border-box;
-                width: 200px;
-                height: 168px;
-                margin: 10px;
-                svg {
-                    margin: 20px 0;
-                }
-            }
-
-            .map-wrapper {
-                float: right;
-                margin: 10px;
-
-                path {
-                    fill: white;
-                    stroke: #ddd;
-
-                    &.selected {
-                        fill: @region_color;
-                    }
-                }
-            }
-        }
-
-        #section-elections {
-            tr:first-child th,
-            tr:first-child td {
-                border-bottom: 1px solid @border_color;
-            }
-            #district {
-                width: 30%;
-            }
-            #competitors {
-                width: 55%;
-            }
-            #timeline {
-                margin: 10px 0 30px;
-            }
-            .pledges {
-                display: inline-block;
-            }
-        }
-
-        #section-legislations {
-            thead tr th {
-                border-bottom: 1px solid @border_color;
-            }
-            #person-legislations table{
-                td:last-child {
-                    width: 15%;
-                }
-            }
-            th:first-child {
-                width: 15%;
-            }
-            th#bill-title{
-                width: 60%;
-            }
-            th#bill-proposed-date {
-                width: 13%;
-            }
-            th#bill-role {
-                width: 13%;
-            }
+        a {
+            margin-bottom: 12px;
+            padding: 8px;
         }
     }
-}
-
-.map text {
-    font-size: 10pt;
-    alignment-baseline: baseline;
-}
-
-table td.speaker-name {
-    text-align: center;
-    font-weight: bold;
-}
-
-.statement-date {
-    min-width: 100px;
 }
 
 .adsbygoogle {
     display: block;
     margin-bottom: 30px;
+}
+
+.profile-info {
+    margin-left: 190px;
+}
+
+#timeline {
+    text-align: center;
+    margin: 0 auto 50px;
 }
