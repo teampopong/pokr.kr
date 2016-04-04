@@ -1,14 +1,16 @@
 <table id="person-profile" class="table table-condensed">
     <tbody>
-        {% if person.birthday %}
         <tr>
             <th>{{ gettext("birthday") }}</th>
+            {% if person.birthday %}
             <td>{{ person.birthday_formatted|linkall|safe }}</td>
+            {% else %}
+            <td>Unknown</td>
+            {% endif %}
         </tr>
-        {% endif %}
-        {% if party_history %}
         <tr>
             <th>{{ gettext("party") }}</th>
+            {% if party_history %}
             <td>
                 <ul class="unstyled nomargin">
                     <li><a href="{{ url_for('party', id=person.cur_party.id) }}">{{ person.cur_party.name|translit(type='party') }}</a></li>
@@ -19,11 +21,13 @@
                 {% endfor %}
                 </ul>
             </td>
+            {% else %}
+            <td>Unknown.</td>
+            {% endif %}
         </tr>
-        {% endif %}
-        {% if person.education %}
         <tr>
             <th>{{ gettext("education") }}</th>
+            {% if person.education %}
             <td>
                 <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.education}}">
                 {% for term, school_id in zip(person.education, person.education_id) %}
@@ -31,11 +35,13 @@
                 {% endfor %}
                 </span>
             </td>
+            {% else %}
+            <td>Unknown.</td>
+            {% endif %}
         </tr>
-        {% endif %}
-        {% if person.address_id %}
         <tr>
             <th>{{gettext('address')}}</th>
+            {% if person.address_id %}
             <td>
                 <span class="tooltipped tooltipped-delay" data-placement="bottom" data-title="{{gettext('original')}}: {{person_extra_vars.address}}">
                 {% for region, region_id in zip(person.address, person.address_id) %}
@@ -46,11 +52,13 @@
                     {% endif %}
                 {% endfor %}
             </td>
+            {% else %}
+            <td>Unknown.</td>
+            {% endif %}
         </tr>
-        {% endif %}
-        {% if person_extra_vars.job or person_extra_vars.experience %}
         <tr>
             <th>{{ gettext("work experiences") }}</th>
+            {% if person_extra_vars.job or person_extra_vars.experience %}
             <td>
                 {% if person_extra_vars.job %}
                 <span id="currentjob">
@@ -65,18 +73,19 @@
                 </div>
                 {% endif %}
             </td>
+            {% else %}
+            <td>Unknown.</td>
+            {% endif %}
         </tr>
-        {% endif %}
-        {% if person.wiki %}
         <tr>
             <th>{{ gettext('external links') }}</th>
             <td>
-                <p class="original-link">
-                    <a href="http://ko.wikipedia.org{{ person.wiki }}">{{ gettext('Wikipedia') }}</a>
-                    <a href="http://ko.wikipedia.org{{ person.wiki }}" target="_blank"><i class="icon-external-link"></i></a>
-                </p>
+                {% if person.wiki %}
+                <a href="http://ko.wikipedia.org{{ person.wiki }}" class="btn btn-circle"><i class="fa fa-wikipedia-w"></i></a>
+                {% else %}
+                None.
+                {% endif %}
             </td>
         </tr>
-        {% endif %}
     </tbody>
 </table>

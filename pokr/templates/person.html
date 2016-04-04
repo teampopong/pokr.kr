@@ -123,19 +123,9 @@
             <i class="icon-exclamation-sign tooltipped pull-right" data-placement="bottom" data-title="{{ gettext('Results from Google Trends searched by query %(name)s', name=person.name) }}"></i>
         </div>
         <div class="ibox-content">
-            <div id="section-trends" class="section">
-                {% if not config['DEBUG'] %}
-                <table class="table table-condensed">
-                    <tbody>
-                        <tr>
-                            <th></th>
-                            <td id="google-trends">
-                                <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q={{ person.name }}&tz&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=800&h=400"></script>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                {% endif %}
+            {% if not config['DEBUG'] %}
+            <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q={{ person.name }}&tz&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=800&h=400"></script>
+            {% endif %}
         </div>
     </div>
     {% endif %}

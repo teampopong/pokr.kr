@@ -33,7 +33,6 @@ def register(app):
                         .filter(Candidacy.type == election_type)\
                         .group_by(Party.id)\
                         .order_by(func.count().desc())
-        print parties        
 
         return render_template('parties.html',\
                                 assembly_id=assembly_id,\
