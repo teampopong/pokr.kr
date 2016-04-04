@@ -2,9 +2,10 @@
 @import "animation";
 @import "fonts";
 
-@facebook_color: #266fe7;
-@twitter_color: #4099ff;
 
+h2, h3 {
+    font-weight: normal;
+}
 
 #hero {
     background-color: #cfdff0;
@@ -12,10 +13,12 @@
     background-position: 20% bottom;
     background-repeat: no-repeat;
     background-size: 50%;
-    height: 57%;
+    height: 50%;
     margin-top: -40px;
     position: relative;
-    text-align: center;
+    text-align: left;
+    padding-top: 50px;
+
     img {
         display: inline-block;
         height: 40px;
@@ -23,50 +26,25 @@
     p {
         margin-top: 10px;
     }
-    #pokrbot {
-        color: #777;
-        float: right;
+
+    .social-sends {
+        background-color: rgba(255, 255, 255, 0.5);
+        margin-bottom: -5px !important;
+        padding: 10px 20px ;
         position: absolute;
-        right: 13%;
-        bottom: 16%;
-        [class^="icon-"] {
-            margin: 0 5px;
-        }
-        .twitter-icon [class^="icon-"]:hover {
-            color: @twitter_color;
-        }
-    }
-    #facebook-login {
-        position: absolute;
-        right: 10%;
-        bottom: 25%;
-        text-align: left;
-        &:hover {
-            font-weight: bold;
-            opacity: 0.9;
-            text-decoration: none;
-            transition: .2s linear;
-        }
+        bottom: 0;
+        right: 0;
+        width: 100%;
         div {
-            .border-radius(10px);
-            .box-shadow;
-            background-color: @facebook_color;
-            color: white;
-            padding: 10px;
-            width: 320px;
-            [class^="icon-"] {
-                background-color: lighten(@facebook_color, 5%);
-                color: white;
-                font-size: 30pt;
-                margin: 0;
-            }
-            span {
-                font-size: 14pt;
-            }
-            p {
-                font-size: 9pt;
-                margin: 0;
-            }
+            width: 90px;
+        }
+        #send-to-twitter {
+            margin-left: 7px;
+        }
+        #follow-twitter {
+            width: 193px;
+            margin-left: 10px;
+            vertical-align: top;
         }
     }
 }
@@ -89,41 +67,5 @@
         -webkit-transform:rotate(-5deg);
         -moz-transform:rotate(-5deg);
         -o-transform:rotate(-5deg);
-    }
-}
-
-.social-sends {
-    background-color: rgba(255, 255, 255, 0.5);
-    margin-bottom: -5px !important;
-    padding: 10px 20px ;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    div {
-        width: 90px;
-    }
-    #send-to-twitter {
-        margin-left: 7px;
-    }
-    #follow-twitter {
-        width: 193px;
-        margin-left: 10px;
-        vertical-align: top;
-    }
-}
-
-#hero {
-    text-align: left;
-    padding-top: 110px;
-}
-
-h2 {
-    font-weight: normal;
-}
-
-@media (max-width: 770px) {
-    #facebook-login {
-        display: none;
     }
 }

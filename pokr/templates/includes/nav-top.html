@@ -1,6 +1,6 @@
 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
     <span id="beta-banner"><a href="#">&beta;eta</a></span>
-    <div class="navbar-header">
+    <div class="nav navbar-header">
         <a id="logo" href="{{ url_for('main') }}">
             {% if locale=='ko' %}
             <img src="{{ url_for('static', filename='images/all_about_pokr.png') }}" alt="Politics in Korea">
@@ -8,8 +8,14 @@
             <img src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea">
             {% endif %}
         </a>
+
+        <!-- mobile menu -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <i class="fa fa-bars"></i>
+        </button>
     </div>
-    <ul class="nav navbar-top-links navbar-left">
+
+    <ul id="navbar" class="nav navbar-top-links navbar-left">
         {% if mobile %}
         <li><a href="{{ url_for('person_main') }}">{{ gettext('People') }}</a></li>
         <li><a href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
@@ -17,13 +23,14 @@
         <li><a href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
         <li><a href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
         {% else %}
-        <li><a href="{{ url_for('person_main') }}"><i class="fa fa-user"></i>{{ gettext('People') }}</a></li>
-        <li><a href="{{ url_for('bill_main') }}"><i class="fa fa-file-text-o"></i>{{ gettext('Bills') }}</a></li>
-        <li><a href="{{ url_for('meeting_main') }}"><i class="fa fa-comment"></i>{{ gettext('Meetings') }}</a></li>
-        <li><a href="{{ url_for('party_main') }}"><i class="fa fa-users"></i>{{ gettext('Parties') }}</a></li>
-        <li><a href="{{ url_for('region_main') }}"><i class="fa fa-map-marker"></i>{{ gettext('Regions') }}</a></li>
+        <li><a{% if 'person' in request.path %} class="active"{% endif %} href="{{ url_for('person_main') }}"><i class="fa fa-user"></i>{{ gettext('People') }}</a></li>
+        <li><a{% if 'bill' in request.path %} class="active"{% endif %} href="{{ url_for('bill_main') }}"><i class="fa fa-file-text-o"></i>{{ gettext('Bills') }}</a></li>
+        <li><a{% if 'meeting' in request.path %} class="active"{% endif %} href="{{ url_for('meeting_main') }}"><i class="fa fa-comment"></i>{{ gettext('Meetings') }}</a></li>
+        <li><a{% if 'party' in request.path %} class="active"{% endif %} href="{{ url_for('party_main') }}"><i class="fa fa-users"></i>{{ gettext('Parties') }}</a></li>
+        <li><a{% if 'region' in request.path %} class="active"{% endif %} href="{{ url_for('region_main') }}"><i class="fa fa-map-marker"></i>{{ gettext('Regions') }}</a></li>
         {% endif %}
     </ul>
+    {% if not mobile %}
     <ul class="nav navbar-top-links navbar-right">
         <li class="search">
 
@@ -51,4 +58,5 @@
         </li>
         <li class="login">{% include "login.html" %}</li>
     </ul>
+    {% endif %}
 </nav>

@@ -142,8 +142,59 @@ ul.breadcrumb {
     background-color: whitesmoke;
 }
 
-.navbar-static-side {
+nav.navbar-static-top {
+    background: white;
+
+    .buttons {
+        margin: 10px 20px;
+    }
+
+    .navbar-form-custom {
+        float: none;
+
+        input {
+            background: #eee;
+            height: 40px;
+            margin: 10px 0;
+        }
+    }
+
+    .navbar-top-links li a.btn {
+        margin-left: 10px;
+        min-height: inherit;
+        padding: 4px 0;
+    }
+
+    .navbar-left {
+        a {
+            color: @color_darklavender;
+        }
+        a.active,
+        a:hover {
+            color: @color_navy;
+        }
+    }
+}
+
+nav.navbar-static-side {
     background: #2f4050;
+
+    ul.subnav {
+        padding: 10px;
+        li {
+            width: 23%;
+        }
+        li a {
+            color: @color_gray;
+        }
+        li a:hover {
+            color: white;
+        }
+        li.active a {
+            color: white;
+            font-weight: bold;
+        }
+    }
 }
 
 #header-top {
