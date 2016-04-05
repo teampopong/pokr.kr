@@ -11,9 +11,17 @@ from sqlalchemy.sql.expression import desc
 
 from pokr.database import db_session
 from pokr.models.bill import Bill
+from pokr.models.meeting import Meeting
+from pokr.models.person import Person
 from settings import THIS_ASSEMBLY
 
 year_re = re.compile(r'[1-9][0-9]{3}')
+
+def counts():
+    nbills = db_session.query(Bill).count()
+    nmeetings = db_session.query(Meeting).count()
+    npeople = db_session.query(Person).count()
+    return nbills, nmeetings, npeople
 
 def register(app):
 
@@ -22,7 +30,9 @@ def register(app):
     def main():
         if request.path == '/' and hasattr(g, 'user') and not g.user.is_anonymous():
             return redirect(url_for('mypage'))
-        return render_template('main.html')
+        nbills, nmeetings, npeople = counts()
+        return render_template('main.html',\
+                nbills=nbills, nmeetings=nmeetings, npeople=npeople)
 
     @app.route('/terms')
     def terms():
