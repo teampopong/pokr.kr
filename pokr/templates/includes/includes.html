@@ -33,8 +33,14 @@
     <![endif]-->
 {% endif %}
 
+
+{% if config['DEBUG'] %}
+    <script src="{{ url_for('static', filename='/node_modules/jquery/dist/jquery.min.js') }}"></script>
+{% else %}
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js?ver=2.2.2'></script>
+{% endif %}
+
 {% assets filters='uglifyjs', output='build/base.%(version)s.js',
-    'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'js/mustache.js',
     'js/bootstrap-collapse.js',

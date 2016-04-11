@@ -79,4 +79,3 @@ def register(app):
         return {
             'THIS_ASSEMBLY': THIS_ASSEMBLY,
         }
-
