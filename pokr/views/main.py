@@ -80,3 +80,6 @@ def register(app):
             'THIS_ASSEMBLY': THIS_ASSEMBLY,
         }
 
+    @app.context_processor
+    def inject_debug():
+            return dict(DEBUG=app.debug)
