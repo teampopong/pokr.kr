@@ -9,7 +9,8 @@ Pokr - Politics in Korea
 
     - Ubuntu
 
-            $ sudo apt-get install nodejs postgresql-9.3 npm python-psycopg2 node-less node-uglify
+            $ sudo apt-get install nodejs postgresql-9.3 npm python-psycopg2 node-less
+            $ sudo npm install -g uglify-js
             $ sudo pip install -r requirements.txt
             $ sudo pip install git+https://github.com/teampopong/popong-nlp.git
             $ sudo make install
