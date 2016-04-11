@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ gettext('People') }} - {{ super() }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ gettext('people') }}
+{% endblock %}
+
+{% block extra_headers %}
+<!-- page css -->
+{% assets filters='cssmin', output='build/datatables.%(version)s.css',
+    'node_modules/datatables/media/css/jquery.dataTables.css',
+    'node_modules/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css',
+    'css/inspinia-datatables.css' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+
+<!-- page js -->
+{% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
+    'node_modules/datatables/media/js/jquery.dataTables.js',
+    'node_modules/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js' %}
+    <script src="{{ASSET_URL}}"></script>
+    <script>
+    $(document).ready(function() {
+        $('#people-list').dataTable();
+    });
+    </script>
+{% endassets %}
+{% endblock %}
+
+{% block content %}
+{% include 'includes/sidebar.html' %}
+<div id="page-wrapper">
+    <div class="row wrapper page-heading">
+        <div class="col-lg-10">
+            <h2>{{ assembly_id }}대 국회 인물</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 tabs-container">
+            <ul class="nav nav-tabs">
+                <li><a href="{{ url_for('person_main', assembly_id=assembly_id) }}"> 사진으로 의원만 보기</a></li>
+                <li class="active"><a href="#"> 목록으로 모든 인물 보기</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="panel-body">
+                        <table id="people-list" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>이름</th>
+                                    <th>성별</th>
+                                    <th>생년</th>
+                                    <th>소속정당</th>
+                                    <th>지역</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for official in officials %}
+                                <tr>
+                                    <td><img src="{{ official.image }}" width="30px"></td>
+                                    <td><a href="{{ url_for('person', id=official.id) }}">{{ official.name }}</a></td>
+                                    <td>{{ official.gender }}</td>
+                                    <td>{{ official.birthday_year }}</td>
+                                    <td>{{ official.cur_party.name | translit(type='party') }}</td>
+                                    <td>{{ official.address[0] }}</td>
+                                    <td><a href="{{ url_for('person', id=official.id) }}" class="label label-info">상세보기</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

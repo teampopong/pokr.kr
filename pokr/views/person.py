@@ -38,6 +38,7 @@ def register(app):
         sort = request.args.get('sort', 'name')
         election_type = request.args.get('election_type', 'assembly')
         assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
+        view_type = request.args.get('type', 'default')
 
         if sort == 'cosponsorship':
             bill_t = Bill.__table__
@@ -72,10 +73,16 @@ def register(app):
             party_count[official.cur_party] += 1
         party_list = [p[0] for p in sorted(party_count.items(), key=lambda x: x[1], reverse=True)]
 
-        return render_template('people.html',
-                                officials=officials,
-                                assembly_id=assembly_id,
-                                party_list=party_list)
+        if view_type=='list':
+            return render_template('people-list.html',
+                                    officials=officials,
+                                    assembly_id=assembly_id,
+                                    party_list=party_list)
+        else:  # default
+            return render_template('people.html',
+                                    officials=officials,
+                                    assembly_id=assembly_id,
+                                    party_list=party_list)
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():

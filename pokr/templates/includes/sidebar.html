@@ -1,3 +1,4 @@
+{% set view_type = request.args.get('type', 'default') %}
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
@@ -6,7 +7,7 @@
             <a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">{{ gettext('people') }}</span> <span class="fa arrow"></span></a>
                 <ul class="subnav">
                 {% for assembly_id_ in range(THIS_ASSEMBLY, 0, -1) %}
-                <li class="btn btn-sm{% if assembly_id_==assembly_id %} active{% endif %}"><a href="{{ url_for('person_main', assembly_id=assembly_id_) }}">{{ assembly_id_ }}{{ gettext('th') }}</a></li>
+                <li class="btn btn-sm{% if assembly_id_==assembly_id %} active{% endif %}"><a href="{{ url_for('person_main', assembly_id=assembly_id_, type=view_type) }}">{{ assembly_id_ }}{{ gettext('th') }}</a></li>
                 {% endfor %}
                 </ul>
             </li>

@@ -4,6 +4,8 @@
   "dependencies": {
     "bootstrap": "x",
     "bootstrap-3-typeahead": "x",
+    "datatables": "x",
+    "datatables-bootstrap3-plugin": "x",
     "d3": "x",
     "font-awesome": "x",
     "jquery": "x"

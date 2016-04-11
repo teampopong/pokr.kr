@@ -9,41 +9,37 @@
 {{ gettext('people') }}
 {% endblock %}
 
-{% block extra_headers %}
-{% assets filters='less', output='build/submain.%(version)s.css',
-    depends=['**/*.less'], 'less/submain.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-{% endassets %}
-{% endblock %}
-
 {% block content %}
 {% include 'includes/sidebar.html' %}
-<div id="page-wrapper" class="row">
-    <div class="ibox float-e-margins">
-        <div class="ibox-content">
-            <div>
-                <span class="pull-right text-right">All people: {{ macro.list_count(officials, type='people') }}</span>
-                <h3 class="font-bold no-margins">{{ assembly_id }}대 국회 의원</h3>
-                <small>사진으로 보는 국회의원 명단.</small>
-            </div>
-            <div id="people-panel" class="span10">
-                {% set items_per_page = 70 %}
-                {% if mobile %}
-                {% set items_per_page = 20 %}
-                {% endif %}
+<div id="page-wrapper">
+    <div class="row wrapper page-heading">
+        <div class="col-lg-10">
+            <h2>{{ assembly_id }}대 국회 인물</h2>
+        </div>
+    </div>
 
-                <div class="itemlist float-list">
-                    {% call(person) macro.list_more(officials, pagesize=400) %}
-                    {{widgets.card(person)|safe}}
-                    {% endcall %}
-                </div>
-
-                <div class="jplist-no-results">
-                    <p>{{ gettext("No people found") }}</p>
-                </div>
-
-                <div class="filters-panel pagination-panel">
-                    <div class="jplist-pagination" data-control-type="pagination" data-control-name="paging" data-control-action="paging" data-items-per-page="{{ items_per_page }}"></div>
+    <div class="row">
+        <div class="col-lg-12 tabs-container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#"> 사진으로 의원만 보기</a></li>
+                <li><a href="{{ url_for('person_main', assembly_id=assembly_id, type='list') }}"> 목록으로 모든 인물 보기</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="panel-body">
+                        <span>{{ macro.list_count(officials, type='people') }}</span>
+                        <div id="people-panel" class="span10">
+                            {% set items_per_page = 70 %}
+                            {% if mobile %}
+                            {% set items_per_page = 20 %}
+                            {% endif %}
+                            <div class="itemlist float-list">
+                                {% call(person) macro.list_more(officials, pagesize=400) %}
+                                {{widgets.card(person)|safe}}
+                                {% endcall %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
