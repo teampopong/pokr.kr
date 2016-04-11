@@ -11,7 +11,7 @@
 
 {% block extra_headers %}
 {% assets filters='less', output='build/bill-submain.%(version)s.css',
-    depends=['**/*.less'], 'less/bill-submain.less', 'less/submain.less' %}
+    depends=['**/*.less'], 'less/bill-submain.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 <script type="text/javascript" src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
 {% endassets %}

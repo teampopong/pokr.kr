@@ -10,8 +10,8 @@
 {% endblock %}
 
 {% block extra_headers %}
-{% assets filters='less', output='build/submain.%(version)s.css',
-    depends=['**/*.less'], 'less/submain.less' %}
+{% assets filters='less', output='build/meeting.%(version)s.css',
+    depends=['**/*.less'], 'less/year.less' %}
 <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 {% endblock %}
