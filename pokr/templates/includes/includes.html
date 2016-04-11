@@ -34,7 +34,7 @@
 {% endif %}
 
 
-{% if DEBUG %}
+{% if config['DEBUG'] %}
     <script src="{{ url_for('static', filename='/node_modules/jquery/dist/jquery.min.js') }}"></script>
 {% else %}
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js?ver=2.2.2'></script>
