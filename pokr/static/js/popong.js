@@ -90,17 +90,6 @@ $.fn.removeSvgClass = function (className) {
     }
 };
 
-$('.btn-show').live('click.show', function () {
-    var $this = $(this),
-        target = $this.data('target'),
-        $target = $(target);
-
-    $this.toggleClass('active');
-    $target.toggleClass('hide');
-
-    return false;
-});
-
 window.getRandomColor = function () {
     // source: http://stackoverflow.com/questions/1484506/random-color-generator-in-javascript
     var letters = '0123456789ABCDEF'.split('');

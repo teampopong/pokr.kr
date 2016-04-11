@@ -2,7 +2,7 @@
 
 // event triggers
 if (!isMobile) {
-    $('a.person-link').live('click.linkPerson', function (e) {
+    $('div.card').on('click.linkPerson', 'a.person-link', function (e) {
         var $this = $(this);
 
         // Preserve hashtag if the current page is of a person
