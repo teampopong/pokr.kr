@@ -28,7 +28,7 @@ def register(app):
         user = getattr(g, 'user')
         return {
             'user': user,
-            'is_logged': user and not user.is_anonymous()
+            'is_logged': user and user.is_authenticated
         }
 
     app.context_processor(backends)
