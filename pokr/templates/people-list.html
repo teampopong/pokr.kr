@@ -17,6 +17,18 @@
     'css/inspinia-datatables.css' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
+<style>
+    .paginate_button {
+        display: inline !important;
+        margin-left: 0 !important;
+        padding: initial !important;
+    }
+
+    .paginate_button:hover {
+        border: 1px solid transparent !important;
+        color: black !important;
+    }
+</style>
 
 <!-- page js -->
 {% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
@@ -65,7 +77,7 @@ $(document).ready(function() {
                             <tbody>
                                 {% for official in officials %}
                                 <tr>
-                                    <td><img src="{{ official.image }}" width="30px"></td>
+                                    <td><img src="{{ official.image }}" width="30px" height="40px"></td>
                                     <td><a href="{{ url_for('person', id=official.id) }}">{{ official.name }}</a></td>
                                     <td>{{ official.gender }}</td>
                                     <td>{{ official.birthday_year }}</td>
