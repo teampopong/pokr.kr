@@ -1,79 +1,53 @@
 {% import 'macros.html' as macro with context %}
 {% set NUM_BILLS_SHOWN = 10 %}
 
-{% if mobile %}
-    {% for candidacy in person.candidacies %}
-        {% if candidacy.is_elected %}
-            {% set all_bills = PersonController.bills_of(person, candidacy.assembly_id) %}
-            {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
-            {% if bills %}
-            <h4 class="subsection-title">
-                {{ candidacy.assembly_id }}{{ gettext('th assembly') }}
-                <small>{{ macro.list_count(all_bills) }}</small>
-                <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.assembly_id))|safe }}
-            </h4>
-            <table class="table table-condensed">
+{% for candidacy in person.candidacies %}
+{% if candidacy.is_elected %}
+
+{% set all_bills = PersonController.bills_of(person, candidacy.assembly_id) %}
+{% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
+
+<div class="row">
+    <div class="col-md-2">
+        <h2 id="legislations-{{ candidacy.assembly_id }}" class="anchor" rowspan="{{ bills|length + 1 }}">
+            {{ candidacy.assembly_id }}</b>{{ gettext('th assembly') }}
+        </h2>
+        {{ macro.list_count(all_bills) }}
+        {{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.assembly_id))|safe }}
+    </div>
+    <div class="col-md-10">
+        <table id="person-legislations" class="table table-condensed">
+            <thead>
                 <tr>
-                    <th>{{ gettext('proposed date') }}</th>
-                    <th>{{ gettext('title') }}</th>
+                    <th id="bill-title">{{gettext('title')}}</th>
+                    <th id="bill-proposed-date">{{gettext('proposed date')}}</th>
+                    <th id="bill-role">{{gettext('role')}}</th>
                 </tr>
+            </thead>
+            <tbody>
+            {% if bills %}
                 {% for bill in bills[:NUM_BILLS_SHOWN] %}
                 <tr>
-                    <td>{{ bill.proposed_date }}</td>
                     <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
+                    <td>{{ bill.proposed_date }}</td>
+                    <td>
+                        {% if bill.sponsor.startswith(person.name) %}
+                        {{ gettext("representative sponsor") }}
+                        {% else %}
+                        {{ gettext("sponsor") }}
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
                 {% if bills|length > NUM_BILLS_SHOWN %}
-                <tr><td colspan="2" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.assembly_id, person_id=person.id) }}">{{ gettext('more') }}</a></td></tr>
-            </table>
-            {% endif %}
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-{% else %}
-<table id="person-legislations" class="table table-condensed">
-    <thead>
-        <tr>
-            <th></th>
-            <th id="bill-title">{{gettext('title')}}</th>
-            <th id="bill-proposed-date">{{gettext('proposed date')}}</th>
-            <th id="bill-role">{{gettext('role')}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for candidacy in person.candidacies %}
-            {% if candidacy.is_elected %}
-                {% set all_bills = PersonController.bills_of(person, candidacy.assembly_id) %}
-                {% set bills = all_bills.limit(NUM_BILLS_SHOWN + 1).all() %}
-                {% if bills %}
-                    <tr>
-                        <th id="legislations-{{ candidacy.assembly_id }}" class="anchor" rowspan="{{ bills|length + 1 }}">
-                            {{ candidacy.assembly_id }}{{ gettext('th assembly') }}
-                            <br>{{ macro.list_count(all_bills) }}
-                            <br>{{ widgets.histogram(all_bills.count(), distribution_of_cosponsorships(candidacy.assembly_id))|safe }}
-                        </th>
-                    </tr>
-                    {% for bill in bills[:NUM_BILLS_SHOWN] %}
-                    <tr>
-                        <td><a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a></td>
-                        <td>{{ bill.proposed_date }}</td>
-                        <td>
-                            {% if bill.sponsor.startswith(person.name) %}
-                            {{ gettext("representative sponsor") }}
-                            {% else %}
-                            {{ gettext("sponsor") }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    {% if bills|length > NUM_BILLS_SHOWN %}
-                    <tr>
-                        <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.assembly_id, person_id=person.id) }}">{{ gettext('more') }}</a></td>
-                    </tr>
-                    {% endif %}
+                <tr>
+                    <td colspan="3" class="btn-more"><a href="{{ url_for('search', target='bills', assembly_id=candidacy.assembly_id, person_id=person.id) }}">{{ gettext('more') }}</a></td>
+                </tr>
                 {% endif %}
             {% endif %}
-        {% endfor %}
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endif %}
+{% endfor %}
