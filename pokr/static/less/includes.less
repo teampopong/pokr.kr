@@ -54,6 +54,15 @@
     -ms-behavior: url('static/backgroundsize.min.htc');
 }
 
+.grayscale (@opacity: 0.2) {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    opacity: @opacity;
+}
+
 .width-calc (@exp, @fallback) {
     width: @fallback;
     width: -webkit-calc(@exp);
@@ -85,6 +94,10 @@
     box-shadow: 1px 1px rgba(192, 192, 192, 0.3);
 }
 
+.transparent {
+    background: transparent;
+}
+
 .inner-shadow {
     box-shadow: inset 1px 1px 0 rgba(0,0,0,0.05);
 }
@@ -92,7 +105,6 @@
 .glow {
     box-shadow: 0px 0px 15px 5px rgba(192, 192, 192, 0.3);
 }
-
 
 .framed {
     border: 1px solid @border_color;
@@ -169,4 +181,3 @@
 .shrink {
     font-size: @spec_size;
 }
-

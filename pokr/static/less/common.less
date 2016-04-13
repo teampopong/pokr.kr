@@ -100,6 +100,17 @@ svg circle:hover {
     border-bottom: 1px dashed #555;
 }
 
+.badges {
+    .badge {
+        background: transparent;
+        color: @bottom_color;
+        width: 50px;
+        img:not(.active) {
+            .grayscale;
+        }
+    }
+}
+
 .bg-whitesmoke {
     background-color: whitesmoke;
 }

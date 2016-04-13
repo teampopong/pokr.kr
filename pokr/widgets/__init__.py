@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+from .badge import badge, badges
 from .bubble import bubble
 from .card import card
 from .histogram import histogram
@@ -14,6 +15,8 @@ __all__ = ['init_app']
 
 
 widgets = {
+    'badge': badge,
+    'badges': badges,
     'bubble': bubble,
     'card': card,
     'histogram': histogram,

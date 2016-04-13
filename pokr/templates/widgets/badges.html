@@ -1,0 +1,18 @@
+<div class="badges m-t-sm m-r-lg">
+    <div class="badge">
+        <img{% if 'official' in roles %} class="active"{% endif %} src="{{ url_for('static', filename='images/badges/full-star-180x180.png') }}" width="{{ width }}px">
+        <p class="small m-t-xs">현직의원</p>
+    </div>
+    <div class="badge">
+        <img{% if 'proportional' in roles %} class="active"{% endif %} src="{{ url_for('static', filename='images/badges/team-work-180x180.png') }}" width="{{ width }}px">
+        <p class="small m-t-xs">비례대표</p>
+    </div>
+    <div class="badge">
+        <img{% if 'committee-head' in roles %} class="active"{% endif %} src="{{ url_for('static', filename='images/badges/leadership-180x180.png') }}" width="{{ width }}px">
+        <p class="small m-t-xs">위원회장</p>
+    </div>
+    <div class="badge">
+        <img{% if 'assembly-head' in roles %} class="active"{% endif %} src="{{ url_for('static', filename='images/badges/legal-180x180.png') }}" width="{{ width }}px">
+        <p class="small m-t-xs">위원장</p>
+    </div>
+</div>

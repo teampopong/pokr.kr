@@ -32,13 +32,12 @@
 {% block content %}
 <div>
     <div class="row m-lg">
-        <div class="col-md-6">
-            <div class="profile-image">
-                {{ widgets.card(person, detailed=True)|safe }}
-            </div>
-            <div class="profile-info">
-                {% include 'person-profile.html' %}
-            </div>
+        <div class="col-md-2">
+            {{ widgets.card(person, detailed=True)|safe }}
+            {{ widgets.badges(person.roles)|safe }}
+        </div>
+        <div class="col-md-4">
+            {% include 'person-profile.html' %}
         </div>
         <div class="col-md-3">
             <table class="table small m-b-xs">

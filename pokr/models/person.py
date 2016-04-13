@@ -20,6 +20,7 @@ from .candidacy import Candidacy
 from .cosponsorship import cosponsorship
 from .party import Party
 from .party_affiliation import PartyAffiliation
+from settings import THIS_ASSEMBLY
 
 
 class Person(Base):
@@ -108,3 +109,12 @@ class Person(Base):
     def cur_party(self):
         return self.parties.first()
 
+    @property
+    def roles(self):
+        r = []
+        assembly_ids = [c.assembly_id for c in self.candidacies if c.is_elected]
+        if THIS_ASSEMBLY in assembly_ids:
+            r.append('official')
+        if self.candidacies[0].district[0]==u'비례대표':
+            r.append('proportional')
+        return r

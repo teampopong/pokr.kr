@@ -1,0 +1,11 @@
+License
+
+MoodleBadges Free are released under the Creative Commons Attribution 3.0 Unported (CC BY 3.0). MoodleBadges Free can be used both commercially and for personal use, but you must always add a link to moodlebadges.com in a prominent place (e.g. the footer of the site), include the CC-BY license and the reference to moodlebadges.com on every page using MoodleBadges.
+
+In Moodle this is easy. Login as a Site administrator. In the Administrator/Settings block enter in the search field additionalhtmlfooter and hit the Search button. Alternatively you can find this setting by navigating on the Site administration menu to Appearance then Additional HTML then find the setting called Before BODY is closed
+
+Copy and paste the following code and hit Save changes button.
+
+<p>Badges from <a href="http://moodlebadges.com">MoodleBadges.com</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/"><img style="vertical-align:middle;" src="http://moodlebadges.com/cc" alt="Creative Commons" /></a></p>
+
+Enjoy!
