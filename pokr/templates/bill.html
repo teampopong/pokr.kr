@@ -55,6 +55,14 @@
                     <td>{{ bill.assembly_id }}</td>
                 </tr>
                 {% endif %}
+                <tr>
+                    <th>발의주체</th>
+                    {% if bill.cosponsors %}
+                    <td>의원</td>
+                    {% else %}
+                    <td>{{ bill.sponsor }}</td>
+                    {% endif %}
+                </tr>
                 {% if bill.status %}
                 <tr>
                     <th>상태</th>
@@ -91,6 +99,7 @@
     </div>
 </div>
 
+{% if bill.cosponsors %}
 <div class="row">
     <div class="col-lg-9">
         <div class="ibox">
@@ -138,6 +147,7 @@
         </div>
     </div>
 </div>
+{% endif %}
 
 <div class="ibox">
     <div class="ibox-title">

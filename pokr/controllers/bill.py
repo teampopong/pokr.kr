@@ -7,7 +7,7 @@ from .base import Controller
 
 
 TITLE_WORDS = ['제안이유', '주요내용']
-SUMMARY_SIZE = 200
+SUMMARY_SIZE = 140
 
 
 class BillController(Controller):
