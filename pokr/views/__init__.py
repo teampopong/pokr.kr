@@ -15,3 +15,4 @@ def init_app(app):
     from .person import register; register(app)
     from .region import register; register(app)
     from .search import register; register(app)
+    from .statement import register; register(app)

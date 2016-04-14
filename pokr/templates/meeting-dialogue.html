@@ -23,6 +23,7 @@
         <div class="dialogue">
         {% with guids = guid_factory() %}
         {% for row in meeting.dialogue %}
+
             {% if row.type=='issue' %}
             <div id="{{ loop.index }}" class="issue">
                 {% for item in row.content.rsplit('(', 1) %}
@@ -33,6 +34,7 @@
                     {% endif %}
                 {% endfor %}
                 <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+
             {% elif row.type=='statement' %}
             <div id="{{ row.id }}" class="statement">
                 <div class="speaker">
@@ -51,10 +53,15 @@
                     {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
                     {% endfor %}
                 </div>
-                <div class="links"><a href="#{{ row.id }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+                <div class="links">
+                    <a href="{{ url_for('statement', id=row.id) }}"><i class="fa fa-link"></i> 이 발언 따로보기</a>
+                    <a href="#{{ row.id }}"><i class="fa fa-link"></i> Permalink</a>
+                </div>
+
             {% elif row.type=='time' %}
             <div id="{{ loop.index }}" class="time">{{ row.content }}
                 <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+
             {% else %}
             <div id="{{ loop.index }}" class="unknown">{{ row.content }}
                 <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>

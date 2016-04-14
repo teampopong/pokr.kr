@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+발언 - {{ super() }}
+{% endblock %}
+
+{% block meta_headers %}
+<meta property="og:title" content="발언 - 대한민국 정치의 모든 것" />
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ statement.id }}
+{% endblock %}
+
+{% block content %}
+<div class="row m-lg">
+    <div class="col-md-3">
+        <h3>
+
+            {% if statement.person_id %}
+            <a href="{{ url_for('person', id=statement.person_id) }}">{{ statement.speaker }}</a>
+            {% else %}
+            {{ statement.speaker }}
+            {% endif %}
+        </h3>
+    </div>
+    <div class="col-md-9">
+        <div class="contact-box">
+            <!-- TODO: functionize -->
+            {% for sentence in statement.content.split('.') %}
+            {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
+            {% endfor %}
+        </div>
+        <a class="btn btn-info" href="{{ url_for('meeting_dialogue', id=statement.meeting_id) }}#{{ statement.id }}">대화 맥락 보기</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+발언 - {{ super() }}
+{% endblock %}
+
+{% block meta_headers %}
+<meta property="og:title" content="발언 - 대한민국 정치의 모든 것" />
+{% endblock %}
+
+{% block breadcrumb_current %}
+발언
+{% endblock %}
+
+{% block content %}
+{% include 'includes/sidebar.html' %}
+<div id="page-wrapper" class="ibox">
+    <div class="ibox-title">
+        발언
+    </div>
+    <div class="ibox-content">
+        <table class="table">
+            <tr>
+                <th>발언자</th>
+                <th>내용</th>
+                <th>장소</th>
+                <th></th>
+            </tr>
+            {% for statement in statements[:10] %}
+            <tr>
+                <td>
+                    {% if statement.person_id %}
+                    <a href="{{ url_for('person', id=statement.person_id) }}">{{ statement.speaker }}</a>
+                    {% else %}
+                    {{ statement.speaker }}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ statement.content[:30] }}...
+                    <a href="{{ url_for('statement', id=statement.id) }}">더보기</a>
+                </td>
+                <td><a href="{{ url_for('meeting', id=statement.meeting_id) }}">{{ statement.meeting_id }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
