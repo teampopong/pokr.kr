@@ -240,9 +240,10 @@ nav.navbar-static-side {
     background: white;
 }
 
-#beta-banner a {
+#beta-banner span {
     background: @color_navy;
     color: #fff;
+    cursor: default;
     text-decoration: none;
     font-family: arial,sans-serif;
     text-align: center;
@@ -254,13 +255,13 @@ nav.navbar-static-side {
     transition: 0.5s;
 }
 
-#beta-banner a:hover {
+#beta-banner span:hover {
     background: @color_darknavy;
     color: #fff;
 }
 
-#beta-banner a::before,
-#beta-banner a::after {
+#beta-banner span::before,
+#beta-banner span::after {
     content: "";
     width: 100%;
     display: block;
@@ -271,7 +272,7 @@ nav.navbar-static-side {
     background: #fff;
 }
 
-#beta-banner a::after {
+#beta-banner span::after {
     bottom: 1px;
     top: auto;
 }
@@ -298,7 +299,7 @@ nav.navbar-static-side {
     z-index: 9999;
 }
 
-#beta-banner a {
+#beta-banner span {
     width: 100px;
     position: absolute;
     top: 5px;
