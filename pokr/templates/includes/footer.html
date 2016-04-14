@@ -1,17 +1,26 @@
-<div id="footer">
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
-    <p id="copyright"><a href="http://popong.com/">Team POPONG</a>. 2013-{{ today.strftime('%Y') }}.</p>
-    {% if not mobile %}
-    <p class="pull-right">
+<div id="footer" class="row m-t-lg m-b-lg">
+    <div class="col-md-3">
+        <a href="http://popong.com">
+            <img src="{{ url_for('static', filename='images/logo-popong-v4.0.svg') }}" width="120px">
+            <p class="m-l-lg">A <b>Team POPONG</b> project. 2013-{{ today.strftime('%Y') }}.</p>
+        </a>
+    </div>
+    <div class="col-md-6">
+        <span>팀포퐁은 기술을 바탕으로 정치를 보다 쉽고 재미있게 하기 위한 비영리, 무소속의 중립적 단체입니다. 이 웹사이트는 대한민국 정부에서 만든 것이 아닙니다.
+         Team POPONG is a nonprofit, nonpartisan group in Korea that aims to make politics easy and fun via technology.
+         This website was NOT made by the government.
+         <span>
+    </div>
+    <div class="col-md-3">
+        <div class="pull-right">
         <a href="http://data.popong.com">Data</a> |
         <a href="http://github.com/teampopong/pokr.kr">Code</a> |
         <a href="{{ url_for('sources') }}">Sources</a> |
         <a href="{{ url_for('terms') }}">Terms</a> |
-        <a href="{{ url_for('privacy') }}" target="_blank">Privacy</a>
-    </p>
-    {% endif %}
-    {% if not mobile and locale=="ko" %}
-    {% endif %}
+        <a href="{{ url_for('privacy') }}" target="_blank">Privacy</a> |
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+        </div>
+    </div>
 </div>
 
 {% if not mobile %}
