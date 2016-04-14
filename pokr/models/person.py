@@ -110,7 +110,12 @@ class Person(Base):
         return self.parties.first()
 
     @property
+    def nelected(self):
+        return len([c.assembly_id for c in self.candidacies if c.is_elected])
+
+    @property
     def roles(self):
+        # for badges
         r = []
         assembly_ids = [c.assembly_id for c in self.candidacies if c.is_elected]
         if THIS_ASSEMBLY in assembly_ids:

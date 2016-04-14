@@ -70,6 +70,7 @@ $(document).ready(function() {
                                     <th>성별</th>
                                     <th>생년</th>
                                     <th>소속정당</th>
+                                    <th>총선 당선횟수</th>
                                     <th>지역</th>
                                     <th></th>
                                 </tr>
@@ -82,6 +83,7 @@ $(document).ready(function() {
                                     <td>{{ official.gender }}</td>
                                     <td>{{ official.birthday_year }}</td>
                                     <td>{{ official.cur_party.name | translit(type='party') }}</td>
+                                    <td>{{ official.nelected }}회</td>
                                     <td>{{ official.address[0] }}</td>
                                     <td><a href="{{ url_for('person', id=official.id) }}" class="label label-info">상세보기</a></td>
                                 </tr>
