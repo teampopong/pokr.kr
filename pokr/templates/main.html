@@ -20,7 +20,11 @@ depends=['**/*.less'], 'less/main.less' %}
         <div class="ibox float-e-margins">
             <div class="ibox-content text-center p-md">
                 <h2>{{ gettext('Get Korean legislative information, all in one place') }}</h2>
-                <p>{{ gettext('Search for up to <b>%s</b> legislators, <b>%s</b> bills, <b>%s</b> meeting logs and more!' % (npeople, nbills, nmeetings)) }}</p>
+                <p>
+                    <a href="{{ url_for('person_main') }}"><b class="text-success">{{ npeople }}</b> 명의 정치인</a>,
+                    <a href="{{ url_for('bill_main') }}"><b class="text-navy">{{ nbills }}</b> 개의 의안</a>,
+                    <a href="{{ url_for('meeting_main') }}"><b class="text-warning">{{ nmeetings }} </b> 개의 회의록</a>을 손쉽게 탐색해보세요!
+                </p>
             </div>
         </div>
     </div>
