@@ -48,6 +48,10 @@
                     <th>{{ gettext('duration time') }}</th>
                     <td>{{ meeting.duration }}</td>
                 </tr>
+                <tr>
+                    <th>참석 의원 수</th>
+                    <td>{{ meeting.attendees|length }}명</td>
+                </tr>
             </tbody>
         </table>
     </div>
