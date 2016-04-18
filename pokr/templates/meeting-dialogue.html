@@ -49,7 +49,7 @@
                     <div class="person-name">{{ row.person }}</div>
                 </div>
                 <div class="content glossary">
-                    {% for sentence in row.content.split('.') %}
+                    {% for sentence in row.content.split('. ') %}
                     {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
                     {% endfor %}
                 </div>

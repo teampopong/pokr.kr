@@ -13,6 +13,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from pokr.cache import cache
 from pokr.database import db_session
 from pokr.models.statement import Statement
+from pokr.views.meeting import generate_glossary_js
 from pokr.widgets.year import year
 from utils.jinja import breadcrumb
 
@@ -31,9 +32,10 @@ def register(app):
     @app.route('/statement/<id>', methods=['GET'])
     @breadcrumb(app, 'statement')
     def statement(id):
+        glossary_js = generate_glossary_js()
         try:
             statement = Statement.query.filter_by(id=id).one()
         except NoResultFound, e:
             abort(404)
 
-        return render_template('statement.html', statement=statement)
+        return render_template('statement.html', statement=statement, glossary_js=glossary_js)
