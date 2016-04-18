@@ -24,14 +24,14 @@
 </div>
 
 {% if not mobile %}
+<!-- typeahead -->
 <script>
-if (typeof $.fn.typeahead == 'function') {
-    $('input#top-search').typeahead({
-        name: 'people_names',
-        prefetch: "{{ url_for('person_all_names') }}"
-    });
-}
+$.get('{{ url_for("person_all_names") }}', function(data) {
+    $("input#top-search").typeahead({ source: data });
+},'json');
 </script>
+
+<!-- browser update script -->
 <script type="text/javascript">
 var $buoop = {
     l: "ko"
