@@ -25,7 +25,7 @@
         {% for row in meeting.dialogue %}
 
             {% if row.type=='issue' %}
-            <div id="{{ loop.index }}" class="issue">
+            <div id="{{ loop.index }}" class="issue hl-wrapper">
                 {% for item in row.content.rsplit('(', 1) %}
                     {% if loop.first %}
                     <p class="no-margin">{{ item }}</p>
@@ -33,10 +33,10 @@
                     <p class="indent-12 no-margin">({{ item }}</p>
                     {% endif %}
                 {% endfor %}
-                <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+                <div class="hidden-links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
 
             {% elif row.type=='statement' %}
-            <div id="{{ row.id }}" class="statement">
+            <div id="{{ row.id }}" class="statement hl-wrapper">
                 <div class="speaker">
                     <!-- TODO: guess_person by name and input person_id to db -->
                     {% if row.person_id %}
@@ -53,18 +53,18 @@
                     {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
                     {% endfor %}
                 </div>
-                <div class="links">
+                <div class="hidden-links m-sm">
                     <a href="{{ url_for('statement', id=row.id) }}"><i class="fa fa-link"></i> 이 발언 따로보기</a>
-                    <a href="#{{ row.id }}"><i class="fa fa-link"></i> Permalink</a>
+                    <a href="#{{ row.id }}"><i class="fa fa-link"></i> {{ gettext('link') }}</a>
                 </div>
 
             {% elif row.type=='time' %}
-            <div id="{{ loop.index }}" class="time">{{ row.content }}
-                <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+            <div id="{{ loop.index }}" class="time hl-wrapper">{{ row.content }}
+                <div class="hidden-links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
 
             {% else %}
-            <div id="{{ loop.index }}" class="unknown">{{ row.content }}
-                <div class="links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
+            <div id="{{ loop.index }}" class="unknown hl-wrapper">{{ row.content }}
+                <div class="hidden-links"><a href="#{{ loop.index }}"><i class="fa fa-link">&nbsp;{{ gettext('link') }}</i></a></div>
             {% endif %}
             </div>
         {% endfor %}

@@ -11,10 +11,14 @@
         {% with statements = sorted_statements[:NUM_STATEMENTS_SHOWN + 1] %}
         {% if statements %}
             {% for statement in statements[:NUM_STATEMENTS_SHOWN] %}
-            <tr>
+            <tr class="hl-wrapper">
                 <td><a href="{{ statement.url }}dialog#{{ statement.id }}">{{ statement.date }}</a></td>
                 <td>
-                {{ macro.statement_content(statement.content) }}
+                    <div class="hidden-links pull-right">
+                        <a href="{{ url_for('statement', id=statement.id) }}"><i class="fa fa-link"></i> 이 발언 따로보기</a>
+                        <a href="#{{ statement.id }}"><i class="fa fa-link"></i> {{ gettext('link') }}</a>
+                    </div>
+                    {{ macro.statement_content(statement.content) }}
                 </td>
             </tr>
             {% endfor %}

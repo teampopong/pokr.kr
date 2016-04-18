@@ -10,8 +10,22 @@ body {
     margin-right: auto;
 }
 
-.dialogue > div {
-    .links {
+.hl-wrapper {
+    .hidden-links {
         display: none;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    &:hover {
+        .hidden-links {
+            display: block;
+        }
+    }
+}
+
+#section-statements {
+    .hidden-links {
+        position: inherit;
     }
 }
