@@ -13,7 +13,7 @@ from pokr.database import db_session
 from pokr.models.bill import Bill
 from pokr.models.meeting import Meeting
 from pokr.models.person import Person
-from settings import THIS_ASSEMBLY
+from settings import FEEDBACK_URL, THIS_ASSEMBLY
 
 year_re = re.compile(r'[1-9][0-9]{3}')
 
@@ -77,5 +77,6 @@ def register(app):
     @app.context_processor
     def inject_assembly():
         return {
+            'FEEDBACK_URL': FEEDBACK_URL,
             'THIS_ASSEMBLY': THIS_ASSEMBLY,
         }

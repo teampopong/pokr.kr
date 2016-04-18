@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+# Site settings
+FEEDBACK_URL = 'https://github.com/teampopong/pokr.kr/issues'
+
 # Current assembly_id
 THIS_ASSEMBLY = 20
 

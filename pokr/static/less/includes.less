@@ -90,16 +90,18 @@
     background: rgba(@r,@g,@b,@a);
 }
 
-.box-shadow {
-    box-shadow: 1px 1px rgba(192, 192, 192, 0.3);
+.box-shadow (@gray: 192, @opacity: 0.3) {
+    box-shadow: 1px 1px rgba(@gray, @gray, @gray, @opacity);
 }
 
-.transparent {
-    background: transparent;
+.inner-shadow (@gray: 0, @opacity: 0.05) {
+    box-shadow: inset 1px 1px 0 rgba(@gray, @gray, @gray, @opacity);
 }
 
-.inner-shadow {
-    box-shadow: inset 1px 1px 0 rgba(0,0,0,0.05);
+.outer-shadow {
+    box-shadow:inset rgba(255, 255, 255, .25) 1px 1px 1px, rgba(0, 0, 0, .5) 0 1px 2px;
+    -moz-box-shadow: inset rgba(255, 255, 255, .25) 1px 1px 1px,  rgba(0, 0, 0, .5) 0 1px 2px;
+    -webkit-box-shadow:inset rgba(255, 255, 255, .25) 1px 1px 1px,  rgba(0, 0, 0, .5) 0 1px 2px;
 }
 
 .glow {
@@ -135,6 +137,11 @@
 .clear {
     clear: both;
 }
+
+.transparent {
+    background: transparent;
+}
+
 
 #banner {
     position: absolute;
