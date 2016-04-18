@@ -117,7 +117,7 @@
             </td>
         </tr>
         {% endif %}
-        
+
         {% if not target or target == 'regions' %}
         <tr>
             <th>
@@ -136,7 +136,7 @@
             </td>
         </tr>
         {% endif %}
-        
+
         {% if not target or target == 'schools' %}
         <tr>
             <th>
@@ -175,26 +175,6 @@
             </td>
         </tr>
         {% endif %}
-
-        {% if not target or target == 'statements' %}
-        <tr>
-            <th>
-                {{ gettext('Statement') }}
-                <br>{{ macro.list_count(statements) }}
-            </th>
-            <td>{% if target %}
-                    {% call(statement) macro.list_pagenav(statements, layout='table') %}
-                    {{ macro.meeting_statement(statement) }}
-                    {% endcall %}
-                {% else %}
-                    {% call(statement) macro.list_more(statements, url_for_query(target='statements'), layout='table', pagesize=5) %}
-                    {{ macro.meeting_statement(statement) }}
-                    {% endcall %}
-                {% endif %}
-            </td>
-        </tr>
-        {% endif %}
-
     </tbody>
 </table>
 <script>
