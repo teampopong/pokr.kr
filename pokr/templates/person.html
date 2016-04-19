@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% set has_bills = PersonController.bills_of(person).limit(1).all() %}
-{% set party_history = PersonController.party_history(person) %}
 
 {% block title %}
 {{person.name|translit(type='name')}}{% if person.cur_party.name %} ({{person.cur_party.name|translit(type='party')}}){% endif %}{% if person.last_elected_no %}, {{gettext('Member of %(last_elected_no)dth National Assembly,', last_elected_no=person.last_elected_no)}}{% endif %} - {{super()}}

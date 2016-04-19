@@ -1,3 +1,5 @@
+{% set party_history = PersonController.party_history(person) %}
+
 <table id="person-profile" class="table table-condensed">
     <tbody>
         <tr>
@@ -12,7 +14,7 @@
             <th>{{ gettext("party") }}</th>
             {% if party_history %}
             <td>
-                <ul class="unstyled nomargin">
+                <ul class="unstyled no-padding">
                     <li><a href="{{ url_for('party', id=person.cur_party.id) }}">{{ person.cur_party.name|translit(type='party') }}</a></li>
                 {% for party, min_assembly_id, max_assembly_id in party_history %}
                     <li class="extra"><span class="search-count">{{ gettext('%(assembly_id)dth', assembly_id=min_assembly_id) }}{% if min_assembly_id != max_assembly_id %} - {{ gettext('%(assembly_id)dth', assembly_id=max_assembly_id) }}{% endif %}</span>
