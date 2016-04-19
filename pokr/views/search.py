@@ -21,6 +21,7 @@ from pokr.models.party import Party
 from pokr.models.person import Person
 from pokr.models.region import Region
 from pokr.models.school import School
+from pokr.models.statement import Statement
 from pokr.models.query_log import log_query
 from utils.jinja import breadcrumb
 
@@ -45,6 +46,7 @@ def register(app):
             results['bills']  , options['bills']   = search_bills()
             results['regions'], options['regions'] = search_regions()
             results['meetings'], options['meetings'] = search_meetings()
+            results['statements'], options['statements'] = search_statements()
 
             options = dict(chain(*(d.iteritems() for d in options.itervalues())))
             response = render_template('search-results.html',
@@ -190,6 +192,26 @@ def register(app):
                         .filter(Meeting.committee.like(u'%{0}%'.format(query)))\
                         .group_by(Meeting.id).order_by(desc(Meeting.date))
         return (meetings, options)
+
+    @if_target('statements')
+    def search_statements():
+        options = {}
+        person_id = request.args.get('person_id')
+
+        statements = Statement.query.join(Meeting)\
+                        .order_by(Meeting.date.desc().nullslast(),\
+                                  Statement.sequence)
+
+        if query:
+            statements = statements\
+                        .filter(Statement.content.like(u'%{0}%'.format(query)))
+
+        if person_id:
+            statements = statements.filter(Statement.person_id==person_id)
+            options['person_id'] =\
+                    Person.query.filter_by(id=person_id).one().name
+
+        return (statements, options)
 
 
 def if_target(target_):
