@@ -29,12 +29,12 @@
                     <div class="panel-body">
                         <span>{{ macro.list_count(officials, type='people') }}</span>
                         <div id="people-panel" class="span10">
-                            {% set items_per_page = 70 %}
-                            {% if mobile %}
-                            {% set items_per_page = 20 %}
-                            {% endif %}
                             <div class="itemlist float-list">
-                                {% call(person) macro.list_more(officials, pagesize=400) %}
+                                {% set items_per_page = 70 %}
+                                {% if mobile %}
+                                {% set items_per_page = 20 %}
+                                {% endif %}
+                                {% call(person) macro.list_more(officials, pagesize=items_per_page) %}
                                 {{widgets.card(person)|safe}}
                                 {% endcall %}
                             </div>

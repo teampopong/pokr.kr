@@ -35,54 +35,30 @@ def register(app):
     @app.route('/person/', methods=['GET'])
     @breadcrumb(app)
     def person_main():
-        sort = request.args.get('sort', 'name')
         election_type = request.args.get('election_type', 'assembly')
         assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
         view_type = request.args.get('type', 'default')
 
-        if sort == 'cosponsorship':
-            bill_t = Bill.__table__
-            cosponsorship_count = db_session.query(
-                        cosponsorship.c.person_id,
-                        func.count(cosponsorship.c.id).label('cosponsorship_count')
-                    )\
-                .outerjoin(bill_t)\
-                .filter(bill_t.c.assembly_id == assembly_id)\
-                .group_by(cosponsorship.c.person_id)\
-                .subquery('cosponsorship_count')
-
-            officials = Person.query.order_by(
-                                            desc(func.coalesce(func.sum(cosponsorship_count.c.cosponsorship_count), 0))
-                                        )\
-                                    .join(Candidacy)\
-                                    .outerjoin(cosponsorship_count)\
-                                    .filter(and_(Candidacy.type == election_type,
-                                                 Candidacy.assembly_id == assembly_id,
-                                                 Candidacy.is_elected == True))\
-                                    .group_by(Person.id)
-        else:
-            officials = Person.query.order_by(Person.name)\
-                                    .join(Candidacy)\
-                                    .filter(and_(Candidacy.type == election_type,
-                                                 Candidacy.assembly_id == assembly_id,
-                                                 Candidacy.is_elected == True))
-
-        # party list
-        party_count = defaultdict(int)
-        for official in officials:
-            party_count[official.cur_party] += 1
-        party_list = [p[0] for p in sorted(party_count.items(), key=lambda x: x[1], reverse=True)]
+        officials = Person.query.order_by(Person.name)\
+                                .join(Candidacy)\
+                                .filter(and_(Candidacy.type==election_type,
+                                             Candidacy.assembly_id==assembly_id,
+                                             Candidacy.is_elected==True))
 
         if view_type=='list':
             return render_template('people-list.html',
                                     officials=officials,
-                                    assembly_id=assembly_id,
-                                    party_list=party_list)
-        else:  # default
+                                    assembly_id=assembly_id)
+
+        elif view_type=='card':
             return render_template('people.html',
                                     officials=officials,
-                                    assembly_id=assembly_id,
-                                    party_list=party_list)
+                                    assembly_id=assembly_id)
+
+        else:  # default
+            return render_template('people-list.html',
+                                    officials=officials,
+                                    assembly_id=assembly_id)
 
     @app.route('/person/all-names.json', methods=['GET'])
     def person_all_names():
