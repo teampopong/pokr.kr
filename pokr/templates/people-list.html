@@ -13,11 +13,14 @@
 <!-- page css -->
 {% assets filters='cssmin', output='build/datatables.%(version)s.css',
     'node_modules/datatables/media/css/jquery.dataTables.css',
-    'node_modules/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css',
-    'css/inspinia-datatables.css' %}
+    'node_modules/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 <style>
+    .dataTable tbody tr {
+        height: 60px;
+    }
+
     .paginate_button {
         display: inline !important;
         margin-left: 0 !important;
@@ -39,7 +42,31 @@
 
 <script>
 $(document).ready(function() {
-    $('#people-list').dataTable();
+    var table_name = 'people_list';
+    $('#people-list').dataTable({
+        'processing': true,
+        'serverSide': true,
+        'ajax': '{{ url_for("people_list", assembly_id=assembly_id) }}',
+        'order': [],  // disable initial sorting
+        'asStripeClasses': '',
+        'columns': [
+            { 'data': 'image', 'orderable': false },
+            { 'data': 'name' },
+            { 'data': 'gender' },
+            { 'data': 'birthday' },
+            { 'data': 'cur_party' },
+            { 'data': 'nelected' }
+        ],
+        'language': {
+            'paginate': { 'previous': '', 'next': '' },
+            'processing': '<div class="sk-spinner sk-spinner-pulse"></div>'
+        }
+    });
+
+    // Add link to each row
+    $('#people-list tbody').on('click', 'tr', function () {
+        window.location.href = $(this).attr('id');
+    });
 });
 </script>
 {% endblock %}
@@ -47,17 +74,11 @@ $(document).ready(function() {
 {% block content %}
 {% include 'includes/sidebar.html' %}
 <div id="page-wrapper">
-    <div class="row wrapper page-heading">
-        <div class="col-lg-10">
-            <h2>{{ assembly_id }}대 국회 인물</h2>
-        </div>
-    </div>
-
     <div class="row">
         <div class="col-lg-12 tabs-container">
             <ul class="nav nav-tabs">
-                <li><a href="{{ url_for('person_main', assembly_id=assembly_id, type='card') }}"> 사진으로 의원만 보기</a></li>
-                <li class="active"><a href="#"> 목록으로 모든 인물 보기</a></li>
+                <li class="active"><a href="#"> 목록으로 보기</a></li>
+                <li><a href="{{ url_for('person_main', assembly_id=assembly_id, type='card') }}"> 사진으로 보기</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active">
@@ -65,29 +86,15 @@ $(document).ready(function() {
                         <table id="people-list" class="display" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>사진</th>
                                     <th>이름</th>
                                     <th>성별</th>
-                                    <th>생년</th>
+                                    <th>출생연도</th>
                                     <th>소속정당</th>
                                     <th>총선 당선횟수</th>
-                                    <th>지역</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for official in officials %}
-                                <tr>
-                                    <td><img src="{{ official.image }}" width="30px" height="40px"></td>
-                                    <td><a href="{{ url_for('person', id=official.id) }}">{{ official.name }}</a></td>
-                                    <td>{{ official.gender }}</td>
-                                    <td>{{ official.birthday_year }}</td>
-                                    <td>{{ official.cur_party.name | translit(type='party') }}</td>
-                                    <td>{{ official.nelected }}회</td>
-                                    <td>{{ official.address[0] }}</td>
-                                    <td><a href="{{ url_for('person', id=official.id) }}" class="label label-info">상세보기</a></td>
-                                </tr>
-                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
