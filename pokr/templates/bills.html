@@ -10,12 +10,6 @@
 {% endblock %}
 
 {% block extra_headers %}
-{% assets filters='less', output='build/bill-submain.%(version)s.css',
-    depends=['**/*.less'], 'less/bill-submain.less' %}
-<link rel="stylesheet" href="{{ASSET_URL}}">
-<script type="text/javascript" src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
-{% endassets %}
-
 <!-- datatables -->
 {% assets filters='cssmin', output='build/datatables.%(version)s.css',
     'node_modules/datatables/media/css/jquery.dataTables.css',
@@ -23,6 +17,16 @@
     'css/datatables.css' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
+<style>
+svg {
+    display: block;
+    margin: auto;
+    text {
+        pointer-events: none;
+    }
+}
+</style>
+<script type="text/javascript" src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
 {% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
     'node_modules/datatables/media/js/jquery.dataTables.js',
     'node_modules/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js' %}
