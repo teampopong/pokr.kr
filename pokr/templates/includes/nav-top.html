@@ -1,4 +1,5 @@
 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+
     <div id="beta-banner"><span>&beta;eta</span></div>
     <div class="nav navbar-header">
         <a id="logo" href="{{ url_for('main') }}">
@@ -8,38 +9,33 @@
             <img src="{{ url_for('static', filename='images/logo-pokr-400x177-en.png') }}" alt="Politics in Korea">
             {% endif %}
         </a>
-
-        <!-- mobile menu -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <i class="fa fa-bars"></i>
-        </button>
     </div>
-
-    <ul id="navbar" class="nav navbar-top-links navbar-left">
-        {% if mobile %}
-        <li><a href="{{ url_for('person_main') }}">{{ gettext('People') }}</a></li>
-        <li><a href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
-        <li><a href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a></li>
-        <li><a href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
-        <li><a href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
-        {% else %}
+    {% if mobile %}
+    <ul id="navbar" class="nav navbar-top-links navbar-left navbar-collapse">
+        <li><a{% if 'person' in request.path %} class="active"{% endif %} href="{{ url_for('person_main') }}">{{ gettext('People') }}</a></li>
+        <li><a{% if 'bill' in request.path %} class="active"{% endif %} href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
+        <li><a{% if 'meeting' in request.path %} class="active"{% endif %} href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a></li>
+        <li><a{% if 'party' in request.path %} class="active"{% endif %} href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
+        <li><a{% if 'region' in request.path %} class="active"{% endif %} href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
+    </ul>
+    {% else %}
+    <ul id="navbar" class="nav navbar-top-links navbar-left navbar-collapse">
         <li><a{% if 'person' in request.path %} class="active"{% endif %} href="{{ url_for('person_main') }}"><i class="fa fa-user"></i>{{ gettext('People') }}</a></li>
         <li><a{% if 'bill' in request.path %} class="active"{% endif %} href="{{ url_for('bill_main') }}"><i class="fa fa-file-text-o"></i>{{ gettext('Bills') }}</a></li>
         <li><a{% if 'meeting' in request.path %} class="active"{% endif %} href="{{ url_for('meeting_main') }}"><i class="fa fa-comment"></i>{{ gettext('Meetings') }}</a></li>
         <li><a{% if 'party' in request.path %} class="active"{% endif %} href="{{ url_for('party_main') }}"><i class="fa fa-users"></i>{{ gettext('Parties') }}</a></li>
         <li><a{% if 'region' in request.path %} class="active"{% endif %} href="{{ url_for('region_main') }}"><i class="fa fa-map-marker"></i>{{ gettext('Regions') }}</a></li>
-        {% endif %}
     </ul>
-    {% if not mobile %}
+    {% endif %}
     <ul class="nav navbar-top-links navbar-right">
         <li class="search">
-
             <form role="search" class="navbar-form-custom" action="{{ url_for('search') }}">
                 <div class="form-group">
                     <input type="text" placeholder="{{ gettext('search') }}" class="form-control" name="query" id="top-search" autocomplete="off">
                 </div>
             </form>
         </li>
+        {% if not mobile %}
         <li class="buttons">
             <span id="pokrbot-button">
                 <a class="btn btn-default btn-circle" href="https://twitter.com/pokrbot"><i class="fa fa-twitter"></i></a>
@@ -57,6 +53,6 @@
             </span>
         </li>
         <li class="login">{% include "login.html" %}</li>
+        {% endif %}
     </ul>
-    {% endif %}
 </nav>
