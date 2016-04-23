@@ -3,7 +3,7 @@
 
 import os.path
 
-from flask import current_app, redirect, render_template, request, send_file, url_for
+from flask import current_app, jsonify, redirect, render_template, request, send_file, url_for
 from flask.ext.babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -32,9 +32,6 @@ def register(app):
     def bill_main():
 
         assembly_id = int(request.args.get('assembly_id', current_parliament_id('assembly')) or 0)
-        bills = Bill.query.filter(Bill.assembly_id==assembly_id)\
-                          .order_by(Bill.proposed_date.desc().nullslast(),
-                                    Bill.id.desc())
         statuses = BillStatus.query.all()
         status_counts = filter(lambda x: x['value']!=0, [{
                 'id': s.id,
@@ -45,8 +42,50 @@ def register(app):
             } for s in statuses])
 
         return render_template('bills.html',\
-                assembly_id=assembly_id, bills=bills,
-                status_counts=status_counts)
+                assembly_id=assembly_id, status_counts=status_counts)
+
+    @app.route('/bill/list', methods=['GET'])
+    def bills_list():
+
+        def truncate(string, l=140):
+            return (string[:l] + '...') if string and len(string) > l else string
+
+        def wrap(data):
+            return [{
+                'DT_RowId': d.id,
+                'DT_RowClass': 'clickable',
+                'proposed_date': d.proposed_date.isoformat(),
+                'name': '<b>%s</b>&nbsp;<small>(%s)</small><br><small>%s</small>' % (d.name, d.id, truncate(d.summary)),
+                'sponsor': d.sponsor,
+                'status': d.status
+            } for d in data]
+
+        assembly_id = int(request.args.get('assembly_id', current_parliament_id('assembly')) or 0)
+
+        draw = int(request.args.get('draw', 1))  # iteration number
+        start = int(request.args.get('start', 0))  # starting row's id
+        length = int(request.args.get('length', 10))  # number of rows in page
+
+        columns = ['proposed_date', 'name', 'sponsor', 'status']
+        order_column = columns[int(request.args.get('order[0][column]', 0))]
+        if not request.args.get('order[0][dir]', 'asc')=='asc':
+            order_column += ' desc'
+
+        if draw==1:
+            order_column = 'proposed_date desc'
+
+        bills = Bill.query.filter(Bill.assembly_id==assembly_id)\
+                          .order_by(order_column, Bill.id.desc())
+
+        filtered = bills.offset(start).limit(length)
+
+        response = {
+            'draw': draw,
+            'data': wrap(filtered),
+            'recordsTotal': bills.count(),
+            'recordsFiltered': bills.count()
+        }
+        return jsonify(**response)
 
     @app.route('/bill/<id>', methods=['GET'])
     @breadcrumb(app, 'bill')
