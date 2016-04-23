@@ -100,4 +100,7 @@ window.getRandomColor = function () {
     return color;
 }
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 }());

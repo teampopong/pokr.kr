@@ -30,18 +30,17 @@
         {% if not mobile %}
         <li class="buttons">
             <span id="pokrbot-button">
-                <a class="btn btn-default btn-circle" href="https://twitter.com/pokrbot"><i class="fa fa-twitter"></i></a>
+                <a class="btn btn-default btn-circle" href="https://twitter.com/pokrbot" data-toggle="tooltip" data-placement="bottom" title="트위터"><i class="fa fa-twitter"></i></a>
             </span>
             <span id="feedback-button">
-                <a class="btn btn-default btn-circle" href="{{ FEEDBACK_URL }}"><i class="fa fa-bullhorn"></i></a>
+                <a class="btn btn-default btn-circle" href="{{ FEEDBACK_URL }}" data-toggle="tooltip" data-placement="bottom" title="피드백"><i class="fa fa-bullhorn"></i></a>
             </span>
             <span id="language-button">
-                <a class="btn btn-default btn-circle dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-language"></i></a>
-                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                <select id="status" class="form-control" onchange="location = this.value;">
                     {% for lang, url in locale_links.items() %}
-                    <li><a class="language" href="{{ url }}">{{ lang.english_name }}</a></li>
+                    <option value="{{ url }}" {% if lang==locale %}selected{% endif %}>{{ lang }}</option>
                     {% endfor %}
-                </ul>
+                </select>
             </span>
         </li>
         <li class="login">{% include "login.html" %}</li>
