@@ -89,7 +89,7 @@ def register(app):
     @app.route('/meeting/list', methods=['GET'])
     def meetings_list():
 
-        def truncate(issues, l=10):
+        def truncate(issues, l=5):
             if issues:
                 s = ''.join(['<li>' + i for i in issues[:l]])
                 if len(issues) > l:
