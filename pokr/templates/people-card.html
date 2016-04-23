@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-{% include 'includes/sidebar.html' %}
+{% if not mobile %} {% include 'includes/sidebar.html' %} {% endif %}
 <div id="page-wrapper">
     <div class="row wrapper page-heading">
         <div class="col-lg-10">

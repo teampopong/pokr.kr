@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-{% include 'includes/sidebar.html' %}
+{% if not mobile %} {% include 'includes/sidebar.html' %} {% endif %}
 <div id="page-wrapper">
     <div class="ibox float-e-margins">
         <div class="ibox-content">

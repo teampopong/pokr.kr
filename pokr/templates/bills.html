@@ -57,7 +57,7 @@ $(document).ready(function() {
 {% endblock %}
 
 {% block content %}
-{% include 'includes/sidebar.html' %}
+{% if not mobile %} {% include 'includes/sidebar.html' %} {% endif %}
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12 tabs-container">

@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-{% include 'includes/sidebar.html' %}
+{% if not mobile %} {% include 'includes/sidebar.html' %} {% endif %}
 <div id="page-wrapper" class="ibox">
     <div class="ibox-title">
         발언
