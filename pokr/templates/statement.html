@@ -12,6 +12,7 @@
 }
 .statement {
     line-height: 180%;
+    min-height: 150px;
     font-size: 11pt;
     padding: 15px;
 }
@@ -46,14 +47,19 @@
         </div>
         <p class="date">{{ statement.date }}</p>
     </div>
-    <div class="col-md-8 statement glossary">
-        <!-- TODO: functionize (cf. U.S. 등 유의!)-->
-        {% for sentence in statement.content.split('. ') %}
-        {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
-        {% endfor %}
+    <div class="col-md-8 m-b-lg">
+        <div class="statement glossary m-b-sm">
+            <!-- TODO: functionize (cf. U.S. 등 유의!)-->
+            {% for sentence in statement.content.split('. ') %}
+            {{ sentence }}{% if not loop.last %}.{% if sentence and not sentence[-1].isdigit() %}<br>{% endif %}{% endif %}
+            {% endfor %}
+        </div>
+        <a class="pull-left label label-default{% if not before %} disabled{% endif %}" href="{{ url_for('statement', id=before.id) }}">이전 발언</a>
+        <a class="pull-right label label-default{% if not next %} disabled{% endif %}" href="{{ url_for('statement', id=next .id) }}">다음 발언</a>
     </div>
     <div class="col-md-2">
-        <a class="btn btn-info" href="{{ url_for('meeting_dialogue', id=statement.meeting_id) }}#{{ statement.id }}">대화 맥락 보기</a>
+        <a class="btn btn-info m-t-lg m-b-sm" href="{{ url_for('meeting_dialogue', id=statement.meeting_id) }}#{{ statement.id }}">대화 전체 보기</a>
+        <p><small>발언 길이: {{ statement.content | length }}자</small></p>
     </div>
 </div>
 
