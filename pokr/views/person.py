@@ -39,25 +39,18 @@ def register(app):
         assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
         view_type = request.args.get('type', 'default')
 
-        officials = Person.query.order_by(Person.name)\
+        if view_type=='card':
+            officials = Person.query.order_by(Person.name)\
                                 .join(Candidacy)\
                                 .filter(and_(Candidacy.type==election_type,
                                              Candidacy.assembly_id==assembly_id,
                                              Candidacy.is_elected==True))
-
-        if view_type=='list':
-            return render_template('people-list.html',
-                                    officials=officials,
-                                    assembly_id=assembly_id)
-
-        elif view_type=='card':
             return render_template('people.html',
                                     officials=officials,
                                     assembly_id=assembly_id)
 
         else:  # default
             return render_template('people-list.html',
-                                    officials=officials,
                                     assembly_id=assembly_id)
 
     @app.route('/person/all-names.json', methods=['GET'])

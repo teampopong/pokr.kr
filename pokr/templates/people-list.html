@@ -13,24 +13,14 @@
 <!-- page css -->
 {% assets filters='cssmin', output='build/datatables.%(version)s.css',
     'node_modules/datatables/media/css/jquery.dataTables.css',
-    'node_modules/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css' %}
+    'node_modules/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css',
+    'css/datatables.css' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
 <style>
-    .dataTable tbody tr {
-        height: 60px;
-    }
-
-    .paginate_button {
-        display: inline !important;
-        margin-left: 0 !important;
-        padding: initial !important;
-    }
-
-    .paginate_button:hover {
-        border: 1px solid transparent !important;
-        color: black !important;
-    }
+.dataTable tbody tr {
+    height: 60px;
+}
 </style>
 
 <!-- page js -->
