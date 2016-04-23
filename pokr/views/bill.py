@@ -67,12 +67,13 @@ def register(app):
         length = int(request.args.get('length', 10))  # number of rows in page
 
         columns = ['proposed_date', 'name', 'sponsor', 'status']
-        order_column = columns[int(request.args.get('order[0][column]', 0))]
-        if not request.args.get('order[0][dir]', 'asc')=='asc':
-            order_column += ' desc'
 
-        if draw==1:
-            order_column = 'proposed_date desc'
+        if request.args.get('order[0][column]'):
+            order_column = columns[int(request.args.get('order[0][column]', 0))]
+            if not request.args.get('order[0][dir]', 'asc')=='asc':
+                order_column += ' desc'
+        else:
+            order_column = 'proposed_date desc'  # default
 
         bills = Bill.query.filter(Bill.assembly_id==assembly_id)\
                           .order_by(order_column, Bill.id.desc())

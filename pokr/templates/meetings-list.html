@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+{% import 'macros.html' as macro with context %}
+
+{% block title %}
+{{ gettext('Meeting') }} - {{ super() }}
+{% endblock %}
+
+{% block breadcrumb_current %}
+{{ gettext('meeting') }}
+{% endblock %}
+
+{% block extra_headers %}
+<!-- datatables -->
+{% assets filters='cssmin', output='build/datatables.%(version)s.css',
+    'node_modules/datatables/media/css/jquery.dataTables.css',
+    'node_modules/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css',
+    'css/datatables.css' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+<style>
+td:first-child {
+    min-width: 80px;
+}
+td:nth-child(5) {
+    min-width: 200px;
+}
+td:nth-child(6) {
+    max-width: 300px;
+}
+</style>
+
+{% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
+    'node_modules/datatables/media/js/jquery.dataTables.js',
+    'node_modules/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js' %}
+    <script src="{{ASSET_URL}}"></script>
+{% endassets %}
+<script>
+$(document).ready(function() {
+    $('#meetings-list').dataTable({
+        'processing': true,
+        'serverSide': true,
+        'ajax': '{{ url_for("meetings_list") }}',
+        'order': [],  // disable initial sorting
+        'asStripeClasses': '',
+        'columns': [
+            { 'data': 'date' },
+            { 'data': 'assembly_id' },
+            { 'data': 'session_id' },
+            { 'data': 'sitting_id' },
+            { 'data': 'committee' },
+            { 'data': 'issues', 'orderable': false }
+        ],
+        'language': {
+            'paginate': { 'previous': '', 'next': '' },
+            'processing': '<div class="sk-spinner sk-spinner-pulse"></div>'
+        }
+    });
+
+    // Add link to each row
+    $('#meetings-list tbody').on('click', 'tr', function () {
+        window.location.href = $(this).attr('id');
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
+{% include 'includes/sidebar.html' %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12 tabs-container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#"> 목록으로 보기</a></li>
+                <li><a href="{{ url_for('meeting_main', type='calendar') }}"> 달력으로 보기</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="panel-body">
+                        <table id="meetings-list" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>날짜</th>
+                                    <th>대</th>
+                                    <th>회</th>
+                                    <th>차</th>
+                                    <th>위원회</th>
+                                    <th>안건</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

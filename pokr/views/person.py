@@ -37,7 +37,7 @@ def register(app):
     def person_main():
         election_type = request.args.get('election_type', 'assembly')
         assembly_id = int(request.args.get('assembly_id', current_parliament_id(election_type)) or 0)
-        view_type = request.args.get('type', 'default')
+        view_type = request.args.get('type', 'list')
 
         if view_type=='card':
             officials = Person.query.order_by(Person.name)\
