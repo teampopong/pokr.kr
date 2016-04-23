@@ -17,6 +17,7 @@
     'css/datatables.css' %}
     <link rel="stylesheet" href="{{ASSET_URL}}">
 {% endassets %}
+{% if not mobile %}
 <style>
 td:first-child {
     min-width: 80px;
@@ -28,7 +29,7 @@ td:nth-child(6) {
     max-width: 300px;
 }
 </style>
-
+{% endif %}
 {% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
     'node_modules/datatables/media/js/jquery.dataTables.js',
     'node_modules/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js' %}
@@ -42,6 +43,15 @@ $(document).ready(function() {
         'ajax': '{{ url_for("meetings_list") }}',
         'order': [],  // disable initial sorting
         'asStripeClasses': '',
+        {% if mobile %}
+        'columns': [
+            { 'data': 'date' },
+            { 'data': 'assembly_id' },
+            { 'data': 'session_id' },
+            { 'data': 'sitting_id' },
+            { 'data': 'committee' }
+        ],
+        {% else %}
         'columns': [
             { 'data': 'date' },
             { 'data': 'assembly_id' },
@@ -50,6 +60,7 @@ $(document).ready(function() {
             { 'data': 'committee' },
             { 'data': 'issues', 'orderable': false }
         ],
+        {% endif %}
         'language': {
             'paginate': { 'previous': '', 'next': '' },
             'processing': '<div class="sk-spinner sk-spinner-pulse"></div>'
@@ -84,7 +95,9 @@ $(document).ready(function() {
                                     <th>회</th>
                                     <th>차</th>
                                     <th>위원회</th>
+                                    {% if not mobile %}
                                     <th>안건</th>
+                                    {% endif %}
                                 </tr>
                             </thead>
                             <tbody>

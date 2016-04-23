@@ -10,15 +10,7 @@
             {% endif %}
         </a>
     </div>
-    {% if mobile %}
-    <ul id="navbar" class="nav navbar-top-links navbar-left navbar-collapse">
-        <li><a{% if 'person' in request.path %} class="active"{% endif %} href="{{ url_for('person_main') }}">{{ gettext('People') }}</a></li>
-        <li><a{% if 'bill' in request.path %} class="active"{% endif %} href="{{ url_for('bill_main') }}">{{ gettext('Bills') }}</a></li>
-        <li><a{% if 'meeting' in request.path %} class="active"{% endif %} href="{{ url_for('meeting_main') }}">{{ gettext('Meetings') }}</a></li>
-        <li><a{% if 'party' in request.path %} class="active"{% endif %} href="{{ url_for('party_main') }}">{{ gettext('Parties') }}</a></li>
-        <li><a{% if 'region' in request.path %} class="active"{% endif %} href="{{ url_for('region_main') }}">{{ gettext('Regions') }}</a></li>
-    </ul>
-    {% else %}
+    {% if not mobile %}
     <ul id="navbar" class="nav navbar-top-links navbar-left navbar-collapse">
         <li><a{% if 'person' in request.path %} class="active"{% endif %} href="{{ url_for('person_main') }}"><i class="fa fa-user"></i>{{ gettext('People') }}</a></li>
         <li><a{% if 'bill' in request.path %} class="active"{% endif %} href="{{ url_for('bill_main') }}"><i class="fa fa-file-text-o"></i>{{ gettext('Bills') }}</a></li>
