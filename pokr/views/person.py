@@ -45,7 +45,7 @@ def register(app):
                                 .filter(and_(Candidacy.type==election_type,
                                              Candidacy.assembly_id==assembly_id,
                                              Candidacy.is_elected==True))
-            return render_template('people.html',
+            return render_template('people-card.html',
                                     officials=officials,
                                     assembly_id=assembly_id)
 

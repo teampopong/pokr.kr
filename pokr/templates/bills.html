@@ -15,16 +15,79 @@
 <link rel="stylesheet" href="{{ASSET_URL}}">
 <script type="text/javascript" src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
 {% endassets %}
+
+<!-- datatables -->
+{% assets filters='cssmin', output='build/datatables.%(version)s.css',
+    'node_modules/datatables/media/css/jquery.dataTables.css',
+    'node_modules/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css',
+    'css/datatables.css' %}
+    <link rel="stylesheet" href="{{ASSET_URL}}">
+{% endassets %}
+{% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
+    'node_modules/datatables/media/js/jquery.dataTables.js',
+    'node_modules/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js' %}
+    <script src="{{ASSET_URL}}"></script>
+{% endassets %}
+<script>
+$(document).ready(function() {
+    $('#bills-list').dataTable({
+        'processing': true,
+        'serverSide': true,
+        'ajax': '{{ url_for("bills_list", assembly_id=assembly_id) }}',
+        'order': [],  // disable initial sorting
+        'asStripeClasses': '',
+        'columns': [
+            { 'data': 'proposed_date' },
+            { 'data': 'name' },
+            { 'data': 'sponsor' },
+            { 'data': 'status' }
+        ],
+        'language': {
+            'paginate': { 'previous': '', 'next': '' },
+            'processing': '<div class="sk-spinner sk-spinner-pulse"></div>'
+        }
+    });
+
+    // Add link to each row
+    $('#bills-list tbody').on('click', 'tr', function () {
+        window.location.href = $(this).attr('id');
+    });
+});
+</script>
 {% endblock %}
 
 {% block content %}
 {% include 'includes/sidebar.html' %}
 <div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12 tabs-container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#"> 목록으로 보기</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="panel-body">
+                        <table id="bills-list" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>제안일</th>
+                                    <th>제목</th>
+                                    <th>발의자</th>
+                                    <th>상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {% if not request.args.page or request.args.page=='1' %}
     <div class="ibox float-e-margins">
         <div class="ibox-content">
             <div>
-                <span class="pull-right text-right">All bills: {{ macro.list_count(bills) }}</span>
                 <h3 class="font-bold no-margins">{{ assembly_id }}대 국회 의안</h3>
                 <small>의안 상태별 비중을 나타낸 버블 그래프.</small>
             </div>
@@ -34,49 +97,5 @@
         </div>
     </div>
     {% endif %}
-    <div class="ibox float-e-margins">
-        <div class="ibox-content">
-            <span class="search-count">Page {{ request.args.page or 1 }}</span>
-            <div id="bill-list" class="itemlist">
-                {% call(bill) macro.list_pagenav(bills, layout='table', pagesize=10, headers='날짜 의안명 발의자 상태') %}
-                {% if mobile %}
-                    <td style="padding: 5px 0 10px;">
-                        <span style="background-color: #EEE; color: #555; font-weight: bold; padding: 1px 5px;">{{ bill.proposed_date }}</span>
-                        {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
-                        <i class="icon-circle" style="color: green;"></i>
-                        {% else %}
-                        <i class="icon-circle" style="color: red;"></i>
-                        {% endif %}
-                        {{ bill.status }}<br>
-                        <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
-                    </td>
-                {% else %}
-                    <td>{{ bill.proposed_date }}</td>
-                    <td>
-                        <a href="{{ url_for('bill', id=bill.id) }}">{{ bill.name }}</a>
-                        {% if bill.keywords %}<p class="keywords">
-                        {% for keyword in bill.keywords %}<a href="{{ url_for('search', target='bills', query=keyword.name) }}">{{ keyword.name }}</a>{% endfor %}
-                        </p>{% endif %}
-                        <br>
-                        <p class="summary">
-                            {% if bill.summary %}{{ BillController.truncated_summary(bill) }} <a href="{{ url_for('bill', id=bill.id) }}#contents">{{ gettext('more') }}</a>
-                            {% else %}{{ gettext('No summary') }}
-                            {% endif %}
-                        </p>
-                    </td>
-                    <td>{{ bill.sponsor }}</td>
-                    <td>
-                        {% if bill.status_id in [1,2,4,5,6,7,9,11,12,22,24,25,26] %}
-                        <i class="icon-circle" style="color: green;"></i>
-                        {% else %}
-                        <i class="icon-circle" style="color: red;"></i>
-                        {% endif %}
-                        {{ bill.status }}
-                    </td>
-                {% endif %}
-                {% endcall %}
-            </div>
-        </div>
-    </div>
 </div>
 {% endblock %}
