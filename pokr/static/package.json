@@ -8,6 +8,7 @@
     "datatables-bootstrap3-plugin": "x",
     "d3": "x",
     "font-awesome": "x",
-    "jquery": "x"
+    "jquery": "x",
+    "radar-chart-d3": "x"
   }
 }

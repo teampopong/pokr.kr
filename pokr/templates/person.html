@@ -26,6 +26,10 @@
     {% endassets %}
 {% endif %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/moreless.js') }}"></script>
+
+<!-- radar chart -->
+<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/radar-chart-d3/src/radar-chart.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='node_modules/radar-chart-d3/src/radar-chart.js') }}"></script>
 {% endblock %}
 
 {% block content %}
@@ -39,18 +43,9 @@
             {% include 'person-profile.html' %}
         </div>
         <div class="col-md-3">
-            <table class="table small m-b-xs">
-                <tbody>
-                <tr>
-                    <td><strong>154</strong> Tags</td>
-                    <td><strong>32</strong> Friends</td>
-                </tr>
-                <tr>
-                    <td><strong>154</strong> Tags</td>
-                    <td><strong>32</strong> Friends</td>
-                </tr>
-                </tbody>
-            </table>
+            <small>의정활동</small>
+            <h2 class="no-margins">점수표</h2>
+            <div class="radar-chart"></div>
         </div>
         {% if person.address_id %}
         <div class="col-md-3">
@@ -133,7 +128,39 @@
 
 <script>
 $(document).ready(function(){
-    $(".inline-box").colorbox({inline:true, width:"50%"});
+  // data
+  var data = [
+    {
+      className: 'this',
+      axes: [
+        {axis: "본회의 출석률", value: 13, yOffset: 10},
+        {axis: "대표발의수", value: 6},
+        {axis: "공동발의수", value: 5},
+        {axis: "대표발의 통과율", value: 9},
+        {axis: "위원회 출석률", value: 2, xOffset: -20}
+      ]
+    }
+  ];
+  // draw
+  var chart = RadarChart.chart();
+  chart.config({
+    w: 200,
+    h: 200,
+    circles: false,
+    color: function() {}
+  });
+  var svg = d3.select('.radar-chart').append('svg')
+    .attr('width', 250)
+    .attr('height', 250);
+  svg.append('g')
+    .attr('transform', function(d, i) { return 'translate(20,20)'; })
+    .classed('focus', 1).datum(data).call(chart);
 });
 </script>
+<style>
+.area.this {
+  fill: #ed5565;
+  fill-opacity: 0.5 !important;
+}
+</style>
 {% endblock %}
