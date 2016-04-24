@@ -94,7 +94,7 @@ def register(app):
                 s = ''.join(['<li>' + i for i in issues[:l]])
                 if len(issues) > l:
                     s += '<li>...'
-                return '<small><ul>%s</ul></small>' % s
+                return '<small><ul class="no-bullets">%s</ul></small>' % s
             else:
                 None
 
