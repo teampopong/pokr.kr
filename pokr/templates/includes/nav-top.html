@@ -19,7 +19,7 @@
         <li><a{% if 'region' in request.path %} class="active"{% endif %} href="{{ url_for('region_main') }}"><i class="fa fa-map-marker"></i>{{ gettext('Regions') }}</a></li>
     </ul>
     {% endif %}
-    <ul class="nav navbar-top-links navbar-right">
+    <ul class="nav navbar-top-links navbar-right m-r-md">
         <li class="search">
             <form role="search" class="navbar-form-custom" action="{{ url_for('search') }}">
                 <div class="form-group">
@@ -43,7 +43,6 @@
                 </select>
             </span>
         </li>
-        <li class="login">{% include "login.html" %}</li>
         {% endif %}
     </ul>
 </nav>
