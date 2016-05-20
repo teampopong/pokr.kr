@@ -44,6 +44,7 @@ $(document).ready(function() {
         'serverSide': true,
         'ajax': '{{ url_for("bills_list", assembly_id=assembly_id) }}',
         'order': [],  // disable initial sorting
+        'filter': false,  // disable searchbox
         'asStripeClasses': '',
         'columns': [
             { 'data': 'proposed_date' },

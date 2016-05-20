@@ -33,6 +33,7 @@ $(document).ready(function() {
         'processing': true,
         'serverSide': true,
         'ajax': '{{ url_for("meetings_list") }}',
+        'filter': false,  // disable searchbox
         'order': [],  // disable initial sorting
         'asStripeClasses': '',
         {% if mobile %}

@@ -37,6 +37,7 @@ $(document).ready(function() {
         'processing': true,
         'serverSide': true,
         'ajax': '{{ url_for("people_list", assembly_id=assembly_id) }}',
+        'filter': false,  // disable searchbox
         'order': [],  // disable initial sorting
         'asStripeClasses': '',
         'columns': [
