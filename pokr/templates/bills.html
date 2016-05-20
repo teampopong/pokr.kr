@@ -25,6 +25,11 @@ svg {
         pointer-events: none;
     }
 }
+
+td:nth-child(2),
+th:nth-child(2) {
+    max-width: 500px !important;
+}
 </style>
 <script type="text/javascript" src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
 {% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
