@@ -12,7 +12,7 @@ Werkzeug==0.8.3
 alembic==0.6.7
 cssmin==0.2.0
 konlpy==0.4.3
-nltk==2.0.4
+nltk==2.0.5
 oauthlib==0.6.1
 python-memcached==1.53
 python-social-auth==0.1.13
