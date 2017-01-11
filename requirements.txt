@@ -5,7 +5,7 @@ Flask-Cache==0.12
 Flask-Login==0.2.7
 Flask-SQLAlchemy==0.16
 Flask==0.9
-SQLAlchemy==0.8.1
+SQLAlchemy==0.9.8
 Werkzeug==0.8.3
 alembic==0.5.0
 cssmin==0.2.0
