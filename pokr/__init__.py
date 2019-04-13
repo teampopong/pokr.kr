@@ -8,7 +8,7 @@ app.config.from_object('settings')
 
 
 def bootstrap():
-    from flask.ext.assets import Environment as Asset; Asset(app)
+    from flask_assets import Environment as Asset; Asset(app)
 
     from pokr.cache import init_cache; init_cache(app)
     from pokr.controllers import init_controller; init_controller(app)

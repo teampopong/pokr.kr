@@ -2,7 +2,7 @@
 setuptools==9.1
 nltk==3.0.1
 Babel==0.9.6
-Flask-Assets==0.8
+Flask-Assets==0.12
 Flask-Babel==0.8
 Flask-Cache==0.12
 Flask-Login==0.2.7
@@ -13,7 +13,7 @@ Werkzeug==0.8.3
 alembic==0.6.7
 cssmin==0.2.0
 konlpy==0.4.3
-oauthlib==0.6.1
+oauthlib==2.0.1
 python-memcached==1.53
 python-social-auth==0.1.13
 redis==2.9.1

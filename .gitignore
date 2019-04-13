@@ -8,3 +8,5 @@ node_modules
 pokr/static/.webassets-cache
 pokr/static/build
 server.log
+.idea
+popong-nlp
