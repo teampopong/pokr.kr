@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from builtins import object
 def init_app(app):
     script_name = app.config.get('SCRIPT_NAME')
     app.wsgi_app = ReverseProxied(app.wsgi_app, script_name)

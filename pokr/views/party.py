@@ -4,7 +4,7 @@
 from collections import defaultdict
 
 from flask import redirect, render_template, request, url_for
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from sqlalchemy import func
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import desc
@@ -58,7 +58,7 @@ def register(app):
         try:
             party = Party.query.filter_by(id=id).one()
 
-        except NoResultFound, e:
+        except NoResultFound as e:
             return render_template('not-found.html'), 404
 
         is_duplicate = party.name in duplicates

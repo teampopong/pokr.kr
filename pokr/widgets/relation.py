@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 
 from __future__ import unicode_literals
-from itertools import izip
+
 
 from flask import render_template
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from sqlalchemy import Text
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.sql.expression import and_, cast, desc
@@ -49,6 +49,6 @@ def _rivals(person, election_id):
                                  .order_by(desc(Candidacy.vote_score)).all()
 
     rivals = [candidacy.person for candidacy in candidacies]
-    for rival, candidacy in izip(rivals, candidacies):
+    for rival, candidacy in zip(rivals, candidacies):
         rival.u_candidacy = candidacy
     return rivals

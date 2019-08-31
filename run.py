@@ -17,7 +17,7 @@ def parse_args():
 
 def apply_args():
     args = parse_args()
-    for key, val in args.__dict__.iteritems():
+    for key, val in args.__dict__.items():
         setattr(app, key, val)
 
 

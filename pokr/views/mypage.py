@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 
 from flask import abort, g, redirect, render_template, request, url_for
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.sql.expression import or_
 

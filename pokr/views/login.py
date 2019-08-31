@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 
 from flask import g, render_template, redirect, request, url_for
-from flask.ext.login import current_user, login_required, logout_user
+from flask_login import current_user, login_required, logout_user
 
 from social.apps.flask_app.template_filters import backends
 

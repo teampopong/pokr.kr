@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 
 from flask import redirect, render_template, request, url_for
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from sqlalchemy import func
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -26,7 +26,7 @@ def register(app):
     def region(region_id):
         try:
             region = Region.query.filter_by(id=region_id).one()
-        except NoResultFound, e:
+        except NoResultFound as e:
             return render_template('not-found.html'), 404
 
         return render_template('region.html', region=region)

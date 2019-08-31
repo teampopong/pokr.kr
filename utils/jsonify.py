@@ -28,5 +28,5 @@ class MyJSONEncoder(json.JSONEncoder):
 
 
 def jsonify(s):
-    return json.dumps(s, indent=2, encoding='utf-8', cls=MyJSONEncoder)
+    return json.dumps(s, indent=2, cls=MyJSONEncoder)
 

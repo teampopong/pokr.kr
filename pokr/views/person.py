@@ -7,7 +7,7 @@ import time
 from collections import defaultdict
 
 from flask import abort, current_app, g, jsonify, redirect, render_template, request, url_for
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from sqlalchemy import and_, func
 from sqlalchemy.orm import undefer_group
 from sqlalchemy.orm.exc import NoResultFound
@@ -22,6 +22,7 @@ from pokr.models.election import current_parliament_id
 from pokr.models.party import Party
 from pokr.models.person import Person
 from utils.jinja import breadcrumb
+from functools import reduce
 
 
 def register(app):
@@ -119,14 +120,14 @@ def register(app):
                            .options(undefer_group('extra'),
                                     undefer_group('profile'))\
                            .one()
-        except NoResultFound, e:
+        except NoResultFound as e:
             return render_template('not-found.html'), 404
 
         try:
             person_extra_vars = json.loads(person.extra_vars or '{}')
-            if type(person_extra_vars.get('experience', None)) in [str, unicode]:
+            if type(person_extra_vars.get('experience', None)) in [str, str]:
                 person_extra_vars['experience'] = [person_extra_vars['experience']]
-        except ValueError, e:
+        except ValueError as e:
             pass
 
         return render_template('person.html', person=person,
@@ -155,5 +156,5 @@ def distribution_of_cosponsorships(assembly_id):
             .where(bill_t.c.assembly_id == assembly_id)\
             .group_by(cosponsorship.c.person_id)
     distribution = db_session.execute(stmt).fetchall()
-    distribution = map(lambda x: x[0], distribution)
+    distribution = [x[0] for x in distribution]
     return distribution

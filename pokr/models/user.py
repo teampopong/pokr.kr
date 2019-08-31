@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask.ext.login import UserMixin
+from flask_login import UserMixin
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Unicode
 from sqlalchemy.orm import relationship
 

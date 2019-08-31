@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import division
+from past.utils import old_div
 from flask import render_template
 
 from utils.jinja import guid_factory
@@ -7,10 +9,10 @@ from utils.jinja import guid_factory
 
 def wordle(wordcounts, width, height, title=None, **kwargs):
     if wordcounts:
-        max_count = float(max(wordcounts.itervalues()))
+        max_count = float(max(wordcounts.values()))
         wordweights = {
-            key: value / max_count
-            for key, value in wordcounts.iteritems()
+            key: old_div(value, max_count)
+            for key, value in wordcounts.items()
         }
     else:
         wordweights = {}

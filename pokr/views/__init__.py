@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-from flask.ext.babel import gettext
+from flask_babel import gettext
 
 
 def init_app(app):

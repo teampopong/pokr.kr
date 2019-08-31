@@ -68,12 +68,12 @@ def insert_meetings(region_id, obj, update=False):
                 insert_meeting(region_id, o, update)
         else:
             raise Exception()
-    except KeyError, e:
+    except KeyError as e:
         logging.warn('KeyError: %s' % e)
 
 
 def strhash(s, len=4):
-    if isinstance(s, unicode):
+    if isinstance(s, str):
         s = s.encode('utf-8')
     return int(hashlib.md5(s).hexdigest()[:len], 16)
 
@@ -146,7 +146,7 @@ def insert_meeting(region_id, obj, update=False):
 
 
 def get_attendee_names(obj):
-    for key, val in obj.get('attendance', {}).iteritems():
+    for key, val in obj.get('attendance', {}).items():
         if attendance_re.match(key):
             return val['names']
     logging.warning('Attendance not found {date}-{committee}'.format(**obj))

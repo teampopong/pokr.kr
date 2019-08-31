@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from builtins import str
 from datetime import datetime
 import os
 import re
 
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from sqlalchemy import BigInteger, Column, Date, ForeignKey, Text
 from sqlalchemy.dialects.postgresql import ARRAY, JSON
 from sqlalchemy.ext.hybrid import hybrid_property
@@ -79,7 +80,7 @@ class Meeting(Base):
         s = self.dialogue[0]
         if s['type']=='time':
             return ':'.join(\
-                re.search(ur'([0-9]+)시.*?([0-9]+)분', s['content']).groups())
+                re.search(r'([0-9]+)시.*?([0-9]+)분', s['content']).groups())
         return 'Unknown'
 
     @property
@@ -87,7 +88,7 @@ class Meeting(Base):
         e = self.dialogue[-1]
         if e['type']=='time':
             return ':'.join(\
-                re.search(ur'([0-9]+)시.*?([0-9]+)분', e['content']).groups())
+                re.search(r'([0-9]+)시.*?([0-9]+)분', e['content']).groups())
         return 'Unknown'
 
     @property

@@ -4,7 +4,7 @@ import datetime
 import uuid
 
 from flask import request, url_for
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from werkzeug.urls import Href, url_unquote
 
 from .jsonify import jsonify

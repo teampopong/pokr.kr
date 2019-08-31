@@ -1,5 +1,6 @@
 #  -*- coding: utf-8 -*-
 
+from builtins import str
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Integer, UnicodeText
@@ -22,7 +23,7 @@ class QueryLog(Base):
 def log_query(query):
     if not query:
         return
-    log = QueryLog(unicode(query))
+    log = QueryLog(str(query))
     with transaction() as session:
         session.add(log)
 

@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
+from builtins import map
 from datetime import date
 import os.path
 import re
 
 from flask import abort, current_app, jsonify, render_template, redirect, request, send_file, url_for
-from flask.ext.babel import gettext, format_date
+from flask_babel import gettext, format_date
 from sqlalchemy.orm import undefer, undefer_group
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -45,7 +46,7 @@ def register(app):
         # find the right calendar
         if not year:
             if date_:
-                year = format_date(date(*map(int, date_.split('-'))), 'yyyy')
+                year = format_date(date(*list(map(int, date_.split('-')))), 'yyyy')
             else:
                 year = date.today().year
 
@@ -62,7 +63,7 @@ def register(app):
         if date_:
             if not date_re.match(date_):
                 abort(404)
-            date_ = date(*map(int, date_.split('-')))
+            date_ = date(*list(map(int, date_.split('-'))))
             meetings_of_the_day = Meeting.query.filter_by(date=date_)
 
         # meetings of the year
@@ -142,7 +143,7 @@ def register(app):
         try:
             meeting = Meeting.query.filter_by(id=id)\
                              .options(undefer('issues')).one()
-        except NoResultFound, e:
+        except NoResultFound as e:
             abort(404)
 
         return render_template('meeting.html', meeting=meeting)
@@ -154,7 +155,7 @@ def register(app):
         try:
             meeting = Meeting.query.filter_by(id=id)\
                              .options(undefer_group('extra')).one()
-        except NoResultFound, e:
+        except NoResultFound as e:
             abort(404)
 
         return render_template('meeting-dialogue.html',\
@@ -164,7 +165,7 @@ def register(app):
     def meeting_pdf(id):
         try:
             meeting = Meeting.query.filter_by(id=id).one()
-        except NoResultFound, e:
+        except NoResultFound as e:
             abort(404)
 
         if meeting.document_pdf_path:
@@ -178,7 +179,7 @@ def register(app):
 @cache.memoize(timeout=60*60*24)
 def generate_glossary_js():
     datadir = os.path.join(current_app.root_path, 'data')
-    terms_regex = open('%s/glossary-terms.regex' % datadir).read().decode('utf-8').strip()
-    dictionary = open('%s/glossary-map.json' % datadir).read().decode('utf-8').strip()
+    terms_regex = open('%s/glossary-terms.regex' % datadir).read().strip()
+    dictionary = open('%s/glossary-map.json' % datadir).read().strip()
     return render_template('js/glossary.js', terms_regex=terms_regex,
             dictionary=dictionary)

@@ -1,0 +1,21 @@
+# Setuptools MUST come first
+nltk==3.4.5
+Babel==2.7.0
+Flask-Assets==0.12
+Flask-Babel==0.12.2
+Flask-Caching==1.7.2
+Flask-Login==0.4.1
+Flask-SQLAlchemy==0.16
+Flask==1.1.1
+psycopg2==2.8.2
+SQLAlchemy==0.9.8
+Werkzeug==0.15.5
+alembic==0.6.7
+cssmin==0.2.0
+konlpy==0.4.3
+oauthlib==3.0.0
+python3-memcached==1.51
+#python-social-auth==0.1.13
+social-auth-app-flask==1.0.0
+redis==2.9.1
+future==0.17.1

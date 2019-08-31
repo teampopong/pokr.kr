@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import division
+from past.utils import old_div
 from collections import Counter, defaultdict, OrderedDict
 
 from .base import Controller
@@ -24,9 +26,9 @@ class PersonController(Controller):
             num_sponsored_bills += 1
 
         return OrderedDict(
-            (key, (value + .0) / num_sponsored_bills)
+            (key, old_div((value + .0), num_sponsored_bills))
                 for key, value in counter.most_common(10)\
-                if (value + .0) / num_sponsored_bills > threshold
+                if old_div((value + .0), num_sponsored_bills) > threshold
         )
 
     @classmethod

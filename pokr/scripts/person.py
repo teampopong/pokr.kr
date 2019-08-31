@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+from builtins import str
 import argparse
 from datetime import date
 import json
@@ -72,7 +73,7 @@ def update_person(session, record):
         return
 
     person = session.query(Person).filter_by(id=person.id).first()
-    for key, val in record.items():
+    for key, val in list(record.items()):
         if key != 'id' and hasattr(person, key):
             setattr(person, key, val)
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from builtins import object
 class Command(object):
     __command__ = None
     __parent__ = None

@@ -5,13 +5,13 @@ from pokr.database import Base, db_session
 
 
 def init_app(app):
-    from flask.ext import login
+    import flask_login as login
     login_manager = login.LoginManager()
     login_manager.login_view = 'login'
     login_manager.login_message = ''
     login_manager.setup_app(app)
 
-    from social.apps.flask_app.routes import social_auth
+    from social_flask.routes import social_auth
     app.register_blueprint(social_auth)
 
     from pokr.models.user import User

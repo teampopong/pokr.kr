@@ -5,9 +5,11 @@ Enum helper implementation of @zzzeek
 Source: http://techspot.zzzeek.org/2011/01/14/the-enum-recipe/
 '''
 
+from builtins import object
 from sqlalchemy.types import SchemaType, TypeDecorator, Enum
 from sqlalchemy import __version__
 import re
+from future.utils import with_metaclass
 
 if __version__ < '0.6.5':
     raise NotImplementedError("Version 0.6.5 or higher of SQLAlchemy is required.")
@@ -37,19 +39,17 @@ class EnumMeta(type):
 
     def __init__(cls, classname, bases, dict_):
         cls._reg = reg = cls._reg.copy()
-        for k, v in dict_.items():
+        for k, v in list(dict_.items()):
             if isinstance(v, tuple):
                 sym = reg[v[0]] = EnumSymbol(cls, k, *v)
                 setattr(cls, k, sym)
         return type.__init__(cls, classname, bases, dict_)
 
     def __iter__(cls):
-        return iter(cls._reg.values())
+        return iter(list(cls._reg.values()))
 
-class DeclEnum(object):
+class DeclEnum(with_metaclass(EnumMeta, object)):
     """Declarative enumeration."""
-
-    __metaclass__ = EnumMeta
     _reg = {}
 
     @classmethod
@@ -64,7 +64,7 @@ class DeclEnum(object):
 
     @classmethod
     def values(cls):
-        return cls._reg.keys()
+        return list(cls._reg.keys())
 
     @classmethod
     def db_type(cls):
@@ -74,7 +74,7 @@ class DeclEnumType(SchemaType, TypeDecorator):
     def __init__(self, enum):
         self.enum = enum
         self.impl = Enum(
-                        *enum.values(),
+                        *list(enum.values()),
                         name="ck%s" % re.sub(
                                     '([A-Z])',
                                     lambda m:"_" + m.group(1).lower(),

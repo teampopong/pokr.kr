@@ -4,7 +4,7 @@
 import os.path
 
 from flask import current_app, jsonify, redirect, render_template, request, send_file, url_for
-from flask.ext.babel import gettext
+from flask_babel import gettext
 from sqlalchemy.orm.exc import NoResultFound
 
 from pokr.cache import cache
@@ -33,13 +33,13 @@ def register(app):
 
         assembly_id = int(request.args.get('assembly_id', current_parliament_id('assembly')) or 0)
         statuses = BillStatus.query.all()
-        status_counts = filter(lambda x: x['value']!=0, [{
+        status_counts = [x for x in [{
                 'id': s.id,
                 'name': s.name,
                 'value': status_count(s, assembly_id),
                 'url': url_for('search', target='bills',\
                        status_id=s.id, assembly_id=assembly_id)
-            } for s in statuses])
+            } for s in statuses] if x['value']!=0]
 
         return render_template('bills.html',\
                 assembly_id=assembly_id, status_counts=status_counts)
@@ -94,7 +94,7 @@ def register(app):
         try:
             bill = Bill.query.filter_by(id=id).one()
 
-        except NoResultFound, e:
+        except NoResultFound as e:
             return render_template('not-found.html'), 404
 
         return render_template('bill.html', bill=bill)
@@ -104,7 +104,7 @@ def register(app):
         try:
             bill = Bill.query.filter_by(id=id).one()
 
-        except NoResultFound, e:
+        except NoResultFound as e:
             return render_template('not-found.html'), 404
 
         if bill.document_pdf_path:
@@ -120,7 +120,7 @@ def register(app):
         try:
             bill = Bill.query.filter_by(id=id).one()
 
-        except NoResultFound, e:
+        except NoResultFound as e:
             return render_template('not-found.html'), 404
 
         if bill.document_text_path:
@@ -137,7 +137,7 @@ def register(app):
         try:
             bill = Bill.query.filter_by(id=id).one()
 
-        except NoResultFound, e:
+        except NoResultFound as e:
             return render_template('not-found.html'), 404
 
         return redirect("http://likms.assembly.go.kr/bill/jsp/BillDetail.jsp?bill_id={0}".format(bill.link_id))
@@ -146,7 +146,7 @@ def register(app):
 @cache.memoize(timeout=60*60*24)
 def generate_glossary_js():
     datadir = os.path.join(current_app.root_path, 'data')
-    terms_regex = open('%s/glossary-terms.regex' % datadir).read().decode('utf-8').strip()
-    dictionary = open('%s/glossary-map.json' % datadir).read().decode('utf-8').strip()
+    terms_regex = open('%s/glossary-terms.regex' % datadir).read().strip()
+    dictionary = open('%s/glossary-map.json' % datadir).read().strip()
     return render_template('js/glossary.js', terms_regex=terms_regex,
             dictionary=dictionary)

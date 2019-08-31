@@ -6,7 +6,7 @@ import os.path
 import re
 
 from flask import abort, current_app, render_template, redirect, request, send_file, url_for
-from flask.ext.babel import gettext, format_date
+from flask_babel import gettext, format_date
 from sqlalchemy import and_
 from sqlalchemy.orm import undefer, undefer_group
 from sqlalchemy.orm.exc import NoResultFound
@@ -36,7 +36,7 @@ def register(app):
         glossary_js = generate_glossary_js()
         try:
             statement = Statement.query.filter_by(id=id).one()
-        except NoResultFound, e:
+        except NoResultFound as e:
             abort(404)
 
         before_statement = Statement.query.filter(and_(\

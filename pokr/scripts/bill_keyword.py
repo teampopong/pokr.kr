@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+from __future__ import print_function
+from builtins import object
 import argparse
 from glob import glob
-from itertools import izip
+
 from os.path import basename
 import sys
 
@@ -40,7 +42,7 @@ def insert_bill_keywords(files):
         keyword_store = KeywordStore(session)
         for file_ in glob(files):
             filename = basename(file_)
-            print 'processing %s,' % filename,
+            print('processing %s,' % filename, end=' ')
             bill_id = filename.split('.', 1)[0]
             if bill_id not in existing_bill_ids:
                 continue
@@ -59,16 +61,16 @@ def insert_bill_keywords(files):
                     'keyword_id': keyword_id,
                     'weight': weight,
                 }
-                for (_, weight), keyword_id in izip(keywords, keyword_ids)
+                for (_, weight), keyword_id in zip(keywords, keyword_ids)
                 if keyword_id not in existing_keywords_for_bill
             ]
 
             if new_bill_keywords:
                 # TODO(lucypark, 2014-12-13): delete existing keywords before insert
                 session.execute(bill_keyword.insert(), new_bill_keywords)
-                print 'done'
+                print('done')
             else:
-                print 'passed'
+                print('passed')
 
 
 class KeywordStore(object):
@@ -100,7 +102,7 @@ class KeywordStore(object):
         keywords = [{
                         'id': id,
                         'name': name
-                    } for name, id in self.dict_.items()
+                    } for name, id in list(self.dict_.items())
                       if id > self.last_id_in_db]
         if keywords:
             self.session.execute(Keyword.__table__.insert(), keywords)

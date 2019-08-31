@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # TODO: remove this
 
-from flask.ext.cache import Cache
+from flask_caching import Cache
 
 from settings import CACHE_CONFIG
 

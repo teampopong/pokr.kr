@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+from __future__ import print_function
+from builtins import object
 import argparse
 from datetime import datetime
 import json
@@ -76,7 +78,7 @@ class BillStatusStore(object):
         bill_statuses = [{
                              'id': id,
                              'name': name
-                         } for name, id in self.dict_.items()
+                         } for name, id in list(self.dict_.items())
                            if id > self.last_id_in_db]
         if bill_statuses:
             self.session.execute(BillStatus.__table__.insert(), bill_statuses)
@@ -134,8 +136,8 @@ def update_bills_from_files(files):
                     f = open(f, 'r')
                 with f:
                     record = json.load(f)
-            except Exception, e:
-                print >> sys.stderr, e
+            except Exception as e:
+                print(e, file=sys.stderr)
                 continue
             insert_bill(session, record)
         bill_statuses.insert_all()
@@ -150,7 +152,7 @@ def insert_bill(session, record):
     bill = session.query(Bill).filter_by(id=record['bill_id']).first()
     bill_data = extract_bill(record)
     if bill:
-        for key, val in bill_data.items():
+        for key, val in list(bill_data.items()):
             if key != 'id':
                 setattr(bill, key, val)
     else:
@@ -220,9 +222,9 @@ def insert_cosponsorships(session, bill, cosponsors):
             try:
                 person = guess_person(session, proposer, bill.assembly_id)
 
-            except Exception, e:
+            except Exception as e:
                 person = None
-                print proposer.encode('utf-8'), e
+                print(proposer.encode('utf-8'), e)
 
             person_id = person_ids[key] = person.id if person else None
 
@@ -257,7 +259,7 @@ def insert_cosponsorships(session, bill, cosponsors):
 def insert_reviews(session, bill, reviews_raw):
     reviews = []
     existing_review_names = [r.name for r in bill.reviews]
-    for review_name, review_data in reviews_raw.items():
+    for review_name, review_data in list(reviews_raw.items()):
         if review_name in existing_review_names:
             continue
 
@@ -286,7 +288,7 @@ def any_value_with_re(obj, regex):
     if isinstance(obj, list):
         items = obj
     elif isinstance(obj, dict):
-        items = obj.values()
+        items = list(obj.values())
     else:
         items = []
 
@@ -317,7 +319,7 @@ def guess_person(session, name, assembly_id):
                                      Candidacy.assembly_id == assembly_id))
     try:
         person = candidates.one()
-    except MultipleResultsFound, e:
+    except MultipleResultsFound as e:
         person = candidates.filter(Candidacy.is_elected == True).one()
 
     return person

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from builtins import object
 import redis
 
 class RedisQueue(object):
@@ -42,7 +43,7 @@ class RedisQueue(object):
     def __iter__(self):
         return self
 
-    def next(self):
+    def __next__(self):
         item = self.get(False)
         if item is None:
             raise StopIteration

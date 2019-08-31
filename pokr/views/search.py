@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from builtins import str
 import re
 import regex
 from functools import wraps
@@ -48,7 +49,7 @@ def register(app):
             results['meetings'], options['meetings'] = search_meetings()
             results['statements'], options['statements'] = search_statements()
 
-            options = dict(chain(*(d.iteritems() for d in options.itervalues())))
+            options = dict(chain(*(iter(d.items()) for d in options.values())))
             response = render_template('search-results.html',
                     option_texts=options, **results)
         except (DataError, NoResultFound) as e:
@@ -119,10 +120,10 @@ def register(app):
         def strip_bill(bill):
             stripped = re.sub(u'\(대안\)', '', bill.name)
             replaced = stripped.replace(u'ㆍ', '')
-            hanguls = regex.findall(ur'[\p{Hangul}]+', replaced.strip())
+            hanguls = regex.findall(r'[\p{Hangul}]+', replaced.strip())
             billname = re.sub(u'중개정법률안', '', ''.join(hanguls))
             billname = re.sub(u'개정법률안', '', billname)
-            billname = re.sub(ur'(일|전)부', '', billname)
+            billname = re.sub(r'(일|전)부', '', billname)
             billname = billname.strip(u'안')
             return billname
 
@@ -133,7 +134,7 @@ def register(app):
             bills = Bill.query.order_by(desc(Bill.proposed_date).nullslast())\
                     .filter(or_(
                         Bill.name.like(u'%{0}%'.format(query)),
-                        Bill.keywords.any(Keyword.name==unicode(query))
+                        Bill.keywords.any(Keyword.name==str(query))
                         ))
         laws = sorted(list(set([strip_bill(bill) for bill in bills])))
         return (laws, options)
@@ -151,7 +152,7 @@ def register(app):
         if query:
             bills = bills.filter(or_(
                 Bill.name.like(u'%{0}%'.format(query)),
-                Bill.keywords.any(Keyword.name==unicode(query))
+                Bill.keywords.any(Keyword.name==str(query))
                 ))
 
         if person_id:

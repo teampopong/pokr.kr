@@ -1,12 +1,11 @@
 # -*- encoding: utf-8 -*-
 
+from __future__ import division
+from past.utils import old_div
 from datetime import date
 import json
 
-try:
-    from flaskext.babel import format_date
-except ImportError:
-    from flask.ext.babel import format_date
+from flask_babel import format_date
 from sqlalchemy import CHAR, Column, Enum, func, Integer, String, Text, Unicode
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.ext.hybrid import hybrid_property
@@ -103,7 +102,7 @@ class Person(Base):
     def ages(self):
         if self.age < 30: return 30
         elif self.age >= 70: return 70
-        else: return (self.age / 10) * 10
+        else: return (old_div(self.age, 10)) * 10
 
     @property
     def cur_party(self):

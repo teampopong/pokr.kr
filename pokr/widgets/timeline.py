@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 from calendar import month_abbr
 from flask import render_template
-from flask.ext.babel import gettext
+from flask_babel import gettext
 
 from pokr.models.person import Person
 from utils.jinja import guid_factory
