@@ -31,28 +31,6 @@ depends=['**/*.less'], 'less/main.less' %}
 </div>
 
 <div id="hero">
-    <div class="row m-lg">
-        <div class="col-lg-offset-8 col-lg-2">
-            <h3><i class="fa fa-line-chart"></i> {{ gettext('Now trending') }}</h3>
-            <ul class="list-group clear-list m-t">
-                <li class="list-group-item fist-item">
-                    <span class="label label-success">1</span> Please contact me
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-success">2</span> Sign a contract
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-success">3</span> Open new shop
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-success">4</span> Call back to Sylvia
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-success">5</span> Write a letter to Sandra
-                </li>
-            </ul>
-        </div>
-    </div>
     {% if not mobile %}
     <div class="social-sends">
         {% include 'popong-like.html' %}

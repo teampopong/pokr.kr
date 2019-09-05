@@ -4,9 +4,9 @@
   "dependencies": {
     "bootstrap": "x",
     "bootstrap-3-typeahead": "x",
+    "d3": "^5.9.2",
     "datatables": "x",
     "datatables-bootstrap3-plugin": "x",
-    "d3": "x",
     "font-awesome": "x",
     "jquery": "x",
     "radar-chart-d3": "x"

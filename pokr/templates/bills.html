@@ -25,6 +25,11 @@ svg {
         pointer-events: none;
     }
 }
+
+td:nth-child(2),
+th:nth-child(2) {
+    max-width: 500px !important;
+}
 </style>
 <script type="text/javascript" src="{{ url_for('static', filename='js/d3.min.js') }}"></script>
 {% assets filters='uglifyjs', output='build/datatables.%(version)s.js',
@@ -39,6 +44,7 @@ $(document).ready(function() {
         'serverSide': true,
         'ajax': '{{ url_for("bills_list", assembly_id=assembly_id) }}',
         'order': [],  // disable initial sorting
+        'filter': false,  // disable searchbox
         'asStripeClasses': '',
         'columns': [
             { 'data': 'proposed_date' },
