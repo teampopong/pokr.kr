@@ -1,0 +1,58 @@
+version: '3'
+services:
+  db:
+    image: postgres:11.3
+    restart: always
+    container_name: pokr-db
+    ports:
+      - 5432:5432
+    environment:
+      - PGDATA=/data/pgdata
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+
+  app:
+    container_name: pokr-app
+    build: .
+    volumes:
+      - /data:/data
+      - /tmp:/tmp
+      - /share:/share
+      - django-static:/django-static
+    environment:
+      - DJANGO_STATIC_ROOT=/django-static
+    depends_on:
+      - db
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+        max-file: "10"
+
+  nginx:
+    image: nginx:stable
+    container_name: pokr-nginx
+    restart: always
+    volumes:
+      - django-static:/django-static
+      - ./conf/nginx.conf:/etc/nginx/conf.d/pokr.conf
+    ports:
+      - ${NGINX_SERVING_PORT}:80
+    command:
+      - /bin/bash
+      - -c
+      - |
+        rm -f /etc/nginx/conf.d/default.conf
+        nginx -g 'daemon off;'
+    depends_on:
+      - app
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+        max-file: "10"
+
+volumes:
+  django-static:

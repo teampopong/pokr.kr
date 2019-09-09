@@ -24,6 +24,4 @@ ADD .conf.samples/settings.py.sample /pokr.kr/settings.py
 #RUN cat /pokr.kr/.conf.samples/alembic.ini.sample | sed 's/ID_HERE/docker/g' | sed 's/PASSWD_HERE/docker/g' | sed 's/HOST_HERE/localhost/g' > ./pokr.kr/alembic.ini
 
 EXPOSE 8000
-
-#VOLUME ["/data", "/tmp", "/share"]
-CMD ["/bin/bash"]
+ENTRYPOINT ./entrypoint.sh
