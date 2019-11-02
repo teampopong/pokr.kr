@@ -1,6 +1,6 @@
 # Setuptools MUST come first
 setuptools==9.1
-nltk==3.0.1
+nltk==3.4.5
 Babel==0.9.6
 Flask-Assets==0.12
 Flask-Babel==0.8
